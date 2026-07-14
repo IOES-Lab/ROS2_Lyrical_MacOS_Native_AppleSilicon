@@ -1,0 +1,543 @@
+diff --git a/gazebo/dave_gz_model_plugins/CMakeLists.txt b/gazebo/dave_gz_model_plugins/CMakeLists.txt
+index 91d2766..5119c79 100644
+--- a/gazebo/dave_gz_model_plugins/CMakeLists.txt
++++ b/gazebo/dave_gz_model_plugins/CMakeLists.txt
+@@ -3,24 +3,25 @@ project(dave_gz_model_plugins)
+
+ # Find required packages
+ find_package(ament_cmake REQUIRED)
+-find_package(Boost REQUIRED COMPONENTS system)
+-find_package(gz-cmake3 REQUIRED)
+-find_package(gz-plugin2 REQUIRED COMPONENTS register)
++find_package(tinyxml2 CONFIG REQUIRED)
++find_package(Boost REQUIRED)
++find_package(gz-cmake 5 REQUIRED)
++find_package(gz-plugin 4 REQUIRED COMPONENTS register)
+ find_package(rclcpp REQUIRED)
+ find_package(std_msgs REQUIRED)
+-find_package(gz-common5 REQUIRED COMPONENTS profiler)
+-find_package(gz-sim8 REQUIRED)
++find_package(gz-common 7 REQUIRED COMPONENTS profiler)
++find_package(gz-sim 10 REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+ find_package(dave_interfaces REQUIRED)
+ find_package(Protobuf REQUIRED)
+-find_package(gz-msgs10 REQUIRED)
++find_package(gz-msgs 12 REQUIRED)
+ find_package(dave_gz_world_plugins REQUIRED)
+
+ # Set version variables
+-set(GZ_PLUGIN_VER ${gz-plugin2_VERSION_MAJOR})
+-set(GZ_COMMON_VER ${gz-common5_VERSION_MAJOR})
+-set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
+-set(GZ_MSGS_VER ${gz-msgs10_VERSION_MAJOR})
++set(GZ_PLUGIN_VER "")
++set(GZ_COMMON_VER "")
++set(GZ_SIM_VER "")
++set(GZ_MSGS_VER "")
+
+ message(STATUS "Compiling against Gazebo Harmonic")
+
+@@ -33,12 +34,14 @@ target_link_libraries(OceanCurrentModelPlugin
+ )
+
+ # Specify dependencies for ocean_current_plugin using ament_target_dependencies
+-ament_target_dependencies(OceanCurrentModelPlugin
+-  rclcpp
+-  std_msgs
+-  geometry_msgs
+-  dave_interfaces
+-  dave_gz_world_plugins
++target_link_libraries(OceanCurrentModelPlugin
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
++  ${geometry_msgs_TARGETS}
++  ${dave_interfaces_TARGETS}
++  dave_gz_world_plugins::gauss_markov_process
++  dave_gz_world_plugins::tidal_oscillation
++  dave_gz_world_plugins::dave_gz_world_plugins-msgs
+ )
+
+ # Install targets
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+index 7525acb..9e4ec67 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+@@ -15,12 +15,13 @@ set(CMAKE_CUDA_ARCHITECTURES "${CUDA_ARCHITECTURE}")
+ project(multibeam_sonar)
+
+ find_package(ament_cmake REQUIRED)
+-find_package(gz-cmake3 REQUIRED)
+-find_package(gz-sim8 REQUIRED)
+-find_package(gz-sensors8 REQUIRED)
+-find_package(gz-rendering8 REQUIRED OPTIONAL_COMPONENTS ogre ogre2)
+-find_package(gz-transport13 REQUIRED)
+-find_package(gz-msgs10 REQUIRED)
++find_package(tinyxml2 CONFIG REQUIRED)
++find_package(gz-cmake 5 REQUIRED)
++find_package(gz-sim 10 REQUIRED)
++find_package(gz-sensors 10 REQUIRED)
++find_package(gz-rendering 10 REQUIRED OPTIONAL_COMPONENTS ogre ogre2)
++find_package(gz-transport 15 REQUIRED)
++find_package(gz-msgs 12 REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(sensor_msgs REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+@@ -68,11 +69,11 @@ if(CUDAToolkit_FOUND)
+ endif()
+
+ target_include_directories(${PROJECT_NAME} PUBLIC
+-  ${gz-sensors8_INCLUDE_DIRS}
+-  ${gz-rendering8_INCLUDE_DIRS}
+-  ${gz-msgs10_INCLUDE_DIRS}
+-  ${gz-transport13_INCLUDE_DIRS}
+-  ${gz-sim8_INCLUDE_DIRS}
++  ${gz-sensors_INCLUDE_DIRS}
++  ${gz-rendering_INCLUDE_DIRS}
++  ${gz-msgs_INCLUDE_DIRS}
++  ${gz-transport_INCLUDE_DIRS}
++  ${gz-sim_INCLUDE_DIRS}
+   ${rclcpp_INCLUDE_DIRS}
+   ${sensor_msgs_INCLUDE_DIRS}
+   ${geometry_msgs_INCLUDE_DIRS}
+@@ -83,11 +84,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC
+ )
+
+ target_link_libraries(${PROJECT_NAME}
+-  gz-sim8::gz-sim8
+-  gz-sensors8::gz-sensors8
+-  gz-msgs10::gz-msgs10
+-  gz-transport13::gz-transport13
+-  gz-rendering8::gz-rendering8
++  gz-sim::gz-sim
++  gz-sensors::gz-sensors
++  gz-msgs::gz-msgs
++  gz-transport::gz-transport
++  gz-rendering::gz-rendering
+   ${rclcpp_LIBRARIES}
+   ${sensor_msgs_LIBRARIES}
+   ${geometry_msgs_LIBRARIES}
+@@ -146,10 +147,10 @@ if(DEFINED wgpu_vendor_DIR)
+   endif()
+ endif()
+
+-if(TARGET gz-sensors::gz-sensors8-rendering)
+-  target_link_libraries(${PROJECT_NAME} gz-sensors::gz-sensors8-rendering)
++if(TARGET gz-sensors::gz-sensors-rendering)
++  target_link_libraries(${PROJECT_NAME} gz-sensors::gz-sensors-rendering)
+ else()
+-  find_library(GZ_SENSORS_RENDERING_LIB gz-sensors8-rendering)
++  find_library(GZ_SENSORS_RENDERING_LIB gz-sensors-rendering)
+   if(GZ_SENSORS_RENDERING_LIB)
+     target_link_libraries(${PROJECT_NAME} ${GZ_SENSORS_RENDERING_LIB})
+   endif()
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+index f325018..c1a974d 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+@@ -2,18 +2,19 @@ cmake_minimum_required(VERSION 3.11.0 FATAL_ERROR)
+ project(multibeam_sonar_system)
+
+ find_package(ament_cmake REQUIRED)
+-find_package(gz-cmake3 REQUIRED)
+-find_package(gz-common5 REQUIRED COMPONENTS profiler)
+-find_package(gz-plugin2 REQUIRED COMPONENTS register)
+-find_package(gz-rendering8 REQUIRED OPTIONAL_COMPONENTS ogre ogre2)
+-find_package(gz-sim8 REQUIRED)
+-find_package(gz-sensors8 REQUIRED)
+-
+-if(TARGET gz-rendering8::ogre)
++find_package(tinyxml2 CONFIG REQUIRED)
++find_package(gz-cmake 5 REQUIRED)
++find_package(gz-common 7 REQUIRED COMPONENTS profiler)
++find_package(gz-plugin 4 REQUIRED COMPONENTS register)
++find_package(gz-rendering 10 REQUIRED OPTIONAL_COMPONENTS ogre ogre2)
++find_package(gz-sim 10 REQUIRED)
++find_package(gz-sensors 10 REQUIRED)
++
++if(TARGET gz-rendering::ogre)
+   add_definitions(-DWITH_OGRE)
+ endif()
+
+-if(TARGET gz-rendering8::ogre2)
++if(TARGET gz-rendering::ogre2)
+   add_definitions(-DWITH_OGRE2)
+ endif()
+
+@@ -21,10 +22,10 @@ add_subdirectory(../multibeam_sonar ${CMAKE_BINARY_DIR}/multibeam_sonar)
+
+ add_library(${PROJECT_NAME} SHARED MultibeamSonarSystem.cc)
+ target_link_libraries(${PROJECT_NAME}
+-gz-common5::gz-common5
+-gz-plugin2::gz-plugin2
+-gz-sim8::gz-sim8
+-gz-sensors8::gz-sensors8
++gz-common::gz-common
++gz-plugin::gz-plugin
++gz-sim::gz-sim
++gz-sensors::gz-sensors
+   multibeam_sonar
+ )
+ target_include_directories(${PROJECT_NAME}
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+index 352de2b..15035b5 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+@@ -8,6 +8,13 @@
+   <maintainer email="gaurav.og.9920@gmail.com">Gaurav kumar</maintainer>
+   <license>Apache 2.0</license>
+   <depend>geometry_msgs</depend>
++  <depend>wgpu_vendor</depend>
++  <depend>rclcpp</depend>
++  <depend>sensor_msgs</depend>
++  <depend>marine_acoustic_msgs</depend>
++  <depend>cv_bridge</depend>
++  <depend>image_transport</depend>
++  <depend>pcl_conversions</depend>
+   <depend>ament_cmake</depend>
+   <test_depend>ament_lint_auto</test_depend>
+   <export>
+diff --git a/gazebo/dave_gz_sensor_plugins/CMakeLists.txt b/gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+index 675fdcd..78a2d84 100644
+--- a/gazebo/dave_gz_sensor_plugins/CMakeLists.txt
++++ b/gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+@@ -3,24 +3,25 @@ project(dave_gz_sensor_plugins)
+
+ # Find required packages
+ find_package(ament_cmake REQUIRED)
+-find_package(gz-cmake3 REQUIRED)
+-find_package(gz-plugin2 REQUIRED COMPONENTS register)
++find_package(tinyxml2 CONFIG REQUIRED)
++find_package(gz-cmake 5 REQUIRED)
++find_package(gz-plugin 4 REQUIRED COMPONENTS register)
+ find_package(rclcpp REQUIRED)
+ find_package(std_msgs REQUIRED)
+-find_package(gz-common5 REQUIRED COMPONENTS profiler)
+-find_package(gz-sim8 REQUIRED)
++find_package(gz-common 7 REQUIRED COMPONENTS profiler)
++find_package(gz-sim 10 REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+ find_package(dave_interfaces REQUIRED)
+ find_package(sensor_msgs REQUIRED)
+ find_package(Protobuf REQUIRED)
+-find_package(gz-msgs10 REQUIRED)
++find_package(gz-msgs 12 REQUIRED)
+ find_package(OpenCV REQUIRED)
+
+ # Set version variables
+-set(GZ_PLUGIN_VER ${gz-plugin2_VERSION_MAJOR})
+-set(GZ_COMMON_VER ${gz-common5_VERSION_MAJOR})
+-set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
+-set(GZ_MSGS_VER ${gz-msgs10_VERSION_MAJOR})
++set(GZ_PLUGIN_VER "")
++set(GZ_COMMON_VER "")
++set(GZ_SIM_VER "")
++set(GZ_MSGS_VER "")
+
+ include_directories(${OpenCV_INCLUDE_DIRS})
+
+@@ -54,30 +55,30 @@ target_link_libraries(UnderwaterCamera
+ )
+
+ # Specify dependencies for FullSystem using ament_target_dependencies
+-ament_target_dependencies(UsblTransceiver
+-  dave_interfaces
+-  sensor_msgs
+-  rclcpp
+-  geometry_msgs
+-  std_msgs
++target_link_libraries(UsblTransceiver
++  ${dave_interfaces_TARGETS}
++  ${sensor_msgs_TARGETS}
++  rclcpp::rclcpp
++  ${geometry_msgs_TARGETS}
++  ${std_msgs_TARGETS}
+ )
+
+-ament_target_dependencies(UsblTransponder
+-  dave_interfaces
+-  rclcpp
+-  std_msgs
++target_link_libraries(UsblTransponder
++  ${dave_interfaces_TARGETS}
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
+ )
+
+-ament_target_dependencies(sea_pressure_sensor
+-  rclcpp
+-  std_msgs
+-  sensor_msgs
+-  geometry_msgs
++target_link_libraries(sea_pressure_sensor
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
++  ${sensor_msgs_TARGETS}
++  ${geometry_msgs_TARGETS}
+ )
+
+-ament_target_dependencies(UnderwaterCamera
+-  rclcpp
+-  sensor_msgs
++target_link_libraries(UnderwaterCamera
++  rclcpp::rclcpp
++  ${sensor_msgs_TARGETS}
+ )
+
+ # Install targets
+diff --git a/gazebo/dave_gz_world_plugins/CMakeLists.txt b/gazebo/dave_gz_world_plugins/CMakeLists.txt
+index 1d43d4d..358537e 100644
+--- a/gazebo/dave_gz_world_plugins/CMakeLists.txt
++++ b/gazebo/dave_gz_world_plugins/CMakeLists.txt
+@@ -10,29 +10,30 @@ add_compile_options(-Wno-psabi)
+ add_definitions(-DBOOST_BIND_GLOBAL_PLACEHOLDERS)
+
+ find_package(ament_cmake REQUIRED)
+-find_package(Boost REQUIRED COMPONENTS system)
+-find_package(gz-cmake3 REQUIRED)
+-find_package(gz-plugin2 REQUIRED COMPONENTS register)
++find_package(tinyxml2 CONFIG REQUIRED)
++find_package(Boost REQUIRED)
++find_package(gz-cmake 5 REQUIRED)
++find_package(gz-plugin 4 REQUIRED COMPONENTS register)
+ find_package(rclcpp REQUIRED)
+ find_package(std_msgs REQUIRED)
+-find_package(gz-common5 REQUIRED COMPONENTS profiler)
+-find_package(gz-sim8 REQUIRED)
++find_package(gz-common 7 REQUIRED COMPONENTS profiler)
++find_package(gz-sim 10 REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+ find_package(dave_interfaces REQUIRED)
+ find_package(sensor_msgs REQUIRED)
+ find_package(Protobuf REQUIRED)
+-find_package(gz-msgs10 REQUIRED)
++find_package(gz-msgs 12 REQUIRED)
+ find_package(ament_index_cpp REQUIRED)
+
+ # Set version variables with gazebo Harmonic
+-set(GZ_PLUGIN_VER ${gz-plugin2_VERSION_MAJOR})
+-set(GZ_COMMON_VER ${gz-common5_VERSION_MAJOR})
+-set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
+-set(GZ_MSGS_VER ${gz-msgs10_VERSION_MAJOR})
++set(GZ_PLUGIN_VER "")
++set(GZ_COMMON_VER "")
++set(GZ_SIM_VER "")
++set(GZ_MSGS_VER "")
+ message(STATUS "compiling against Gazebo Harmonic")
+
+ # Define a variable 'GZ_MSGS_VER' holding the version number
+-set(GZ_MSGS_VER ${gz-msgs10_VERSION_MAJOR})
++set(GZ_MSGS_VER "")
+
+ # Define a variable 'MSGS_PROTOS' listing the .proto files
+ # cmake-lint: disable=C0301
+@@ -94,27 +95,27 @@ target_link_libraries(tidal_oscillation
+   gz-sim${GZ_SIM_VER}::gz-sim${GZ_SIM_VER}
+ )
+
+-ament_target_dependencies(OceanCurrentWorldPlugin
+-  rclcpp
+-  std_msgs
+-  geometry_msgs
+-  dave_interfaces
+-  ament_index_cpp
+-  gz-msgs${GZ_MSGS_VER}
++target_link_libraries(OceanCurrentWorldPlugin
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
++  ${geometry_msgs_TARGETS}
++  ${dave_interfaces_TARGETS}
++  ament_index_cpp::ament_index_cpp
++  gz-msgs::gz-msgs
+ )
+
+-ament_target_dependencies(gauss_markov_process
+-  rclcpp
+-  std_msgs
+-  geometry_msgs
+-  dave_interfaces
++target_link_libraries(gauss_markov_process
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
++  ${geometry_msgs_TARGETS}
++  ${dave_interfaces_TARGETS}
+ )
+
+-ament_target_dependencies(tidal_oscillation
+-  rclcpp
+-  std_msgs
+-  geometry_msgs
+-  dave_interfaces
++target_link_libraries(tidal_oscillation
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
++  ${geometry_msgs_TARGETS}
++  ${dave_interfaces_TARGETS}
+ )
+
+ # Install targets
+@@ -139,11 +140,11 @@ install(DIRECTORY include/
+ ament_export_include_directories("include/${PROJECT_NAME}")
+ ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ ament_export_dependencies(
+-  gz-cmake3
+-  gz-plugin2
+-  gz-msgs10
+-  gz-common5
+-  gz-sim8
++  gz-cmake
++  gz-plugin
++  gz-msgs
++  gz-common
++  gz-sim
+   geometry_msgs
+   sensor_msgs
+   std_msgs
+diff --git a/gazebo/dave_ros_gz_plugins/CMakeLists.txt b/gazebo/dave_ros_gz_plugins/CMakeLists.txt
+index a3469b3..3a04c53 100644
+--- a/gazebo/dave_ros_gz_plugins/CMakeLists.txt
++++ b/gazebo/dave_ros_gz_plugins/CMakeLists.txt
+@@ -3,21 +3,22 @@ project(dave_ros_gz_plugins)
+
+ # Find required packages
+ find_package(ament_cmake REQUIRED)
+-find_package(gz-cmake3 REQUIRED)
+-find_package(gz-plugin2 REQUIRED COMPONENTS register)
++find_package(tinyxml2 CONFIG REQUIRED)
++find_package(gz-cmake 5 REQUIRED)
++find_package(gz-plugin 4 REQUIRED COMPONENTS register)
+ find_package(rclcpp REQUIRED)
+ find_package(std_msgs REQUIRED)
+-find_package(gz-common5 REQUIRED COMPONENTS profiler)
+-find_package(gz-sim8 REQUIRED)
++find_package(gz-common 7 REQUIRED COMPONENTS profiler)
++find_package(gz-sim 10 REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+ find_package(dave_interfaces REQUIRED)
+ find_package(dave_gz_world_plugins REQUIRED)
+-find_package(Boost REQUIRED COMPONENTS system)
++find_package(Boost REQUIRED)
+
+ # Set version variables
+-set(GZ_PLUGIN_VER ${gz-plugin2_VERSION_MAJOR})
+-set(GZ_COMMON_VER ${gz-common5_VERSION_MAJOR})
+-set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
++set(GZ_PLUGIN_VER "")
++set(GZ_COMMON_VER "")
++set(GZ_SIM_VER "")
+
+ message(STATUS "Compiling against Gazebo Harmonic")
+
+@@ -50,24 +51,27 @@ target_link_libraries(OceanCurrentPlugin
+ )
+
+ # Specify dependencies using ament_target_dependencies
+-ament_target_dependencies(SphericalCoords
+-  dave_interfaces
+-  rclcpp
+-  geometry_msgs
+-  std_msgs
++target_link_libraries(SphericalCoords
++  ${dave_interfaces_TARGETS}
++  rclcpp::rclcpp
++  ${geometry_msgs_TARGETS}
++  ${std_msgs_TARGETS}
+ )
+-ament_target_dependencies(DVLBridge
+-  dave_interfaces
+-  rclcpp
+-  geometry_msgs
+-  std_msgs
++target_link_libraries(DVLBridge
++  ${dave_interfaces_TARGETS}
++  rclcpp::rclcpp
++  ${geometry_msgs_TARGETS}
++  ${std_msgs_TARGETS}
+ )
+-ament_target_dependencies(OceanCurrentPlugin
+-  rclcpp
+-  std_msgs
+-  geometry_msgs
+-  dave_interfaces
+-  dave_gz_world_plugins
++target_link_libraries(OceanCurrentPlugin
++  rclcpp::rclcpp
++  ${std_msgs_TARGETS}
++  ${geometry_msgs_TARGETS}
++  ${dave_interfaces_TARGETS}
++  dave_gz_world_plugins::OceanCurrentWorldPlugin
++  dave_gz_world_plugins::gauss_markov_process
++  dave_gz_world_plugins::tidal_oscillation
++  dave_gz_world_plugins::dave_gz_world_plugins-msgs
+ )
+
+ # Install targets
+@@ -93,10 +97,10 @@ install(
+ ament_export_include_directories("include/${PROJECT_NAME}")
+ ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ ament_export_dependencies(
+-  gz-cmake3
+-  gz-plugin2
+-  gz-common5
+-  gz-sim8
++  gz-cmake
++  gz-plugin
++  gz-common
++  gz-sim
+   geometry_msgs
+   std_msgs
+   dave_interfaces
+diff --git a/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc b/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+index 2145a8d..72aceed 100644
+--- a/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
++++ b/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+@@ -114,13 +114,20 @@ bool SphericalCoords::TransformFromSphericalCoord(
+   const std::shared_ptr<dave_interfaces::srv::TransformFromSphericalCoord::Request> request,
+   std::shared_ptr<dave_interfaces::srv::TransformFromSphericalCoord::Response> response)
+ {
+-  gz::math::Vector3d scVec =
+-    gz::math::Vector3d(request->latitude_deg, request->longitude_deg, request->altitude);
++  gz::math::Angle lat, lon;
++  lat.SetDegree(request->latitude_deg);
++  lon.SetDegree(request->longitude_deg);
++  auto scVec = gz::math::CoordinateVector3::Spherical(lat, lon, request->altitude);
+
+-  gzmsg << "Called FROM and latitude: " << scVec.X() << std::endl;
++  gzmsg << "Called FROM and latitude: " << request->latitude_deg << std::endl;
+
+   auto coords = this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm);
+-  gz::math::Vector3d cartVec = coords->LocalFromSphericalPosition(scVec);
++  gz::math::Vector3d cartVec = gz::math::Vector3d::Zero;
++  auto cartOpt = coords->LocalFromSphericalPosition(scVec);
++  if (cartOpt && cartOpt->AsMetricVector())
++  {
++    cartVec = *cartOpt->AsMetricVector();
++  }
+
+   response->output.x = cartVec.X();
+   response->output.y = cartVec.Y();
+@@ -133,17 +140,17 @@ bool SphericalCoords::TransformToSphericalCoord(
+   const std::shared_ptr<dave_interfaces::srv::TransformToSphericalCoord::Request> request,
+   std::shared_ptr<dave_interfaces::srv::TransformToSphericalCoord::Response> response)
+ {
+-  gz::math::Vector3d cartVec =
+-    gz::math::Vector3d(request->input.x, request->input.y, request->input.z);
++  auto cartVec =
++    gz::math::CoordinateVector3::Metric(request->input.x, request->input.y, request->input.z);
+
+-  gzmsg << "Called TO and X: " << cartVec.X() << std::endl;
++  gzmsg << "Called TO and X: " << request->input.x << std::endl;
+
+   auto coords = this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm);
+-  gz::math::Vector3d scVec = coords->SphericalFromLocalPosition(cartVec);
++  auto scOpt = coords->SphericalFromLocalPosition(cartVec);
+
+-  response->latitude_deg = scVec.X();
+-  response->longitude_deg = scVec.Y();
+-  response->altitude = scVec.Z();
++  response->latitude_deg = (scOpt && scOpt->Lat()) ? scOpt->Lat()->Degree() : 0.0;
++  response->longitude_deg = (scOpt && scOpt->Lon()) ? scOpt->Lon()->Degree() : 0.0;
++  response->altitude = (scOpt && scOpt->Z()) ? *scOpt->Z() : 0.0;
+
+   return true;
+ }
