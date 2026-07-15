@@ -94,7 +94,9 @@ EXPOSE 3389/tcp
 EXPOSE 22/tcp
 
 # --- ROS 2 Lyrical + Gazebo Jetty ---
-ARG BRANCH="wgpu_integration"
+# Pinned to the exact commit verified in README.md's "Pinned commits" table (not the
+# "wgpu_integration" branch tip) so this image is reproducible against the tested code.
+ARG DAVE_COMMIT="6aef91c823af5da073329b84ba617b572965e79e"
 ARG ROS_DISTRO="lyrical"
 
 RUN apt update && apt full-upgrade -y && apt autoremove -y
@@ -113,11 +115,16 @@ RUN export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-inf
 ENV DAVE_UNDERLAY=/home/$USER/dave_ws
 WORKDIR $DAVE_UNDERLAY/src
 RUN git clone https://github.com/naitikpahwa18/dave.git dave && \
-    cd dave && git checkout $BRANCH
+    cd dave && git checkout --detach "$DAVE_COMMIT"
 
 COPY patches/dave_lyrical_jetty_migration_mac.diff /tmp/dave_lyrical_jetty_migration_mac.diff
 RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
 
+# `|| true` on the install step tolerates individual rosdep key-resolution failures on this
+# base image so the build doesn't abort on a non-fatal gap; it also masks real resolver
+# failures. If a downstream colcon build fails, re-run rosdep without `|| true` first to
+# rule out a missed dependency before assuming the code itself is broken.
+# Not changed here without a clean-rebuild test — tracked in README.md Next steps.
 RUN rosdep init || true && rosdep update --rosdistro $ROS_DISTRO && \
     rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . || true
 
@@ -135,9 +142,12 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     colcon build --merge-install --executor sequential --packages-select multibeam_sonar multibeam_sonar_system
 
 # --- ArduSub SITL (BlueROV2) — Python 3.14 compatibility shims required, see notes/ardusub-sitl-setup.md ---
+# Pinned to the exact commit verified in README.md's "Pinned commits" table (not the
+# "ArduSub-stable" branch/ref tip, which can move) so this image is reproducible against the tested code.
+ARG ARDUSUB_COMMIT="30257f01185471ab4c1ac544e47d1b4437e44c98"
 WORKDIR /home/$USER
 RUN git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git && \
-    cd ardupilot && git fetch --tags && git checkout ArduSub-stable -b ardusub-stable && \
+    cd ardupilot && git fetch --tags && git checkout --detach "$ARDUSUB_COMMIT" && \
     git submodule update --init --recursive
 
 RUN mkdir -p /home/$USER/imp_shim && \
@@ -178,8 +188,8 @@ RUN mkdir -p ~/QGC && wget -O ~/QGC/QGroundControl-aarch64-DailyBuild.AppImage \
     ln -sf /home/$USER/QGC/AppRun /home/$USER/.local/bin/qgroundcontrol
 
 USER root
-RUN echo "source $DAVE_UNDERLAY/install/setup.bash" >> /home/$USER/.bashrc && \
-    echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/$USER/.bashrc && \
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/$USER/.bashrc && \
+    echo "source $DAVE_UNDERLAY/install/setup.bash" >> /home/$USER/.bashrc && \
     echo "export PATH=/usr/local/bin:\$PATH" >> /home/$USER/.bashrc && \
     echo "export GEOGRAPHICLIB_GEOID_PATH=/usr/share/GeographicLib/geoids" >> /home/$USER/.bashrc && \
     echo "export PS1='\[\e[1;36m\]\u@lyrical_docker\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '" >> /home/$USER/.bashrc

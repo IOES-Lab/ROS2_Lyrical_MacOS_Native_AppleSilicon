@@ -4,7 +4,7 @@
 Status: Experimental / validation environment
 Validated: Build, headless launch, XFCE/xrdp login, representative smoke tests
 Not yet validated: all 18 worlds, quantitative performance
-Known limitation: Ubuntu 26.04 GNOME 50 no longer provides an X11 session for xorgxrdp; XFCE is used
+Known limitation: in the tested Ubuntu 26.04 image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop
 ```
 
 ## Purpose
@@ -47,10 +47,10 @@ Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This i
 | 2026-07-13 | REXROV vehicle launch verified | Done | Real odometry/imu/magnetometer/camera data via `ros_gz` bridge |
 | 2026-07-13 | Real GUI confirmed visually via RDP (Docker) | Done | See [Known Issues](#known-issues) for the OGRE2 caveat and the xrdp setup gotcha |
 | 2026-07-14 | Full world list catalogued (18 worlds) | Done | Only 6 previously known; 3 are manipulation scenarios, 2 require a separate `sonar-demo` branch |
-| 2026-07-14 | DVL / underwater camera / USBL / ocean current / sea pressure sensors verified | Done | All 5 launch and publish correctly |
+| 2026-07-14 | DVL / underwater camera / ocean current / sea pressure sensors verified; USBL attempted | PASS 4 / PARTIAL 1 | DVL/camera/current/pressure launch and publish correctly; USBL server/plugin publishes but GUI client crashes — see [Verified demos](#verified-demos) |
 | 2026-07-14 | BlueROV2 + ArduSub SITL built and launched | Done | Required fixing 5 chained Python 3.14 incompatibilities in `waf` — see [Known Issues](#known-issues) |
 | 2026-07-14 | `git diff --stat` compared Mac vs Docker | Done | Identical: 8 files, +172/−147 |
-| 2026-07-15 | Root-caused Docker RDP desktop crash | Done | XFCE + xrdp works; GNOME 50 is Wayland-only on Ubuntu 26.04 and has no X11 session for xorgxrdp — not a bug, an OS/RDP-stack incompatibility. `docker/` Dockerfile updated to install XFCE explicitly |
+| 2026-07-15 | Root-caused Docker RDP desktop crash | Done | XFCE + xrdp works; in the tested Ubuntu 26.04 image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session, so GNOME could not be used as the RDP desktop here. `docker/` Dockerfile updated to install XFCE explicitly |
 | 2026-07-15 | Clean (`--no-cache`) Docker build + RDP re-verified | Done | `lyrical-sim:jetty-rdp` built clean, RDP login reached a usable XFCE desktop, prompt `docker@lyrical_docker:~$` confirmed |
 
 ## Reproduction
@@ -60,8 +60,8 @@ Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This i
 ```bash
 git clone https://github.com/naitikpahwa18/dave.git
 cd dave
-git checkout wgpu_integration
-git apply patches/dave_lyrical_jetty_migration_mac.diff
+git checkout 6aef91c823af5da073329b84ba617b572965e79e   # pinned commit, not the branch tip — see Pinned commits above
+git apply ../patches/dave_lyrical_jetty_migration_mac.diff
 
 colcon build --symlink-install --packages-select \
   dave_interfaces dave_object_models dave_sensor_models dave_robot_models \
@@ -83,8 +83,8 @@ apt install -y ros-lyrical-desktop ros-lyrical-ros-gz
 
 git clone https://github.com/naitikpahwa18/dave.git
 cd dave
-git checkout wgpu_integration
-git apply patches/dave_lyrical_jetty_migration_mac.diff   # identical diff applies cleanly on Linux too
+git checkout 6aef91c823af5da073329b84ba617b572965e79e   # pinned commit, not the branch tip — see Pinned commits above
+git apply ../patches/dave_lyrical_jetty_migration_mac.diff   # identical diff applies cleanly on Linux too
 
 colcon build --merge-install --executor sequential --packages-select \
   dave_interfaces dave_object_models dave_sensor_models dave_robot_models \
@@ -114,7 +114,7 @@ ros2 launch dave_demos dave_sensor.launch.py \
 | `dave_ocean_waves_sonar`, `dave_ocean_waves_sonar_integrated` (sonar-demo branch) | NOT TESTED | needs `IOES-Lab/dave` `sonar-demo` branch, not on `naitikpahwa18/dave` |
 | `dave_bimanual_example`, `dave_electrical_mating`, `dave_plug_and_socket` (manipulation) | NOT TESTED | out of scope this round |
 
-18 world files exist under `models/dave_worlds/worlds/`; 6 of them smoke-tested above (see rows above for the remaining 12).
+18 world files exist under `models/dave_worlds/worlds/`; the rows in the table above show exactly which demos were run — per-world file names for full 18-world coverage have not been enumerated yet (tracked in [Next steps](#next-steps)).
 
 ## Known issues
 
@@ -123,10 +123,10 @@ ros2 launch dave_demos dave_sensor.launch.py \
 - **`multibeam_sonar_system` missing `package.xml` dependencies** — `CMakeLists.txt` pulls in a neighboring package via `add_subdirectory` without declaring it, causing a parallel-build race condition. Fixed with 7 added `<depend>` tags — see the patch. Worth an upstream PR regardless of ROS distro.
 - **ArduSub SITL build vs. Python 3.14** — `waf` and its `clang_compilation_database` extra import Python stdlib modules removed in modern Python: `imp` (removed 3.12) and `pipes` (removed 3.13). See [`notes/ardusub-sitl-setup.md`](notes/ardusub-sitl-setup.md) for the full fix (shims + non-root user + `PIP_BREAK_SYSTEM_PACKAGES=1`).
 - **`xrdp` group permission (RDP screen setup)** — the `xrdp` daemon can't reach session sockets owned `<user>:root`; fix with `usermod -aG root xrdp` + full service restart.
-- **GNOME is not usable as the RDP desktop on this OS** — Ubuntu 26.04 ships GNOME 50, which is Wayland-only (no GNOME X11 session). `xorgxrdp` is X11-only, so it cannot start a GNOME session here. This is an OS/RDP-stack incompatibility, not a container misconfiguration. XFCE still ships a full X11 session and works correctly with `xorgxrdp` — see [`docker/`](docker/).
+- **GNOME was not usable as the RDP desktop in the tested image** — the installed Ubuntu 26.04 GNOME 50 session required Wayland, while `xorgxrdp` produces an X11 session. XFCE still ships a full X11 session and worked correctly with `xorgxrdp` — see [`docker/`](docker/). This describes the tested image only, not every possible Ubuntu 26.04 GNOME/RDP configuration.
 - **Docker image password** — the `docker` user ships with password `docker` (see `docker/lyrical.arm64v8.dockerfile`) for local validation convenience only; change it before exposing the container beyond localhost.
 - **`--privileged` on `docker run`** — currently used for simplicity; the minimal capability set xrdp/Xorg actually need has not been determined yet (follow-up item).
-- **DAVE Wiki inaccuracies found while cross-checking** — see [`notes/dave-wiki-inaccuracies.md`](notes/dave-wiki-inaccuracies.md) (raw findings) and [`notes/wiki-error-reports.md`](notes/wiki-error-reports.md) (structured report draft). No page anywhere in the Wiki mentions Lyrical or Jetty, including pages edited as recently as this week. A possible duplicate Wiki database (two separate URLs, same page titles, dated 2026-06-26 and 2026-07-13) was flagged by an independent review — **not yet confirmed by us**; verify both URLs actually differ before reporting this to maintainers.
+- **DAVE Wiki inaccuracies found while cross-checking** — see [`notes/dave-wiki-inaccuracies.md`](notes/dave-wiki-inaccuracies.md) (raw findings) and [`notes/wiki-error-reports.md`](notes/wiki-error-reports.md) (structured report draft). No page anywhere in the Wiki mentions Lyrical or Jetty, including pages edited as recently as this week.
 
 ## Patch
 
@@ -143,6 +143,7 @@ A reproducible Docker image (build instructions, verification commands, RDP desk
 - [ ] Report the DAVE Wiki inaccuracies to the Wiki maintainers (draft ready, see [`notes/wiki-error-reports.md`](notes/wiki-error-reports.md))
 - [ ] Consider upstreaming the `package.xml` fix and reporting the OGRE2 gap
 - [ ] Verify Ocean Current service names against the running container (`ros2 service list | grep current`) — the Wiki, our own notes, and a third-party review of the Wiki each name these services differently; none should be trusted without a live check
+- [ ] Verify whether `rosdep install ... || true` in `docker/lyrical.arm64v8.dockerfile` is masking any real dependency-resolution failure — needs a clean rebuild with the `|| true` removed to check
 
 ### August
 

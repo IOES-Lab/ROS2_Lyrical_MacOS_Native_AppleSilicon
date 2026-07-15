@@ -4,13 +4,17 @@
 Status: VALIDATED (2026-07-15) — clean (--no-cache) build, RDP login, XFCE desktop confirmed
 Validated: Build, headless launch, XFCE/xrdp login, representative smoke tests
 Not yet validated: all 18 worlds, quantitative performance
-Known limitation: Ubuntu 26.04 GNOME 50 no longer provides an X11 session for xorgxrdp; XFCE is used
+Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop
 ```
 
-**Provenance (2026-07-15):** `lyrical.arm64v8.dockerfile` in this folder is byte-identical to
-the file actually built and tested on the Mac's local Docker working folder
-(`~/dave_lyrical_docker/lyrical.arm64v8.dockerfile`) — verified with `diff`. This replaces an
-earlier draft (with separate `entrypoint.sh`/`startwm.sh` files) that was never actually built.
+**Provenance (2026-07-15):** `lyrical.arm64v8.dockerfile` in this folder is derived from the
+file that was actually clean-built and RDP-verified on the Mac's local Docker working folder
+(`~/dave_lyrical_docker/lyrical.arm64v8.dockerfile`). After that verification, this copy was
+further edited (commit SHA pinning, `.bashrc` source-order fix) to address review feedback —
+those edits have **not** been clean-rebuilt or re-verified yet, so this file is **no longer
+byte-identical** to the Mac's working copy. Treat it as rebuild-pending until re-verified. This
+replaces an earlier draft (with separate `entrypoint.sh`/`startwm.sh` files) that was never
+actually built.
 
 ## Naming notice
 
@@ -67,14 +71,15 @@ docker run -d \
   --name lyrical-sim \
   --hostname lyrical-docker \
   --privileged \
-  -p 3393:3389 \
+  -p 127.0.0.1:3393:3389 \
   lyrical-sim:jetty-rdp
 ```
 
 (Port left-hand side is arbitrary — pick one that doesn't collide with any container already
-using 3389 locally.) Connect with any RDP client (Microsoft Remote Desktop, etc.) to
-`localhost:3393`, user `docker`, password `docker` — **local development default only**;
-change it (and don't expose the port beyond localhost) before running this anywhere
+using 3389 locally.) `127.0.0.1:` binds the published port to localhost only, matching the
+warning below — omitting it would expose RDP on every network interface. Connect with any RDP
+client (Microsoft Remote Desktop, etc.) to `localhost:3393`, user `docker`, password `docker` —
+**local development default only**; change the password before running this anywhere
 network-reachable. A successful login reaches an XFCE desktop with shell prompt
 `docker@lyrical_docker:~$`.
 
