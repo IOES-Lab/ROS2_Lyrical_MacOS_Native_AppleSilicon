@@ -1,10 +1,25 @@
 # ROS 2 Lyrical / Gazebo Jetty — DAVE Migration Verification
 
+```text
+Status: Experimental / validation environment
+Validated: Build, headless launch, XFCE/xrdp login, representative smoke tests
+Not yet validated: all 18 worlds, quantitative performance
+Known limitation: Ubuntu 26.04 GNOME 50 no longer provides an X11 session for xorgxrdp; XFCE is used
+```
+
 ## Purpose
 
 This repository documents verifying whether [DAVE](https://github.com/IOES-Lab/dave) (underwater robotics simulation library, currently documented for ROS 2 Jazzy + Gazebo Harmonic) and its multibeam sonar plugin ([PR #44](https://github.com/naitikpahwa18/dave/tree/wgpu_integration), CUDA-free WGPU backend) can be updated and run on the next-generation **ROS 2 Lyrical + Gazebo Jetty** combination.
 
-Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This is smoke-test level verification — core packages, demos, and sensors run correctly — not an exhaustive validation of every DAVE feature. Exhaustive verification is planned for August.
+Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This is an **integration smoke test**, not exhaustive validation: DAVE's core packages and a representative set of vehicle, sensor, and multibeam-sonar paths were confirmed working end to end. Full coverage of every world/vehicle/sensor/launch combination is planned for August (see [Next steps](#next-steps)).
+
+**Pinned commits** (so results here are reproducible against the exact code tested):
+
+| Repo | Branch | Commit |
+|---|---|---|
+| `naitikpahwa18/dave` | `wgpu_integration` | `6aef91c823af5da073329b84ba617b572965e79e` |
+| `IOES-Lab/dave` | `sonar-demo` (untested paths only) | `8f6314f1133e19613f4d145b179f61d3b3daa741` |
+| `ArduPilot/ardupilot` | `ArduSub-stable` | `30257f01185471ab4c1ac544e47d1b4437e44c98` |
 
 ## Environment
 
@@ -35,6 +50,7 @@ Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This i
 | 2026-07-14 | DVL / underwater camera / USBL / ocean current / sea pressure sensors verified | Done | All 5 launch and publish correctly |
 | 2026-07-14 | BlueROV2 + ArduSub SITL built and launched | Done | Required fixing 5 chained Python 3.14 incompatibilities in `waf` — see [Known Issues](#known-issues) |
 | 2026-07-14 | `git diff --stat` compared Mac vs Docker | Done | Identical: 8 files, +172/−147 |
+| 2026-07-15 | Root-caused Docker RDP desktop crash | Done | XFCE + xrdp works; GNOME 50 is Wayland-only on Ubuntu 26.04 and has no X11 session for xorgxrdp — not a bug, an OS/RDP-stack incompatibility. `docker/` Dockerfile updated to install XFCE explicitly and use a custom `startwm.sh`; not yet re-verified with a clean (`--no-cache`) build |
 
 ## Reproduction
 
@@ -86,14 +102,18 @@ ros2 launch dave_demos dave_sensor.launch.py \
 
 ## Verified demos
 
-| Demo | Status |
-|---|---|
-| Multibeam sonar (PR #44, WGPU) | Real `PointCloud2` data, 513 beams × 301 rays |
-| REXROV vehicle | odometry/imu/camera bridged correctly |
-| BlueROV2 + ArduSub SITL | full launch, keyboard teleop node also confirmed |
-| DVL, underwater camera, USBL, ocean current, sea pressure | all launch and publish |
+| Demo | Result | Evidence |
+|---|---|---|
+| Multibeam sonar (PR #44, WGPU) | PASS | Real `PointCloud2`, 513 beams × 301 rays |
+| REXROV vehicle | PASS | odometry/imu/camera bridged via `ros_gz`, real topic data |
+| BlueROV2 + ArduSub SITL | PASS | full launch, keyboard teleop node also confirmed |
+| DVL, underwater camera, ocean current, sea pressure | PASS (4/4) | all launch and publish real topics |
+| USBL | PARTIAL | server-side plugin/SDF loads and publishes correctly; GUI client crashes (world-only test, no vehicle spawn, so limited practical impact) |
+| Docker RDP desktop (XFCE) | PASS (live container) / NOT RE-VERIFIED (clean image) | works on the manually-patched container; `docker/` Dockerfile now bakes this in but hasn't been re-tested from a clean build yet |
+| `dave_ocean_waves_sonar`, `dave_ocean_waves_sonar_integrated` (sonar-demo branch) | NOT TESTED | needs `IOES-Lab/dave` `sonar-demo` branch, not on `naitikpahwa18/dave` |
+| `dave_bimanual_example`, `dave_electrical_mating`, `dave_plug_and_socket` (manipulation) | NOT TESTED | out of scope this round |
 
-18 world files exist under `models/dave_worlds/worlds/`; 6 of them smoke-tested above. 3 are manipulation scenarios (`dave_bimanual_example`, `dave_electrical_mating`, `dave_plug_and_socket`, out of scope this round) and 2 (`dave_ocean_waves_sonar`, `dave_ocean_waves_sonar_integrated`) require a `sonar-demo` branch that exists on `IOES-Lab/dave` but not on `naitikpahwa18/dave` — untested.
+18 world files exist under `models/dave_worlds/worlds/`; 6 of them smoke-tested above (see rows above for the remaining 12).
 
 ## Known issues
 
@@ -102,20 +122,37 @@ ros2 launch dave_demos dave_sensor.launch.py \
 - **`multibeam_sonar_system` missing `package.xml` dependencies** — `CMakeLists.txt` pulls in a neighboring package via `add_subdirectory` without declaring it, causing a parallel-build race condition. Fixed with 7 added `<depend>` tags — see the patch. Worth an upstream PR regardless of ROS distro.
 - **ArduSub SITL build vs. Python 3.14** — `waf` and its `clang_compilation_database` extra import Python stdlib modules removed in modern Python: `imp` (removed 3.12) and `pipes` (removed 3.13). See [`notes/ardusub-sitl-setup.md`](notes/ardusub-sitl-setup.md) for the full fix (shims + non-root user + `PIP_BREAK_SYSTEM_PACKAGES=1`).
 - **`xrdp` group permission (RDP screen setup)** — the `xrdp` daemon can't reach session sockets owned `<user>:root`; fix with `usermod -aG root xrdp` + full service restart.
-- **DAVE Wiki inaccuracies found while cross-checking** — see [`notes/dave-wiki-inaccuracies.md`](notes/dave-wiki-inaccuracies.md). No page anywhere in the Wiki mentions Lyrical or Jetty, including pages edited as recently as this week.
+- **GNOME is not usable as the RDP desktop on this OS** — Ubuntu 26.04 ships GNOME 50, which is Wayland-only (no GNOME X11 session). `xorgxrdp` is X11-only, so it cannot start a GNOME session here. This is an OS/RDP-stack incompatibility, not a container misconfiguration. XFCE still ships a full X11 session and works correctly with `xorgxrdp` — see [`docker/`](docker/).
+- **Docker image password** — the `docker` user ships with password `docker` (see `docker/lyrical.arm64v8.dockerfile`) for local validation convenience only; change it before exposing the container beyond localhost.
+- **`--privileged` on `docker run`** — currently used for simplicity; the minimal capability set xrdp/Xorg actually need has not been determined yet (follow-up item).
+- **DAVE Wiki inaccuracies found while cross-checking** — see [`notes/dave-wiki-inaccuracies.md`](notes/dave-wiki-inaccuracies.md) (raw findings) and [`notes/wiki-error-reports.md`](notes/wiki-error-reports.md) (structured report draft). No page anywhere in the Wiki mentions Lyrical or Jetty, including pages edited as recently as this week. A possible duplicate Wiki database (two separate URLs, same page titles, dated 2026-06-26 and 2026-07-13) was flagged by an independent review — **not yet confirmed by us**; verify both URLs actually differ before reporting this to maintainers.
 
 ## Patch
 
 [`patches/dave_lyrical_jetty_migration_mac.diff`](patches/dave_lyrical_jetty_migration_mac.diff) — base commit `6aef91c` on `naitikpahwa18/dave` (`wgpu_integration`), 8 files changed, +172/−147. Verified to apply identically and produce identical `git diff --stat` output on both macOS and Docker/Ubuntu 26.04. Full pattern breakdown in [`notes/cmake-migration-patterns.md`](notes/cmake-migration-patterns.md).
 
-## Next steps (August)
+## Docker image
 
-- [ ] Exhaustive validation of all 18 worlds and documented vehicles/sensors
-- [ ] Test the two `sonar-demo`-branch-only demos
-- [ ] Quantitative performance/accuracy benchmarking
-- [ ] Decide sonar extension priority: Profiling vs. Mechanical Scanning vs. Side-scan
+A reproducible Docker image (build instructions, verification commands, RDP desktop) lives in [`docker/`](docker/) — see [`docker/README.md`](docker/README.md) for the full build/run/verify walkthrough.
+
+## Next steps
+
+- [ ] Re-verify `docker/lyrical.arm64v8.dockerfile` from a clean (`--no-cache`) build — confirm RDP login reaches a usable XFCE desktop, not just the manually-patched container it was derived from
+- [ ] Record image build time, image size, and minimum RAM for the Docker image
+- [ ] Narrow `--privileged` on `docker run` to the minimal capabilities xrdp/Xorg need
+- [ ] Report the DAVE Wiki inaccuracies to the Wiki maintainers (draft ready, see [`notes/wiki-error-reports.md`](notes/wiki-error-reports.md))
 - [ ] Consider upstreaming the `package.xml` fix and reporting the OGRE2 gap
-- [ ] Report the DAVE Wiki inaccuracies to the Wiki maintainers
+- [ ] Verify Ocean Current service names against the running container (`ros2 service list | grep current`) — the Wiki, our own notes, and a third-party review of the Wiki each name these services differently; none should be trusted without a live check
+
+### August
+
+- [ ] Define a shared `PASS` / `PARTIAL` / `NOT TESTED` matrix (`validation_matrix.csv`) and a repeatable test script (`test_worlds.sh`) before running the full sweep, so results are comparable run to run
+- [ ] Exhaustive validation of all 18 worlds and documented vehicles/sensors (REXROV, BlueROV2, BlueROV2 Heavy, Slocum Glider), recording spawn success / crash / timeout per world
+- [ ] Test the two `sonar-demo`-branch-only demos
+- [ ] Re-attempt USBL and root-cause the GUI client crash (server/plugin path already confirmed working)
+- [ ] Quantitative performance/accuracy benchmarking — Real Time Factor, CPU/memory, sonar frame time; report Mac (Metal) and Docker (llvmpipe) as separate environments rather than a single "N× faster" comparison, since OS, native-vs-container, and GPU-vs-CPU-renderer all vary at once between them
+- [ ] Long-running stability test
+- [ ] Decide sonar extension priority: Profiling vs. Mechanical Scanning vs. Side-scan
 
 ## References
 
