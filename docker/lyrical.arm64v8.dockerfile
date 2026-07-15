@@ -9,24 +9,6 @@
 #   vendors Jetty — no separate Gazebo source build needed, unlike the Jazzy/Harmonic install script).
 # - ArduSub SITL build includes the Python 3.14 compatibility shims from
 #   notes/ardusub-sitl-setup.md (imp/pipes modules, python-argparse, PEP 668).
-# - Desktop is XFCE, not GNOME. Ubuntu 26.04 ships GNOME 50, which is Wayland-only (no GNOME
-#   X11 session) — xorgxrdp is X11-only, so it cannot start a GNOME session on this OS release.
-#   XFCE still ships a full X11 session, so that's what this image's RDP desktop uses.
-#   See README.md "Known limitation" and docker/startwm.sh.
-#
-# Status: Experimental / validation environment.
-# Validated: image build, headless launch, XFCE/xrdp login, representative smoke tests.
-# Not yet validated: all 18 worlds, quantitative performance.
-#
-# Naming note: the advisor plans to eventually move this project off the "DAVE" name (not yet
-# decided). External/display names (image tag, container name, hostname, shell prompt) should
-# use a neutral placeholder ("lyrical-sim") rather than "DAVE" — see docker/README.md. This does
-# NOT apply to the existing DAVE codebase or its ROS package names (dave_demos, dave_worlds,
-# dave_ws, etc.) below, which are left untouched.
-#
-# Security note: the $USER account password defaults to "docker" (see ARG PASS below) —
-# fine for a local, non-exposed validation container; change it before exposing this image
-# on any shared or internet-facing host.
 
 FROM arm64v8/ubuntu:26.04
 
@@ -34,46 +16,66 @@ ARG USER=docker
 ARG PASS=docker
 ARG X11Forwarding=true
 
-# --- RDP / desktop setup (XFCE + xorgxrdp — see note above on why not GNOME) ---
+# --- RDP / XFCE desktop setup ---
 # hadolint ignore=DL3008,DL3015,DL3009
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-        apt-get install -y xfce4 xfce4-terminal xorgxrdp dbus-x11 xrdp sudo; \
+        apt-get install -y --no-install-recommends \
+          dbus dbus-x11 xrdp xorgxrdp \
+          xfce4 xfce4-goodies xfce4-terminal xterm \
+          sudo openssl; \
     [ $X11Forwarding = 'true' ] && apt-get install -y openssh-server; \
     apt-get autoremove --purge; \
     apt-get clean; \
     rm -f /run/reboot-required*
 
-RUN useradd -s /bin/bash -m $USER -p "$(openssl passwd "$PASS")"; \
+RUN useradd -s /bin/bash -m $USER && echo "$USER:$PASS" | chpasswd; \
     usermod -aG sudo $USER; echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers; \
     adduser xrdp ssl-cert; \
     # xrdp daemon needs root-group access to session sockets under /run/xrdp/sockdir/ —
     # without this, RDP connections time out after ~30s ("connection problem, giving up")
     usermod -aG root xrdp; \
     echo 'LANG=en_US.UTF-8' >> /etc/default/locale; \
+    echo 'export XDG_CURRENT_DESKTOP=XFCE' > /home/$USER/.xsessionrc; \
+    echo 'export XDG_SESSION_DESKTOP=xfce' >> /home/$USER/.xsessionrc; \
+    echo 'export DESKTOP_SESSION=xfce' >> /home/$USER/.xsessionrc; \
+    echo 'export XDG_SESSION_TYPE=x11' >> /home/$USER/.xsessionrc; \
     sed -i "s/#EnableConsole=false/EnableConsole=true/g" /etc/xrdp/xrdp.ini; \
     sed -i 's/max_bpp=32/max_bpp=16/g' /etc/xrdp/xrdp.ini; \
     [ $X11Forwarding = 'true' ] && \
         sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/g' /etc/ssh/sshd_config || \
         sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config || \
-        :;
+        :; \
+    chown $USER:$USER /home/$USER/.xsessionrc
 
-# Custom startwm.sh replaces the default Debian Xsession -> ~/.xsession lookup chain with a
-# single transparent script that also sources ROS 2 / DAVE before launching XFCE.
-COPY docker/startwm.sh /etc/xrdp/startwm.sh
-RUN chmod +x /etc/xrdp/startwm.sh
+# Bypass the Debian Xsession wrapper. In a systemd-less container it can exit
+# before reaching ~/.xsession. Each RDP login gets its own DBus session.
+RUN printf '%s\n' \
+      '#!/bin/bash' \
+      'exec >>/home/docker/xrdp-startwm.log 2>&1' \
+      'export HOME=/home/docker' \
+      'export USER=docker' \
+      'export LOGNAME=docker' \
+      'export XDG_SESSION_TYPE=x11' \
+      'export XDG_CURRENT_DESKTOP=XFCE' \
+      'export XDG_SESSION_DESKTOP=xfce' \
+      'export DESKTOP_SESSION=xfce' \
+      'export XDG_RUNTIME_DIR="/run/user/$(id -u)"' \
+      'unset GNOME_SHELL_SESSION_MODE SESSION_MANAGER DBUS_SESSION_BUS_ADDRESS' \
+      'exec /usr/bin/dbus-run-session -- /usr/bin/startxfce4' \
+      > /etc/xrdp/startwm.sh && \
+    chmod 0755 /etc/xrdp/startwm.sh
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 # hadolint ignore=DL3008
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    sudo xterm init systemd snapd vim net-tools \
+    xterm vim net-tools \
     curl wget git build-essential cmake cppcheck \
     gnupg libeigen3-dev libgles2-mesa-dev \
     lsb-release pkg-config protobuf-compiler \
-    python3-dbg python3-pip python3-venv \
-    qtbase5-dev ruby dirmngr gnupg2 nano xauth \
-    software-properties-common htop libtool \
+    python3-pip python3-venv \
+    nano xauth htop libtool \
     x11-apps mesa-utils bison flex automake && \
     rm -rf /var/lib/apt/lists/
 
@@ -182,7 +184,14 @@ RUN echo "source $DAVE_UNDERLAY/install/setup.bash" >> /home/$USER/.bashrc && \
     echo "export GEOGRAPHICLIB_GEOID_PATH=/usr/share/GeographicLib/geoids" >> /home/$USER/.bashrc && \
     echo "export PS1='\[\e[1;36m\]\u@lyrical_docker\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '" >> /home/$USER/.bashrc
 
-# --- Run ---
-COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# --- Run (no systemd inside this container) ---
+# hadolint ignore=DL3025
+CMD uid="$(id -u docker)"; \
+    sudo install -d -m 0755 /run/xrdp /run/xrdp/sockdir; \
+    sudo install -d -m 0700 -o docker -g docker "/run/user/$uid"; \
+    sudo rm -f /run/xrdp/*.pid /var/run/xrdp/*.pid; \
+    sudo mkdir -p /run/dbus; sudo rm -f /run/dbus/pid; \
+    sudo dbus-daemon --system --fork; \
+    [ -f /usr/sbin/sshd ] && sudo /usr/sbin/sshd; \
+    sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini & \
+    exec sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini

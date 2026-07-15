@@ -50,7 +50,8 @@ Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This i
 | 2026-07-14 | DVL / underwater camera / USBL / ocean current / sea pressure sensors verified | Done | All 5 launch and publish correctly |
 | 2026-07-14 | BlueROV2 + ArduSub SITL built and launched | Done | Required fixing 5 chained Python 3.14 incompatibilities in `waf` — see [Known Issues](#known-issues) |
 | 2026-07-14 | `git diff --stat` compared Mac vs Docker | Done | Identical: 8 files, +172/−147 |
-| 2026-07-15 | Root-caused Docker RDP desktop crash | Done | XFCE + xrdp works; GNOME 50 is Wayland-only on Ubuntu 26.04 and has no X11 session for xorgxrdp — not a bug, an OS/RDP-stack incompatibility. `docker/` Dockerfile updated to install XFCE explicitly and use a custom `startwm.sh`; not yet re-verified with a clean (`--no-cache`) build |
+| 2026-07-15 | Root-caused Docker RDP desktop crash | Done | XFCE + xrdp works; GNOME 50 is Wayland-only on Ubuntu 26.04 and has no X11 session for xorgxrdp — not a bug, an OS/RDP-stack incompatibility. `docker/` Dockerfile updated to install XFCE explicitly |
+| 2026-07-15 | Clean (`--no-cache`) Docker build + RDP re-verified | Done | `lyrical-sim:jetty-rdp` built clean, RDP login reached a usable XFCE desktop, prompt `docker@lyrical_docker:~$` confirmed |
 
 ## Reproduction
 
@@ -109,7 +110,7 @@ ros2 launch dave_demos dave_sensor.launch.py \
 | BlueROV2 + ArduSub SITL | PASS | full launch, keyboard teleop node also confirmed |
 | DVL, underwater camera, ocean current, sea pressure | PASS (4/4) | all launch and publish real topics |
 | USBL | PARTIAL | server-side plugin/SDF loads and publishes correctly; GUI client crashes (world-only test, no vehicle spawn, so limited practical impact) |
-| Docker RDP desktop (XFCE) | PASS (live container) / NOT RE-VERIFIED (clean image) | works on the manually-patched container; `docker/` Dockerfile now bakes this in but hasn't been re-tested from a clean build yet |
+| Docker RDP desktop (XFCE) | PASS | clean (`--no-cache`) build, RDP login reached a usable XFCE desktop, prompt `docker@lyrical_docker:~$` confirmed |
 | `dave_ocean_waves_sonar`, `dave_ocean_waves_sonar_integrated` (sonar-demo branch) | NOT TESTED | needs `IOES-Lab/dave` `sonar-demo` branch, not on `naitikpahwa18/dave` |
 | `dave_bimanual_example`, `dave_electrical_mating`, `dave_plug_and_socket` (manipulation) | NOT TESTED | out of scope this round |
 
@@ -137,7 +138,6 @@ A reproducible Docker image (build instructions, verification commands, RDP desk
 
 ## Next steps
 
-- [ ] Re-verify `docker/lyrical.arm64v8.dockerfile` from a clean (`--no-cache`) build — confirm RDP login reaches a usable XFCE desktop, not just the manually-patched container it was derived from
 - [ ] Record image build time, image size, and minimum RAM for the Docker image
 - [ ] Narrow `--privileged` on `docker run` to the minimal capabilities xrdp/Xorg need
 - [ ] Report the DAVE Wiki inaccuracies to the Wiki maintainers (draft ready, see [`notes/wiki-error-reports.md`](notes/wiki-error-reports.md))

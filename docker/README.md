@@ -1,49 +1,47 @@
 # Docker — ROS 2 Lyrical + Gazebo Jetty + DAVE (arm64, RDP desktop)
 
 ```text
-Status: Experimental / validation environment
+Status: VALIDATED (2026-07-15) — clean (--no-cache) build, RDP login, XFCE desktop confirmed
 Validated: Build, headless launch, XFCE/xrdp login, representative smoke tests
 Not yet validated: all 18 worlds, quantitative performance
 Known limitation: Ubuntu 26.04 GNOME 50 no longer provides an X11 session for xorgxrdp; XFCE is used
 ```
 
-**Provenance note (2026-07-15):** this file and `lyrical.arm64v8.dockerfile` in this folder are
-a proposal/backup copy assembled in the Cowork workspace, not a synced mirror of any live
-system. Three copies currently exist and may be out of sync:
-
-1. The Mac's actual local Docker working folder (`~/dave_lyrical_docker`) — where the real
-   clean build and RDP validation happened. Source of truth for what's actually running.
-2. This Cowork workspace copy — reference/backup only.
-3. The GitHub repo — **does not yet have a `docker/` folder**; nothing here has been pushed.
-
-Before treating this copy as authoritative, diff it against `~/dave_lyrical_docker` on the Mac.
+**Provenance (2026-07-15):** `lyrical.arm64v8.dockerfile` in this folder is byte-identical to
+the file actually built and tested on the Mac's local Docker working folder
+(`~/dave_lyrical_docker/lyrical.arm64v8.dockerfile`) — verified with `diff`. This replaces an
+earlier draft (with separate `entrypoint.sh`/`startwm.sh` files) that was never actually built.
 
 ## Naming notice
 
 The lab's advisor has indicated this project will eventually move off the `DAVE` name to
 something new — **not yet decided**. Until that's settled:
 
-- External/display names (Docker image tags, container names, hostname, shell prompt) use a
-  neutral placeholder, `lyrical-sim`, instead of `DAVE`.
+- External/display names (Docker image tag, container name, hostname, shell prompt) use a
+  neutral placeholder, `lyrical-sim`, instead of `DAVE`. This is what was actually used in
+  the validated build (`lyrical-sim:jetty-rdp`, container `lyrical-sim`, hostname
+  `lyrical-docker`, prompt `docker@lyrical_docker:~$`).
 - `DAVE` is still used to refer to the underlying codebase and its existing ROS packages
   (`dave_demos`, `dave_interfaces`, `dave_worlds`, the `dave_ws` workspace path, etc.) —
   those are not renamed here; that's a separate migration once the new project name is final.
-- Treat `lyrical-sim` below as a placeholder, not a committed project name.
+- Treat `lyrical-sim` as a placeholder, not a committed project name.
 
 ## Files
 
 ```text
 docker/
-├── lyrical.arm64v8.dockerfile   image definition
-├── entrypoint.sh                container entrypoint (dbus/sshd/xrdp startup)
-├── startwm.sh                   xrdp window-manager startup (XFCE + ROS/DAVE env)
+├── lyrical.arm64v8.dockerfile   image definition — single self-contained file
 └── README.md                    this file
 ```
 
+No separate `entrypoint.sh`/`startwm.sh`: `startwm.sh` is generated inline (`RUN printf ...`)
+directly into `/etc/xrdp/startwm.sh` inside the image, bypassing the default Debian Xsession
+lookup chain, and the multi-service startup (dbus, sshd, xrdp-sesman, xrdp) is a single
+shell-form `CMD` at the end of the Dockerfile — no separate entrypoint script needed.
+
 ## Build
 
-Run from the **repository root** (the Dockerfile's `COPY docker/...` lines are relative to
-the build context, not to the Dockerfile's own directory):
+Run from the **repository root**:
 
 ```bash
 docker build --no-cache -f docker/lyrical.arm64v8.dockerfile -t lyrical-sim:jetty-rdp .
@@ -52,7 +50,7 @@ docker build --no-cache -f docker/lyrical.arm64v8.dockerfile -t lyrical-sim:jett
 `--platform linux/arm64` is implied by the `arm64v8/ubuntu:26.04` base image; this Dockerfile
 targets **Apple Silicon / arm64 only** — it has not been adapted or tested for `amd64`.
 
-## Verify the build (before trusting it)
+## Verify the build
 
 ```bash
 docker run --rm lyrical-sim:jetty-rdp uname -m               # expect: aarch64
@@ -65,16 +63,20 @@ docker run --rm lyrical-sim:jetty-rdp bash -lc 'ros2 pkg list | grep "^dave_"'
 ## Run (RDP desktop)
 
 ```bash
-docker run --name lyrical-sim \
+docker run -d \
+  --name lyrical-sim \
   --hostname lyrical-docker \
   --privileged \
-  -p 3389:3389 \
+  -p 3393:3389 \
   lyrical-sim:jetty-rdp
 ```
 
-Connect with any RDP client (Microsoft Remote Desktop, etc.) to `localhost:3389`,
-user `docker`, password `docker` — **local development default only**; change it (and
-don't expose port 3389 beyond localhost) before running this anywhere network-reachable.
+(Port left-hand side is arbitrary — pick one that doesn't collide with any container already
+using 3389 locally.) Connect with any RDP client (Microsoft Remote Desktop, etc.) to
+`localhost:3393`, user `docker`, password `docker` — **local development default only**;
+change it (and don't expose the port beyond localhost) before running this anywhere
+network-reachable. A successful login reaches an XFCE desktop with shell prompt
+`docker@lyrical_docker:~$`.
 
 `--privileged` is used here for simplicity during validation; it has not yet been narrowed
 to the minimal capability set xrdp/Xorg actually need (a follow-up item, not required for
@@ -96,7 +98,7 @@ docker exec -it lyrical-sim bash -lc \
 |---|---|
 | Clean (`--no-cache`) Docker build | PASS |
 | Container startup | PASS |
-| xrdp connection, XFCE session | PASS |
+| xrdp connection, XFCE session (real RDP login, prompt confirmed) | PASS |
 | ROS 2 Lyrical / Gazebo Jetty environment | PASS |
 | Representative REXROV launch + `ros_gz` bridges | PASS |
 | WGPU/Rust sonar packages (`wgpu_vendor`, `multibeam_sonar`, `multibeam_sonar_system`) build | PASS |
@@ -108,10 +110,6 @@ docker exec -it lyrical-sim bash -lc \
 | Quantitative performance benchmark | NOT DONE |
 | Long-duration stability | NOT DONE |
 
-A build only counts as "reproducible" once a **clean** (`--no-cache`) build passes the
-checks above *and* an RDP login reaches a usable XFCE desktop — not just the manually
-patched container it was originally derived from.
-
 ## Known limitations
 
 - **Ubuntu 26.04 GNOME 50 is Wayland-only** in the tested image; `xorgxrdp` is X11-only, so
@@ -122,19 +120,11 @@ patched container it was originally derived from.
   Metal comparison elsewhere in this repo is a real Apple M2 hardware GPU backend — the two
   numbers are environment-specific observations, not a controlled benchmark (OS, native vs.
   container, and GPU vs. CPU renderer all differ at once).
-  See the [Gazebo `ShaderParam` warning example](#example-non-fatal-warning) below — it
-  did not block the representative launch.
 - **`CMD` is currently shell-form**, which produces a `JSONArgsRecommended` warning during
   build (not a failure). Switching to an `entrypoint.sh` + JSON/exec-form `CMD` is possible
-  but wasn't done here since it risks changing how the multi-service startup (dbus, sshd,
+  but wasn't done since it risks changing how the multi-service startup (dbus, sshd,
   xrdp-sesman, xrdp) currently works — tracked as a follow-up, not fixed blindly.
-
-### Example non-fatal warning
-
-```text
-ShaderParam plugin element not defined in SDF
-Copying plugin as children of sdf
-```
-
-Seen during REXROV spawn; robot spawn and `ros_gz` bridge creation completed successfully
-afterward, so this is classified as a non-fatal known warning, not an error.
+- **`ShaderParam` SDF warning** (`ShaderParam plugin element not defined in SDF` /
+  `Copying plugin as children of sdf`) seen during REXROV spawn; robot spawn and `ros_gz`
+  bridge creation completed successfully afterward, so this is a non-fatal known warning,
+  not an error.
