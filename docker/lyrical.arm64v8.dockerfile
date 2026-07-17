@@ -9,6 +9,14 @@
 #   vendors Jetty — no separate Gazebo source build needed, unlike the Jazzy/Harmonic install script).
 # - ArduSub SITL build includes the Python 3.14 compatibility shims from
 #   notes/ardusub-sitl-setup.md (imp/pipes modules, python-argparse, PEP 668).
+# - CA bootstrap stage added 2026-07-16: `arm64v8/ubuntu:26.04` is a minimal rootfs with no
+#   ca-certificates, so any HTTPS apt source failed before the first package installed.
+#   Diagnosed with `docker run --rm curlimages/curl:latest -I
+#   https://ports.ubuntu.com/ubuntu-ports/dists/resolute/InRelease` -> 200 OK, which confirmed
+#   Docker's network/HTTPS path itself was fine and isolated the failure to the missing CA
+#   bundle in the Ubuntu base image. See docker/README.md Known limitations for details.
+
+FROM curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 AS ca-source
 
 FROM arm64v8/ubuntu:26.04
 
@@ -16,16 +24,32 @@ ARG USER=docker
 ARG PASS=docker
 ARG X11Forwarding=true
 
+# CA bundle path verified directly for the pinned curlimages/curl digest:
+# /etc/ssl/certs/ca-certificates.crt exists, is non-empty, and passed test -s (CA_BUNDLE_OK).
+RUN mkdir -p /etc/ssl/certs
+COPY --from=ca-source /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+RUN test -s /etc/ssl/certs/ca-certificates.crt || \
+    (echo "FATAL: /etc/ssl/certs/ca-certificates.crt missing or empty after COPY from ca-source \
+- the assumed Alpine CA bundle path was wrong for this curlimages/curl digest. Inspect the \
+image manually (docker run --rm curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 \
+sh -c 'ls -la /etc/ssl/certs/ /etc/ssl/*.pem 2>/dev/null') and fix the COPY --from path above." >&2; \
+     exit 1)
+
+# The base image's default arm64 mirror can be http://ports.ubuntu.com; force https wherever it
+# actually appears rather than guessing which apt source file the base image uses (classic
+# sources.list vs. the newer deb822 *.sources format).
+RUN grep -rl 'http://ports.ubuntu.com' /etc/apt/ 2>/dev/null | xargs -r sed -i 's|http://ports.ubuntu.com|https://ports.ubuntu.com|g'
+
 # --- RDP / XFCE desktop setup ---
 # hadolint ignore=DL3008,DL3015,DL3009
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-        apt-get install -y --no-install-recommends \
-          dbus dbus-x11 xrdp xorgxrdp \
-          xfce4 xfce4-goodies xfce4-terminal xterm \
-          sudo openssl; \
-    [ $X11Forwarding = 'true' ] && apt-get install -y openssh-server; \
-    apt-get autoremove --purge; \
-    apt-get clean; \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt && \
+    apt-get -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt install -y --no-install-recommends \
+      dbus dbus-x11 xrdp xorgxrdp \
+      xfce4 xfce4-goodies xfce4-terminal xterm \
+      sudo openssl ca-certificates && \
+    if [ "$X11Forwarding" = 'true' ]; then apt-get install -y openssh-server; fi && \
+    apt-get autoremove --purge && \
+    apt-get clean && \
     rm -f /run/reboot-required*
 
 RUN useradd -s /bin/bash -m $USER && echo "$USER:$PASS" | chpasswd; \
@@ -49,7 +73,8 @@ RUN useradd -s /bin/bash -m $USER && echo "$USER:$PASS" | chpasswd; \
 
 # Bypass the Debian Xsession wrapper. In a systemd-less container it can exit
 # before reaching ~/.xsession. Each RDP login gets its own DBus session.
-RUN printf '%s\n' \
+RUN test -d /etc/xrdp && \
+    printf '%s\n' \
       '#!/bin/bash' \
       'exec >>/home/docker/xrdp-startwm.log 2>&1' \
       'export HOME=/home/docker' \
@@ -68,7 +93,7 @@ RUN printf '%s\n' \
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
 # hadolint ignore=DL3008
-RUN apt-get update && \
+RUN apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt && \
     apt-get install -y --no-install-recommends \
     xterm vim net-tools \
     curl wget git build-essential cmake cppcheck \
@@ -85,7 +110,7 @@ RUN truncate -s0 /tmp/preseed.cfg && \
     debconf-set-selections /tmp/preseed.cfg && \
     rm -f /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata
-RUN apt-get update && \
+RUN apt-get update -o APT::Update::Error-Mode=any && \
     apt-get -y install --no-install-recommends locales tzdata && \
     rm -rf /tmp/*
 RUN locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
@@ -99,14 +124,14 @@ EXPOSE 22/tcp
 ARG DAVE_COMMIT="6aef91c823af5da073329b84ba617b572965e79e"
 ARG ROS_DISTRO="lyrical"
 
-RUN apt update && apt full-upgrade -y && apt autoremove -y
+RUN apt update -o APT::Update::Error-Mode=any && apt full-upgrade -y && apt autoremove -y
 
 # Gazebo Jetty is vendored by ros-lyrical-ros-gz on apt already — no separate Gazebo source build
 RUN export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}') && \
     curl -L -o /tmp/ros2-apt-source.deb \
       "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb" && \
     dpkg -i /tmp/ros2-apt-source.deb && \
-    apt update && \
+    apt update -o APT::Update::Error-Mode=any && \
     apt install -y --no-install-recommends \
       ros-${ROS_DISTRO}-desktop ros-${ROS_DISTRO}-ros-gz \
       python3-rosdep python3-vcstool python3-colcon-common-extensions
@@ -169,7 +194,7 @@ RUN chown -R $USER:$USER /home/$USER/ardupilot /home/$USER/imp_shim && \
 
 # --- QGroundControl, Firefox, environment ---
 RUN usermod -aG dialout $USER && apt -y remove modemmanager || true
-RUN apt-get update && \
+RUN apt-get update -o APT::Update::Error-Mode=any && \
     apt-get install -y --no-install-recommends \
     ffmpeg python3-venv python3-websockets \
     ros-${ROS_DISTRO}-joy-linux gstreamer1.0-tools gstreamer1.0-plugins-base \
