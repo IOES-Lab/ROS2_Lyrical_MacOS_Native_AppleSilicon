@@ -9,7 +9,7 @@ Known limitation: in the tested Ubuntu 26.04 image, the installed GNOME 50 sessi
 
 ## Purpose
 
-This repository documents verifying whether [DAVE](https://github.com/IOES-Lab/dave) (underwater robotics simulation library, currently documented for ROS 2 Jazzy + Gazebo Harmonic) and its multibeam sonar plugin ([PR #44](https://github.com/naitikpahwa18/dave/tree/wgpu_integration), CUDA-free WGPU backend) can be updated and run on the next-generation **ROS 2 Lyrical + Gazebo Jetty** combination.
+This repository documents verifying whether [DAVE](https://github.com/IOES-Lab/dave) (underwater robotics simulation library, currently documented for ROS 2 Jazzy + Gazebo Harmonic) and its multibeam sonar plugin ([PR #44](https://github.com/IOES-Lab/dave/pull/44), CUDA-free WGPU backend) can be updated and run on the next-generation **ROS 2 Lyrical + Gazebo Jetty** combination.
 
 Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This is an **integration smoke test**, not exhaustive validation: DAVE's core packages and a representative set of vehicle, sensor, and multibeam-sonar paths were confirmed working end to end. Full coverage of every world/vehicle/sensor/launch combination is planned for August (see [Next steps](#next-steps)).
 
@@ -17,7 +17,7 @@ Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This i
 
 | Repo | Branch | Commit |
 |---|---|---|
-| `naitikpahwa18/dave` | `wgpu_integration` | `6aef91c823af5da073329b84ba617b572965e79e` |
+| `naitikpahwa18/dave` | `wgpu_integration` | [`6aef91c823af5da073329b84ba617b572965e79e`](https://github.com/IOES-Lab/dave/pull/44/commits/6aef91c823af5da073329b84ba617b572965e79e) (part of [PR #44](https://github.com/IOES-Lab/dave/pull/44)) |
 | `IOES-Lab/dave` | `sonar-demo` (untested paths only) | `8f6314f1133e19613f4d145b179f61d3b3daa741` |
 | `ArduPilot/ardupilot` | `ArduSub-stable` | `30257f01185471ab4c1ac544e47d1b4437e44c98` |
 
@@ -52,8 +52,11 @@ Verified on both macOS (Apple Silicon, native) and Docker (Ubuntu 26.04). This i
 | 2026-07-14 | `git diff --stat` compared Mac vs Docker | Done | Identical: 8 files, +172/−147 |
 | 2026-07-15 | Root-caused Docker RDP desktop crash | Done | XFCE + xrdp works; in the tested Ubuntu 26.04 image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session, so GNOME could not be used as the RDP desktop here. `docker/` Dockerfile updated to install XFCE explicitly |
 | 2026-07-15 | Clean (`--no-cache`) Docker build + RDP re-verified | Done | `lyrical-sim:jetty-rdp` built clean, RDP login reached a usable XFCE desktop, prompt `docker@lyrical_docker:~$` confirmed |
+| 2026-07-17 | Docker CA-certificate bootstrap fix + clean (`--no-cache`) rebuild (Docker) | Done | `arm64v8/ubuntu:26.04` ships without `ca-certificates`, breaking HTTPS apt; fixed via digest-pinned `curlimages/curl` CA bundle copy plus `Acquire::https::CaInfo` on both `apt-get update` and `apt-get install`. Clean build succeeded end-to-end (image `lyrical-sim:jetty-rdp-pr1-ca-fix`), RDP login reached XFCE, `ROS_DISTRO=lyrical` and `dave_demos`/`multibeam_sonar_system` package presence confirmed — scoped to build + login + package-presence only, not a re-run of world/vehicle/performance rows; see `docker/README.md` Known limitations |
 
 ## Reproduction
+
+Run all commands below from the **repository root** (the parent directory of `dave/`, `patches/`, and `docker/`) — this is what makes the `../patches/...` relative path in the steps below resolve correctly.
 
 ### macOS (Apple Silicon, native)
 
@@ -77,6 +80,14 @@ ros2 launch dave_demos dave_sensor.launch.py \
 ```
 
 ### Docker (Ubuntu 26.04)
+
+This manual sequence assumes the ROS 2 apt repository (signing key + `sources.list.d` entry) is
+already configured in the container/host — that setup step is omitted below since it's
+environment-specific and not part of what this repo verifies. It is **not** a complete,
+copy-pasteable procedure on a bare Ubuntu 26.04 image. The recommended, fully self-contained way
+to reproduce the Docker environment is the Dockerfile in [`docker/`](docker/) — see
+[`docker/README.md`](docker/README.md), which builds from a bare base image (including the
+CA-certificate bootstrap and ROS apt source setup) end to end.
 
 ```bash
 apt install -y ros-lyrical-desktop ros-lyrical-ros-gz
@@ -130,7 +141,7 @@ ros2 launch dave_demos dave_sensor.launch.py \
 
 ## Patch
 
-[`patches/dave_lyrical_jetty_migration_mac.diff`](patches/dave_lyrical_jetty_migration_mac.diff) — base commit `6aef91c` on `naitikpahwa18/dave` (`wgpu_integration`), 8 files changed, +172/−147. Verified to apply identically and produce identical `git diff --stat` output on both macOS and Docker/Ubuntu 26.04. Full pattern breakdown in [`notes/cmake-migration-patterns.md`](notes/cmake-migration-patterns.md).
+[`patches/dave_lyrical_jetty_migration_mac.diff`](patches/dave_lyrical_jetty_migration_mac.diff) — base commit [`6aef91c`](https://github.com/IOES-Lab/dave/pull/44/commits/6aef91c823af5da073329b84ba617b572965e79e) on `naitikpahwa18/dave` (`wgpu_integration`, part of [PR #44](https://github.com/IOES-Lab/dave/pull/44)), 8 files changed, +172/−147. Verified to apply identically and produce identical `git diff --stat` output on both macOS and Docker/Ubuntu 26.04. Full pattern breakdown in [`notes/cmake-migration-patterns.md`](notes/cmake-migration-patterns.md).
 
 ## Docker image
 
@@ -158,7 +169,8 @@ A reproducible Docker image (build instructions, verification commands, RDP desk
 ## References
 
 - [DAVE (IOES-Lab fork)](https://github.com/IOES-Lab/dave)
-- [PR #44 branch (naitikpahwa18/dave, wgpu_integration)](https://github.com/naitikpahwa18/dave/tree/wgpu_integration)
+- [PR #44 (IOES-Lab/dave)](https://github.com/IOES-Lab/dave/pull/44) — vendor-agnostic WGPU sonar backend
+- [Pinned commit `6aef91c` (naitikpahwa18/dave, wgpu_integration)](https://github.com/naitikpahwa18/dave/commit/6aef91c823af5da073329b84ba617b572965e79e)
 - [DAVE ROS2 Wiki](http://dave-ros2.notion.site)
 - [ROS 2 Lyrical Luth — official docs](https://docs.ros.org)
 - Choi, W. et al., "Physics-based modelling and simulation of Multibeam Echosounder perception for Autonomous Underwater Manipulation," *Frontiers in Robotics and AI*, 2021. [10.3389/frobt.2021.706646](https://doi.org/10.3389/frobt.2021.706646)
