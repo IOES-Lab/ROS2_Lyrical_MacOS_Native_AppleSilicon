@@ -149,11 +149,11 @@ RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
 # real dependency-resolution failure, not just a harmless warning. Failure: `ros-lyrical-mavros`
 # is not available via apt for the `lyrical` distro yet (`E: Unable to locate package
 # ros-lyrical-mavros` — the package/distro sync for this very new ROS distro hasn't caught up).
-# `|| true` is restored below so the build doesn't hard-fail on this one missing rosdep, but the
-# underlying gap is real and unresolved: mavros is not installed by this Dockerfile as a result,
-# so anything depending on it (e.g. ArduSub/PX4 MAVLink bridging via mavros) is not available in
-# this image until either (a) ros-lyrical-mavros is published upstream, or (b) it's built from
-# source here instead of via rosdep/apt. Tracked as a known gap, not silently hidden.
+# `|| true` is restored below so this DAVE-workspace rosdep pass doesn't hard-fail on that one
+# missing key. This does NOT mean mavros is missing from the final image: a separate from-source
+# mavros build stage further down this file (search "mavros, built from source") installs it
+# independently of this rosdep call, and that stage's success is what actually determines
+# whether mavros ends up in the image — see that section for the validated result.
 RUN rosdep init || true && rosdep update --rosdistro $ROS_DISTRO && \
     rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . || true
 
@@ -175,18 +175,25 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
 # ros-lyrical-mavros`, confirmed 2026-07-18). Follows the official mavros ros2-branch
 # source-install procedure:
 # https://github.com/mavlink/mavros/blob/ros2/mavros/README.md#source-installation
-# UNVALIDATED as of this edit. First attempt (2026-07-18) got further than expected:
-# `rosinstall_generator` DID resolve both "mavlink" (release/lyrical/mavlink/2026.6.19-1 — mavlink
-# itself is already released for lyrical) and "mavros" (upstream tag 2.14.0) successfully.
+# VALIDATED 2026-07-18 by a full clean (`--no-cache`) rebuild that completed all 36 build steps
+# end to end — see README.md's Progress Log and docker/README.md's Provenance note for the full
+# result (build time, image size, and `ros2 pkg list` confirming `mavros`/`mavros_extras`/
+# `mavros_msgs`/`mavros_examples` are present in the built image).
 #
-# It then failed on `apt-get install -y libasio-dev` with `E: Unable to locate package`. Traced
-# this to a **self-inflicted bug, not an archive gap**: `apt-cache policy libasio-dev` run
-# directly against this same base image confirms the package genuinely exists
-# (`resolute/universe arm64`, candidate `1:1.30.2-1build1`) — the real cause was that the
-# `rm -rf /var/lib/apt/lists/*` at the end of the block below (added purely for image-size
-# hygiene) wiped the apt index *before* rosdep's own `apt-get install` call, and rosdep does not
-# re-run `apt-get update` itself. Fixed by moving that cleanup to run only after this whole
-# mavros block finishes, not before rosdep needs the index.
+# Two real build issues were hit and fixed along the way during that same 2026-07-18 rebuild,
+# kept here for context on why this block looks the way it does:
+# 1) `rosinstall_generator` DID resolve both "mavlink" (release/lyrical/mavlink/2026.6.19-1 —
+#    mavlink itself is already released for lyrical) and "mavros" (upstream tag 2.14.0)
+#    successfully — that part was never the problem.
+# 2) The build then failed on `apt-get install -y libasio-dev` with `E: Unable to locate
+#    package`. Traced to a **self-inflicted bug, not an archive gap**: `apt-cache policy
+#    libasio-dev` run directly against this same base image confirms the package genuinely
+#    exists (`resolute/universe arm64`, candidate `1:1.30.2-1build1`) — the real cause was that
+#    the `rm -rf /var/lib/apt/lists/*` at the end of the block below (added purely for
+#    image-size hygiene) wiped the apt index *before* rosdep's own `apt-get install` call, and
+#    rosdep does not re-run `apt-get update` itself. Fixed by moving that cleanup to run only
+#    after this whole mavros block finishes, not before rosdep needs the index — which is the
+#    ordering already reflected below.
 ENV MAVROS_WS=/home/$USER/mavros_ws
 RUN apt-get update -o APT::Update::Error-Mode=any && \
     apt-get install -y --no-install-recommends \

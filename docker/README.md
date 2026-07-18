@@ -66,12 +66,30 @@ targets **Apple Silicon / arm64 only** — it has not been adapted or tested for
 
 ## Verify the build
 
+The image's final `USER` is `root` (needed for the RDP/xrdp `CMD`), so `bash -lc` does **not**
+auto-source `/home/docker/.bashrc` — the ROS/DAVE/mavros environment lines live there, not in
+root's shell rc. Source the underlays explicitly instead of relying on login-shell sourcing.
+`ros2 --version` is also not a real `ros2` CLI flag; check `$ROS_DISTRO` and `which ros2` instead.
+
 ```bash
 docker run --rm lyrical-sim:jetty-rdp uname -m               # expect: aarch64
 docker run --rm lyrical-sim:jetty-rdp lsb_release -a          # expect: 26.04 Resolute
-docker run --rm lyrical-sim:jetty-rdp bash -lc 'ros2 --version'
-docker run --rm lyrical-sim:jetty-rdp bash -lc 'gz sim --versions'
-docker run --rm lyrical-sim:jetty-rdp bash -lc 'ros2 pkg list | grep "^dave_"'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && echo "$ROS_DISTRO" && which ros2'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && gz sim --versions'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && \
+   source /home/docker/dave_ws/install/setup.bash && \
+   ros2 pkg list | grep "^dave_"'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && \
+   source /home/docker/mavros_ws/install/setup.bash && \
+   ros2 pkg list | grep "^mavros"'
 ```
 
 ## Run (RDP desktop)
@@ -92,12 +110,15 @@ client (Microsoft Remote Desktop, etc.) to `localhost:3393`, user `docker`, pass
 network-reachable. A successful login reaches an XFCE desktop with shell prompt
 `docker@lyrical_docker:~$`.
 
-**`--privileged` is not required** — tested 2026-07-18 by running the image with no `--privileged`
-flag and no extra `--cap-add` (`docker run -d --name priv-test --hostname lyrical-docker -p
-127.0.0.1:3396:3389 lyrical-sim:jetty-rdp-pr1-ca-fix`): RDP login reached a usable XFCE desktop
-with no capability errors. `xorgxrdp` doesn't need host GPU device access here (this image uses
-`llvmpipe` software rendering, no `/dev/dri` passthrough), which is consistent with the plain
-container defaults being sufficient. Dropped from the example above accordingly.
+**`--privileged` is not required for container startup and XFCE/xrdp login** — tested 2026-07-18
+by running the image with no `--privileged` flag and no extra `--cap-add` (`docker run -d --name
+priv-test --hostname lyrical-docker -p 127.0.0.1:3396:3389 lyrical-sim:jetty-rdp-pr1-ca-fix`):
+RDP login reached a usable XFCE desktop with no capability errors. `xorgxrdp` doesn't need host
+GPU device access here (this image uses `llvmpipe` software rendering, no `/dev/dri` passthrough).
+Dropped from the example above accordingly. **Scope caveat:** this only re-validates container
+startup and RDP/XFCE login without `--privileged` — it has not been re-checked across every
+Gazebo world, device-access path, or vehicle/sensor combination, so treat "not required" as
+scoped to what was actually re-tested, not as a blanket clearance for every workload in this image.
 
 A representative smoke test (headless, no RDP needed):
 
