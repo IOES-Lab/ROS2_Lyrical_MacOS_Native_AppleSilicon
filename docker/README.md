@@ -1,24 +1,30 @@
 # Docker — ROS 2 Lyrical + Gazebo Jetty + DAVE (arm64, RDP desktop)
 
 ```text
-Status: VALIDATED (2026-07-17) — clean (--no-cache) build with CA-bootstrap fix, RDP login, and
-ROS environment/package checks confirmed
-Validated: Build, headless launch, XFCE/xrdp login, ROS environment + dave_demos/multibeam_sonar_system package presence
-Not yet validated: all 18 worlds, quantitative performance, long-duration stability
+Status: VALIDATED (2026-07-18) — clean (--no-cache) build including a from-source mavros stage,
+build time/size recorded, ROS environment/package checks confirmed
+Validated: Build, headless launch, XFCE/xrdp login (2026-07-17/18 lineage), ROS environment + dave_demos/multibeam_sonar_system/mavros package presence
+Not yet validated: all 18 worlds, quantitative performance, long-duration stability, RAM under an active demo/RDP session (idle-only measured so far)
 Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop
 ```
 
-**Provenance (2026-07-17):** `lyrical.arm64v8.dockerfile` in this folder was clean-built
-(`--no-cache`) end to end on 2026-07-17, including the commit SHA pinning, `.bashrc`
-source-order fix, and the CA-bootstrap fix described under Known limitations — image tag
-`lyrical-sim:jetty-rdp-pr1-ca-fix`. Confirmed in that build/run: the build completed
-(`#37 DONE`, image exported and unpacked), a real RDP login reached an XFCE desktop and stayed
-up (no immediate exit), `ROS_DISTRO=lyrical` and `ros2` resolved inside the container, and
-`ros2 pkg prefix` resolved both `dave_demos` and `multibeam_sonar_system`. This is **clean
-build + XFCE/xrdp login + ROS environment/package presence validation** — it does not re-run
-the representative demo launch, and it does not touch the world/vehicle/performance/stability
-rows still marked NOT TESTED below. This replaces an earlier draft (with separate
-`entrypoint.sh`/`startwm.sh` files) that was never actually built.
+**Provenance (2026-07-18):** `lyrical.arm64v8.dockerfile` in this folder was clean-built
+(`--no-cache`) end to end on 2026-07-18, including the commit SHA pinning, `.bashrc`
+source-order fix, the CA-bootstrap fix described under Known limitations, and a from-source
+mavros build (`ros-lyrical-mavros` isn't published via apt yet — see the main
+[README.md Known issues](../README.md#known-issues)) — image tag `lyrical-sim:jetty-rdp-pr1-ca-fix`.
+Build took **51m 22s**, produced a **21.9GB** image, and an idle running container (no active
+RDP session or Gazebo demo) used **62.66MiB** RAM (`docker stats`) — a floor, not a
+representative figure under load. Confirmed in that build/run: all 36 build steps completed,
+`ROS_DISTRO=lyrical` and `ros2` resolved inside the container, `ros2 pkg prefix` resolved
+`dave_demos` and `multibeam_sonar_system`, and `ros2 pkg list` listed `mavros`, `mavros_extras`,
+`mavros_msgs`, `mavros_examples`. This is **clean build + ROS environment/package presence
+validation** — it does not re-run the representative demo launch under this exact image, and it
+does not touch the world/vehicle/performance/stability rows still marked NOT TESTED below. Real
+RDP login to an XFCE desktop was validated against the same Dockerfile lineage on 2026-07-17 and
+again during the 2026-07-18 `--privileged` test below; it was not re-clicked-through on this
+exact rebuild since nothing in the RDP/XFCE stack changed. This replaces an earlier draft (with
+separate `entrypoint.sh`/`startwm.sh` files) that was never actually built.
 
 ## Naming notice
 
@@ -74,7 +80,6 @@ docker run --rm lyrical-sim:jetty-rdp bash -lc 'ros2 pkg list | grep "^dave_"'
 docker run -d \
   --name lyrical-sim \
   --hostname lyrical-docker \
-  --privileged \
   -p 127.0.0.1:3393:3389 \
   lyrical-sim:jetty-rdp
 ```
@@ -87,9 +92,12 @@ client (Microsoft Remote Desktop, etc.) to `localhost:3393`, user `docker`, pass
 network-reachable. A successful login reaches an XFCE desktop with shell prompt
 `docker@lyrical_docker:~$`.
 
-`--privileged` is used here for simplicity during validation; it has not yet been narrowed
-to the minimal capability set xrdp/Xorg actually need (a follow-up item, not required for
-this round's smoke tests).
+**`--privileged` is not required** — tested 2026-07-18 by running the image with no `--privileged`
+flag and no extra `--cap-add` (`docker run -d --name priv-test --hostname lyrical-docker -p
+127.0.0.1:3396:3389 lyrical-sim:jetty-rdp-pr1-ca-fix`): RDP login reached a usable XFCE desktop
+with no capability errors. `xorgxrdp` doesn't need host GPU device access here (this image uses
+`llvmpipe` software rendering, no `/dev/dri` passthrough), which is consistent with the plain
+container defaults being sufficient. Dropped from the example above accordingly.
 
 A representative smoke test (headless, no RDP needed):
 
@@ -112,6 +120,7 @@ docker exec -it lyrical-sim bash -lc \
 | Representative REXROV launch + `ros_gz` bridges | PASS |
 | WGPU/Rust sonar packages (`wgpu_vendor`, `multibeam_sonar`, `multibeam_sonar_system`) build | PASS |
 | ArduSub SITL build | PASS |
+| mavros build (from source; `ros-lyrical-mavros` not yet on apt) | PASS — `mavros`/`mavros_extras`/`mavros_msgs`/`mavros_examples` confirmed via `ros2 pkg list`, MAVLink bridging itself not yet exercised |
 | USBL | PARTIAL — server/plugin loads and publishes; GUI client crashes |
 | All 18 worlds executed | NOT TESTED — inventory complete, not all run |
 | `sonar-demo`-branch-only worlds | NOT TESTED |

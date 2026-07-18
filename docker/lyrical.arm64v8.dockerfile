@@ -145,11 +145,15 @@ RUN git clone https://github.com/naitikpahwa18/dave.git dave && \
 COPY patches/dave_lyrical_jetty_migration_mac.diff /tmp/dave_lyrical_jetty_migration_mac.diff
 RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
 
-# `|| true` on the install step tolerates individual rosdep key-resolution failures on this
-# base image so the build doesn't abort on a non-fatal gap; it also masks real resolver
-# failures. If a downstream colcon build fails, re-run rosdep without `|| true` first to
-# rule out a missed dependency before assuming the code itself is broken.
-# Not changed here without a clean-rebuild test — tracked in README.md Next steps.
+# Tested 2026-07-18 with `|| true` removed from the install step: confirmed it WAS masking a
+# real dependency-resolution failure, not just a harmless warning. Failure: `ros-lyrical-mavros`
+# is not available via apt for the `lyrical` distro yet (`E: Unable to locate package
+# ros-lyrical-mavros` — the package/distro sync for this very new ROS distro hasn't caught up).
+# `|| true` is restored below so the build doesn't hard-fail on this one missing rosdep, but the
+# underlying gap is real and unresolved: mavros is not installed by this Dockerfile as a result,
+# so anything depending on it (e.g. ArduSub/PX4 MAVLink bridging via mavros) is not available in
+# this image until either (a) ros-lyrical-mavros is published upstream, or (b) it's built from
+# source here instead of via rosdep/apt. Tracked as a known gap, not silently hidden.
 RUN rosdep init || true && rosdep update --rosdistro $ROS_DISTRO && \
     rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . || true
 
@@ -165,6 +169,52 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
       dave_ros_gz_plugins dave_demos && \
     colcon build --merge-install --executor sequential --packages-select wgpu_vendor && \
     colcon build --merge-install --executor sequential --packages-select multibeam_sonar multibeam_sonar_system
+
+# --- mavros, built from source (NOT yet available via apt for $ROS_DISTRO — see the comment
+# above the rosdep install step earlier in this file: `E: Unable to locate package
+# ros-lyrical-mavros`, confirmed 2026-07-18). Follows the official mavros ros2-branch
+# source-install procedure:
+# https://github.com/mavlink/mavros/blob/ros2/mavros/README.md#source-installation
+# UNVALIDATED as of this edit. First attempt (2026-07-18) got further than expected:
+# `rosinstall_generator` DID resolve both "mavlink" (release/lyrical/mavlink/2026.6.19-1 — mavlink
+# itself is already released for lyrical) and "mavros" (upstream tag 2.14.0) successfully.
+#
+# It then failed on `apt-get install -y libasio-dev` with `E: Unable to locate package`. Traced
+# this to a **self-inflicted bug, not an archive gap**: `apt-cache policy libasio-dev` run
+# directly against this same base image confirms the package genuinely exists
+# (`resolute/universe arm64`, candidate `1:1.30.2-1build1`) — the real cause was that the
+# `rm -rf /var/lib/apt/lists/*` at the end of the block below (added purely for image-size
+# hygiene) wiped the apt index *before* rosdep's own `apt-get install` call, and rosdep does not
+# re-run `apt-get update` itself. Fixed by moving that cleanup to run only after this whole
+# mavros block finishes, not before rosdep needs the index.
+ENV MAVROS_WS=/home/$USER/mavros_ws
+RUN apt-get update -o APT::Update::Error-Mode=any && \
+    apt-get install -y --no-install-recommends \
+      python3-rosinstall-generator python3-osrf-pycommon geographiclib-tools
+
+RUN mkdir -p $MAVROS_WS/src
+WORKDIR $MAVROS_WS
+RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+    rosinstall_generator --format repos mavlink | tee /tmp/mavlink.repos && \
+    rosinstall_generator --format repos --upstream mavros | tee /tmp/mavros.repos && \
+    vcs import src < /tmp/mavlink.repos && \
+    vcs import src < /tmp/mavros.repos && \
+    rosdep update --rosdistro $ROS_DISTRO && \
+    rosdep install --rosdistro $ROS_DISTRO --from-paths src --ignore-src -y
+RUN $MAVROS_WS/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+
+# `MAKEFLAGS=-j1` here only (not globally): the first attempt at this colcon build (2026-07-18)
+# OOM-killed `cc1plus` while compiling `mavros`'s plugins (`Killed signal terminated program
+# cc1plus`, Docker itself then failed the whole build step with `ResourceExhausted: cannot
+# allocate memory`) — make's default `-j$(nproc)` was compiling too many of mavros's plugin
+# translation units in parallel for the memory available. Every other colcon build in this
+# Dockerfile (DAVE packages, wgpu_vendor, multibeam_sonar, ArduSub) completed fine at default
+# parallelism, so this is scoped to just the mavros package rather than slowing down the whole
+# image build. If this still OOMs, the fix is host-level (raise Docker Desktop's memory limit
+# under Settings > Resources), not something fixable from inside the Dockerfile alone.
+RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+    MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 && \
+    rm -rf /var/lib/apt/lists/*
 
 # --- ArduSub SITL (BlueROV2) — Python 3.14 compatibility shims required, see notes/ardusub-sitl-setup.md ---
 # Pinned to the exact commit verified in README.md's "Pinned commits" table (not the
@@ -215,6 +265,7 @@ RUN mkdir -p ~/QGC && wget -O ~/QGC/QGroundControl-aarch64-DailyBuild.AppImage \
 USER root
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/$USER/.bashrc && \
     echo "source $DAVE_UNDERLAY/install/setup.bash" >> /home/$USER/.bashrc && \
+    echo "source $MAVROS_WS/install/setup.bash" >> /home/$USER/.bashrc && \
     echo "export PATH=/usr/local/bin:\$PATH" >> /home/$USER/.bashrc && \
     echo "export GEOGRAPHICLIB_GEOID_PATH=/usr/share/GeographicLib/geoids" >> /home/$USER/.bashrc && \
     echo "export PS1='\[\e[1;36m\]\u@lyrical_docker\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '" >> /home/$USER/.bashrc
