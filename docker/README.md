@@ -4,7 +4,7 @@
 Status: VALIDATED (2026-07-18) — clean (--no-cache) build including a from-source mavros stage,
 build time/size recorded, ROS environment/package checks confirmed
 Validated: Build, headless launch, XFCE/xrdp login (2026-07-17/18 lineage), ROS environment + dave_demos/multibeam_sonar_system/mavros package presence
-Not yet validated: all 18 worlds, quantitative performance, long-duration stability, RAM under an active demo/RDP session (idle-only measured so far)
+Not yet validated: all 18 worlds, quantitative performance, long-duration stability
 Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop
 ```
 
@@ -15,7 +15,12 @@ mavros build (`ros-lyrical-mavros` isn't published via apt yet — see the main
 [README.md Known issues](../README.md#known-issues)) — image tag `lyrical-sim:jetty-rdp-pr1-ca-fix`.
 Build took **51m 22s**, produced a **21.9GB** image, and an idle running container (no active
 RDP session or Gazebo demo) used **62.66MiB** RAM (`docker stats`) — a floor, not a
-representative figure under load. Confirmed in that build/run: all 36 build steps completed,
+representative figure under load. **Under an active demo workload** (2026-07-20, same image,
+representative smoke test below running headless via `docker exec -d`), `docker stats` held
+steady at **~1008MiB (8.44% of the 11.67GiB container memory limit)** and **~1.2–1.5% CPU**
+across 5 samples over ~20s once the sonar plugin finished loading — roughly 16× the idle floor,
+and consistent with a `ps aux` breakdown inside the container (`gz-sim-main` ~836MB RSS / ~15.7%
+of one core, `parameter_bridge` ~90MB). Confirmed in that build/run: all 36 build steps completed,
 `ROS_DISTRO=lyrical` and `ros2` resolved inside the container, `ros2 pkg prefix` resolved
 `dave_demos` and `multibeam_sonar_system`, and `ros2 pkg list` listed `mavros`, `mavros_extras`,
 `mavros_msgs`, `mavros_examples`. This is **clean build + ROS environment/package presence
@@ -142,6 +147,7 @@ docker exec -it lyrical-sim bash -lc \
 | WGPU/Rust sonar packages (`wgpu_vendor`, `multibeam_sonar`, `multibeam_sonar_system`) build | PASS |
 | ArduSub SITL build | PASS |
 | mavros build (from source; `ros-lyrical-mavros` not yet on apt) | PASS — `mavros`/`mavros_extras`/`mavros_msgs`/`mavros_examples` confirmed via `ros2 pkg list`, MAVLink bridging itself not yet exercised |
+| RAM/CPU under an active demo workload | PASS — ~1008MiB (8.44%) / ~1.2–1.5% CPU, steady over 5 samples (2026-07-20); idle floor is 62.66MiB |
 | USBL | PARTIAL — server/plugin loads and publishes; GUI client crashes |
 | All 18 worlds executed | NOT TESTED — inventory complete, not all run |
 | `sonar-demo`-branch-only worlds | NOT TESTED |
@@ -184,3 +190,13 @@ docker exec -it lyrical-sim bash -lc \
   `Copying plugin as children of sdf`) seen during REXROV spawn; robot spawn and `ros_gz`
   bridge creation completed successfully afterward, so this is a non-fatal known warning,
   not an error.
+- **A "Stack trace (most recent call last) in thread N:" line appears in `gazebo-1`'s log**
+  right after the multibeam sonar plugin finishes loading (seen 2026-07-20, during the
+  RAM/CPU-under-load measurement above). This did **not** crash the process: `ps aux` inside
+  the container showed `gz-sim-main` still alive and actively consuming CPU (~15.7% of one
+  core) more than 7 minutes after the trace appeared, and the `docker stats` RAM reading was
+  stable across all 5 samples. Also present in the same log: `error: XDG_RUNTIME_DIR is
+  invalid or not set in the environment` — non-fatal, the WGPU sonar backend still selected
+  `llvmpipe` and compiled its pipelines successfully afterward. Root cause of the stack trace
+  itself not yet investigated; flagged here as a known non-fatal log artifact, not confirmed
+  benign for every world/workload.
