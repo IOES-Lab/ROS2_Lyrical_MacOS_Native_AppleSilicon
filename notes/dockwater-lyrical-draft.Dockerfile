@@ -210,3 +210,98 @@ RUN apt update $CA_OPT \
 # docker/lyrical.arm64v8.dockerfile) is what actually vendors Gazebo Jetty.
 # Confirm during the real build whether a narrower `ros-lyrical-ros-gz-sim`
 # package exists on its own before deciding which to use here.
+
+# --- RDP support (xrdp/XFCE) — added 2026-07-20 --------------------------
+# UNTESTED as of this edit. Added because rocker's `run.bash -r` option
+# (see dockwater's own run.bash) only maps port 3389 and sets a few rocker
+# extensions (--x11, --privileged, --device /dev/fuse) — it does NOT install
+# or start an actual RDP server. Confirmed the hard way: `./run.bash -r -p
+# 3400 dockwater:lyrical` built and started the container fine, but the RDP
+# client got "Unable to connect" (error 0x204) because nothing was listening
+# on port 3389 inside the container. dockwater's own jazzy/Dockerfile never
+# installs xrdp either, so this isn't a Lyrical-specific gap — it's a gap in
+# every dockwater base image if you want `-r` to actually work. This block
+# is copied near-verbatim from the validated RDP section of
+# docker/lyrical.arm64v8.dockerfile (XFCE chosen over GNOME because GNOME 50
+# on this Ubuntu 26.04 image needs Wayland, which xorgxrdp can't drive — see
+# docker/README.md Known limitations).
+ARG USER=docker
+ARG PASS=docker
+
+RUN apt update $CA_OPT -o APT::Update::Error-Mode=any && \
+    apt install -y --no-install-recommends $CA_OPT \
+      dbus dbus-x11 xrdp xorgxrdp \
+      xfce4 xfce4-goodies xfce4-terminal xterm \
+      sudo openssl ca-certificates openssh-server && \
+    apt autoremove --purge -y && \
+    apt clean && \
+    rm -f /run/reboot-required*
+
+RUN useradd -s /bin/bash -m $USER && echo "$USER:$PASS" | chpasswd; \
+    usermod -aG sudo $USER; echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers; \
+    adduser xrdp ssl-cert; \
+    # xrdp daemon needs root-group access to session sockets under /run/xrdp/sockdir/ —
+    # without this, RDP connections time out after ~30s ("connection problem, giving up")
+    # (this exact symptom, root-caused in docker/lyrical.arm64v8.dockerfile 2026-07-15)
+    usermod -aG root xrdp; \
+    echo 'LANG=en_US.UTF-8' >> /etc/default/locale; \
+    echo 'export XDG_CURRENT_DESKTOP=XFCE' > /home/$USER/.xsessionrc; \
+    echo 'export XDG_SESSION_DESKTOP=xfce' >> /home/$USER/.xsessionrc; \
+    echo 'export DESKTOP_SESSION=xfce' >> /home/$USER/.xsessionrc; \
+    echo 'export XDG_SESSION_TYPE=x11' >> /home/$USER/.xsessionrc; \
+    sed -i "s/#EnableConsole=false/EnableConsole=true/g" /etc/xrdp/xrdp.ini; \
+    # NOTE: do NOT force max_bpp down to 16 here (docker/lyrical.arm64v8.dockerfile does,
+    # copied from it originally, then removed here after root-causing a real black-screen
+    # bug 2026-07-20). xrdp 0.10.x has a confirmed upstream bug (neutrinolabs/xrdp#3118):
+    # when max_bpp < 32 and the client requests the GFX pipeline (every modern client does,
+    # including macOS's "Windows App"/Microsoft Remote Desktop), the server logs "Client
+    # requested gfx protocol but the server configuration is limited to 16 bpp", downgrades,
+    # then the session negotiates but never actually paints anything — solid black screen,
+    # session stays alive, Xorg/XFCE fully running server-side (confirmed via `docker exec`:
+    # xfwm4/xfce4-panel/xfdesktop all alive), just no bitmap updates ever reach the client.
+    # Fix per the upstream maintainer: leave max_bpp at its default (32).
+    sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/g' /etc/ssh/sshd_config; \
+    chown $USER:$USER /home/$USER/.xsessionrc
+
+# Bypass the Debian Xsession wrapper. In a systemd-less container it can exit
+# before reaching ~/.xsession. Each RDP login gets its own DBus session.
+RUN test -d /etc/xrdp && \
+    printf '%s\n' \
+      '#!/bin/bash' \
+      "exec >>/home/$USER/xrdp-startwm.log 2>&1" \
+      "export HOME=/home/$USER" \
+      "export USER=$USER" \
+      "export LOGNAME=$USER" \
+      'export XDG_SESSION_TYPE=x11' \
+      'export XDG_CURRENT_DESKTOP=XFCE' \
+      'export XDG_SESSION_DESKTOP=xfce' \
+      'export DESKTOP_SESSION=xfce' \
+      'export XDG_RUNTIME_DIR="/run/user/$(id -u)"' \
+      'unset GNOME_SHELL_SESSION_MODE SESSION_MANAGER DBUS_SESSION_BUS_ADDRESS' \
+      'exec /usr/bin/dbus-run-session -- /usr/bin/startxfce4' \
+      > /etc/xrdp/startwm.sh && \
+    chmod 0755 /etc/xrdp/startwm.sh
+
+EXPOSE 3389/tcp
+EXPOSE 22/tcp
+
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/$USER/.bashrc
+
+USER root
+# hadolint ignore=DL3025
+CMD uid="$(id -u docker)"; \
+    sudo install -d -m 0755 /run/xrdp /run/xrdp/sockdir; \
+    sudo install -d -m 0700 -o docker -g docker "/run/user/$uid"; \
+    sudo rm -f /run/xrdp/*.pid /var/run/xrdp/*.pid; \
+    sudo mkdir -p /run/dbus; sudo rm -f /run/dbus/pid; \
+    sudo dbus-daemon --system --fork; \
+    [ -f /usr/sbin/sshd ] && sudo /usr/sbin/sshd; \
+    sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini & \
+    exec sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+
+# NOTE on rocker's `-r` flag interaction with this CMD: rocker's `--x11`/`--privileged`
+# extensions build a thin layer on top of this image (`FROM dockwater:lyrical` + `USER root`)
+# and run the container — they do not override CMD, so this xrdp startup sequence should still
+# fire when the rocker-built container starts. UNTESTED — confirm with
+# `./run.bash -r -p <port> dockwater:lyrical` after rebuilding, then connect via RDP client to
+# `localhost:<port>`, user `docker`, password `docker`.

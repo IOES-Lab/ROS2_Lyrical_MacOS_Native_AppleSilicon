@@ -1,0 +1,80 @@
+/usr/bin/startxfce4: X server already running on display :11.0
+
+(xfce4-session:67): dbind-WARNING **: 14:04:22.026: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[66]: [session uid=1001 pid=66 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.2' (uid=1001 pid=67 comm="xfce4-session")
+dbus-daemon[66]: [session uid=1001 pid=66 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+
+(xfce4-session:67): libxfce4util-WARNING **: 14:04:22.042: Failed to get a systemd proxy: Error calling StartServiceByName for org.freedesktop.login1: Launch helper exited with unknown return code 1
+** Message: 14:04:22.048: Failed to fetch _NET_NUMBER_OF_DESKTOPS; assuming 1
+** Message: 14:04:22.048: Failed to get _NET_WORKAREA; using full screen dimensions
+** Message: 14:04:22.048: Failed to fetch _NET_CURRENT_DESKTOP; assuming 0
+** Message: 14:04:22.048: Failed to fetch _NET_CURRENT_DESKTOP; assuming 0
+_IceTransmkdir: ERROR: euid != 0,directory /tmp/.ICE-unix will not be created.
+/usr/bin/iceauth:  creating new authority file /run/user/1001/ICEauthority
+gpg-agent[97]: directory '/home/docker/.gnupg' created
+gpg-agent[97]: directory '/home/docker/.gnupg/private-keys-v1.d' created
+gpg-agent[98]: gpg-agent (GnuPG) 2.4.8 started
+
+(xfwm4:101): dbind-WARNING **: 14:04:22.093: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+** Message: 14:04:22.221: Failed to fetch _NET_CURRENT_DESKTOP; assuming 0
+** Message: 14:04:22.678: Failed to fetch _NET_CURRENT_DESKTOP; assuming 0
+** Message: 14:04:22.913: Failed to fetch _NET_CURRENT_DESKTOP; assuming 0
+
+(xfwm4:101): xfwm4-WARNING **: 14:04:25.760: Another compositing manager is running on screen 0
+
+(xfsettingsd:120): dbind-WARNING **: 14:04:25.833: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[66]: [session uid=1001 pid=66 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.8' (uid=1001 pid=120 comm="xfsettingsd")
+
+(xfsettingsd:120): xfsettingsd-WARNING **: 14:04:26.036: Failed to apply display settings
+dbus-daemon[66]: [session uid=1001 pid=66 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+
+(xfce4-panel:131): dbind-WARNING **: 14:04:26.102: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(migrate:141): dbind-WARNING **: 14:04:26.370: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+Xlib:  extension "DPMS" missing on display ":11.0".
+
+(Thunar:137): dbind-WARNING **: 14:04:29.240: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(xfdesktop:151): dbind-WARNING **: 14:04:29.477: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+Xlib:  extension "DPMS" missing on display ":11.0".
+
+(wrapper-2.0:219): dbind-WARNING **: 14:04:32.043: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (xfdesktop:151): CRITICAL **: 14:04:32.460: xfdesktop_regular_file_icon_new: assertion 'G_IS_FILE_INFO(file_info)' failed
+
+(xfdesktop:151): GLib-GObject-CRITICAL **: 14:04:32.460: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(wrapper-2.0:228): dbind-WARNING **: 14:04:32.461: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (xfdesktop:151): WARNING **: 14:04:32.475: Thumbnailer failed calling GetFlavors
+
+(xfsettingsd:227): dbind-WARNING **: 14:04:32.473: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(xfce4-notifyd:225): dbind-WARNING **: 14:04:32.477: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(xfdesktop:151): GLib-GObject-CRITICAL **: 14:04:32.748: g_object_get_qdata: assertion 'G_IS_OBJECT (object)' failed
+
+(xfdesktop:151): GLib-GIO-CRITICAL **: 14:04:32.748: g_file_get_path: assertion 'G_IS_FILE (file)' failed
+** Message: 14:04:32.748: Failed to load image file '(null)': Error opening file /usr/share/xfce4/backdrops/xubuntu-wallpaper.png: No such file or directory
+
+(xfce4-session:67): xfce4-session-WARNING **: 14:04:34.207: failed to run script: Failed to execute child process “/usr/bin/pm-is-supported” (No such file or directory)
+
+(xfce4-session:67): xfce4-session-WARNING **: 14:04:34.226: failed to run script: Failed to execute child process “/usr/bin/pm-is-supported” (No such file or directory)
+
+(xfce4-session:67): xfce4-session-WARNING **: 14:04:34.250: failed to run script: Failed to execute child process “/usr/bin/pm-is-supported” (No such file or directory)
+---PROCESSES---
+message+    32  0.0  0.0   8872  4976 ?        Ss   14:03   0:00 dbus-daemon --system --fork
+docker      53  4.1  0.7 291044 87720 pts/2    Sl   14:04   0:02 /usr/lib/xorg/Xorg :11 -auth .Xauthority -config xrdp/xorg.conf -noreset -nolisten tcp -logfile .xorgxrdp.%s.log
+docker      62  0.0  0.0   5752  1884 pts/2    S    14:04   0:00 /usr/bin/dbus-run-session -- /usr/bin/startxfce4
+docker      66  0.6  0.0   8776  5908 pts/2    S    14:04   0:00 dbus-daemon --nofork --print-address 4 --session
+docker      67  0.6  0.7 951948 96704 pts/2    Sl   14:04   0:00 xfce4-session
+docker      82  1.2  0.1 310440 16452 pts/2    Sl   14:04   0:00 /usr/lib/aarch64-linux-gnu/xfce4/xfconf/xfconfd
+docker     131  6.8  0.4 1447144 58796 pts/2   Sl   14:04   0:04 xfce4-panel
+docker     219  2.2  0.2 436768 25300 pts/2    Sl   14:04   0:01 /usr/lib/aarch64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/aarch64-linux-gnu/xfce4/panel/plugins/libsystray.so 6 12582924 systray Status Tray Plugin Provides status notifier items (application indicators) and legacy systray items
+docker     225  0.3  0.1 564372 20852 pts/2    Sl   14:04   0:00 /usr/lib/aarch64-linux-gnu/xfce4/notifyd/xfce4-notifyd
+docker     228  1.4  0.2 420448 28488 pts/2    Sl   14:04   0:00 /usr/lib/aarch64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/aarch64-linux-gnu/xfce4/panel/plugins/libactions.so 10 12582925 actions Action Buttons Log out, lock or other system actions
+docker     403  0.1  0.0   3676  1824 pts/2    S    14:05   0:00 bwrap --unshare-all --die-with-parent --chdir / --ro-bind /usr /usr --dev /dev --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /nix/store /nix/store --tmpfs /tmp-home --tmpfs /tmp-run --clearenv --setenv HOME /tmp-home --setenv XDG_RUNTIME_DIR /tmp-run --setenv XDG_RUNTIME_DIR /run/user/1001 --symlink /usr/lib /lib --seccomp 19 /usr/libexec/glycin-loaders/2+/glycin-image-rs --dbus-fd 18
+docker     405  0.0  0.0   3676  1440 pts/2    S    14:05   0:00 bwrap --unshare-all --die-with-parent --chdir / --ro-bind /usr /usr --dev /dev --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /nix/store /nix/store --tmpfs /tmp-home --tmpfs /tmp-run --clearenv --setenv HOME /tmp-home --setenv XDG_RUNTIME_DIR /tmp-run --setenv XDG_RUNTIME_DIR /run/user/1001 --symlink /usr/lib /lib --seccomp 19 /usr/libexec/glycin-loaders/2+/glycin-image-rs --dbus-fd 18
+docker     406  0.0  0.0 211872 11864 pts/2    Sl   14:05   0:00 /usr/libexec/glycin-loaders/2+/glycin-image-rs --dbus-fd 18
+root       410 33.3  0.0   6148  5196 pts/3    Ss+  14:05   0:00 bash -c cat /home/docker/xrdp-startwm.log; echo ---PROCESSES---; ps aux | grep -Ei 'xfce|dbus|startwm|Xorg'
+root       418  0.0  0.0   4204  1616 pts/3    S+   14:05   0:00 grep -Ei xfce|dbus|startwm|Xorg
