@@ -200,3 +200,20 @@ docker exec -it lyrical-sim bash -lc \
   `llvmpipe` and compiled its pipelines successfully afterward. Root cause of the stack trace
   itself not yet investigated; flagged here as a known non-fatal log artifact, not confirmed
   benign for every world/workload.
+- **Rebuilding any workspace (`dave_ws`, `mavros_ws`, the ArduSub SITL build) as the runtime
+  `docker` user fails** (found 2026-07-20, while launching demos over RDP). All workspaces are
+  compiled once, as `root`, during the image build itself — the `docker` user never needs to run
+  `colcon build` at all; sourcing the already-built `install/setup.bash` and launching directly
+  is sufficient (and is what every command in this file does). If a rebuild is attempted anyway
+  as `docker`, three separate issues surface in sequence: (1) `cargo` (needed by `wgpu_vendor`)
+  only exists under `/root/.rustup/...`, which the `docker` user can't read — fix by installing
+  rustup separately for `docker` (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs |
+  sh -s -- -y`); (2) the existing workspace directories under `/home/docker` are `root`-owned
+  from the image build, so `colcon build` fails with `Permission denied` — fix with `sudo chown
+  -R docker:docker /home/docker`; (3) `ardupilot_sitl`'s `waf` still fails with
+  `ModuleNotFoundError: No module named 'imp'` even after both of the above, the same Python
+  3.14/`imp` incompatibility already tracked in the main
+  [README.md Known issues](../README.md#known-issues) — the shim applied during the image build
+  isn't present/effective in this interactive `docker`-user shell. Net effect: don't rebuild as
+  `docker` unless you're intentionally testing uncommitted source changes; for running the
+  existing demos, skip `colcon build` entirely.
