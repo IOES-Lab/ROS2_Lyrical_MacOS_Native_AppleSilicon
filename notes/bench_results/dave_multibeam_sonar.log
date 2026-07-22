@@ -1,0 +1,58 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-06-42-50-823862-67d4b1d39687-7985
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [7989]
+[INFO] [create-2]: process started with pid [7990]
+[INFO] [parameter_bridge-3]: process started with pid [7991]
+[INFO] [static_transform_publisher-4]: process started with pid [7993]
+[static_transform_publisher-4] [INFO] [1784702571.093421008] [static_transform_publisher_9qZA3mCtvIa2wW9M]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'world' to 'blueview_p900/blueview_p900_base_link/multibeam_sonar'
+[create-2] [INFO] [1784702571.105159717] [ros_gz_sim]: Requesting list of world names.
+[parameter_bridge-3] [INFO] [1784702571.121261925] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.123910717] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera (sensor_msgs/msg/Image) -> /sensor/camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.124694508] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.125054842] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera_info (sensor_msgs/msg/CameraInfo) -> /sensor/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.125347967] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.125535467] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/depth_camera (sensor_msgs/msg/Image) -> /sensor/depth_camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.125780008] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784702571.126104800] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
+[create-2] [INFO] [1784702573.432121301] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 7990]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_compute_factory] Auto-selecting best available backend...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[gazebo-1] libEGL warning: DRI3 error: Could not get DRI3 device
+[gazebo-1] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[gazebo-1] 
+[gazebo-1] thread '<unnamed>' (8079) panicked at /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wgpu-hal-0.21.1/src/gles/egl.rs:296:14:
+[gazebo-1] called `Result::unwrap()` on an `Err` value: BadAccess
+[gazebo-1] note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[gazebo-1] [sonar_wgpu] [all] GPU init panicked; trying next backend set
+[gazebo-1] [sonar_wgpu] GPU init failed for all backend sets; falling back to CPU path
+[gazebo-1] [sonar_wgpu] GPU init failed -> returning null (C++ will use CPU backend).
+[gazebo-1] [sonar_wgpu] GPU probe failed -> will fall back to CPU at compute time.
+[gazebo-1] [sonar_compute_factory] SUCCESS: Auto-selected WGPU backend (CUDA unavailable)
+[gazebo-1] [INFO] [1784702574.203437968] [multibeam_sonar_node]: 
+[gazebo-1] [INFO] [1784702574.203925093] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1784702574.203987010] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1784702574.204062010] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1784702574.204127343] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1784702574.204169468] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1784702574.204212926] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1784702574.204272260] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1784702574.204289718] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1784702574.204295801] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1784702574.204301010] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1784702574.204305801] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1784702574.204310176] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1784702574.204314426] [multibeam_sonar_node]: 
+[gazebo-1] [sonar_wgpu] GPU probe failed -> will fall back to CPU at compute time.
+[parameter_bridge-3] [INFO] [1784702574.253157676] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/CameraInfo to Gazebo gz.msgs.CameraInfo (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1784702574.364949468] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1784702574.527475468] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/PointCloud2 to Gazebo gz.msgs.PointCloudPacked (showing msg only once per type)
+[gazebo-1] [sonar_wgpu] GPU unavailable on first compute -> creating CPU fallback backend
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: cpu
+[gazebo-1] [sonar_compute_factory] Creating CPU backend

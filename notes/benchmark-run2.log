@@ -1,0 +1,25 @@
+=== dave_ocean_waves ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_waves paused:=false gui:=true headless:=true namespace:=rexrov
+Settling 8s...
+stats topic: /stats
+--> RTF avg: 0.240, gz-sim RSS: 948.5 MiB, cgroup mem: 1641 MiB
+./benchmark_worlds.sh: line 154:  7003 Killed                     "${cmd[@]}" > "$log_file" 2>&1
+
+=== dave_multibeam_sonar ===
+cmd: ros2 launch dave_demos dave_sensor.launch.py world_name:=dave_multibeam_sonar paused:=false gui:=true headless:=true namespace:=blueview_p900 x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu
+Settling 8s...
+stats topic: /stats
+--> RTF avg: 0.760, gz-sim RSS: 622.0 MiB, cgroup mem: 1443 MiB
+./benchmark_worlds.sh: line 154:  7210 Killed                     "${cmd[@]}" > "$log_file" 2>&1
+
+=== usbl_tutorial ===
+cmd: ros2 launch dave_demos dave_sensor.launch.py world_name:=usbl_tutorial paused:=false gui:=true headless:=true namespace:=usbl
+Settling 8s...
+stats topic: /stats
+--> RTF avg: 0.992, gz-sim RSS: 185.4 MiB, cgroup mem: 1084 MiB
+./benchmark_worlds.sh: line 154:  7432 Killed                     "${cmd[@]}" > "$log_file" 2>&1
+
+Done. Results in bench_results/benchmark_results.csv
+NOTE: also run 'docker stats --no-stream <container-name>' from the HOST during one of these
+worlds for a container-wide CPU%/MEM cross-check (cgroup-file reading from inside the
+container may not reflect the host's view of docker stats depending on cgroup driver).

@@ -129,10 +129,6 @@ run_one() {
     # then clean up.
     status="PASS"
     notes="alive after ${TIMEOUT_SEC}s"
-    kill -TERM "$pid" 2>/dev/null
-    sleep 2
-    kill -KILL "$pid" 2>/dev/null
-    pkill -TERM -f "world_name:=${world%.world}" 2>/dev/null
   else
     wait "$pid" 2>/dev/null
     if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin' "$log_file"; then
@@ -143,6 +139,18 @@ run_one() {
       notes="process exited before ${TIMEOUT_SEC}s with no recognized crash signature -- inspect $log_file"
     fi
   fi
+
+  # Unconditional aggressive cleanup, regardless of PASS/CRASH/EXITED.
+  # `ros2 launch`'s own child (the "gazebo-1" wrapper -> gz-sim-main) does
+  # NOT reliably die just because the top-level launch_pid got SIGTERM'd --
+  # confirmed 2026-07-22: after 3 test_worlds.sh runs, 14 orphaned
+  # gz-sim-main processes were still alive and accumulating CPU/RAM (one had
+  # grown to 3.2GB RSS / 108% CPU). SIGKILL by pattern match is the reliable
+  # fix; a plain SIGTERM in the PASS branch alone was not enough.
+  kill -KILL "$pid" 2>/dev/null
+  pkill -9 -f "world_name:=${world%.world}[[:space:]]" 2>/dev/null
+  pkill -9 -f "worlds/${world%.world}.world" 2>/dev/null
+  sleep 1
 
   end=$(date +%s)
   elapsed=$((end - start))

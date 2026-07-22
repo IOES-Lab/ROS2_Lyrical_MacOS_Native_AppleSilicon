@@ -152,7 +152,7 @@ docker exec -it lyrical-sim bash -lc \
 | All 18 worlds executed | NOT TESTED — inventory complete, not all run |
 | `sonar-demo`-branch-only worlds | NOT TESTED |
 | All vehicle/sensor/GUI-headless combinations | NOT TESTED |
-| Quantitative performance benchmark | NOT DONE |
+| Quantitative performance benchmark | PARTIAL — RTF + CPU/RAM measured for 3 representative worlds (2026-07-22, RTF 0.53-0.94); see main [README.md](../README.md#progress-log) and `notes/bench_results/`. Mac/Metal comparison and sonar frame time not yet re-measured with the same method |
 | Long-duration stability | NOT DONE |
 
 ## Known limitations
