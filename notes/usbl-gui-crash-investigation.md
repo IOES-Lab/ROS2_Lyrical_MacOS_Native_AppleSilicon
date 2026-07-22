@@ -32,19 +32,30 @@ specific world file's explicit `sigma=0.0` triggers it, and whether the
 assertion is even compiled in depends on the libstdc++ build flags — plausibly
 why this wasn't caught on the original Jazzy+Harmonic target platform.
 
-**Two possible fixes** (not yet applied — this lives in the pinned
-`naitikpahwa18/dave` dependency, not this project's own repo, so applying
-either needs a decision on whether to patch locally via
-`patches/dave_lyrical_jetty_migration_mac.diff` or report upstream):
+**Fix applied and verified (2026-07-22):** patched `<sigma>0.0</sigma>` →
+`<sigma>0.0001</sigma>` on both `UsblTransponder` instances in
+`usbl_tutorial.world` (world-file fix, no C++ rebuild needed — saved as
+[`patches/usbl_sigma_fix.diff`](../patches/usbl_sigma_fix.diff)). Verified
+live: copied the patched world file into the running `lyrical-theme-test`
+container (`docker cp` over the built-in copy at
+`/home/docker/dave_ws/install/share/dave_worlds/worlds/usbl_tutorial.world`)
+and re-ran the exact launch command with a 15s `timeout` — the process
+survived the full window with no assertion/abort, versus dying within ~3s
+before the fix.
 
-1. **World-file fix (trivial, no C++ rebuild):** change `<sigma>0.0</sigma>`
-   to a small positive epsilon, e.g. `<sigma>0.0001</sigma>`, on both
-   `UsblTransponder` instances in `usbl_tutorial.world`.
-2. **Plugin-level fix (more correct, needs rebuild):** in
-   `UsblTransponder.cc` around line 263, guard against `sigma <= 0` before
-   constructing the distribution — e.g. skip noise entirely (return `mu`)
-   when `m_noiseSigma <= 0`, since "zero noise" is a legitimate thing to want
-   to express in a world file and shouldn't require rebuilding C++.
+**Not yet done:**
+- The Docker *image* itself (`docker/lyrical.arm64v8.dockerfile`) still
+  bakes in the unpatched world file — this fix only lives in the running
+  container's live filesystem (lost on container recreation) and in the Mac
+  native workspace (`dave_ws_lyrical`). Needs either a `sed`/patch step added
+  to the Dockerfile, or the patch folded into a rebuild, to persist.
+- Not reported upstream to `naitikpahwa18/dave` or `IOES-Lab/dave` yet.
+- The more defensive **plugin-level fix** (guard `sigma <= 0` in
+  `UsblTransponder.cc` around line 263 and skip noise/return `mu` instead of
+  asserting) was not applied — the world-file epsilon is a valid workaround
+  but the plugin itself would still crash on a *literal* zero from any other
+  world file or user config. Worth flagging in an upstream report regardless
+  of which fix ships here.
 
 ## Superseded: earlier same-day hypothesis (WRONG, kept below for the record)
 
