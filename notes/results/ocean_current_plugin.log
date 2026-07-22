@@ -1,0 +1,13 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-05-35-03-438688-67d4b1d39687-3067
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [3071]
+[INFO] [create-2]: process started with pid [3072]
+[create-2] [INFO] [1784698504.073513418] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1784698504.490255710] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 3072]
+[INFO] [launch.user]: Robot Model Uploaded
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): [Errno 2] No such file or directory: '/home/docker/dave_ws/install/share/dave_robot_models/config/robot_config.py'
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[ERROR] [gazebo-1]: process[gazebo-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [gazebo-1]: sending signal 'SIGTERM' to process[gazebo-1]
+[ERROR] [gazebo-1]: process has died [pid 3071, exit code -15, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/ocean_current_plugin.world -s -r --force-version 10'].

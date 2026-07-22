@@ -1,6 +1,52 @@
 # USBL GUI Crash — Root Cause Investigation (2026-07-22)
 
-## Status: strong hypothesis, not yet confirmed (no real crash log ever captured)
+## Status: CONFIRMED (2026-07-22, `notes/results/usbl_tutorial.log`)
+
+**This is not a GUI crash.** It is the Gazebo **server** process (`gz sim ... -s -r`, `-s`
+= server-only) aborting with `SIGABRT` (exit code 134). Real captured log:
+
+```
+[gazebo-1] /usr/include/c++/15/bits/random.h:2138: std::normal_distribution<_RealType>::param_type::param_type(_RealType, _RealType) [with _RealType = double]: Assertion '_M_stddev > _RealType(0)' failed.
+[gazebo-1] Aborted
+[ERROR] [gazebo-1]: process has died [pid 3148, exit code 134, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/usbl_tutorial.world -s -r --force-version 10'].
+```
+
+**Root cause, confirmed at the source line:** `UsblTransponder.cc:263`
+(`dave_ws_lyrical/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc`):
+
+```cpp
+std::normal_distribution<> d(this->dataPtr->m_noiseMu, this->dataPtr->m_noiseSigma);
+```
+
+`m_noiseSigma` is read unvalidated straight from the world file's `<sigma>` SDF
+param (line 197: `this->dataPtr->m_noiseSigma = _sdf->Get<double>("sigma");`).
+`usbl_tutorial.world` sets `<sigma>0.0</sigma>` on **both** `UsblTransponder`
+plugin instances (`sphere` model, `sphere2` model). libstdc++'s
+`std::normal_distribution` constructor requires `stddev > 0` (strictly), so
+`sigma=0.0` trips a `_GLIBCXX_ASSERTIONS`-style abort on this Ubuntu
+26.04/gcc-15 build. The plugin's own default (`m_noiseSigma = 1.0`, line 82)
+is safe — the world file explicitly overrides it to the unsafe value.
+
+**Why this only surfaces here:** the code default is safe (1.0); only this
+specific world file's explicit `sigma=0.0` triggers it, and whether the
+assertion is even compiled in depends on the libstdc++ build flags — plausibly
+why this wasn't caught on the original Jazzy+Harmonic target platform.
+
+**Two possible fixes** (not yet applied — this lives in the pinned
+`naitikpahwa18/dave` dependency, not this project's own repo, so applying
+either needs a decision on whether to patch locally via
+`patches/dave_lyrical_jetty_migration_mac.diff` or report upstream):
+
+1. **World-file fix (trivial, no C++ rebuild):** change `<sigma>0.0</sigma>`
+   to a small positive epsilon, e.g. `<sigma>0.0001</sigma>`, on both
+   `UsblTransponder` instances in `usbl_tutorial.world`.
+2. **Plugin-level fix (more correct, needs rebuild):** in
+   `UsblTransponder.cc` around line 263, guard against `sigma <= 0` before
+   constructing the distribution — e.g. skip noise entirely (return `mu`)
+   when `m_noiseSigma <= 0`, since "zero noise" is a legitimate thing to want
+   to express in a world file and shouldn't require rebuilding C++.
+
+## Superseded: earlier same-day hypothesis (WRONG, kept below for the record)
 
 ## What was already known (2026-07-14)
 
