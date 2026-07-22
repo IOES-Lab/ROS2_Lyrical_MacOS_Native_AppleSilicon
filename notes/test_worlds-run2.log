@@ -1,0 +1,29 @@
+=== dave_Santorini.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_Santorini paused:=false gui:=true headless:=true
+--> EXITED (30s)
+
+=== dave_graded_seabed.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_graded_seabed paused:=false gui:=true headless:=true
+--> EXITED (30s)
+
+=== dave_integrated.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_integrated paused:=false gui:=true headless:=true
+--> EXITED (30s)
+
+=== dave_ocean_models.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_models paused:=false gui:=true headless:=true
+--> EXITED (30s)
+
+=== dave_ocean_waves_mossy_ground.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_waves_mossy_ground paused:=false gui:=true headless:=true
+--> EXITED (30s)
+
+=== dave_ocean_waves_transient_current.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_waves_transient_current paused:=false gui:=true headless:=true
+--> EXITED (30s)
+
+=== new_dvl.world (BEST-EFFORT args) ===
+cmd: ros2 launch dave_demos dave_sensor.launch.py world_name:=new_dvl paused:=false gui:=true headless:=true namespace:=dvl
+--> EXITED (30s)
+
+Done. Results appended to results/test_worlds_results.csv

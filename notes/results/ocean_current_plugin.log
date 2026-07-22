@@ -1,13 +1,14 @@
-[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-05-35-03-438688-67d4b1d39687-3067
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-06-10-22-100828-67d4b1d39687-5600
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [gazebo-1]: process started with pid [3071]
-[INFO] [create-2]: process started with pid [3072]
-[create-2] [INFO] [1784698504.073513418] [ros_gz_sim]: Requesting list of world names.
-[create-2] [INFO] [1784698504.490255710] [ros_gz_sim]: Entity creation successful.
-[INFO] [create-2]: process has finished cleanly [pid 3072]
+[INFO] [gazebo-1]: process started with pid [5659]
+[INFO] [create-2]: process started with pid [5660]
+[create-2] [INFO] [1784700632.602372209] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1784700634.355604585] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 5660]
 [INFO] [launch.user]: Robot Model Uploaded
-[ERROR] [launch]: Caught exception in launch (see debug for traceback): [Errno 2] No such file or directory: '/home/docker/dave_ws/install/share/dave_robot_models/config/robot_config.py'
-[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
-[ERROR] [gazebo-1]: process[gazebo-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
-[INFO] [gazebo-1]: sending signal 'SIGTERM' to process[gazebo-1]
-[ERROR] [gazebo-1]: process has died [pid 3071, exit code -15, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/ocean_current_plugin.world -s -r --force-version 10'].
+[INFO] [parameter_bridge-3]: process started with pid [5689]
+[parameter_bridge-3] [INFO] [1784700636.527879419] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.023228586] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.036063919] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.561386753] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.567709378] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster3_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster3_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)

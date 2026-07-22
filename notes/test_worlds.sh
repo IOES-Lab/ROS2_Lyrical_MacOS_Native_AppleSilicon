@@ -69,24 +69,33 @@ fi
 # world_file : launch_file : namespace : extra_args : known(1)/unknown(0)
 # "known" worlds use the exact args already verified in README.md / notes/.
 # "unknown" worlds are best-effort guesses -- see header comment.
+#
+# IMPORTANT (discovered 2026-07-22): dave_robot.launch.py ALWAYS requires a
+# namespace matching one of dave_robot_models/config/{rexrov,bluerov2,
+# bluerov2_heavy,bluerov2_heavy_multibeam_sonar,glider_slocum}/robot_config.py
+# -- there is no generic/environment-only default. Omitting it fails with
+# "No such file or directory: .../config/robot_config.py". Every
+# dave_robot.launch.py world below defaults to namespace:=rexrov (the one
+# confirmed working in README.md) purely to smoke-test the WORLD, not to
+# validate REXROV-specific behavior on that world.
 WORLDS=(
   "camera_tutorial.world:dave_sensor.launch.py:camera:1"
-  "dave_Santorini.world:dave_robot.launch.py::0"
+  "dave_Santorini.world:dave_robot.launch.py:rexrov:1"
   "dave_bimanual_example.world:dave_robot.launch.py::0"
   "dave_electrical_mating.world:dave_robot.launch.py::0"
-  "dave_graded_seabed.world:dave_robot.launch.py::0"
-  "dave_integrated.world:dave_robot.launch.py::0"
+  "dave_graded_seabed.world:dave_robot.launch.py:rexrov:1"
+  "dave_integrated.world:dave_robot.launch.py:rexrov:1"
   "dave_multibeam_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
-  "dave_ocean_models.world:dave_robot.launch.py::0"
+  "dave_ocean_models.world:dave_robot.launch.py:rexrov:1"
   "dave_ocean_waves.world:dave_robot.launch.py:rexrov:1"
-  "dave_ocean_waves_mossy_ground.world:dave_robot.launch.py::0"
+  "dave_ocean_waves_mossy_ground.world:dave_robot.launch.py:rexrov:1"
   "dave_ocean_waves_sonar.world:dave_sensor.launch.py::0"
   "dave_ocean_waves_sonar_integrated.world:dave_sensor.launch.py::0"
-  "dave_ocean_waves_transient_current.world:dave_robot.launch.py::0"
+  "dave_ocean_waves_transient_current.world:dave_robot.launch.py:rexrov:1"
   "dave_plug_and_socket.world:dave_robot.launch.py::0"
   "dvl_world.world:dave_sensor.launch.py:dvl:1"
-  "new_dvl.world:dave_sensor.launch.py:dvl:0"
-  "ocean_current_plugin.world:dave_robot.launch.py::1"
+  "new_dvl.world:dave_sensor.launch.py:dvl:1"
+  "ocean_current_plugin.world:dave_robot.launch.py:rexrov:1"
   "usbl_tutorial.world:dave_sensor.launch.py:usbl:1"
 )
 
