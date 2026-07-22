@@ -1,0 +1,37 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-07-25-22-942525-67d4b1d39687-9875
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [9886]
+[gazebo-1] qt.qpa.xcb: could not connect to display 
+[gazebo-1] qt.qpa.plugin: From 6.5.0, xcb-cursor0 or libxcb-cursor0 is needed to load the Qt xcb platform plugin.
+[gazebo-1] qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+[gazebo-1] This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+[gazebo-1] 
+[gazebo-1] Available platform plugins are: minimal, minimalegl, eglfs, xcb, vnc, linuxfb, wayland-brcm, wayland-egl, wayland, vkkhrdisplay, offscreen.
+[gazebo-1] 
+[gazebo-1] Stack trace (most recent call last):
+[gazebo-1] #19   Object "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1", at 0xffffffffffffffff, in 
+[gazebo-1] #18   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-gui-client", at 0xaaaae61ef36f, in 
+[gazebo-1] #17   Source "../csu/libc-start.c", line 360, in __libc_start_main_impl [0xffff9f51305b]
+[gazebo-1] #16   Source "../sysdeps/nptl/libc_start_call_main.h", line 59, in __libc_start_call_main [0xffff9f512f1b]
+[gazebo-1] #15   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-gui-client", at 0xaaaae61ecb57, in 
+[gazebo-1] #14   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-gui-client", at 0xaaaae61f9f57, in 
+[gazebo-1] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-gui-client", at 0xaaaae6217e9f, in 
+[gazebo-1] #12   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim-gui.so.10.4.0", at 0xffffa05b3463, in gz::sim::v10::gui::runGui(int&, char**, char const*, char const*, int, char const*, char const*)
+[gazebo-1] #11   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim-gui.so.10.4.0", at 0xffffa05b069b, in gz::sim::v10::gui::createGui(int&, char**, char const*, char const*, bool, char const*, int, char const*, char const*)
+[gazebo-1] #10   Object "/opt/ros/lyrical/opt/gz_gui_vendor/lib/libgz-gui.so.10.0.0", at 0xffff9f29f597, in gz::gui::Application::Application(int&, char**, gz::gui::WindowType, char const*)
+[gazebo-1] #9    Object "/usr/lib/aarch64-linux-gnu/libQt6Widgets.so.6.10.2", at 0xffff9ec3a4f7, in QApplicationPrivate::init()
+[gazebo-1] #8    Object "/usr/lib/aarch64-linux-gnu/libQt6Gui.so.6.10.2", at 0xffff9d6f471f, in QGuiApplicationPrivate::init()
+[gazebo-1] #7    Object "/usr/lib/aarch64-linux-gnu/libQt6Core.so.6.10.2", at 0xffff9fb06f1f, in QCoreApplicationPrivate::init()
+[gazebo-1] #6    Object "/usr/lib/aarch64-linux-gnu/libQt6Gui.so.6.10.2", at 0xffff9d6f4637, in QGuiApplicationPrivate::createEventDispatcher()
+[gazebo-1] #5    Object "/usr/lib/aarch64-linux-gnu/libQt6Gui.so.6.10.2", at 0xffff9d6f3857, in QGuiApplicationPrivate::createPlatformIntegration()
+[gazebo-1] #4    Object "/usr/lib/aarch64-linux-gnu/libQt6Core.so.6.10.2", at 0xffff9fa60437, in QMessageLogger::fatal(char const*, ...) const
+[gazebo-1] #3    Object "/usr/lib/aarch64-linux-gnu/libQt6Core.so.6.10.2", at 0xffff9fa83f5b, in 
+[gazebo-1] #2    Source "./stdlib/abort.c", line 77, in abort [0xffff9f51271f]
+[gazebo-1] #1    Source "../sysdeps/posix/raise.c", line 26, in raise [0xffff9f5285fb]
+[gazebo-1] #0    Source "./nptl/pthread_kill.c", line 44, in __pthread_kill_implementation [0xffff9f57e13c]
+[gazebo-1] Aborted (Signal sent by tkill() 9902 1001)
+[gazebo-1] Aborted
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="m_to_f_plug"]/link[@name="m_to_f_plug"]/collision[@name="m_to_f_plug_collision"]/surface/friction/ode/mu1:/home/docker/.gz/fuel/fuel.gazebosim.org/hmoyen/models/m to f plug/1/model.sdf:L34]: XML Element[mu1], child of element[ode], not defined in SDF. Copying[mu1] as children of [ode].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="electrical_panel"]/link[@name="panel_link"]/inertial[@name="panel_inertial"][@name="panel_inertial"]:/home/docker/.gz/fuel/fuel.gazebosim.org/hmoyen/models/electrical panel bare model/1/model.sdf:L5]: XML Attribute[name] in element[inertial] not defined in SDF.
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="electrical_panel"]/link[@name="panel_link"]/inertial[@name="panel_inertial"]/mass[@value="500"]:/home/docker/.gz/fuel/fuel.gazebosim.org/hmoyen/models/electrical panel bare model/1/model.sdf:L15]: XML Attribute[value] in element[mass] not defined in SDF.
+[INFO] [gazebo-1]: process has finished cleanly [pid 9886]

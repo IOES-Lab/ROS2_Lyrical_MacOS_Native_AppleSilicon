@@ -31,3 +31,8 @@ timestamp,world_file,launch_file,status,elapsed_sec,log_file,notes
 2026-07-22T06:09:01Z,dave_ocean_waves_mossy_ground.world,dave_robot.launch.py,PASS,32,results/dave_ocean_waves_mossy_ground.log,"alive after 30s"
 2026-07-22T06:09:34Z,dave_ocean_waves_transient_current.world,dave_robot.launch.py,PASS,33,results/dave_ocean_waves_transient_current.log,"alive after 30s"
 2026-07-22T06:10:07Z,ocean_current_plugin.world,dave_robot.launch.py,PASS,33,results/ocean_current_plugin.log,"alive after 30s"
+2026-07-22T07:24:50Z,dave_bimanual_example.world,dave_world.launch.py,CRASH,31,results/dave_bimanual_example.log,""
+2026-07-22T07:25:21Z,dave_electrical_mating.world,dave_world.launch.py,CRASH,31,results/dave_electrical_mating.log,""
+2026-07-22T07:25:52Z,dave_ocean_waves_sonar.world,dave_sensor.launch.py,PASS,31,results/dave_ocean_waves_sonar.log,"alive after 30s"
+2026-07-22T07:26:24Z,dave_ocean_waves_sonar_integrated.world,dave_sensor.launch.py,PASS,32,results/dave_ocean_waves_sonar_integrated.log,"alive after 30s"
+2026-07-22T07:26:56Z,dave_plug_and_socket.world,dave_world.launch.py,PASS,32,results/dave_plug_and_socket.log,"alive after 30s"

@@ -81,18 +81,18 @@ fi
 WORLDS=(
   "camera_tutorial.world:dave_sensor.launch.py:camera:1"
   "dave_Santorini.world:dave_robot.launch.py:rexrov:1"
-  "dave_bimanual_example.world:dave_robot.launch.py::0"
-  "dave_electrical_mating.world:dave_robot.launch.py::0"
+  "dave_bimanual_example.world:dave_world.launch.py::1"
+  "dave_electrical_mating.world:dave_world.launch.py::1"
   "dave_graded_seabed.world:dave_robot.launch.py:rexrov:1"
   "dave_integrated.world:dave_robot.launch.py:rexrov:1"
   "dave_multibeam_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
   "dave_ocean_models.world:dave_robot.launch.py:rexrov:1"
   "dave_ocean_waves.world:dave_robot.launch.py:rexrov:1"
   "dave_ocean_waves_mossy_ground.world:dave_robot.launch.py:rexrov:1"
-  "dave_ocean_waves_sonar.world:dave_sensor.launch.py::0"
-  "dave_ocean_waves_sonar_integrated.world:dave_sensor.launch.py::0"
+  "dave_ocean_waves_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
+  "dave_ocean_waves_sonar_integrated.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
   "dave_ocean_waves_transient_current.world:dave_robot.launch.py:rexrov:1"
-  "dave_plug_and_socket.world:dave_robot.launch.py::0"
+  "dave_plug_and_socket.world:dave_world.launch.py::1"
   "dvl_world.world:dave_sensor.launch.py:dvl:1"
   "new_dvl.world:dave_sensor.launch.py:dvl:1"
   "ocean_current_plugin.world:dave_robot.launch.py:rexrov:1"
@@ -127,13 +127,29 @@ run_one() {
     # still alive after the wait window -- treat as PASS (smoke test only;
     # does not confirm topic data, cross-check validation_matrix.csv),
     # then clean up.
-    status="PASS"
-    notes="alive after ${TIMEOUT_SEC}s"
+    # Bug fixed 2026-07-22: being "still alive" at the timeout check does NOT
+    # mean nothing crashed -- a sub-process (e.g. dave_world.launch.py's GUI
+    # client, which has no headless mode and unconditionally spawns a real
+    # Qt window) can abort while the top-level launch process and/or the
+    # Gazebo server component stay alive, producing a false PASS. Confirmed:
+    # dave_plug_and_socket.world showed "alive after 30s" here despite its
+    # log containing the identical qt.qpa.xcb/SIGABRT trace seen in
+    # dave_bimanual_example.world and dave_electrical_mating.world (which
+    # DID get caught as CRASH, purely due to a timing race in when the
+    # overall launch process happened to exit relative to the check). Now
+    # always grep the log regardless of alive/dead status.
+    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin|could not connect to display|qt\.qpa' "$log_file"; then
+      status="CRASH"
+      notes="alive after ${TIMEOUT_SEC}s but crash signature found in log -- $(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display' "$log_file" | head -1)"
+    else
+      status="PASS"
+      notes="alive after ${TIMEOUT_SEC}s"
+    fi
   else
     wait "$pid" 2>/dev/null
-    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin' "$log_file"; then
+    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin|could not connect to display|qt\.qpa' "$log_file"; then
       status="CRASH"
-      notes="$(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin' "$log_file" | head -1)"
+      notes="$(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display' "$log_file" | head -1)"
     else
       status="EXITED"
       notes="process exited before ${TIMEOUT_SEC}s with no recognized crash signature -- inspect $log_file"
