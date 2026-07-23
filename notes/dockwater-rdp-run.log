@@ -1,0 +1,532 @@
+Using image <dockwater:lyrical> to start container <dockwater_lyrical_runtime>
+xauth: (argv):1:  unable to read any entries from file "(stdin)"
+Mode unset, defaulting to interactive
+Active extensions ['devices', 'git', 'name', 'port', 'privileged', 'volume', 'x11']
+Writing dockerfile to /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/tmpce7lnqwx/Dockerfile
+vvvvvv
+# Preamble from extension [devices]
+
+# Preamble from extension [git]
+
+# Preamble from extension [name]
+
+# Preamble from extension [port]
+
+# Preamble from extension [privileged]
+
+# Preamble from extension [volume]
+
+# Preamble from extension [x11]
+
+
+FROM dockwater:lyrical
+USER root
+# Snippet from extension [devices]
+
+# Snippet from extension [git]
+
+# Snippet from extension [name]
+
+# Snippet from extension [port]
+
+# Snippet from extension [privileged]
+
+# Snippet from extension [volume]
+
+# Snippet from extension [x11]
+
+# User Snippet from extension [devices]
+
+# User Snippet from extension [git]
+
+# User Snippet from extension [name]
+
+# User Snippet from extension [port]
+
+# User Snippet from extension [privileged]
+
+# User Snippet from extension [volume]
+
+# User Snippet from extension [x11]
+
+
+^^^^^^
+Building docker file with arguments:  {'path': '/var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/tmpce7lnqwx', 'rm': True, 'nocache': False, 'pull': False}
+building > Step 1/2 : FROM dockwater:lyrical
+building >  ---> 987d627ee9f2
+building > Step 2/2 : USER root
+building >  ---> Using cache
+building >  ---> ab046eda0a31
+building > Successfully built ab046eda0a31
+ERROR device /dev/fuse doesn't exist. Skipping
+Executing command: 
+docker run --rm -it -v /Users/gwon-yeseol/.gitconfig:/root/.gitconfig:ro --name dockwater_lyrical_runtime   -p 3389:3389 --privileged -v /Users/gwon-yeseol:/home/docker/HOST  -e DISPLAY -e TERM   -e QT_X11_NO_MITSHM=1   -e XAUTHORITY=/var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/.docker5ys9hag2.xauth -v /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/.docker5ys9hag2.xauth:/var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/.docker5ys9hag2.xauth   -v /tmp/.X11-unix:/tmp/.X11-unix   -v /etc/localtime:/etc/localtime:ro  ab046eda0a31 
+xrdp-sesman[44]: [INFO ] starting xrdp-sesman with pid 44
+
+xrdp[42]: [INFO ] starting xrdp with pid 42
+
+[2026-07-20T14:03:02.377+0900] [INFO ] starting xrdp with pid 42
+xrdp-sesman[44]: [INFO ] Sesman now listening on /run/xrdp/sockdir/sesman.socket
+
+xrdp[42]: [INFO ] address [0.0.0.0] port [3389] mode 1
+
+[2026-07-20T14:03:02.394+0900] [INFO ] address [0.0.0.0] port [3389] mode 1
+xrdp[42]: [INFO ] listening to port 3389 on 0.0.0.0
+
+[2026-07-20T14:03:02.401+0900] [INFO ] listening to port 3389 on 0.0.0.0
+xrdp[42]: [INFO ] xrdp_listen_pp done
+
+[2026-07-20T14:03:02.407+0900] [INFO ] xrdp_listen_pp done
+xrdp[42]: [INFO ] Socket 13: connection accepted from [::ffff:140.211.166.134]:28169
+
+[2026-07-20T14:03:44.865+0900] [INFO ] Socket 13: connection accepted from [::ffff:140.211.166.134]:28169
+xrdp[42]: [INFO ] Socket 13: connection accepted from [::ffff:140.211.166.134]:55235
+
+[2026-07-20T14:03:44.908+0900] [INFO ] Socket 13: connection accepted from [::ffff:140.211.166.134]:55235
+xrdp[45]: [INFO ] Using default X.509 certificate: /etc/xrdp/cert.pem
+
+[2026-07-20T14:03:44.910+0900] [INFO ] Using default X.509 certificate: /etc/xrdp/cert.pem
+xrdp[46]: [INFO ] Using default X.509 certificate: /etc/xrdp/cert.pem
+
+[2026-07-20T14:03:44.927+0900] [INFO ] Using default X.509 certificate: /etc/xrdp/cert.pem
+xrdp[45]: [INFO ] Using default X.509 key file: /etc/xrdp/key.pem
+
+[2026-07-20T14:03:44.961+0900] [INFO ] Using default X.509 key file: /etc/xrdp/key.pem
+xrdp[46]: [INFO ] Using default X.509 key file: /etc/xrdp/key.pem
+
+[2026-07-20T14:03:44.969+0900] [INFO ] Using default X.509 key file: /etc/xrdp/key.pem
+xrdp[46]: [INFO ] Security protocol: configured [SSL|RDP], requested [SSL|HYBRID|HYBRID_EX|RDP], selected [SSL]
+
+[2026-07-20T14:03:45.168+0900] [INFO ] Security protocol: configured [SSL|RDP], requested [SSL|HYBRID|HYBRID_EX|RDP], selected [SSL]
+xrdp[45]: [ERROR] libxrdp_force_read: header read error
+
+[2026-07-20T14:03:45.339+0900] [ERROR] libxrdp_force_read: header read error
+xrdp[45]: [ERROR] [ITU-T X.224] Connection Sequence: CR-TPDU (Connection Request) failed
+
+[2026-07-20T14:03:45.348+0900] [ERROR] [ITU-T X.224] Connection Sequence: CR-TPDU (Connection Request) failed
+xrdp[45]: [ERROR] xrdp_sec_incoming: xrdp_iso_incoming failed
+
+[2026-07-20T14:03:45.712+0900] [ERROR] xrdp_sec_incoming: xrdp_iso_incoming failed
+xrdp[45]: [ERROR] xrdp_rdp_incoming: xrdp_sec_incoming failed
+
+[2026-07-20T14:03:45.127+0900] [ERROR] xrdp_rdp_incoming: xrdp_sec_incoming failed
+xrdp[45]: [ERROR] xrdp_process_main_loop: libxrdp_process_incoming failed
+
+[2026-07-20T14:03:45.219+0900] [ERROR] xrdp_process_main_loop: libxrdp_process_incoming failed
+xrdp[45]: [ERROR] xrdp_iso_send: trans_write_copy_s failed
+
+[2026-07-20T14:03:45.233+0900] [ERROR] xrdp_iso_send: trans_write_copy_s failed
+xrdp[45]: [ERROR] Sending [ITU T.125] DisconnectProviderUltimatum failed
+
+[2026-07-20T14:03:45.340+0900] [ERROR] Sending [ITU T.125] DisconnectProviderUltimatum failed
+xrdp[46]: [INFO ] Connected client computer name: gwon-yeseol-ui-
+
+[2026-07-20T14:04:20.536+0900] [INFO ] Connected client computer name: gwon-yeseol-ui-
+xrdp[46]: [WARN ] Client requested gfx protocol but the server configuration is limited to 16 bpp.
+
+[2026-07-20T14:04:20.539+0900] [WARN ] Client requested gfx protocol but the server configuration is limited to 16 bpp.
+xrdp[46]: [WARN ] Received [MS-RDPBCGR] TS_UD_HEADER type 0xc006 is unknown (ignored)
+
+[2026-07-20T14:04:20.540+0900] [WARN ] Received [MS-RDPBCGR] TS_UD_HEADER type 0xc006 is unknown (ignored)
+xrdp[46]: [WARN ] Received [MS-RDPBCGR] TS_UD_HEADER type 0xc00a is unknown (ignored)
+
+[2026-07-20T14:04:20.542+0900] [WARN ] Received [MS-RDPBCGR] TS_UD_HEADER type 0xc00a is unknown (ignored)
+xrdp[46]: [WARN ] Client requested 32 bpp color depth, but the server configuration is limited to 16 bpp. Downgrading the color depth to 16 bits-per-pixel.
+
+[2026-07-20T14:04:20.543+0900] [WARN ] Client requested 32 bpp color depth, but the server configuration is limited to 16 bpp. Downgrading the color depth to 16 bits-per-pixel.
+xrdp[46]: [INFO ] xrdp_load_keyboard_layout: Keyboard information sent by the RDP client, keyboard_type:[0x04], keyboard_subtype:[0x00], keylayout:[0x00000000]
+
+[2026-07-20T14:04:20.548+0900] [INFO ] xrdp_load_keyboard_layout: Keyboard information sent by the RDP client, keyboard_type:[0x04], keyboard_subtype:[0x00], keylayout:[0x00000000]
+xrdp[46]: [INFO ] xrdp_load_keyboard_layout: model [] variant [] layout [us] options []
+
+[2026-07-20T14:04:20.550+0900] [INFO ] xrdp_load_keyboard_layout: model [] variant [] layout [us] options []
+xrdp[46]: [INFO ] TLS connection established from [::ffff:140.211.166.134]:55235 TLSv1.3 with cipher TLS_AES_256_GCM_SHA384
+
+[2026-07-20T14:04:20.551+0900] [INFO ] TLS connection established from [::ffff:140.211.166.134]:55235 TLSv1.3 with cipher TLS_AES_256_GCM_SHA384
+xrdp[46]: [INFO ] Client supports single-screen resizes by xrdp
+
+[2026-07-20T14:04:20.560+0900] [INFO ] Client supports single-screen resizes by xrdp
+xrdp[46]: [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+
+[2026-07-20T14:04:20.562+0900] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+xrdp[46]: [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+
+[2026-07-20T14:04:20.563+0900] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+xrdp[46]: [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+
+[2026-07-20T14:04:20.564+0900] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+xrdp[46]: [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+
+[2026-07-20T14:04:20.564+0900] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+xrdp[46]: [WARN ] Cannot find keymap file /etc/xrdp/km-00000000.ini
+
+[2026-07-20T14:04:20.572+0900] [WARN ] Cannot find keymap file /etc/xrdp/km-00000000.ini
+xrdp[46]: [WARN ] Cannot find keymap file /etc/xrdp/km-00000000.ini
+
+[2026-07-20T14:04:20.593+0900] [WARN ] Cannot find keymap file /etc/xrdp/km-00000000.ini
+xrdp[46]: [INFO ] Loading keymap file /etc/xrdp/km-00000409.ini
+
+[2026-07-20T14:04:20.596+0900] [INFO ] Loading keymap file /etc/xrdp/km-00000409.ini
+xrdp[46]: [WARN ] local keymap file for 0x00000000 found and doesn't match built in keymap, using local keymap file
+
+[2026-07-20T14:04:20.599+0900] [WARN ] local keymap file for 0x00000000 found and doesn't match built in keymap, using local keymap file
+xrdp[46]: [INFO ] Login screen monitor height is 1068 pixels over 211 mm (128 DPI)
+
+[2026-07-20T14:04:20.601+0900] [INFO ] Login screen monitor height is 1068 pixels over 211 mm (128 DPI)
+xrdp[46]: [WARN ] Ignoring obsolete SCP port value '3350'
+
+[2026-07-20T14:04:20.612+0900] [WARN ] Ignoring obsolete SCP port value '3350'
+xrdp[46]: [INFO ] xrdp_wm_log_msg: sesman connect ok
+
+[2026-07-20T14:04:20.615+0900] [INFO ] xrdp_wm_log_msg: sesman connect ok
+xrdp-sesman[44]: [INFO ] Socket 12: connection accepted from AF_UNIX
+
+xrdp[46]: [INFO ] xrdp_wm_log_msg: Performing login request for docker
+
+[2026-07-20T14:04:20.617+0900] [INFO ] xrdp_wm_log_msg: Performing login request for docker
+xrdp-sesman[44]: [INFO ] Received system login request from xrdp for user: docker IP: ::ffff:140.211.166.134
+
+xrdp-sesexec[47]: [INFO ] starting xrdp-sesexec with pid 47
+
+xrdp-sesexec[47]: [INFO ] TerminalServerUsers group tsusers doesn't exist. Access granted for docker
+
+xrdp-sesexec[47]: [INFO ] Access permitted for user: docker
+
+xrdp-sesman[44]: [INFO ] Received sys login status for docker : logged in
+
+xrdp[46]: [INFO ] xrdp_wm_log_msg: login was successful - creating session
+
+[2026-07-20T14:04:20.786+0900] [INFO ] xrdp_wm_log_msg: login was successful - creating session
+xrdp-sesman[44]: [INFO ] Received request from xrdp to create a session for user docker
+
+xrdp-sesman[44]: [INFO ] Found X server running at /tmp/.X11-unix/X10
+
+xrdp-sesexec[47]: pam_unix(xrdp-sesman:session): session opened for user docker(uid=1001) by (uid=0)
+xrdp-sesexec[47]: pam_systemd(xrdp-sesman:session): Failed to create session: Launch helper exited with unknown return code 1
+xauth:  file .Xauthority does not exist
+
+X.Org X Server 1.21.1.22
+X Protocol Version 11, Revision 0
+Current Operating System: Linux 4497aa2bb4e4 6.12.76-linuxkit #1 SMP Sun Mar  8 14:41:59 UTC 2026 aarch64
+Kernel command line: init=/initd loglevel=1 root=/dev/vdb rootfstype=erofs ro vsyscall=emulate panic=0 eth0.dhcp eth1.dhcp linuxkit.unified_cgroup_hierarchy=1 console=hvc0   virtio_net.disable_csum=1 vpnkit.connect=connect://2/1999 com.docker.VMID=9f787b42-f63d-4524-ad42-981f99e81dca
+xorg-server 2:21.1.22-1ubuntu1 (For technical support please see http://www.ubuntu.com/support) 
+Current version of pixman: 0.46.4
+	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+(++) Log file: ".xorgxrdp.11.log", Time: Mon Jul 20 14:04:20 2026
+(++) Using config file: "/etc/X11/xrdp/xorg.conf"
+(==) Using system config directory "/usr/share/X11/xorg.conf.d"
+xorgxrdpSetup:
+xrdpdevSetup:
+rdpmousePlug:
+rdpkeybPlug:
+rdpIdentify:
+rdpDriverFunc: op 10
+rdpProbe:
+rdpProbe: found DRMDevice xorg.conf value [/dev/dri/renderD128]
+rdpProbe: found DRI3 xorg.conf value [1]
+rdpProbe: found DRMAllowList xorg.conf value [i915 radeon]
+rdpPreInit:
+rdpPreInit: /dev/dri/renderD128 open failed
+rdpScreenInit: virtualX 800 virtualY 600 rgbBits 8 depth 24
+rdpScreenInit: pfbMemory bytes 1920000
+rdpScreenInit: pfbMemory 0xaaaadf613e00
+rdpSimdInit: assigning yuv functions
+rdpClientConInit: disconnect idle session after [0] sec
+rdpClientConInit: kill disconnected [0] timeout [0] sec
+rdpXvInit: depth 24
+rdpScreenInit: out
+rdpCreateScreenResources:
+rdpmousePreInit: drv 0xaaaadf60fcd0 info 0xaaaadf897af0, flags 0x0
+rdpmouseControl: what 0
+rdpmouseDeviceInit:
+rdpmouseCtrl:
+rdpRegisterInputCallback: type 1 proc 0xffff82ea10b0
+rdpmouseControl: what 1
+rdpmouseDeviceOn:
+rdpkeybPreInit: drv 0xaaaadf6106f0 info 0xaaaadfa57740, flags 0x0
+rdpkeybControl: what 0
+rdpkeybDeviceInit:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpRegisterInputCallback: type 0 proc 0xffff82e719c0
+rdpkeybControl: what 1
+rdpkeybDeviceOn:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpDeferredRandR:
+rdpResizeSession: width 1024 height 768
+  calling RRScreenSizeSet
+rdpRRScreenSetSize: width 1024 height 768 mmWidth 271 mmHeight 203
+rdpRRGetInfo:
+  screen resized to 1024x768
+  RRScreenSizeSet ok 1
+rdpResizeSession: width 1708 height 1068
+  calling RRScreenSizeSet
+rdpRRScreenSetSize: width 1708 height 1068 mmWidth 452 mmHeight 283
+rdpRRGetInfo:
+  screen resized to 1708x1068
+  RRScreenSizeSet ok 1
+rdpRRSetRdpOutputs: numCrtcs 0 numOutputs 0 monitorCount 0
+rdpRRSetRdpOutputs: update output 0 left 0 top 0 width 1708 height 1068
+rdpRRConnectOutput:
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpRRGetInfo:
+xrdp-sesexec[47]: [INFO ] X server :11 is working
+
+xrdp-sesexec[47]: [INFO ] Starting window manager for display :11
+
+xrdp-sesexec[47]: [INFO ] Starting the xrdp channel server for display :11
+
+xrdp-sesexec[47]: [INFO ] Session in progress on display :11. Waiting until the window manager (pid 62) exits to end the session
+
+xrdp[46]: [INFO ] xrdp_wm_log_msg: session is available on display 11 for user docker
+
+[2026-07-20T14:04:21.866+0900] [INFO ] xrdp_wm_log_msg: session is available on display 11 for user docker
+xrdp[46]: [INFO ] xrdp_wm_log_msg: Connecting to session
+
+[2026-07-20T14:04:21.869+0900] [INFO ] xrdp_wm_log_msg: Connecting to session
+xrdp[46]: [INFO ] loaded module 'libxup.so' ok, interface size 10416, version 4
+
+[2026-07-20T14:04:21.871+0900] [INFO ] loaded module 'libxup.so' ok, interface size 10416, version 4
+Global configuration:
+
+Security configuration:
+    RestrictOutboundClipboard: none
+    RestrictInboundClipboard:  none
+
+Chansrv configuration:
+    EnableFuseMount            true
+    FuseMountName:             thinclient_drives
+    FileMask:                  077
+    Nautilus 3 Flist Format:   false
+chansrv::main: using log file [/home/docker/.local/share/xrdp/xrdp-chansrv.11.log]
+xrdp[46]: [INFO ] lib_mod_connect: connecting via UNIX socket
+
+[2026-07-20T14:04:21.872+0900] [INFO ] lib_mod_connect: connecting via UNIX socket
+xrdp[46]: [INFO ] lib_mod_log_peer: xrdp_pid=46 connected to Xorg_pid=53 Xorg_uid=1001 Xorg_gid=1001 client=[::ffff:140.211.166.134]:55235
+
+[2026-07-20T14:04:21.876+0900] [INFO ] lib_mod_log_peer: xrdp_pid=46 connected to Xorg_pid=53 Xorg_uid=1001 Xorg_gid=1001 client=[::ffff:140.211.166.134]:55235
+rdpClientConGotConnection:
+rdpClientConGotConnection: g_sck_accept ok new_sck 9
+rdpClientConGetConnection: idle_disconnect_timeout set to non-positive value, idle timer turned off
+rdpAddClientConToDev: adding first clientCon 0xaaaadf613e00
+xrdp[46]: [INFO ] xrdp_wm_log_msg: Connecting to chansrv
+
+rdpClientConProcessMsgVersion: version 0 0 0 1
+rdpClientConProcessMsgClientInput: invalidate x 0 y 0 cx 1708 cy 1068
+[2026-07-20T14:04:21.877+0900] [INFO ] xrdp_wm_log_msg: Connecting to chansrv
+rdpClientConProcessMsgClientInfo:
+  got client info bytes 7192
+  jpeg support 0
+  offscreen support 0
+  offscreen size 0
+  offscreen entries 0
+rdpClientConAllocateSharedMemory: shmemfd 20 shmemptr 0xffff81b6f000 bytes 3648288
+  client can not do multimon
+rdpRRSetRdpOutputs: numCrtcs 1 numOutputs 1 monitorCount 0
+rdpRRSetRdpOutputs: update output 0 left 0 top 0 width 1708 height 1068
+rdpRRConnectOutput:
+  client can not do offscreen to offscreen blits
+  client can do new(color) cursor
+rdpLoadLayout: keylayout 0x00000000 variant  display 11
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+xrdp[46]: [INFO ] Received memory_allocation_complete command. width: 1708, height: 1068
+
+[2026-07-20T14:04:21.880+0900] [INFO ] Received memory_allocation_complete command. width: 1708, height: 1068
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+KbdSync: toggling num lock
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+xrdp[46]: [WARN ] sanitise_extended_monitor_attributes: physical_width is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_width was: 0
+
+[2026-07-20T14:04:22.207+0900] [WARN ] sanitise_extended_monitor_attributes: physical_width is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_width was: 0
+xrdp[46]: [WARN ] sanitise_extended_monitor_attributes: physical_height is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_height was: 0
+
+[2026-07-20T14:04:22.212+0900] [WARN ] sanitise_extended_monitor_attributes: physical_height is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_height was: 0
+rdpClientConProcessMonitorUpdateMsg: (1710x1069) #1
+rdpClientConAllocateSharedMemory: shmemfd 20 shmemptr 0xffff81b6d000 bytes 3655980
+rdpRRScreenSetSize: width 1710 height 1069 mmWidth 452 mmHeight 283
+rdpRRGetInfo:
+  screen resized to 1710x1069
+rdpClientConProcessScreenSizeMsg: RRScreenSizeSet ok=[1]
+  client can do multimon
+  client monitor data, monitorCount=1
+    left 0 top 0 right 1709 bottom 1068
+rdpRRSetRdpOutputs: numCrtcs 1 numOutputs 1 monitorCount 1
+rdpRRSetRdpOutputs: update output 0 left 0 top 0 width 1710 height 1069
+rdpRRConnectOutput:
+xrdp[46]: [INFO ] Received memory_allocation_complete command. width: 1710, height: 1069
+
+[2026-07-20T14:04:22.217+0900] [INFO ] Received memory_allocation_complete command. width: 1710, height: 1069
+xrdp[46]: [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+
+[2026-07-20T14:04:22.219+0900] [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+xrdp[46]: [INFO ] Client supports single-screen resizes by xrdp
+
+[2026-07-20T14:04:22.224+0900] [INFO ] Client supports single-screen resizes by xrdp
+xrdp[46]: [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+
+[2026-07-20T14:04:22.226+0900] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+xrdp[46]: [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+
+[2026-07-20T14:04:22.227+0900] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+xrdp[46]: [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+
+[2026-07-20T14:04:22.229+0900] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+xrdp[46]: [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+
+[2026-07-20T14:04:22.230+0900] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+xrdp[46]: [INFO ] xrdp_mm_up_and_running: Core reset done.
+
+[2026-07-20T14:04:22.233+0900] [INFO ] xrdp_mm_up_and_running: Core reset done.
+xrdp[46]: [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1710 x h: 1069). It took 23 milliseconds.
+
+[2026-07-20T14:04:22.237+0900] [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1710 x h: 1069). It took 23 milliseconds.
+rdpClientConProcessMsgClientInput: invalidate x 0 y 0 cx 1710 cy 1069
+rdpClientConProcessMonitorUpdateMsg: (1710x1074) #1
+xrdp[46]: [INFO ] Received memory_allocation_complete command. width: 1710, height: 1074
+
+[2026-07-20T14:04:22.789+0900] [INFO ] Received memory_allocation_complete command. width: 1710, height: 1074
+rdpClientConAllocateSharedMemory: shmemfd 20 shmemptr 0xffff8225f000 bytes 3673080
+rdpRRScreenSetSize: width 1710 height 1074 mmWidth 452 mmHeight 284
+rdpRRGetInfo:
+  screen resized to 1710x1074
+rdpClientConProcessScreenSizeMsg: RRScreenSizeSet ok=[1]
+  client can do multimon
+  client monitor data, monitorCount=1
+    left 0 top 0 right 1709 bottom 1073
+rdpRRSetRdpOutputs: numCrtcs 1 numOutputs 1 monitorCount 1
+rdpRRSetRdpOutputs: update output 0 left 0 top 0 width 1710 height 1074
+rdpRRConnectOutput:
+xrdp[46]: [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+
+[2026-07-20T14:04:22.879+0900] [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+xrdp[46]: [INFO ] Client supports single-screen resizes by xrdp
+
+[2026-07-20T14:04:22.921+0900] [INFO ] Client supports single-screen resizes by xrdp
+xrdp[46]: [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+
+[2026-07-20T14:04:22.925+0900] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+xrdp[46]: [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+
+[2026-07-20T14:04:22.930+0900] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+xrdp[46]: [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+
+[2026-07-20T14:04:22.936+0900] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+xrdp[46]: [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+
+[2026-07-20T14:04:22.939+0900] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+xrdp[46]: [INFO ] xrdp_mm_up_and_running: Core reset done.
+
+[2026-07-20T14:04:22.954+0900] [INFO ] xrdp_mm_up_and_running: Core reset done.
+xrdp[46]: [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1710 x h: 1074). It took 185 milliseconds.
+
+[2026-07-20T14:04:22.964+0900] [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1710 x h: 1074). It took 185 milliseconds.
+rdpClientConProcessMsgClientInput: invalidate x 0 y 0 cx 1710 cy 1074
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat on
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpInDeferredRepeatCallback:
+rdpkeybChangeKeyboardControl:
+rdpkeybChangeKeyboardControl: autoRepeat off
+rdpRRGetInfo:
+rdpRRGetInfo:
+rdpRRScreenSetSize: width 1710 height 1074 mmWidth 453 mmHeight 285
+rdpRRScreenSetSize: not allowing resize
+xrdp[46]: [WARN ] sanitise_extended_monitor_attributes: physical_width is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_width was: 0
+
+[2026-07-20T14:04:26.512+0900] [WARN ] sanitise_extended_monitor_attributes: physical_width is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_width was: 0
+xrdp[46]: [WARN ] sanitise_extended_monitor_attributes: physical_height is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_height was: 0
+
+[2026-07-20T14:04:26.530+0900] [WARN ] sanitise_extended_monitor_attributes: physical_height is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_height was: 0
+rdpClientConProcessMonitorUpdateMsg: (1140x710) #1
+rdpClientConAllocateSharedMemory: shmemfd 20 shmemptr 0xffff82454000 bytes 1618800
+rdpRRScreenSetSize: width 1140 height 710 mmWidth 302 mmHeight 188
+rdpRRGetInfo:
+  screen resized to 1140x710
+rdpClientConProcessScreenSizeMsg: RRScreenSizeSet ok=[1]
+  client can do multimon
+  client monitor data, monitorCount=1
+    left 0 top 0 right 1139 bottom 709
+rdpRRSetRdpOutputs: numCrtcs 1 numOutputs 1 monitorCount 1
+rdpRRSetRdpOutputs: update output 0 left 0 top 0 width 1140 height 710
+rdpRRConnectOutput:
+xrdp[46]: [INFO ] Received memory_allocation_complete command. width: 1140, height: 710
+
+[2026-07-20T14:04:29.233+0900] [INFO ] Received memory_allocation_complete command. width: 1140, height: 710
+xrdp[46]: [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+
+[2026-07-20T14:04:29.239+0900] [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+xrdp[46]: [INFO ] Client supports single-screen resizes by xrdp
+
+[2026-07-20T14:04:29.266+0900] [INFO ] Client supports single-screen resizes by xrdp
+xrdp[46]: [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+
+[2026-07-20T14:04:29.268+0900] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+xrdp[46]: [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+
+[2026-07-20T14:04:29.270+0900] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+xrdp[46]: [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+
+[2026-07-20T14:04:29.272+0900] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+xrdp[46]: [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+
+[2026-07-20T14:04:29.275+0900] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+xrdp[46]: [INFO ] xrdp_mm_up_and_running: Core reset done.
+
+[2026-07-20T14:04:29.278+0900] [INFO ] xrdp_mm_up_and_running: Core reset done.
+xrdp[46]: [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1140 x h: 710). It took 1463 milliseconds.
+
+rdpClientConProcessMsgClientInput: invalidate x 0 y 0 cx 1140 cy 710
+[2026-07-20T14:04:29.286+0900] [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1140 x h: 710). It took 1463 milliseconds.
+^Cxrdp[42]: [INFO ] Received termination signal, stopping the server accept new connections thread
+
+rdpClientConRecv: g_sck_recv failed(returned 0)[2026-07-20T14:07:05.738+0900] [INFO ] Received termination signal, stopping the server accept new connections thread
+
+rdpClientConRecvMsg: error
+rdpClientConCheck: rdpClientConGotData failed
+rdpClientConDisconnect:
+rdpRemoveClientConFromDev: removing clientCon 0xaaaadf613e00

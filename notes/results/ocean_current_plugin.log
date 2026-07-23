@@ -1,0 +1,14 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-06-10-22-100828-67d4b1d39687-5600
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [5659]
+[INFO] [create-2]: process started with pid [5660]
+[create-2] [INFO] [1784700632.602372209] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1784700634.355604585] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 5660]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [parameter_bridge-3]: process started with pid [5689]
+[parameter_bridge-3] [INFO] [1784700636.527879419] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.023228586] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.036063919] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.561386753] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700637.567709378] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster3_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster3_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)

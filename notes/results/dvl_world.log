@@ -1,0 +1,8 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-05-34-31-553633-67d4b1d39687-2968
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [2972]
+[INFO] [create-2]: process started with pid [2973]
+[create-2] [INFO] [1784698472.958100210] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1784698478.850927587] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 2973]
+[INFO] [launch.user]: Sensor Model Uploaded

@@ -1,11 +1,14 @@
 # Docker — ROS 2 Lyrical + Gazebo Jetty + DAVE (arm64, RDP desktop)
 
 ```text
-Status: VALIDATED (2026-07-18) — clean (--no-cache) build including a from-source mavros stage,
-build time/size recorded, ROS environment/package checks confirmed
-Validated: Build, headless launch, XFCE/xrdp login (2026-07-17/18 lineage), ROS environment + dave_demos/multibeam_sonar_system/mavros package presence
-Not yet validated: all 18 worlds, quantitative performance, long-duration stability, RAM under an active demo/RDP session (idle-only measured so far)
-Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop
+Status: VALIDATED (2026-07-18 build) — clean (--no-cache) build including a from-source mavros stage,
+build time/size recorded, ROS environment/package checks confirmed. World/performance/stability rows
+below were re-checked 2026-07-22/23 against the lyrical-theme-test container (same Dockerfile
+lineage) — see the main README for full detail, this file's table is kept in sync with it.
+Validated: Build, headless launch, XFCE/xrdp login, ROS environment + dave_demos/multibeam_sonar_system/mavros
+package presence, 14/18 worlds smoke-tested (1 PARTIAL, 3 not automated — see table below), USBL
+world-file workaround, quantitative RTF benchmark (ocean_waves/usbl_tutorial), 1h clean stability run
+Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop. dave_multibeam_sonar has a known simulation-progress instability — see table below and main README Known issues.
 ```
 
 **Provenance (2026-07-18):** `lyrical.arm64v8.dockerfile` in this folder was clean-built
@@ -15,12 +18,19 @@ mavros build (`ros-lyrical-mavros` isn't published via apt yet — see the main
 [README.md Known issues](../README.md#known-issues)) — image tag `lyrical-sim:jetty-rdp-pr1-ca-fix`.
 Build took **51m 22s**, produced a **21.9GB** image, and an idle running container (no active
 RDP session or Gazebo demo) used **62.66MiB** RAM (`docker stats`) — a floor, not a
-representative figure under load. Confirmed in that build/run: all 36 build steps completed,
+representative figure under load. **Under an active demo workload** (2026-07-20, same image,
+representative smoke test below running headless via `docker exec -d`), `docker stats` held
+steady at **~1008MiB (8.44% of the 11.67GiB container memory limit)** and **~1.2–1.5% CPU**
+across 5 samples over ~20s once the sonar plugin finished loading — roughly 16× the idle floor,
+and consistent with a `ps aux` breakdown inside the container (`gz-sim-main` ~836MB RSS / ~15.7%
+of one core, `parameter_bridge` ~90MB). Confirmed in that build/run: all 36 build steps completed,
 `ROS_DISTRO=lyrical` and `ros2` resolved inside the container, `ros2 pkg prefix` resolved
 `dave_demos` and `multibeam_sonar_system`, and `ros2 pkg list` listed `mavros`, `mavros_extras`,
 `mavros_msgs`, `mavros_examples`. This is **clean build + ROS environment/package presence
-validation** — it does not re-run the representative demo launch under this exact image, and it
-does not touch the world/vehicle/performance/stability rows still marked NOT TESTED below. Real
+validation** — it does not re-run the representative demo launch under this exact image. The
+world/vehicle/performance/stability rows below were validated separately, on 2026-07-22/23,
+against the same Dockerfile lineage running as the `lyrical-theme-test` container — see the
+table for current status and the main README for full detail. Real
 RDP login to an XFCE desktop was validated against the same Dockerfile lineage on 2026-07-17 and
 again during the 2026-07-18 `--privileged` test below; it was not re-clicked-through on this
 exact rebuild since nothing in the RDP/XFCE stack changed. This replaces an earlier draft (with
@@ -66,12 +76,30 @@ targets **Apple Silicon / arm64 only** — it has not been adapted or tested for
 
 ## Verify the build
 
+The image's final `USER` is `root` (needed for the RDP/xrdp `CMD`), so `bash -lc` does **not**
+auto-source `/home/docker/.bashrc` — the ROS/DAVE/mavros environment lines live there, not in
+root's shell rc. Source the underlays explicitly instead of relying on login-shell sourcing.
+`ros2 --version` is also not a real `ros2` CLI flag; check `$ROS_DISTRO` and `which ros2` instead.
+
 ```bash
 docker run --rm lyrical-sim:jetty-rdp uname -m               # expect: aarch64
 docker run --rm lyrical-sim:jetty-rdp lsb_release -a          # expect: 26.04 Resolute
-docker run --rm lyrical-sim:jetty-rdp bash -lc 'ros2 --version'
-docker run --rm lyrical-sim:jetty-rdp bash -lc 'gz sim --versions'
-docker run --rm lyrical-sim:jetty-rdp bash -lc 'ros2 pkg list | grep "^dave_"'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && echo "$ROS_DISTRO" && which ros2'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && gz sim --versions'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && \
+   source /home/docker/dave_ws/install/setup.bash && \
+   ros2 pkg list | grep "^dave_"'
+
+docker run --rm lyrical-sim:jetty-rdp bash -lc \
+  'source /opt/ros/lyrical/setup.bash && \
+   source /home/docker/mavros_ws/install/setup.bash && \
+   ros2 pkg list | grep "^mavros"'
 ```
 
 ## Run (RDP desktop)
@@ -92,12 +120,15 @@ client (Microsoft Remote Desktop, etc.) to `localhost:3393`, user `docker`, pass
 network-reachable. A successful login reaches an XFCE desktop with shell prompt
 `docker@lyrical_docker:~$`.
 
-**`--privileged` is not required** — tested 2026-07-18 by running the image with no `--privileged`
-flag and no extra `--cap-add` (`docker run -d --name priv-test --hostname lyrical-docker -p
-127.0.0.1:3396:3389 lyrical-sim:jetty-rdp-pr1-ca-fix`): RDP login reached a usable XFCE desktop
-with no capability errors. `xorgxrdp` doesn't need host GPU device access here (this image uses
-`llvmpipe` software rendering, no `/dev/dri` passthrough), which is consistent with the plain
-container defaults being sufficient. Dropped from the example above accordingly.
+**`--privileged` is not required for container startup and XFCE/xrdp login** — tested 2026-07-18
+by running the image with no `--privileged` flag and no extra `--cap-add` (`docker run -d --name
+priv-test --hostname lyrical-docker -p 127.0.0.1:3396:3389 lyrical-sim:jetty-rdp-pr1-ca-fix`):
+RDP login reached a usable XFCE desktop with no capability errors. `xorgxrdp` doesn't need host
+GPU device access here (this image uses `llvmpipe` software rendering, no `/dev/dri` passthrough).
+Dropped from the example above accordingly. **Scope caveat:** this only re-validates container
+startup and RDP/XFCE login without `--privileged` — it has not been re-checked across every
+Gazebo world, device-access path, or vehicle/sensor combination, so treat "not required" as
+scoped to what was actually re-tested, not as a blanket clearance for every workload in this image.
 
 A representative smoke test (headless, no RDP needed):
 
@@ -121,12 +152,13 @@ docker exec -it lyrical-sim bash -lc \
 | WGPU/Rust sonar packages (`wgpu_vendor`, `multibeam_sonar`, `multibeam_sonar_system`) build | PASS |
 | ArduSub SITL build | PASS |
 | mavros build (from source; `ros-lyrical-mavros` not yet on apt) | PASS — `mavros`/`mavros_extras`/`mavros_msgs`/`mavros_examples` confirmed via `ros2 pkg list`, MAVLink bridging itself not yet exercised |
-| USBL | PARTIAL — server/plugin loads and publishes; GUI client crashes |
-| All 18 worlds executed | NOT TESTED — inventory complete, not all run |
-| `sonar-demo`-branch-only worlds | NOT TESTED |
-| All vehicle/sensor/GUI-headless combinations | NOT TESTED |
-| Quantitative performance benchmark | NOT DONE |
-| Long-duration stability | NOT DONE |
+| RAM/CPU under an active demo workload | PASS — ~1008MiB (8.44%) / ~1.2–1.5% CPU, steady over 5 samples (2026-07-20); idle floor is 62.66MiB |
+| USBL | PASS (world-file workaround, 2026-07-22) — root cause was the Gazebo **server** aborting on an unvalidated `sigma=0.0`, not a GUI crash as first thought; fixed via a world-file patch (`sigma` → `0.0001`), baked into this Dockerfile. This is a workaround, not a plugin-level fix — see main [README.md Known issues](../README.md#known-issues) |
+| All 18 worlds executed | 14/18 SMOKE PASS, 1/18 PARTIAL (`dave_multibeam_sonar` — simulation-progress instability, see below), 3/18 NOT AUTOMATED (manipulation worlds — `dave_world.launch.py` has no headless mode) (2026-07-22/23) — see main [README.md](../README.md#progress-log) and `notes/validation_matrix.csv` |
+| `sonar-demo`-branch-only worlds | SMOKE PASS (2026-07-22) — the "needs a separate branch" claim was investigated and found incorrect for this checkout; both worlds only need `multibeam_sonar_system`, already present |
+| All vehicle/sensor/GUI-headless combinations | PARTIAL — REXROV + DVL/camera/ocean-current/pressure/USBL confirmed with real topic data; BlueROV2/BlueROV2 Heavy/Slocum Glider have not yet been used as the smoke-test vehicle for any world (ArduSub SITL build/launch success is a separate, already-confirmed thing — see main README [Verified demos](../README.md#verified-demos)) |
+| Quantitative performance benchmark | PASS for `dave_ocean_waves`/`usbl_tutorial`, PARTIAL for `dave_multibeam_sonar` (2026-07-23, same script/methodology on Mac and Docker): `dave_ocean_waves` RTF 0.277 (Docker) / 0.423 (Mac); `usbl_tutorial` RTF 1.000 (Docker) / 0.998 (Mac). `dave_multibeam_sonar` **excluded from the comparison** — confirmed unstable on both platforms (crawls at RTF ~0.012-0.015 or stalls/livelocks entirely), not a valid benchmark number. See main [README.md](../README.md#progress-log) and `notes/bench_results/`. Reported as separate environments per-world, not a single "N× faster" claim |
+| Long-duration stability | PARTIAL (2026-07-23) — the original 4h run crashed at ~4.4h; root-caused to leftover test-script processes starving the container (not a DAVE/Gazebo-Jetty bug), fixed in all 4 test scripts, and a clean 1h re-run **survived the full duration**. A full 4h clean re-run to fully close this out is still open — see main [README.md](../README.md#progress-log) |
 
 ## Known limitations
 
@@ -163,3 +195,30 @@ docker exec -it lyrical-sim bash -lc \
   `Copying plugin as children of sdf`) seen during REXROV spawn; robot spawn and `ros_gz`
   bridge creation completed successfully afterward, so this is a non-fatal known warning,
   not an error.
+- **A "Stack trace (most recent call last) in thread N:" line appears in `gazebo-1`'s log**
+  right after the multibeam sonar plugin finishes loading (seen 2026-07-20, during the
+  RAM/CPU-under-load measurement above). This did **not** crash the process: `ps aux` inside
+  the container showed `gz-sim-main` still alive and actively consuming CPU (~15.7% of one
+  core) more than 7 minutes after the trace appeared, and the `docker stats` RAM reading was
+  stable across all 5 samples. Also present in the same log: `error: XDG_RUNTIME_DIR is
+  invalid or not set in the environment` — non-fatal, the WGPU sonar backend still selected
+  `llvmpipe` and compiled its pipelines successfully afterward. Root cause of the stack trace
+  itself not yet investigated; flagged here as a known non-fatal log artifact, not confirmed
+  benign for every world/workload.
+- **Rebuilding any workspace (`dave_ws`, `mavros_ws`, the ArduSub SITL build) as the runtime
+  `docker` user fails** (found 2026-07-20, while launching demos over RDP). All workspaces are
+  compiled once, as `root`, during the image build itself — the `docker` user never needs to run
+  `colcon build` at all; sourcing the already-built `install/setup.bash` and launching directly
+  is sufficient (and is what every command in this file does). If a rebuild is attempted anyway
+  as `docker`, three separate issues surface in sequence: (1) `cargo` (needed by `wgpu_vendor`)
+  only exists under `/root/.rustup/...`, which the `docker` user can't read — fix by installing
+  rustup separately for `docker` (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs |
+  sh -s -- -y`); (2) the existing workspace directories under `/home/docker` are `root`-owned
+  from the image build, so `colcon build` fails with `Permission denied` — fix with `sudo chown
+  -R docker:docker /home/docker`; (3) `ardupilot_sitl`'s `waf` still fails with
+  `ModuleNotFoundError: No module named 'imp'` even after both of the above, the same Python
+  3.14/`imp` incompatibility already tracked in the main
+  [README.md Known issues](../README.md#known-issues) — the shim applied during the image build
+  isn't present/effective in this interactive `docker`-user shell. Net effect: don't rebuild as
+  `docker` unless you're intentionally testing uncommitted source changes; for running the
+  existing demos, skip `colcon build` entirely.

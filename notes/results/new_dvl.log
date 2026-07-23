@@ -1,0 +1,24 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-06-00-20-799332-67d4b1d39687-4189
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [4193]
+[INFO] [create-2]: process started with pid [4195]
+[create-2] [INFO] [1784700021.702883052] [ros_gz_sim]: Requesting list of world names.
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="dvl_world"]/latitude_deg:/home/docker/dave_ws/install/share/dave_worlds/worlds/new_dvl.world:L63]: XML Element[latitude_deg], child of element[world], not defined in SDF. Copying[latitude_deg] as children of [world].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="dvl_world"]/longitude_deg:/home/docker/dave_ws/install/share/dave_worlds/worlds/new_dvl.world:L64]: XML Element[longitude_deg], child of element[world], not defined in SDF. Copying[longitude_deg] as children of [world].
+[create-2] [INFO] [1784700023.041865802] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 4195]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] (2026-07-22 06:00:24.091) [error] [SimulationRunner.cc:274] Another world of the same name is running
+[gazebo-1] (2026-07-22 06:00:25.154) [error] [FuelClient.cc:695] Failed to download model.
+[gazebo-1]   Server: https://fuel.gazebosim.org
+[gazebo-1]   Route: hmoyen/models/north-east-down frame/tip/north-east-down frame.zip
+[gazebo-1]   REST response code: 404
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="dvl_world"]/latitude_deg:/home/docker/dave_ws/install/share/dave_worlds/worlds/new_dvl.world:L63]: XML Element[latitude_deg], child of element[world], not defined in SDF. Copying[latitude_deg] as children of [world].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/world[@name="dvl_world"]/longitude_deg:/home/docker/dave_ws/install/share/dave_worlds/worlds/new_dvl.world:L64]: XML Element[longitude_deg], child of element[world], not defined in SDF. Copying[longitude_deg] as children of [world].
+[gazebo-1] (2026-07-22 06:00:26.122) [error] [FuelClient.cc:695] Failed to download model.
+[gazebo-1]   Server: https://fuel.gazebosim.org
+[gazebo-1]   Route: hmoyen/models/north-east-down frame/tip/north-east-down frame.zip
+[gazebo-1]   REST response code: 404
+[gazebo-1] (2026-07-22 06:00:26.301) [error] [ServerPrivate.cc:794] Error Code 14: [/sdf/world[@name="dvl_world"]/include[0]/uri:/home/docker/dave_ws/install/share/dave_worlds/worlds/new_dvl.world:L85]: Msg: Unable to find uri[https://fuel.gazebosim.org/1.0/hmoyen/models/North-East-Down frame]
+[gazebo-1] (2026-07-22 06:00:26.301) [error] [ServerPrivate.cc:818] Unable to find world with name[dvl_world]. Downloaded models may not appear.
+[INFO] [gazebo-1]: process has finished cleanly [pid 4193]

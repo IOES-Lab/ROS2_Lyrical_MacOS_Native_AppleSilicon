@@ -1,0 +1,29 @@
+=== dave_Santorini.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_Santorini paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (32s)
+
+=== dave_graded_seabed.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_graded_seabed paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (32s)
+
+=== dave_integrated.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_integrated paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (33s)
+
+=== dave_ocean_models.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_models paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (32s)
+
+=== dave_ocean_waves_mossy_ground.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_waves_mossy_ground paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (32s)
+
+=== dave_ocean_waves_transient_current.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_waves_transient_current paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (33s)
+
+=== ocean_current_plugin.world (known-good args) ===
+cmd: ros2 launch dave_demos dave_robot.launch.py world_name:=ocean_current_plugin paused:=false gui:=true headless:=true namespace:=rexrov
+--> PASS (33s)
+
+Done. Results appended to results/test_worlds_results.csv

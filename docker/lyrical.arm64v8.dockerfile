@@ -15,6 +15,21 @@
 #   https://ports.ubuntu.com/ubuntu-ports/dists/resolute/InRelease` -> 200 OK, which confirmed
 #   Docker's network/HTTPS path itself was fine and isolated the failure to the missing CA
 #   bundle in the Ubuntu base image. See docker/README.md Known limitations for details.
+# - 2026-07-20: added the same "theme" touches the official DAVE Docker image has (QGroundControl
+#   was already present here) — Firefox (arm64 tarball, since Mozilla's default download link is
+#   amd64-only), a custom desktop wallpaper, Papirus icons + Arc window theme, and a Starship
+#   shell prompt. (An ASCII-art `.dave_entrypoint` welcome banner was added and then removed
+#   again same day at the user's request — not present in the final file.) Also fixed a real RDP
+#   black-screen bug: xrdp 0.10.x silently fails to paint anything on modern clients when
+#   `max_bpp` is forced below 32 (neutrinolabs/xrdp#3118) — see the fix layer near the end of
+#   this file (kept late/separate to avoid invalidating the build cache for the expensive
+#   DAVE/mavros/ArduSub layers above it).
+# - 2026-07-22: added two DAVE world-file bug fixes as a late layer (same cache-preservation
+#   pattern as the xrdp fix) -- usbl_tutorial.world crashed the Gazebo server on a
+#   std::normal_distribution assertion (sigma=0.0), new_dvl.world failed to fetch a Fuel model
+#   over a broken URI. Both root-caused, fixed, and verified live in a running container before
+#   being folded in here -- see the "DAVE world-file bug fixes" comment block near the end of
+#   this file and notes/usbl-gui-crash-investigation.md.
 
 FROM curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 AS ca-source
 
@@ -149,11 +164,11 @@ RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
 # real dependency-resolution failure, not just a harmless warning. Failure: `ros-lyrical-mavros`
 # is not available via apt for the `lyrical` distro yet (`E: Unable to locate package
 # ros-lyrical-mavros` — the package/distro sync for this very new ROS distro hasn't caught up).
-# `|| true` is restored below so the build doesn't hard-fail on this one missing rosdep, but the
-# underlying gap is real and unresolved: mavros is not installed by this Dockerfile as a result,
-# so anything depending on it (e.g. ArduSub/PX4 MAVLink bridging via mavros) is not available in
-# this image until either (a) ros-lyrical-mavros is published upstream, or (b) it's built from
-# source here instead of via rosdep/apt. Tracked as a known gap, not silently hidden.
+# `|| true` is restored below so this DAVE-workspace rosdep pass doesn't hard-fail on that one
+# missing key. This does NOT mean mavros is missing from the final image: a separate from-source
+# mavros build stage further down this file (search "mavros, built from source") installs it
+# independently of this rosdep call, and that stage's success is what actually determines
+# whether mavros ends up in the image — see that section for the validated result.
 RUN rosdep init || true && rosdep update --rosdistro $ROS_DISTRO && \
     rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . || true
 
@@ -175,18 +190,25 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
 # ros-lyrical-mavros`, confirmed 2026-07-18). Follows the official mavros ros2-branch
 # source-install procedure:
 # https://github.com/mavlink/mavros/blob/ros2/mavros/README.md#source-installation
-# UNVALIDATED as of this edit. First attempt (2026-07-18) got further than expected:
-# `rosinstall_generator` DID resolve both "mavlink" (release/lyrical/mavlink/2026.6.19-1 — mavlink
-# itself is already released for lyrical) and "mavros" (upstream tag 2.14.0) successfully.
+# VALIDATED 2026-07-18 by a full clean (`--no-cache`) rebuild that completed all 36 build steps
+# end to end — see README.md's Progress Log and docker/README.md's Provenance note for the full
+# result (build time, image size, and `ros2 pkg list` confirming `mavros`/`mavros_extras`/
+# `mavros_msgs`/`mavros_examples` are present in the built image).
 #
-# It then failed on `apt-get install -y libasio-dev` with `E: Unable to locate package`. Traced
-# this to a **self-inflicted bug, not an archive gap**: `apt-cache policy libasio-dev` run
-# directly against this same base image confirms the package genuinely exists
-# (`resolute/universe arm64`, candidate `1:1.30.2-1build1`) — the real cause was that the
-# `rm -rf /var/lib/apt/lists/*` at the end of the block below (added purely for image-size
-# hygiene) wiped the apt index *before* rosdep's own `apt-get install` call, and rosdep does not
-# re-run `apt-get update` itself. Fixed by moving that cleanup to run only after this whole
-# mavros block finishes, not before rosdep needs the index.
+# Two real build issues were hit and fixed along the way during that same 2026-07-18 rebuild,
+# kept here for context on why this block looks the way it does:
+# 1) `rosinstall_generator` DID resolve both "mavlink" (release/lyrical/mavlink/2026.6.19-1 —
+#    mavlink itself is already released for lyrical) and "mavros" (upstream tag 2.14.0)
+#    successfully — that part was never the problem.
+# 2) The build then failed on `apt-get install -y libasio-dev` with `E: Unable to locate
+#    package`. Traced to a **self-inflicted bug, not an archive gap**: `apt-cache policy
+#    libasio-dev` run directly against this same base image confirms the package genuinely
+#    exists (`resolute/universe arm64`, candidate `1:1.30.2-1build1`) — the real cause was that
+#    the `rm -rf /var/lib/apt/lists/*` at the end of the block below (added purely for
+#    image-size hygiene) wiped the apt index *before* rosdep's own `apt-get install` call, and
+#    rosdep does not re-run `apt-get update` itself. Fixed by moving that cleanup to run only
+#    after this whole mavros block finishes, not before rosdep needs the index — which is the
+#    ordering already reflected below.
 ENV MAVROS_WS=/home/$USER/mavros_ws
 RUN apt-get update -o APT::Update::Error-Mode=any && \
     apt-get install -y --no-install-recommends \
@@ -262,13 +284,157 @@ RUN mkdir -p ~/QGC && wget -O ~/QGC/QGroundControl-aarch64-DailyBuild.AppImage \
     mkdir -p /home/$USER/.local/bin && \
     ln -sf /home/$USER/QGC/AppRun /home/$USER/.local/bin/qgroundcontrol
 
+# Firefox — official DAVE Docker theme (docker-jazzy-harmonic style) installs the Mozilla
+# linux64 tarball, which is amd64-only. This image is arm64v8, so pull the ARM64 tarball
+# Mozilla publishes instead via the same download.mozilla.org bouncer API. Verified 2026-07-20
+# against firefox.com's own Linux download page: the ARM64 button links to
+# `os=linux64-aarch64` (NOT `os=linux-aarch64`, which silently 404s/redirects to an HTML error
+# page instead of the archive — first attempt at this failed with `xz: File format not
+# recognized` because of exactly that wrong param value).
 USER root
+RUN curl -L "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64-aarch64&lang=en-US" \
+        -o /tmp/firefox.tar.xz && \
+    mkdir -p /opt/firefox && \
+    tar -xJf /tmp/firefox.tar.xz -C /opt && \
+    ln -sf /opt/firefox/firefox /usr/local/bin/firefox && \
+    rm -f /tmp/firefox.tar.xz
+
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/$USER/.bashrc && \
     echo "source $DAVE_UNDERLAY/install/setup.bash" >> /home/$USER/.bashrc && \
     echo "source $MAVROS_WS/install/setup.bash" >> /home/$USER/.bashrc && \
     echo "export PATH=/usr/local/bin:\$PATH" >> /home/$USER/.bashrc && \
     echo "export GEOGRAPHICLIB_GEOID_PATH=/usr/share/GeographicLib/geoids" >> /home/$USER/.bashrc && \
     echo "export PS1='\[\e[1;36m\]\u@lyrical_docker\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '" >> /home/$USER/.bashrc
+
+# --- Starship prompt (replaces the manual PS1 above once bash sources this — `starship init`
+# overrides PROMPT_COMMAND itself, so the plain PS1 line is harmless dead weight for non-bash
+# fallback rather than a conflict). Installed to /usr/local/bin so it's available for every user.
+# JetBrainsMono Nerd Font added so Starship's default preset glyphs (git branch, etc.) render as
+# actual icons instead of tofu boxes — same class of bug as the banner emoji fixed above.
+# `unzip` installed here directly (not relying on the papirus/arc apt block below) because this
+# RUN block runs BEFORE that one in the file — confirmed by a real build failure 2026-07-20:
+# Starship itself installed fine every time, but the Nerd Font zip extraction then failed with
+# `unzip: not found` since the package wasn't on the PATH yet at this point in the layer order.
+RUN apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt && \
+    apt-get install -y --no-install-recommends -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt \
+      unzip && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN curl -sS https://starship.rs/install.sh | sh -s -- --yes && \
+    mkdir -p /usr/share/fonts/nerd-fonts && \
+    curl -L -o /tmp/jetbrains-nerd-font.zip \
+      "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" && \
+    unzip -q -o /tmp/jetbrains-nerd-font.zip -d /usr/share/fonts/nerd-fonts && \
+    rm -f /tmp/jetbrains-nerd-font.zip /usr/share/fonts/nerd-fonts/*Windows*Compatible* && \
+    fc-cache -f && \
+    echo 'eval "$(starship init bash)"' >> /home/$USER/.bashrc
+
+# --- Custom wallpaper (same image the official DAVE Docker uses) + emoji font ---
+# The official Dockerfile sets this via GNOME's default-wallpaper file swap
+# (/usr/share/backgrounds/warty-final-ubuntu.png), which does nothing on XFCE — XFCE reads its
+# background from a per-user xfconf channel file instead. Writing that file directly under
+# $USER's ~/.config so it's already in place the first time xfdesktop starts (no running
+# session needed to set it, unlike `xfconf-query` which requires D-Bus/xfconfd to be live).
+# fonts-noto-color-emoji added so the 👋 in the banner above renders as an actual emoji glyph
+# instead of a "tofu" placeholder box (confirmed missing 2026-07-20 — bytes decoded correctly,
+# font just wasn't installed).
+# yaru-theme-icon/gtk were the first pass at matching the professor's reference image
+# (woensugchoi/ubuntu-arm-rdp-base uses full GNOME + Ubuntu's default Yaru theme; we can't run
+# GNOME itself here — see the header comment and README.md Known issues). Upgraded 2026-07-20
+# to Papirus (icons) + Arc (GTK/xfwm4 window theme) instead — both far more popular/actively
+# maintained than Yaru outside Ubuntu-proper, and both install as plain apt packages (confirmed
+# on packages.ubuntu.com for resolute/26.04). Looked at Catppuccin GTK too — its own README now
+# says the port is archived/"a nightmare to maintain" with a much more involved manual build
+# process, so skipped it in favor of these two for a Dockerfile-friendly install.
+RUN apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt && \
+    apt-get install -y --no-install-recommends -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt \
+      fonts-noto-color-emoji papirus-icon-theme arc-theme && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml && \
+    printf '%s\n' \
+      '<?xml version="1.0" encoding="UTF-8"?>' \
+      '<channel name="xsettings" version="1.0">' \
+      '  <property name="Net" type="empty">' \
+      '    <property name="IconThemeName" type="string" value="Papirus-Dark"/>' \
+      '    <property name="ThemeName" type="string" value="Arc-Dark"/>' \
+      '  </property>' \
+      '</channel>' \
+      > /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml && \
+    printf '%s\n' \
+      '<?xml version="1.0" encoding="UTF-8"?>' \
+      '<channel name="xfwm4" version="1.0">' \
+      '  <property name="general" type="empty">' \
+      '    <property name="theme" type="string" value="Arc-Dark"/>' \
+      '  </property>' \
+      '</channel>' \
+      > /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml && \
+    chown -R $USER:$USER /home/$USER/.config
+
+# Monitor name under xorgxrdp isn't knowable at build time (varies: monitor0, monitorscreen,
+# monitorVNC-0, ...), so the same last-image/image-style pair is written under several common
+# names — xfdesktop only needs one of them to match what it actually enumerates at runtime.
+RUN wget -O /usr/share/backgrounds/dave-wallpaper.png -q \
+      https://raw.githubusercontent.com/IOES-Lab/dave/ros2/extras/background.png && \
+    mkdir -p /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml && \
+    { \
+      echo '<?xml version="1.0" encoding="UTF-8"?>'; \
+      echo '<channel name="xfce4-desktop" version="1.0">'; \
+      echo '  <property name="backdrop" type="empty">'; \
+      echo '    <property name="screen0" type="empty">'; \
+      for m in monitor0 monitorscreen monitorVNC-0 monitorrdp0; do \
+        echo "      <property name=\"$m\" type=\"empty\">"; \
+        echo '        <property name="workspace0" type="empty">'; \
+        echo '          <property name="last-image" type="string" value="/usr/share/backgrounds/dave-wallpaper.png"/>'; \
+        echo '          <property name="image-style" type="int" value="5"/>'; \
+        echo '        </property>'; \
+        echo '      </property>'; \
+      done; \
+      echo '    </property>'; \
+      echo '  </property>'; \
+      echo '</channel>'; \
+    } > /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml && \
+    chown -R $USER:$USER /home/$USER/.config
+
+# --- DAVE world-file bug fixes (2026-07-22) ---
+# Placed here as a late layer (not edited back into the colcon-build layer above) for the same
+# build-cache reason as the xrdp fix below: patching an already-installed world file with sed is
+# a data-only change (SDF/XML, no recompilation needed), so there's no reason to re-run the
+# expensive DAVE colcon build just to pick it up.
+#
+# 1) usbl_tutorial.world crashed the Gazebo SERVER process (SIGABRT, exit 134) on a libstdc++
+#    std::normal_distribution assertion ('_M_stddev > 0' failed) — UsblTransponder.cc:263
+#    constructs the noise distribution straight from the world file's <sigma> value with no
+#    validation, and this world set <sigma>0.0</sigma> on both UsblTransponder instances.
+#    Root-caused and fixed 2026-07-22, verified live (survived a 15s test window with no abort
+#    after the fix, vs. dying within ~3s before it) — see notes/usbl-gui-crash-investigation.md
+#    and patches/usbl_sigma_fix.diff (same fix, applied here directly to the installed file).
+# 2) new_dvl.world failed to load a Fuel model ('Unable to find uri[...North-East-Down frame]',
+#    404) because its URI used hyphens where the identical model's working URI in
+#    dave_ocean_waves.world uses spaces ('North East Down frame'). Root-caused and fixed
+#    2026-07-22, verified live — see patches/new_dvl_uri_fix.diff.
+RUN sed -i 's/<sigma>0.0<\/sigma>/<sigma>0.0001<\/sigma>/g' \
+      "$DAVE_UNDERLAY/install/share/dave_worlds/worlds/usbl_tutorial.world" && \
+    sed -i 's/North-East-Down frame/North East Down frame/g' \
+      "$DAVE_UNDERLAY/install/share/dave_worlds/worlds/new_dvl.world" && \
+    grep -q '<sigma>0.0001</sigma>' "$DAVE_UNDERLAY/install/share/dave_worlds/worlds/usbl_tutorial.world" && \
+    grep -q 'North East Down frame' "$DAVE_UNDERLAY/install/share/dave_worlds/worlds/new_dvl.world"
+
+# --- xrdp black-screen fix (2026-07-20) ---
+# Placed here deliberately (as its own late layer, not edited in place back at the original
+# "sed -i 's/max_bpp=32/max_bpp=16/g'" line above) so this fix doesn't invalidate the Docker
+# build cache for every expensive layer after it (DAVE colcon build, mavros source build,
+# ArduSub SITL build — collectively most of this image's ~51 min build time).
+#
+# Root-caused while adding RDP support to the dockwater-style Lyrical Dockerfile: xrdp 0.10.x
+# has a confirmed upstream bug (neutrinolabs/xrdp#3118) where max_bpp<32 combined with a client
+# that requests the GFX pipeline (every modern client does, including macOS's "Windows App")
+# negotiates a session that looks fully alive server-side (login succeeds, Xorg/XFCE fully
+# starts — confirmed via `docker exec`: xfwm4/xfce4-panel/xfdesktop all running) but never
+# paints anything on the client — solid black screen indefinitely. Reverting max_bpp back to
+# its default of 32 here avoids the bug. See notes/dockwater-lyrical-draft.Dockerfile for the
+# full repro/diagnosis and README.md's 2026-07-20 Progress Log entry.
+RUN sed -i 's/max_bpp=16/max_bpp=32/g' /etc/xrdp/xrdp.ini
 
 # --- Run (no systemd inside this container) ---
 # hadolint ignore=DL3025

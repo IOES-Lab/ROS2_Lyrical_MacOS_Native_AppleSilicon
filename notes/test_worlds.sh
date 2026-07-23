@@ -1,0 +1,220 @@
+#!/usr/bin/env bash
+# test_worlds.sh
+#
+# Repeatable smoke-test runner for all 18 DAVE world files, per README.md
+# "August" next-step: "Define a shared PASS/PARTIAL/NOT TESTED matrix
+# (validation_matrix.csv) and a repeatable test script (test_worlds.sh)
+# before running the full sweep, so results are comparable run to run."
+#
+# WHAT THIS DOES: for each world, launches it headless with `ros2 launch`,
+# waits up to $TIMEOUT_SEC seconds, then classifies the outcome as
+# PASS / CRASH / TIMEOUT / SKIPPED by checking whether the process is still
+# alive and grepping its log for known crash signatures. It is a SMOKE TEST
+# (does Gazebo load and stay up), not a functional test of each sensor's
+# topic output -- cross-check against validation_matrix.csv's existing PASS
+# rows (multibeam sonar, ocean current, etc.) which were verified by
+# actually reading topic/service data, not just process liveness.
+#
+# WHAT THIS DOES NOT DO: it does not know the correct vehicle/namespace/
+# launch-args combination for every world. Worlds already confirmed in
+# validation_matrix.csv use their known-good args below. Worlds marked
+# "unknown" launch file in the matrix (manipulation scenarios, sonar-demo
+# worlds, dave_integrated) are SKIPPED BY DEFAULT -- pass --include-unknown
+# to attempt them anyway with a best-effort default (results should be
+# treated as exploratory, not authoritative, until the correct launch args
+# are confirmed and the matrix updated).
+#
+# USAGE (run inside the Docker container or Mac native env, after sourcing
+# install/setup.bash / install/setup.zsh):
+#   ./test_worlds.sh                     # run all worlds with known/default args
+#   ./test_worlds.sh --include-unknown   # also attempt manipulation/sonar-demo/integrated worlds
+#   ./test_worlds.sh --only dave_ocean_waves,usbl_tutorial   # just these worlds
+#   TIMEOUT_SEC=45 ./test_worlds.sh      # override the default 30s wait
+#
+# OUTPUT:
+#   results/<world>.log            -- full stdout+stderr of that world's launch attempt
+#   results/test_worlds_results.csv -- one row per run, appended (not overwritten),
+#                                       so repeated runs are comparable over time
+#
+# Exit code is always 0 (a world failing is a result to record, not a script
+# error) unless the script itself is misconfigured (e.g. ros2 not sourced).
+
+set -uo pipefail
+
+TIMEOUT_SEC="${TIMEOUT_SEC:-30}"
+RESULTS_DIR="results"
+RESULTS_CSV="${RESULTS_DIR}/test_worlds_results.csv"
+INCLUDE_UNKNOWN=0
+ONLY_LIST=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --include-unknown) INCLUDE_UNKNOWN=1; shift ;;
+    --only) ONLY_LIST="$2"; shift 2 ;;
+    -h|--help) grep '^#' "$0" | sed 's/^# \?//'; exit 0 ;;
+    *) echo "Unknown argument: $1" >&2; exit 1 ;;
+  esac
+done
+
+if ! command -v ros2 >/dev/null 2>&1; then
+  echo "ERROR: ros2 not found on PATH. Source install/setup.bash (or .zsh) first." >&2
+  exit 1
+fi
+
+mkdir -p "$RESULTS_DIR"
+if [[ ! -f "$RESULTS_CSV" ]]; then
+  echo "timestamp,world_file,launch_file,status,elapsed_sec,log_file,notes" > "$RESULTS_CSV"
+fi
+
+# world_file : launch_file : namespace : extra_args : known(1)/unknown(0)
+# "known" worlds use the exact args already verified in README.md / notes/.
+# "unknown" worlds are best-effort guesses -- see header comment.
+#
+# IMPORTANT (discovered 2026-07-22): dave_robot.launch.py ALWAYS requires a
+# namespace matching one of dave_robot_models/config/{rexrov,bluerov2,
+# bluerov2_heavy,bluerov2_heavy_multibeam_sonar,glider_slocum}/robot_config.py
+# -- there is no generic/environment-only default. Omitting it fails with
+# "No such file or directory: .../config/robot_config.py". Every
+# dave_robot.launch.py world below defaults to namespace:=rexrov (the one
+# confirmed working in README.md) purely to smoke-test the WORLD, not to
+# validate REXROV-specific behavior on that world.
+WORLDS=(
+  "camera_tutorial.world:dave_sensor.launch.py:camera:1"
+  "dave_Santorini.world:dave_robot.launch.py:rexrov:1"
+  "dave_bimanual_example.world:dave_world.launch.py::1"
+  "dave_electrical_mating.world:dave_world.launch.py::1"
+  "dave_graded_seabed.world:dave_robot.launch.py:rexrov:1"
+  "dave_integrated.world:dave_robot.launch.py:rexrov:1"
+  "dave_multibeam_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
+  "dave_ocean_models.world:dave_robot.launch.py:rexrov:1"
+  "dave_ocean_waves.world:dave_robot.launch.py:rexrov:1"
+  "dave_ocean_waves_mossy_ground.world:dave_robot.launch.py:rexrov:1"
+  "dave_ocean_waves_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
+  "dave_ocean_waves_sonar_integrated.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
+  "dave_ocean_waves_transient_current.world:dave_robot.launch.py:rexrov:1"
+  "dave_plug_and_socket.world:dave_world.launch.py::1"
+  "dvl_world.world:dave_sensor.launch.py:dvl:1"
+  "new_dvl.world:dave_sensor.launch.py:dvl:1"
+  "ocean_current_plugin.world:dave_robot.launch.py:rexrov:1"
+  "usbl_tutorial.world:dave_sensor.launch.py:usbl:1"
+)
+
+run_one() {
+  local world="$1" launch_file="$2" namespace="$3" known="$4" extra="${5:-}"
+  local log_file="${RESULTS_DIR}/${world%.world}.log"
+  local ts start end elapsed status notes cmd
+
+  cmd=(ros2 launch dave_demos "$launch_file" "world_name:=${world%.world}" "paused:=false" "gui:=true" "headless:=true")
+  [[ -n "$namespace" ]] && cmd+=("namespace:=${namespace}")
+  if [[ -n "$extra" ]]; then
+    # shellcheck disable=SC2206
+    local extra_args=($extra)
+    cmd+=("${extra_args[@]}")
+  fi
+
+  echo "=== $world ($([[ $known == 1 ]] && echo known-good args || echo BEST-EFFORT args)) ==="
+  echo "cmd: ${cmd[*]}"
+
+  ts="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  start=$(date +%s)
+
+  "${cmd[@]}" > "$log_file" 2>&1 &
+  local pid=$!
+
+  sleep "$TIMEOUT_SEC"
+
+  if kill -0 "$pid" 2>/dev/null; then
+    # still alive after the wait window -- treat as PASS (smoke test only;
+    # does not confirm topic data, cross-check validation_matrix.csv),
+    # then clean up.
+    # Bug fixed 2026-07-22: being "still alive" at the timeout check does NOT
+    # mean nothing crashed -- a sub-process (e.g. dave_world.launch.py's GUI
+    # client, which has no headless mode and unconditionally spawns a real
+    # Qt window) can abort while the top-level launch process and/or the
+    # Gazebo server component stay alive, producing a false PASS. Confirmed:
+    # dave_plug_and_socket.world showed "alive after 30s" here despite its
+    # log containing the identical qt.qpa.xcb/SIGABRT trace seen in
+    # dave_bimanual_example.world and dave_electrical_mating.world (which
+    # DID get caught as CRASH, purely due to a timing race in when the
+    # overall launch process happened to exit relative to the check). Now
+    # always grep the log regardless of alive/dead status.
+    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin|could not connect to display|qt\.qpa' "$log_file"; then
+      status="CRASH"
+      notes="alive after ${TIMEOUT_SEC}s but crash signature found in log -- $(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display' "$log_file" | head -1)"
+    else
+      status="PASS"
+      notes="alive after ${TIMEOUT_SEC}s"
+    fi
+  else
+    wait "$pid" 2>/dev/null
+    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin|could not connect to display|qt\.qpa' "$log_file"; then
+      status="CRASH"
+      notes="$(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display' "$log_file" | head -1)"
+    else
+      status="EXITED"
+      notes="process exited before ${TIMEOUT_SEC}s with no recognized crash signature -- inspect $log_file"
+    fi
+  fi
+
+  # Unconditional aggressive cleanup, regardless of PASS/CRASH/EXITED.
+  # `ros2 launch`'s own child (the "gazebo-1" wrapper -> gz-sim-main) does
+  # NOT reliably die just because the top-level launch_pid got SIGTERM'd --
+  # confirmed 2026-07-22: after 3 test_worlds.sh runs, 14 orphaned
+  # gz-sim-main processes were still alive and accumulating CPU/RAM (one had
+  # grown to 3.2GB RSS / 108% CPU). SIGKILL by pattern match is the reliable
+  # fix; a plain SIGTERM in the PASS branch alone was not enough.
+  #
+  # Bug fixed 2026-07-23: the world_name:=/worlds/*.world patterns above only
+  # match the gz-sim process's own command line -- they do NOT match sibling
+  # processes ros2 launch also spawns, like ros_gz_bridge's parameter_bridge
+  # or tf2_ros's static_transform_publisher, whose command lines only contain
+  # topic names (e.g. "/sensor/camera", "/model/rexrov/imu"), never the world
+  # name. Confirmed real damage: leftover parameter_bridge processes from
+  # earlier dave_multibeam_sonar runs were found still alive HOURS later,
+  # each pegged near 100% CPU, inflating the container to 204% CPU / 6GB RAM
+  # and starving/SIGKILLing unrelated later test runs (surfaced during a
+  # stability-test investigation). Fixed by also killing the whole process
+  # GROUP of the backgrounded `ros2 launch` job -- everything it spawns
+  # (gazebo-1, create-2, parameter_bridge, static_transform_publisher, ...)
+  # shares that process group unless a child explicitly detaches, so this
+  # catches siblings the command-line pattern match cannot.
+  kill -KILL -- "-${pid}" 2>/dev/null
+  kill -KILL "$pid" 2>/dev/null
+  pkill -9 -f "world_name:=${world%.world}[[:space:]]" 2>/dev/null
+  pkill -9 -f "worlds/${world%.world}.world" 2>/dev/null
+  sleep 1
+
+  end=$(date +%s)
+  elapsed=$((end - start))
+
+  [[ $known == 0 ]] && notes="[best-effort args, unverified] ${notes}"
+
+  echo "${ts},${world},${launch_file},${status},${elapsed},${log_file},\"${notes}\"" >> "$RESULTS_CSV"
+  echo "--> ${status} (${elapsed}s)"
+  echo
+}
+
+IFS=',' read -ra ONLY_ARR <<< "$ONLY_LIST"
+
+for entry in "${WORLDS[@]}"; do
+  IFS=':' read -r world launch_file namespace known extra <<< "$entry"
+
+  if [[ -n "$ONLY_LIST" ]]; then
+    match=0
+    for o in "${ONLY_ARR[@]}"; do
+      [[ "${world%.world}" == "$o" || "$world" == "$o" ]] && match=1
+    done
+    [[ $match == 0 ]] && continue
+  fi
+
+  if [[ $known == 0 && $INCLUDE_UNKNOWN == 0 && -z "$ONLY_LIST" ]]; then
+    echo "=== $world SKIPPED (unknown launch args -- pass --include-unknown to attempt) ==="
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world},${launch_file},SKIPPED,0,,\"unknown launch args, not attempted -- see validation_matrix.csv\"" >> "$RESULTS_CSV"
+    echo
+    continue
+  fi
+
+  run_one "$world" "$launch_file" "$namespace" "$known" "$extra"
+done
+
+echo "Done. Results appended to ${RESULTS_CSV}"

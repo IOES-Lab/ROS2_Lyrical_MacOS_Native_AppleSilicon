@@ -1,0 +1,40 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  19668  1132 ?        Ss   Jul21   0:00 sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+message+    26  0.0  0.0   8120    44 ?        Ss   Jul21   0:00 dbus-daemon --system --fork
+root        30  0.0  0.0  11172    16 ?        Ss   Jul21   0:00 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+root        31  0.0  0.0  19728    56 ?        S    Jul21   0:00 sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini
+root        34  0.0  0.0  13656   112 ?        S    Jul21   0:00 xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+root        35  0.0  0.0  13832   200 ?        S    Jul21   0:00 xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini
+root        39  0.0  0.0  17624    56 ?        S    Jul21   0:00 xrdp-sesexec
+docker      45  0.0  0.3 337568 41556 ?        Sl   Jul21   0:23 /usr/lib/xorg/Xorg :10 -auth .Xauthority -config xrdp/xorg.conf -noreset -nolisten tcp -logfile .xorgxrdp.%s.log
+docker      56  0.0  0.0   5864    28 ?        S    Jul21   0:00 /usr/bin/dbus-run-session -- /usr/bin/startxfce4
+docker      57  0.0  0.0  94852  1848 ?        Sl   Jul21   0:00 /usr/sbin/xrdp-chansrv
+docker      60  0.0  0.0   8136   140 ?        S    Jul21   0:00 dbus-daemon --nofork --print-address 4 --session
+docker      61  0.0  0.1 955116 21572 ?        Sl   Jul21   0:01 xfce4-session
+docker      85  0.0  0.0  11720     8 ?        Ss   Jul21   0:00 /usr/bin/ssh-agent -s
+docker      90  0.0  0.0   9848     8 ?        Ss   Jul21   0:00 /usr/bin/gpg-agent --sh --daemon
+docker      93  0.0  0.2 1237616 26472 ?       Sl   Jul21   0:04 xfwm4
+docker     110  0.0  0.1 357368 15360 ?        Sl   Jul21   0:01 xfsettingsd
+docker     117  0.0  0.0 166152    20 ?        Sl   Jul21   0:00 /usr/libexec/dconf-service
+docker     121  0.0  0.3 1586820 38144 ?       Sl   Jul21   0:08 xfce4-panel
+docker     127  0.0  0.1 570644 19356 ?        Sl   Jul21   0:00 Thunar --daemon
+docker     141  0.0  0.5 1460932 68520 ?       Sl   Jul21   0:07 xfdesktop
+docker     198  0.0  0.0 504396  2904 ?        Sl   Jul21   0:00 /usr/lib/aarch64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/aarch64-linux-gnu/xfce4/panel/plugins/libsystray.so 6 12582924 systray Status Tray Plugin Provides status notifier items (application indicators) and legacy systray items
+docker     203  0.0  0.0 564640  3520 ?        Sl   Jul21   0:00 /usr/lib/aarch64-linux-gnu/xfce4/notifyd/xfce4-notifyd
+docker     276  0.0  0.0 424268  3012 ?        Sl   Jul21   0:00 /usr/lib/aarch64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/aarch64-linux-gnu/xfce4/panel/plugins/libactions.so 10 12582925 actions Action Buttons Log out, lock or other system actions
+docker     448  0.0  0.1 1449780 24268 ?       Sl   Jul21   0:13 xfce4-terminal
+docker     527  0.0  0.0   8224  3108 pts/0    Ss   Jul21   0:00 bash
+root       941  0.4  0.1 118300 21428 ?        Sl   05:13   0:24 xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+docker    2637  0.2  0.3 1111632 45392 pts/0   Sl   05:33   0:08 /opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args
+docker    3352  0.0  0.0   5064   616 pts/2    Ss+  05:50   0:00 bash
+docker    4294  0.0  0.0   8580   240 pts/1    Ss+  06:01   0:00 bash
+docker    6427  0.3  0.4 1112512 50160 pts/0   Sl   06:29   0:02 /opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args
+docker    7216  1.1  0.9 1611280 115740 pts/0  Sl   06:35   0:04 /opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args
+docker    7218  0.1  0.4 1112900 60876 pts/0   Sl   06:35   0:00 /opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args
+docker    7753  0.0  0.0   7644  3604 pts/0    S+   06:42   0:00 bash ./benchmark_worlds.sh
+docker    7754  0.0  0.0  16136  6032 pts/0    S+   06:42   0:00 tee benchmark-run3.log
+docker    7769  1.8  0.5 237968 68908 pts/0    Sl+  06:42   0:00 /usr/bin/python3 /opt/ros/lyrical/bin/ros2 launch dave_demos dave_robot.launch.py world_name:=dave_ocean_waves paused:=false gui:=true headless:=true namespace:=rexrov
+docker    7781  0.0  0.0   3240  1572 pts/0    S+   06:42   0:00 /bin/sh -c ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r --force-version 10
+docker    7783  108  8.2 6077064 1014236 pts/0 Sl+  06:42   0:35 /opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r
+docker    7833 23.6  1.5 1669988 186668 pts/0  Sl+  06:42   0:07 /opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /model/rexrov/joint/thruster1_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster2_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster3_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster4_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster5_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster6_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster7_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster8_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster1_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster2_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster3_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster4_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster5_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster6_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster7_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster8_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double /model/rexrov/joint/thruster1_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster2_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster3_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster4_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster5_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster6_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster7_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/joint/thruster8_joint/enable_deadband@std_msgs/msg/Bool@gz.msgs.Boolean /model/rexrov/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry /model/rexrov/odometry_with_covariance@nav_msgs/msg/Odometry@gz.msgs.OdometryWithCovariance /model/rexrov/pose@geometry_msgs/msg/PoseArray@gz.msgs.Pose_V /model/rexrov/imu@sensor_msgs/msg/Imu@gz.msgs.IMU /model/rexrov/magnetometer@sensor_msgs/msg/MagneticField@gz.msgs.Magnetometer /model/rexrov/camera/image@sensor_msgs/msg/Image@gz.msgs.Image /model/rexrov/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo --ros-args
+docker    7968  0.0  0.0  10116  3900 pts/0    R+   06:42   0:00 ps aux

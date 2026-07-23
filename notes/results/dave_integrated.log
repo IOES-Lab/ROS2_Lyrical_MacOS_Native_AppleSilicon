@@ -1,0 +1,131 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-06-07-56-896981-67d4b1d39687-5001
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [5005]
+[INFO] [create-2]: process started with pid [5007]
+[create-2] [INFO] [1784700477.782533638] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1784700479.588260722] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 5007]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [parameter_bridge-3]: process started with pid [5043]
+[gazebo-1] (2026-07-22 06:08:00.087) [error] [SimulationRunner.cc:274] Another world of the same name is running
+[parameter_bridge-3] [INFO] [1784700480.232889333] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.450292708] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.461137625] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.473924375] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.484971875] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster3_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster3_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.498251291] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster3_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster3_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.506087416] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster4_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster4_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.522094000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster4_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster4_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.580157208] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster5_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster5_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.590043958] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster5_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster5_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700480.600993833] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster6_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster6_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="m_to_f_plug"]/link[@name="m_to_f_plug"]/collision[@name="m_to_f_plug_collision"]/surface/friction/ode/mu1:/home/docker/.gz/fuel/fuel.gazebosim.org/hmoyen/models/m to f plug/1/model.sdf:L34]: XML Element[mu1], child of element[ode], not defined in SDF. Copying[mu1] as children of [ode].
+[parameter_bridge-3] [INFO] [1784700481.229218083] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster6_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster6_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.232747833] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster7_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster7_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.235452250] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster7_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster7_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.352089667] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster8_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster8_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.444071959] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster8_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster8_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.449767042] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster1_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster1_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.462473667] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster1_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster1_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.479013084] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster2_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster2_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.490358084] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster2_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster2_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.495549625] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster3_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster3_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.510636875] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster3_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster3_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.514243334] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster4_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster4_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.523508959] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster4_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster4_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.527746417] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster5_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster5_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.552678375] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster5_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster5_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.556008000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster6_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster6_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.560277917] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster6_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster6_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.561516542] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster7_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster7_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.564328125] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster7_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster7_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.568582917] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster8_joint/ang_vel (gz.msgs.Double) -> /model/rexrov/joint/thruster8_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.571680209] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster8_joint/ang_vel (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster8_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.573654667] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster1_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster1_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.576995292] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster1_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster1_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.589354875] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster2_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster2_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.601300750] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster2_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster2_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.604388000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster3_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster3_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.711075584] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster3_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster3_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.737829709] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster4_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster4_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.755653750] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster4_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster4_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.764021834] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster5_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster5_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.765526500] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster5_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster5_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700481.768517250] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster6_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster6_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.087655792] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster6_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster6_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.102531459] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster7_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster7_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.110358251] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster7_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster7_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.125269292] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster8_joint/enable_deadband (gz.msgs.Boolean) -> /model/rexrov/joint/thruster8_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.138903917] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster8_joint/enable_deadband (std_msgs/msg/Bool) -> /model/rexrov/joint/thruster8_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.149434334] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/odometry (gz.msgs.Odometry) -> /model/rexrov/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.209518209] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/odometry (nav_msgs/msg/Odometry) -> /model/rexrov/odometry (gz.msgs.Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.221135626] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/rexrov/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.260316001] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/odometry_with_covariance (nav_msgs/msg/Odometry) -> /model/rexrov/odometry_with_covariance (gz.msgs.OdometryWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.268708417] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/pose (gz.msgs.Pose_V) -> /model/rexrov/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.280560459] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/pose (geometry_msgs/msg/PoseArray) -> /model/rexrov/pose (gz.msgs.Pose_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.309262042] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/imu (gz.msgs.IMU) -> /model/rexrov/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.329160209] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/imu (sensor_msgs/msg/Imu) -> /model/rexrov/imu (gz.msgs.IMU)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.419636417] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/magnetometer (gz.msgs.Magnetometer) -> /model/rexrov/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.455381251] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/magnetometer (sensor_msgs/msg/MagneticField) -> /model/rexrov/magnetometer (gz.msgs.Magnetometer)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.469573501] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/camera/image (gz.msgs.Image) -> /model/rexrov/camera/image (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.479097251] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/camera/image (sensor_msgs/msg/Image) -> /model/rexrov/camera/image (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.620357126] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/camera/camera_info (gz.msgs.CameraInfo) -> /model/rexrov/camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700482.648998876] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/camera/camera_info (sensor_msgs/msg/CameraInfo) -> /model/rexrov/camera/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700484.208711210] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Float64 to Gazebo gz.msgs.Double (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1784700484.891340252] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]
+[gazebo-1] 
+[gazebo-1] ODE Message 2: Trimesh-trimesh contach hash table bucket overflow - close contacts might not be culled in AddContactToNode() [collision_trimesh_trimesh.cpp:224]

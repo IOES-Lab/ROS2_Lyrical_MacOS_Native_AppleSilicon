@@ -1,0 +1,20 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-06-09-45-806360-67d4b1d39687-5480
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [5485]
+[INFO] [create-2]: process started with pid [5486]
+[create-2] [INFO] [1784700598.014420471] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1784700598.900655138] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 5486]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [parameter_bridge-3]: process started with pid [5515]
+[gazebo-1] (2026-07-22 06:10:02.916) [error] [SimulationRunner.cc:274] Another world of the same name is running
+[parameter_bridge-3] [INFO] [1784700603.012774792] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700603.117235876] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster1_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster1_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700603.135340376] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.400442376] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster2_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster2_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.410004251] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster3_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster3_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.421149543] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster3_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster3_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.439888710] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster4_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster4_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.455398543] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster4_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster4_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.471431751] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/joint/thruster5_joint/cmd_thrust (gz.msgs.Double) -> /model/rexrov/joint/thruster5_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784700604.496323168] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/joint/thruster5_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/rexrov/joint/thruster5_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)

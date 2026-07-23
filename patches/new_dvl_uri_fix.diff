@@ -1,0 +1,13 @@
+diff --git a/models/dave_worlds/worlds/new_dvl.world b/models/dave_worlds/worlds/new_dvl.world
+index 6ed59b9..8b1fe99 100644
+--- a/models/dave_worlds/worlds/new_dvl.world
++++ b/models/dave_worlds/worlds/new_dvl.world
+@@ -83,7 +83,7 @@
+ 		<!-- Virtual north, east and down frame -->
+ 		<include>
+ 			<uri>
+-				https://fuel.gazebosim.org/1.0/hmoyen/models/North-East-Down frame
++				https://fuel.gazebosim.org/1.0/hmoyen/models/North East Down frame
+ 			</uri>
+ 			<pose>0 0 0 0 0 0</pose>
+ 		</include>

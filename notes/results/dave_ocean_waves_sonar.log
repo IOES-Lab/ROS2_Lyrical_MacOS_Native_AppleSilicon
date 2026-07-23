@@ -1,0 +1,25 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-07-22-07-25-54-725929-67d4b1d39687-9955
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [9959]
+[INFO] [create-2]: process started with pid [9960]
+[INFO] [parameter_bridge-3]: process started with pid [9961]
+[INFO] [static_transform_publisher-4]: process started with pid [9963]
+[parameter_bridge-3] [INFO] [1784705157.377368843] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[create-2] [INFO] [1784705157.430867968] [ros_gz_sim]: Requesting list of world names.
+[parameter_bridge-3] [INFO] [1784705157.535419426] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera (sensor_msgs/msg/Image) -> /sensor/camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784705157.549514176] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784705157.559708634] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera_info (sensor_msgs/msg/CameraInfo) -> /sensor/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[static_transform_publisher-4] [INFO] [1784705157.568940009] [static_transform_publisher_Hve0OQuikQYfVA6L]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'world' to 'blueview_p900/blueview_p900_base_link/multibeam_sonar'
+[parameter_bridge-3] [INFO] [1784705157.570470051] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784705157.573384343] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/depth_camera (sensor_msgs/msg/Image) -> /sensor/depth_camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784705157.592979718] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1784705157.596546551] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
+[create-2] [INFO] [1784705157.685906343] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 9960]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] (2026-07-22 07:25:59.796) [error] [SimulationRunner.cc:274] Another world of the same name is running
+[parameter_bridge-3] [INFO] [1784705171.820652877] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/CameraInfo to Gazebo gz.msgs.CameraInfo (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1784705172.660615252] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
