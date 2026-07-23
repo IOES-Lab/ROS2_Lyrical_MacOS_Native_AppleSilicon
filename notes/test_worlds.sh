@@ -8,8 +8,11 @@
 #
 # WHAT THIS DOES: for each world, launches it headless with `ros2 launch`,
 # waits up to $TIMEOUT_SEC seconds, then classifies the outcome as
-# PASS / CRASH / TIMEOUT / SKIPPED by checking whether the process is still
-# alive and grepping its log for known crash signatures. It is a SMOKE TEST
+# PASS / CRASH / REVIEW / EXITED / SKIPPED (corrected 2026-07-23 -- this
+# comment previously said "PASS / CRASH / TIMEOUT / SKIPPED", which doesn't
+# match the actual status values the script writes; there is no TIMEOUT
+# status, and REVIEW/EXITED were missing) by checking whether the process is
+# still alive and grepping its log for known crash signatures. It is a SMOKE TEST
 # (does Gazebo load and stay up), not a functional test of each sensor's
 # topic output -- cross-check against validation_matrix.csv's existing PASS
 # rows (multibeam sonar, ocean current, etc.) which were verified by
@@ -23,7 +26,7 @@
 # dave_world.launch.py, has no headless mode and always spawns a real Qt GUI
 # client that aborts with no X display attached, so a default run always
 # hits the same known dead end; pass --include-unknown to attempt them
-# anyway. (Bug fixed 2026-07-24: the WORLDS array previously marked every
+# anyway. (Bug fixed 2026-07-23: the WORLDS array previously marked every
 # entry, including these 3, as known=1, which silently made
 # --include-unknown a no-op and ran the manipulation worlds by default every
 # time, misclassifying their expected GUI abort as a surprise CRASH instead
@@ -73,7 +76,7 @@ if [[ ! -f "$RESULTS_CSV" ]]; then
   echo "timestamp,world_file,launch_file,status,elapsed_sec,log_file,notes" > "$RESULTS_CSV"
 fi
 
-# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# --- Process-group cleanup infrastructure (fixed 2026-07-23) ---
 # Bug found (documentation audit): the PID captured from "cmd &" is NOT
 # automatically a process-group leader in a non-interactive script -- job
 # control/monitor mode is off by default under plain `set -uo pipefail`, so
@@ -99,10 +102,33 @@ cleanup_current() {
     pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
   fi
 }
-trap cleanup_current EXIT INT TERM HUP
+# Bug fixed 2026-07-23 (caught in review): a single `trap cleanup_current EXIT
+# INT TERM HUP` runs cleanup_current on a signal but does NOT terminate the
+# script -- confirmed via a minimal repro that the script kept running past
+# a SIGTERM and exited 0. The EXIT trap alone (which fires on every exit path,
+# including one triggered by `exit N` from a signal handler) is enough to
+# guarantee cleanup runs exactly once; the signal-specific traps below only
+# need to actually terminate the script with the conventional 128+signum
+# exit code.
+trap cleanup_current EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 
-if ! command -v setsid >/dev/null 2>&1; then
-  echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+# Bug fixed 2026-07-23 (caught in review): this script's own usage comment
+# claims Docker OR Mac native support, but the launch code unconditionally
+# called `setsid` -- which isn't a standard macOS command -- and only printed
+# a warning before still trying to call it, so on Mac every world would fail
+# to even launch (not just fail to clean up). USE_SETSID now picks a real
+# strategy up front instead of guessing at launch time: `setsid` on
+# Linux/Docker (has util-linux by default), bash's own job-control monitor
+# mode (`set -m`, see run_one() below) as a portable Mac fallback -- same
+# approach already used in benchmark_worlds_mac.sh.
+if command -v setsid >/dev/null 2>&1; then
+  USE_SETSID=1
+else
+  USE_SETSID=0
+  echo "NOTE: 'setsid' not found (expected on macOS) -- using bash job-control (set -m) for process-group cleanup instead." >&2
 fi
 
 # world_file : launch_file : namespace : extra_args : known(1)/unknown(0)
@@ -157,7 +183,13 @@ run_one() {
   ts="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   start=$(date +%s)
 
-  setsid "${cmd[@]}" > "$log_file" 2>&1 < /dev/null &
+  if [[ "$USE_SETSID" == 1 ]]; then
+    setsid "${cmd[@]}" > "$log_file" 2>&1 < /dev/null &
+  else
+    set -m
+    "${cmd[@]}" > "$log_file" 2>&1 &
+    set +m
+  fi
   local pid=$!
   CURRENT_PID="$pid"
   CURRENT_WORLD="${world%.world}"
@@ -166,10 +198,16 @@ run_one() {
 
   # "Hard" signatures are treated as real crash evidence on their own.
   # "stack trace (most recent call last)" alone is kept separate (see below)
-  # -- fixed 2026-07-24 after docker/README.md documented a confirmed
+  # -- fixed 2026-07-23 after docker/README.md documented a confirmed
   # non-fatal case of this exact log line (gz-sim-main stayed alive and
   # working 7+ minutes after it appeared, 2026-07-20 RAM/CPU load test).
-  local hard_crash_re='segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display|qt\.qpa'
+  # Bug fixed 2026-07-23 (caught in review): the USBL server abort this repo
+  # actually root-caused (UsblTransponder.cc's std::normal_distribution
+  # assertion, SIGABRT/exit 134 -- see Known issues) wasn't matched by any
+  # pattern here. If the sigma world-file workaround ever regressed, this
+  # classifier would have called it EXITED, not CRASH. Added assertion/abort
+  # patterns.
+  local hard_crash_re='segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display|qt\.qpa|assertion.*failed|aborted|sigabrt|exit code 134'
   local stack_trace_re='stack trace \(most recent call last\)'
 
   if kill -0 "$pid" 2>/dev/null; then
@@ -188,7 +226,7 @@ run_one() {
     # overall launch process happened to exit relative to the check). Now
     # always grep the log regardless of alive/dead status.
     #
-    # Bug fixed 2026-07-24: a bare "stack trace (most recent call last)" log
+    # Bug fixed 2026-07-23: a bare "stack trace (most recent call last)" log
     # line does NOT reliably mean the process is dying/dead -- only classify
     # as CRASH here when a harder signal (segfault/abort/plugin-load
     # failure/no-display) accompanies it. A stack-trace-only line on a
@@ -242,7 +280,7 @@ run_one() {
   # catches siblings the command-line pattern match cannot.
   cleanup_current
   sleep 1
-  # Verify the cleanup actually worked (fixed 2026-07-24, per audit request):
+  # Verify the cleanup actually worked (fixed 2026-07-23, per audit request):
   # warn loudly instead of silently trusting `2>/dev/null`-suppressed kills.
   if pgrep -f "world_name:=${world%.world}[[:space:]]" >/dev/null 2>&1 || \
      pgrep -f "worlds/${world%.world}.world" >/dev/null 2>&1; then

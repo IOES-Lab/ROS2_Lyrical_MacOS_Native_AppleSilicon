@@ -100,7 +100,7 @@ if [[ ! -f "$RESULTS_CSV" ]]; then
   echo "timestamp,world_file,rtf_samples,rtf_avg,gz_sim_rss_mib,notes" > "$RESULTS_CSV"
 fi
 
-# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# --- Process-group cleanup infrastructure (fixed 2026-07-23) ---
 # Same bug/fix as benchmark_worlds.sh (Docker) and test_worlds.sh: a
 # background job's PID is not automatically a process-group leader without
 # job control enabled, so `kill -KILL -- "-$pid"` was silently targeting a
@@ -125,7 +125,17 @@ cleanup_current() {
     pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
   fi
 }
-trap cleanup_current EXIT INT TERM HUP
+# Bug fixed 2026-07-23 (caught in review): a single `trap cleanup_current EXIT
+# INT TERM HUP` runs cleanup_current on a signal but does NOT terminate the
+# script -- confirmed via a minimal repro that the script kept running past
+# a SIGTERM and exited 0. The EXIT trap alone (fires on every exit path,
+# including one triggered by `exit N` from a signal handler) guarantees
+# cleanup runs exactly once; the signal-specific traps below just need to
+# actually terminate the script with the conventional 128+signum exit code.
+trap cleanup_current EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 
 # world_file : launch_file : namespace : extra_args -- same 3 representative
 # worlds as the Docker script, for a direct comparison.

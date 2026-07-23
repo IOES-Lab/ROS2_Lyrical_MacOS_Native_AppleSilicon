@@ -18,7 +18,7 @@
 # is a coarse two-bucket comparison, not a real regression/slope fit, and a
 # single run can't distinguish a slow leak from normal steady-state
 # fluctuation with certainty -- treat WARNING as "worth a closer manual
-# look at the CSV," not a confirmed leak. (Fixed 2026-07-24: earlier
+# look at the CSV," not a confirmed leak. (Fixed 2026-07-23: earlier
 # versions of this comment claimed monotonic-growth detection that was
 # never actually implemented -- only first_rss/max_rss/liveness were
 # tracked. This is the first version that actually computes a growth
@@ -61,7 +61,7 @@ if ! command -v ros2 >/dev/null 2>&1; then
   exit 1
 fi
 
-# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# --- Process-group cleanup infrastructure (fixed 2026-07-23) ---
 # Same bug/fix as test_worlds.sh/benchmark_worlds.sh: a background job's PID
 # is not automatically a process-group leader without job control, so
 # `kill -KILL -- "-$pid"` was silently targeting a nonexistent group. Fixed
@@ -80,7 +80,19 @@ cleanup_current() {
     pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
   fi
 }
-trap cleanup_current EXIT INT TERM HUP
+# Bug fixed 2026-07-23 (caught in review): a single `trap cleanup_current EXIT
+# INT TERM HUP` runs cleanup_current on a signal but does NOT terminate the
+# script -- confirmed via a minimal repro that the script kept running past
+# a SIGTERM and exited 0. Since this script is specifically meant to be run
+# detached/killed later, this mattered: the EXIT trap alone (fires on every
+# exit path, including one triggered by `exit N` from a signal handler)
+# guarantees cleanup runs exactly once; the signal-specific traps below just
+# need to actually terminate the script with the conventional 128+signum
+# exit code.
+trap cleanup_current EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 
 if ! command -v setsid >/dev/null 2>&1; then
   echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
@@ -147,7 +159,7 @@ fi
 CURRENT_PID=""
 CURRENT_WORLD=""
 
-# Memory-growth heuristic (added 2026-07-24, see header comment): compare
+# Memory-growth heuristic (added 2026-07-23, see header comment): compare
 # average RSS of the first half vs. second half of alive samples. This is a
 # coarse two-bucket comparison, not a slope/regression fit -- flags WARNING,
 # not CRASH, since a single run can't distinguish a real leak from

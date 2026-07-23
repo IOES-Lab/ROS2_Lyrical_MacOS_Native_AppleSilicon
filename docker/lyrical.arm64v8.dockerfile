@@ -164,13 +164,18 @@ RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
 # real dependency-resolution failure, not just a harmless warning. Failure: `ros-lyrical-mavros`
 # is not available via apt for the `lyrical` distro yet (`E: Unable to locate package
 # ros-lyrical-mavros` — the package/distro sync for this very new ROS distro hasn't caught up).
-# `|| true` is restored below so this DAVE-workspace rosdep pass doesn't hard-fail on that one
-# missing key. This does NOT mean mavros is missing from the final image: a separate from-source
+# This does NOT mean mavros is missing from the final image: a separate from-source
 # mavros build stage further down this file (search "mavros, built from source") installs it
 # independently of this rosdep call, and that stage's success is what actually determines
 # whether mavros ends up in the image — see that section for the validated result.
+#
+# Fixed 2026-07-23 (caught in review): the blanket `|| true` previously here made the ENTIRE
+# rosdep pass succeed regardless of failure reason, not just the one known mavros gap -- any
+# other real, unrelated dependency-resolution failure would be silently swallowed too. Replaced
+# with `--skip-keys mavros`, which tolerates only the specific known-missing key and still lets
+# the build fail loudly on anything else.
 RUN rosdep init || true && rosdep update --rosdistro $ROS_DISTRO && \
-    rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . || true
+    rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . --skip-keys mavros
 
 # wgpu_vendor (multibeam sonar's CUDA-free compute backend) is a Rust crate — needs cargo
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

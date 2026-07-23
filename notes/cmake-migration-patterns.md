@@ -31,7 +31,15 @@ target_link_libraries(MyPlugin
 
 ## 3. Boost `COMPONENTS system` no longer needed
 
-Boost 1.89+ made `boost_system` header-only; requesting the component now errors.
+**Corrected 2026-07-23 (caught in review):** the original version of this note conflated two
+separate Boost.System facts. Boost.System has actually been header-only since **Boost 1.69**
+(2018) — `<boost/system/error_code.hpp>` stopped needing a compiled library that long ago. What
+actually broke the build here is that **Boost 1.89** removed the small compatibility *stub*
+library that older code (including some CMake `find_package(Boost COMPONENTS system)` calls) had
+been quietly linking against for backward compatibility — once that stub was gone, requesting
+`system` as a component started failing outright rather than silently doing nothing. See the
+[Boost.System docs](https://www.boost.org/doc/libs/latest/libs/system/doc/html/system.html) for
+the version history. Fix is the same either way:
 
 ```cmake
 find_package(Boost REQUIRED)   # not COMPONENTS system
