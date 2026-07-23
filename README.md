@@ -122,17 +122,20 @@ workspace needs the real Xcode SDK path, not just the Command Line Tools' —
 `gz-sim`/`ros_gz_sim` build step to succeed:
 
 ```bash
-# NOTE (flagged 2026-07-24, still open -- see the callout below): building ros_gz from source
-# needs ROS 2 Lyrical's OWN underlay sourced first (rclcpp/ament_cmake etc. come from there),
-# not just the venv. This session's exact workspace path for the 2026-07-06 native ROS 2 Lyrical
-# source build was not re-confirmed against .zsh_history for this pass -- adjust to your actual
-# ROS 2 Lyrical colcon workspace before running the build below:
-# source /path/to/your/ros2_lyrical_ws/install/setup.zsh
+# Confirmed 2026-07-24 via this session's actual .zsh_history (not guessed): building ros_gz
+# from source needs ROS 2 Lyrical's OWN underlay sourced first (rclcpp/ament_cmake etc. come
+# from there), not just the venv. This session's workspace was ~/ros2_lyrical:
+source ~/ros2_lyrical/install/setup.zsh   # adjust path if your ROS 2 Lyrical workspace differs
 
 # built at ~/ros_gz_ws_lyrical specifically -- DAVE's own environment chains to source
 # this exact absolute path later, so keep it here rather than an arbitrary location
 mkdir -p ~/ros_gz_ws_lyrical/src && cd ~/ros_gz_ws_lyrical
 vcs import src < ~/ROS2_Lyrical_review_fixes/notes/ros_gz_ws_lyrical.repos   # requires `pip install vcstool`; adjust the repo path if cloned elsewhere
+
+# Local, uncommitted CMakeLists.txt changes this session actually built against (confirmed
+# 2026-07-24 via `git diff` on the real workspace) -- not present in the pinned commits
+# themselves, so apply on top of the fresh checkout:
+git apply --directory=src/ros_gz ~/ROS2_Lyrical_review_fixes/patches/ros_gz_lyrical_jetty_mac.diff
 
 # --package-skip flags added 2026-07-24: this session's actual shell history (per the
 # vision_msgs_rviz_plugins local_setup.zsh warning documented below) shows these two
@@ -151,23 +154,23 @@ source ~/ros_gz_ws_lyrical/install/setup.zsh
 cd ~/ROS2_Lyrical_review_fixes   # adjust to wherever this repo is actually cloned
 ```
 
-**Known gap (found 2026-07-24, not yet resolved):** `ros_gz_ws_lyrical.repos` pins the exact
-commit of each of the 24 repositories, but does **not** capture two local, uncommitted
-modifications this session actually built against: `ros_gz_bridge/CMakeLists.txt` and
-`ros_gz_sim/CMakeLists.txt` both have an added `find_package(tinyxml2 REQUIRED)` (and
-`ros_gz_bridge`'s also adds a small `CLI11::CLI11` include-dir shim: `if(TARGET CLI11::CLI11 AND
-NOT DEFINED CLI11_INCLUDE_DIRS) ... endif()`), which are not present in a clean checkout of the
-pinned commits and are not yet captured as an applyable patch file. Following the commands above
-exactly, on a fresh checkout, is therefore expected to be **incomplete** until this diff is
-captured from the real workspace and added as `patches/ros_gz_lyrical_jetty_mac.diff` (to be
-applied after `vcs import`, before `colcon build`) — tracked in Next steps.
+**Local ros_gz patch (found 2026-07-24, now resolved):** `ros_gz_ws_lyrical.repos` pins the exact
+commit of each of the 24 repositories, but did **not** capture two local, uncommitted
+modifications this session actually built against — confirmed via `git diff` against the real
+workspace and now captured as
+[`patches/ros_gz_lyrical_jetty_mac.diff`](patches/ros_gz_lyrical_jetty_mac.diff) (applied above,
+after `vcs import`, before `colcon build`): `ros_gz_bridge/CMakeLists.txt` adds
+`find_package(tinyxml2 REQUIRED)`; `ros_gz_sim/CMakeLists.txt` adds both a `CLI11::CLI11`
+include-dir shim (`if(TARGET CLI11::CLI11 AND NOT DEFINED CLI11_INCLUDE_DIRS) ... endif()`) and
+`find_package(tinyxml2 REQUIRED)` — the real workspace has this `tinyxml2` line duplicated twice
+in a row in `ros_gz_sim/CMakeLists.txt` (harmless, evidently an accidental leftover from iterative
+debugging), preserved as-is in the patch for exact reproducibility of what was actually built and
+tested, rather than silently "cleaning it up" into a state that was never verified.
 
-**Not yet done:** this exact `vcs import` + clean-build sequence hasn't been independently
-re-verified end to end from a fresh checkout — the `.repos` file was captured from an
-already-built workspace, so treat it as the best available record of what was actually used, not
-yet a proven-reproducible recipe. The two gaps above (ROS 2 Lyrical underlay path, local ros_gz
-patch) are additional, more specific reasons a truly fresh checkout would not yet build cleanly
-by following this section alone.
+**Not yet done:** this exact `vcs import` + patch + clean-build sequence hasn't been independently
+re-verified end to end from a fresh checkout — the `.repos` file and the patch above were both
+captured from an already-built workspace, so treat this as the best available record of what was
+actually used, not yet a proven-reproducible recipe run from zero.
 
 **Then the DAVE build itself** — note the package list below was also corrected: the original
 snippet only built DAVE's core 10 packages and skipped the WGPU sonar packages entirely, so a
