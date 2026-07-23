@@ -1,5 +1,8 @@
 # ROS 2 Lyrical / Gazebo Jetty — DAVE Migration Verification
 
+> **📌 최신 결과는 [`docs/review-fixes`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/docs/review-fixes) 브랜치에 있습니다.** 이 `main` 브랜치는 2026년 7월 검증 작업(18개 월드 스모크 테스트, USBL/new_dvl 수정, Mac+Docker 벤치마킹, 안정성 테스트) 이전 상태입니다. 최신·정확한 상태는 위 브랜치의 README를 참고하세요.
+
+
 ```text
 Status: Experimental / validation environment
 Validated: Build, headless launch, XFCE/xrdp login, representative smoke tests
