@@ -14,9 +14,12 @@
 # status, and REVIEW/EXITED were missing) by checking whether the process is
 # still alive and grepping its log for known crash signatures. It is a SMOKE TEST
 # (does Gazebo load and stay up), not a functional test of each sensor's
-# topic output -- cross-check against validation_matrix.csv's existing PASS
-# rows (multibeam sonar, ocean current, etc.) which were verified by
-# actually reading topic/service data, not just process liveness.
+# topic output -- cross-check against validation_matrix.csv's existing
+# FUNCTIONAL PASS rows (ocean current, dvl_world, dave_ocean_waves, etc.)
+# which were verified by actually reading topic/service data, not just
+# process liveness. (multibeam sonar is a stale example here as of
+# 2026-07-23 -- it's since been downgraded to PARTIAL after a confirmed
+# simulation-progress stall, see validation_matrix.csv.)
 #
 # WHAT THIS DOES NOT DO: it does not know the correct vehicle/namespace/
 # launch-args combination for every world. Worlds already confirmed in
@@ -313,8 +316,8 @@ for entry in "${WORLDS[@]}"; do
   fi
 
   if [[ $known == 0 && $INCLUDE_UNKNOWN == 0 && -z "$ONLY_LIST" ]]; then
-    echo "=== $world SKIPPED (unknown launch args -- pass --include-unknown to attempt) ==="
-    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world},${launch_file},SKIPPED,0,,\"unknown launch args, not attempted -- see validation_matrix.csv\"" >> "$RESULTS_CSV"
+    echo "=== $world SKIPPED (no headless path -- dave_world.launch.py always spawns a GUI client, pass --include-unknown to attempt anyway) ==="
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world},${launch_file},SKIPPED,0,,\"no headless path -- dave_world.launch.py always spawns a GUI client with no X display here, not attempted by default -- see validation_matrix.csv\"" >> "$RESULTS_CSV"
     echo
     continue
   fi

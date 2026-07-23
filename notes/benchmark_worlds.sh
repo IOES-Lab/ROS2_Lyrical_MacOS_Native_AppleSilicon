@@ -115,8 +115,15 @@ trap 'exit 130' INT
 trap 'exit 143' TERM
 trap 'exit 129' HUP
 
+# Hard-fail, not just warn (fixed 2026-07-23): this script is Docker/Linux-only
+# (there's no Mac fallback here -- benchmark_worlds_mac.sh is the separate Mac
+# script, using bash's `set -m` since setsid isn't standard there). Every world
+# launch below unconditionally calls `setsid`, so a bare warning followed by a
+# guaranteed "command not found" on the first launch just produces confusing
+# per-world failures instead of a clean, immediate error.
 if ! command -v setsid >/dev/null 2>&1; then
-  echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+  echo "ERROR: 'setsid' not found -- required for reliable process-group cleanup on this Docker/Linux-only script. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+  exit 1
 fi
 
 # world_file : launch_file : namespace : extra_args

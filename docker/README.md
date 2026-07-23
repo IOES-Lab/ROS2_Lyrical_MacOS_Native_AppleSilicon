@@ -6,8 +6,9 @@ build time/size recorded, ROS environment/package checks confirmed. World/perfor
 below were re-checked 2026-07-22/23 against the lyrical-theme-test container (same Dockerfile
 lineage) — see the main README for full detail, this file's table is kept in sync with it.
 Validated: Build, headless launch, XFCE/xrdp login, ROS environment + dave_demos/multibeam_sonar_system/mavros
-package presence, 13/18 worlds PASS-level (9 smoke, 4 functional), 2 PARTIAL, 3 not automated (see table below), USBL
-world-file workaround, quantitative RTF benchmark (ocean_waves/usbl_tutorial), 1h clean stability run
+package presence, 12/18 worlds PASS-level (9 smoke, 3 functional), 3 PARTIAL (see table below), USBL
+world-file workaround (downgraded to PARTIAL 2026-07-23, see table below), quantitative RTF benchmark
+(ocean_waves/usbl_tutorial), 1h clean stability run
 Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop. dave_multibeam_sonar has a known simulation-progress instability — see table below and main README Known issues.
 ```
 
@@ -26,11 +27,16 @@ and consistent with a `ps aux` breakdown inside the container (`gz-sim-main` ~83
 of one core, `parameter_bridge` ~90MB). Confirmed in that build/run: all 36 build steps completed,
 `ROS_DISTRO=lyrical` and `ros2` resolved inside the container, `ros2 pkg prefix` resolved
 `dave_demos` and `multibeam_sonar_system`, and `ros2 pkg list` listed `mavros`, `mavros_extras`,
-`mavros_msgs`, `mavros_examples`. This is **clean build + ROS environment/package presence
-validation** — it does not re-run the representative demo launch under this exact image. The
-world/vehicle/performance/stability rows below were validated separately, on 2026-07-22/23,
-against the same Dockerfile lineage running as the `lyrical-theme-test` container — see the
-table for current status and the main README for full detail. Real
+`mavros_msgs`, `mavros_examples`. This particular build/run round (2026-07-18) is **clean build +
+ROS environment/package presence validation** — it did not itself launch the representative demo.
+**Corrected 2026-07-23 (was previously stated inconsistently):** the representative-demo /
+RAM-CPU-under-load measurement above **was** run against this exact image tag
+(`lyrical-sim:jetty-rdp-pr1-ca-fix`), two days later on 2026-07-20 — see the main README's
+Progress Log entry for that date, which names the image tag explicitly. The
+world/vehicle/performance/stability *rows in the table below*, separately, were validated on
+2026-07-22/23 against the same Dockerfile lineage running as the `lyrical-theme-test`
+container (a different, later container from the same Dockerfile, not this exact image tag) —
+see the table for current status and the main README for full detail. Real
 RDP login to an XFCE desktop was validated against the same Dockerfile lineage on 2026-07-17 and
 again during the 2026-07-18 `--privileged` test below; it was not re-clicked-through on this
 exact rebuild since nothing in the RDP/XFCE stack changed. This replaces an earlier draft (with
@@ -153,10 +159,10 @@ docker exec -it lyrical-sim bash -lc \
 | ArduSub SITL build | PASS |
 | mavros build (from source; `ros-lyrical-mavros` not yet on apt) | PASS — `mavros`/`mavros_extras`/`mavros_msgs`/`mavros_examples` confirmed via `ros2 pkg list`, MAVLink bridging itself not yet exercised |
 | RAM/CPU under an active demo workload | MEASURED — short observation window: ~1008MiB (8.44%) / ~1.2–1.5% CPU, steady over 5 samples across ~20s (2026-07-20); idle floor is 62.66MiB. Not a long-duration measurement — see the separate long-duration stability test row |
-| USBL | FUNCTIONAL PASS (combined evidence, world-file workaround, 2026-07-22) — root cause was the Gazebo **server** aborting on an unvalidated `sigma=0.0`, not a GUI crash as first thought; fixed via a world-file patch (`sigma` → `0.0001`), baked into this Dockerfile. This is a workaround, not a plugin-level fix — and "combined evidence" means the pre-fix run confirmed real topic data while the post-fix run separately confirmed no abort, not one run confirming both — see main [README.md Known issues](../README.md#known-issues) and [Verified demos](../README.md#verified-demos) |
-| 18-world validation matrix | 13/18 PASS-level (9 SMOKE PASS, 4 FUNCTIONAL PASS), 2/18 PARTIAL (`dave_multibeam_sonar` and `dave_ocean_waves_sonar_integrated` — both show confirmed simulation-progress problems of different severity, see below), 3/18 NOT AUTOMATED (manipulation worlds — `dave_world.launch.py` has no headless mode) (2026-07-22/23) — see main [README.md](../README.md#progress-log) and `notes/validation_matrix.csv` |
+| USBL | PARTIAL (combined evidence, world-file workaround, downgraded from FUNCTIONAL PASS 2026-07-23) — root cause was the Gazebo **server** aborting on an unvalidated `sigma=0.0`, not a GUI crash as first thought; fixed via a world-file patch (`sigma` → `0.0001`), baked into this Dockerfile. This is a workaround, not a plugin-level fix. "Combined evidence" means the pre-fix run confirmed real topic data while the post-fix run separately confirmed no abort — **no single run has confirmed both at once**, which is why this is reported as PARTIAL rather than FUNCTIONAL PASS — see main [README.md Known issues](../README.md#known-issues) and [Verified demos](../README.md#verified-demos) |
+| 18-world validation matrix | 12/18 PASS-level (9 SMOKE PASS, 3 FUNCTIONAL PASS), 3/18 PARTIAL (`dave_multibeam_sonar` and `dave_ocean_waves_sonar_integrated` — both show confirmed simulation-progress problems of different severity; `usbl_tutorial` — downgraded 2026-07-23, see row above), 3/18 NOT AUTOMATED (manipulation worlds — `dave_world.launch.py` has no headless mode) (2026-07-22/23) — see main [README.md](../README.md#progress-log) and `notes/validation_matrix.csv` |
 | Worlds previously documented as `sonar-demo`-branch-only | The separate-branch requirement was investigated and found incorrect for this checkout (2026-07-22) — both worlds only need `multibeam_sonar_system`, already present. Status differs between the two: `dave_ocean_waves_sonar` is SMOKE PASS; `dave_ocean_waves_sonar_integrated` is PARTIAL (confirmed simulation slowdown, RTF ~0.03) — see main [README.md Verified demos](../README.md#verified-demos) |
-| All vehicle/sensor/GUI-headless combinations | PARTIAL — REXROV + DVL/camera/ocean-current/pressure/USBL confirmed with real topic data; BlueROV2/BlueROV2 Heavy/Slocum Glider have not yet been used as the smoke-test vehicle for any world (ArduSub SITL build/launch success is a separate, already-confirmed thing — see main README [Verified demos](../README.md#verified-demos)) |
+| All vehicle/sensor/GUI-headless combinations | PARTIAL — REXROV + DVL/camera/ocean-current/pressure confirmed with real topic data; USBL confirmed real topic data and the post-fix no-crash state, but not in the same run (see USBL row above); BlueROV2/BlueROV2 Heavy/Slocum Glider have not yet been used as the smoke-test vehicle for any world (ArduSub SITL build/launch success is a separate, already-confirmed thing — see main README [Verified demos](../README.md#verified-demos)) |
 | Quantitative performance benchmark | PASS for `dave_ocean_waves`/`usbl_tutorial`, PARTIAL for `dave_multibeam_sonar` (2026-07-23, same RTF sampling methodology and parameters on Mac and Docker, run via two platform-specific scripts — `benchmark_worlds.sh` on Docker, `benchmark_worlds_mac.sh` on Mac): `dave_ocean_waves` RTF 0.277 (Docker) / 0.423 (Mac); `usbl_tutorial` RTF 1.000 (Docker) / 0.998 (Mac). `dave_multibeam_sonar` **excluded from the comparison** — confirmed unreliable on both platforms (crawls at RTF ~0.012-0.015, or shows a simulation-progress stall with platform-specific symptoms: Mac high-CPU/livelock-like, Docker near-idle/possible deadlock — mechanism not confirmed, no thread dump/lock analysis done), not a valid benchmark number. See main [README.md](../README.md#progress-log) and `notes/bench_results/`. Reported as separate environments per-world, not a single "N× faster" claim |
 | Long-duration stability | PARTIAL (2026-07-23) — the original 4h run crashed at ~4.4h; traced to leftover test-script processes starving the container (not a DAVE/Gazebo-Jetty bug), fixed in all 4 test scripts, and a clean 1h re-run **survived the full duration**. A full clean 4h re-run started 2026-07-23 (in progress) — see main [README.md](../README.md#progress-log) for live status and raw result files |
 

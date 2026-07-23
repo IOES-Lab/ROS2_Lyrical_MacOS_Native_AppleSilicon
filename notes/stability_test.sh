@@ -94,8 +94,14 @@ trap 'exit 130' INT
 trap 'exit 143' TERM
 trap 'exit 129' HUP
 
+# Hard-fail, not just warn (fixed 2026-07-23): this script is Docker/Linux-only
+# (no Mac fallback exists here) and the launch line below unconditionally calls
+# `setsid`, so a bare warning followed by a guaranteed "command not found" just
+# produces a confusing failure well into a supposedly multi-hour run instead of
+# a clean, immediate error before anything starts.
 if ! command -v setsid >/dev/null 2>&1; then
-  echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+  echo "ERROR: 'setsid' not found -- required for reliable process-group cleanup on this Docker/Linux-only script. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+  exit 1
 fi
 
 cmd=(ros2 launch dave_demos "$LAUNCH_FILE" "world_name:=${WORLD}" "paused:=false" "gui:=true" "headless:=true" "namespace:=${NAMESPACE}")
