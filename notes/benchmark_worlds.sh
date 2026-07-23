@@ -115,8 +115,24 @@ bench_one() {
   # Find the real Gazebo stats topic -- internal <world name="..."> can
   # differ from the filename (confirmed happens, e.g. new_dvl.world's
   # internal name is "dvl_world"), so discover it rather than assume.
+  #
+  # Bug fixed 2026-07-22: `gz topic -l` can list a BARE "/stats" topic
+  # alongside the real per-world "/world/<world_name>/stats" topic -- both
+  # end in "/stats", so a plain `grep -m1 '/stats$'` can grab whichever comes
+  # first in the listing. Confirmed on macOS that the bare "/stats" can be
+  # dead/stale (0 messages over a 15s sampling window) while the namespaced
+  # "/world/<name>/stats" topic has real data with sim_time incrementing
+  # normally. Not independently re-confirmed as a live bug in this Docker
+  # environment (the original Docker benchmark run may or may not have hit
+  # this), but the risk applies equally here since the same `gz topic -l`
+  # command and grep pattern are used -- prefer the namespaced topic and
+  # treat any earlier Docker RTF numbers gathered before this fix as
+  # unverified until re-run.
   local stats_topic
-  stats_topic="$(gz topic -l 2>/dev/null | grep -m1 '/stats$')"
+  stats_topic="$(gz topic -l 2>/dev/null | grep -E '^/world/.*/stats$' | head -1)"
+  if [[ -z "$stats_topic" ]]; then
+    stats_topic="$(gz topic -l 2>/dev/null | grep -m1 '/stats$')"
+  fi
 
   if [[ -z "$stats_topic" ]]; then
     echo "--> no /stats topic found via 'gz topic -l', RTF unavailable for this world"
@@ -163,6 +179,16 @@ bench_one() {
   # NOT reliably kill the grandchild gz-sim-main process (it becomes
   # orphaned and keeps running/accumulating CPU+RAM). See test_worlds.sh
   # for the same fix applied there, where this was first caught.
+  #
+  # Bug fixed 2026-07-23: the world_name:=/worlds/*.world patterns don't
+  # match sibling processes like parameter_bridge/static_transform_publisher
+  # (their command lines only have topic names, not the world name) -- these
+  # were found still alive hours after their launching benchmark run ended,
+  # pegged near 100% CPU each, and starved a later unrelated stability-test
+  # run into getting SIGKILLed by resource pressure. Also kill the whole
+  # process group of the backgrounded job so every child ros2 launch spawned
+  # goes down together.
+  kill -KILL -- "-${launch_pid}" 2>/dev/null
   kill -KILL "$launch_pid" 2>/dev/null
   pkill -9 -f "world_name:=${world}[[:space:]]" 2>/dev/null
   pkill -9 -f "worlds/${world}.world" 2>/dev/null

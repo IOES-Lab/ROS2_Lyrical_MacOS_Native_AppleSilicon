@@ -104,6 +104,11 @@ while [[ $(date +%s) -lt $end_epoch ]]; do
 done
 
 # cleanup regardless of outcome
+# Bug fixed 2026-07-23: world_name:=/worlds/*.world patterns don't match
+# parameter_bridge/static_transform_publisher siblings (their command lines
+# only have topic names) -- also kill the whole process group so nothing
+# from this run's `ros2 launch` tree survives.
+kill -KILL -- "-${launch_pid}" 2>/dev/null
 kill -KILL "$launch_pid" 2>/dev/null
 pkill -9 -f "world_name:=${WORLD}[[:space:]]" 2>/dev/null
 pkill -9 -f "worlds/${WORLD}.world" 2>/dev/null

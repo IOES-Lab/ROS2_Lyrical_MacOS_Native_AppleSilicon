@@ -163,6 +163,22 @@ run_one() {
   # gz-sim-main processes were still alive and accumulating CPU/RAM (one had
   # grown to 3.2GB RSS / 108% CPU). SIGKILL by pattern match is the reliable
   # fix; a plain SIGTERM in the PASS branch alone was not enough.
+  #
+  # Bug fixed 2026-07-23: the world_name:=/worlds/*.world patterns above only
+  # match the gz-sim process's own command line -- they do NOT match sibling
+  # processes ros2 launch also spawns, like ros_gz_bridge's parameter_bridge
+  # or tf2_ros's static_transform_publisher, whose command lines only contain
+  # topic names (e.g. "/sensor/camera", "/model/rexrov/imu"), never the world
+  # name. Confirmed real damage: leftover parameter_bridge processes from
+  # earlier dave_multibeam_sonar runs were found still alive HOURS later,
+  # each pegged near 100% CPU, inflating the container to 204% CPU / 6GB RAM
+  # and starving/SIGKILLing unrelated later test runs (surfaced during a
+  # stability-test investigation). Fixed by also killing the whole process
+  # GROUP of the backgrounded `ros2 launch` job -- everything it spawns
+  # (gazebo-1, create-2, parameter_bridge, static_transform_publisher, ...)
+  # shares that process group unless a child explicitly detaches, so this
+  # catches siblings the command-line pattern match cannot.
+  kill -KILL -- "-${pid}" 2>/dev/null
   kill -KILL "$pid" 2>/dev/null
   pkill -9 -f "world_name:=${world%.world}[[:space:]]" 2>/dev/null
   pkill -9 -f "worlds/${world%.world}.world" 2>/dev/null
