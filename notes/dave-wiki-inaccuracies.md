@@ -1,6 +1,6 @@
 # DAVE Wiki inaccuracies found while cross-checking
 
-The [official DAVE Wiki](http://dave-ros2.notion.site) is written entirely for ROS 2 Jazzy + Gazebo Harmonic. No page anywhere in the Wiki mentions "Lyrical" or "Jetty" — not even pages edited as recently as this week (e.g. Native Local Installation Manual, System Requirements). A few unrelated inaccuracies were also found while reading every page for this verification:
+The [official DAVE Wiki](http://dave-ros2.notion.site) is written entirely for ROS 2 Jazzy + Gazebo Harmonic. No page anywhere in the Wiki mentions "Lyrical" or "Jetty" — not even pages edited as recently as the week of 2026-07-23 (e.g. Native Local Installation Manual, System Requirements) — the date given is when this cross-check was done, not a fixed relative offset. A few unrelated inaccuracies were also found while reading every page for this verification:
 
 - **SeaPressure Plugin page** — cites `ros2 launch dave_robot_launch robot_in_world.launch.py ...`. The `dave_robot_launch` package does not exist (`ros2 pkg list` confirms). The plugin is actually bundled automatically into any REXROV spawn via the normal `dave_demos dave_robot.launch.py` — no special launch file needed. The topic names cited (`/rexrov/Pressure`) are also stale; the real topics are `/model/rexrov/sea_pressure` and `/model/rexrov/sea_pressure_depth`.
 - **"Create New Robot Model"** and **"Build World using Heightmap"** pages are completely empty placeholders (title only, no content).
