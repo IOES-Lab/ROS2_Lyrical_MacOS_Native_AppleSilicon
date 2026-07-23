@@ -1,0 +1,9 @@
+Stability test summary
+World: dave_ocean_waves
+Planned duration: 1h
+Outcome: SURVIVED full planned duration
+Started RSS: 1792 MiB
+Max RSS observed: 1792 MiB
+Full sample log: stability_results/dave_ocean_waves-stability.csv
+Launch log: stability_results/dave_ocean_waves-launch.log
+Generated: 2026-07-23T02:44:43Z
