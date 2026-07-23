@@ -17,17 +17,24 @@
 #
 # WHAT THIS DOES NOT DO: it does not know the correct vehicle/namespace/
 # launch-args combination for every world. Worlds already confirmed in
-# validation_matrix.csv use their known-good args below. Worlds marked
-# "unknown" launch file in the matrix (manipulation scenarios, sonar-demo
-# worlds, dave_integrated) are SKIPPED BY DEFAULT -- pass --include-unknown
-# to attempt them anyway with a best-effort default (results should be
-# treated as exploratory, not authoritative, until the correct launch args
-# are confirmed and the matrix updated).
+# validation_matrix.csv use their known-good args below. The 3 manipulation
+# worlds (dave_bimanual_example, dave_electrical_mating, dave_plug_and_socket)
+# are marked "unknown" and SKIPPED BY DEFAULT -- their launch file,
+# dave_world.launch.py, has no headless mode and always spawns a real Qt GUI
+# client that aborts with no X display attached, so a default run always
+# hits the same known dead end; pass --include-unknown to attempt them
+# anyway. (Bug fixed 2026-07-24: the WORLDS array previously marked every
+# entry, including these 3, as known=1, which silently made
+# --include-unknown a no-op and ran the manipulation worlds by default every
+# time, misclassifying their expected GUI abort as a surprise CRASH instead
+# of a understood NOT AUTOMATED limitation.) The two sonar-demo-adjacent
+# worlds (dave_ocean_waves_sonar, dave_ocean_waves_sonar_integrated) and
+# dave_integrated already have confirmed-working args and are known=1.
 #
 # USAGE (run inside the Docker container or Mac native env, after sourcing
 # install/setup.bash / install/setup.zsh):
 #   ./test_worlds.sh                     # run all worlds with known/default args
-#   ./test_worlds.sh --include-unknown   # also attempt manipulation/sonar-demo/integrated worlds
+#   ./test_worlds.sh --include-unknown   # also attempt the 3 manipulation worlds
 #   ./test_worlds.sh --only dave_ocean_waves,usbl_tutorial   # just these worlds
 #   TIMEOUT_SEC=45 ./test_worlds.sh      # override the default 30s wait
 #
@@ -66,6 +73,38 @@ if [[ ! -f "$RESULTS_CSV" ]]; then
   echo "timestamp,world_file,launch_file,status,elapsed_sec,log_file,notes" > "$RESULTS_CSV"
 fi
 
+# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# Bug found (documentation audit): the PID captured from "cmd &" is NOT
+# automatically a process-group leader in a non-interactive script -- job
+# control/monitor mode is off by default under plain `set -uo pipefail`, so
+# a background job stays in the SCRIPT's own process group rather than
+# getting a new one. `kill -KILL -- "-$pid"` therefore targeted a process
+# group that doesn't exist and failed silently (masked by `2>/dev/null`) --
+# confirmed via a minimal Bash repro showing "group -<pid> DOES NOT exist".
+# Fixed by launching via `setsid`, which creates a real new session+process
+# group with PGID equal to the launched process's own PID, so the
+# negative-PID kill now actually targets the right group. A script-level
+# trap also ensures Ctrl+C/kill of this script itself still cleans up
+# whatever world is currently running, not just the normal end-of-iteration
+# path.
+CURRENT_PID=""
+CURRENT_WORLD=""
+cleanup_current() {
+  if [[ -n "$CURRENT_PID" ]]; then
+    kill -KILL -- "-${CURRENT_PID}" 2>/dev/null
+    kill -KILL "${CURRENT_PID}" 2>/dev/null
+  fi
+  if [[ -n "$CURRENT_WORLD" ]]; then
+    pkill -9 -f "world_name:=${CURRENT_WORLD}[[:space:]]" 2>/dev/null
+    pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
+  fi
+}
+trap cleanup_current EXIT INT TERM HUP
+
+if ! command -v setsid >/dev/null 2>&1; then
+  echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+fi
+
 # world_file : launch_file : namespace : extra_args : known(1)/unknown(0)
 # "known" worlds use the exact args already verified in README.md / notes/.
 # "unknown" worlds are best-effort guesses -- see header comment.
@@ -81,8 +120,8 @@ fi
 WORLDS=(
   "camera_tutorial.world:dave_sensor.launch.py:camera:1"
   "dave_Santorini.world:dave_robot.launch.py:rexrov:1"
-  "dave_bimanual_example.world:dave_world.launch.py::1"
-  "dave_electrical_mating.world:dave_world.launch.py::1"
+  "dave_bimanual_example.world:dave_world.launch.py::0"
+  "dave_electrical_mating.world:dave_world.launch.py::0"
   "dave_graded_seabed.world:dave_robot.launch.py:rexrov:1"
   "dave_integrated.world:dave_robot.launch.py:rexrov:1"
   "dave_multibeam_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
@@ -92,7 +131,7 @@ WORLDS=(
   "dave_ocean_waves_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
   "dave_ocean_waves_sonar_integrated.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
   "dave_ocean_waves_transient_current.world:dave_robot.launch.py:rexrov:1"
-  "dave_plug_and_socket.world:dave_world.launch.py::1"
+  "dave_plug_and_socket.world:dave_world.launch.py::0"
   "dvl_world.world:dave_sensor.launch.py:dvl:1"
   "new_dvl.world:dave_sensor.launch.py:dvl:1"
   "ocean_current_plugin.world:dave_robot.launch.py:rexrov:1"
@@ -118,10 +157,20 @@ run_one() {
   ts="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   start=$(date +%s)
 
-  "${cmd[@]}" > "$log_file" 2>&1 &
+  setsid "${cmd[@]}" > "$log_file" 2>&1 < /dev/null &
   local pid=$!
+  CURRENT_PID="$pid"
+  CURRENT_WORLD="${world%.world}"
 
   sleep "$TIMEOUT_SEC"
+
+  # "Hard" signatures are treated as real crash evidence on their own.
+  # "stack trace (most recent call last)" alone is kept separate (see below)
+  # -- fixed 2026-07-24 after docker/README.md documented a confirmed
+  # non-fatal case of this exact log line (gz-sim-main stayed alive and
+  # working 7+ minutes after it appeared, 2026-07-20 RAM/CPU load test).
+  local hard_crash_re='segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display|qt\.qpa'
+  local stack_trace_re='stack trace \(most recent call last\)'
 
   if kill -0 "$pid" 2>/dev/null; then
     # still alive after the wait window -- treat as PASS (smoke test only;
@@ -138,18 +187,31 @@ run_one() {
     # DID get caught as CRASH, purely due to a timing race in when the
     # overall launch process happened to exit relative to the check). Now
     # always grep the log regardless of alive/dead status.
-    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin|could not connect to display|qt\.qpa' "$log_file"; then
+    #
+    # Bug fixed 2026-07-24: a bare "stack trace (most recent call last)" log
+    # line does NOT reliably mean the process is dying/dead -- only classify
+    # as CRASH here when a harder signal (segfault/abort/plugin-load
+    # failure/no-display) accompanies it. A stack-trace-only line on a
+    # confirmed-alive process is downgraded to REVIEW so it's still
+    # surfaced, not silently hidden and not falsely called CRASH either.
+    if grep -qiE "$hard_crash_re" "$log_file"; then
       status="CRASH"
-      notes="alive after ${TIMEOUT_SEC}s but crash signature found in log -- $(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display' "$log_file" | head -1)"
+      notes="alive after ${TIMEOUT_SEC}s but crash signature found in log -- $(grep -iE "$hard_crash_re" "$log_file" | head -1)"
+    elif grep -qiE "$stack_trace_re" "$log_file"; then
+      status="REVIEW"
+      notes="alive after ${TIMEOUT_SEC}s, but a 'stack trace' log line was seen with no other crash signature -- process did not die; treat as a non-fatal log artifact pending manual check, not a confirmed crash"
     else
       status="PASS"
       notes="alive after ${TIMEOUT_SEC}s"
     fi
   else
     wait "$pid" 2>/dev/null
-    if grep -qiE 'segmentation fault|core dumped|terminate called|stack trace \(most recent call last\)|failed to load plugin|could not connect to display|qt\.qpa' "$log_file"; then
+    if grep -qiE "$hard_crash_re" "$log_file"; then
       status="CRASH"
-      notes="$(grep -iE 'segmentation fault|core dumped|terminate called|failed to load plugin|could not connect to display' "$log_file" | head -1)"
+      notes="$(grep -iE "$hard_crash_re" "$log_file" | head -1)"
+    elif grep -qiE "$stack_trace_re" "$log_file"; then
+      status="CRASH"
+      notes="process exited before ${TIMEOUT_SEC}s; only signature found was a 'stack trace' log line (no segfault/abort/etc) -- likely but not conclusively related to the exit, inspect $log_file"
     else
       status="EXITED"
       notes="process exited before ${TIMEOUT_SEC}s with no recognized crash signature -- inspect $log_file"
@@ -178,11 +240,16 @@ run_one() {
   # (gazebo-1, create-2, parameter_bridge, static_transform_publisher, ...)
   # shares that process group unless a child explicitly detaches, so this
   # catches siblings the command-line pattern match cannot.
-  kill -KILL -- "-${pid}" 2>/dev/null
-  kill -KILL "$pid" 2>/dev/null
-  pkill -9 -f "world_name:=${world%.world}[[:space:]]" 2>/dev/null
-  pkill -9 -f "worlds/${world%.world}.world" 2>/dev/null
+  cleanup_current
   sleep 1
+  # Verify the cleanup actually worked (fixed 2026-07-24, per audit request):
+  # warn loudly instead of silently trusting `2>/dev/null`-suppressed kills.
+  if pgrep -f "world_name:=${world%.world}[[:space:]]" >/dev/null 2>&1 || \
+     pgrep -f "worlds/${world%.world}.world" >/dev/null 2>&1; then
+    echo "WARNING: cleanup for ${world} may be incomplete -- a matching process is still running after kill/pkill" >&2
+  fi
+  CURRENT_PID=""
+  CURRENT_WORLD=""
 
   end=$(date +%s)
   elapsed=$((end - start))

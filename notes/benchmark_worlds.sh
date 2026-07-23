@@ -11,9 +11,17 @@
 #   - Real Time Factor (RTF): sampled from Gazebo's own /world/<name>/stats
 #     transport topic (gz.msgs.WorldStatistics), NOT ROS -- this is Gazebo's
 #     own internal sim-time/wall-time ratio, the standard RTF definition.
-#   - CPU/RAM: `docker stats` (container-wide) + `ps aux` (per-process
-#     breakdown of gz-sim-main and any bridge/parameter_bridge processes),
-#     same method already validated in docker/README.md's 2026-07-20 entry.
+#   - Memory: `gz-sim-main` RSS via `ps aux` (per-process, this world's
+#     process only) plus a single cgroup-file read of container-wide memory
+#     (`container_mem_mib`, when /sys/fs/cgroup/memory.current is readable).
+#   - CPU: the `container_cpu_pct` CSV column exists as a placeholder but is
+#     NOT populated by this script -- it is always written as N/A. A real
+#     per-run CPU% needs a delta over time (e.g. two cgroup cpu.stat reads
+#     a known interval apart, or `docker stats` from the host), which this
+#     script does not do; CPU numbers elsewhere in this repo (e.g. the
+#     2026-07-20 RAM/CPU load-test entry in docker/README.md) came from a
+#     separate, manual `docker stats`/`ps aux` observation, not from this
+#     script.
 #
 # WHAT THIS DOES NOT DO: it does not measure sonar frame time directly (that
 # was already measured qualitatively for Jazzy+Harmonic on 2026-07-13 via a
@@ -75,6 +83,32 @@ if [[ ! -f "$RESULTS_CSV" ]]; then
   echo "timestamp,world_file,rtf_samples,rtf_avg,container_mem_mib,container_cpu_pct,gz_sim_rss_mib,notes" > "$RESULTS_CSV"
 fi
 
+# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# Same bug/fix as test_worlds.sh: a background job's PID is not automatically
+# a process-group leader without job control, so `kill -KILL -- "-$pid"`
+# was silently targeting a nonexistent group. Fixed via `setsid`. Also
+# fixed: the early "process died before settle" return path below used to
+# skip cleanup entirely, which could leave a partially-started process tree
+# behind -- now routed through the same cleanup_current() the normal path
+# uses, and a script-level trap covers Ctrl+C/kill of the script itself.
+CURRENT_PID=""
+CURRENT_WORLD=""
+cleanup_current() {
+  if [[ -n "$CURRENT_PID" ]]; then
+    kill -KILL -- "-${CURRENT_PID}" 2>/dev/null
+    kill -KILL "${CURRENT_PID}" 2>/dev/null
+  fi
+  if [[ -n "$CURRENT_WORLD" ]]; then
+    pkill -9 -f "world_name:=${CURRENT_WORLD}[[:space:]]" 2>/dev/null
+    pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
+  fi
+}
+trap cleanup_current EXIT INT TERM HUP
+
+if ! command -v setsid >/dev/null 2>&1; then
+  echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+fi
+
 # world_file : launch_file : namespace : extra_args
 BENCH_WORLDS=(
   "dave_ocean_waves:dave_robot.launch.py:rexrov:"
@@ -99,15 +133,24 @@ bench_one() {
   echo "=== $world ==="
   echo "cmd: ${cmd[*]}"
 
-  "${cmd[@]}" > "$log_file" 2>&1 &
+  setsid "${cmd[@]}" > "$log_file" 2>&1 < /dev/null &
   local launch_pid=$!
+  CURRENT_PID="$launch_pid"
+  CURRENT_WORLD="$world"
 
   echo "Settling ${SETTLE_SEC}s..."
   sleep "$SETTLE_SEC"
 
   if ! kill -0 "$launch_pid" 2>/dev/null; then
     echo "--> world did not stay alive through settle window, skipping benchmark. See $log_file"
-    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world}.world,0,,,,\"process died before settle window -- see ${log_file}\"" >> "$RESULTS_CSV"
+    cleanup_current
+    CURRENT_PID=""
+    CURRENT_WORLD=""
+    # 8 columns: timestamp,world_file,rtf_samples,rtf_avg,container_mem_mib,
+    # container_cpu_pct,gz_sim_rss_mib,notes -- bug fixed 2026-07-24: this
+    # line previously wrote only 7 fields (one comma short), which shifted
+    # every later CSV parse for this row by one column.
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world}.world,0,,,,,\"process died before settle window -- see ${log_file}\"" >> "$RESULTS_CSV"
     echo
     return
   fi
@@ -188,11 +231,14 @@ bench_one() {
   # run into getting SIGKILLed by resource pressure. Also kill the whole
   # process group of the backgrounded job so every child ros2 launch spawned
   # goes down together.
-  kill -KILL -- "-${launch_pid}" 2>/dev/null
-  kill -KILL "$launch_pid" 2>/dev/null
-  pkill -9 -f "world_name:=${world}[[:space:]]" 2>/dev/null
-  pkill -9 -f "worlds/${world}.world" 2>/dev/null
+  cleanup_current
   sleep 1
+  if pgrep -f "world_name:=${world}[[:space:]]" >/dev/null 2>&1 || \
+     pgrep -f "worlds/${world}.world" >/dev/null 2>&1; then
+    echo "WARNING: cleanup for ${world} may be incomplete -- a matching process is still running after kill/pkill" >&2
+  fi
+  CURRENT_PID=""
+  CURRENT_WORLD=""
 
   echo "--> RTF avg (last ${rtf_n} samples): ${rtf_avg}, gz-sim RSS: ${gz_rss_mib} MiB, cgroup mem: ${mem_mib:-N/A} MiB"
   echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world}.world,${rtf_n},${rtf_avg},${mem_mib:-N/A},${cpu_pct:-N/A},${gz_rss_mib},\"stats_topic=${stats_topic:-none}, settle=${SETTLE_SEC}s, window=${SAMPLE_WINDOW_SEC}s\"" >> "$RESULTS_CSV"

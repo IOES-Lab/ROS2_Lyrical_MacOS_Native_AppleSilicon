@@ -100,6 +100,33 @@ if [[ ! -f "$RESULTS_CSV" ]]; then
   echo "timestamp,world_file,rtf_samples,rtf_avg,gz_sim_rss_mib,notes" > "$RESULTS_CSV"
 fi
 
+# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# Same bug/fix as benchmark_worlds.sh (Docker) and test_worlds.sh: a
+# background job's PID is not automatically a process-group leader without
+# job control enabled, so `kill -KILL -- "-$pid"` was silently targeting a
+# nonexistent group (confirmed via a minimal Bash repro on this Mac: "group
+# -<pid> DOES NOT exist"). `setsid` (the fix used on the Linux/Docker
+# scripts) isn't a standard macOS command, so this script instead enables
+# bash's own job-control monitor mode (`set -m`) around the launch, which
+# makes bash itself put the background job in its own new process group.
+# This script is meant to be run interactively from a Terminal (not
+# detached via nohup like stability_test.sh), so a controlling terminal is
+# expected to be present. Also fixed: the early "process died before
+# settle" return path used to skip cleanup entirely.
+CURRENT_PID=""
+CURRENT_WORLD=""
+cleanup_current() {
+  if [[ -n "$CURRENT_PID" ]]; then
+    kill -KILL -- "-${CURRENT_PID}" 2>/dev/null
+    kill -KILL "${CURRENT_PID}" 2>/dev/null
+  fi
+  if [[ -n "$CURRENT_WORLD" ]]; then
+    pkill -9 -f "world_name:=${CURRENT_WORLD}[[:space:]]" 2>/dev/null
+    pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
+  fi
+}
+trap cleanup_current EXIT INT TERM HUP
+
 # world_file : launch_file : namespace : extra_args -- same 3 representative
 # worlds as the Docker script, for a direct comparison.
 BENCH_WORLDS=(
@@ -123,14 +150,21 @@ bench_one() {
   echo "=== $world ==="
   echo "cmd: ${cmd[*]}"
 
+  set -m
   "${cmd[@]}" > "$log_file" 2>&1 &
   local launch_pid=$!
+  set +m
+  CURRENT_PID="$launch_pid"
+  CURRENT_WORLD="$world"
 
   echo "Settling ${SETTLE_SEC}s..."
   sleep "$SETTLE_SEC"
 
   if ! kill -0 "$launch_pid" 2>/dev/null; then
     echo "--> world did not stay alive through settle window, skipping benchmark. See $log_file"
+    cleanup_current
+    CURRENT_PID=""
+    CURRENT_WORLD=""
     echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world}.world,0,,,\"process died before settle window -- see ${log_file}\"" >> "$RESULTS_CSV"
     echo
     return
@@ -208,11 +242,14 @@ bench_one() {
   # world_name:=/worlds/*.world pkill patterns and keep running indefinitely
   # (confirmed on Docker: leftover ones from an earlier dave_multibeam_sonar
   # run were still alive hours later, ~100% CPU each).
-  kill -KILL -- "-${launch_pid}" 2>/dev/null
-  kill -KILL "$launch_pid" 2>/dev/null
-  pkill -9 -f "world_name:=${world}[[:space:]]" 2>/dev/null
-  pkill -9 -f "worlds/${world}.world" 2>/dev/null
+  cleanup_current
   sleep 1
+  if pgrep -f "world_name:=${world}[[:space:]]" >/dev/null 2>&1 || \
+     pgrep -f "worlds/${world}.world" >/dev/null 2>&1; then
+    echo "WARNING: cleanup for ${world} may be incomplete -- a matching process is still running after kill/pkill" >&2
+  fi
+  CURRENT_PID=""
+  CURRENT_WORLD=""
 
   echo "--> RTF avg (last ${rtf_n} samples): ${rtf_avg}, gz-sim RSS: ${gz_rss_mib} MiB"
   echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world}.world,${rtf_n},${rtf_avg},${gz_rss_mib},\"stats_topic=${stats_topic:-none}, settle=${SETTLE_SEC}s, window=${SAMPLE_WINDOW_SEC}s\"" >> "$RESULTS_CSV"

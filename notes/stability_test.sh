@@ -10,12 +10,19 @@
 # survives the launching terminal/SSH session closing -- check back on
 # stability_results/ later rather than waiting live.
 #
-# WHAT COUNTS AS A FAILURE: the gz-sim-main process dying before
-# DURATION_HOURS elapses (crash), OR RSS growing monotonically/unboundedly
-# across samples (memory leak signature) -- both are flagged, not just
-# outright crashes. A single long run can't distinguish a slow leak from
-# normal steady-state fluctuation with certainty, but a clearly monotonic
-# multi-hour climb is a strong signal either way.
+# WHAT COUNTS AS A FAILURE OR WARNING: the gz-sim-main process dying before
+# DURATION_HOURS elapses is CRASHED. For memory growth: this script computes
+# a simple heuristic at the end of the run -- average RSS of the first half
+# of alive samples vs. the second half -- and flags WARNING (not CRASH) if
+# the second half is both >50 MiB and >50% higher than the first half. This
+# is a coarse two-bucket comparison, not a real regression/slope fit, and a
+# single run can't distinguish a slow leak from normal steady-state
+# fluctuation with certainty -- treat WARNING as "worth a closer manual
+# look at the CSV," not a confirmed leak. (Fixed 2026-07-24: earlier
+# versions of this comment claimed monotonic-growth detection that was
+# never actually implemented -- only first_rss/max_rss/liveness were
+# tracked. This is the first version that actually computes a growth
+# signal from the collected samples.)
 #
 # USAGE (run inside the Docker container, after sourcing dave_ws/install;
 # run detached so it survives the terminal closing):
@@ -54,6 +61,31 @@ if ! command -v ros2 >/dev/null 2>&1; then
   exit 1
 fi
 
+# --- Process-group cleanup infrastructure (fixed 2026-07-24) ---
+# Same bug/fix as test_worlds.sh/benchmark_worlds.sh: a background job's PID
+# is not automatically a process-group leader without job control, so
+# `kill -KILL -- "-$pid"` was silently targeting a nonexistent group. Fixed
+# via `setsid`. A script-level trap also ensures this cleans up correctly
+# if the script itself is killed/interrupted mid-run (relevant here since
+# this script is specifically meant to be run detached via nohup/disown).
+CURRENT_PID=""
+CURRENT_WORLD=""
+cleanup_current() {
+  if [[ -n "$CURRENT_PID" ]]; then
+    kill -KILL -- "-${CURRENT_PID}" 2>/dev/null
+    kill -KILL "${CURRENT_PID}" 2>/dev/null
+  fi
+  if [[ -n "$CURRENT_WORLD" ]]; then
+    pkill -9 -f "world_name:=${CURRENT_WORLD}[[:space:]]" 2>/dev/null
+    pkill -9 -f "worlds/${CURRENT_WORLD}.world" 2>/dev/null
+  fi
+}
+trap cleanup_current EXIT INT TERM HUP
+
+if ! command -v setsid >/dev/null 2>&1; then
+  echo "WARNING: 'setsid' not found -- process-group cleanup will not be reliable here. Install util-linux (normally preinstalled on Ubuntu/Debian)." >&2
+fi
+
 cmd=(ros2 launch dave_demos "$LAUNCH_FILE" "world_name:=${WORLD}" "paused:=false" "gui:=true" "headless:=true" "namespace:=${NAMESPACE}")
 if [[ -n "$EXTRA_ARGS" ]]; then
   # shellcheck disable=SC2206
@@ -64,8 +96,10 @@ fi
 echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) starting stability test: ${cmd[*]}"
 echo "Duration: ${DURATION_HOURS}h, sample every ${SAMPLE_INTERVAL_SEC}s"
 
-"${cmd[@]}" > "$LAUNCH_LOG" 2>&1 &
+setsid "${cmd[@]}" > "$LAUNCH_LOG" 2>&1 < /dev/null &
 launch_pid=$!
+CURRENT_PID="$launch_pid"
+CURRENT_WORLD="$WORLD"
 
 start_epoch=$(date +%s)
 end_epoch=$(( start_epoch + DURATION_HOURS * 3600 ))
@@ -104,14 +138,36 @@ while [[ $(date +%s) -lt $end_epoch ]]; do
 done
 
 # cleanup regardless of outcome
-# Bug fixed 2026-07-23: world_name:=/worlds/*.world patterns don't match
-# parameter_bridge/static_transform_publisher siblings (their command lines
-# only have topic names) -- also kill the whole process group so nothing
-# from this run's `ros2 launch` tree survives.
-kill -KILL -- "-${launch_pid}" 2>/dev/null
-kill -KILL "$launch_pid" 2>/dev/null
-pkill -9 -f "world_name:=${WORLD}[[:space:]]" 2>/dev/null
-pkill -9 -f "worlds/${WORLD}.world" 2>/dev/null
+cleanup_current
+sleep 1
+if pgrep -f "world_name:=${WORLD}[[:space:]]" >/dev/null 2>&1 || \
+   pgrep -f "worlds/${WORLD}.world" >/dev/null 2>&1; then
+  echo "WARNING: cleanup for ${WORLD} may be incomplete -- a matching process is still running after kill/pkill" >&2
+fi
+CURRENT_PID=""
+CURRENT_WORLD=""
+
+# Memory-growth heuristic (added 2026-07-24, see header comment): compare
+# average RSS of the first half vs. second half of alive samples. This is a
+# coarse two-bucket comparison, not a slope/regression fit -- flags WARNING,
+# not CRASH, since a single run can't distinguish a real leak from
+# steady-state fluctuation with certainty.
+leak_line=$(awk -F, 'NR>1 && $3==1 {n++; rss[n]=$4} END {
+    if (n < 4) { print "OK not enough alive samples (need >= 4) to assess a trend"; exit }
+    half = int(n/2)
+    for (i=1; i<=half; i++) { fsum+=rss[i] }
+    for (i=n-half+1; i<=n; i++) { ssum+=rss[i] }
+    favg = fsum/half
+    savg = ssum/half
+    growth = savg - favg
+    pct = (favg>0) ? (growth/favg*100) : 0
+    incr=0; maxincr=0
+    for (i=2;i<=n;i++) { if (rss[i] >= rss[i-1]) { incr++ } else { incr=0 }; if (incr>maxincr) maxincr=incr }
+    flag = (pct > 50 && growth > 50) ? "WARNING" : "OK"
+    printf "%s first-half avg %.1f MiB, second-half avg %.1f MiB, growth %.1f MiB (%.0f%%), longest run of consecutive non-decreasing samples: %d\n", flag, favg, savg, growth, pct, maxincr
+}' "$CSV")
+leak_flag="${leak_line%% *}"
+leak_detail="${leak_line#* }"
 
 {
   echo "Stability test summary"
@@ -120,6 +176,8 @@ pkill -9 -f "worlds/${WORLD}.world" 2>/dev/null
   echo "Outcome: $([[ $crashed == 1 ]] && echo "CRASHED before planned duration" || echo "SURVIVED full planned duration")"
   echo "Started RSS: ${first_rss:-N/A} MiB"
   echo "Max RSS observed: ${max_rss} MiB"
+  echo "Memory-growth heuristic: ${leak_flag} -- ${leak_detail}"
+  echo "  (heuristic only: coarse first-half-vs-second-half RSS comparison, not a slope fit or a confirmed leak diagnosis -- treat WARNING as worth a manual look at ${CSV}, not a verdict)"
   echo "Full sample log: ${CSV}"
   echo "Launch log: ${LAUNCH_LOG}"
   echo "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
