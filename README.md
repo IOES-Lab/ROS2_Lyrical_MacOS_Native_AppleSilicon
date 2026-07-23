@@ -86,12 +86,58 @@ Test-result labels used throughout this document:
 | 2026-07-23 | Ran the bug-fixed Mac benchmark end-to-end; found and root-caused a real `dave_multibeam_sonar` performance/stability issue | Done, with an open finding | First run of the bug-fixed `benchmark_worlds_mac.sh` (namespaced `/world/.../stats` topic preference + process-group kill, see the 2026-07-22/23 rows above) produced 0 RTF samples for `dave_ocean_waves`/`dave_multibeam_sonar` despite finding the right topic — root-caused to the default 25s settle being too short for these two heavier worlds on Mac (their launch logs show bridge creation / GPU sonar-backend compilation still in progress at the 30s mark). Raising settle to 60s fixed `dave_ocean_waves` (RTF 0.667, 3 samples) but **not** `dave_multibeam_sonar` (still 0 samples, RSS essentially flat 231.7→229.7MiB despite the extra 30s wait). Manually investigated: `gz-sim-main` for this world was alive and burning **104%→181% CPU over 15s with zero new `/stats` messages and zero new log lines** past the "sonar backend selected" line — a livelock, not a hang or crash. Tried `compute_backend:=cpu` instead of `wgpu` to rule out a Metal-specific cause — **same livelock**, ruling that out. A longer manual sample (20s window, ~130s into the run) did catch exactly one message: `real_time_factor: 0.0123` (sim_time 3.665s / real_time 103.3s) — confirming the world *can* progress, just catastrophically slowly (~80× slower than real time), consistent with the sonar plugin's own log showing a heavy compute load for this world's config (513 beams × 301 rays × 4 freq, vs. a 1×1×4 warm-up call logged at only 10-11ms). Re-ran the full official benchmark with `SETTLE_SEC=90 SAMPLE_WINDOW_SEC=60` for a consistent, comparable methodology across all 3 worlds. **Final Mac (Metal, Apple M2) results:** `dave_ocean_waves` RTF **0.423** (48 samples) / 852.2MiB; `dave_multibeam_sonar` RTF **0.015** (214 samples, this run — highly unreliable, see next row) / 435.0MiB; `usbl_tutorial` RTF **0.998** (272 samples) / 152.2MiB. Raw data in `dave_ws_lyrical/bench_results_mac/benchmark_results_mac.csv` (Mac-side, not this repo) |
 | 2026-07-23 | Re-ran the Docker benchmark with the same fixed methodology; confirmed `dave_multibeam_sonar` is broken on *both* platforms, not a Mac-only quirk | Done, with an open finding | The existing Docker RTF numbers (0.660/0.533/0.935, logged 2026-07-22) were measured before the `/stats`-topic-collision fix, so per that row's own caveat they needed re-verification. Copied the fixed `benchmark_worlds.sh` into `lyrical-theme-test` and re-ran with the same `SETTLE_SEC=90 SAMPLE_WINDOW_SEC=60` used for the final Mac run. **Results:** `dave_ocean_waves` RTF **0.277** (69 samples) / 1026.4MiB gz-sim RSS (5305MiB container); `usbl_tutorial` RTF **1.000** (298 samples) / 185.6MiB (4681MiB container) — both plausible, both lower than the pre-fix Docker numbers, consistent with those older numbers having been biased by the same stale-topic risk already flagged (unconfirmed which way). `dave_multibeam_sonar` — **0 samples again**, even at 90s+60s (798.2MiB RSS, 5191MiB container, alive but no stats). Extended to a dedicated 90s-settle + 180s-window manual run targeting only this world: still **0 samples after 4.5 minutes total**, and `ps aux` showed `gz-sim-main` at only **0.9% CPU** — i.e. this world doesn't livelock (CPU-pegged, Mac's symptom) in Docker, it appears to genuinely **deadlock/stall** (near-idle, no progress at all). **Conclusion:** `dave_multibeam_sonar` (the `blueview_p900` 513-beam/301-ray config) is unreliable on both Mac native and Docker/Linux under ROS 2 Lyrical + Gazebo Jetty — it sometimes crawls forward at a catastrophic RTF (~0.012-0.015, see previous row) and sometimes makes no progress at all, with different platform-specific symptoms (Mac: CPU climbs, livelock; Docker: CPU near-idle, stall/deadlock). This does not look like a benchmarking artifact — it reproduced across two platforms, two compute backends (wgpu/cpu), and multiple fresh launches. Treat the 0.015/0.533 RTF figures for this world as **not representative**, not as a valid performance number; the real finding is that this world/sensor config needs its own investigation (likely in the sonar ray-compute plugin itself under Gazebo Jetty) before it can be benchmarked meaningfully. Not yet reported upstream. See Next steps |
 | 2026-07-23 | Documentation audit — resolved contradictions between the latest findings and how they were phrased in `README.md`/`docker/README.md` | Done | A labmate/professor-facing review flagged 8 places where the previous day's wording overclaimed relative to what was actually confirmed, likely to read as self-contradictory (e.g. "15/18 PASS" next to a same-day `dave_multibeam_sonar` livelock/deadlock finding). Fixed: (1) reclassified world results into `SMOKE PASS`/`FUNCTIONAL PASS`/`PARTIAL`/`NOT AUTOMATED` (defined near the top of this README) instead of a flat PASS/FAIL, moving `dave_multibeam_sonar` from PASS to PARTIAL and the 3 manipulation worlds from "NOT TESTABLE" to "NOT AUTOMATED" (a current headless-launch-path limitation, not a claim they're impossible to test); (2) narrowed the PR #44 WGPU sonar claim to what's actually confirmed (build, GPU device selection, real `PointCloud2` output) separate from the still-open simulation-progress stability question; (3) reworded the USBL fix as a world-file workaround (changes "zero noise" to "near-zero noise") with the correct plugin-level fix (`sigma == 0` → use the mean, `sigma < 0` → reject) still open, not applied; (4) flagged a new, previously undocumented issue in the `SphericalCoords.cc` migration patch — a failed `std::optional` conversion silently falls back to `(0,0,0)` and still returns success, indistinguishable from a real near-origin result; (5) split the "BlueROV2 + ArduSub SITL PASS" row into what's actually validated (ArduSub/mavros build and launch) versus what isn't (BlueROV2 vehicle/sensor behavior inside a DAVE world — only REXROV has been used as the smoke-test vehicle); (6) refreshed the top-of-file status block's stale RTF numbers (0.53-0.94, "Mac not yet measured") to the final 2026-07-23 same-methodology numbers; (7) confirmed the stability-test wording already correctly said "1h clean PASS, 4h re-verification open" rather than claiming the 4h test itself completed — no change needed there; (8) rewrote `docker/README.md`'s status block and results table, which still said USBL PARTIAL/all-worlds-NOT-TESTED/RTF-0.53-0.94/stability-NOT-DONE, to match the corrected main README. Also updated `notes/validation_matrix.csv`'s `dave_multibeam_sonar` row (PASS → PARTIAL) and the 3 manipulation worlds' status label (NOT TESTABLE → NOT AUTOMATED) to match. macOS reproduction-command completeness (missing `wgpu_vendor`/`multibeam_sonar`/`multibeam_sonar_system` packages, venv, and underlay-sourcing steps) and the stale `main` branch (23 commits behind `docs/review-fixes`) were also flagged — see the rows below and [Next steps](#next-steps) |
+| 2026-07-23 | Fixed the macOS reproduction section and added a `main`-branch banner | Done | Recovered the real missing steps from this session's own `.zsh_history` (grepped for `colcon build`/`venv`/`ros_gz_ws`/`CMAKE_OSX`) rather than guessing: a Python venv (`~/ros2_lyrical/.venv`) is activated before every build/run; `ros_gz` is built from source into a separate `~/ros_gz_ws_lyrical` workspace (confirmed its actual package list via `ls src/` — the standard `ros2/ros_gz` packages plus Gazebo Jetty's `gz-*-vendor` packages, ~35 total, matching the 2026-07-07 Progress Log figure) using `-DCMAKE_OSX_SYSROOT` pointed at the real Xcode SDK, not just Command Line Tools; and DAVE's own build was missing the WGPU sonar packages (`wgpu_vendor`, `multibeam_sonar`, `multibeam_sonar_system`) entirely, meaning a fresh checkout following the old snippet couldn't have run the multibeam-sonar command the same snippet ended with. Updated the Reproduction section accordingly; flagged as still-open that `ros_gz_ws_lyrical`'s exact package versions/tags were never captured as a reusable `.repos` manifest. Also added a short banner to the top of the `main` branch's `README.md` (separately, `main` is 23 commits behind `docs/review-fixes` — decided against merging without review, added a pointer instead) — see [`main`'s README](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/blob/main/README.md) |
 
 ## Reproduction
 
 Run all commands below from the **repository root** (the parent directory of `dave/`, `patches/`, and `docker/`) — this is what makes the `../patches/...` relative path in the steps below resolve correctly.
 
 ### macOS (Apple Silicon, native)
+
+**Note (added 2026-07-23):** the one-shot snippet below was flagged in a documentation audit as
+incomplete — it's abbreviated from the actual sequence of steps recorded in the Progress Log
+(2026-07-06 through 2026-07-08) and omits three real prerequisites confirmed against this
+session's own shell history: a Python venv, a separately-built `ros_gz` underlay, and a macOS SDK
+CMake flag. Corrected below.
+
+**Prerequisite 1 — Python venv.** A venv (this session used `~/ros2_lyrical/.venv`) is activated
+before every build/run command, ahead of anything else:
+
+```bash
+source ~/ros2_lyrical/.venv/bin/activate   # adjust path to wherever your venv lives
+```
+
+**Prerequisite 2 — `ros_gz` built from source, in its own workspace.** ROS 2 Lyrical + Gazebo
+Jetty's `ros_gz` bridge is not available prebuilt for macOS, so it's built from source once into a
+separate workspace (this session used `~/ros_gz_ws_lyrical`) — confirmed via `ls
+~/ros_gz_ws_lyrical/src`, its packages are the standard `ros2/ros_gz` bridge packages plus the
+Gazebo Jetty `gz-*-vendor` packages and their message/transport dependencies: `ros_gz`,
+`gz_sim_vendor`, `gz_transport_vendor`, `gz_msgs_vendor`, `gz_plugin_vendor`, `gz_common_vendor`,
+`gz_sensors_vendor`, `gz_physics_vendor`, `gz_rendering_vendor`, `gz_gui_vendor`,
+`gz_dartsim_vendor`, `gz_fuel_tools_vendor`, `gz_tools_vendor`, `gz_utils_vendor`,
+`gz_ogre_next_vendor`, `sdformat_vendor`, `actuator_msgs`, `gps_umd`, `marine_msgs`, `pcl_msgs`,
+`vision_msgs`, `image_common`, `perception_pcl`, `vision_opencv`, `simulation_interfaces`
+(~35 packages total once each repo's sub-packages are counted individually, matching the
+2026-07-07 Progress Log entry). Building this workspace needs the real Xcode SDK path, not just the
+Command Line Tools' — `-DCMAKE_OSX_SYSROOT` pointing at the installed Xcode's `MacOSX.sdk` was
+required for at least the `gz-sim`/`ros_gz_sim` build step to succeed:
+
+```bash
+mkdir -p ~/ros_gz_ws_lyrical/src && cd ~/ros_gz_ws_lyrical
+# populate src/ with the packages listed above (ros2/ros_gz repo + the gz-*-vendor packages
+# for Gazebo Jetty) — this session's exact vcs/rosinstall manifest wasn't preserved, so
+# reconstruct via the official ROS 2 "build ros_gz from source" instructions for Jetty
+colcon build --symlink-install \
+  --cmake-args -DBUILD_TESTING=OFF -Wno-dev \
+  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+
+source ~/ros_gz_ws_lyrical/install/setup.zsh
+```
+
+**Then the DAVE build itself** — note the package list below was also corrected: the original
+snippet only built DAVE's core 10 packages and skipped the WGPU sonar packages entirely, so a
+fresh checkout following just the old snippet could not actually run the multibeam-sonar demo the
+next command launches:
 
 ```bash
 git clone https://github.com/naitikpahwa18/dave.git
@@ -103,14 +149,24 @@ colcon build --symlink-install --packages-select \
   dave_interfaces dave_object_models dave_sensor_models dave_robot_models \
   dave_worlds dave_gz_world_plugins dave_gz_model_plugins dave_gz_sensor_plugins \
   dave_ros_gz_plugins dave_demos \
-  --cmake-args -DBUILD_TESTING=OFF -Wno-dev
+  wgpu_vendor multibeam_sonar multibeam_sonar_system \
+  --cmake-args -DBUILD_TESTING=OFF -Wno-dev \
+  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 
 source install/setup.zsh   # zsh — sourcing .bash under zsh breaks COLCON_CURRENT_PREFIX
+# dave_ws's own setup.zsh chains to source the ros_gz_ws_lyrical underlay automatically;
+# a "not found: .../local_setup.bash" warning for an unrelated package here is benign
 
 ros2 launch dave_demos dave_sensor.launch.py \
   namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false \
   x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true
 ```
+
+**Still open:** the exact `ros_gz_ws_lyrical/src` package versions/tags weren't captured as a
+reusable manifest (e.g. a `.repos`/`rosinstall` file) during the original build — this reproduction
+section documents what's confirmed to be *in* that workspace, not yet a guaranteed one-command
+rebuild of it from a clean checkout. Worth committing a `.repos` file for this workspace as a
+follow-up so this section is fully copy-pasteable.
 
 ### Docker (Ubuntu 26.04)
 
