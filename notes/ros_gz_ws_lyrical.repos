@@ -6,110 +6,110 @@
 # (`git remote get-url origin` + `git rev-parse HEAD` per package under src/), not
 # reconstructed from memory -- this is the exact commit each package was built at.
 #
-# Usage (vcstool):
+# Manifest captured from the built workspace; clean import/build verification from a
+# fresh checkout has not yet been completed -- treat this as the best available record
+# of what was actually used, not yet a proven-reproducible recipe.
+#
+# Usage (vcstool) -- keys are relative to the import target directory (`src`), so do NOT
+# prefix them with `src/` yourselves or `vcs import` will nest them as `src/src/...`:
 #   mkdir -p ros_gz_ws_lyrical/src && cd ros_gz_ws_lyrical
 #   vcs import src < ../notes/ros_gz_ws_lyrical.repos
 #   colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF -Wno-dev \
 #     -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
-#
-# NOT YET independently re-verified as a clean-checkout build (i.e. this manifest was
-# captured from an already-built workspace, not proven by importing it fresh and
-# rebuilding from zero) -- treat as the best available record of what was actually used,
-# not a guaranteed-reproducible recipe until that's done.
 repositories:
-  src/actuator_msgs:
+  actuator_msgs:
     type: git
     url: https://github.com/rudislabs/actuator_msgs.git
     version: 4594004f568b81aa5222c02f4784e6be6baa81ba
-  src/gps_umd:
+  gps_umd:
     type: git
     url: https://github.com/swri-robotics/gps_umd.git
     version: 7a3a2476aab061e2165c406d21f201932c079d7d
-  src/gz_common_vendor:
+  gz_common_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_common_vendor.git
     version: a6a8871059527c21219eb62596d8e8fb4b5661c0
-  src/gz_dartsim_vendor:
+  gz_dartsim_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_dartsim_vendor.git
     version: 2dead6d75a11aa68e7818473d79048eb334c20d1
-  src/gz_fuel_tools_vendor:
+  gz_fuel_tools_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_fuel_tools_vendor.git
     version: 73ee30207cbbe54862f87d5229df32dd85530d89
-  src/gz_gui_vendor:
+  gz_gui_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_gui_vendor.git
     version: bdec5034e7de1082697f5c9426aafed05c25fbe6
-  src/gz_msgs_vendor:
+  gz_msgs_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_msgs_vendor.git
     version: 77f9e4f14bcde2c0a844e23279fda61c1eb02a72
-  src/gz_physics_vendor:
+  gz_physics_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_physics_vendor.git
     version: 709712fee6792ee5bca5d5ec48988ce6aaaece78
-  src/gz_plugin_vendor:
+  gz_plugin_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_plugin_vendor.git
     version: 3a8adb31f80a9ff63b23bff320618bf4c691d757
-  src/gz_rendering_vendor:
+  gz_rendering_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_rendering_vendor.git
     version: d062059063fdd05ac219e85b40834805b0d32d53
-  src/gz_sensors_vendor:
+  gz_sensors_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_sensors_vendor.git
     version: f87a9bf2b808e675e0ab2b81c54c40e889c70d67
-  src/gz_sim_vendor:
+  gz_sim_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_sim_vendor.git
     version: 545148171b9a45587cdd3fc4e31c8ee8c29c1554
-  src/gz_tools_vendor:
+  gz_tools_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_tools_vendor.git
     version: 0a6001339dfd7cae3da4d8c6f4198a619092388e
-  src/gz_transport_vendor:
+  gz_transport_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_transport_vendor.git
     version: d52615c1f1b64e647c58ee511131ed4fd32fb949
-  src/gz_utils_vendor:
+  gz_utils_vendor:
     type: git
     url: https://github.com/gazebo-release/gz_utils_vendor.git
     version: 6e0c60a44be0f61f157551f0cb9f4e0072cbc5a6
-  src/image_common:
+  image_common:
     type: git
     url: https://github.com/ros-perception/image_common.git
     version: a3a29f8f2567643de7ef6e5f416bddf9fe59cfb5
-  src/marine_msgs:
+  marine_msgs:
     type: git
     url: https://github.com/apl-ocean-engineering/marine_msgs.git
     version: 14bddb417a51767600e3feada3bc7fc378d0e6f9
-  src/pcl_msgs:
+  pcl_msgs:
     type: git
     url: https://github.com/ros-perception/pcl_msgs.git
     version: 8a925a7c4626df52dba7ccc5bda5900d63678880
-  src/perception_pcl:
+  perception_pcl:
     type: git
     url: https://github.com/ros-perception/perception_pcl.git
     version: 01b364d8476f0a58d74c145fc811c8da0545b80c
-  src/ros_gz:
+  ros_gz:
     type: git
     url: https://github.com/gazebosim/ros_gz.git
     version: 0ea9efc010c7427385c6493c1a8016cdf1ef450b
-  src/sdformat_vendor:
+  sdformat_vendor:
     type: git
     url: https://github.com/gazebo-release/sdformat_vendor.git
     version: 4feee884556cfd892c918a953d1111df86d72ea1
-  src/simulation_interfaces:
+  simulation_interfaces:
     type: git
     url: https://github.com/ros-simulation/simulation_interfaces.git
     version: 172a1b1c1b3ced62b99cddae9b4143e5bcddee8a
-  src/vision_msgs:
+  vision_msgs:
     type: git
     url: https://github.com/ros-perception/vision_msgs.git
     version: 1adca4dd009d529e08c953aaa4ff9a75ed79a22a
-  src/vision_opencv:
+  vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
     version: 50f6f1feccc65dd2ef87f863cb812a8aa0789062
