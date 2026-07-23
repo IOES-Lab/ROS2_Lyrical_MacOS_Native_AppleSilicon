@@ -1,0 +1,4 @@
+timestamp,world_file,rtf_samples,rtf_avg,container_mem_mib,container_cpu_pct,gz_sim_rss_mib,notes
+2026-07-23T04:47:16Z,dave_ocean_waves.world,69,0.277,5305,N/A,1026.4,"stats_topic=/world/oceans_waves/stats, settle=90s, window=60s"
+2026-07-23T04:49:49Z,dave_multibeam_sonar.world,0,N/A,5191,N/A,798.2,"stats_topic=/world/default/stats, settle=90s, window=60s"
+2026-07-23T04:52:23Z,usbl_tutorial.world,298,1.000,4681,N/A,185.6,"stats_topic=/world/default/stats, settle=90s, window=60s"

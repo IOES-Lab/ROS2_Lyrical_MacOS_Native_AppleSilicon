@@ -43,19 +43,24 @@ and re-ran the exact launch command with a 15s `timeout` — the process
 survived the full window with no assertion/abort, versus dying within ~3s
 before the fix.
 
-**Not yet done:**
-- The Docker *image* itself (`docker/lyrical.arm64v8.dockerfile`) still
-  bakes in the unpatched world file — this fix only lives in the running
-  container's live filesystem (lost on container recreation) and in the Mac
-  native workspace (`dave_ws_lyrical`). Needs either a `sed`/patch step added
-  to the Dockerfile, or the patch folded into a rebuild, to persist.
+**Update (2026-07-22, later same day):** the Docker *image* fix landed —
+`docker/lyrical.arm64v8.dockerfile` now includes a cache-preserving late-layer
+`sed` step that patches the already-installed `usbl_tutorial.world` (with a
+build-time `grep -q` assertion so the build fails loudly if the pattern ever
+stops matching), re-verified end-to-end on a fresh image build (16.1s,
+all prior layers cache-hit). This fix is no longer container-local/lost-on-recreation
+— it's baked into the image build itself.
+
+**Still not done:**
 - Not reported upstream to `naitikpahwa18/dave` or `IOES-Lab/dave` yet.
 - The more defensive **plugin-level fix** (guard `sigma <= 0` in
   `UsblTransponder.cc` around line 263 and skip noise/return `mu` instead of
   asserting) was not applied — the world-file epsilon is a valid workaround
   but the plugin itself would still crash on a *literal* zero from any other
   world file or user config. Worth flagging in an upstream report regardless
-  of which fix ships here.
+  of which fix ships here. **This is the only functional gap remaining** —
+  the crash itself is fully worked around and persisted; what's left is the
+  plugin-level hardening and the upstream report.
 
 ## Superseded: earlier same-day hypothesis (WRONG, kept below for the record)
 

@@ -1,0 +1,9 @@
+Stability test summary
+World: dave_ocean_waves
+Planned duration: 1h
+Outcome: CRASHED before planned duration
+Started RSS: N/A MiB
+Max RSS observed: 0 MiB
+Full sample log: stability_results/dave_ocean_waves-stability.csv
+Launch log: stability_results/dave_ocean_waves-launch.log
+Generated: 2026-07-23T00:29:02Z
