@@ -1,4 +1,9 @@
-# UNTESTED DRAFT — dockwater-style base image for ROS 2 Lyrical + Gazebo Jetty
+# VALIDATED 2026-07-20 — dockwater-style base image for ROS 2 Lyrical + Gazebo Jetty
+# (corrected 2026-07-23: this file previously said "UNTESTED DRAFT" throughout, which
+# had gone stale — build.bash, run.bash -i, and run.bash -r + real RDP login were all
+# confirmed working the same day this file was written; see the updated notes at each
+# previously-UNTESTED marker below, and docker/README.md / the main README's Next steps
+# for the full validated end-to-end record)
 #
 # Purpose: a starting point for adding a `lyrical/` folder to a fork of
 # https://github.com/IOES-Lab/dockwater (which currently only goes up to
@@ -51,11 +56,16 @@
 # removed from the package list. Confirmed `ros-lyrical-mavros-msgs` IS on
 # apt (unlike the full `ros-lyrical-mavros`).
 #
-# NOT yet done: this only proves the raw `docker build` succeeds standalone —
-# it is not wired into an actual dockwater fork as a `lyrical/` folder, and
-# hasn't been run through dockwater's build.bash/run.bash + rocker extensions
-# (RDP, X11, GPU passthrough). That's the remaining step before this could be
-# a real dockwater contribution.
+# DONE (2026-07-20, updated from the earlier "NOT yet done" note above): this file was
+# added as `lyrical/Dockerfile` to a real fork, https://github.com/yeseorizi/dockwater,
+# and run through the full toolchain end to end — `./build.bash lyrical` succeeded
+# (reusing the standalone build's cache), `./run.bash -i dockwater:lyrical` (internal-GPU
+# rocker extensions: devices/git/name/volume/x11) launched a real interactive container
+# with `lsb_release -a` -> Ubuntu 26.04 Resolute, `$ROS_DISTRO` -> `lyrical`,
+# `gz sim --versions` -> `10.4.0` (Jetty) confirmed inside. `-r` (RDP) also confirmed
+# working after fixing the max_bpp black-screen bug documented further below — see the
+# RDP support section. Still open: whether this `lyrical/` branch should become an actual
+# PR to `IOES-Lab/dockwater` is a decision for the professor, not yet made.
 
 FROM curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 AS ca-source
 
@@ -211,8 +221,9 @@ RUN apt update $CA_OPT \
 # Confirm during the real build whether a narrower `ros-lyrical-ros-gz-sim`
 # package exists on its own before deciding which to use here.
 
-# --- RDP support (xrdp/XFCE) — added 2026-07-20 --------------------------
-# UNTESTED as of this edit. Added because rocker's `run.bash -r` option
+# --- RDP support (xrdp/XFCE) — added 2026-07-20, VALIDATED 2026-07-20 ----
+# CONFIRMED WORKING as of the same-day max_bpp fix below (initially black-screened,
+# then root-caused and fixed — see that note). Added because rocker's `run.bash -r` option
 # (see dockwater's own run.bash) only maps port 3389 and sets a few rocker
 # extensions (--x11, --privileged, --device /dev/fuse) — it does NOT install
 # or start an actual RDP server. Confirmed the hard way: `./run.bash -r -p
@@ -301,7 +312,9 @@ CMD uid="$(id -u docker)"; \
 
 # NOTE on rocker's `-r` flag interaction with this CMD: rocker's `--x11`/`--privileged`
 # extensions build a thin layer on top of this image (`FROM dockwater:lyrical` + `USER root`)
-# and run the container — they do not override CMD, so this xrdp startup sequence should still
-# fire when the rocker-built container starts. UNTESTED — confirm with
-# `./run.bash -r -p <port> dockwater:lyrical` after rebuilding, then connect via RDP client to
-# `localhost:<port>`, user `docker`, password `docker`.
+# and run the container — they do not override CMD, so this xrdp startup sequence still
+# fires when the rocker-built container starts. CONFIRMED WORKING (2026-07-20): after the
+# max_bpp fix above, `./run.bash -r dockwater:lyrical` reached a live, correctly-rendering
+# XFCE desktop over RDP at `localhost:3389`, user `docker`, password `docker`. Known quirk:
+# `-p <port>` is ignored — rocker's `-r` extension always maps host `3389:3389` regardless
+# of the requested port, so connect on 3389, not the port you passed.

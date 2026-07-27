@@ -202,7 +202,7 @@ diff --git a/gazebo/dave_gz_sensor_plugins/CMakeLists.txt b/gazebo/dave_gz_senso
 index 675fdcd..78a2d84 100644
 --- a/gazebo/dave_gz_sensor_plugins/CMakeLists.txt
 +++ b/gazebo/dave_gz_sensor_plugins/CMakeLists.txt
-@@ -3,24 +3,25 @@ project(dave_gz_sensor_plugins)
+@@ -3,26 +3,27 @@ project(dave_gz_sensor_plugins)
 
  # Find required packages
  find_package(ament_cmake REQUIRED)
@@ -236,6 +236,9 @@ index 675fdcd..78a2d84 100644
 +set(GZ_MSGS_VER "")
 
  include_directories(${OpenCV_INCLUDE_DIRS})
+
+-message(STATUS "Compiling against Gazebo Harmonic")
++message(STATUS "Compiling against Gazebo Jetty")
 
 @@ -54,30 +55,30 @@ target_link_libraries(UnderwaterCamera
  )

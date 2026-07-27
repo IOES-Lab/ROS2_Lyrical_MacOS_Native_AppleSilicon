@@ -58,16 +58,19 @@ all prior layers cache-hit). This fix is no longer container-local/lost-on-recre
   asserting) was not applied — the world-file epsilon is a valid workaround
   but the plugin itself would still crash on a *literal* zero from any other
   world file or user config. Worth flagging in an upstream report regardless
-  of which fix ships here. **This is the only USBL-specific gap remaining** —
-  the crash itself is fully worked around and persisted; what's left here is
-  the plugin-level hardening and the upstream report. (Narrowed 2026-07-23:
-  an earlier version of this line said "the only functional gap remaining,"
-  which read too broadly — there is a separate, unrelated evidence-scope gap
-  for this same world, downgrading its overall status from FUNCTIONAL PASS to
-  PARTIAL: no single test run has confirmed both real topic data *and* the
-  post-fix no-abort state at once — see [Verified demos](../README.md#verified-demos)
-  in the main README. That gap is about test coverage, not about the crash
-  fix itself, so it's tracked there rather than as a third bullet here.)
+  of which fix ships here. **These are the remaining implementation/upstream
+  gaps** — the crash itself is fully worked around and persisted; what's left
+  here is the plugin-level hardening and the upstream report. (Reworded
+  2026-07-23, twice: an earlier version said "the only functional gap
+  remaining," which read too broadly; a subsequent pass changed it to "the
+  only USBL-specific gap remaining," which still read confusingly right next
+  to the separate evidence-scope gap described below — reworded again to
+  avoid the word "only" entirely. That separate gap, for the same world,
+  downgraded its overall status from FUNCTIONAL PASS to PARTIAL: no single
+  test run has confirmed both real topic data *and* the post-fix no-abort
+  state at once — see [Verified demos](../README.md#verified-demos) in the
+  main README. That gap is about test coverage, not about the crash fix
+  itself, so it's tracked there rather than as a third bullet here.)
 
 ## Superseded: earlier same-day hypothesis (WRONG, kept below for the record)
 

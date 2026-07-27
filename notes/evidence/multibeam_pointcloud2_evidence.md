@@ -30,22 +30,34 @@ which additionally shows:
 [parameter_bridge-3] [INFO] [1784702574.527475468] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/PointCloud2 to Gazebo gz.msgs.PointCloudPacked (showing msg only once per type)
 ```
 
-This last line confirms at least one real `PointCloud2` message actually passed through the
-bridge (not just that the bridge was set up) during that 2026-07-22 run.
+**Corrected 2026-07-23 (caught in review):** this last line is the **ROS → Gazebo** direction of
+the bidirectional bridge (line 18 above), not the Gazebo → ROS direction that would carry the
+sonar plugin's actual sensor output (line 17's Bridge). It confirms the bridge is bidirectionally
+alive and that *some* `PointCloud2`-typed message crossed it in that direction — it is not, by
+itself, evidence that the sonar plugin's own output reached the ROS side. An earlier version of
+this file cited this line without specifying direction, which read as if it supported the sonar
+output claim; it doesn't. The Gazebo → ROS direction (line 17) is confirmed created here, but no
+log in this repo shows a "Passing message" line for *that* direction specifically — see the "NOT
+independently traceable" section below, which already correctly scoped the actual sonar-output
+question to the session's contemporaneous notes rather than a committed log capture.
 
 ## What is NOT independently traceable from this repo
 
 None of the log files currently in this repo contain a `ros2 topic echo` (or equivalent) capture
-of an actual `PointCloud2` message's contents, and none contain the sonar plugin logging its own
+of an actual `PointCloud2` message's contents in the Gazebo → ROS direction (the direction that
+would carry the sonar plugin's real output), and none contain the sonar plugin logging its own
 beam/ray configuration (grepped for "beam", "ray", "width", "height" in the relevant logs — no
 matches). The specific **"513 beams × 301 rays"** figure, and the 2026-07-07 (Mac Jazzy+Harmonic)
 and 2026-07-11 (Docker Lyrical+Jetty) dates it's attributed to, are not backed by any small
 evidence artifact in this repo as of 2026-07-23 — they rest on the session's own contemporaneous
-notes rather than a committed, independently-checkable file.
+notes rather than a committed, independently-checkable file. Nor is there a committed log line
+confirming a message actually crossed the bridge in the Gazebo → ROS direction specifically (only
+the reverse, ROS → Gazebo, direction has a "Passing message" line on record — see above).
 
-**This does not mean the claim is false** — the bridge-creation and message-passing evidence
-above is consistent with it, and the figure was recorded in real time during those sessions, not
-invented after the fact. But a reviewer working only from this GitHub repo cannot currently verify
-the exact dimensions themselves. If/when the environment is available again, the most useful
-addition would be a short `ros2 topic echo --once /sensor/multibeam_sonar/point_cloud` capture (or
-just its `width`/`height` fields, not the full point data) saved as a small text file here.
+**This does not mean the claim is false** — the bridge-creation evidence above is consistent with
+it, and the figure was recorded in real time during those sessions, not invented after the fact.
+But a reviewer working only from this GitHub repo cannot currently verify the exact dimensions, or
+the Gazebo → ROS direction of message flow, themselves. If/when the environment is available
+again, the most useful addition would be a short `ros2 topic echo --once
+/sensor/multibeam_sonar/point_cloud` capture (or just its `width`/`height` fields, not the full
+point data) saved as a small text file here.

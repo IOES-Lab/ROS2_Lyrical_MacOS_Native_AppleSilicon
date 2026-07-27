@@ -1,6 +1,6 @@
 # ArduSub SITL setup on Ubuntu 26.04 + Python 3.14 (BlueROV2)
 
-Not documented anywhere in the DAVE Wiki. BlueROV2 launch needs the `ardusub` binary in `PATH`; building it from source on Ubuntu 26.04 hits four separate environment issues, all fixable — one of them (#4, waf's own removed Python stdlib imports) is really two chained sub-problems (`imp` and `pipes`), so five distinct fixes in total across the four sections below.
+Not documented anywhere in the DAVE Wiki. BlueROV2 launch needs the `ardusub` binary in `PATH`; building it from source on Ubuntu 26.04 hits several chained environment issues, all fixable (corrected 2026-07-23: earlier versions of this line tried to pin an exact count — "three," then "four/five" — but a careful tally of every distinct fix applied across the four sections below (non-root sudo user, hardcoded `python-argparse`, PEP 668's pip block, `imp` removed from Python, `pipes` removed from Python, and `waf`'s tool loader needing `waflib/extras` added to `PYTHONPATH`) comes to six, not five — "several" avoids re-litigating the exact number each time this file is touched).
 
 ## 1. `install-prereqs-ubuntu.sh` refuses to run as root
 

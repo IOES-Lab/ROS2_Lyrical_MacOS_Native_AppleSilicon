@@ -65,7 +65,7 @@ Suggested replacement: 하이픈 표기 페이지를 삭제하거나 최신 페�
 
 ## 카테고리 4 — 문서 누락
 
-### 5. "Local Search Scenario" 데모 (sonar-demo 브랜치 의존)
+### 5. "Local Search Scenario" 데모 — sonar-demo 브랜치 링크 및 대상 불명확
 
 ```text
 Page: Multibeam Sonar Plugin
@@ -74,6 +74,13 @@ Current text: "(currently available in the sonar-demo branch - TO BE MERGED)"
 Observed problem: 어느 저장소/브랜치인지 URL이 전혀 없음.
 Verified correction: `sonar-demo` 브랜치는 `IOES-Lab/dave`에 존재함
                    (`naitikpahwa18/dave`에는 없음) — GitHub API로 확인.
+                   (수정 2026-07-23: "의존한다"는 확정 표현은 제거 — 이 세션에서
+                   실제로 검증한 두 월드(dave_ocean_waves_sonar,
+                   dave_ocean_waves_sonar_integrated)는 multibeam_sonar_system만
+                   있으면 되고 별도 브랜치가 필요 없는 것으로 확인됐으나, 그 두
+                   월드가 Wiki의 이 "Local Search Scenario" 데모와 동일한 것인지는
+                   확인되지 않았고, sonar-demo 브랜치 자체를 실제로 실행해 본 적도
+                   없음 — see notes/dave-wiki-inaccuracies.md.)
 Evidence/command: curl -s https://api.github.com/repos/IOES-Lab/dave/branches/sonar-demo
 Suggested replacement: 실제 브랜치 링크
                    (https://github.com/IOES-Lab/dave/tree/sonar-demo) 추가.

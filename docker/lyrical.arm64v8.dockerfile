@@ -135,7 +135,10 @@ EXPOSE 22/tcp
 
 # --- ROS 2 Lyrical + Gazebo Jetty ---
 # Pinned to the exact commit verified in README.md's "Pinned commits" table (not the
-# "wgpu_integration" branch tip) so this image is reproducible against the tested code.
+# "wgpu_integration" branch tip) so this pins the tested source revision for traceability
+# (corrected 2026-07-23: "reproducible image" overclaimed — floating deps elsewhere in this
+# Dockerfile, e.g. unpinned apt-get, mean a rebuild isn't bit-for-bit reproducible even from
+# this same pin, see docker/README.md).
 ARG DAVE_COMMIT="6aef91c823af5da073329b84ba617b572965e79e"
 ARG ROS_DISTRO="lyrical"
 
@@ -245,7 +248,9 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
 
 # --- ArduSub SITL (BlueROV2) — Python 3.14 compatibility shims required, see notes/ardusub-sitl-setup.md ---
 # Pinned to the exact commit verified in README.md's "Pinned commits" table (not the
-# "ArduSub-stable" branch/ref tip, which can move) so this image is reproducible against the tested code.
+# "ArduSub-stable" branch/ref tip, which can move) so this pins the tested source revision for
+# traceability (same caveat as the ROS 2/Gazebo pin above — not a bit-for-bit reproducibility
+# guarantee, see docker/README.md).
 ARG ARDUSUB_COMMIT="30257f01185471ab4c1ac544e47d1b4437e44c98"
 WORKDIR /home/$USER
 RUN git clone --recurse-submodules https://github.com/ArduPilot/ardupilot.git && \
