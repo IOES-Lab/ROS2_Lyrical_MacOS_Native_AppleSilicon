@@ -1,0 +1,57 @@
+diff --git a/examples/dave_demos/launch/dave_world.launch.py b/examples/dave_demos/launch/dave_world.launch.py
+index 32f360d..a6ef6d1 100644
+--- a/examples/dave_demos/launch/dave_world.launch.py
++++ b/examples/dave_demos/launch/dave_world.launch.py
+@@ -4,6 +4,7 @@ from launch import LaunchDescription
+ from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription
+ from launch.launch_description_sources import PythonLaunchDescriptionSource
+ from launch.substitutions import LaunchConfiguration
++from launch.conditions import IfCondition
+
+
+ def launch_setup(context, *args, **kwargs):
+@@ -13,6 +14,8 @@ def launch_setup(context, *args, **kwargs):
+
+     world_name = LaunchConfiguration("world_name").perform(context)
+     verbose_flag = LaunchConfiguration("verbose").perform(context)
++    headless_flag = LaunchConfiguration("headless").perform(context)
++    gui = LaunchConfiguration("gui")
+     world_file_name = f"{world_name}.world"
+
+     world_path = os.path.join(pkg_dave_worlds, "worlds", world_file_name)
+@@ -21,10 +24,13 @@ def launch_setup(context, *args, **kwargs):
+     gz_args = f"-r {world_path}"
+     if verbose_flag.lower() == "true":
+         gz_args += " --verbose"
++    if headless_flag.lower() == "true":
++        gz_args += " -s"
+
+     gz_sim = IncludeLaunchDescription(
+         PythonLaunchDescriptionSource(os.path.join(pkg_ros_gz_sim, "launch", "gz_sim.launch.py")),
+         launch_arguments={"gz_args": gz_args}.items(),
++        condition=IfCondition(gui),
+     )
+
+     return [gz_sim]
+@@ -43,6 +49,21 @@ def generate_launch_description():
+                 default_value="false",
+                 description="Enable verbose mode for Gazebo simulation",
+             ),
++            DeclareLaunchArgument(
++                "gui",
++                default_value="true",
++                description=(
++                    "Flag to enable launching Gazebo at all -- matches "
++                    "dave_sensor.launch.py/dave_robot.launch.py's existing convention: "
++                    "gui:=false disables Gazebo entirely, not just the window. "
++                    "Pass gui:=true headless:=true for real headless mode."
++                ),
++            ),
++            DeclareLaunchArgument(
++                "headless",
++                default_value="false",
++                description="Flag to enable Gazebo headless (server-only, -s) mode",
++            ),
+             OpaqueFunction(function=launch_setup),
+         ]
+     )
