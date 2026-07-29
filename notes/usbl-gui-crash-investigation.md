@@ -169,3 +169,182 @@ If either test produces a real crash log this time (stack trace, signal
 number, exact error line), that turns this from a hypothesis into a confirmed
 root cause — please paste the output back and I'll finish the diagnosis and
 draft the actual world-file fix.
+
+## Update (2026-07-29): live debugging session — new precondition bug found, deeper issue still open
+
+Goal: close the evidence-scope gap noted above (no single run has confirmed
+both real `transponder_location` data and the post-sigma-fix no-abort state
+at once). Live session against `lyrical-theme-test`, launch command
+`ros2 launch dave_demos dave_sensor.launch.py namespace:=usbl
+world_name:=usbl_tutorial gui:=true headless:=true` (started 01:38 UTC,
+stayed alive with no abort throughout — the sigma fix continues to hold).
+
+### Tooling detour: `ros2 topic echo` is broken in this environment (not a project bug)
+
+`ros2 topic echo <any topic>` — including `/rosout`, ruling out a
+`dave_interfaces` type-loading cause — fails immediately with either
+`RuntimeError: !rclpy.ok()` or `RCLError: failed to initialize wait set: the
+given context is not valid...`, while `ros2 topic pub`, `ros2 topic list`,
+and `ros2 topic info -v` all work normally on the same daemon/session. Stack:
+`ROS 2 Lyrical` + Python 3.14 + `rclpy` 10.0.10 + `ros2cli` 0.40.7 (all built
+2026-06-06, `arm64`). Checked
+[ros2/rclpy#1221](https://github.com/ros2/rclpy/issues/1221) (same
+`!rclpy.ok()` string, but for `topic list`, fixed by a daemon restart — tried
+here too, didn't fully resolve it) and
+[ros2/ros2cli#519](https://github.com/ros2/ros2cli/issues/519) (`echo`
+crashing on a *nonexistent* topic, different error, different cause) —
+neither matches. No confirmed upstream report for this exact combination was
+found. **Workaround used for the rest of this session:** a standalone
+`rclpy` Python subscriber (`rclpy.init()` / `create_subscription` /
+`rclpy.spin()`) in place of the CLI `echo` verb — this ran cleanly with no
+`!rclpy.ok()`/wait-set errors while receiving (or failing to receive)
+messages. Separately confirmed: *any* spinning `rclpy` process in this
+container reliably raises `RCLError: failed to initialize wait set` when it
+receives SIGTERM, whether from `timeout` or a plain `kill` — this is a
+shutdown-path artifact of this environment/version combination, not evidence
+that a message was or wasn't delivered, and should be disregarded as noise
+when it appears at the tail of an otherwise-successful run.
+
+### Real finding: `UsblTransponder`'s own `m_interrogationMode` has no default
+
+`UsblTransceiver::Configure()` (lines ~263-283) explicitly defaults
+`m_interrogationMode` to `"common"` whenever the SDF's `<interrogation_mode>`
+is missing or invalid. `UsblTransponder` has its own, separate
+`m_interrogationMode` member (`UsblTransponder.cc`) — grep-confirmed
+(`grep -n 'interrogation_mode\|m_interrogationMode ='`) it is **never**
+assigned inside `Configure()` at all; the only assignment in the whole file
+is inside `interrogationModeCallback` (line 349), bound to a subscription on
+`{transceiver_device}_{transceiver_id}/interrogation_mode`. `usbl_tutorial.world`
+never publishes to that topic (it's a bare two-sphere/one-box tutorial world
+with no vehicle, no teleop, no keyboard publisher), so the transponder's
+`m_interrogationMode` starts, and stays, as a default-constructed empty
+string. `cisRosCallback`'s gate (`UsblTransponder.cc:315`,
+`m_interrogationMode.compare("common") == 0`) therefore always evaluates
+false, so pinging `common_interrogation_ping` does nothing — silently, no
+error printed anywhere. **This is a real, previously-undocumented usability
+gap**, independent of the already-fixed sigma/SIGABRT bug: this world cannot
+produce any USBL sensor output unless something external first publishes
+`"common"` (or `"individual"`, matching a channel) to the transceiver's
+`interrogation_mode` topic — nothing in the world file, launch file, or
+plugin defaults does this automatically.
+
+### Still unresolved: the ping chain doesn't work even once the precondition is met
+
+Manually published `"common"` to
+`/USBL/transceiver_manufacturer_168/interrogation_mode` — confirmed
+delivered (`ros2 topic info -v` showed 2 matched subscriber nodes,
+`usbl_transponder_1_node`/`usbl_transponder_2_node`, before and after) — then
+repeatedly published to `/USBL/common_interrogation_ping`, using both
+`--once` and rate-repeated `-r 2` publishing over several seconds, with a
+standalone `rclpy` subscriber left running continuously (30s+ windows,
+correct start-before-ping ordering confirmed via a single self-contained
+`nohup ... & sleep ... ; pub ; sleep ... ; kill` script to eliminate
+terminal-timing mistakes). **Zero `transponder_location` messages were ever
+received.** Critically, the live launch terminal's own scrollback (found via
+`ps aux` — the `ros2 launch`/`gz sim` processes were confirmed still alive
+throughout — then located and read directly) still showed only its original
+01:38 startup output, with **nothing appended** since, across the entire
+session. None of `cisRosCallback`'s own `gzmsg` lines ever printed —
+`"In common mode, publishing position..."`, `"Transceiver acquires
+transponder_..."`, nor even the failure-path `"Interrogation mode is not set
+to common and wrong channel is being pinged"`. This means `cisRosCallback`
+itself was never invoked, despite ROS2/DDS reporting the topic as fully
+matched (`Publisher count: 1` / `Subscription count: 2`, correct QoS on both
+sides). That's a genuine, unexplained gap between confirmed DDS-level topic
+matching and the plugin's C++ subscription callback actually firing —
+possible causes not yet ruled out include a stale/non-functional endpoint
+match (a known `rmw` failure mode in some FastDDS/CycloneDDS versions), an
+issue specific to this very new Python 3.14 + `rclpy` 10.0.10 + Gazebo Jetty
+combination, or something entirely inside the Gazebo-transport leg between
+`UsblTransponder::sendLocation()` and `UsblTransceiver::receiveGazeboCallback`
+that was never reached.
+
+### Resolved (same session): the world was loading paused, blocking every ROS2 callback
+
+The "matched but never invoked" mystery above turned out to have a concrete,
+checkable cause rather than needing code instrumentation. Both
+`UsblTransponder::PostUpdate` and `UsblTransceiver::PostUpdate` read:
+
+```cpp
+void UsblTransponder::PostUpdate(
+  const gz::sim::UpdateInfo & _info, const gz::sim::EntityComponentManager & _ecm)
+{
+  if (!_info.paused)
+  {
+    rclcpp::spin_some(this->ros_node_);
+  }
+}
+```
+
+`rclcpp::spin_some()` — the call that actually invokes any pending ROS2
+subscription callback — only runs when the simulation is **not paused**.
+Checking the actual `gzserver` process command line (`ps aux` inside the
+container) showed:
+
+```
+/bin/sh -c ruby ... gz sim .../usbl_tutorial.world -s --force-version 10
+```
+
+No `-r` (run-on-start) flag. `gz sim` loads **paused** by default unless
+`-r` is passed. Reading `dave_ws/install/share/dave_demos/launch/dave_sensor.launch.py`
+directly confirmed why: it only appends `-r` to `gz_args` when the launch is
+given `paused:=false` explicitly —
+
+```python
+if paused.perform(context) == "false":
+    gz_args.append(" -r")
+```
+
+— and every launch command used in this investigation (today's and all
+prior sessions') omitted `paused:=false`. So the world sat paused the entire
+time, `spin_some()` never ran, and **no ROS2 subscription callback in either
+USBL plugin could ever fire** — independent of, and invisible to, DDS-level
+topic matching (`ros2 topic info -v` reports a matched subscription based on
+discovery/QoS, not on whether an executor is actually pumping it). This also
+explains why a live unpause attempt failed: `usbl_tutorial.world` has no
+`gz-sim-user-commands-system` plugin (confirmed in the original 2026-07-22
+investigation above), so there's no `/world/.../control` service to call on
+an already-running instance — `gz service -s /world/usbl_tutorial/control
+--reqtype gz.msgs.WorldControl --reptype gz.msgs.Boolean --timeout 3000
+--req 'pause: false'` timed out for exactly this reason.
+
+It does **not** explain why other sensors (DVL, camera, ocean current, sea
+pressure) worked fine under the same paused-by-default launch — those are
+pure Gazebo→ROS2 publishers with no incoming ROS2 subscription of their own,
+so they never depended on `spin_some()` running at all. USBL is the only
+plugin in this codebase whose function depends on a ROS2→Gazebo trigger
+(the interrogation ping), which is why it's the only one this affects.
+
+**Fix (launch-arg-only, no code/world-file change needed):** killed the
+paused instance and relaunched with `paused:=false` added:
+
+```bash
+ros2 launch dave_demos dave_sensor.launch.py \
+  namespace:=usbl world_name:=usbl_tutorial gui:=true headless:=true paused:=false
+```
+
+In that one continuous run: launch stayed alive with no abort (sigma fix
+from the section above still holding), then publishing `"common"` to
+`/USBL/transceiver_manufacturer_168/interrogation_mode` followed by a ping to
+`/USBL/common_interrogation_ping` produced real, continuous
+`dave_interfaces/msg/Location` data from both transponders on a standalone
+`rclpy` subscriber, e.g.:
+
+```
+GOT MESSAGE: dave_interfaces.msg.Location(transponder_id=2, x=45.00038091462625, y=8.49991150276506, z=3.372572927772231)
+GOT MESSAGE: dave_interfaces.msg.Location(transponder_id=1, x=44.999848218814634, y=4.271884882357488, z=6.723046481272813)
+```
+
+This closes the combined-evidence gap that kept `usbl_tutorial` at `PARTIAL`
+since 2026-07-23: real topic data and the post-sigma-fix no-abort state are
+now confirmed in a single run. **Upgraded to `FUNCTIONAL PASS`** in
+[`validation_matrix.csv`](validation_matrix.csv) and the main README's
+Verified demos table.
+
+**Still not done:** neither bug has a plugin/world-level fix that removes
+the need for the workaround — `paused:=false` must still be passed
+explicitly every time (nothing defaults it), and the sigma fix is still a
+world-file epsilon rather than a plugin-level guard. Not yet reported
+upstream; a single report covering both the sigma/SIGABRT bug and the
+paused-state/`spin_some()` gap (both live in the same two plugin files)
+would be the natural way to file it.
