@@ -11,12 +11,14 @@ separate running container, not a fresh clean build of current HEAD) — see the
 full detail, this file's table is kept in sync with it.
 Validated (as of the 2026-07-18 baseline build specifically): Build, headless launch, XFCE/xrdp
 login, ROS environment + dave_demos/multibeam_sonar_system/mavros package presence. Validated
-separately, against the lyrical-theme-test container: 13/18 worlds PASS-level (9 smoke, 4
+separately, against the lyrical-theme-test container: 16/18 worlds PASS-level (12 smoke, 4
 functional), 2 PARTIAL (see table below), USBL world-file + launch-arg workaround (upgraded
 PARTIAL → FUNCTIONAL PASS 2026-07-29, see table below). Quantitative RTF benchmark (ocean_waves/usbl_tutorial) re-run
 clean 2026-07-27 using the fixed scripts (see table below). 1h clean stability run passed;
-a 4h re-run also finished but used a pre-fix script and has a monitoring gap, so it's
-PRELIMINARY — see main README Next steps.
+a 2026-07-23 4h re-run finished but used a pre-fix script and had a monitoring gap
+(PRELIMINARY). A genuinely clean 4h re-run completed 2026-07-29 — current script,
+gap-free 2-minute sampling for the full 4h, SURVIVED, RSS 932->1253MiB (12% growth,
+heuristic OK) — see main README Next steps.
 Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop. dave_multibeam_sonar has a known simulation-progress instability (updated 2026-07-29: re-investigation found sustained extreme-slowdown crawl, not a hard stall, in one Docker run — RTF ~0.0008-0.0077, CPU ~31-32%) — see table below and main README Known issues.
 ```
 
