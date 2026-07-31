@@ -1,0 +1,11 @@
+Stability test summary
+World: dave_ocean_waves
+Planned duration: 4h
+Outcome: SURVIVED full planned duration
+Started RSS: 932 MiB
+Max RSS observed: 1253 MiB
+Memory-growth heuristic: OK -- first-half avg 1076.4 MiB, second-half avg 1209.8 MiB, growth 133.4 MiB (12%), longest run of consecutive non-decreasing samples: 31
+  (heuristic only: coarse first-half-vs-second-half RSS comparison, not a slope fit or a confirmed leak diagnosis -- treat WARNING as worth a manual look at stability_results/dave_ocean_waves-stability.csv, not a verdict)
+Full sample log: stability_results/dave_ocean_waves-stability.csv
+Launch log: stability_results/dave_ocean_waves-launch.log
+Generated: 2026-07-29T08:40:07Z
