@@ -281,6 +281,23 @@ ros2 launch dave_demos dave_sensor.launch.py \
   x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true
 ```
 
+### Validation matrix format
+
+[`notes/validation_matrix.csv`](notes/validation_matrix.csv) uses a fixed vocabulary so the file can be counted
+programmatically without string-matching on free text:
+
+| column | values |
+|---|---|
+| `status` | exactly one of `SMOKE PASS`, `FUNCTIONAL PASS`, `PARTIAL`, `NOT AUTOMATED` — no qualifiers, no dates |
+| `workaround` | `TRUE` if the pass depends on a patch or launch-arg workaround rather than stock behaviour, else `FALSE` |
+| `evidence_date` | date of the evidence the current `status` rests on, not the date the row was first written |
+| `notes` | full prose history, including superseded findings and what is inferred vs. directly confirmed |
+
+`SMOKE PASS` means the process stayed alive without crashing; it does **not** imply the world's functionality was
+checked. `FUNCTIONAL PASS` requires real topic/service data on record. Two rows currently carry
+`workaround = TRUE`: `new_dvl` (Fuel URI patch) and `usbl_tutorial` (sigma patch + `paused:=false` launch arg).
+
+
 ## Verified demos
 
 | Demo | Result | Evidence |
