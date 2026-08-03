@@ -103,8 +103,10 @@ launch_sonar_world () {
 }
 
 # 소나가 로그상 올라왔는지 (대기하지 않고 즉시 판정). 1=올라옴 0=아직
+# 숫자를 넣지 않는다 — 빔/레이 수를 바꾸면 로그 숫자도 바뀐다.
+SONAR_PAT="${SONAR_PAT:-Persistent GPU buffers allocated for}"
 sonar_is_up () {
-  grep -q 'Persistent GPU buffers allocated for 513' "$1" 2>/dev/null && echo 1 || echo 0
+  grep -q "$SONAR_PAT" "$1" 2>/dev/null && echo 1 || echo 0
 }
 
 # launch 가 15초 뒤에도 살아있는지 확인한다. 죽었으면 로그를 보여준다.
