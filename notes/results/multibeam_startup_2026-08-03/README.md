@@ -70,6 +70,14 @@ a steady-state RTF meaningful.
   repeated before the conclusion is treated as settled.
 - The probe cannot distinguish "publisher silent" from "sim not stepping"; it only
   observes that no `/stats` traffic arrives.
+- A third reading of the silent windows — "the world had not loaded yet, so the
+  topic did not exist" — is **ruled out by the t=27s row**: two `/stats` messages
+  were actually received there, so the topic existed before the silence began, and
+  an existing Gazebo topic does not disappear. The silence is therefore a live
+  publisher going quiet, not an absent one. This run used a hardcoded topic name
+  and so could not have distinguished the two directly; `exp6_phase.sh` was changed
+  afterwards to resolve the topic per window and record it in the CSV, which
+  separates the two cases explicitly on any future run (including Docker).
 - The RTF ~0.19-0.22 steady state is still a ~4.5x slowdown against the same world
   with no sonar attached (0.9996, measured 2026-07-31). That cost is real and
   unexplained; it is simply not a stall.
@@ -79,3 +87,13 @@ a steady-state RTF meaningful.
 ```bash
 bash notes/experiments/go.sh 6
 ```
+
+On Docker, run the **same** script so the numbers are comparable — see
+[`notes/experiments/RUN_DOCKER.md`](../../experiments/RUN_DOCKER.md):
+
+```bash
+TAG=docker TOTAL=1200 SLICE=30 bash exp6_phase.sh
+```
+
+Note the CSV produced by the current script has an extra `topic` column that this
+2026-08-03 Mac file predates.
