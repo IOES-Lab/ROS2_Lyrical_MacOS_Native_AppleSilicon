@@ -16,9 +16,14 @@ case "$WHICH" in
   1c) S="$HERE/exp1c_range_sweep.sh" ;;
   3)  S="$HERE/exp3_heightmap.sh" ;;
   4)  S="$HERE/exp4_integrated_isolated.sh" ;;
-  *)  echo "사용법: go.sh [2|1|1b|3|4]"
-      echo "  2  기준선(소나 없이)   1  사거리   1b 레이 수"
-      echo "  3  하이트맵            4  integrated 격리"
+  5)  S="$HERE/exp5_repeat.sh" ;;
+  6)  S="$HERE/exp6_phase.sh" ;;
+  *)  echo "사용법: go.sh [2|1|1b|1c|3|4|5|6]"
+      echo "  2   기준선(소나 없이)      1   사거리 10/3/1"
+      echo "  1b  레이 수 축소           1c  사거리 스윕 10~3"
+      echo "  3   하이트맵 추가          4   integrated 격리"
+      echo "  5   같은 조건 3회 반복 (재현성)"
+      echo "  6   launch~정상상태 RTF 곡선"
       exit 1 ;;
 esac
 [ -f "$S" ] || { echo "스크립트 없음: $S"; exit 1; }
