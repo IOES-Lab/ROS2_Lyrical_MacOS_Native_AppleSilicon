@@ -28,9 +28,21 @@ cleanup () {
   sleep 6
 }
 
+# gz-sim 프로세스 PID 찾기. macOS 의 pgrep 은 'a|b' 교대를 안 받으므로
+# 패턴을 하나씩 따로 시도한다. 2026-08-03 에 exp4 가 이것 때문에 PID 를
+# 60초간 못 찾고 죽었다.
+find_gz_pid () {
+  local pat pid
+  for pat in 'gz-sim-server' 'gz-sim' 'gz sim'; do
+    pid=$(pgrep -f "$pat" 2>/dev/null | head -1)
+    [ -n "$pid" ] && { echo "$pid"; return 0; }
+  done
+  return 1
+}
+
 # 남은 프로세스가 있으면 측정하지 않는다. 오염된 수치는 없느니만 못하다.
 assert_clean () {
-  if pgrep -f 'gz-sim|gz sim' >/dev/null 2>&1; then
+  if find_gz_pid >/dev/null; then
     echo "  ! 이전 gz-sim 이 살아있습니다. 수동 정리 후 다시 돌리세요:"
     echo "      pkill -f gz-sim; pkill -f 'ros2 launch'"
     return 1
@@ -72,13 +84,27 @@ preflight () {
 
 # --- launch -----------------------------------------------------------------
 # launch_sonar_world <로그경로>   -> 백그라운드로 띄운다
+# launch_sonar_world <로그경로> [월드명=dave_multibeam_sonar]
+# 주의: 위치 인자(x/z/yaw)는 multibeam 월드 기준이라 다른 월드에는 안 넘긴다.
 launch_sonar_world () {
-  local LOG="${1:?로그 경로 필요}"
-  ros2 launch dave_demos dave_sensor.launch.py \
-      namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false \
-      x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true \
-      > "$LOG" 2>&1 &
+  local LOG="${1:?로그 경로 필요}" WORLD="${2:-dave_multibeam_sonar}"
+  if [ "$WORLD" = dave_multibeam_sonar ]; then
+    ros2 launch dave_demos dave_sensor.launch.py \
+        namespace:=blueview_p900 world_name:="$WORLD" paused:=false \
+        x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true \
+        > "$LOG" 2>&1 &
+  else
+    ros2 launch dave_demos dave_sensor.launch.py \
+        namespace:=blueview_p900 world_name:="$WORLD" paused:=false \
+        compute_backend:=wgpu gui:=true headless:=true \
+        > "$LOG" 2>&1 &
+  fi
   LAUNCH_PID=$!
+}
+
+# 소나가 로그상 올라왔는지 (대기하지 않고 즉시 판정). 1=올라옴 0=아직
+sonar_is_up () {
+  grep -q 'Persistent GPU buffers allocated for 513' "$1" 2>/dev/null && echo 1 || echo 0
 }
 
 # launch 가 15초 뒤에도 살아있는지 확인한다. 죽었으면 로그를 보여준다.
@@ -115,7 +141,7 @@ measure_once () {
   cleanup
   assert_clean || return 2
 
-  launch_sonar_world "$LOG"
+  launch_sonar_world "$LOG" "${WORLD:-dave_multibeam_sonar}"
   echo "  launch 완료 (로그 $LOG)"
   assert_launch_alive "$LOG" || return 5
 
