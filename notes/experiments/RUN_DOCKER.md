@@ -39,20 +39,42 @@ docker exec -it lyrical-phase bash
 
 아래부터는 컨테이너 안입니다.
 
+### 함정 — `~` 가 워크스페이스가 아니다
+
+2026-08-03 에 여기서 20분을 버렸습니다. `docker exec -it ... bash` 로 들어가면
+**root 로 붙습니다.** 그러면 `$HOME` 이 `/root` 인데 dave 워크스페이스는
+거기 없습니다. `source ~/dave_ws/install/setup.bash` 가 조용히 실패하고,
+`ros2 launch` 는 패키지를 못 찾아 즉시 죽고, 화면에는 20분 내내
+"토픽 없음"만 찍힙니다. 데이터처럼 보이지만 데이터가 아닙니다.
+
+**먼저 실제 경로를 찾으세요.**
+
+```bash
+ls -d /home/*/dave_ws* /root/dave_ws* /opt/dave_ws* 2>/dev/null
+find / -maxdepth 7 -name dave_demos -type d 2>/dev/null | head
+```
+
+찾은 경로로 source 합니다.
+
 ```bash
 source /opt/ros/lyrical/setup.bash
-source ~/dave_ws/install/setup.bash     # 워크스페이스 경로는 아래 확인 참고
+source <찾은_워크스페이스>/install/setup.bash
 cd /home/docker/experiments
 ```
 
-**돌리기 전에 확인 두 개.** 이걸 건너뛰면 실패 원인을 못 가립니다.
+**돌리기 전에 확인.** 이 한 줄이 통과해야 측정할 가치가 있습니다.
 
 ```bash
-which ros2 timeout gz          # 셋 다 경로가 나와야 함
-ls ~/dave_ws/src/dave 2>/dev/null || ls /root/dave_ws/src/dave
+ros2 pkg prefix dave_demos     # 경로가 나와야 함. 실패하면 source 가 잘못된 것
+which ros2 timeout gz
 ```
 
-`timeout`은 리눅스에 기본으로 있으니 맥과 달리 `coreutils` 설치가 필요 없습니다.
+`timeout` 은 리눅스에 기본으로 있으니 맥과 달리 `coreutils` 설치가 필요 없습니다.
+
+스크립트도 이제 같은 것을 스스로 확인합니다 (2026-08-03 추가). 사전 점검에
+걸리면 launch 를 아예 안 하고, launch 가 15초 안에 죽으면 로그를 보여주고
+멈추고, 600초까지 토픽이 안 뜨면 관측 시간을 다 태우지 않고 중단합니다.
+그래도 위 확인을 먼저 하는 편이 빠릅니다.
 
 이제 실행합니다. **Docker는 맥보다 훨씬 느리므로 관측 시간을 늘립니다.**
 

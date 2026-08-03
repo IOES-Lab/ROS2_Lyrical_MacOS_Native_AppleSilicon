@@ -24,6 +24,7 @@ SLICE="${SLICE:-25}"
 TOTAL="${TOTAL:-360}"
 TOPIC="${TOPIC:-auto}"
 TAG="${TAG:-}"
+NOTOPIC_ABORT="${NOTOPIC_ABORT:-600}"   # 이 시간까지 토픽이 안 뜨면 중단
 HERE="$(cd "$(dirname "$0")" && pwd)"
 OUT="/tmp/exp6_phase${TAG:+_$TAG}_$(date +%m%d_%H%M).csv"
 LOG=/tmp/exp6_phase.log
@@ -35,6 +36,9 @@ cleanup () {
 }
 trap 'cleanup; echo "[정리] 완료"' EXIT
 
+. "$HERE/common.sh"
+preflight || { echo; echo "사전 점검 실패 — 측정하지 않습니다."; exit 1; }
+
 cleanup
 pgrep -f 'gz-sim|gz sim' >/dev/null 2>&1 && { echo "이전 gz-sim 이 살아있습니다. 중단."; exit 1; }
 
@@ -44,6 +48,27 @@ ros2 launch dave_demos dave_sensor.launch.py \
     namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false \
     x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true \
     > "$LOG" 2>&1 &
+LAUNCH_PID=$!
+
+# launch 가 살아있는지 15초 뒤에 확인한다.
+# 패키지를 못 찾거나 환경이 안 잡혀 있으면 여기서 즉시 죽는다. 그걸 모르고
+# 계속 돌면 "토픽 없음"이 관측 시간 내내 찍히는데, 그건 데이터가 아니라
+# 환경 오류다. 2026-08-03 Docker 첫 시도에서 이것 때문에 20분을 버렸다.
+sleep 15
+if ! kill -0 "$LAUNCH_PID" 2>/dev/null; then
+  echo
+  echo "  ! ros2 launch 가 15초 안에 죽었습니다. 측정을 중단합니다."
+  echo "    이건 월드가 느린 게 아니라 환경 문제입니다."
+  echo
+  echo "  --- $LOG 마지막 25줄 ---"
+  tail -25 "$LOG" 2>/dev/null | sed 's/^/    /'
+  echo
+  echo "  자주 걸리는 원인:"
+  echo "    - 워크스페이스 setup 을 안 했거나 경로가 틀림"
+  echo "        ros2 pkg prefix dave_demos      # 이게 실패하면 그것"
+  echo "    - 컨테이너에서 root 로 들어갔는데 워크스페이스는 /home/<user> 에 있음"
+  exit 1
+fi
 
 echo "관측 시작 — ${SLICE}초 구간을 ${TOTAL}초까지 연속 측정"
 [ "$TOPIC" = auto ] && echo "[topic] 매 구간 자동 탐색 (플랫폼마다 월드 내부 이름이 다르다)" \
@@ -72,6 +97,16 @@ while :; do
     # 이 둘을 못 가려서 엉뚱한 결론으로 갈 뻔했다.
     printf '  t=%3ds  (토픽 없음 — 월드 미기동)\n' "$EL"
     echo "$EL,,,,,$UP," >> "$OUT"
+    if [ "$EL" -ge "$NOTOPIC_ABORT" ]; then
+      echo
+      echo "  ! ${NOTOPIC_ABORT}초가 지나도 stats 토픽이 안 뜹니다. 중단합니다."
+      echo "    관측 시간을 다 태워도 얻을 게 없습니다. 환경 문제일 가능성이"
+      echo "    높습니다 (맥 기준 월드는 30초 안에 뜹니다)."
+      echo
+      echo "  --- $LOG 마지막 25줄 ---"
+      tail -25 "$LOG" 2>/dev/null | sed 's/^/    /'
+      exit 1
+    fi
     sleep "$SLICE"
     continue
   fi

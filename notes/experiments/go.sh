@@ -18,12 +18,17 @@ case "$WHICH" in
   4)  S="$HERE/exp4_integrated_isolated.sh" ;;
   5)  S="$HERE/exp5_repeat.sh" ;;
   6)  S="$HERE/exp6_phase.sh" ;;
-  *)  echo "사용법: go.sh [2|1|1b|1c|3|4|5|6]"
-      echo "  2   기준선(소나 없이)      1   사거리 10/3/1"
-      echo "  1b  레이 수 축소           1c  사거리 스윕 10~3"
-      echo "  3   하이트맵 추가          4   integrated 격리"
-      echo "  5   같은 조건 3회 반복 (재현성)"
-      echo "  6   launch~정상상태 RTF 곡선"
+  *)  echo "사용법: go.sh [6|2|4|1|3|1c|1b|5]   (권장 순서대로 나열)"
+      echo "  6   launch~정상상태 RTF 곡선 (무엇을 재고 있는지부터 확인)"
+      echo "  2   기준선 — 소나 없이"
+      echo "  4   integrated 격리 (맥 미측정 — 폐기된 전제를 다시 세우는 단계)"
+      echo "  1   사거리 10/3/1"
+      echo "  3   하이트맵 추가"
+      echo "  1c  사거리 스윕 (1 결과를 보고 구간을 정할 것)"
+      echo "  1b  레이 수 축소 (사거리가 무관으로 판명되면)"
+      echo "  5   같은 조건 반복 — 재현성"
+      echo
+      echo "  건당 4~6분. Docker 는 RUN_DOCKER.md 참고."
       exit 1 ;;
 esac
 [ -f "$S" ] || { echo "스크립트 없음: $S"; exit 1; }

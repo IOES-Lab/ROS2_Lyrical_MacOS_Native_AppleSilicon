@@ -32,7 +32,7 @@ PY
   if ! bash "$HERE/wait_sonar.sh" "$LOG" 300; then
     echo "  ! 소나가 안 올라왔습니다. 이 측정 건너뜁니다."; cleanup 2>/dev/null || true; return
   fi
-  bash "$HERE/rtf_probe.sh" /world/default/stats "$WIN" "beams=$1,rays=$2"
+  bash "$HERE/rtf_probe.sh" "$(bash "$HERE/stats_topic.sh" 60)" "$WIN" "beams=$1,rays=$2"
   kill -INT $LP 2>/dev/null || true; sleep 8
   pkill -f gz-sim-server 2>/dev/null || true
   pkill -f 'ros2 launch' 2>/dev/null || true

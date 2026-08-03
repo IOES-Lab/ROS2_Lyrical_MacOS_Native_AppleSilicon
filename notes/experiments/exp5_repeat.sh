@@ -41,7 +41,7 @@ for i in $(seq 1 "$N"); do
   WAIT=$(( $(date +%s) - T0 ))
   echo "  소나까지 ${WAIT}초"
 
-  R=$(bash "$HERE/rtf_probe.sh" /world/default/stats "$WIN" "run$i" | tee /dev/tty | grep '^RESULT' || true)
+  R=$(bash "$HERE/rtf_probe.sh" "$(bash "$HERE/stats_topic.sh" 60)" "$WIN" "run$i" | tee /dev/stderr | grep '^RESULT' || true)
   [ -n "$R" ] && echo "$i,$(echo "$R" | cut -d, -f3,4,5,6),$WAIT" >> "$OUT"
   cleanup
 done

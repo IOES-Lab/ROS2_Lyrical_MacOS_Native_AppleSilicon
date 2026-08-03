@@ -11,7 +11,7 @@ ros2 launch dave_demos dave_world.launch.py \
     > /tmp/exp2_baseline.log 2>&1 &
 LP=$!
 echo "  60초 안정화 대기..."; sleep 60
-bash "$HERE/rtf_probe.sh" /world/default/stats "$WIN" "no-sonar-baseline"
+bash "$HERE/rtf_probe.sh" "$(bash "$HERE/stats_topic.sh" 60)" "$WIN" "no-sonar-baseline"
 kill -INT $LP 2>/dev/null || true; sleep 8
 pkill -f gz-sim-server 2>/dev/null || true
 

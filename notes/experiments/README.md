@@ -1,51 +1,105 @@
 # PARTIAL 2건 원인 규명 실험
 
-대상
-- `dave_multibeam_sonar` — RTF ~0.0018 (2026-07-29, Docker)
-- `dave_ocean_waves_sonar_integrated` — RTF ~0.1–0.4, CPU 32%→47%→69% 상승 미설명
+대상 두 월드
+- `dave_multibeam_sonar`
+- `dave_ocean_waves_sonar_integrated`
 
-## 관찰된 사실
+---
 
-두 월드가 **같은 센서(blueview_p900), 같은 step size(0.001)** 를 쓰는데 RTF가 50~200배 차이난다.
+## 지금까지 확정된 것 (2026-08-03)
 
-| | multibeam_sonar | ocean_waves_sonar_integrated |
-|---|---|---|
-| include | 5 (cylinder target ×2) | 14 (Vase ×3, Lionfish, Coral, Kelp ×2, **Sand Heightmap**) |
-| 하이트맵 | 없음 | 있음 |
-| RTF | ~0.0018 | ~0.1–0.4 |
+| 조건 | RTF | 플랫폼 | 방법 |
+|---|---|---|---|
+| `dave_multibeam_sonar`, 소나 **없음** | 0.9996 | 맥/Metal | 보정됨 |
+| `dave_multibeam_sonar`, 소나 있음 10m | 0.19~0.22 | 맥/Metal | 보정됨 (4회 + 8구간) |
+| `dave_multibeam_sonar` | ~0.0018 | Docker | **보정 전** |
+| `dave_ocean_waves_sonar_integrated` | ~0.03 | Docker | **보정 전** |
 
-**더 단순한 장면이 더 느리다.** 이게 단서다.
+"보정됨"은 아래 프로토콜을 지켰다는 뜻이다.
 
-## 가설
+**남은 질문은 두 개다.**
 
-blueview_p900은 사거리 10m에 512×300 = 153,600 rays/frame.
-빈 장면에서는 레이 대부분이 아무것도 못 맞고 10m를 끝까지 traverse한다.
-integrated는 바로 아래 하이트맵이 있어 레이가 일찍 종료된다.
+1. 맥에서 소나를 켜면 왜 4.5배 느려지는가. (0.9996 → 0.20) 실재하고 재현되지만 원인 미상.
+2. Docker 는 왜 맥보다 123배 나쁜가. 아직 보정된 방법으로 재측정하지 않았다.
 
-→ 비용이 hit이 아니라 **miss(빈 공간 traverse)** 에 있다는 가설.
-   2026-07-29 노트의 `Render()` 의심과 방향이 같다.
+**이미 닫힌 질문**: 2026-07-23 의 "4분 정지 / RTF 0.012~0.015" 는 기동 구간을 측정한 것이었다. `notes/results/multibeam_startup_2026-08-03/` 참고.
+
+---
+
+## 폐기된 전제 — 읽고 넘어갈 것
+
+이 파일의 이전 판에는 이렇게 적혀 있었다.
+
+> 두 월드가 같은 센서, 같은 step size 를 쓰는데 RTF 가 50~200배 차이난다.
+> **더 단순한 장면이 더 느리다.** 이게 단서다.
+
+**이 비교는 성립하지 않는다.** 0.0018 과 0.03 은 둘 다 Docker 에서, 보정 전
+방법으로 나온 값이다. 맥에서 보정된 방법으로 재보니 `multibeam_sonar` 는
+0.19~0.22 이고, `integrated` 는 맥에서 잰 적이 없다. 즉 "단순한 장면이 더
+느리다"는 관찰 자체가 아직 확인되지 않았다.
+
+가설(빈 공간 traverse 비용)은 여전히 검증할 가치가 있지만, **근거는 다시
+세워야 한다.** exp4 로 맥에서 integrated 를 먼저 재는 것이 순서다.
+
+---
+
+## 측정 프로토콜
+
+`common.sh` 에 정의돼 있고 모든 실험이 그것을 source 한다. 스크립트마다
+따로 구현하다가 한두 개가 계속 옛날 버전으로 남았기 때문이다 —
+실제로 2026-08-03 시점에 `exp1_range.sh` 와 `exp3_heightmap.sh` 가 무효인
+고정 sleep 을 쓰고 있었고, 그중 exp1 의 결과가 exp1c 의 설계 전제로
+인용되고 있었다.
+
+1. **측정 전 정리하고, 남은 `gz-sim` 이 있으면 중단한다.** 2026-07-31 에
+   남은 프로세스가 수치를 오염시킨 적이 있다.
+2. **고정 sleep 으로 안정화를 기다리지 않는다.** 소나 초기화는 맥에서
+   145~175초 걸리고 런마다 20~30초 흔들린다. 로그를 폴링한다. 90초 시점은
+   소나가 없는 월드이고 RTF ~1.0 이 나오는데 겉보기엔 정상이라 알아채기
+   어렵다. 실제로 6개 측정을 버렸다.
+3. **stats 토픽명을 하드코딩하지 않는다.** 월드 내부 이름이 플랫폼마다
+   다르다. 틀린 토픽은 "샘플 없음"을 내는데, 그건 월드가 느린 것과 구분이
+   안 된다.
+4. **소나가 안 올라오면 그 측정은 버린다.** 대신 진행하지 않는다.
+
+---
 
 ## 실행 순서
 
+전제가 무너졌으므로 순서를 바꿨다.
+
 ```bash
-./exp2_baseline.sh    # 먼저. 소나 없는 기준 RTF 확보
-./exp1_range.sh       # 사거리 10 → 3 → 1
-./exp3_heightmap.sh   # 빈 장면에 바닥 추가
-./exp4_integrated_isolated.sh   # integrated CPU 상승 격리 재측정
+./go.sh 6     # 기동 곡선 — 무엇을 측정하고 있는지부터 확인
+./go.sh 2     # 소나 없는 대조군
+./go.sh 4     # integrated 를 맥에서 격리 측정  ← 폐기된 전제를 다시 세우는 단계
+./go.sh 1     # 사거리 10 / 3 / 1
+./go.sh 3     # 빈 장면에 바닥 추가
+./go.sh 1c    # 사거리 스윕 (go.sh 1 결과를 보고 구간을 정할 것)
+./go.sh 1b    # 레이 수 (사거리가 무관으로 판명되면)
+./go.sh 5     # 같은 조건 반복 — 재현성
 ```
+
+Docker 는 `RUN_DOCKER.md` 참고. **맥과 같은 스크립트를 써야** 두 수치를
+비교할 수 있다.
 
 경로가 다르면 환경변수로 지정한다.
 
 ```bash
-SDF=/path/to/blueview_p900/model.sdf ./exp1_range.sh
-W=/path/to/dave_multibeam_sonar.world ./exp3_heightmap.sh
-MIN=20 ./exp4_integrated_isolated.sh
+SDF=/path/to/blueview_p900/model.sdf ./go.sh 1
+W=/path/to/dave_multibeam_sonar.world ./go.sh 3
+MIN=20 ./go.sh 4
 ```
+
+---
 
 ## 주의
 
-- 모든 스크립트가 원본을 `.bak`으로 백업하고 종료 시 되돌린다.
+- 모든 스크립트가 원본을 `.bak` 으로 백업하고 종료 시 되돌린다.
 - `--symlink-install` 체크아웃이면 SDF·world 수정은 재빌드 없이 즉시 반영된다.
-- stats 토픽명은 월드의 내부 `<world name>` 기준이다.
+- 측정 한 건당 소나 초기화 대기 때문에 4~6분 걸린다. `go.sh 1` 은 3건이라
+  15분 이상, `go.sh 1c` 는 6건이라 30분 이상 잡아야 한다.
+- 이 실험들은 **RTF 만** 본다. 정확도 벤치마크가 아니다.
+- 참고용 토픽명 (자동 탐색되므로 지정할 필요는 없다):
   - `dave_multibeam_sonar.world` → `<world name="default">` → `/world/default/stats`
+  - Docker 에서는 `/world/oceans_waves/stats` 로 관측된 적이 있다 (2026-07-29)
   - `dave_ocean_waves_sonar_integrated.world` → `/world/oceans_waves_sonar_integrated/stats`
