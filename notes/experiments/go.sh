@@ -18,7 +18,8 @@ case "$WHICH" in
   4)  S="$HERE/exp4_integrated_isolated.sh" ;;
   5)  S="$HERE/exp5_repeat.sh" ;;
   6)  S="$HERE/exp6_phase.sh" ;;
-  *)  echo "사용법: go.sh [6|2|4|1|3|1c|1b|5]   (권장 순서대로 나열)"
+  7)  S="$HERE/exp7_rayskips.sh" ;;
+  *)  echo "사용법: go.sh [6|2|4|1|3|1c|1b|5|7]   (권장 순서대로 나열)"
       echo "  6   launch~정상상태 RTF 곡선 (무엇을 재고 있는지부터 확인)"
       echo "  2   기준선 — 소나 없이"
       echo "  4   integrated 격리 (맥 미측정 — 폐기된 전제를 다시 세우는 단계)"
@@ -27,6 +28,7 @@ case "$WHICH" in
       echo "  1c  사거리 스윕 (1 결과를 보고 구간을 정할 것)"
       echo "  1b  레이 수 축소 (사거리가 무관으로 판명되면)"
       echo "  5   같은 조건 반복 — 재현성"
+      echo "  7   raySkips — 레이캐스트 vs 그 뒤 연산 판별"
       echo
       echo "  건당 4~6분. Docker 는 RUN_DOCKER.md 참고."
       exit 1 ;;
