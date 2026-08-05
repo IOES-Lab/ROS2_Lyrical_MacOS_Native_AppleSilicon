@@ -390,4 +390,13 @@ A verified, repeatable Docker build procedure (build instructions, verification 
 - [Pinned commit `6aef91c` (naitikpahwa18/dave, wgpu_integration)](https://github.com/naitikpahwa18/dave/commit/6aef91c823af5da073329b84ba617b572965e79e)
 - [DAVE ROS2 Wiki](http://dave-ros2.notion.site)
 - [ROS 2 Lyrical Luth — official docs](https://docs.ros.org)
-- Choi, W. et al., "Physics-based modelling and simulation of Multibeam Echosounder perception for Autonomous Underwater Manipulation," *Frontiers in Robotics and AI*, 2021. [10.3389/frobt.2021.706646](https://doi.org/10.3389/frobt.2021.706646)
+- Choi, W.-S., "Ray-Based Physical Modeling and Simulation of Multibeam Sonar for Underwater Robotics in ROS-Gazebo Framework," *Sensors* **2025**, *25*(5), 1516. [10.3390/s25051516](https://doi.org/10.3390/s25051516) — **this is the method [PR #44](https://github.com/IOES-Lab/dave/pull/44) implements.** Ray-based: the scene is captured with the Gazebo GPU Ray plugin, an acoustic model is applied per ray, rays are combined into beams, beam-pattern effects are assessed, then windowing and FFT produce range-intensity data. Its stated advantage over the raster-based approach is controllable data resolution at equal image quality.
+- Choi, W. et al., "Physics-based modelling and simulation of Multibeam Echosounder perception for Autonomous Underwater Manipulation," *Frontiers in Robotics and AI*, 2021. [10.3389/frobt.2021.706646](https://doi.org/10.3389/frobt.2021.706646) — the earlier raster-based work this repository's sonar lineage descends from, retained for context.
+
+**Citation check (2026-08-05):** both papers are real and distinct; they are not
+alternative citations for the same work. Until this check the README listed only
+the 2021 Frontiers paper, which describes the *raster-based* method — while the
+entire sonar subject of this repository is the *ray-based* backend of PR #44,
+described in the 2025 Sensors paper. The 2025 paper is now listed first. A
+monthly-report deck cited Sensors 2025 for the ray-based content, which was
+correct; the mismatch was in this README.
