@@ -179,7 +179,14 @@ colcon build --symlink-install \
   --packages-skip vision_msgs_rviz_plugins \
   --packages-skip-by-dep python_qt_binding \
   --cmake-args -DBUILD_TESTING=OFF -Wno-dev \
+  -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+
+# -DCMAKE_BUILD_TYPE=Release added 2026-08-05 -- colcon otherwise leaves the build
+# type empty and nothing here gets an -O flag. The gz_*_vendor packages compile
+# nothing (they wrap the Homebrew Gazebo), so this only affects ros_gz's own
+# packages, but there is no reason to build those unoptimised either.
+# See notes/results/release_rebuild_2026-08-05/.
 
 source ~/ros_gz_ws_lyrical/install/setup.zsh
 
@@ -226,7 +233,18 @@ colcon build --symlink-install --packages-select \
   dave_ros_gz_plugins dave_demos \
   wgpu_vendor multibeam_sonar multibeam_sonar_system \
   --cmake-args -DBUILD_TESTING=OFF -Wno-dev \
+  -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
   -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+
+# -DCMAKE_BUILD_TYPE=Release added 2026-08-05. THIS ONE MATTERS.
+# Without it colcon leaves CMAKE_BUILD_TYPE empty, so no DAVE package gets an -O
+# flag and the whole workspace builds unoptimised. Measured on the sonar world at
+# default settings: RTF 0.2180 -> 0.4380, a 2.01x speed-up with no code change.
+# Every performance figure in this README dated before 2026-08-05 was taken
+# without it.
+# Verify -- expect -O3, not an empty result:
+#   grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq -c
+# See notes/results/release_rebuild_2026-08-05/.
 
 source install/setup.zsh   # zsh — sourcing .bash under zsh breaks COLCON_CURRENT_PREFIX
 # dave_ws's own setup.zsh chains to source the ros_gz_ws_lyrical underlay automatically;

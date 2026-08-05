@@ -64,7 +64,7 @@ That splits the two suspects cleanly:
 
 | | where it lives | optimised? |
 |---|---|---|
-| `Render()` GPU raycast | `gz-rendering` (vendored) | yes |
+| `Render()` GPU raycast | `gz-rendering` (Homebrew binary) | yes |
 | `FillPointCloudMsg` | DAVE plugin | **no** |
 | `ComputeSonarImage` | DAVE plugin | **no** |
 
