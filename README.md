@@ -275,12 +275,25 @@ cd dave
 git checkout 6aef91c823af5da073329b84ba617b572965e79e   # pinned commit, not the branch tip — see Pinned commits above
 git apply ../patches/dave_lyrical_jetty_migration_mac.diff   # identical diff applies cleanly on Linux too
 
-colcon build --merge-install --executor sequential --packages-select \
+# IMPORTANT (added 2026-08-05): -DCMAKE_BUILD_TYPE=Release.
+# Without it colcon leaves CMAKE_BUILD_TYPE empty, so nothing is compiled with -O
+# and every DAVE package builds unoptimised. Measured effect on the sonar world:
+# RTF 0.2180 -> 0.4380 at the default sensor configuration, a 2.01x speed-up, with
+# no code change. All performance figures in this README that predate 2026-08-05
+# were taken without it. See notes/results/release_rebuild_2026-08-05/.
+colcon build --merge-install --executor sequential \
+  --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select \
   dave_interfaces dave_object_models dave_sensor_models dave_robot_models \
   dave_worlds dave_gz_world_plugins dave_gz_model_plugins dave_gz_sensor_plugins \
   dave_ros_gz_plugins dave_demos
-colcon build --merge-install --executor sequential --packages-select wgpu_vendor
-colcon build --merge-install --executor sequential --packages-select multibeam_sonar multibeam_sonar_system
+colcon build --merge-install --executor sequential \
+  --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select wgpu_vendor
+colcon build --merge-install --executor sequential \
+  --cmake-args -DCMAKE_BUILD_TYPE=Release --packages-select multibeam_sonar multibeam_sonar_system
+
+# Verify it took effect -- expect -O3, not an empty result:
+#   grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq -c
+# (add -DCMAKE_EXPORT_COMPILE_COMMANDS=ON above if compile_commands.json is absent)
 
 source install/setup.bash
 

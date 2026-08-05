@@ -31,9 +31,26 @@ $ grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq
 
 ## This is the discriminator the SDF could not provide
 
-`gz-rendering` — which owns the GPU raycast — comes from the vendored packages
-and was **not** rebuilt. Only the DAVE plugin changed. So any improvement is
-plugin-side by construction.
+`gz-rendering` — which owns the GPU raycast — was **not** rebuilt. Only the DAVE
+plugin changed. So any improvement is plugin-side by construction.
+
+**Where Gazebo actually comes from (verified 2026-08-05, after an earlier version
+of this note asserted it without checking).** The `gz_*_vendor` packages in
+`~/ros_gz_ws_lyrical` also have `CMAKE_BUILD_TYPE` empty, which at first looked
+like the whole stack was unoptimised. It is not:
+
+```
+$ find ~/ros_gz_ws_lyrical/build/gz_rendering_vendor -name "*.o"                 # (nothing)
+$ find ~/ros_gz_ws_lyrical/build/gz_rendering_vendor -name compile_commands.json # (nothing)
+$ ls ~/ros_gz_ws_lyrical/install/gz_rendering_vendor/lib/                        # (does not exist)
+$ ls /opt/homebrew/lib/libgz-rendering*
+/opt/homebrew/lib/libgz-rendering-ogre.10.0.1.dylib   ...
+```
+
+The vendor package compiles nothing — its build tree holds only `ament_cmake`
+symlink-install artefacts. It wraps the **Homebrew** Gazebo install, which ships
+optimised release binaries. So the vendor packages' empty `BUILD_TYPE` is
+harmless; the only build type that mattered was DAVE's own.
 
 **Per-ray cost fell 6.1x:**
 
@@ -109,6 +126,8 @@ of the gap, not all of it.
 
 ## Caveats
 
+- Gazebo being optimised rests on it being a Homebrew binary distribution.
+  Homebrew's own build flags for `gz-rendering` were not inspected.
 - **The as-shipped build was never directly confirmed to be `-O0`.** It was
   inferred from `CMAKE_BUILD_TYPE:STRING=` and `CMAKE_CXX_FLAGS:STRING=` being
   empty in `CMakeCache.txt`; no `compile_commands.json` existed for it, so the

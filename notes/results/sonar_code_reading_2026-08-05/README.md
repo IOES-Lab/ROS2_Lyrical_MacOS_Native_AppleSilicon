@@ -50,9 +50,15 @@ in the build tree, so the actual compiler invocation was not inspected. A
 
 ### Why this matters more than it first looks
 
-Gazebo itself — including `gz-rendering`, which owns the GPU raycast — comes from
-the vendored/apt packages and **is** built optimised. Only the DAVE plugin code is
-at `-O0`.
+Gazebo itself — including `gz-rendering`, which owns the GPU raycast — is **not**
+built by these workspaces at all. Verified 2026-08-05: the `gz_*_vendor` packages
+also show an empty `CMAKE_BUILD_TYPE`, but their build trees contain no object
+files and no `compile_commands.json`, and `install/gz_rendering_vendor/lib/` does
+not exist. They are wrappers around the **Homebrew** Gazebo install
+(`/opt/homebrew/lib/libgz-rendering-*.dylib`), which ships optimised binaries.
+
+So the vendor packages' empty build type is harmless. Only the DAVE plugin code
+is affected.
 
 That splits the two suspects cleanly:
 
@@ -203,7 +209,8 @@ passes becomes a concrete upstream patch with a measurable before/after.
 - Code reading, not profiling. No function has been timed.
 - The `-O0` conclusion is inferred from `CMakeCache.txt`; the compile command was
   not inspected.
-- The claim that `gz-rendering` is optimised is an assumption about the vendored
-  packages, not something verified.
+- Gazebo being optimised rests on it being a Homebrew binary distribution;
+  Homebrew's own flags were not inspected. What *was* verified is that neither
+  workspace compiles it.
 - Whether the compiler hoists the invariant trig at higher optimisation levels was
   not checked against generated assembly.
