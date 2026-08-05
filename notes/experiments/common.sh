@@ -102,9 +102,11 @@ launch_sonar_world () {
   LAUNCH_PID=$!
 }
 
-# 소나가 로그상 올라왔는지 (대기하지 않고 즉시 판정). 1=올라옴 0=아직
-# 숫자를 넣지 않는다 — 빔/레이 수를 바꾸면 로그 숫자도 바뀐다.
-SONAR_PAT="${SONAR_PAT:-Persistent GPU buffers allocated for}"
+# 소나가 실제로 프레임을 계산 중인지 (대기하지 않고 즉시 판정). 1=예 0=아직
+# 버퍼 할당 메시지를 쓰면 안 된다 — 플러그인이 진짜 할당 전에 더미
+# 'allocated for 1x1x4' 를 먼저 찍는다. 2026-08-03 에 그것 때문에 exp1b 가
+# 20초 만에 통과해서 4개 측정이 전부 기동 구간을 잰 값이 됐다.
+SONAR_PAT="${SONAR_PAT:-sonar_wgpu] GPU #}"
 sonar_is_up () {
   grep -q "$SONAR_PAT" "$1" 2>/dev/null && echo 1 || echo 0
 }
@@ -131,6 +133,47 @@ settle_for_sonar () {
   bash "$COMMON_HERE/wait_sonar.sh" "$1" "${2:-300}"
 }
 
+# --- 실제로 스텝이 돌기 시작할 때까지 대기 --------------------------------
+# 이게 유일하게 믿을 수 있는 기준이다.
+#
+# 2026-08-03 확인: 이 월드는 런치 후 약 60~75초간 시뮬레이션이 사실상 멈춰
+# 있다가 갑자기 풀린다. 30초 간격 실측:
+#     t=30s  iterations=8      t=90s   6536
+#     t=60s  iterations=11     t=120s  15116   (+8580)
+#                              t=150s  24389   (+9273)
+# 즉 60초 시점까지 30초에 3스텝, 그 뒤로는 30초에 ~9000스텝.
+#
+# 로그 줄로 판정하면 안 된다. '[sonar_wgpu] GPU #' 도 'Persistent GPU buffers'
+# 도 이 전환보다 훨씬 먼저 찍힌다(20~25초). 실제로 하루 종일 그 줄들의 등장
+# 시각이 163초에서 20초까지 당겨졌는데 정지 구간 길이는 그대로였다. 로그는
+# 센서가 준비됐다는 뜻이지 시뮬레이터가 돈다는 뜻이 아니다.
+#
+# wait_until_stepping <토픽> [최대대기초=420] [최소증가/15초=1000]
+# 15초 간격으로 iterations 를 보고, 기준 이상 증가한 구간이 연속 2회
+# 나오면 통과. 한 번만으로는 전환 직후 과도구간을 잡을 수 있다.
+wait_until_stepping () {
+  local TOPIC="${1:?토픽 필요}" MAX="${2:-420}" MIN="${3:-1000}"
+  local T=0 PREV="" CUR="" OK=0
+  echo "  스텝 대기 (기준: 15초당 ${MIN}회 이상 증가, 연속 2회)"
+  while [ "$T" -lt "$MAX" ]; do
+    CUR=$(gz topic -e -t "$TOPIC" -n 1 2>/dev/null | grep -m1 -o 'iterations: [0-9]*' | awk '{print $2}')
+    if [ -n "$CUR" ] && [ -n "$PREV" ]; then
+      local D=$(( CUR - PREV ))
+      if [ "$D" -ge "$MIN" ]; then
+        OK=$(( OK + 1 ))
+        printf '    t=%3ds  iterations=%-9s +%-7s OK(%d/2)\n' "$T" "$CUR" "$D" "$OK"
+        [ "$OK" -ge 2 ] && { echo "  -> 정상 스텝 확인 (${T}초)"; return 0; }
+      else
+        OK=0
+        printf '    t=%3ds  iterations=%-9s +%-7s 아직\n' "$T" "$CUR" "$D"
+      fi
+    fi
+    PREV="$CUR"; sleep 15; T=$(( T + 15 ))
+  done
+  echo "  ! ${MAX}초 안에 정상 스텝을 확인하지 못했습니다."
+  return 1
+}
+
 # --- 한 번 측정 --------------------------------------------------------------
 # measure_once <라벨> [측정초=60] [로그경로]
 #   정리 -> launch -> 소나 대기 -> 토픽 탐색 -> 측정
@@ -149,7 +192,6 @@ measure_once () {
 
   if ! settle_for_sonar "$LOG" 300; then
     echo "  ! 소나가 300초 안에 안 올라왔습니다 — 이 측정은 버립니다."
-    echo "    (고정 sleep 으로 대신 진행하면 소나 없는 월드를 재게 됩니다)"
     return 3
   fi
 
@@ -159,6 +201,9 @@ measure_once () {
     return 4
   }
   echo "  topic = $TOPIC"
+
+  # 소나 로그만 믿으면 안 된다 — 아직 정지 구간일 수 있다.
+  wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-1000}" || return 6
 
   bash "$COMMON_HERE/rtf_probe.sh" "$TOPIC" "$WIN" "$LABEL"
 }

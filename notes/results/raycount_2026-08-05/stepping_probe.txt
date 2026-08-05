@@ -1,0 +1,11 @@
+# 2026-08-05, Mac. dave_multibeam_sonar 기본 설정, 런치 직후부터 30초 간격으로
+# /world/default/stats 의 iterations 를 1회씩 확인.
+# 목적: "소나 로그가 떴다"와 "시뮬레이터가 실제로 스텝을 돈다"가 다른 사건임을 확인.
+t= 30s  iterations=8
+t= 60s  iterations=11
+t= 90s  iterations=6536
+t=120s  iterations=15116
+t=150s  iterations=24389
+t=180s  iterations=33365
+# 60초 시점까지 30초에 3스텝. 이후 30초에 약 9000스텝 (1ms 스텝 -> RTF 약 0.30).
+# 소나 로그 줄들은 모두 이 정지 구간 안에서 찍힌다.

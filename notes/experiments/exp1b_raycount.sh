@@ -38,6 +38,7 @@ echo "4개 조건 · 건당 4~6분 · 총 20분 이상 걸립니다."
 
 run () {  # $1=beams  $2=rays
   local TOT=$(( $1 * $2 ))
+  # 라벨에 쉼표를 넣지 않는다. rtf_probe 의 RESULT 줄이 CSV 라서 열이 밀린다.
   echo; echo "=============== beams=$1  rays=$2  ($TOT rays/frame) ==============="
   python3 - "$SDF" "$1" "$2" <<'PY'
 import sys, re
@@ -51,7 +52,7 @@ print(f"  적용됨: beams={b} rays={r}")
 PY
 
   local R
-  R=$(measure_once "beams=$1,rays=$2" "$WIN" "/tmp/exp1b_${1}x${2}.log" | tee /dev/stderr \
+  R=$(measure_once "b$1r$2" "$WIN" "/tmp/exp1b_${1}x${2}.log" | tee /dev/stderr \
       | grep '^RESULT' || true)
   if [ -n "$R" ]; then
     echo "$1,$2,$TOT,$(echo "$R" | cut -d, -f3,4,5,6)" >> "$OUT"
