@@ -60,12 +60,28 @@ PID=$(find_gz_pid) || { echo "  ! gz-sim PID 를 못 찾았습니다"; exit 7; }
 echo
 echo "  PID $PID 에 붙습니다. ${DUR}초 대기..."
 
+# 프로파일과 *같은 창*에서 RTF 를 잰다. 이게 없으면 어느 구간을 떴는지
+# 알 수 없다. 2026-08-05 첫 프로파일이 정확히 이 문제였다: 스텝 속도로
+# 역산하면 RTF ~0.94 인데 같은 빌드의 측정값은 0.438 이었고, 둘 중 어느
+# 쪽을 프로파일한 건지 판단할 근거가 없었다.
+RTFOUT="/tmp/exp8_rtf_$STAMP.txt"
+bash "$HERE/rtf_probe.sh" "$TOPIC" "$DUR" "profile_window" > "$RTFOUT" 2>&1 &
+RTF_BG=$!
+
 if ! sample "$PID" "$DUR" "$INTERVAL" -f "$OUT" 2>/dev/null; then
   echo "  ! sample 실패. 권한 문제일 수 있습니다. 다시 시도:"
   echo "      sudo sample $PID $DUR $INTERVAL -f $OUT"
+  kill "$RTF_BG" 2>/dev/null || true
   exit 8
 fi
+wait "$RTF_BG" 2>/dev/null || true
 echo "  -> 저장: $OUT"
+
+echo
+echo "===== 프로파일 창의 RTF ====="
+echo "  이 값이 기준선(Release 0.438)과 크게 다르면, 위 프로파일은 그"
+echo "  기준선과 다른 구간을 뜬 것이므로 그대로 인용하면 안 됩니다."
+grep '^RESULT' "$RTFOUT" 2>/dev/null | sed 's/^/  /' || sed 's/^/  /' "$RTFOUT"
 
 # --- 심볼이 실제로 나왔는지 먼저 확인한다 ---------------------------------
 # 주소만 있는 프로파일은 읽을 수 없다. 여기서 안 걸러내면 아래 grep 이 전부
@@ -82,24 +98,16 @@ else
   echo "        --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 fi
 
-# --- 관심 심볼별 샘플 수 ----------------------------------------------------
+# --- 분석 -------------------------------------------------------------------
+# 여기서 grep -c 를 쓰면 안 된다. sample 출력의 한 줄은 서로 다른 콜스택
+# 경로 하나이고, 무게는 줄 앞의 숫자다. 2026-08-05 첫 판이 grep -c 로
+# 요약을 내는 바람에 "FillPointCloudMsg 6" 같은 값이 나왔는데, 그건
+# 6샘플이 아니라 경로가 6개라는 뜻이었다. 무게는 알 수 없는 값이었다.
+#
+# 또 sample 은 자고 있는 스레드도 전부 샘플링한다 (25개 스레드가 모두
+# 총 5946 으로 찍힌다). 유휴를 안 걷어내면 합계가 무의미하다.
 echo
-echo "===== 관심 함수별 등장 샘플 수 ====="
-echo "  (콜스택 등장 횟수. 자기 시간이 아니라 포함 시간 기준입니다.)"
-count () { printf '  %-34s %s\n' "$1" "$(grep -c "$2" "$OUT" 2>/dev/null || echo 0)"; }
-count "FillPointCloudMsg"   'FillPointCloudMsg'
-count "ComputeSonarImage"   'ComputeSonarImage'
-count "MultibeamSonar::Update" 'MultibeamSonarSensor::Update'
-count "MultibeamSonar::Render"  'MultibeamSonarSensor::Render'
-count "OnNewFrame"          'OnNewFrame'
-count "gz-rendering (전체)"  'libgz-rendering'
-count "GpuRays"             'GpuRays'
-count "cos/sin (libm)"      '__cos\|__sin\|_platform_cos\|_platform_sin'
-
-echo
-echo "===== 가장 무거운 스택 상위 ====="
-# sample 출력의 트리에서 샘플 수가 큰 줄만 뽑는다.
-grep -E '^ *[0-9]{3,} ' "$OUT" 2>/dev/null | head -25 || echo "  (트리 파싱 실패 — 파일을 직접 보세요)"
+python3 "$HERE/analyze_profile.py" "$OUT"
 
 echo
 echo "=========================================================="
