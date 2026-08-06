@@ -103,12 +103,26 @@ launch_sonar_world () {
 }
 
 # 소나가 실제로 프레임을 계산 중인지 (대기하지 않고 즉시 판정). 1=예 0=아직
-# 버퍼 할당 메시지를 쓰면 안 된다 — 플러그인이 진짜 할당 전에 더미
-# 'allocated for 1x1x4' 를 먼저 찍는다. 2026-08-03 에 그것 때문에 exp1b 가
-# 20초 만에 통과해서 4개 측정이 전부 기동 구간을 잰 값이 됐다.
-SONAR_PAT="${SONAR_PAT:-sonar_wgpu] GPU #}"
+#
+# 고정 문자열을 쓰면 안 된다. 플러그인은 진짜 센서를 올리기 전에 더미를
+# 먼저 찍는데, 그 줄이 어떤 패턴에도 걸린다:
+#     [sonar_wgpu] Persistent GPU buffers allocated for 1x1x4
+#     [sonar_wgpu] GPU #1   |   13.1 ms | 1 beams x 1 rays x 4 freq
+# 2026-08-03 에 'allocated for' 로 당했고, 'GPU #' 로 바꿨더니 2026-08-06 에
+# 같은 더미 줄이 'GPU #' 도 갖고 있어서 또 당했다. 두 번 다 0~20초 만에
+# 통과해서 기동 구간을 측정할 뻔했다.
+#
+# 그래서 문자열이 아니라 **빔 수**를 본다. 더미는 1 beams 다. 실제 센서는
+# SDF 의 beams 값(기본 512, 플러그인 보고는 513)이다. 2 이상이면 진짜다.
+# 이러면 beams 를 줄이는 실험(exp1b)에서도 안전하다 — 최소 조건이 64 다.
 sonar_is_up () {
-  grep -q "$SONAR_PAT" "$1" 2>/dev/null && echo 1 || echo 0
+  awk '
+    /beams/ {
+      for (i = 2; i <= NF; i++)
+        if ($i == "beams" && $(i-1) + 0 > 1) { found = 1; exit }
+    }
+    END { print (found ? 1 : 0) }
+  ' "$1" 2>/dev/null || echo 0
 }
 
 # launch 가 15초 뒤에도 살아있는지 확인한다. 죽었으면 로그를 보여준다.
@@ -151,12 +165,35 @@ settle_for_sonar () {
 # wait_until_stepping <토픽> [최대대기초=420] [최소증가/15초=1000]
 # 15초 간격으로 iterations 를 보고, 기준 이상 증가한 구간이 연속 2회
 # 나오면 통과. 한 번만으로는 전환 직후 과도구간을 잡을 수 있다.
+#
+# 2026-08-06 수정: gz topic -e -n 1 은 메시지가 올 때까지 무한 대기한다.
+# stats 가 아직 안 나오는 구간(소나 초기화 중)에 들어가면 여기서 영영
+# 멈추고 바깥 루프가 한 바퀴도 못 돌아 MAX 타임아웃조차 동작하지 않는다.
+# 화면에는 '스텝 대기' 만 찍힌 채 정지한 것처럼 보인다. 반드시 감싼다.
+_iterations_now () {   # <토픽> -> stdout 에 iterations 값 (없으면 빈 문자열)
+  local TO
+  if command -v timeout >/dev/null 2>&1;    then TO=timeout
+  elif command -v gtimeout >/dev/null 2>&1; then TO=gtimeout
+  else TO=""; fi
+  if [ -n "$TO" ]; then
+    "$TO" 10 gz topic -e -t "$1" -n 1 2>/dev/null \
+      | grep -m1 -o 'iterations: [0-9]*' | awk '{print $2}'
+  else
+    gz topic -e -t "$1" -n 1 2>/dev/null \
+      | grep -m1 -o 'iterations: [0-9]*' | awk '{print $2}'
+  fi
+}
+
 wait_until_stepping () {
   local TOPIC="${1:?토픽 필요}" MAX="${2:-420}" MIN="${3:-1000}"
   local T=0 PREV="" CUR="" OK=0
   echo "  스텝 대기 (기준: 15초당 ${MIN}회 이상 증가, 연속 2회)"
   while [ "$T" -lt "$MAX" ]; do
-    CUR=$(gz topic -e -t "$TOPIC" -n 1 2>/dev/null | grep -m1 -o 'iterations: [0-9]*' | awk '{print $2}')
+    CUR=$(_iterations_now "$TOPIC")
+    if [ -z "$CUR" ]; then
+      printf '    t=%3ds  stats 응답 없음\n' "$T"
+      PREV=""; OK=0; sleep 15; T=$(( T + 15 )); continue
+    fi
     if [ -n "$CUR" ] && [ -n "$PREV" ]; then
       local D=$(( CUR - PREV ))
       if [ "$D" -ge "$MIN" ]; then
@@ -174,13 +211,163 @@ wait_until_stepping () {
   return 1
 }
 
+# --- 직접 경로 (ros2 launch 우회) -------------------------------------------
+# 2026-08-06 추가. ros_gz_sim create 가 간헐적으로 무한 대기해서, 모델이 안
+# 뜬 채로 월드만 도는 일이 반복됐다. 그러면 소나가 없으니 RTF 가 ~1.0 이
+# 나오는데 겉보기엔 정상이다. settle_for_sonar 가 세 번 다 막아줬다.
+# 자세한 내용: notes/results/spawn_hang_2026-08-05/
+#
+# gz service 로 직접 스폰하면 즉시 성공한다(확인됨: data: true).
+#
+# !!! 이 경로는 기존 경로의 대체가 아니다 !!!
+#   ros2 launch 는 parameter_bridge 와 static_transform_publisher 도 띄운다.
+#   여기서는 안 띄운다. 2026-08-05 프로파일에서 DDS 스레드가 busy 의 16% 를
+#   스핀으로 태우고 있었으므로, 브리지가 빠지면 RTF 가 달라질 수 있다.
+#   이 경로로 잰 값은 자기만의 기준선이 필요하다. 이전 수치와 비교하지 말 것.
+
+find_ws () {
+  local c
+  for c in "$HOME/dave_ws_lyrical" "$HOME/dave_ws" /root/dave_ws; do
+    [ -d "$c/src/dave" ] && { echo "$c"; return 0; }
+  done
+  return 1
+}
+
+world_file () {   # <월드명>
+  local WS f; WS=$(find_ws) || return 1
+  f="$WS/install/dave_worlds/share/dave_worlds/worlds/$1.world"
+  [ -f "$f" ] && { echo "$f"; return 0; }
+  return 1
+}
+
+sonar_model_sdf () {
+  local WS f; WS=$(find_ws) || return 1
+  f="$WS/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf"
+  [ -f "$f" ] && { echo "$f"; return 0; }
+  return 1
+}
+
+launch_world_direct () {   # <로그> [월드=dave_multibeam_sonar]
+  local LOG="${1:?로그 경로 필요}" WORLD="${2:-dave_multibeam_sonar}" WF
+  WF=$(world_file "$WORLD") || { echo "  ! 월드 파일을 못 찾음: $WORLD"; return 1; }
+  gz sim -s -r "$WF" > "$LOG" 2>&1 &
+  LAUNCH_PID=$!
+}
+
+# create 서비스가 뜰 때까지 기다린다. 월드가 준비되기 전에 스폰하면 실패한다.
+wait_for_create_service () {   # [최대대기초=120]  -> stdout 에 서비스명
+  local MAX="${1:-120}" T=0 SVC=""
+  while [ "$T" -lt "$MAX" ]; do
+    SVC=$(gz service -l 2>/dev/null | grep -m1 -E '^/world/[^/]+/create$' || true)
+    [ -n "$SVC" ] && { echo "$SVC"; return 0; }
+    sleep 5; T=$(( T + 5 ))
+  done
+  return 1
+}
+
+spawn_sonar_direct () {   # [서비스명]
+  local SVC="$1" SDF R
+  SDF=$(sonar_model_sdf) || { echo "  ! 소나 model.sdf 를 못 찾음"; return 1; }
+  [ -n "$SVC" ] || SVC=$(wait_for_create_service 120) || {
+    echo "  ! create 서비스가 안 뜹니다"; return 1; }
+  # yaw 3.14 -> quaternion (z≈1, w≈0). 기존 launch 의 x:=5.8 z:=2 yaw:=3.14 와 동일.
+  R=$(gz service -s "$SVC" \
+        --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 20000 \
+        --req "sdf_filename: \"$SDF\", name: \"blueview_p900\", \
+               pose: {position: {x: 5.8, y: 0, z: 2}, orientation: {x: 0, y: 0, z: 1, w: 0}}" \
+        2>&1)
+  echo "$R" | grep -q 'data: true' && return 0
+  echo "  ! 스폰 실패: $R"
+  return 1
+}
+
+# 모델이 실제로 월드에 있는지 확인한다. 이게 없으면 소나 없는 월드를
+# 조용히 측정하게 된다 — 그게 정확히 2026-08-05 에 세 번 일어난 일이다.
+#
+# 폴링한다. 서비스가 data: true 를 돌려준 직후에도 모델이 목록에 바로
+# 뜨지는 않는다 (2026-08-06 에 5초 고정 대기로는 놓쳤다).
+#
+# 중요: '모델이 없다' 와 '물어볼 수 없다' 를 구분한다.
+#   gz model --list 는 /world/<name>/state 서비스를 부르는데, 소나가
+#   초기화되는 동안 이 서비스가 타임아웃한다 (2026-08-06 관측). 그걸
+#   '모델 없음' 으로 처리하면 멀쩡한 측정을 버리게 된다.
+#   확실히 목록을 받았는데 거기 없을 때만 실패로 본다.
+#   물어보지 못한 경우는 통과시킨다 — 어차피 settle_for_sonar 가
+#   소나 없는 월드를 뒤에서 다시 걸러낸다.
+assert_model_spawned () {   # [모델명=blueview_p900] [최대대기초=60]
+  local NAME="${1:-blueview_p900}" MAX="${2:-60}" T=0 OUT="" GOT=0
+  while [ "$T" -lt "$MAX" ]; do
+    OUT=$(gz model --list 2>&1)
+    if echo "$OUT" | grep -q -- "$NAME"; then
+      [ "$T" -gt 0 ] && echo "  [direct] 모델 확인 (${T}초)"
+      return 0
+    fi
+    # 'Available models:' 가 보이면 목록을 실제로 받은 것이다.
+    echo "$OUT" | grep -q 'Available models' && GOT=1
+    sleep 5; T=$(( T + 5 ))
+  done
+
+  if [ "$GOT" = 1 ]; then
+    echo "  ! 월드 목록을 받았는데 $NAME 이 없습니다. 이 측정은 무효입니다."
+    echo "  --- gz model --list ---"
+    echo "$OUT" | sed 's/^/    /' | head -20
+    return 1
+  fi
+
+  echo "  ! 모델 목록을 조회하지 못했습니다 (/world/*/state 타임아웃)."
+  echo "    '모델 없음' 이 아니라 '확인 불가' 입니다. 계속 진행하고"
+  echo "    settle_for_sonar 의 판정에 맡깁니다."
+  return 0
+}
+
 # --- 한 번 측정 --------------------------------------------------------------
 # measure_once <라벨> [측정초=60] [로그경로]
 #   정리 -> launch -> 소나 대기 -> 토픽 탐색 -> 측정
 #   성공하면 stdout 에 "RESULT,라벨,rtf,sim,real,msgs" 한 줄. 실패하면 비0.
 #   측정이 끝나도 정리하지 않는다 (호출부가 SDF/월드 원복 순서를 통제한다).
+#
+# DIRECT=1 이면 ros2 launch 대신 gz sim + gz service 로 띄운다. 위의 경고를
+# 반드시 읽을 것 — 조건이 달라지므로 기준선을 새로 잡아야 한다.
+#
+# RETRIES=N (기본 2) — 실패하면 다시 시도한다.
+#   ros_gz_sim create 가 간헐적으로 무한 대기해서 모델이 안 뜨는 일이
+#   2026-08-05~06 에 절반 가까이 발생했다. 원인은 아직 모른다. 하지만
+#   실패는 settle_for_sonar 가 확실히 잡아내므로(조용히 통과하지 않는다)
+#   그냥 다시 돌리면 된다. 원인 규명 없이도 실험은 진행할 수 있다.
+#   측정값이 이상해서 재시도하는 게 아니라 **측정 자체가 성립하지 않은**
+#   경우에만 재시도한다 — 그 구분이 중요하다.
 measure_once () {
   local LABEL="${1:?라벨 필요}" WIN="${2:-60}" LOG="${3:-/tmp/measure_$$.log}"
+  local N="${RETRIES:-2}" I=0 RC=0
+
+  if [ "${DIRECT:-0}" = 1 ]; then
+    measure_once_direct "$LABEL" "$WIN" "$LOG"; return $?
+  fi
+
+  while : ; do
+    _measure_once_impl "$LABEL" "$WIN" "$LOG"; RC=$?
+    [ "$RC" = 0 ] && return 0
+
+    # 재시도해서 달라질 수 있는 것만 다시 한다.
+    #   3 소나 미기동 · 5 launch 즉사 · 6 스텝 미확인  -> 스폰 행 계열, 재시도
+    #   1 환경 · 2 잔여 프로세스 · 4 토픽 없음         -> 다시 해도 같다, 중단
+    case "$RC" in
+      3|5|6) ;;
+      *) echo "  ! exit=$RC — 재시도해도 달라지지 않는 실패입니다."
+         return "$RC" ;;
+    esac
+
+    I=$(( I + 1 ))
+    [ "$I" -gt "$N" ] && {
+      echo "  ! ${I}회 시도 모두 실패했습니다 (마지막 exit=$RC)."
+      return "$RC"; }
+    echo "  재시도 ${I}/${N} (exit=$RC) — 스폰 행일 가능성이 큽니다."
+    cleanup
+  done
+}
+
+_measure_once_impl () {
+  local LABEL="$1" WIN="$2" LOG="$3"
 
   preflight || return 1
   cleanup
@@ -203,6 +390,42 @@ measure_once () {
   echo "  topic = $TOPIC"
 
   # 소나 로그만 믿으면 안 된다 — 아직 정지 구간일 수 있다.
+  wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-1000}" || return 6
+
+  bash "$COMMON_HERE/rtf_probe.sh" "$TOPIC" "$WIN" "$LABEL"
+}
+
+# measure_once 와 같은 프로토콜이되 ros2 launch 를 쓰지 않는다.
+# 반환값은 measure_once 와 같은 의미를 유지한다 (3=소나 미기동, 4=토픽없음 ...).
+measure_once_direct () {
+  local LABEL="${1:?라벨 필요}" WIN="${2:-60}" LOG="${3:-/tmp/measure_$$.log}"
+  local SVC TOPIC
+
+  command -v gz >/dev/null 2>&1 || { echo "  ! gz 가 PATH 에 없습니다."; return 1; }
+  cleanup
+  assert_clean || return 2
+
+  launch_world_direct "$LOG" "${WORLD:-dave_multibeam_sonar}" || return 1
+  echo "  [direct] gz sim 기동 (로그 $LOG)"
+  assert_launch_alive "$LOG" || return 5
+
+  SVC=$(wait_for_create_service 120) || {
+    echo "  ! create 서비스가 120초 안에 안 떴습니다."; return 7; }
+  echo "  [direct] 서비스 = $SVC"
+
+  spawn_sonar_direct "$SVC" || return 8
+  echo "  [direct] 스폰 성공"
+  assert_model_spawned blueview_p900 60 || return 9
+
+  if ! settle_for_sonar "$LOG" 300; then
+    echo "  ! 소나가 300초 안에 안 올라왔습니다 — 이 측정은 버립니다."
+    return 3
+  fi
+
+  TOPIC=$(resolve_topic 60) || {
+    echo "  ! stats 토픽을 못 찾았습니다."; return 4; }
+  echo "  topic = $TOPIC"
+
   wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-1000}" || return 6
 
   bash "$COMMON_HERE/rtf_probe.sh" "$TOPIC" "$WIN" "$LABEL"

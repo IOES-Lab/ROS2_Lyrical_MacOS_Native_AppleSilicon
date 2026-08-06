@@ -86,15 +86,59 @@ A stale `model.sdf.bak` from 13:21 was found and removed — left by an interrup
 `exp1b`/`exp7` run. It was not the cause (the restore had worked; `model.sdf` matches git),
 but the scripts should clean it up.
 
-## Workaround
+## Workaround (implemented 2026-08-06)
 
 Bypass the ROS node. Start the world with `gz sim` directly and spawn via `gz service`.
+
+`common.sh` now provides this as a second path. Set `DIRECT=1` and every existing
+experiment uses it unchanged:
+
+```bash
+DIRECT=1 bash notes/experiments/go.sh 9
+```
+
+New functions: `launch_world_direct`, `wait_for_create_service`, `spawn_sonar_direct`,
+`assert_model_spawned`, `measure_once_direct`. The default path is untouched.
+
+`wait_for_create_service` exists because spawning before the world is ready fails — the
+original `create-2` node starts simultaneously with Gazebo, which is one candidate
+explanation for the intermittency, though not a confirmed one.
+
+`assert_model_spawned` checks `gz model --list` after the spawn returns. Between that and
+`settle_for_sonar`, a sonar-free world can no longer be measured silently.
 
 **This is not a drop-in substitute for the existing measurement path.** `ros2 launch` also
 starts `parameter_bridge` and `static_transform_publisher`; `gz sim` alone does not. The
 2026-08-05 profile showed DDS threads spinning at ~16% of busy CPU, so removing the bridge
 plausibly changes RTF. **Any figure taken this way needs its own baseline and must not be
-compared against the numbers recorded before today.**
+compared against the numbers recorded before today.** The warning is repeated in the
+`common.sh` block itself.
+
+## Update 2026-08-06: it got worse, and the direct path does not work either
+
+**Failure rate rose.** 3/4 on 2026-08-05, then 3/3 on 2026-08-06 with retries enabled —
+nine consecutive launches producing no model in the last attempt series. Confirmed by the
+log being empty of *any* `sonar_wgpu` output: when the model does spawn, the plugin prints
+its dummy warm-up frame immediately, so an empty log means no model, not a stalled sensor.
+
+Two runs earlier the same morning did work and had the real sensor
+(`513 beams × 31 rays × 399 freq`). So it remains intermittent, not permanent.
+
+**The `DIRECT=1` path spawns successfully but cannot be measured.** `gz service` returns
+`data: true` and the model appears, but `/world/default/stats` then stops publishing and did
+not resume within 315 s — far beyond the 145-175 s the sonar normally takes. Before the
+spawn, the same world publishes `/stats` normally (`iterations: 19176` at t=20 s).
+
+So the direct path currently trades one blocker for another. It is left in place, unused,
+because the observation that **stats publishes before the spawn and stops after it** is a
+concrete lead that did not exist before.
+
+Note `gz model --list` times out on `/world/<name>/state` **even before any spawn, on an
+empty world**. That is a property of this setup, not a sonar symptom, and it is why
+`assert_model_spawned` no longer treats a failed query as a missing model.
+
+**Retrying does not currently rescue a run** — `measure_once` now retries on the spawn-hang
+exit codes, and all three attempts failed the same way.
 
 ## Open
 

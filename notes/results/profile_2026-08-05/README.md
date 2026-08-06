@@ -157,6 +157,20 @@ tested nothing.
 Run-to-run variance is also unresolved: `both` is a superset of `noshm` yet measured lower
 (0.474 vs 0.532, 12% apart), so at n=1 differences below ~12% cannot be read.
 
+**Both figures are additionally biased optimistic and should not be quoted.** The settle
+check in use that morning matched the plugin's dummy `1 beams × 1 rays × 4 freq` line, so
+it passed at 15-20 s instead of waiting for the real sensor. The logs confirm the real
+sonar did run (`513 beams × 31 rays × 399 freq`, the 31 being the effective count after
+`raySkips=10`) — but it came up *during* the measurement window: the stepping check saw
+~1,000 iterations/s and the 60 s probe that followed averaged 532/s. The window straddles
+the transition, so the recorded RTF is an average over a changing regime, weighted toward
+the faster pre-sonar part.
+
+The same doubt applies to the 2026-08-05 15:51 profile — and it is the most likely
+explanation for the RTF discrepancy described below, which had no explanation when this
+note was first written. `wait_sonar.sh` was fixed on 2026-08-06 to key on the reported beam
+count rather than a log string; see "Tooling" below.
+
 Data: `/tmp/exp9_threads_0806_0911.csv`, `exp9_prof_{noshm,both}_0806_0911.txt`,
 `prof_nosonar.txt` (not committed — regenerate with `go.sh 9`).
 
@@ -201,6 +215,40 @@ filtering measures sleep.
 **The pass/fail criteria were fixed in the script header before measuring**, precisely so
 this could not be decided after seeing the numbers. The recorded third branch — "neither" —
 is the one that came up.
+
+## Tooling: three measurement bugs found 2026-08-06
+
+All three share a failure mode — they made a startup or absent-sensor state look like a
+valid steady-state measurement.
+
+**`wait_sonar.sh` matched the plugin's dummy allocation, for the second time.** The plugin
+logs a warm-up frame before the real sensor exists:
+
+```
+[sonar_wgpu] Persistent GPU buffers allocated for 1x1x4
+[sonar_wgpu] GPU #1   |  13.1 ms | 1 beams × 1 rays × 4 freq
+```
+
+On 2026-08-03 the check keyed on `allocated for` and was caught by the first line; it was
+changed to `sonar_wgpu] GPU #`, which the *second* line also satisfies. Both times it
+passed within 0-20 s and would have measured startup. It now parses the reported beam count
+and requires > 1 — the dummy is 1, the real sensor is the SDF value (513 as reported), and
+the smallest configured sweep condition is 64, so reducing beams stays safe. **String
+patterns had lost twice; the numeric check is the fix.**
+
+**`wait_until_stepping` could block forever.** `gz topic -e -t <topic> -n 1` waits
+indefinitely for a message. During sonar initialisation `/stats` goes quiet, so the call
+never returned, the enclosing loop never advanced, and its `MAX` timeout never fired — on
+screen, indistinguishable from a hang. Now wrapped in `timeout 10`, reporting `stats 응답
+없음` per interval and terminating properly.
+
+**`assert_model_spawned` treated "could not ask" as "not there".** `gz model --list` calls
+`/world/<name>/state`, which times out on this setup **even with an empty world, before
+anything is spawned** — so it is not a sonar symptom. It now fails only when a listing was
+actually received and lacked the model, and otherwise defers to `settle_for_sonar`.
+
+Also added: `measure_once` retries on exit codes 3/5/6 (spawn-hang family) but not on 1/2/4
+(environment errors, where retrying changes nothing).
 
 ## Caveats
 
