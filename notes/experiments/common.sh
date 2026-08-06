@@ -19,6 +19,30 @@ set +u
 
 COMMON_HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# --- Fast DDS 공유메모리 회피 (2026-08-06) ----------------------------------
+# ros_gz_sim create 가 무한 대기하던 원인. 멈춘 프로세스를 sample 로 뜨니
+# 4218/4218 샘플이 전부 같은 스택이었다. SDF 도 gz 서비스도 근처에 못 갔다:
+#
+#   rclcpp::Node::make_shared -> rmw_create_node
+#     -> rmw_fastrtps_cpp::create_subscription -> DataReaderImpl::enable()
+#       -> RTPSDomain::createRTPSReader          <- 여기서 정지
+#
+# 즉 DAVE 도 Gazebo 도 아니고 Fast DDS 가 노드를 만들다 멈춘 것이다.
+#
+# 실측:
+#   FASTDDS_BUILTIN_TRANSPORTS=UDPv4 있음 -> 5/5 성공
+#   없음                                   -> 9번 중 1번 성공
+#
+# !!! 이건 측정 조건을 바꾼다 !!!
+#   2026-08-05 프로파일에서 공유메모리 전송 스레드가 busy 의 16% 를 스핀으로
+#   태우고 있었다. 그걸 끄면 RTF 가 달라진다. 이 설정으로 잰 값은 자기만의
+#   기준선이 필요하다. 2026-08-06 이전 수치와 비교하지 말 것.
+#   SHM=1 로 끄고 원래 동작을 재현할 수 있다 (대신 대부분 스폰이 실패한다).
+if [ "${SHM:-0}" != 1 ]; then
+  export FASTDDS_BUILTIN_TRANSPORTS="${FASTDDS_BUILTIN_TRANSPORTS:-UDPv4}"
+  echo "  [dds] FASTDDS_BUILTIN_TRANSPORTS=$FASTDDS_BUILTIN_TRANSPORTS (스폰 행 회피)"
+fi
+
 # --- 정리 -------------------------------------------------------------------
 cleanup () {
   pkill -f 'gz sim'        2>/dev/null || true
