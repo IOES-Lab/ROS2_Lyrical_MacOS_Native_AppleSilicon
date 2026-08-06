@@ -38,19 +38,22 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 WS=$(find_ws) || { echo "dave 워크스페이스를 못 찾음"; exit 1; }
 SDF="${SDF:-$WS/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf}"
 WIN="${WIN:-60}"
-OUT="/tmp/exp11_updaterate_$(date +%m%d_%H%M).csv"
+N="${N:-1}"                       # 조건당 반복 횟수
+RATES="${RATES:-30 10 5 2}"       # 훑을 rate 목록
+OUT="${OUT:-/tmp/exp11_updaterate_$(date +%m%d_%H%M).csv}"
 
 [ -f "$SDF" ] || { echo "SDF 없음: $SDF"; exit 1; }
 cp "$SDF" "$SDF.bak"
 trap 'cp "$SDF.bak" "$SDF"; rm -f "$SDF.bak"; cleanup; echo "[정리] SDF 원복"' EXIT
 
-echo "rate_hz,rtf,sim_delta,real_delta,msgs,frames" > "$OUT"
+echo "rate_hz,rep,rtf,sim_delta,real_delta,msgs,frames" > "$OUT"
 echo "SDF: $SDF"
-echo "4개 조건 · 건당 5~8분 · 총 25분 이상"
+NTOT=0; for r in $RATES; do for k in $(seq 1 "$N"); do NTOT=$((NTOT+1)); done; done
+echo "조건 [$RATES] × ${N}회 = ${NTOT}건 · 건당 5~8분"
 echo "저장: $OUT"
 
-run () {   # $1 = update_rate (Hz)
-  echo; echo "=============== update_rate = $1 Hz ==============="
+run () {   # $1 = update_rate (Hz)  $2 = 반복 번호
+  echo; echo "=============== update_rate = $1 Hz  (반복 $2/$N) ==============="
 
   # 소나 센서의 update_rate 만 바꾼다. camera/depth_camera 것도 같은 태그라
   # 위치로 구분해야 한다 — multibeam_sonar 센서 블록 안의 것만 교체한다.
@@ -70,15 +73,17 @@ open(p, "w").write(head + tail)
 print(f"  적용됨: update_rate={rate}")
 PY
 
-  local LOG="/tmp/exp11_rate$1.log" R FRAMES
-  R=$(measure_once "rate$1" "$WIN" "$LOG" | tee /dev/stderr | grep '^RESULT' || true)
+  local LOG="/tmp/exp11_rate$1_r$2.log" R FRAMES
+  R=$(measure_once "rate$1r$2" "$WIN" "$LOG" | tee /dev/stderr | grep '^RESULT' || true)
 
   # 프레임 수를 같이 기록한다. RTF 가 안 변해도 프레임이 줄었으면
   # 'update_rate 는 먹었는데 소나가 임계경로가 아니다' 로 읽어야 한다.
+  # 단 플러그인은 50프레임마다 한 줄만 찍으므로 해상도가 50이다. 그리고
+  # 이 값은 프로브 창이 아니라 실행 전체 구간의 것이다. 정밀 비교 금지.
   FRAMES=$(grep -o 'GPU #[0-9]*' "$LOG" 2>/dev/null | tail -1 | tr -dc '0-9')
 
   if [ -n "$R" ]; then
-    echo "$1,$(echo "$R" | cut -d, -f3,4,5,6),${FRAMES:-}" >> "$OUT"
+    echo "$1,$2,$(echo "$R" | cut -d, -f3,4,5,6),${FRAMES:-}" >> "$OUT"
     echo "  마지막 프레임 번호: ${FRAMES:-?}"
   else
     echo "  -> 기록하지 않습니다 (측정 실패). 마지막 프레임 ${FRAMES:-?}"
@@ -86,34 +91,48 @@ PY
   cleanup
 }
 
-run 30    # 현재 SDF 값 = 대조군
-run 10
-run 5
-run 2
+for RATE in $RATES; do
+  for REP in $(seq 1 "$N"); do
+    run "$RATE" "$REP"
+  done
+done
 
 echo; echo "===== 요약 ====="
 column -s, -t < "$OUT" 2>/dev/null || cat "$OUT"
 
 python3 - "$OUT" <<'PY'
-import csv, sys
+import csv, sys, statistics as st
+from collections import defaultdict
+
 rows = [r for r in csv.DictReader(open(sys.argv[1])) if r['rtf']]
 if len(rows) < 2:
     print("\n  측정이 2건 미만이라 판정할 수 없습니다."); raise SystemExit
-base = next((r for r in rows if r['rate_hz'] == '30'), rows[0])
-b, bf = float(base['rtf']), (int(base['frames']) if base['frames'] else 0)
-print(f"\n  기준 {base['rate_hz']}Hz -> RTF {b:.4f}, 프레임 {bf or '?'}")
-print(f"  {'Hz':>5} {'RTF':>8} {'배율':>7} {'프레임':>8} {'프레임비':>9}")
+
+CONTROL = 0.9974          # exp2, 같은 날 같은 조건, n=3
+by = defaultdict(list)
 for r in rows:
-    v = float(r['rtf']); f = int(r['frames']) if r['frames'] else 0
-    fr = f"{f/bf:.2f}x" if (bf and f) else "?"
-    print(f"  {r['rate_hz']:>5} {v:>8.4f} {v/b:>6.2f}x {f or '?':>8} {fr:>9}")
-print("""
-  대조군(소나 없음) = 0.9974 · 소나 있음 기준선 = 0.5147 · 판정 폭 5%
+    by[float(r['rate_hz'])].append(float(r['rtf']))
 
-  읽는 법:
-    RTF 상승 + 프레임 감소  -> update_rate 가 손잡이. 권고안 성립.
-    둘 다 그대로            -> update_rate 가 무시되고 있다. 그것도 보고감.
-    프레임만 감소           -> 소나는 임계경로가 아니다.
+rates = sorted(by, reverse=True)
+base = by.get(30.0)
+b = st.mean(base) if base else st.mean(by[rates[0]])
 
-  n=1 입니다. baseline 폭이 5% 였으므로 그보다 작은 차이는 읽지 마세요.""")
+print(f"\n  {'Hz':>5} {'n':>2} {'평균RTF':>9} {'폭%':>6} {'배율':>7} {'남은비용':>9} {'감소':>6}")
+ob = 1/b - 1/CONTROL
+for hz in rates:
+    v = by[hz]; m = st.mean(v)
+    spread = (max(v)-min(v))/m*100 if len(v) > 1 else float('nan')
+    o = 1/m - 1/CONTROL
+    sp = f"{spread:5.1f}" if len(v) > 1 else "    -"
+    print(f"  {hz:>5.0f} {len(v):>2} {m:>9.4f} {sp:>6} {m/b:>6.2f}x {o:>9.3f} {(ob-o)/ob*100:>5.0f}%")
+
+print(f"""
+  대조군(소나 없음) = {CONTROL} (exp2, n=3, 폭 0.2%)
+  남은비용 = 1/RTF - 1/대조군
+
+  판정 폭: 기준선 반복에서 5% 였습니다. 위 '폭%' 가 그보다 크게 나오면
+  그 조건은 반복을 더 해야 합니다.""")
+
+if any(len(v) < 2 for v in by.values()):
+    print("  주의: n=1 인 조건이 있습니다. 그 값은 확정으로 쓰지 마세요.")
 PY
