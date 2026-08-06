@@ -44,12 +44,42 @@ if [ "${SHM:-0}" != 1 ]; then
 fi
 
 # --- 정리 -------------------------------------------------------------------
+# 2026-08-06 재작성. 옛 판은 pkill(SIGTERM) 후 6초 자고 끝이었고, 죽었는지
+# 확인하지 않았다. 안 죽으면 그대로 다음 회차로 넘어가 assert_clean 이
+# 실패하거나 — 더 나쁘게는 — 살아남은 프로세스가 다음 측정과 CPU 를
+# 나눠 쓴다. 실제로 exp11 반복 실행에서 6건 중 4건이 exit=2 로 날아갔고,
+# 통과한 2건도 값이 절반으로 나왔다(10Hz 0.647 -> 0.231). 하루 종일 수동
+# pkill -9 를 돌린 탓에 이 결함이 가려져 있었다.
+#
+# 이제 TERM -> 확인 -> KILL -> 확인 순으로 escalate 하고, 끝까지 안 죽으면
+# 비0 을 반환한다. 조용히 진행하는 것보다 멈추는 편이 낫다.
+CLEAN_PATS=('gz sim' 'gz-sim' 'ros2 launch' 'parameter_bridge' 'static_transform_publisher')
+
+_kill_all () {   # $1 = 시그널
+  local p
+  for p in "${CLEAN_PATS[@]}"; do
+    pkill "-$1" -f "$p" 2>/dev/null || true
+  done
+}
+
 cleanup () {
-  pkill -f 'gz sim'        2>/dev/null || true
-  pkill -f gz-sim          2>/dev/null || true
-  pkill -f 'ros2 launch'   2>/dev/null || true
-  pkill -f parameter_bridge 2>/dev/null || true
-  sleep 6
+  local i
+  _kill_all TERM
+  for i in 1 2 3 4 5 6; do
+    sleep 1
+    find_gz_pid >/dev/null 2>&1 || return 0
+  done
+
+  # 아직 살아있다. SIGKILL 로 올린다.
+  _kill_all KILL
+  for i in 1 2 3 4 5; do
+    sleep 1
+    find_gz_pid >/dev/null 2>&1 || return 0
+  done
+
+  echo "  ! cleanup 실패 — gz-sim 이 SIGKILL 후에도 살아있습니다:"
+  find_gz_pid | sed 's/^/      pid /'
+  return 1
 }
 
 # gz-sim 프로세스 PID 찾기. macOS 의 pgrep 은 'a|b' 교대를 안 받으므로
