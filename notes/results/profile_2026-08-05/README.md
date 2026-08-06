@@ -96,6 +96,70 @@ touching sonar code or rebuilding anything. That test has not been run.
 **None of this is established.** It is one 10-second window, never reproduced, with an
 unresolved RTF discrepancy attached — see below.
 
+## Follow-up 2026-08-06: the TBB pool belongs to the sonar, via OpenCV
+
+Two things were established the next morning.
+
+**1. OpenCV owns the TBB pool.** Nothing in DAVE, gz-sim, gz-rendering or DART links TBB.
+`libopencv_core` does:
+
+```
+$ find install /opt/homebrew/lib -name '*.dylib' | while read L; do
+    otool -L "$L" | grep -qi tbb && echo "$L"; done
+  /opt/homebrew/lib/libopencv_core.4.13.0.dylib
+  /opt/homebrew/lib/libopencv_gapi.4.13.0.dylib
+  ...
+```
+
+This fits the self-time table above — `cv::EllipseEx`, `cv::Line2`, `cv::Circle` and
+`cv::FillConvexPoly` are all in the top 20. The sonar draws a display image with OpenCV, and
+OpenCV's `parallel_for` starts a TBB arena to do it.
+
+**2. A world without the sonar has no TBB workers at all.**
+
+| | TBB workers | spin | busy samples/s |
+|---|---|---|---|
+| `dave_multibeam_sonar` | **7** | ~48% of busy | ~1,761 |
+| `dave_ocean_waves` (no sonar) | **0** | 8.6% of busy (50 samples total) | ~116 |
+
+`grep -c stealing_loop_backoff` returns 0 for the no-sonar capture. The remaining 8.6% there
+is a handful of `condition_variable::notify_all` samples — an idle process.
+
+So the seven spinning workers are the sonar's, and the sonar costs roughly **15x the CPU**
+of a no-sonar world on this machine.
+
+**Caveat:** this compares two different worlds, not the same world with the sensor removed.
+Scene content was shown irrelevant to RTF on 2026-08-03, and the point here is which code
+runs rather than how heavy the scene is, but it is not a single-variable comparison.
+
+### What this makes testable
+
+`cv::setNumThreads(1)` in the plugin, or making the display image optional, is now a
+concrete candidate with profiler evidence behind it — unlike the trig hoist, which was
+nominated by code reading and died on contact with a profiler.
+
+**It is not yet established that the spinning costs RTF.** Workers spinning on otherwise
+idle cores may be harmless. That requires the before/after measurement, which has not been
+run.
+
+### Also 2026-08-06: `FASTDDS_BUILTIN_TRANSPORTS=UDPv4` removes the DDS spin
+
+The `boost::interprocess::spin_wait` entries (16.1% on 2026-08-05) disappear completely from
+both conditions that set it. The variable binds and does what it says.
+
+Total spin stayed at ~48% because the TBB share is proportional — but busy CPU per second
+fell about 27% (2,398/s → 1,761/s) and RTF read 0.532 against 0.438 the day before.
+**Both figures are cross-session and cannot be used**: the same-session baseline and the
+`cpu1` condition both aborted on the spawn hang. `OMP_NUM_THREADS` / `OPENCV_FOR_THREADS_NUM`
+/ `TBB_NUM_THREADS` did **not** reduce the worker count — seven remained — so that condition
+tested nothing.
+
+Run-to-run variance is also unresolved: `both` is a superset of `noshm` yet measured lower
+(0.474 vs 0.532, 12% apart), so at n=1 differences below ~12% cannot be read.
+
+Data: `/tmp/exp9_threads_0806_0911.csv`, `exp9_prof_{noshm,both}_0806_0911.txt`,
+`prof_nosonar.txt` (not committed — regenerate with `go.sh 9`).
+
 ## The problem that has to be resolved first
 
 **RTF was not recorded during the profile window.** The settle output showed +14,164
