@@ -54,7 +54,7 @@ TOPIC=$(resolve_topic 60) || { echo "  ! stats 토픽 없음"; exit 4; }
 echo "  topic = $TOPIC"
 
 # 로그만 믿으면 안 된다 — 아직 정지 구간이면 소나가 아니라 기동을 프로파일한다.
-wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-1000}" || exit 6
+wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-60}" || exit 6
 
 PID=$(find_gz_pid) || { echo "  ! gz-sim PID 를 못 찾았습니다"; exit 7; }
 echo

@@ -186,7 +186,7 @@ settle_for_sonar () {
 # 시각이 163초에서 20초까지 당겨졌는데 정지 구간 길이는 그대로였다. 로그는
 # 센서가 준비됐다는 뜻이지 시뮬레이터가 돈다는 뜻이 아니다.
 #
-# wait_until_stepping <토픽> [최대대기초=420] [최소증가/15초=1000]
+# (아래 정의 참고 — 2026-08-06 부터 기준이 "초당 스텝 수" 로 바뀌었다)
 # 15초 간격으로 iterations 를 보고, 기준 이상 증가한 구간이 연속 2회
 # 나오면 통과. 한 번만으로는 전환 직후 과도구간을 잡을 수 있다.
 #
@@ -194,13 +194,23 @@ settle_for_sonar () {
 # stats 가 아직 안 나오는 구간(소나 초기화 중)에 들어가면 여기서 영영
 # 멈추고 바깥 루프가 한 바퀴도 못 돌아 MAX 타임아웃조차 동작하지 않는다.
 # 화면에는 '스텝 대기' 만 찍힌 채 정지한 것처럼 보인다. 반드시 감싼다.
+# 2026-08-06 두 번째 수정: timeout 10 은 너무 짧았다. 소나가 완전히 올라온
+# 뒤에는 월드가 느려져 stats 간격이 10초를 넘을 수 있고, 그러면 매번
+# 'stats 응답 없음' 만 찍으면서 영영 통과하지 못한다. 처음에 타임아웃이
+# 아예 없던 판(무한 대기)을 고치면서 반대쪽으로 너무 갔다.
+#
+# 그리고 고정 15초 간격을 전제로 증가량을 비교하면 안 된다. 한 번 읽는 데
+# 얼마나 걸릴지 모르기 때문이다. 이제 **벽시계 시간으로 나눠 초당 속도**를
+# 구한다. 타임아웃이 바뀌어도 판정 기준이 흔들리지 않는다.
+STATS_TIMEOUT="${STATS_TIMEOUT:-40}"
+
 _iterations_now () {   # <토픽> -> stdout 에 iterations 값 (없으면 빈 문자열)
   local TO
   if command -v timeout >/dev/null 2>&1;    then TO=timeout
   elif command -v gtimeout >/dev/null 2>&1; then TO=gtimeout
   else TO=""; fi
   if [ -n "$TO" ]; then
-    "$TO" 10 gz topic -e -t "$1" -n 1 2>/dev/null \
+    "$TO" "$STATS_TIMEOUT" gz topic -e -t "$1" -n 1 2>/dev/null \
       | grep -m1 -o 'iterations: [0-9]*' | awk '{print $2}'
   else
     gz topic -e -t "$1" -n 1 2>/dev/null \
@@ -208,28 +218,38 @@ _iterations_now () {   # <토픽> -> stdout 에 iterations 값 (없으면 빈 �
   fi
 }
 
+# wait_until_stepping <토픽> [최대대기초=420] [최소초당스텝=60]
+# 기본값 60/s 는 옛 기준(15초당 1000회)과 같은 뜻이다.
 wait_until_stepping () {
-  local TOPIC="${1:?토픽 필요}" MAX="${2:-420}" MIN="${3:-1000}"
-  local T=0 PREV="" CUR="" OK=0
-  echo "  스텝 대기 (기준: 15초당 ${MIN}회 이상 증가, 연속 2회)"
-  while [ "$T" -lt "$MAX" ]; do
-    CUR=$(_iterations_now "$TOPIC")
+  local TOPIC="${1:?토픽 필요}" MAX="${2:-420}" MINRATE="${3:-60}"
+  local T0 NOW PREV="" PREVT="" CUR CURT OK=0 EL RATE
+  T0=$(date +%s)
+  echo "  스텝 대기 (기준: 초당 ${MINRATE}스텝 이상, 연속 2회 · stats 대기 ${STATS_TIMEOUT}초)"
+  while : ; do
+    NOW=$(date +%s); EL=$(( NOW - T0 ))
+    [ "$EL" -ge "$MAX" ] && break
+
+    CUR=$(_iterations_now "$TOPIC"); CURT=$(date +%s)
     if [ -z "$CUR" ]; then
-      printf '    t=%3ds  stats 응답 없음\n' "$T"
-      PREV=""; OK=0; sleep 15; T=$(( T + 15 )); continue
+      printf '    t=%4ds  stats 응답 없음 (%d초 대기)\n' "$EL" "$STATS_TIMEOUT"
+      PREV=""; OK=0; sleep 5; continue
     fi
-    if [ -n "$CUR" ] && [ -n "$PREV" ]; then
-      local D=$(( CUR - PREV ))
-      if [ "$D" -ge "$MIN" ]; then
+
+    if [ -n "$PREV" ]; then
+      local DT=$(( CURT - PREVT )); [ "$DT" -lt 1 ] && DT=1
+      RATE=$(( (CUR - PREV) / DT ))
+      if [ "$RATE" -ge "$MINRATE" ]; then
         OK=$(( OK + 1 ))
-        printf '    t=%3ds  iterations=%-9s +%-7s OK(%d/2)\n' "$T" "$CUR" "$D" "$OK"
-        [ "$OK" -ge 2 ] && { echo "  -> 정상 스텝 확인 (${T}초)"; return 0; }
+        printf '    t=%4ds  iterations=%-9s %d/s  OK(%d/2)\n' "$EL" "$CUR" "$RATE" "$OK"
+        [ "$OK" -ge 2 ] && { echo "  -> 정상 스텝 확인 (${EL}초)"; return 0; }
       else
         OK=0
-        printf '    t=%3ds  iterations=%-9s +%-7s 아직\n' "$T" "$CUR" "$D"
+        printf '    t=%4ds  iterations=%-9s %d/s  아직\n' "$EL" "$CUR" "$RATE"
       fi
+    else
+      printf '    t=%4ds  iterations=%-9s (첫 표본)\n' "$EL" "$CUR"
     fi
-    PREV="$CUR"; sleep 15; T=$(( T + 15 ))
+    PREV="$CUR"; PREVT="$CURT"; sleep 10
   done
   echo "  ! ${MAX}초 안에 정상 스텝을 확인하지 못했습니다."
   return 1
@@ -414,7 +434,7 @@ _measure_once_impl () {
   echo "  topic = $TOPIC"
 
   # 소나 로그만 믿으면 안 된다 — 아직 정지 구간일 수 있다.
-  wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-1000}" || return 6
+  wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-60}" || return 6
 
   bash "$COMMON_HERE/rtf_probe.sh" "$TOPIC" "$WIN" "$LABEL"
 }
@@ -450,7 +470,7 @@ measure_once_direct () {
     echo "  ! stats 토픽을 못 찾았습니다."; return 4; }
   echo "  topic = $TOPIC"
 
-  wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-1000}" || return 6
+  wait_until_stepping "$TOPIC" "${STEP_MAX:-420}" "${STEP_MIN:-60}" || return 6
 
   bash "$COMMON_HERE/rtf_probe.sh" "$TOPIC" "$WIN" "$LABEL"
 }
