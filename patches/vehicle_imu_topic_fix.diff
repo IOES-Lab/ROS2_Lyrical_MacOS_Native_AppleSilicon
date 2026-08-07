@@ -1,0 +1,63 @@
+diff --git a/models/dave_robot_models/description/bluerov2/model.sdf b/models/dave_robot_models/description/bluerov2/model.sdf
+index 1a3a9b2..15812e2 100644
+--- a/models/dave_robot_models/description/bluerov2/model.sdf
++++ b/models/dave_robot_models/description/bluerov2/model.sdf
+@@ -45,6 +45,12 @@
+         <pose>0 0 0 3.142 0 0</pose>
+         <always_on>1</always_on>
+         <update_rate>1000.0</update_rate>
++        <!-- Without this tag Gazebo publishes on its default sensor path,
++             /world/WORLD/model/bluerov2/link/base_link/sensor/imu_sensor/imu,
++             while dave_robot_models/config/bluerov2/robot_config.py bridges
++             /model/bluerov2/imu. The ROS topic then exists but stays silent.
++             The camera in this same file declares its topic and works. -->
++        <topic>/model/bluerov2/imu</topic>
+       </sensor>
+ 
+     </link>
+diff --git a/models/dave_robot_models/description/bluerov2_heavy/model.sdf b/models/dave_robot_models/description/bluerov2_heavy/model.sdf
+index 562fbcc..5e61e68 100644
+--- a/models/dave_robot_models/description/bluerov2_heavy/model.sdf
++++ b/models/dave_robot_models/description/bluerov2_heavy/model.sdf
+@@ -45,6 +45,11 @@
+         <pose>0 0 0 3.142 0 0</pose>
+         <always_on>1</always_on>
+         <update_rate>1000.0</update_rate>
++        <!-- Without this tag Gazebo publishes on its default sensor path
++             while dave_robot_models/config/bluerov2_heavy/robot_config.py
++             bridges /model/bluerov2_heavy/imu. The ROS topic then exists but
++             stays silent. The camera in this file declares its topic and works. -->
++        <topic>/model/bluerov2_heavy/imu</topic>
+       </sensor>
+ 
+     </link>
+diff --git a/models/dave_robot_models/description/glider_slocum/model.sdf b/models/dave_robot_models/description/glider_slocum/model.sdf
+index 4710a47..6261dd0 100644
+--- a/models/dave_robot_models/description/glider_slocum/model.sdf
++++ b/models/dave_robot_models/description/glider_slocum/model.sdf
+@@ -57,6 +57,10 @@
+       <sensor name="imu_sensor" type="imu">
+         <always_on>true</always_on>
+         <update_rate>50.0</update_rate>
++        <!-- Without this tag Gazebo publishes on its default sensor path
++             while dave_robot_models/config/glider_slocum/robot_config.py bridges
++             /model/glider_slocum/imu. The ROS topic then exists but stays silent. -->
++        <topic>/model/glider_slocum/imu</topic>
+       </sensor>
+     </link>
+ 
+diff --git a/models/dave_robot_models/description/rexrov/model.sdf b/models/dave_robot_models/description/rexrov/model.sdf
+index d4d6b9d..48f019b 100644
+--- a/models/dave_robot_models/description/rexrov/model.sdf
++++ b/models/dave_robot_models/description/rexrov/model.sdf
+@@ -189,6 +189,10 @@
+       <sensor name="imu_sensor" type="imu">
+         <always_on>true</always_on>
+         <update_rate>50.0</update_rate>
++        <!-- Without this tag Gazebo publishes on its default sensor path
++             while dave_robot_models/config/rexrov/robot_config.py bridges
++             /model/rexrov/imu. The ROS topic then exists but stays silent. -->
++        <topic>/model/rexrov/imu</topic>
+       </sensor>
+     </link>
+ 
