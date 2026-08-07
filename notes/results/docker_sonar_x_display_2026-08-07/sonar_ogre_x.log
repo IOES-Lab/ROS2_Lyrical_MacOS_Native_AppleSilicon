@@ -1,0 +1,59 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-08-07-05-46-34-360772-67d4b1d39687-28865
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [28869]
+[INFO] [create-2]: process started with pid [28870]
+[INFO] [parameter_bridge-3]: process started with pid [28872]
+[INFO] [static_transform_publisher-4]: process started with pid [28873]
+[static_transform_publisher-4] [INFO] [1786081594.690618636] [static_transform_publisher_NvOIUfqwKtnV5dcv]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'world' to 'blueview_p900/blueview_p900_base_link/multibeam_sonar'
+[create-2] [INFO] [1786081594.754690636] [ros_gz_sim]: Requesting list of world names.
+[parameter_bridge-3] [INFO] [1786081594.811549427] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.823960302] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera (sensor_msgs/msg/Image) -> /sensor/camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.830319052] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.835735636] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera_info (sensor_msgs/msg/CameraInfo) -> /sensor/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.837653927] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.840319302] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/depth_camera (sensor_msgs/msg/Image) -> /sensor/depth_camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.842317511] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1786081594.852112177] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
+[create-2] [INFO] [1786081597.248661637] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 28870]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_compute_factory] Auto-selecting best available backend...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[gazebo-1] error: XDG_RUNTIME_DIR is invalid or not set in the environment.
+[gazebo-1] libEGL warning: DRI3 error: Could not get DRI3 device
+[gazebo-1] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[gazebo-1] 
+[gazebo-1] thread '<unnamed>' (28950) panicked at /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wgpu-hal-0.21.1/src/gles/egl.rs:296:14:
+[gazebo-1] called `Result::unwrap()` on an `Err` value: BadAccess
+[gazebo-1] note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[gazebo-1] [sonar_wgpu] [all] GPU init panicked; trying next backend set
+[gazebo-1] [sonar_wgpu] GPU init failed for all backend sets; falling back to CPU path
+[gazebo-1] [sonar_wgpu] GPU init failed -> returning null (C++ will use CPU backend).
+[gazebo-1] [sonar_wgpu] GPU probe failed -> will fall back to CPU at compute time.
+[gazebo-1] [sonar_compute_factory] SUCCESS: Auto-selected WGPU backend (CUDA unavailable)
+[gazebo-1] [INFO] [1786081597.958599512] [multibeam_sonar_node]: 
+[gazebo-1] [INFO] [1786081597.958875471] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1786081597.958905221] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1786081597.958926262] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1786081597.958961137] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1786081597.959003221] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1786081597.959030929] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1786081597.959055346] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1786081597.959072429] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1786081597.959093929] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1786081597.959113929] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1786081597.959133929] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1786081597.959153429] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1786081597.959164554] [multibeam_sonar_node]: 
+[gazebo-1] [sonar_wgpu] GPU probe failed -> will fall back to CPU at compute time.
+[parameter_bridge-3] [INFO] [1786081598.012339304] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/CameraInfo to Gazebo gz.msgs.CameraInfo (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1786081598.093495846] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1786081598.214328512] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/PointCloud2 to Gazebo gz.msgs.PointCloudPacked (showing msg only once per type)
+[gazebo-1] [sonar_wgpu] GPU unavailable on first compute -> creating CPU fallback backend
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: cpu
+[gazebo-1] [sonar_compute_factory] Creating CPU backend
