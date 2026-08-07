@@ -3,18 +3,39 @@
 Two attempts to make the sonar *faster* failed the same afternoon, one of them badly.
 Lowering how *often* it runs works.
 
-| `<update_rate>` | RTF | vs 30 Hz | overhead\* | removed | last frame # |
-|---|---|---|---|---|---|
-| **30 (as shipped)** | 0.5436 | 1.00x | 0.837 | — | 600 |
-| 10 | 0.6474 | 1.19x | 0.542 | **35%** | 600 |
-| 5 | 0.6971 | 1.28x | 0.432 | **48%** | 550 |
-| 2 | 0.7927 | **1.46x** | 0.259 | **69%** | 250 |
+Pooled over repeats:
 
-\* `1/RTF − 1/0.9974`, the added cost over the no-sonar control measured the same day.
+| `<update_rate>` | n | mean RTF | spread | vs 30 Hz | overhead\* | removed |
+|---|---|---|---|---|---|---|
+| **30 (as shipped)** | 3 | 0.5243 | 7.9% | 1.00x | 0.905 | — |
+| 10 | 3 | 0.5984 | 4.3% | 1.14x | 0.669 | **26%** |
+| 5 | 1 | 0.6971 | — | 1.33x | 0.432 | 52% |
+| 2 | 2 | 0.8140 | 6.2% | **1.55x** | 0.226 | **75%** |
 
-Monotonic, and every step is well outside the 5% band established by the baseline
-([`../baseline_udp_2026-08-06/`](../baseline_udp_2026-08-06/)). No rebuild, no code change —
-one number in the sensor's SDF.
+\* `1/RTF − 1/0.9974`, the added cost over the no-sonar control measured the same day
+(n=3, spread 0.2%).
+
+Monotonic, and both repeated conditions separate from 30 Hz by more than either one's
+spread. No rebuild, no code change — one number in the sensor's SDF.
+
+The 30 Hz row pools the two baseline runs (0.5019, 0.5275) with the sweep's own 30 Hz run
+(0.5436); 10 Hz and 2 Hz come from a dedicated `N=3` run. 5 Hz remains n=1 and is shown for
+shape only.
+
+**The 5% band quoted earlier was optimistic.** It came from n=2. With n=3 the 30 Hz
+condition spreads 7.9%, so **8% is the working threshold**. Both headline effects (+14%,
++55%) clear it, but smaller ones will not be readable without more repeats.
+
+### One measurement was discarded
+
+`2 Hz` repeat 2 reported `sim +37.326s · real +947.475s` over a 60 s window, giving
+RTF 0.0394. A real-time delta cannot exceed the observation window; `sim` was normal (37.3
+against 39.4 and 42.5 in the neighbouring repeats), so the `real_time` field jumped rather
+than the run being slow. Left in, it would have moved the 2 Hz mean from 0.814 to 0.556 and
+the spread from 6.2% to 143.9% — i.e. it would have inverted the result.
+
+`rtf_probe.sh` now rejects `real_delta > 1.5 × window` and `sim > real`, and emits no
+`RESULT` line, so the caller drops the repeat rather than averaging an impossible value.
 
 ## Why this was tried
 
@@ -62,8 +83,7 @@ touching code or build flags.
 
 ## Caveats
 
-- **n = 1 per condition.** The 5% band comes from the baseline's own repeats, and all four
-  differences exceed it, but no condition here was repeated.
+- **n is 3 / 3 / 1 / 2** across 30 / 10 / 5 / 2 Hz. 5 Hz was not repeated.
 - **The frame counts are too coarse to interpret finely.** The plugin logs every 50th
   frame, and the number recorded is the last one in the whole run, not within the 60 s
   probe window. 30 Hz and 10 Hz both read 600 while RTF differed by 19% — that is a
