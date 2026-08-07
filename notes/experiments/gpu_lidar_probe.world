@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<!--
+  gpu_lidar_probe.world — DAVE 없이 stock gpu_lidar 만 띄운다.
+
+  목적: dave_multibeam_sonar 가 Docker 에서 죽는 지점이
+        Ogre2GpuRays::CreateSampleTexture() 인데(exit 139, 2/2 재현),
+        그게 DAVE 플러그인 때문인지 gz-rendering 자체 문제인지 가른다.
+        DAVE 소나는 513 beams x 301 rays 를 요청하므로 같은 해상도를 쓴다.
+
+  여기에는 DAVE 것이 하나도 없다. gz-sim 기본 시스템과 gpu_lidar 센서뿐이다.
+  그래서 여기서도 같은 스택으로 죽으면 DAVE 는 무관하고,
+  gazebosim/gz-rendering 에 보고할 문제가 된다.
+
+  <samples> 값은 exp13 스크립트가 치환한다. 직접 돌릴 때는 그대로 써도 된다.
+-->
+<sdf version="1.6">
+  <world name="gpu_lidar_probe">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+
+    <!-- 소나 월드와 같은 렌더 엔진. 여기가 문제의 축이다. -->
+    <plugin filename="gz-sim-sensors-system"
+            name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>50 50</size></plane></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 레이가 맞출 대상. 빈 장면이면 센서가 일을 안 할 수 있다. -->
+    <model name="target_box">
+      <static>true</static>
+      <pose>4 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1 1 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1 1 1</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="lidar_model">
+      <static>true</static>
+      <pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.001</iyy><iyz>0</iyz><izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.1 0.1 0.1</size></box></geometry>
+        </visual>
+
+        <sensor name="gpu_lidar" type="gpu_lidar">
+          <topic>gpu_lidar</topic>
+          <always_on>1</always_on>
+          <update_rate>10</update_rate>
+          <visualize>false</visualize>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>513</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.047</min_angle>
+                <max_angle>1.047</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>301</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.262</min_angle>
+                <max_angle>0.262</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.08</min>
+              <max>10.0</max>
+              <resolution>0.01</resolution>
+            </range>
+          </ray>
+        </sensor>
+      </link>
+    </model>
+
+  </world>
+</sdf>

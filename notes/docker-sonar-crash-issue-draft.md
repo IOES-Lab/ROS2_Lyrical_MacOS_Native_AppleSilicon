@@ -1,7 +1,9 @@
 # Upstream issue draft — `dave_multibeam_sonar` does not start on Ubuntu 26.04 aarch64
 
-**Status:** Draft, not yet filed. **Read the "Before filing" section first — this one has a
-genuine scoping problem that the other drafts do not.**
+**Status:** Draft, not yet filed. **Scoping resolved 2026-08-07 — the blocking question below
+has been answered; see "Before filing".** The report should now be **split in two**: only the
+`ogre2` segfault belongs to DAVE, and the `ogre` failure turns out to be a documentation
+correction rather than a bug.
 
 **Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) for the
 world-file/documentation part. The segfault itself is inside `gz-rendering`, so it may
@@ -24,12 +26,32 @@ report an observation; it is not enough to claim a general defect. Specifically:
 - We have **not** minimised the reproducer to a plain GpuRays sensor without DAVE.
 
 **A maintainer's first question will be "does this happen with a stock GpuRays sensor?"**
-That test is cheap and would sharpen the report considerably — a small SDF with a
-`gpu_lidar` at 513×301 on the same container, no DAVE plugin. If it crashes too, this is a
-`gz-rendering` issue and should be filed there with DAVE dropped from the report entirely.
-If it does not, the report stays with DAVE and the sonar's usage becomes the suspect.
 
-Consider doing that before filing.
+**Answered 2026-08-07.** A `gpu_lidar` at the same 513 × 301 ray count, in the same
+container, on the same render engine, with no DAVE code involved:
+
+| engine | stock `gpu_lidar` | this sonar |
+|---|---|---|
+| `ogre2` | **initialises and publishes, 3/3** | segfault, exit 139, 2/2 |
+| `ogre` | no sensor data, `Couldn't open X display` | abort, exit 134 |
+
+So the two failures have different causes:
+
+- **The `ogre2` segfault is specific to this sensor.** A stock GpuRays at the same ray count
+  works, so it is not a generic `gz-rendering` limit. **This half stays with DAVE.**
+- **The `ogre` failure is not DAVE's at all.** OGRE1's GL render system needs an X display
+  and a `docker exec` session has none. It reproduces with no DAVE code. **This half should
+  be dropped from the bug report** and raised instead as a correction to the documented
+  `ogre2` → `ogre` workaround, which cannot work headless for *any* world containing a
+  rendering sensor.
+
+Evidence: [`notes/results/gpu_lidar_probe_2026-08-07/`](results/gpu_lidar_probe_2026-08-07/).
+
+**One honest limit remains.** The stock sensor is built by `gz-sensors` from
+`<sensor type="gpu_lidar">`; this sonar is `<sensor type="custom" gz:type="multibeam_sonar">`
+and constructs `gz::rendering::GpuRays` in its own code. Both reach `Ogre2GpuRays`, but not
+by the same path. The comparison narrows the suspect to the sonar's usage; it does not
+identify which call, and the report should say so.
 
 ## Title
 

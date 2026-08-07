@@ -23,7 +23,8 @@ case "$WHICH" in
   9)  S="$HERE/exp9_threads.sh" ;;
   11) S="$HERE/exp11_updaterate.sh" ;;
   12) S="$HERE/exp12_vehicles.sh" ;;
-  *)  echo "사용법: go.sh [6|2|4|1|3|1c|1b|5|7|8|9|11|12]   (권장 순서대로 나열)"
+  13) S="$HERE/exp13_gpu_lidar.sh" ;;
+  *)  echo "사용법: go.sh [6|2|4|1|3|1c|1b|5|7|8|9|11|12|13]   (권장 순서대로 나열)"
       echo "  6   launch~정상상태 RTF 곡선 (무엇을 재고 있는지부터 확인)"
       echo "  2   기준선 — 소나 없이"
       echo "  4   integrated 격리 (맥 미측정 — 폐기된 전제를 다시 세우는 단계)"
@@ -37,6 +38,7 @@ case "$WHICH" in
       echo "  9   스레드 수 캡 — 스핀 49.3% 가 원인인지 증상인지 (리빌드 불필요)"
       echo "  11  update_rate 스윕 — 속도가 아니라 빈도가 손잡이인지 (리빌드 불필요)"
       echo "  12  차량 in-world 검증 — BlueROV2 / BlueROV2 Heavy (매트릭스 마지막 구멍)"
+      echo "  13  stock gpu_lidar 프로브 — Docker 크래시가 DAVE 것인지 gz-rendering 것인지"
       echo
       echo "  건당 4~6분. Docker 는 RUN_DOCKER.md 참고."
       exit 1 ;;

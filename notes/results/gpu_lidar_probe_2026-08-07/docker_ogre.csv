@@ -1,0 +1,4 @@
+engine,h_samples,v_samples,total_rays,exit_code,outcome,sensor_data,signature
+ogre,513,301,154413,124,ALIVE_NO_DATA,no,-
+ogre,128,64,8192,124,ALIVE_NO_DATA,no,-
+ogre,16,1,16,124,ALIVE_NO_DATA,no,-
