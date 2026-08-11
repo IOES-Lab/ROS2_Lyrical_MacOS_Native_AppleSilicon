@@ -33,18 +33,36 @@ never spawned, RTF ~1.0, everything looking healthy) and with the vehicle IMUs t
 week (topic present, permanently silent). So the probe checks that `/gpu_lidar` actually
 publishes, and the `ogre` rows are recorded as `ALIVE_NO_DATA` rather than as passes.
 
-## Finding 1 — the `ogre2` segfault is sonar-specific
+## Finding 1 — the `ogre2` segfault is sonar-specific, and ray geometry is not the trigger
 
 A stock `gpu_lidar` at **the same 513 × 301 ray count, same container, same render engine,
-same software rasteriser** initialises and publishes. So the crash is not "`ogre2` GpuRays
-cannot do 154k rays under `llvmpipe`". Something about how the sonar creates or configures
-`GpuRays` triggers it.
+same software rasteriser** initialises and publishes.
 
-**What this does not establish.** The two paths are not identical: the stock sensor is
-built by `gz-sensors` from `<sensor type="gpu_lidar">`, while the sonar is
-`<sensor type="custom" gz:type="multibeam_sonar">` and constructs `gz::rendering::GpuRays`
-in its own code. Both end up in `Ogre2GpuRays`, but they do not reach it the same way. This
-narrows the suspect to the sonar's usage; it does not identify which call.
+**The first version of this probe was not actually a matched comparison**, which is worth
+recording. It matched the sonar's ray *count* but used arbitrary angles — ±1.047 horizontal
+and ±0.262 vertical — where the sonar's SDF specifies **±1.13447 (130°) horizontal and
+±0.10472 (12°) vertical**, a vertical field of view 2.5× narrower. Since `Ogre2GpuRays`
+switches to a cubemap path for wide fields of view, and 130° crosses 120°, the angles were a
+plausible trigger and the "same conditions" claim was not yet earned.
+
+Re-run with every ray-geometry parameter matched — 513 × 301, ±1.13447 H, ±0.10472 V,
+range 0.1–10.0 — **the stock sensor still initialises and publishes.** So the crash is not
+explained by ray count, horizontal FOV, vertical FOV, or range.
+
+**What remains different, and untested:**
+
+- **Construction path.** `gz-sensors` builds the stock sensor from
+  `<sensor type="gpu_lidar">`; the sonar is `type="custom"` and calls
+  `Scene()->CreateGpuRays()` itself, then `SetClamp(false)`, `SetNearClipPlane`/
+  `SetFarClipPlane`, and forces both ray counts odd (512 → 513, 300 → 301). Same destination,
+  different route, and possibly a different point in the render lifecycle.
+- **Other rendering sensors in the same model.** `blueview_p900` also carries a camera and a
+  depth camera; the probe has only the lidar.
+- **Scene content.** The sonar world has a tank and target cylinders; the probe has a ground
+  plane and a box.
+
+This narrows the suspect to the construction path or to multi-sensor interaction. It does
+not identify the call.
 
 ## Finding 2 — the `ogre` failure is not DAVE's, and the documented workaround is void
 

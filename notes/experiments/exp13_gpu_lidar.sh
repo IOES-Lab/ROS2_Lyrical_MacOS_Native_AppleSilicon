@@ -32,6 +32,14 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 WORLD_SRC="$HERE/gpu_lidar_probe.world"
 ENGINE="${ENGINE:-ogre2}"
 SIZES="${SIZES:-513x301 128x64 16x1}"
+# 각도도 조건이다. 2026-08-07: 첫 판은 레이 수만 소나와 맞추고 각도는 임의값
+# (수평 ±1.047, 수직 ±0.262)을 썼는데, 소나의 실제 값은 수평 ±1.13447(130도),
+# 수직 ±0.10472(12도)다. 즉 '같은 조건' 이 아니었다. 수직 FOV 가 2.5배 좁고
+# 수평은 120도를 넘는데, Ogre2GpuRays 는 넓은 FOV 에서 큐브맵 경로로 갈리므로
+# 이 차이가 방아쇠일 수 있다.
+HMIN="${HMIN:--1.047}"; HMAX="${HMAX:-1.047}"
+VMIN="${VMIN:--0.262}"; VMAX="${VMAX:-0.262}"
+RMIN="${RMIN:-0.08}";   RMAX="${RMAX:-10.0}"
 RUN="${RUN:-40}"          # 관측 시간(초)
 OUT="${OUT:-/tmp/exp13_gpu_lidar_$(date +%m%d_%H%M).csv}"
 
@@ -43,6 +51,7 @@ command -v "$TO" >/dev/null 2>&1 || { echo "! timeout/gtimeout 없음"; exit 1; 
 
 echo "engine,h_samples,v_samples,total_rays,exit_code,outcome,sensor_data,signature" > "$OUT"
 echo "엔진 $ENGINE · 해상도 [$SIZES] · 건당 최대 ${RUN}초"
+echo "각도 H[$HMIN, $HMAX] V[$VMIN, $VMAX] · range[$RMIN, $RMAX]"
 echo "저장: $OUT"
 
 cleanup_gz () {
@@ -62,14 +71,26 @@ run_one () {   # $1 = HxV
 
   # 해상도와 렌더 엔진을 치환한다. sed 로 두 <samples> 를 따로 바꿔야 하므로
   # 순서에 의존하지 않도록 python 을 쓴다.
-  python3 - "$WORLD_SRC" "$W" "$H" "$V" "$ENGINE" <<'PY'
+  python3 - "$WORLD_SRC" "$W" "$H" "$V" "$ENGINE" "$HMIN" "$HMAX" "$VMIN" "$VMAX" "$RMIN" "$RMAX" <<'PY'
 import sys, re
-src, dst, h, v, eng = sys.argv[1:6]
+src, dst, h, v, eng, hmin, hmax, vmin, vmax, rmin, rmax = sys.argv[1:12]
 s = open(src).read()
-s, n1 = re.subn(r"(<horizontal>\s*<samples>)\d+(</samples>)", rf"\g<1>{h}\g<2>", s)
-s, n2 = re.subn(r"(<vertical>\s*<samples>)\d+(</samples>)",   rf"\g<1>{v}\g<2>", s)
-s, n3 = re.subn(r"<render_engine>[^<]*</render_engine>", f"<render_engine>{eng}</render_engine>", s)
-assert n1 == 1 and n2 == 1 and n3 == 1, f"치환 실패: h={n1} v={n2} engine={n3}"
+def one(pat, rep, txt, flags=0):
+    txt, n = re.subn(pat, rep, txt, count=1, flags=flags)
+    assert n == 1, f"치환 실패: {pat}"
+    return txt
+# 각도 태그는 수평/수직 블록에 같은 이름으로 두 번 나온다. 순차 교체하면
+# 같은 자리를 두 번 덮어써서 수평에 수직 값이 들어간다 (2026-08-07 실제 발생).
+# 반드시 블록에 앵커를 건다.
+s = one(r"(<horizontal>\s*<samples>)\d+(</samples>)", rf"\g<1>{h}\g<2>", s)
+s = one(r"(<vertical>\s*<samples>)\d+(</samples>)",   rf"\g<1>{v}\g<2>", s)
+s = one(r"<render_engine>[^<]*</render_engine>", f"<render_engine>{eng}</render_engine>", s)
+s = one(r"(<horizontal>.*?<min_angle>)[^<]*(</min_angle>)", rf"\g<1>{hmin}\g<2>", s, re.S)
+s = one(r"(<horizontal>.*?<max_angle>)[^<]*(</max_angle>)", rf"\g<1>{hmax}\g<2>", s, re.S)
+s = one(r"(<vertical>.*?<min_angle>)[^<]*(</min_angle>)",   rf"\g<1>{vmin}\g<2>", s, re.S)
+s = one(r"(<vertical>.*?<max_angle>)[^<]*(</max_angle>)",   rf"\g<1>{vmax}\g<2>", s, re.S)
+s = one(r"(<range>\s*<min>)[^<]*(</min>)", rf"\g<1>{rmin}\g<2>", s)
+s = one(r"(<max>)[^<]*(</max>\s*<resolution>)", rf"\g<1>{rmax}\g<2>", s)
 open(dst, "w").write(s)
 PY
   [ $? -eq 0 ] || { echo "  ! 월드 생성 실패"; return; }

@@ -53,27 +53,40 @@ exit code 139
 
 ## Why this is not simply a `gz-rendering` limit
 
-The obvious first question is whether `ogre2` can drive 154,413 rays at all under
-`llvmpipe`. It can.
-
 A minimal world with **no DAVE code** — base systems, a ground plane, a target box, and one
-`<sensor type="gpu_lidar">` at the sonar's own 513 × 301 — was run in the same container, on
-`ogre2`:
+`<sensor type="gpu_lidar">` — was run in the same container on `ogre2`, first at the sonar's
+ray count and then with **every ray-geometry parameter matched to the sonar's**:
 
-| platform | rays | result |
-|---|---|---|
-| this container, `ogre2` | 154,413 / 8,192 / 16 | **initialises and publishes, 3/3** |
-| macOS Metal (control), `ogre2` | 154,413 / 8,192 / 16 | initialises and publishes, 3/3 |
+| probe configuration | result |
+|---|---|
+| 513 × 301, arbitrary angles (±1.047 H, ±0.262 V) | initialises and publishes, 3/3 |
+| 128 × 64 and 16 × 1 | initialises and publishes, 3/3 |
+| **513 × 301, sonar's exact angles (±1.13447 H, ±0.10472 V), range 0.1–10.0** | **initialises and publishes** |
+| macOS Metal, same sweep (control) | initialises and publishes, 3/3 |
 
-So the crash is not "`ogre2` GpuRays cannot do this ray count here". Something about how the
-sonar creates or configures `GpuRays` triggers it.
+So with ray count, horizontal FOV, vertical FOV and range all identical to the sonar's, a
+stock GpuRays sensor runs in the same container where the sonar segfaults. The crash is not
+explained by ray count, by the 130° horizontal FOV, or by the narrow 12° vertical FOV.
 
-**What that does not establish.** The two paths are not identical: the stock sensor is built
-by `gz-sensors` from `<sensor type="gpu_lidar">`, while the sonar is
-`<sensor type="custom" gz:type="multibeam_sonar">` and constructs `gz::rendering::GpuRays`
-in its own code. Both end in `Ogre2GpuRays`, but they do not get there the same way. **This
-narrows the suspect to the sonar's usage; it does not identify which call**, and we have not
-diffed the two configuration sequences.
+**What remains different, and untested.** The comparison is now tight on ray geometry but
+not on everything:
+
+- **Construction path.** The stock sensor is built by `gz-sensors` from
+  `<sensor type="gpu_lidar">`; the sonar is `<sensor type="custom" gz:type="multibeam_sonar">`
+  and calls `Scene()->CreateGpuRays()` itself, then `SetClamp(false)`,
+  `SetNearClipPlane`/`SetFarClipPlane`, and forces both ray counts odd (512 → 513,
+  300 → 301). Both end in `Ogre2GpuRays`, but not by the same route or necessarily at the
+  same point in the render lifecycle.
+- **Other rendering sensors in the same model.** `blueview_p900` also carries a camera and a
+  depth camera; the probe has only the lidar. We did not test a probe with several rendering
+  sensors present.
+- **Scene content.** The sonar world contains a tank model and target cylinders; the probe
+  has a ground plane and one box.
+
+**So this narrows the suspect to the sonar's construction path or to multi-sensor
+interaction — it does not identify the call.** The next step toward a `gz-rendering` filing
+would be a hand-written `GpuRays` client mimicking the sonar's setup, which we have not
+written.
 
 Probe world and script: [`notes/experiments/gpu_lidar_probe.world`](experiments/gpu_lidar_probe.world),
 [`notes/experiments/exp13_gpu_lidar.sh`](experiments/exp13_gpu_lidar.sh).
