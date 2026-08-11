@@ -1,87 +1,39 @@
-# Upstream issue draft — `dave_multibeam_sonar` does not start on Ubuntu 26.04 aarch64
+# Upstream issue draft — `dave_multibeam_sonar` segfaults in `Ogre2GpuRays` where a stock `gpu_lidar` does not
 
-**Status:** Draft, not yet filed. **Scoping resolved 2026-08-07 — the blocking question below
-has been answered; see "Before filing".** The report should now be **split in two**: only the
-`ogre2` segfault belongs to DAVE, and the `ogre` failure turns out to be a documentation
-correction rather than a bug.
+**Status:** Draft, ready to file. Scoping resolved 2026-08-07.
 
-**Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) for the
-world-file/documentation part. The segfault itself is inside `gz-rendering`, so it may
-belong at [`gazebosim/gz-rendering`](https://github.com/gazebosim/gz-rendering) instead —
-see below.
+**Scope note (2026-08-07):** this draft used to cover two failures. The second one — an
+`abort` when the world was patched to `ogre` — turned out **not to be a bug at all**: OGRE1
+needs an X display, and once one was supplied correctly the world ran and published sonar
+data. That half has been moved to
+[`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) as a documentation
+correction. **Only the `ogre2` segfault is reported here.**
+
+**Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave). The crash
+occurs inside `libgz-rendering-ogre2`, but a stock `gpu_lidar` at the same ray count does
+**not** crash there, so this is not a plain `gz-rendering` defect — see below. If DAVE
+maintainers conclude the sonar's `GpuRays` usage is correct, this should be forwarded to
+[`gazebosim/gz-rendering`](https://github.com/gazebosim/gz-rendering) with that assessment
+attached.
 
 **Suggested labels:** `bug`, `crash`
 
 ---
 
-## Before filing — what we can and cannot claim
-
-We observed this on **one container, one architecture, one GPU stack**. That is enough to
-report an observation; it is not enough to claim a general defect. Specifically:
-
-- We have **not** tested any other aarch64 machine, any x86_64 machine, or hardware GPU.
-- We have **not** determined whether the trigger is `llvmpipe` (software rendering), the
-  aarch64 build, Ubuntu 26.04's OGRE packaging, or something about the sonar's GpuRays
-  configuration in particular.
-- We have **not** minimised the reproducer to a plain GpuRays sensor without DAVE.
-
-**A maintainer's first question will be "does this happen with a stock GpuRays sensor?"**
-
-**Answered 2026-08-07.** A `gpu_lidar` at the same 513 × 301 ray count, in the same
-container, on the same render engine, with no DAVE code involved:
-
-| engine | stock `gpu_lidar` | this sonar |
-|---|---|---|
-| `ogre2` | **initialises and publishes, 3/3** | segfault, exit 139, 2/2 |
-| `ogre` | no sensor data, `Couldn't open X display` | abort, exit 134 |
-
-So the two failures have different causes:
-
-- **The `ogre2` segfault is specific to this sensor.** A stock GpuRays at the same ray count
-  works, so it is not a generic `gz-rendering` limit. **This half stays with DAVE.**
-- **The `ogre` failure is not DAVE's at all.** OGRE1's GL render system needs an X display
-  and a `docker exec` session has none. It reproduces with no DAVE code. **This half should
-  be dropped from the bug report** and raised instead as a correction to the documented
-  `ogre2` → `ogre` workaround, which cannot work headless for *any* world containing a
-  rendering sensor.
-
-Evidence: [`notes/results/gpu_lidar_probe_2026-08-07/`](results/gpu_lidar_probe_2026-08-07/).
-
-**One honest limit remains.** The stock sensor is built by `gz-sensors` from
-`<sensor type="gpu_lidar">`; this sonar is `<sensor type="custom" gz:type="multibeam_sonar">`
-and constructs `gz::rendering::GpuRays` in its own code. Both reach `Ogre2GpuRays`, but not
-by the same path. The comparison narrows the suspect to the sonar's usage; it does not
-identify which call, and the report should say so.
-
 ## Title
 
-`dave_multibeam_sonar` crashes at sensor initialisation on Ubuntu 26.04 aarch64 —
-segfault in `Ogre2GpuRays::CreateSampleTexture()` with `ogre2`, abort in `RenderSystem_GL`
-with `ogre`
+`dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04
+aarch64, where a stock `gpu_lidar` at the same 513 × 301 ray count runs fine
 
 ## Summary
 
 On an Ubuntu 26.04 aarch64 container with `llvmpipe` software rendering, the
-`dave_multibeam_sonar` world does not start. It fails in two different places depending on
-the render engine, so neither the shipped configuration nor the documented workaround
-produces a running world.
+`dave_multibeam_sonar` world crashes at sensor initialisation with the shipped
+`<render_engine>ogre2</render_engine>`.
 
-## Steps to reproduce
-
-```bash
-ros2 launch dave_demos dave_sensor.launch.py \
-  namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false \
-  x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true
-```
-
-## Failure 1 — as shipped (`ogre2`): segfault
-
-The world file declares `<render_engine>ogre2</render_engine>` (line 16) and
-`<engine>ogre2</engine>` (line 40).
-
-The sonar plugin initialises correctly first — `SONAR PLUGIN LOADED`,
-`# of Beams = 513`, `# of Rays / Beam = (301, 1)`, `# of Time data / Beam = 399` — and the
-WGPU compute backend selects an adapter without complaint
+The sonar plugin initialises correctly first — `SONAR PLUGIN LOADED`, `# of Beams = 513`,
+`# of Rays / Beam = (301, 1)`, `# of Time data / Beam = 399` — and the WGPU compute backend
+selects an adapter without complaint
 (`[sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)`).
 
 Then:
@@ -99,60 +51,81 @@ exit code 139
 `libgz-rendering-ogre2.so.10.0.1`. A null-pointer `memcpy`.
 **Reproduced 2/2 on fresh launches, identical stack.**
 
-## Failure 2 — patched to `ogre`: abort
+## Why this is not simply a `gz-rendering` limit
 
-Switching the world to `<render_engine>ogre</render_engine>` removes the segfault but does
-not produce a running world. It dies earlier, during render-engine load:
+The obvious first question is whether `ogre2` can drive 154,413 rays at all under
+`llvmpipe`. It can.
 
+A minimal world with **no DAVE code** — base systems, a ground plane, a target box, and one
+`<sensor type="gpu_lidar">` at the sonar's own 513 × 301 — was run in the same container, on
+`ogre2`:
+
+| platform | rays | result |
+|---|---|---|
+| this container, `ogre2` | 154,413 / 8,192 / 16 | **initialises and publishes, 3/3** |
+| macOS Metal (control), `ogre2` | 154,413 / 8,192 / 16 | initialises and publishes, 3/3 |
+
+So the crash is not "`ogre2` GpuRays cannot do this ray count here". Something about how the
+sonar creates or configures `GpuRays` triggers it.
+
+**What that does not establish.** The two paths are not identical: the stock sensor is built
+by `gz-sensors` from `<sensor type="gpu_lidar">`, while the sonar is
+`<sensor type="custom" gz:type="multibeam_sonar">` and constructs `gz::rendering::GpuRays`
+in its own code. Both end in `Ogre2GpuRays`, but they do not get there the same way. **This
+narrows the suspect to the sonar's usage; it does not identify which call**, and we have not
+diffed the two configuration sequences.
+
+Probe world and script: [`notes/experiments/gpu_lidar_probe.world`](experiments/gpu_lidar_probe.world),
+[`notes/experiments/exp13_gpu_lidar.sh`](experiments/exp13_gpu_lidar.sh).
+Data: [`notes/results/gpu_lidar_probe_2026-08-07/`](results/gpu_lidar_probe_2026-08-07/).
+
+## Steps to reproduce
+
+```bash
+ros2 launch dave_demos dave_sensor.launch.py \
+  namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false \
+  x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true
 ```
-BaseRenderEngine::Load()
-  -> OgreRenderEngine::LoadImpl()
-    -> OgreRenderEngine::LoadAttempt()
-      -> OgreRenderEngine::LoadPlugins()
-        -> RenderSystem_GL.so.1.9.0  dllStartPlugin
-          -> Ogre::Root::installPlugin
-            -> _Unwind_Resume -> __cxa_call_terminate -> abort
-Aborted, exit code 134
-```
 
-OGRE 1.9's GL render system throws during plugin install and the exception crosses a
-`noexcept` boundary, so the process terminates. `SONAR PLUGIN LOADED` never appears — it
-dies before reaching the sensor. This looks like a missing GL context rather than a DAVE
-problem.
+The world file ships with `<render_engine>ogre2</render_engine>` (line 16) and
+`<engine>ogre2</engine>` (line 40); no patching is needed to hit this.
 
-Setting `DISPLAY=:10` against the container's live xrdp X socket did not change it. Caveat:
-only `DISPLAY` was set, not `XAUTHORITY`, and the X server belongs to another user's
-session, so the connection may have been refused for authorisation reasons. That is weak
-evidence, not a clean refutation.
+## The same world does run — two ways
 
-## Note for DAVE specifically
+**On macOS / Apple Silicon / Metal**, as shipped. Its cost there is characterised: 1.90x
+against a no-sonar control (0.5243 vs 0.9974, n=3 each), most of which is recoverable by
+lowering the sensor's unreachable 30 Hz `<update_rate>` (a separate report).
 
-Independent of where the crash belongs, one thing is squarely a DAVE-side observation:
+**In this same container**, if the world is patched to `<render_engine>ogre</render_engine>`
+**and** an X display is supplied correctly — sensor initialises, simulation steps, and
+`/sensor/multibeam_sonar/point_cloud` publishes. See
+[`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md).
 
-The project README documents that OGRE2 is unavailable on Ubuntu 26.04 aarch64 and that
-world files need patching `ogre2` → `ogre`. **The world files as shipped are not patched**,
-and in this environment the patch does not help either — it swaps one crash for another.
-So the documented workaround does not currently produce a working world here.
+So this is not a defect in the sonar world or the WGPU backend generally. It is specific to
+the `ogre2` path in this environment.
 
-Also worth distinguishing: the README describes the OGRE2 problem as a *load failure*
-(`Failed to load plugin [ogre2]`). What we see is different — ogre2 loads and executes as
-far as `PreRender` before crashing. These may share a root cause, but that is an inference,
-not something we confirmed.
+## What we can and cannot claim
+
+- **One container, one architecture, one GPU stack.** Not tested on any other aarch64
+  machine, any x86_64 machine, or with a hardware GPU.
+- **The trigger is not isolated.** It could be `llvmpipe`, the aarch64 build, Ubuntu 26.04's
+  OGRE2 packaging, or the sonar's specific `GpuRays` configuration. The stock-`gpu_lidar`
+  comparison rules out "any GpuRays at this ray count", nothing narrower.
+- **Not minimised further.** We did not attempt to reproduce with a hand-written `GpuRays`
+  client mimicking the sonar's setup, which would be the next step toward a filing at
+  `gz-rendering`.
+- The DAVE README describes the OGRE2 problem on this platform as a *load failure*
+  (`Failed to load plugin [ogre2]`). What we see is different — `ogre2` loads and executes
+  as far as `PreRender` before crashing. These may share a root cause; that is an inference,
+  not something we confirmed.
 
 ## Environment
 
-- Container image `lyrical-sim:jetty-rdp-theme`, up 13 days at time of testing
+- Container image `lyrical-sim:jetty-rdp-theme`
 - Ubuntu 26.04 aarch64, ROS 2 Lyrical, Gazebo Jetty 10.4 (`--force-version 10`)
 - Rendering: `llvmpipe` software rasteriser, no `/dev/dri` passthrough
 - Headless server (`gz sim <world> -s -r`)
 - `naitikpahwa18/dave`, branch `wgpu_integration`, pinned commit `6aef91c`
-- **Not reproduced anywhere else — see "Before filing" above**
-
-## For contrast: the same world runs on macOS
-
-On Apple Silicon with Metal, this world runs and simulates steadily (RTF ~0.19–0.22 against
-a no-sonar control of 0.9996). So this is not a general defect in the sonar world or the
-WGPU backend — it is specific to this rendering environment.
 
 Full write-up and raw logs:
 [`notes/results/docker_multibeam_crash_2026-08-03/`](results/docker_multibeam_crash_2026-08-03/)
