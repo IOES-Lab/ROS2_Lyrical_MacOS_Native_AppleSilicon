@@ -7,7 +7,7 @@
 part of the WGPU backend, but it was measured on
 [PR #44](https://github.com/IOES-Lab/dave/pull/44)'s branch
 (`naitikpahwa18/dave`, `wgpu_integration`, pinned `6aef91c`); worth a quick check against
-`main` before filing.
+`ros2` (the repository's default branch) before filing.
 
 **Suggested labels:** `enhancement`, `performance`
 

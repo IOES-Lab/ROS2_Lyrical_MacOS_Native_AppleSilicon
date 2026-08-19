@@ -6,7 +6,7 @@
 in question, `UsblTransponder.cc`, is core DAVE code unrelated to the WGPU sonar backend —
 found via `naitikpahwa18/dave`'s `wgpu_integration` branch, but the bug and the buggy line are
 not specific to that fork/branch. Worth a quick `git blame`/diff check against
-`IOES-Lab/dave`'s `main` before filing, to confirm the exact line number still matches, but the
+`IOES-Lab/dave`'s `ros2` branch (its default) before filing, to confirm the exact line number still matches, but the
 logic itself is unlikely to differ).
 
 **Suggested labels:** `bug`, `crash`

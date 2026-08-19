@@ -5,7 +5,7 @@
 **Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) —
 `models/dave_robot_models/`. Model and config content, unrelated to the WGPU sonar work.
 Verified on `naitikpahwa18/dave`, branch `wgpu_integration`, pinned `6aef91c`; the vehicle
-models are unlikely to differ from `main`, but worth checking before filing.
+models are unlikely to differ from `ros2` (the repository's default branch), but worth checking before filing.
 
 **Suggested labels:** `bug`
 

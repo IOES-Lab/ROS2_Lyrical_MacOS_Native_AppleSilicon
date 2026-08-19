@@ -5,7 +5,7 @@
 **Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) — this is
 world-file content in `models/dave_worlds/worlds/`, unrelated to the WGPU sonar backend.
 Confirmed in the `naitikpahwa18/dave` `wgpu_integration` checkout at pinned commit
-`6aef91c`; worth a quick check against `IOES-Lab/dave` `main` before filing, but the world
+`6aef91c`; worth a quick check against `IOES-Lab/dave`'s `ros2` branch (its default) before filing, but the world
 files are unlikely to differ.
 
 **Suggested labels:** `bug`
