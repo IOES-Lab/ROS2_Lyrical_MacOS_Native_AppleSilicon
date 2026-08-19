@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# 커밋 메시지 임시 파일 — 저장소에 남길 것이 아니다
+notes/.commitmsg

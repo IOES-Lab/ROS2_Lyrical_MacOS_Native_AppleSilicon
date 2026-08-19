@@ -253,6 +253,11 @@ A verified, repeatable Docker build procedure (build instructions, verification 
   보내기 전에 [`notes/wiki/ogre-x-display-doc-correction.md`](notes/wiki/ogre-x-display-doc-correction.md) 를 합칠 것
 - [ ] **`package.xml` 의존성 수정을 상류에 제안** — 이슈가 아니라 fork 후 PR 이어야 한다.
   OGRE2 미지원 건도 같이
+- [ ] **저장소 이름 변경** — `ROS2_Lyrical_MacOS_Native_AppleSilicon` → `ROS2_Lyrical`.
+  현재 이름은 macOS·Apple Silicon 만 말하지만 Docker/Linux 도 다뤘다.
+  **조직 owner 만 할 수 있다** — 이 저장소에 대한 권한이 Maintain 이라 설정에 이름 칸이 없다.
+  문서의 절대 URL 은 옛 이름으로 두었다. GitHub 이 옛 이름을 새 이름으로 리다이렉트하므로
+  지금도 이름을 바꾼 뒤에도 동작한다 (반대 방향은 안 된다)
 - [ ] **소나 확장 방향 결정** — Profiling / Mechanical scanning / Side-scan.
   장비 분류·스펙·타 시뮬레이터 현황은 Notion 「소나 종류 분류」 에,
   코드 구조와 논문 수식 대응은 Notion 「DAVE 소나 코드 구조」 에 정리했다.

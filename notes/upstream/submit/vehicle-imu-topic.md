@@ -115,5 +115,5 @@ gz topic -l | grep imu                       # shows the long default path inste
 ```
 
 Full write-up and the patch:
-[`notes/results/vehicles_2026-08-07/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/vehicles_2026-08-07/),
-[`patches/vehicle_imu_topic_fix.diff`](https://github.com/IOES-Lab/ROS2_Lyrical/blob/main/patches/vehicle_imu_topic_fix.diff)
+[`notes/results/vehicles_2026-08-07/`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/main/notes/results/vehicles_2026-08-07/),
+[`patches/vehicle_imu_topic_fix.diff`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/blob/main/patches/vehicle_imu_topic_fix.diff)

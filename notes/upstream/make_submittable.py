@@ -24,7 +24,7 @@ import re
 import sys
 from pathlib import Path
 
-REPO = "https://github.com/IOES-Lab/ROS2_Lyrical"
+REPO = "https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon"
 BLOB = f"{REPO}/blob/main"
 TREE = f"{REPO}/tree/main"
 

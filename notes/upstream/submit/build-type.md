@@ -152,4 +152,4 @@ grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq -
 Then launch the sonar world and compare RTF against the same world built as documented.
 
 Full write-up, raw CSVs and measurement scripts:
-[`notes/results/release_rebuild_2026-08-05/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/release_rebuild_2026-08-05/)
+[`notes/results/release_rebuild_2026-08-05/`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/main/notes/results/release_rebuild_2026-08-05/)

@@ -156,4 +156,4 @@ also defines `camera` and `depth_camera` sensors with their own `update_rate` ta
 launch and measure.
 
 Full write-up, raw CSVs and scripts:
-[`notes/results/updaterate_2026-08-06/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/updaterate_2026-08-06/)
+[`notes/results/updaterate_2026-08-06/`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/main/notes/results/updaterate_2026-08-06/)
