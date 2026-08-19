@@ -21,9 +21,21 @@
 
 ## 이 층의 파일
 
-- [`validation_matrix.csv`](validation_matrix.csv) — 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준
-- [`cmake-migration-patterns.md`](cmake-migration-patterns.md) — Harmonic→Jetty 이식에서 반복된 패턴
-- [`usbl-gui-crash-investigation.md`](usbl-gui-crash-investigation.md) — USBL 크래시 추적 기록. 초기 가설(GUI 문제)이 틀렸던 과정이 남아 있다
+루트 [`README.md`](../README.md) 는 입구 역할만 한다. 상류 저장소(`IOES-Lab/dave`,
+`dockwater`)의 README 도 그렇게 쓰므로 형식을 맞췄다. 실제 내용은 아래에 있다.
+
+| 파일 | 내용 |
+|---|---|
+| [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
+| [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
+| [`known-issues.md`](known-issues.md) | 알려진 문제 25건, 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 73행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
+| [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
+| [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |
+| [`status-history.md`](status-history.md) | 옛 상태 요약. 어떤 주장이 언제 철회됐는지 추적용 |
+| [`cmake-migration-patterns.md`](cmake-migration-patterns.md) | Harmonic→Jetty 이식에서 반복된 패턴 |
+| [`usbl-gui-crash-investigation.md`](usbl-gui-crash-investigation.md) | USBL 크래시 추적. 초기 가설(GUI 문제)이 틀렸던 과정이 남아 있다 |
 
 ## 읽는 순서
 
