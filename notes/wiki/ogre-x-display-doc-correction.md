@@ -8,7 +8,7 @@ unavailable on Ubuntu 26.04 aarch64, patch world files `ogre2` → `ogre`" guida
 worth folding into [`wiki-error-report-final-EN.md`](wiki-error-report-final-EN.md) if that
 is sent as one document.
 
-**Split from** [`docker-sonar-crash-issue-draft.md`](docker-sonar-crash-issue-draft.md) on
+**Split from** [`docker-sonar-crash-issue-draft.md`](../upstream/drafts/docker-sonar-crash-issue-draft.md) on
 2026-08-07, which had been treating this as a second crash.
 
 ---
@@ -69,8 +69,8 @@ And with the real sonar world, patched to `ogre`, X supplied correctly: no crash
 300 s, sensor initialised (513 beams / 301 rays / 399 time data), `iterations` reached
 72,107, `/sensor/multibeam_sonar/point_cloud` publishing.
 
-Data: [`notes/results/gpu_lidar_probe_2026-08-07/`](results/gpu_lidar_probe_2026-08-07/),
-[`notes/results/docker_sonar_x_display_2026-08-07/`](results/docker_sonar_x_display_2026-08-07/).
+Data: [`notes/results/gpu_lidar_probe_2026-08-07/`](../results/gpu_lidar_probe_2026-08-07/),
+[`notes/results/docker_sonar_x_display_2026-08-07/`](../results/docker_sonar_x_display_2026-08-07/).
 
 ## Suggested wording
 

@@ -1,7 +1,7 @@
 <!-- 제출 대상: [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) — this is world-file content in `models/dave_worlds/worlds/`, unrelated to the WGPU sonar backend. Confirmed in the `naitikpahwa18/dave` `wgpu_integration` checkout at pinned commit `6aef91c`; worth a quick check against `IOES-Lab/dave`'s `ros2` branch (its default) before filing, but the world files are unlikely to differ.
      라벨:     `bug`
-     원본:     notes/world-name-collision-issue-draft.md
-     자동 생성: notes/make_submittable.py — 직접 고치지 말 것 -->
+     원본:     notes/upstream/drafts/world-name-collision-issue-draft.md
+     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->
 
 ## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)
 

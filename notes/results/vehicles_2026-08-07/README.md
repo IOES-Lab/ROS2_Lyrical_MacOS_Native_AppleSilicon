@@ -34,7 +34,7 @@ The fix is one line per model:
 <topic>/model/<vehicle>/imu</topic>
 ```
 
-Saved as [`../../patches/vehicle_imu_topic_fix.diff`](../../patches/vehicle_imu_topic_fix.diff)
+Saved as [`../../patches/vehicle_imu_topic_fix.diff`](../../../patches/vehicle_imu_topic_fix.diff)
 — 4 files, 19 lines including comments.
 
 ### The same file contains the control
@@ -131,4 +131,4 @@ VEHICLES="bluerov2 bluerov2_heavy rexrov glider_slocum" bash notes/experiments/g
 ```
 
 To see the defect before the fix, revert
-[`../../patches/vehicle_imu_topic_fix.diff`](../../patches/vehicle_imu_topic_fix.diff).
+[`../../patches/vehicle_imu_topic_fix.diff`](../../../patches/vehicle_imu_topic_fix.diff).

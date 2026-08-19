@@ -1,20 +1,15 @@
-# Upstream issue draft — no vehicle's IMU data reaches ROS
+<!-- 제출 대상: [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) — `models/dave_robot_models/`. Model and config content, unrelated to the WGPU sonar work. Verified on `naitikpahwa18/dave`, branch `wgpu_integration`, pinned `6aef91c`; the vehicle models are unlikely to differ from `ros2` (the repository's default branch), but worth checking before filing.
+     라벨:     `bug`
+     원본:     notes/upstream/drafts/vehicle-imu-topic-issue-draft.md
+     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->
 
-**Status:** Draft, not yet filed. Ready to paste into a GitHub Issue.
+## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)
 
-**Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) —
-`models/dave_robot_models/`. Model and config content, unrelated to the WGPU sonar work.
-Verified on `naitikpahwa18/dave`, branch `wgpu_integration`, pinned `6aef91c`; the vehicle
-models are unlikely to differ from `ros2` (the repository's default branch), but worth checking before filing.
+`imu_sensor` omits `<topic>` on every vehicle, so the bridged `/model/<ns>/imu` topic exists but never publishes
 
-**Suggested labels:** `bug`
+## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
 
 ---
-
-## Title
-
-`imu_sensor` omits `<topic>` on every vehicle, so the bridged `/model/<ns>/imu` topic exists
-but never publishes
 
 ## Summary
 
@@ -120,5 +115,5 @@ gz topic -l | grep imu                       # shows the long default path inste
 ```
 
 Full write-up and the patch:
-[`notes/results/vehicles_2026-08-07/`](results/vehicles_2026-08-07/),
-[`patches/vehicle_imu_topic_fix.diff`](../patches/vehicle_imu_topic_fix.diff)
+[`notes/results/vehicles_2026-08-07/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/vehicles_2026-08-07/),
+[`patches/vehicle_imu_topic_fix.diff`](https://github.com/IOES-Lab/ROS2_Lyrical/blob/main/patches/vehicle_imu_topic_fix.diff)

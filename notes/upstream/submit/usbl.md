@@ -1,7 +1,7 @@
 <!-- 제출 대상: [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) (the plugin code in question, `UsblTransponder.cc`, is core DAVE code unrelated to the WGPU sonar backend — found via `naitikpahwa18/dave`'s `wgpu_integration` branch, but the bug and the buggy line are not specific to that fork/branch. Worth a quick `git blame`/diff check against `IOES-Lab/dave`'s `ros2` branch (its default) before filing, to confirm the exact line number still matches, but the logic itself is unlikely to differ).
      라벨:     `bug`, `crash`
-     원본:     notes/usbl-upstream-issue-draft.md
-     자동 생성: notes/make_submittable.py — 직접 고치지 말 것 -->
+     원본:     notes/upstream/drafts/usbl-upstream-issue-draft.md
+     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->
 
 ## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)
 

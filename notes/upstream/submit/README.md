@@ -27,11 +27,11 @@ block at the top holds the suggested target and labels; it is invisible when pas
 
 ## Two documents that are not issues
 
-- [`../ogre-x-display-doc-correction.md`](../ogre-x-display-doc-correction.md) — the
+- [`../ogre-x-display-doc-correction.md`](../../wiki/ogre-x-display-doc-correction.md) — the
   `ogre2` → `ogre` workaround needs an X display, and needs the right user plus
   `XAUTHORITY`, not just `DISPLAY`. **Not a bug** — the workaround works; the instructions
   are incomplete in a way that makes a working setup look broken.
-- [`../wiki-error-report-final-EN.md`](../wiki-error-report-final-EN.md) — corrections found
+- [`../wiki-error-report-final-EN.md`](../../wiki/wiki-error-report-final-EN.md) — corrections found
   while reading all 20 pages of the DAVE ROS 2 documentation. **The X-display correction
   above should be added to this before sending.**
 
@@ -41,7 +41,7 @@ it, not a pull request.
 
 ## One more, already prepared
 
-[`../../patches/`](../../patches/) holds the verified patches. The `package.xml` dependency
+[`../../patches/`](../../../patches/) holds the verified patches. The `package.xml` dependency
 fix (7 `<depend>` tags, resolving a parallel-build race) is ready to go as a PR and is
 independent of ROS distro.
 

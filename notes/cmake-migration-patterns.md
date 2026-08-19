@@ -90,4 +90,4 @@ pkill -9 -f xrdp && rm -f /run/xrdp/*.pid
 
 ## 9. ArduSub SITL build vs. Python 3.14 (BlueROV2 only)
 
-See [`ardusub-sitl-setup.md`](ardusub-sitl-setup.md).
+See [`ardusub-sitl-setup.md`](setup/ardusub-sitl-setup.md).

@@ -1,0 +1,18 @@
+Back the update_rate claim with the datasheet, and note the P900 mismatch
+
+The draft said 30 Hz "tops out near 15 Hz" from general knowledge. The
+Teledyne P900 datasheet says "up to 15 Hz" for every variant in the
+series, so the claim now cites a source rather than an impression.
+
+Checking the datasheet turned up more than the rate. The shipped SDF uses
+512 beams with a 130 degree field of view: 512 is the P900-90's beam
+count and 130 degrees is the P900-130's field of view. No shipping
+variant has that combination. Vertical extent and maximum range differ
+too. None of this was measured, so it goes in as an observation with
+that stated plainly -- a maintainer editing this file would want the
+whole list in one place even though only update_rate has numbers behind
+it.
+
+make_submittable.py skips submit/README.md in the relative-link check.
+That file is an index read inside this repository, where relative links
+are correct; it is not pasted into an issue.

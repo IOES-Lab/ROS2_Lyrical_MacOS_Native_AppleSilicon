@@ -18,12 +18,12 @@ in this Lyrical+Jetty checkout:
 [parameter_bridge-3] [INFO] [1784698409.520582708] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
 ```
 
-Source: [`notes/results/dave_multibeam_sonar.log`](../results/dave_multibeam_sonar.log) lines
+Source: [`notes/results/dave_multibeam_sonar.log`](../results/worlds/dave_multibeam_sonar.log) lines
 18-19 (2026-07-22 `test_worlds.sh` smoke test run, Docker). The same two lines also appear in
-[`notes/results/dave_ocean_waves_sonar.log`](../results/dave_ocean_waves_sonar.log) and
-[`notes/results/dave_ocean_waves_sonar_integrated.log`](../results/dave_ocean_waves_sonar_integrated.log),
+[`notes/results/dave_ocean_waves_sonar.log`](../results/worlds/dave_ocean_waves_sonar.log) and
+[`notes/results/dave_ocean_waves_sonar_integrated.log`](../results/worlds/dave_ocean_waves_sonar_integrated.log),
 and (from the earlier, now-superseded benchmark run) in
-[`notes/bench_results/SUPERSEDED_2026-07-22/dave_multibeam_sonar.log`](../bench_results/SUPERSEDED_2026-07-22/dave_multibeam_sonar.log),
+[`notes/bench_results/SUPERSEDED_2026-07-22/dave_multibeam_sonar.log`](../benchmarks/bench_results/SUPERSEDED_2026-07-22/dave_multibeam_sonar.log),
 which additionally shows:
 
 ```

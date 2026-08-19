@@ -1,21 +1,15 @@
-# Upstream issue draft — the documented build produces an unoptimised sonar plugin
+<!-- 제출 대상: [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave). The two build guides that carry the problem (`gazebo/DEMO_GUIDE.md`, `gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md`) arrived with the WGPU sonar work, so a comment on [PR #44](https://github.com/IOES-Lab/dave/pull/44) may reach the right person faster. Verified against `naitikpahwa18/dave`, branch `wgpu_integration`, pinned commit `6aef91c`.
+     라벨:     `bug`, `performance`, `documentation`
+     원본:     notes/upstream/drafts/build-type-issue-draft.md
+     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->
 
-**Status:** Draft, not yet filed. Ready to paste into a GitHub Issue.
+## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)
 
-**Suggested target:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave). The two build
-guides that carry the problem (`gazebo/DEMO_GUIDE.md`,
-`gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md`) arrived with the WGPU sonar work, so a comment
-on [PR #44](https://github.com/IOES-Lab/dave/pull/44) may reach the right person faster.
-Verified against `naitikpahwa18/dave`, branch `wgpu_integration`, pinned commit `6aef91c`.
+Documented build sets no `CMAKE_BUILD_TYPE`, so `multibeam_sonar` compiles at `-O0` — `-DCMAKE_BUILD_TYPE=Release` doubles real-time factor
 
-**Suggested labels:** `bug`, `performance`, `documentation`
+## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
 
 ---
-
-## Title
-
-Documented build sets no `CMAKE_BUILD_TYPE`, so `multibeam_sonar` compiles at `-O0` —
-`-DCMAKE_BUILD_TYPE=Release` doubles real-time factor
 
 ## Summary
 
@@ -158,4 +152,4 @@ grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq -
 Then launch the sonar world and compare RTF against the same world built as documented.
 
 Full write-up, raw CSVs and measurement scripts:
-[`notes/results/release_rebuild_2026-08-05/`](results/release_rebuild_2026-08-05/)
+[`notes/results/release_rebuild_2026-08-05/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/release_rebuild_2026-08-05/)

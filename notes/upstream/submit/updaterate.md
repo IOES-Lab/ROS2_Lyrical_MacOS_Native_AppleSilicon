@@ -1,11 +1,11 @@
 <!-- 제출 대상: [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave) — `models/dave_sensor_models/description/blueview_p900/model.sdf`. This is model content, not part of the WGPU backend, but it was measured on [PR #44](https://github.com/IOES-Lab/dave/pull/44)'s branch (`naitikpahwa18/dave`, `wgpu_integration`, pinned `6aef91c`); worth a quick check against `ros2` (the repository's default branch) before filing.
      라벨:     `enhancement`, `performance`
-     원본:     notes/updaterate-issue-draft.md
-     자동 생성: notes/make_submittable.py — 직접 고치지 말 것 -->
+     원본:     notes/upstream/drafts/updaterate-issue-draft.md
+     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->
 
 ## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)
 
-`blueview_p900` sets `<update_rate>30</update_rate>`, which the sensor cannot reach and the hardware does not do — lowering it recovers most of the sonar's simulation cost
+`blueview_p900` sets `<update_rate>30</update_rate>`, twice what the datasheet allows and far above what the sensor achieves — lowering it recovers most of the sonar's simulation cost
 
 ## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
 
@@ -39,9 +39,10 @@ spread.
 ~200 s of sonar-live time. Asking for 30 Hz when 2.8 Hz is achievable means the rate limit
 never engages.
 
-**It is also not physical.** A BlueView P900 tops out near 15 Hz in hardware, and lower in
-most operating modes. The simulation is being asked for something the modelled device
-cannot do.
+**It is also above the hardware.** The
+[Teledyne BlueView P900 Series datasheet](https://www.ashtead-technology.com/wp-content/uploads/2021/06/Teledyne-BlueView-P900-130-2D-Forward-Looking-Imaging-Sonar.pdf)
+lists **"Update Rate: up to 15 Hz"** for every model in the series (P900-45, -90, -130,
+-90-D, -130-D). The simulation is asking for twice what the modelled device can do.
 
 ## Why it matters more than a normal rate setting
 
@@ -81,8 +82,50 @@ considerably more if the application tolerates fewer pings.
 If changing the shipped default is undesirable, documenting the trade-off would still help
 — at present nothing indicates that this one number dominates simulation throughput.
 
+## While checking the datasheet: the model does not match any real P900 variant
+
+`update_rate` is the one with a measured performance impact, so it leads. But the same
+datasheet check turned up several other differences, which a maintainer editing this file
+would probably want in one place.
+
+The P900 ships in three field-of-view variants, and **beam count is tied to field of view**:
+
+| model | FOV | beams |
+|---|---|---|
+| P900-45 | 45° | 256 |
+| **P900-90** | 90° | **512** |
+| **P900-130** | **130°** | 768 |
+
+The SDF uses **512 beams with a 130° field of view** — the beam count of the P900-90 with
+the field of view of the P900-130. No shipping variant has that combination.
+
+Full comparison against the P900-130, whose field of view the model matches:
+
+| | this SDF | P900-130 datasheet |
+|---|---|---|
+| horizontal FOV | 130° (±1.13447 rad) | 130° ✔ |
+| beams | 512 | **768** |
+| vertical extent | 12° (±0.10472 rad; `<verticalFOV>12</verticalFOV>`) | **20°** beam width (1° × 20°) |
+| `<update_rate>` | 30 Hz | **up to 15 Hz** |
+| `<max>` range | 10 m | 100 m max, 2–60 m optimum |
+| frequency | 900 kHz ✔ | 900 kHz |
+
+**None of these except `update_rate` was measured**, and some may be deliberate:
+
+- **Range 10 m vs 100 m** is very plausibly an intentional simulation-cost choice, and our
+  own measurements show range has only a small effect on cost, so changing it is not
+  obviously desirable.
+- **Beam count** does affect cost substantially — it is the ray-proportional axis — so
+  raising 512 → 768 for fidelity would cost performance. That trade is yours to make.
+- **Vertical extent** we have not investigated at all.
+
+We are not proposing a specific fix for these; we are reporting that the shipped model
+mixes two variants, in case that was not intended.
+
 ## What this claim is and is not
 
+- **Only `update_rate` is backed by measurement.** The other datasheet differences noted
+  above are reported as observations, not as things we tested.
 - **Fewer pings per second is a real change in behaviour**, not free. Nothing here measures
   sonar output quality; the trade is throughput against ping rate, and which rate is
   appropriate depends on the application. We are not claiming 2 Hz is correct — only that
@@ -113,4 +156,4 @@ also defines `camera` and `depth_camera` sensors with their own `update_rate` ta
 launch and measure.
 
 Full write-up, raw CSVs and scripts:
-[`notes/results/updaterate_2026-08-06/`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/main/notes/results/updaterate_2026-08-06/)
+[`notes/results/updaterate_2026-08-06/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/updaterate_2026-08-06/)

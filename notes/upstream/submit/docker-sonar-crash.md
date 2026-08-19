@@ -1,29 +1,15 @@
-# Upstream issue draft — `dave_multibeam_sonar` segfaults in `Ogre2GpuRays` where a stock `gpu_lidar` does not
+<!-- 제출 대상: [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave). The crash occurs inside `libgz-rendering-ogre2`, but a stock `gpu_lidar` at the same ray count does
+     라벨:     `bug`, `crash`
+     원본:     notes/upstream/drafts/docker-sonar-crash-issue-draft.md
+     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->
 
-**Status:** Draft, ready to file. Scoping resolved 2026-08-07.
+## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)
 
-**Scope note (2026-08-07):** this draft used to cover two failures. The second one — an
-`abort` when the world was patched to `ogre` — turned out **not to be a bug at all**: OGRE1
-needs an X display, and once one was supplied correctly the world ran and published sonar
-data. That half has been moved to
-[`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) as a documentation
-correction. **Only the `ogre2` segfault is reported here.**
+`dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04 aarch64, where a stock `gpu_lidar` at the same 513 × 301 ray count runs fine
 
-**Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave). The crash
-occurs inside `libgz-rendering-ogre2`, but a stock `gpu_lidar` at the same ray count does
-**not** crash there, so this is not a plain `gz-rendering` defect — see below. If DAVE
-maintainers conclude the sonar's `GpuRays` usage is correct, this should be forwarded to
-[`gazebosim/gz-rendering`](https://github.com/gazebosim/gz-rendering) with that assessment
-attached.
-
-**Suggested labels:** `bug`, `crash`
+## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
 
 ---
-
-## Title
-
-`dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04
-aarch64, where a stock `gpu_lidar` at the same 513 × 301 ray count runs fine
 
 ## Summary
 
@@ -88,9 +74,9 @@ interaction — it does not identify the call.** The next step toward a `gz-rend
 would be a hand-written `GpuRays` client mimicking the sonar's setup, which we have not
 written.
 
-Probe world and script: [`notes/experiments/gpu_lidar_probe.world`](experiments/gpu_lidar_probe.world),
-[`notes/experiments/exp13_gpu_lidar.sh`](experiments/exp13_gpu_lidar.sh).
-Data: [`notes/results/gpu_lidar_probe_2026-08-07/`](results/gpu_lidar_probe_2026-08-07/).
+Probe world and script: [`notes/experiments/gpu_lidar_probe.world`](https://github.com/IOES-Lab/ROS2_Lyrical/blob/main/notes/experiments/gpu_lidar_probe.world),
+[`notes/experiments/exp13_gpu_lidar.sh`](https://github.com/IOES-Lab/ROS2_Lyrical/blob/main/notes/experiments/exp13_gpu_lidar.sh).
+Data: [`notes/results/gpu_lidar_probe_2026-08-07/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/gpu_lidar_probe_2026-08-07/).
 
 ## Steps to reproduce
 
@@ -112,7 +98,7 @@ lowering the sensor's unreachable 30 Hz `<update_rate>` (a separate report).
 **In this same container**, if the world is patched to `<render_engine>ogre</render_engine>`
 **and** an X display is supplied correctly — sensor initialises, simulation steps, and
 `/sensor/multibeam_sonar/point_cloud` publishes. See
-[`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md).
+[`ogre-x-display-doc-correction.md`](https://github.com/IOES-Lab/ROS2_Lyrical/blob/main/notes/wiki/ogre-x-display-doc-correction.md).
 
 So this is not a defect in the sonar world or the WGPU backend generally. It is specific to
 the `ogre2` path in this environment.
@@ -141,4 +127,4 @@ the `ogre2` path in this environment.
 - `naitikpahwa18/dave`, branch `wgpu_integration`, pinned commit `6aef91c`
 
 Full write-up and raw logs:
-[`notes/results/docker_multibeam_crash_2026-08-03/`](results/docker_multibeam_crash_2026-08-03/)
+[`notes/results/docker_multibeam_crash_2026-08-03/`](https://github.com/IOES-Lab/ROS2_Lyrical/tree/main/notes/results/docker_multibeam_crash_2026-08-03/)
