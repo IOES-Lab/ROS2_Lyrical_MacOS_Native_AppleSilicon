@@ -20,12 +20,28 @@ publish the data they should. **Acoustic accuracy has never been verified.**
 Measurement detail and how these numbers replaced the earlier ones:
 [`notes/sonar-performance.md`](notes/sonar-performance.md).
 
+## Build
+
+```bash
+extras/build-dave-lyrical-linux.sh     # Ubuntu 26.04 — complete, from apt to a running sonar
+extras/build-dave-lyrical-macos.sh     # macOS Apple Silicon — see extras/README.md for one gap
+```
+
+Both refuse to finish if the sonar was compiled without an `-O` flag. That is not caution: this
+workspace built unoptimised for a month, and every performance figure taken in that time was
+half what it should have been.
+
+The same procedure as prose, with the reasoning for each argument:
+[`notes/setup/reproduction.md`](notes/setup/reproduction.md). For Docker, [`docker/`](docker/).
+
 ## Documentation
 
 Everything is under [`notes/`](notes/) — start from its [index](notes/README.md).
 
 | | |
 |---|---|
+| [`notes/what-we-got-wrong.md`](notes/what-we-got-wrong.md) | **claims that turned out false, and how each was caught.** Read this before trusting any number here |
+| [`patches/`](patches/) | **what was changed** — six patches, what each fixes and whether it is complete |
 | [`notes/verified-demos.md`](notes/verified-demos.md) | what each PASS rests on |
 | [`notes/known-issues.md`](notes/known-issues.md) | 25 issues, with cause and workaround |
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |

@@ -26,6 +26,7 @@
 
 | 파일 | 내용 |
 |---|---|
+| [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
 | [`known-issues.md`](known-issues.md) | 알려진 문제 25건, 증상·원인·우회 |
