@@ -11,8 +11,9 @@ separate running container, not a fresh clean build of current HEAD) — see the
 full detail, this file's table is kept in sync with it.
 Validated (as of the 2026-07-18 baseline build specifically): Build, headless launch, XFCE/xrdp
 login, ROS environment + dave_demos/multibeam_sonar_system/mavros package presence. Validated
-separately, against the lyrical-theme-test container: 16/18 worlds PASS-level (12 smoke, 4
-functional), 2 PARTIAL (see table below), USBL world-file + launch-arg workaround (upgraded
+separately, against the lyrical-theme-test container: **18/18 worlds PASS-level (13 smoke, 5
+functional), 0 PARTIAL as of 2026-08-07** (the last two PARTIAL rows were reclassified when their
+stated grounds failed to reproduce; see notes/progress-log.md), USBL world-file + launch-arg workaround (upgraded
 PARTIAL → FUNCTIONAL PASS 2026-07-29, see table below). Quantitative RTF benchmark (ocean_waves/usbl_tutorial) re-run
 clean 2026-07-27 using the fixed scripts (see table below). 1h clean stability run passed;
 a 2026-07-23 4h re-run finished but used a pre-fix script and had a monitoring gap
