@@ -23,11 +23,14 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 
 ## 2차 — 2026-08-20
 
-7월 이후 검증에서 나온 것들. **문서에 들어갈 성격의 12건**을 9개 페이지에 넣었다.
+7월 이후 검증에서 나온 것들. **문서에 들어갈 성격의 16건**을 12개 페이지에 넣었다.
+
+20 페이지를 하나씩 열어 대조했다. 나머지 5개(Spherical Coordinates, Migration Progress,
+빈 페이지 2개, 중복 스텁)는 우리 발견과 겹치는 내용이 없다.
 
 | 항목 | 어느 페이지 | 근거 |
 |---|---|---|
-| 빌드에 `-O` 플래그가 없음 | 설치 매뉴얼 2 + 모델 4 | RTF 0.2180 → 0.4380 |
+| 빌드에 `-O` 플래그가 없음 | **8곳** — 설치 매뉴얼 2 · 모델 4 · DVL · Underwater Camera | RTF 0.2180 → 0.4380 |
 | `<sigma>0.0</sigma>` 이 Gazebo **서버**를 죽임 | USBL Plugin | 튜토리얼 예제가 그 값을 가르치고 있었다 |
 | `paused:=false` 없으면 모든 ROS 콜백 차단 | USBL Plugin | Quick Start 명령에 없었다 |
 | `update_rate` 30 Hz 도달 불가 · P900 SDF 불일치 | Multibeam Sonar | 데이터시트 "up to 15 Hz" |
@@ -39,6 +42,10 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 | `dave_world.launch.py` headless 부재 | Installation Tutorial | manipulation world 3개가 막혀 있었다 |
 | `ogre` 우회에 인가된 X 디스플레이 필요 | Native 매뉴얼 | [`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) |
 | aarch64 OGRE2 미지원 · 소나 segfault · WGPU CPU 폴백 | Docker 매뉴얼 | |
+| **해류 서비스 이름에 네임스페이스 누락** | Ocean Current Plugin | 문서는 `/set_current_velocity`, 실제는 `/hydrodynamics/` 아래. **예제 12개가 그대로는 전부 실패한다** |
+| **NVIDIA 카드 필수라는 서술** | Native 매뉴얼 · CUDA 페이지 · System Requirements | PR #44 의 WGPU 로 CUDA 없이 동작. 맥 Metal 에서 PointCloud2 확인 |
+| 백엔드가 수치적으로 같지 않음 | CUDA 페이지 | CPU 폴백에는 위상 항이 없다 — 조용히 폴백되면 PR #44 의 모델이 아니다 |
+| Lyrical 은 Ubuntu 26.04 필요 | System Requirements | 24.04 에서 `apt-cache search ros-lyrical` 이 빈 결과 |
 
 형식은 1차와 맞췄다 — **기존 문장을 지우지 않고** `Added 2026-08-20` /
 `Corrected 2026-08-20` 으로 표시해 무엇이 왜 바뀌었는지 남게 했다.
@@ -65,3 +72,13 @@ ArduSub 의 Python 3.14 호환성 문제는 위키에 ArduSub 페이지가 없�
 | [`wiki-error-reports.md`](wiki-error-reports.md) | 위 문서의 작업 메모 |
 | [`dave-wiki-inaccuracies.md`](dave-wiki-inaccuracies.md) | 20 페이지를 읽으며 남긴 원본 기록 |
 | [`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) | `ogre` 우회의 X 디스플레이 요건. **버그가 아니라 문서 정정** — 우회는 동작하는데 설명이 불완전해 정상 설정이 고장난 것처럼 보인다 |
+
+## 이 확인의 한계
+
+2026-08-20 에 **20 페이지를 전부 열어** 우리 발견과 대조했다. 그전 두 번은 검색 결과와
+기억에 기댔고, 그래서 두 번 다 빠뜨렸다 — DVL 과 Underwater Camera 의 `colcon build`
+는 검색이 상위 10건만 돌려주는 바람에 안 보였다.
+
+**보장할 수 있는 범위는 "우리가 검증한 것과 대조했을 때 빠진 게 없다"까지다.**
+우리가 손대지 않은 영역(매니퓰레이터, Object Models 세부, Migration Progress 등)에
+다른 오류가 있는지는 확인한 적이 없으므로 알 수 없다.
