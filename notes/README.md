@@ -10,7 +10,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [`upstream/`](upstream/) | 상류에 보고할 것. [`drafts/`](upstream/drafts/) 가 원본, [`submit/`](upstream/submit/) 이 붙여넣기용 변환본, [`make_submittable.py`](upstream/make_submittable.py) 가 변환기 |
-| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`)의 오류 정정. 이슈가 아니라 문서 수정 제안 |
+| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20 두 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
 | [`results/`](results/) | 날짜별 실험 결과. [`worlds/`](results/worlds/) 는 world 18종 스모크 테스트 로그 |
 | [`experiments/`](experiments/) | 실험 스크립트. [`common.sh`](experiments/common.sh) 가 공통 측정 절차 |
 | [`benchmarks/`](benchmarks/) | 초기 벤치마크 스크립트와 결과 (7월). `bench_results/SUPERSEDED_*` 는 폐기된 회차 |

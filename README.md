@@ -31,7 +31,20 @@ Both refuse to finish if the sonar was compiled without an `-O` flag. That is no
 workspace built unoptimised for a month, and every performance figure taken in that time was
 half what it should have been.
 
-The same procedure as prose, with the reasoning for each argument:
+Building by hand instead, the one thing that must not be omitted:
+
+```bash
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
+
+# expect -O3, not an empty result
+grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq -c
+```
+
+Without it colcon leaves the build type empty and nothing gets an `-O` flag. On the sonar world
+that is RTF 0.2180 against 0.4380. Every performance figure here dated before 2026-08-05 was
+taken without it.
+
+The full procedure as prose, with the reasoning for each argument:
 [`notes/setup/reproduction.md`](notes/setup/reproduction.md). For Docker, [`docker/`](docker/).
 
 ## Documentation
@@ -50,6 +63,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | [`notes/upstream/submit/`](notes/upstream/submit/) | six issue reports prepared for `IOES-Lab/dave`, not yet filed |
 | [`docker/`](docker/) | Docker image build, RDP desktop, verification commands |
 | [`notes/next-steps.md`](notes/next-steps.md) | what is still open |
+| [`notes/wiki/`](notes/wiki/) | corrections applied to the DAVE documentation, and what was deliberately left out |
 
 ## Test labels
 
@@ -72,25 +86,6 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 
 Pinned source revisions and the migration patch:
 [`notes/patch-and-pinned-commits.md`](notes/patch-and-pinned-commits.md).
-
-## Build
-
-Full annotated procedure: [`notes/setup/reproduction.md`](notes/setup/reproduction.md).
-
-One thing must not be omitted — every `colcon build` needs `Release`:
-
-```bash
-colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
-```
-
-Without it colcon leaves the build type empty and nothing is compiled with `-O`. On the sonar
-world that is RTF 0.2180 against 0.4380, a 2.01x difference with no code change. Every
-performance figure in this repository dated before 2026-08-05 was taken without it.
-
-```bash
-# expect -O3, not an empty result
-grep -o '\-O[0-3s]*' build/multibeam_sonar/compile_commands.json | sort | uniq -c
-```
 
 ## References
 
