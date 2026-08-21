@@ -121,10 +121,14 @@ No. Grepped `patches/dave_lyrical_jetty_migration_mac.diff` for `usbl`,
 `ogre`, and `render_engine` — the diff touches 8 CMake/C++ files only (linking
 fixes for the Jetty `gz-rendering` rename), never a `.world` file. **No world
 file in this repo has ever had an ogre2→ogre swap applied via the tracked
-patch.** The already-documented "OGRE2 unavailable... GUI launches fail unless
+patch.** The then-documented "OGRE2 unavailable... GUI launches fail unless
 world files are patched ogre2 → ogre" Known Issue must refer to a manual/live
 edit that was never captured in the committed diff, or to a `--render-engine`
-command-line override — not tracked here either way.
+command-line override — not tracked here either way. **That Known Issue was
+itself withdrawn on 2026-08-21** — OGRE2 is present and a stock `gpu_lidar`
+runs on it in the same container; the crash is sonar-specific. This paragraph
+is left as written because its point about the patch not being tracked stands
+regardless.
 
 ## Hypothesis
 

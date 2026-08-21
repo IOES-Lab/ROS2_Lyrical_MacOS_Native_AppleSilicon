@@ -72,13 +72,28 @@ if (cartOpt && cartOpt->AsMetricVector()) cartVec = *cartOpt->AsMetricVector();
 
 `dave_sensor.launch.py` / `dave_robot.launch.py` gate all of Gazebo behind `condition=IfCondition(gui)`. `gui:=false` disables Gazebo entirely. Correct headless invocation: `gui:=true headless:=true`.
 
-## 7. OGRE2 unavailable on this OS/arch (Docker only)
+## 7. `ogre2` → `ogre` as a sonar workaround (Docker only)
 
 ```bash
 sed -i 's/ogre2/ogre/g' world_file.world   # both render_engine and engine tags
 ```
 
-OGRE1 still needs a real X display in "headless" mode — wrap with `xvfb-run -a`.
+**Scope correction 2026-08-21.** This section used to be headed "OGRE2 unavailable on this
+OS/arch", which later evidence does not support: a stock `gpu_lidar` runs on `ogre2` in the same
+container, and the DAVE sonar reaches `Ogre2Scene::PreRender` before segfaulting — both impossible
+if the plugin were missing. The patch works around a **sonar-specific** OGRE2 crash, not an absent
+renderer.
+
+**OGRE1 needs a real X display**, and `xvfb-run -a` is a plausible way to supply one that **was
+never tried here** — do not read it as verified. What was verified is an authorised connection to
+the container's live xrdp X server:
+
+```bash
+docker exec -u docker -e DISPLAY=:10 -e XAUTHORITY=/home/docker/.Xauthority ...
+```
+
+`DISPLAY` alone is not enough — a 2026-08-03 attempt set it without `XAUTHORITY`, ran as root, and
+was refused. See [`results/docker_sonar_x_display_2026-08-07/`](results/docker_sonar_x_display_2026-08-07/).
 
 ## 8. `xrdp` group permission (RDP screen setup only)
 

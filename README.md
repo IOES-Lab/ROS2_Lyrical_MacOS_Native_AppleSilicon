@@ -62,7 +62,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |
 | [`notes/setup/reproduction.md`](notes/setup/reproduction.md) | annotated build and launch procedure |
 | [`notes/validation_matrix.csv`](notes/validation_matrix.csv) | every world and vehicle, with its label |
-| [`notes/upstream/submit/`](notes/upstream/submit/) | six issue reports prepared for `IOES-Lab/dave`, not yet filed |
+| [`notes/upstream/submit/`](notes/upstream/submit/) | eight issue reports prepared for `IOES-Lab/dave`, none filed |
 | [`docker/`](docker/) | Docker image build, RDP desktop, verification commands |
 | [`notes/next-steps.md`](notes/next-steps.md) | what is still open |
 | [`notes/wiki/`](notes/wiki/) | corrections applied to the DAVE documentation, and what was deliberately left out |
@@ -84,7 +84,8 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | ROS 2 | Lyrical (source build) | Lyrical (apt, `ros-lyrical-desktop`) |
 | Gazebo | Jetty (Homebrew) | Jetty 10.4.0 (apt vendor build) |
 | Python | 3.14 | 3.14 |
-| GPU | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) |
+| Rendering | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) |
+| Sonar compute | WGPU on the Metal adapter | **CPU fallback** — WGPU could not obtain an adapter in the validated run |
 
 Pinned source revisions and the migration patch:
 [`notes/patch-and-pinned-commits.md`](notes/patch-and-pinned-commits.md).
