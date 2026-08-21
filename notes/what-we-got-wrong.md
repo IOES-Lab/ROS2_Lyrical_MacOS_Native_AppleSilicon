@@ -175,8 +175,15 @@ direct source evidence. But that is a different and weaker kind of evidence than
 and the draft had been written as though a live run backed it.
 
 **This one was caught in review before anything was filed**, which is the first time in this list.
-The distinguishing experiment is one launch: set the tag to `0.123` and see whether the variance
-moves.
+
+**And then the experiment was run.** The tag was set to `0.123`, the model relaunched, and
+`variance` came back `9.0` — where `0.123²` is `0.015129`, three orders of magnitude away. The
+claim was correct all along; what was wrong was the evidence offered for it. That distinction is
+the whole point. A true conclusion supported by an observation that cannot discriminate is still
+a reasoning error, and it fails the moment someone checks the reasoning rather than the
+conclusion.
+
+The fix cost one launch. Recognising it was needed cost a review round.
 
 ---
 
@@ -231,7 +238,10 @@ that were easy to find.
 
 Before a measurement is called evidence for a claim, the competing explanation is asked what it
 predicts. If it predicts the same number, the measurement is not evidence — it is a coincidence
-that happens to be consistent. `variance: 9.0` failed this test and nearly went upstream.
+that happens to be consistent. `variance: 9.0` at the shipped setting failed this test and nearly
+went upstream; `variance: 9.0` with the tag set to `0.123` passes it, because the alternative
+predicts `0.015129`. Same number, same topic, same command — one discriminates and one does not,
+and the difference is entirely in what else was varied.
 
 Reports state which of their claims are measured and which are read from source, per claim rather
 than per document. The two are not interchangeable, and a reader deciding whether to act on a

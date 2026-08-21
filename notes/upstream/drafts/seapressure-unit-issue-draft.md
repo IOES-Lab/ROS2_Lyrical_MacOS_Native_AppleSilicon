@@ -27,8 +27,7 @@ which the message definition specifies in **Pascals**.
 At the surface the topic therefore carries `101.325` where a consumer reading the message
 according to its own definition expects `101325`.
 
-The publisher is declared as `sensor_msgs::msg::FluidPressure` in the source
-(`create_publisher<sensor_msgs::msg::FluidPressure>`), and the message definition reads:
+The message definition reads:
 
 ```
 float64 fluid_pressure       # Absolute pressure reading in Pascals.
@@ -38,6 +37,9 @@ float64 variance             # 0 is interpreted as variance unknown
 Measured on a running simulation, REXROV at `z:=0` in `dave_ocean_waves`:
 
 ```
+$ ros2 topic type /model/rexrov/sea_pressure
+sensor_msgs/msg/FluidPressure
+
 $ ros2 topic echo /model/rexrov/sea_pressure --once
 fluid_pressure: 101.32505915145917
 ```
@@ -107,15 +109,13 @@ the value and document the unit, though that leaves the ROS message contract vio
 
 - **The 1000x factor is confirmed at runtime**, not inferred from reading the source. The echo
   output above is from a live simulation.
-- **Only the surface value was measured**, at `z:=0`, in one run. The scaling at depth follows
-  from the same code path but was not measured at several depths.
+- **Only the surface value was measured**, at `z:=0`. The scaling at depth follows from the same
+  code path but was not measured at several depths. The value was identical across two separate
+  launches.
 - **`sea_pressure_depth` was not checked numerically.** The reasoning that its units cancel is
   from reading the code, not from comparing its output against a known depth.
 - **Only the ROS-side message was examined.** The Pascal convention cited is
   `sensor_msgs/msg/FluidPressure`'s; no equivalent claim is made for the Gazebo message.
-- **The message type was read from the source, not captured from `ros2 topic type`.** The
-  publisher is templated on `sensor_msgs::msg::FluidPressure`, which is unambiguous, but the
-  terminal output confirming it was not retained.
 - Measured on macOS / Apple Silicon / Metal under ROS 2 Lyrical + Gazebo Jetty 10.4, headless.
   Nothing about the defect looks platform-specific — it is a missing unit conversion visible in
   the source.

@@ -1,0 +1,9 @@
+sensor_msgs/msg/FluidPressure
+header:
+  stamp:
+    sec: 0
+    nanosec: 2000000
+  frame_id: ''
+fluid_pressure: 101.32505915145917
+variance: 9.0
+---

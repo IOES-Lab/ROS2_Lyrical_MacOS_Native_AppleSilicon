@@ -1,4 +1,4 @@
-# SeaPressure publishes kPa into a Pascal field — runtime confirmation
+# SeaPressure: a Pascal-field unit error and an ignored `noise_sigma`, both confirmed at runtime
 
 **2026-08-21** · macOS / Apple M2 / Metal · ROS 2 Lyrical + Gazebo Jetty 10.4.0 · headless
 
@@ -37,12 +37,11 @@ fluid_pressure: 101.32505915145917
 variance: 9.0
 ```
 
-**The message type was not captured.** Earlier versions of this note showed a
-`ros2 topic type` invocation returning `sensor_msgs/msg/FluidPressure` in this block, as though
-it were part of the recorded session. It was not in the terminal record. The type is certain from
-the source — the publisher is `create_publisher<sensor_msgs::msg::FluidPressure>` — but that is a
-different kind of evidence than a captured output, and presenting it as the latter was the same
-error as the `variance` one below, on a smaller scale. Re-capture it during the `0.123` run.
+The message type was **not** captured in this first session — an earlier version of this note
+showed a `ros2 topic type` invocation here as though it had been, which it had not. It was
+captured in the discriminating run below, whose output begins with the line
+`sensor_msgs/msg/FluidPressure`. The type is now confirmed from the CLI rather than only from
+`create_publisher<sensor_msgs::msg::FluidPressure>` in the source.
 
 ## What it establishes
 
@@ -86,13 +85,61 @@ SDF or from the default is not determined here. The claim that `Configure()` nev
 element stands on reading `Configure()` and finding no branch for it — source evidence, which is
 direct, but not runtime evidence.
 
-**The discriminating experiment has not been run.** It is one launch, and the procedure is below.
+**The discriminating experiment has since been run, and it settles the question — see the next
+section.** What follows above stands as the record of why the first attempt did not.
 
 This is the same failure this project has now recorded five times — a signal that resembles the
 target being accepted as the target. It is written up in
-[`../../what-we-got-wrong.md`](../../what-we-got-wrong.md).
+[`../../what-we-got-wrong.md`](../../what-we-got-wrong.md). It is also the first one caught before
+publication, and the first to be closed by running the experiment rather than by weakening the
+claim.
 
-### The experiment that would settle it
+## The discriminating run — `<noise_sigma>0.123</noise_sigma>`
+
+```
+Test input:            <noise_sigma>0.123</noise_sigma>   (rexrov/model.sdf:896)
+Expected if applied:   variance = 0.015129                (0.123²)
+Expected if ignored:   variance = 9.0                     (3.0², the compiled-in default)
+Observed:              variance = 9.0
+Conclusion:            the SDF value is ignored; the compiled-in default 3.0 remains active
+Restored after test:   <noise_sigma>3.0</noise_sigma>     (verified by grep; backup removed)
+```
+
+Full output, saved as [`noise_sigma_0p123.txt`](noise_sigma_0p123.txt):
+
+```
+$ ros2 topic type /model/rexrov/sea_pressure
+sensor_msgs/msg/FluidPressure
+
+$ ros2 topic echo /model/rexrov/sea_pressure --once
+header:
+  stamp:
+    sec: 0
+    nanosec: 2000000
+  frame_id: ''
+fluid_pressure: 101.32505915145917
+variance: 9.0
+---
+```
+
+**`<noise_sigma>` is now confirmed ignored at runtime.** The two hypotheses predicted values three
+orders of magnitude apart — 0.015129 against 9.0 — so unlike the first run, this one discriminates.
+The finding no longer rests on the absence of a parsing branch in `Configure()`; that reading now
+has a measurement behind it.
+
+**Two things came free with it.** `ros2 topic type` was captured this time, closing the gap noted
+above. And `fluid_pressure` reads `101.32505915145917` — **bit-identical to the first run**, which
+is consistent with the reading being deterministic, as it must be if the Gaussian noise is never
+applied. That is corroboration, not proof: two identical readings at the same depth would also
+appear if noise were applied with a fixed seed. The commented-out line remains the actual
+evidence.
+
+**Still source-only:** `saturation` and the un-applied Gaussian noise. Neither was tested by
+setting a value and observing no effect, and this run says nothing about either.
+
+### Procedure
+
+Kept for reproduction. This is what was run.
 
 Terminal 1 — back up the model, change the tag, launch:
 
@@ -133,14 +180,10 @@ ros2 topic type /model/rexrov/sea_pressure
 ros2 topic echo /model/rexrov/sea_pressure --once
 ```
 
-| Reading | Means |
-|---|---|
-| `variance: 9.0` | the tag is ignored — **runtime confirmation**, and §1 of the draft can drop its caveat |
-| `variance: 0.015129` | the tag *is* applied (`0.123²`), and the source-based claim is **wrong** — withdraw it |
-
-`ros2 topic type` is worth running in the same session regardless: the current draft states the
-message type from the source because the terminal output was never captured, and this closes that
-gap for free.
+| Reading | Would mean | Actual |
+|---|---|---|
+| `variance: 9.0` | the tag is ignored | **← observed** |
+| `variance: 0.015129` | the tag *is* applied (`0.123²`), source-based claim wrong | not observed |
 
 Restore afterwards — `Ctrl+C` in terminal 1, then:
 
@@ -162,7 +205,9 @@ grep -n noise_sigma "$MODEL"
   all, so nothing is known here about what `gz::msgs::FluidPressure` declares — an earlier
   version of this note said the definition "carries no unit comment", which overstated a failed
   search as an inspection.
-- **Single platform**, single run.
+- **Single platform.** Two runs on the same machine: the baseline and the `0.123` discriminator.
+- **`saturation` and the un-applied noise remain source-only.** The `0.123` test covers
+  `noise_sigma` and nothing else.
 
 ## Separate observation, not part of this finding
 
@@ -179,4 +224,4 @@ notes named the branch instead. The branch name in this workspace is `lyrical-je
 ## Reports written from this
 
 - [`../../upstream/drafts/seapressure-unit-issue-draft.md`](../../upstream/drafts/seapressure-unit-issue-draft.md) — the unit mismatch. Runtime-confirmed; file this one first
-- [`../../upstream/drafts/seapressure-dead-params-issue-draft.md`](../../upstream/drafts/seapressure-dead-params-issue-draft.md) — `noise_sigma` unparsed, `saturation` unused, Gaussian noise commented out. **Source-based**; wants the `0.123` launch first, or files with the limitation stated
+- [`../../upstream/drafts/seapressure-dead-params-issue-draft.md`](../../upstream/drafts/seapressure-dead-params-issue-draft.md) — `noise_sigma` unparsed (**now runtime-confirmed**), `saturation` unused and Gaussian noise commented out (**source-only**)
