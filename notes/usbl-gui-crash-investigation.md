@@ -68,7 +68,7 @@ all prior layers cache-hit). This fix is no longer container-local/lost-on-recre
   avoid the word "only" entirely. That separate gap, for the same world,
   downgraded its overall status from FUNCTIONAL PASS to PARTIAL: no single
   test run has confirmed both real topic data *and* the post-fix no-abort
-  state at once — see [Verified demos](../README.md#verified-demos) in the
+  state at once — see [Verified demos](verified-demos.md) in the
   main README. That gap is about test coverage, not about the crash fix
   itself, so it's tracked there rather than as a third bullet here.)
 

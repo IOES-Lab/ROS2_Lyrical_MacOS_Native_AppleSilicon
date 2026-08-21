@@ -155,6 +155,23 @@ purpose.
 
 None of these announced themselves either. Each edit returned success.
 
+### A link checker that could not see the thing it was checking
+
+**Believed:** all relative links in the repository resolve. A commit message said so — "All 221
+relative links resolve" — on the strength of a script run just before.
+
+**Actually:** 38 were broken. When the README was split into separate files, links of the form
+`../README.md#known-issues` were left pointing at headings that had moved out of that file. The
+checker computed `target.split('#')[0]` and asked whether *that* existed. `../README.md` exists.
+Every one of them passed.
+
+**Caught by** an outside review that ran a checker which resolves the heading slug as well as the
+path.
+
+The script was not wrong about what it measured. It was measuring file existence and being
+reported as link validity, and the gap between those two is exactly where the 38 lived. This is
+the sixth entry on this page with that shape, and the second in two days.
+
 ### A "second confirmation" that confirmed nothing
 
 The pressure sensor's unit error was measured properly: `fluid_pressure: 101.325` where the
@@ -177,7 +194,7 @@ and the draft had been written as though a live run backed it.
 **This one was caught in review before anything was filed**, which is the first time in this list.
 
 **And then the experiment was run.** The tag was set to `0.123`, the model relaunched, and
-`variance` came back `9.0` — where `0.123²` is `0.015129`, three orders of magnitude away. The
+`variance` came back `9.0` — where `0.123²` is `0.015129`, about 595× away. The
 claim was correct all along; what was wrong was the evidence offered for it. That distinction is
 the whole point. A true conclusion supported by an observation that cannot discriminate is still
 a reasoning error, and it fails the moment someone checks the reasoning rather than the
@@ -203,8 +220,9 @@ reports a plausible wrong number costs a week, and takes the conclusions built o
 by reading source and watching RTF. The first measurement retired four of them in one run.
 
 **Configuration that does not appear in results.** The workspace built without optimisation for
-a month. Nothing failed; every number was just quietly half what it should have been. This is
-now the one thing the build scripts refuse to proceed without.
+a month. Nothing failed; the sonar numbers were just quietly about half what they should have
+been — measured on one world at one configuration, n=1, so the scope of the 2.01x is that result
+and not every package. This is now the one thing the build scripts refuse to proceed without.
 
 **A tool reporting success, taken as evidence the change happened.** An edit API returns success
 when the call was well-formed, not when the document ended up the way it was meant to. Three
@@ -232,7 +250,9 @@ documents say so rather than leaving it implied — the sonar's acoustic accurac
 verified, and that sentence is in the README.
 
 Edits are verified by reading the result back, not by the editing tool's return value, and the
-check has to cover everything the claim covers. "All eight rows fixed" is verified by counting
+check has to cover everything the claim covers. A checker that passes is evidence only for the
+property it actually tests — before quoting one, say out loud what it measures and compare that
+sentence to the claim being made. "All eight rows fixed" is verified by counting
 eight rows in the fetched page, not by searching for the phrase that appeared in the two rows
 that were easy to find.
 

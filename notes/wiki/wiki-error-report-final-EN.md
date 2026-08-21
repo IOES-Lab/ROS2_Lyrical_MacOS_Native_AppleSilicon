@@ -59,11 +59,20 @@ one for this demo.
 (https://github.com/IOES-Lab/dave/tree/sonar-demo), and if possible, a maintainer confirm
 whether this is still accurate ("TO BE MERGED" — has it been merged since?).
 
+> **Resolved 2026-08-21.** The question below ("has it been merged since?") is answered: the sonar
+> worlds are present on `IOES-Lab/dave`'s `ros2` default branch — `dave_ocean_waves_sonar.world`,
+> `dave_ocean_waves_sonar_integrated.world` and `dave_multibeam_sonar.world`. Separately, this
+> checkout was found on 2026-07-22 not to need the branch at all; both worlds only require
+> `multibeam_sonar_system`, which is already present. **The "TO BE MERGED" wording on the wiki page
+> was removed the same day.** This entry is kept as the record of the original report.
+
+
 ## For context, not a per-page fix
 
 - None of the Wiki's 20 pages mention "Lyrical" or "Jetty" anywhere, including pages edited
-  as recently as this week — the Wiki is currently written entirely for ROS 2 Jazzy + Gazebo
-  Harmonic. We're not asking for a full Lyrical/Jetty rewrite in this report, just flagging it
+  within the week before 2026-07-20 — the Wiki was at that point written entirely for ROS 2 Jazzy + Gazebo
+  Harmonic. **This is no longer true as written** — Lyrical/Jetty context was added to 12 pages on
+  2026-08-20; see [`README.md`](README.md). We're not asking for a full Lyrical/Jetty rewrite in this report, just flagging it
   since it may be relevant to how you want to handle contributions like the corrections above.
 - The "Migration Progress" database only tracks the original ROS 1 → ROS 2/Harmonic migration
   (last edited months ago) — not something we're asking to be changed, just noting it in case

@@ -122,8 +122,9 @@ variance: 9.0
 ---
 ```
 
-**`<noise_sigma>` is now confirmed ignored at runtime.** The two hypotheses predicted values three
-orders of magnitude apart — 0.015129 against 9.0 — so unlike the first run, this one discriminates.
+**`<noise_sigma>` is now confirmed ignored at runtime.** The two hypotheses predicted values about
+595× apart — 0.015129 against 9.0, nearly three orders of magnitude — so unlike the first run,
+this one discriminates.
 The finding no longer rests on the absence of a parsing branch in `Configure()`; that reading now
 has a measurement behind it.
 

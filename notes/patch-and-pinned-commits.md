@@ -6,9 +6,8 @@
 
 ## 고정한 커밋
 
-## 고정한 커밋
 
-빌드 산출물 자체가 비트 단위로 재현되지는 않는다 — 이유는 [Docker 이미지](#docker-이미지) 참고.
+빌드 산출물 자체가 비트 단위로 재현되지는 않는다 — 이유는 [`docker/README.md`](../docker/README.md) 참고.
 
 | 저장소 | 브랜치 | 커밋 |
 |---|---|---|
@@ -18,6 +17,5 @@
 
 ## 패치
 
-## Patch
 
 [`patches/dave_lyrical_jetty_migration_mac.diff`](../patches/dave_lyrical_jetty_migration_mac.diff) — base commit [`6aef91c`](https://github.com/IOES-Lab/dave/pull/44/commits/6aef91c823af5da073329b84ba617b572965e79e) on `naitikpahwa18/dave` (`wgpu_integration`, part of [PR #44](https://github.com/IOES-Lab/dave/pull/44)), currently **8 files changed, +177/−152** (updated 2026-07-23, second pass: +1/−1 from the previous +176/−151 figure, from fixing the 4th remaining stale "Compiling against Gazebo Harmonic" build-log message in `dave_gz_sensor_plugins/CMakeLists.txt`, confirmed present via `sed` on the real checkout and now corrected to say "Jetty" — see Known issues; +176/−151 itself was +4/−4 from the original +172/−147, from the first 3 message fixes plus 1 stale comment fix). The original +172/−147 version was verified to apply identically and produce identical `git diff --stat` output on both macOS and Docker/Ubuntu 26.04, and rebuilt successfully on both (2026-07-14) — that full rebuild-and-compare has **not** been independently re-run against the current +177/−152 version; all 5 message/comment-text-only additions apply cleanly (each confirmed against the real checkout) but haven't themselves been rebuilt on either platform to reconfirm the build still succeeds, though they're single string literals with no logic change. Full pattern breakdown in [`notes/cmake-migration-patterns.md`](cmake-migration-patterns.md).

@@ -11,8 +11,9 @@ separate running container, not a fresh clean build of current HEAD) — see the
 full detail, this file's table is kept in sync with it.
 Validated (as of the 2026-07-18 baseline build specifically): Build, headless launch, XFCE/xrdp
 login, ROS environment + dave_demos/multibeam_sonar_system/mavros package presence. Validated
-separately, against the lyrical-theme-test container: **18/18 worlds PASS-level (13 smoke, 5
-functional), 0 PARTIAL as of 2026-08-07** (the last two PARTIAL rows were reclassified when their
+separately: **aggregate Mac + Docker matrix, 18/18 worlds PASS-level (13 smoke, 5
+functional), 0 PARTIAL as of 2026-08-07** — the 3 manipulation worlds were confirmed on Mac only,
+since the headless launch fix has not been applied inside Docker (the last two PARTIAL rows were reclassified when their
 stated grounds failed to reproduce; see notes/progress-log.md), USBL world-file + launch-arg workaround (upgraded
 PARTIAL → FUNCTIONAL PASS 2026-07-29, see table below). Quantitative RTF benchmark (ocean_waves/usbl_tutorial) re-run
 clean 2026-07-27 using the fixed scripts (see table below). 1h clean stability run passed;
@@ -20,14 +21,14 @@ a 2026-07-23 4h re-run finished but used a pre-fix script and had a monitoring g
 (PRELIMINARY). A genuinely clean 4h re-run completed 2026-07-29 — current script,
 gap-free 2-minute sampling for the full 4h, SURVIVED, RSS 932->1253MiB (12% growth,
 heuristic OK) — see main README Next steps.
-Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop. dave_multibeam_sonar has a known simulation-progress instability (updated 2026-07-29: re-investigation found sustained extreme-slowdown crawl, not a hard stall, in one Docker run — RTF ~0.0008-0.0077, CPU ~31-32%) — see table below and main README Known issues.
+Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop. dave_multibeam_sonar still segfaults in Docker as shipped (`ogre2`). Under the documented `ogre` + authorised-X-display configuration it runs and publishes PointCloud2, but WGPU cannot obtain an adapter there and falls back to the CPU backend, so **no valid Docker RTF exists for this world** — the figures once quoted here were withdrawn, see [Superseded figures](#superseded-figures).
 ```
 
 **Provenance (2026-07-18):** `lyrical.arm64v8.dockerfile` in this folder was clean-built
 (`--no-cache`) end to end on 2026-07-18, including the commit SHA pinning, `.bashrc`
 source-order fix, the CA-bootstrap fix described under Known limitations, and a from-source
 mavros build (`ros-lyrical-mavros` isn't published via apt yet — see the main
-[README.md Known issues](../README.md#known-issues)) — image tag `lyrical-sim:jetty-rdp-pr1-ca-fix`.
+[README.md Known issues](../notes/known-issues.md)) — image tag `lyrical-sim:jetty-rdp-pr1-ca-fix`.
 Build took **51m 22s**, produced a **21.9GB** image, and an idle running container (no active
 RDP session or Gazebo demo) used **62.66MiB** RAM (`docker stats`) — a floor, not a
 representative figure under load. **Under an active demo workload** (2026-07-20, same image,
@@ -170,12 +171,12 @@ docker exec -it lyrical-sim bash -lc \
 | ArduSub SITL build | PASS |
 | mavros build (from source; `ros-lyrical-mavros` not yet on apt) | PASS — `mavros`/`mavros_extras`/`mavros_msgs`/`mavros_examples` confirmed via `ros2 pkg list`, MAVLink bridging itself not yet exercised |
 | RAM/CPU under an active demo workload | MEASURED — short observation window: ~1008MiB (8.44%) / ~1.2–1.5% CPU, steady over 5 samples across ~20s (2026-07-20); idle floor is 62.66MiB. Not a long-duration measurement — see the separate long-duration stability test row |
-| USBL | FUNCTIONAL PASS (combined evidence, workaround, upgraded from PARTIAL 2026-07-29) — two independent real bugs, not one. Bug 1: the Gazebo **server** aborting on an unvalidated `sigma=0.0`, not a GUI crash as first thought; fixed via a world-file patch (`sigma` → `0.0001`), baked into this Dockerfile. Bug 2 (found 2026-07-29): `dave_sensor.launch.py` only adds `gz sim`'s `-r` (run-on-start) flag when given `paused:=false` explicitly — without it the world loads paused and both USBL plugins' `rclcpp::spin_some()` call (gated behind `if (!_info.paused)`) never runs, so no ROS2 subscription callback can fire regardless of DDS-level topic matching. Worked around via the launch arg only. Both fixes are workarounds, not plugin-level fixes. Re-verified 2026-07-29 with `paused:=false`: real topic data and the post-fix no-abort state now confirmed in **one continuous run** — see main [README.md Known issues](../README.md#known-issues) and [Verified demos](../README.md#verified-demos) |
-| 18-world validation matrix | 16/18 PASS-level (9 SMOKE PASS, 4 FUNCTIONAL PASS, 3 manipulation-world SMOKE PASS — see below), 2/18 PARTIAL (`dave_multibeam_sonar` and `dave_ocean_waves_sonar_integrated` — both show confirmed simulation-progress problems of different severity), 0/18 NOT AUTOMATED — **updated 2026-07-27:** the `dave_world.launch.py` headless-mode gap that blocked all 3 manipulation worlds is now fixed on the Mac checkout ([`patches/dave_world_launch_headless_fix.diff`](../patches/dave_world_launch_headless_fix.diff)) and confirmed on all 3 (`dave_bimanual_example`, `dave_electrical_mating`, `dave_plug_and_socket` — each survived a 20s headless run, no crash), now SMOKE PASS (liveness only, no topic/service data expected from these static prop worlds). Fix is Mac-only so far, not yet applied inside Docker. **Updated 2026-07-29:** `usbl_tutorial` upgraded PARTIAL → FUNCTIONAL PASS, see row above — see main [README.md](../README.md#progress-log) and `notes/validation_matrix.csv` |
-| Worlds previously documented as `sonar-demo`-branch-only | The separate-branch requirement was investigated and found incorrect for this checkout (2026-07-22) — both worlds only need `multibeam_sonar_system`, already present. Status differs between the two: `dave_ocean_waves_sonar` is SMOKE PASS; `dave_ocean_waves_sonar_integrated` is PARTIAL (confirmed simulation slowdown — **updated 2026-07-29:** a clean re-check found RTF ~0.1-0.4, roughly 10× better than the previously-documented ~0.03, though CPU climbed unexplainedly over the observation window) — see main [README.md Verified demos](../README.md#verified-demos) |
-| All vehicle/sensor/GUI-headless combinations | REXROV + DVL/camera/ocean-current/pressure confirmed with real topic data; USBL now confirmed real topic data and the post-fix no-crash state in the same run (see USBL row above, upgraded 2026-07-29); BlueROV2/BlueROV2 Heavy/Slocum Glider have not yet been used as the smoke-test vehicle for any world (ArduSub SITL build/launch success is a separate, already-confirmed thing — see main README [Verified demos](../README.md#verified-demos)) |
-| Quantitative performance benchmark | **PASS** for `dave_ocean_waves`/`usbl_tutorial`, clean rerun 2026-07-27 (the 2026-07-23 run was found to predate the real process-group cleanup fix, `fc48555`, and downgraded to PRELIMINARY — see main README Known issues for that finding), PARTIAL for `dave_multibeam_sonar` (same RTF sampling methodology and parameters on Mac and Docker, run via two platform-specific scripts — `benchmark_worlds.sh` on Docker, `benchmark_worlds_mac.sh` on Mac): `dave_ocean_waves` RTF 0.170 (Docker) / 0.376 (Mac); `usbl_tutorial` RTF 0.687 (Docker) / 0.646 (Mac). Numbers differ meaningfully from the superseded 2026-07-23 run (e.g. Docker `usbl_tutorial` 1.000 → 0.687), confirming that run wasn't reliable. `dave_multibeam_sonar` **excluded from the comparison** — confirmed unreliable on both platforms (crawls at RTF ~0.012-0.015/0.107, or shows a simulation-progress stall with platform-specific symptoms: Mac high-CPU/livelock-like, Docker near-idle/possible deadlock — mechanism not confirmed, no thread dump/lock analysis done), not a valid benchmark number. **Updated 2026-07-29:** a correctly-identified live process (`gdb`-attached, PID verified via `ps` against a concurrent unrelated `gz-sim-main`) was re-checked over ~34 minutes in Docker — no hard stall this time, but continuous crawl at RTF ~0.0008-0.0077 (CPU ~31-32%, not the near-idle ~1% previously seen) — see main [README.md Verified demos](../README.md#verified-demos) for the full finding. See main [README.md](../README.md#next-steps) and `notes/bench_results/`. Reported as separate environments per-world, not a single "N× faster" claim |
-| Long-duration stability | PARTIAL (updated 2026-07-27) — the original 4h run crashed at ~4.4h; traced to leftover test-script processes starving the container (not a DAVE/Gazebo-Jetty bug), fixed in all 4 test scripts, and a clean 1h re-run **survived the full duration**. A 4h re-run was started 2026-07-23 and did finish reporting `SURVIVED full planned duration`, but reviewing it 2026-07-27 found it ran the pre-fix script (no leak-detection heuristic, confirmed via the script actually baked into the container) and has a 114-minute sampling gap consistent with the host Mac sleeping mid-run — **PRELIMINARY, not a valid clean confirmation**, a proper rerun is still needed. See main [README.md](../README.md#progress-log) and [Next steps](../README.md#next-steps) for the full finding and raw result files |
+| USBL | FUNCTIONAL PASS (combined evidence, workaround, upgraded from PARTIAL 2026-07-29) — two independent real bugs, not one. Bug 1: the Gazebo **server** aborting on an unvalidated `sigma=0.0`, not a GUI crash as first thought; fixed via a world-file patch (`sigma` → `0.0001`), baked into this Dockerfile. Bug 2 (found 2026-07-29): `dave_sensor.launch.py` only adds `gz sim`'s `-r` (run-on-start) flag when given `paused:=false` explicitly — without it the world loads paused and both USBL plugins' `rclcpp::spin_some()` call (gated behind `if (!_info.paused)`) never runs, so no ROS2 subscription callback can fire regardless of DDS-level topic matching. Worked around via the launch arg only. Both fixes are workarounds, not plugin-level fixes. Re-verified 2026-07-29 with `paused:=false`: real topic data and the post-fix no-abort state now confirmed in **one continuous run** — see main [README.md Known issues](../notes/known-issues.md) and [Verified demos](../notes/verified-demos.md) |
+| 18-world validation matrix | **18/18 PASS-level, 0 PARTIAL** (2026-08-07) — 13 SMOKE PASS (process-level liveness), 5 FUNCTIONAL PASS (real topic/service/sensor data read back). The last two PARTIAL rows were reclassified when their stated grounds stopped reproducing: `dave_multibeam_sonar` → FUNCTIONAL PASS once it ran under the authorised-X-display configuration and published PointCloud2, and `dave_ocean_waves_sonar_integrated` → SMOKE PASS once its RTF and CPU-climb grounds were both refuted. The `dave_world.launch.py` headless gap that blocked all 3 manipulation worlds is fixed ([`patches/dave_world_launch_headless_fix.diff`](../patches/dave_world_launch_headless_fix.diff)) — **still Mac-only, not applied inside Docker.** See [`notes/verified-demos.md`](../notes/verified-demos.md) and `notes/validation_matrix.csv`. Earlier 16/18 wording in [Superseded figures](#superseded-figures) |
+| Worlds previously documented as `sonar-demo`-branch-only | The separate-branch requirement was investigated and found incorrect for this checkout (2026-07-22) — both worlds only need `multibeam_sonar_system`, already present. **Both are now PASS-level:** `dave_ocean_waves_sonar` SMOKE PASS, `dave_ocean_waves_sonar_integrated` SMOKE PASS (reclassified 2026-08-07). Neither has had its sonar output topics echoed — only `/world/.../stats` — which is why both are SMOKE rather than FUNCTIONAL. See [`notes/verified-demos.md`](../notes/verified-demos.md) |
+| All vehicle/sensor/GUI-headless combinations | REXROV + DVL/camera/ocean-current/pressure confirmed with real topic data; USBL now confirmed real topic data and the post-fix no-crash state in the same run (see USBL row above, upgraded 2026-07-29); BlueROV2/BlueROV2 Heavy/Slocum Glider have not yet been used as the smoke-test vehicle for any world (ArduSub SITL build/launch success is a separate, already-confirmed thing — see main README [Verified demos](../notes/verified-demos.md)) |
+| Quantitative performance benchmark | **PASS** for `dave_ocean_waves`/`usbl_tutorial`, clean rerun 2026-07-27: `dave_ocean_waves` RTF 0.170 (Docker) / 0.376 (Mac); `usbl_tutorial` RTF 0.687 (Docker) / 0.646 (Mac). Reported as separate environments per world, not a single "N× faster" claim. **No valid Docker RTF exists for `dave_multibeam_sonar`** — the figures previously quoted here were withdrawn (see [Superseded figures](#superseded-figures)), and the world has not been re-measured under the X-display configuration that makes it run. Mac figures for that world are in [`notes/sonar-performance.md`](../notes/sonar-performance.md). See [`notes/next-steps.md`](../notes/next-steps.md) and `notes/bench_results/` |
+| Long-duration stability | **PASS** (2026-07-29) — a genuinely clean 4-hour run completed: 120 samples at an unbroken 2-minute cadence from elapsed=2min to elapsed=240min with no gaps, `Outcome: SURVIVED full planned duration`, RSS 932 → 1253 MiB (+12%, memory-growth heuristic OK). This is the first 4h run that is simultaneously current-script, uncontaminated and gap-free — it closes the item that had been open since 2026-07-27. Raw data committed at [`notes/stability/4h_clean_2026-07-29/`](../notes/stability/4h_clean_2026-07-29/) and re-verified on the committed copy. Earlier attempts in [Superseded figures](#superseded-figures) |
 
 ## Known limitations
 
@@ -235,7 +236,32 @@ docker exec -it lyrical-sim bash -lc \
   -R docker:docker /home/docker`; (3) `ardupilot_sitl`'s `waf` still fails with
   `ModuleNotFoundError: No module named 'imp'` even after both of the above, the same Python
   3.14/`imp` incompatibility already tracked in the main
-  [README.md Known issues](../README.md#known-issues) — the shim applied during the image build
+  [README.md Known issues](../notes/known-issues.md) — the shim applied during the image build
   isn't present/effective in this interactive `docker`-user shell. Net effect: don't rebuild as
   `docker` unless you're intentionally testing uncommitted source changes; for running the
   existing demos, skip `colcon build` entirely.
+
+
+---
+
+## Superseded figures
+
+**Nothing in this section describes the current state.** It is kept so that the record shows when
+a number changed and why. Do not quote from it.
+
+**Withdrawn:** the Docker RTF `~0.0018` / `~0.0008-0.0077` figures for `dave_multibeam_sonar`.
+They were sampled from `/world/oceans_waves/stats`, which is **not that world** —
+`dave_multibeam_sonar.world` declares `<world name="default">` — while a `dave_ocean_waves`
+stability run was executing in the same container. Withdrawn 2026-08-03, together with the
+"Docker is ~123x worse than Mac" comparison built on them.
+
+**Superseded:** `RTF ~0.03` for `dave_ocean_waves_sonar_integrated` (a 20 s spot sample; Mac
+measurements under the corrected method give 0.2241 / 0.2197). The Mac `4.5x` sonar cost
+(now 1.90x — the earlier figure came from an unoptimised build with a settle criterion that was
+timing the startup window). The `32%→47%→69%` CPU climb (not reproduced in two isolated runs).
+
+**Superseded wording:** this page's table previously read `16/18 PASS-level, 2/18 PARTIAL`, and
+its stability row read `PARTIAL ... a proper rerun is still needed`. Both were true when written
+and are not now — see the rows above.
+
+Full accounting: [`notes/what-we-got-wrong.md`](../notes/what-we-got-wrong.md).

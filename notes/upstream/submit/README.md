@@ -14,19 +14,21 @@ is public with Issues enabled. The `package.xml` fix would go as a fork-and-PR.
 
 **Filing is a person's decision, not an automatic next step.** `IOES-Lab/dave` is not ours to
 write to; these drafts exist so that whoever does file them has the evidence ready. The ordering
-suggestions below are notes for that person. See [`../../CLAUDE.md`](../../CLAUDE.md).
+suggestions below are notes for that person. See [`CLAUDE.md`](../../../CLAUDE.md).
 
 **Target repository:** `IOES-Lab/dave`, default branch **`ros2`** (not `main`).
 
 ## The eight issues
 
-Ordered by suggested filing sequence — the first three are one-line fixes with measured
+**Issue numbers reflect draft creation order, not filing order.** Recommended first submission
+is issue 7, then issue 8 after maintainer feedback. Within the older six, the first three are
+one-line fixes with measured
 before/after, so they are the easiest for a maintainer to act on. The last two were added on
 2026-08-21 after the pressure sensor was checked against a running simulation.
 
 | # | File | What it reports | Fix size |
 |---|---|---|---|
-| 1 | [`vehicle-imu-topic.md`](vehicle-imu-topic.md) | No vehicle's IMU data reaches ROS. All four models omit `<topic>` on `imu_sensor`, so the bridged topic exists and stays silent. | One line per model |
+| 1 | [`vehicle-imu-topic.md`](vehicle-imu-topic.md) | No vehicle's IMU data reaches ROS. Four models omit `<topic>` on `imu_sensor`, so the bridged topic exists and stays silent — measured before/after. A fifth, `bluerov2_heavy_multibeam_sonar`, has the same omission in source but was not launched. | One line per model |
 | 2 | [`build-type.md`](build-type.md) | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing is compiled with `-O`. `Release` doubles RTF. | One flag |
 | 3 | [`updaterate.md`](updaterate.md) | `blueview_p900` asks for 30 Hz, which the sensor cannot reach and the hardware does not do. 2 Hz removes 75% of the sonar's cost. | One number |
 | 4 | [`usbl.md`](usbl.md) | `UsblTransponder` aborts the Gazebo **server** on `<sigma>0.0</sigma>`, which the shipped demo world sets. | Input validation |
@@ -82,4 +84,6 @@ The script strips our status/target/label notes into an HTML comment, separates 
 and rewrites every relative link to an absolute URL — without that last step the links break
 when pasted into another repository's tracker. It re-checks that no relative links survive.
 
-All linked paths were verified to exist and to be committed, so none will 404.
+Link checking covers anchors as well as paths — an earlier checker compared only the part
+before `#`, so 38 links pointing at headings that no longer exist passed it. The check that
+matters resolves the target file *and* the heading slug inside it.

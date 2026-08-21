@@ -15,7 +15,7 @@ publish the data they should. **Acoustic accuracy has never been verified.**
 | Worlds | 18/18 PASS-level, 0 PARTIAL |
 | Sonar cost | RTF **0.5243** against a **0.9974** no-sonar control — 1.90x, not the 4.5x reported earlier |
 | Largest win | `update_rate` 30 Hz → 2 Hz removes 75% of that cost, with no code change |
-| Build trap | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing gets an `-O` flag. `Release` doubles RTF |
+| Build trap | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing gets an `-O` flag. `Release` doubled RTF on the sonar world (0.218 → 0.438, n=1) |
 
 Measurement detail and how these numbers replaced the earlier ones:
 [`notes/sonar-performance.md`](notes/sonar-performance.md).
@@ -28,8 +28,10 @@ extras/build-dave-lyrical-macos.sh     # macOS Apple Silicon — see extras/READ
 ```
 
 Both refuse to finish if the sonar was compiled without an `-O` flag. That is not caution: this
-workspace built unoptimised for a month, and every performance figure taken in that time was
-half what it should have been.
+workspace built unoptimised for a month, and the sonar figures taken in that time were about half
+what they should have been. **The measured effect is one condition of one world** — RTF 0.218 →
+0.438 on `dave_multibeam_sonar` at its shipped sensor configuration, n=1 — so treat 2.01x as that
+result rather than as a workspace-wide multiplier. Other packages were not re-measured.
 
 Building by hand instead, the one thing that must not be omitted:
 

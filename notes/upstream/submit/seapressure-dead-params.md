@@ -44,8 +44,8 @@ fluid_pressure: 101.32505915145917
 variance: 9.0
 ```
 
-The two hypotheses predict values three orders of magnitude apart, so this run discriminates
-between them. **The SDF element does not reach the sensor.**
+The two hypotheses predict values about 595× apart — nearly three orders of magnitude — so this
+run discriminates between them. **The SDF element does not reach the sensor.**
 
 Note that a run at the shipped `3.0` proves nothing here, since the SDF value and the compiled
 default are the same number and `variance: 9.0` appears either way. Changing the value is what

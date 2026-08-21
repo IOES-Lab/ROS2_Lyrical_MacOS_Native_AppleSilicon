@@ -70,6 +70,10 @@ Suggested replacement: 하이픈 표기 페이지를 삭제하거나 최신 페�
 ```text
 Page: Multibeam Sonar Plugin
 Current text: "(currently available in the sonar-demo branch - TO BE MERGED)"
+
+**[2026-08-21] 해결됨** — 그 world 들은 현재 `IOES-Lab/dave` 의 `ros2` 기본 브랜치에 있다.
+위키 페이지의 "TO BE MERGED" 문구도 같은 날 제거했다. 아래는 최초 보고 시점 기록이다.
+
               — 링크 없는 일반 텍스트로만 표기.
 Observed problem: 어느 저장소/브랜치인지 URL이 전혀 없음.
 Verified correction: `sonar-demo` 브랜치는 `IOES-Lab/dave`에 존재함
