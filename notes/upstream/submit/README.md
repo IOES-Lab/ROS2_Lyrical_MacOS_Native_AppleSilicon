@@ -2,8 +2,8 @@
 
 Eight GitHub issues and two documentation corrections. **None has been sent.** Each is ready to
 review before submission, and the limits of what was confirmed at runtime are stated inside the
-report itself — issue 8 in particular rests on source reading rather than a runtime comparison,
-and says so.
+report itself — issue 8 combines runtime evidence for `noise_sigma` with source-only evidence
+for `saturation` and the un-applied Gaussian noise, and distinguishes them explicitly.
 
 **File one or two at a time rather than all eight at once.** Eight simultaneous issues from an
 unfamiliar account reads as a dump; start with issue 7 and let its reception say how much
