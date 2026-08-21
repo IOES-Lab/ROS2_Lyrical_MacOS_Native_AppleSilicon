@@ -40,6 +40,8 @@ DRAFTS = [
     "usbl-upstream-issue-draft.md",
     "world-name-collision-issue-draft.md",
     "docker-sonar-crash-issue-draft.md",
+    "seapressure-unit-issue-draft.md",
+    "seapressure-dead-params-issue-draft.md",
 ]
 
 warnings: list[str] = []

@@ -1,6 +1,6 @@
 # Upstream reports — prepared, awaiting submission
 
-Six GitHub issues and two documentation corrections, all written and verified. **None has
+Eight GitHub issues and two documentation corrections, all written and verified. **None has
 been sent.** Everything here is ready to paste; nothing needs further testing.
 
 Whoever files these needs only a GitHub account — [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave)
@@ -8,10 +8,11 @@ is public with Issues enabled. The `package.xml` fix would go as a fork-and-PR.
 
 **Target repository:** `IOES-Lab/dave`, default branch **`ros2`** (not `main`).
 
-## The six issues
+## The eight issues
 
 Ordered by suggested filing sequence — the first three are one-line fixes with measured
-before/after, so they are the easiest for a maintainer to act on.
+before/after, so they are the easiest for a maintainer to act on. The last two were added on
+2026-08-21 after the pressure sensor was checked against a running simulation.
 
 | # | File | What it reports | Fix size |
 |---|---|---|---|
@@ -21,6 +22,8 @@ before/after, so they are the easiest for a maintainer to act on.
 | 4 | [`usbl.md`](usbl.md) | `UsblTransponder` aborts the Gazebo **server** on `<sigma>0.0</sigma>`, which the shipped demo world sets. | Input validation |
 | 5 | [`world-name-collision.md`](world-name-collision.md) | Two world files declare the same `<world name>`, making their topics indistinguishable. Caused a real misattributed measurement here. | One attribute |
 | 6 | [`docker-sonar-crash.md`](docker-sonar-crash.md) | `dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04 aarch64, where a stock `gpu_lidar` at the same ray count and angles does not. | Not identified |
+| 7 | [`seapressure-unit.md`](seapressure-unit.md) | `SubseaPressureSensorPlugin` puts kPa into `sensor_msgs/FluidPressure`, which is defined in Pascals. Measured `101.325` at the surface where the message contract implies `101325`. | One multiplication |
+| 8 | [`seapressure-dead-params.md`](seapressure-dead-params.md) | Same plugin: `noise_sigma` is never parsed, `saturation` is parsed and never used, and the Gaussian noise it documents is commented out — yet a non-zero `variance` is still published. | Docs, or three small additions |
 
 Each file has the issue **title** on its own line and the **body** below it. The comment
 block at the top holds the suggested target and labels; it is invisible when pasted.
@@ -50,7 +53,7 @@ independent of ROS distro.
 These files are generated. **Edit the drafts in `notes/`, not these.**
 
 ```bash
-python3 notes/make_submittable.py
+python3 notes/upstream/make_submittable.py
 ```
 
 The script strips our status/target/label notes into an HTML comment, separates the title,

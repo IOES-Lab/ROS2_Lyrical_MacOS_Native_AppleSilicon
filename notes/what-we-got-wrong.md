@@ -122,9 +122,42 @@ Six defects were found in the measurement scripts, two of which had already corr
 
 None of these announced themselves. Each returned a number.
 
+### "Fixed" documentation that was still wrong, three reviews running
+
+The DAVE documentation corrections were reported complete three times, and were incomplete all
+three times. An outside reviewer caught it each time.
+
+**First pass.** A warning callout was added to the top of each affected page — and the command
+underneath it, the one a reader would actually copy, was left unchanged. A page that says "this
+will fail" above a command that fails is not corrected.
+
+**Second pass.** The commands were fixed. The tables were not: eight "Service name" rows still
+listed the un-namespaced path, the camera page's Default Value column still carried the values
+the prose above it had just retracted, and eighteen `(float)` annotations remained on fields the
+`.srv` declares as `float64`. The parts that look like prose got attention; the parts that look
+like reference data did not.
+
+**Third pass.** Two of those eight rows were still unprefixed — the replacement string carried a
+trailing newline that did not match. The tool reported success on all eight. Separately, a
+before/after example had been "corrected" on both sides, so it now showed the same command twice,
+and two build callouts contradicted the commands directly beneath them, which had already been
+fixed in the pass before.
+
+**How completion was claimed.** By grepping the source for `ros2 service call` and finding no old
+paths. That search could not see table rows, because table rows do not contain `ros2 service
+call`. The verification matched the shape of the fix rather than the scope of the problem — the
+same failure this page documents under *measuring something that looks like the target*, arrived
+at from a different direction.
+
+What settled it was fetching the rendered page back and grepping *that*, which found the two
+unprefixed rows immediately and distinguished them from the one example that is unprefixed on
+purpose.
+
+None of these announced themselves either. Each edit returned success.
+
 ---
 
-## What actually went wrong, four times over
+## What actually went wrong, five times over
 
 **Measuring something that looks like the target.** The wrong world's topic, the dummy frame, the
 startup window. In each case data arrived, on the right-looking topic, at the right-looking rate.
@@ -140,6 +173,13 @@ by reading source and watching RTF. The first measurement retired four of them i
 **Configuration that does not appear in results.** The workspace built without optimisation for
 a month. Nothing failed; every number was just quietly half what it should have been. This is
 now the one thing the build scripts refuse to proceed without.
+
+**A tool reporting success, taken as evidence the change happened.** An edit API returns success
+when the call was well-formed, not when the document ended up the way it was meant to. Three
+rounds of documentation fixes were declared complete on that basis. The only thing that settles
+it is reading the artefact back — the rendered page, the built binary, the published topic — and
+checking it against the whole of what was claimed, not against the part that was easy to search
+for.
 
 ---
 
@@ -158,3 +198,8 @@ changed and why.
 Claims carry the conditions they were measured under. Where something was not tested, the
 documents say so rather than leaving it implied — the sonar's acoustic accuracy has never been
 verified, and that sentence is in the README.
+
+Edits are verified by reading the result back, not by the editing tool's return value, and the
+check has to cover everything the claim covers. "All eight rows fixed" is verified by counting
+eight rows in the fetched page, not by searching for the phrase that appeared in the two rows
+that were easy to find.

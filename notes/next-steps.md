@@ -4,9 +4,11 @@
 
 # 남은 일
 
-- [ ] **상류 보고 6건 제출** — 전부 작성 완료, 하나도 안 보냄. 붙여넣기용 변환본과
+- [ ] **상류 보고 8건 제출** — 전부 작성 완료, 하나도 안 보냄. 붙여넣기용 변환본과
   제출 순서는 [`upstream/submit/README.md`](upstream/submit/README.md) 에 있다.
-  `IOES-Lab/dave` 는 공개 저장소이고 Issues 가 열려 있어 계정만 있으면 된다
+  `IOES-Lab/dave` 는 공개 저장소이고 Issues 가 열려 있어 계정만 있으면 된다.
+  7·8번은 2026-08-21 에 추가됐다 — SeaPressure 의 단위 오류와 동작하지 않는 파라미터 3개로,
+  [`results/seapressure_unit_2026-08-21/`](results/seapressure_unit_2026-08-21/) 에서 실행 확인했다
 - [ ] **`package.xml` 의존성 수정을 상류에 제안** — 이슈가 아니라 fork 후 PR 이어야 한다
 - [ ] **저장소 이름 변경** — `ROS2_Lyrical_MacOS_Native_AppleSilicon` → `ROS2_Lyrical`.
   현재 이름은 macOS·Apple Silicon 만 말하지만 Docker/Linux 도 다뤘다.
