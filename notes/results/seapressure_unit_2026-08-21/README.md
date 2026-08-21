@@ -9,11 +9,19 @@ live system, which is what the upstream report needed.
 
 ```bash
 ros2 launch dave_demos dave_robot.launch.py \
-  z:=0 namespace:=rexrov world_name:=dave_ocean_waves paused:=false
+  z:=0 namespace:=rexrov \
+  world_name:=dave_ocean_waves \
+  paused:=false headless:=true \
+  debug:=true verbose:=4 \
+  use_teleop:=false use_web_joystick:=false
 ```
 
+`headless:=true` is load-bearing. A default GUI launch of the same world exits `-6` on this
+machine, so the headless flag is not a convenience — it is the difference between a run and no
+run, and any reproduction that omits it is not the procedure that produced this measurement.
+
 Gazebo started, REXROV uploaded, the SeaPressure plugin loaded, `PostUpdate` ran for about two
-minutes, and the process exited cleanly. No aborts.
+minutes, and the process exited cleanly.
 
 ```
 [INFO] [gazebo-1]: process started with pid [22511]
@@ -24,41 +32,151 @@ minutes, and the process exited cleanly. No aborts.
 ## Output
 
 ```
-$ ros2 topic type /model/rexrov/sea_pressure
-sensor_msgs/msg/FluidPressure
-
 $ ros2 topic echo /model/rexrov/sea_pressure --once
 fluid_pressure: 101.32505915145917
 variance: 9.0
 ```
 
+**The message type was not captured.** Earlier versions of this note showed a
+`ros2 topic type` invocation returning `sensor_msgs/msg/FluidPressure` in this block, as though
+it were part of the recorded session. It was not in the terminal record. The type is certain from
+the source — the publisher is `create_publisher<sensor_msgs::msg::FluidPressure>` — but that is a
+different kind of evidence than a captured output, and presenting it as the latter was the same
+error as the `variance` one below, on a smaller scale. Re-capture it during the `0.123` run.
+
 ## What it establishes
 
 **The 1000x factor is real, not inferred.** At `z:=0` the field reads `101.325`.
-`sensor_msgs/msg/FluidPressure` specifies Pascals, so a consumer following the message definition
-expects `101325`. The plugin's internals are kPa-based throughout (`standardPressure = 101.325`,
+`sensor_msgs/msg/FluidPressure` specifies Pascals — the definition reads
+`float64 fluid_pressure       # Absolute pressure reading in Pascals.` — so a consumer following
+it expects `101325`. The plugin's internals are kPa-based throughout (`standardPressure = 101.325`,
 `kPaPerM = 9.80638`) and the value is assigned without conversion.
 
-**`variance: 9.0` confirms a second defect from the same run.** Variance is published as
-`noiseSigma²`, and 9.0 = 3.0². That is the compiled-in default, not the `0.01` the wiki listed —
-and it holds regardless of `<noise_sigma>`, because `Configure()` never parses that element.
+That is the whole of what this run establishes.
 
-## What this does not establish
+**Cross-checked upstream on 2026-08-21.** `IOES-Lab/dave`'s `ros2` default branch (`cc98a539`)
+carries the same unconverted assignment, the same absent `noise_sigma` branch in `Configure()`,
+the same unused `saturation`, and the same commented-out noise. None of this is fork-specific, so
+the reports do not need a "may differ on the default branch" hedge.
 
-- **Only the surface value was measured.** Scaling at depth follows from the same code path but
-  was not measured at several depths.
-- **`sea_pressure_depth` was not checked numerically.** The argument that its units cancel comes
-  from reading the code.
-- **Single platform.** Nothing about the defect looks platform-specific, but it was seen on one.
+**What the message says about `variance` matters here too:** the same definition reads
+`float64 variance             # 0 is interpreted as variance unknown`. So "publish 0 because
+there is no noise" is not the obvious fix it looked like — `0` asserts *unknown*, not *noiseless*.
+That is why the variance question was split out of the unit report entirely.
+
+## What `variance: 9.0` does NOT establish — a correction
+
+**This note originally claimed that `variance: 9.0` independently confirmed `noiseSigma` sits at
+its compiled-in default of 3.0, and therefore that `<noise_sigma>` is never parsed. That was
+wrong, and it was caught in review before the report was filed.**
+
+`rexrov/model.sdf:896` contains:
+
+```xml
+<noise_sigma>3.0</noise_sigma>
+```
+
+The SDF value and the compiled-in default are **the same number**. So `variance: 9.0` is exactly
+what you would see if the tag were being read correctly, and exactly what you would see if it
+were being ignored. The observation cannot tell the two apart, and calling it a "second
+confirmation from the same run" was reading a conclusion into data that does not carry it.
+
+What the run does show is that the **effective** `noiseSigma` is 3.0. Whether that came from the
+SDF or from the default is not determined here. The claim that `Configure()` never parses the
+element stands on reading `Configure()` and finding no branch for it — source evidence, which is
+direct, but not runtime evidence.
+
+**The discriminating experiment has not been run.** It is one launch, and the procedure is below.
+
+This is the same failure this project has now recorded five times — a signal that resembles the
+target being accepted as the target. It is written up in
+[`../../what-we-got-wrong.md`](../../what-we-got-wrong.md).
+
+### The experiment that would settle it
+
+Terminal 1 — back up the model, change the tag, launch:
+
+```bash
+source ~/ros2_lyrical/.venv/bin/activate
+source ~/ros2_lyrical/install/setup.zsh
+source ~/ros_gz_ws_lyrical/install/local_setup.zsh
+source ~/dave_ws_lyrical/install/local_setup.zsh
+
+MODEL=~/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf
+cp "$MODEL" "$MODEL.noise-test.bak"
+
+python3 -c 'from pathlib import Path; p=Path.home()/"dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf"; s=p.read_text(); assert s.count("<noise_sigma>3.0</noise_sigma>")==1; p.write_text(s.replace("<noise_sigma>3.0</noise_sigma>", "<noise_sigma>0.123</noise_sigma>"))'
+
+grep -n noise_sigma "$MODEL"
+
+ros2 launch dave_demos dave_robot.launch.py \
+  z:=0 namespace:=rexrov \
+  world_name:=dave_ocean_waves \
+  paused:=false headless:=true \
+  debug:=true verbose:=4 \
+  use_teleop:=false use_web_joystick:=false
+```
+
+The `assert` on the count is the point of using Python rather than `sed` — if the file ever gains
+a second `noise_sigma` tag, a blind replace would silently change both and the test would still
+appear to work.
+
+Terminal 2:
+
+```bash
+source ~/ros2_lyrical/.venv/bin/activate
+source ~/ros2_lyrical/install/setup.zsh
+source ~/ros_gz_ws_lyrical/install/local_setup.zsh
+source ~/dave_ws_lyrical/install/local_setup.zsh
+
+ros2 topic type /model/rexrov/sea_pressure
+ros2 topic echo /model/rexrov/sea_pressure --once
+```
+
+| Reading | Means |
+|---|---|
+| `variance: 9.0` | the tag is ignored — **runtime confirmation**, and §1 of the draft can drop its caveat |
+| `variance: 0.015129` | the tag *is* applied (`0.123²`), and the source-based claim is **wrong** — withdraw it |
+
+`ros2 topic type` is worth running in the same session regardless: the current draft states the
+message type from the source because the terminal output was never captured, and this closes that
+gap for free.
+
+Restore afterwards — `Ctrl+C` in terminal 1, then:
+
+```bash
+MODEL=~/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf
+mv "$MODEL.noise-test.bak" "$MODEL"
+grep -n noise_sigma "$MODEL"
+```
+
+## Other limits
+
+- **Only the surface value was measured**, at `z:=0`, in one run. Scaling at depth follows from
+  the same code path but was not measured at several depths.
+- **`sea_pressure_depth` was not checked numerically.** It divides by the same `kPaPerM`, so on
+  dimensional grounds the units should cancel — but that is reasoning about the code, not a
+  comparison against a known depth.
+- **Only the ROS message was examined.** The Pascal convention cited is
+  `sensor_msgs/msg/FluidPressure`'s. No `fluid_pressure.proto` could be located on this system at
+  all, so nothing is known here about what `gz::msgs::FluidPressure` declares — an earlier
+  version of this note said the definition "carries no unit comment", which overstated a failed
+  search as an inspection.
+- **Single platform**, single run.
 
 ## Separate observation, not part of this finding
 
-A GUI launch of the same world exited with `-6`. That is a rendering-side failure and is
-unrelated to the pressure units — the headless run above completed cleanly and produced the
-measurement. Kept apart deliberately so the unit report does not carry an unexplained crash with
-it.
+The GUI launch's `-6` exit is a rendering-side failure. It is recorded here because it explains
+why `headless:=true` is in the command, not because it bears on the units. Kept apart
+deliberately so the unit report does not carry an unexplained crash with it.
+
+## Environment
+
+Local `lyrical-jetty-migration` workspace built on `naitikpahwa18/dave` commit `6aef91c` — the
+same commit as that fork's `wgpu_integration` head at the time of checkout, which is why earlier
+notes named the branch instead. The branch name in this workspace is `lyrical-jetty-migration`.
 
 ## Reports written from this
 
-- [`../../upstream/drafts/seapressure-unit-issue-draft.md`](../../upstream/drafts/seapressure-unit-issue-draft.md) — the unit mismatch
-- [`../../upstream/drafts/seapressure-dead-params-issue-draft.md`](../../upstream/drafts/seapressure-dead-params-issue-draft.md) — `noise_sigma` unparsed, `saturation` unused, Gaussian noise commented out
+- [`../../upstream/drafts/seapressure-unit-issue-draft.md`](../../upstream/drafts/seapressure-unit-issue-draft.md) — the unit mismatch. Runtime-confirmed; file this one first
+- [`../../upstream/drafts/seapressure-dead-params-issue-draft.md`](../../upstream/drafts/seapressure-dead-params-issue-draft.md) — `noise_sigma` unparsed, `saturation` unused, Gaussian noise commented out. **Source-based**; wants the `0.123` launch first, or files with the limitation stated

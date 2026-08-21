@@ -155,13 +155,38 @@ purpose.
 
 None of these announced themselves either. Each edit returned success.
 
+### A "second confirmation" that confirmed nothing
+
+The pressure sensor's unit error was measured properly: `fluid_pressure: 101.325` where the
+Pascal-typed field implies `101325`. That part holds.
+
+The same echo also carried `variance: 9.0`, and it was written up as a bonus finding — variance is
+`noiseSigma²`, 9.0 is 3.0², therefore `noiseSigma` is at its compiled-in default of 3.0,
+therefore the `<noise_sigma>` tag is being ignored. It was described in the results note as "a
+second confirmation from the same run".
+
+`rexrov/model.sdf:896` sets `<noise_sigma>3.0</noise_sigma>`. **The SDF value and the compiled-in
+default are the same number.** An output of 9.0 is precisely what appears if the tag is read
+correctly, and precisely what appears if it is ignored. The observation cannot separate the two,
+and the reasoning had quietly assumed the conclusion it was offered as evidence for.
+
+The underlying claim may well be true — `Configure()` has no branch for the element, which is
+direct source evidence. But that is a different and weaker kind of evidence than a measurement,
+and the draft had been written as though a live run backed it.
+
+**This one was caught in review before anything was filed**, which is the first time in this list.
+The distinguishing experiment is one launch: set the tag to `0.123` and see whether the variance
+moves.
+
 ---
 
 ## What actually went wrong, five times over
 
 **Measuring something that looks like the target.** The wrong world's topic, the dummy frame, the
-startup window. In each case data arrived, on the right-looking topic, at the right-looking rate.
-Liveness is not identity — a signal being present says nothing about what produced it.
+startup window, the `variance: 9.0` that matched under either hypothesis. In each case data
+arrived, on the right-looking topic, at the right-looking rate, carrying the expected value.
+Liveness is not identity — a signal being present says nothing about what produced it, and a
+number matching a prediction says nothing when the competing explanation predicts it too.
 
 **Tools that fail quietly.** Cleanup that never verified, a probe that accepted impossible values,
 a timeout that could not kill its target. A tool that reports failure costs an hour. A tool that
@@ -203,3 +228,11 @@ Edits are verified by reading the result back, not by the editing tool's return 
 check has to cover everything the claim covers. "All eight rows fixed" is verified by counting
 eight rows in the fetched page, not by searching for the phrase that appeared in the two rows
 that were easy to find.
+
+Before a measurement is called evidence for a claim, the competing explanation is asked what it
+predicts. If it predicts the same number, the measurement is not evidence — it is a coincidence
+that happens to be consistent. `variance: 9.0` failed this test and nearly went upstream.
+
+Reports state which of their claims are measured and which are read from source, per claim rather
+than per document. The two are not interchangeable, and a reader deciding whether to act on a
+report needs to know which one they are being handed.

@@ -1,7 +1,13 @@
 # Upstream reports — prepared, awaiting submission
 
-Eight GitHub issues and two documentation corrections, all written and verified. **None has
-been sent.** Everything here is ready to paste; nothing needs further testing.
+Eight GitHub issues and two documentation corrections. **None has been sent.** Each is ready to
+review before submission, and the limits of what was confirmed at runtime are stated inside the
+report itself — issue 8 in particular rests on source reading rather than a runtime comparison,
+and says so.
+
+**File one or two at a time rather than all eight at once.** Eight simultaneous issues from an
+unfamiliar account reads as a dump; the first two are the strongest and their reception will say
+how much appetite there is for the rest.
 
 Whoever files these needs only a GitHub account — [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave)
 is public with Issues enabled. The `package.xml` fix would go as a fork-and-PR.
@@ -23,7 +29,17 @@ before/after, so they are the easiest for a maintainer to act on. The last two w
 | 5 | [`world-name-collision.md`](world-name-collision.md) | Two world files declare the same `<world name>`, making their topics indistinguishable. Caused a real misattributed measurement here. | One attribute |
 | 6 | [`docker-sonar-crash.md`](docker-sonar-crash.md) | `dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04 aarch64, where a stock `gpu_lidar` at the same ray count and angles does not. | Not identified |
 | 7 | [`seapressure-unit.md`](seapressure-unit.md) | `SubseaPressureSensorPlugin` puts kPa into `sensor_msgs/FluidPressure`, which is defined in Pascals. Measured `101.325` at the surface where the message contract implies `101325`. | One multiplication |
-| 8 | [`seapressure-dead-params.md`](seapressure-dead-params.md) | Same plugin: `noise_sigma` is never parsed, `saturation` is parsed and never used, and the Gaussian noise it documents is commented out — yet a non-zero `variance` is still published. | Docs, or three small additions |
+| 8 | [`seapressure-dead-params.md`](seapressure-dead-params.md) | Same plugin: `noise_sigma` appears never to be parsed, `saturation` is parsed and never used, and the Gaussian noise it documents is commented out — yet a non-zero `variance` is still published. **Source-based; see §1 and "What this claim is and is not" in the file.** | Docs, or three small additions |
+
+**Order for these two:** file 7 first. It is runtime-confirmed and self-contained. Issue 8 wants
+one more launch before it goes out — set `<noise_sigma>0.123</noise_sigma>` and see whether
+`variance` moves off `9.0`. Procedure in
+[`../../results/seapressure_unit_2026-08-21/README.md`](../../results/seapressure_unit_2026-08-21/README.md).
+It can be filed without that, since the limitation is stated in the report itself, but the test
+is one launch and turns the weakest of the three claims into a measurement.
+
+**Both were cross-checked against the `ros2` default branch (`cc98a539`) on 2026-08-21** — every
+finding is present there, so neither is an artefact of the fork they were measured in.
 
 Each file has the issue **title** on its own line and the **body** below it. The comment
 block at the top holds the suggested target and labels; it is invisible when pasted.
