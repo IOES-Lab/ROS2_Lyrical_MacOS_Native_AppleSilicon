@@ -7,9 +7,9 @@
 
 `dave_ocean_waves.world` and `dave_ocean_waves_sonar.world` both declare `<world name="oceans_waves">`, making their topics indistinguishable
 
-## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
-
 ---
+
+## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
 ## Summary
 

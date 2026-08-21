@@ -12,6 +12,10 @@ appetite there is for the rest.
 Whoever files these needs only a GitHub account — [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave)
 is public with Issues enabled. The `package.xml` fix would go as a fork-and-PR.
 
+**Filing is a person's decision, not an automatic next step.** `IOES-Lab/dave` is not ours to
+write to; these drafts exist so that whoever does file them has the evidence ready. The ordering
+suggestions below are notes for that person. See [`../../CLAUDE.md`](../../CLAUDE.md).
+
 **Target repository:** `IOES-Lab/dave`, default branch **`ros2`** (not `main`).
 
 ## The eight issues

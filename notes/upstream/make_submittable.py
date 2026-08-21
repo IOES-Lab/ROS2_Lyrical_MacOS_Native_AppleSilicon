@@ -129,8 +129,11 @@ def main() -> int:
             f"     자동 생성: notes/upstream/make_submittable.py — 직접 고치지 말 것 -->\n\n"
             f"## 이슈 제목 (아래 한 줄을 제목 칸에 붙여넣기)\n\n"
             f"{title}\n\n"
-            f"## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)\n\n"
-            f"---\n\n{body}\n"
+            # 구분선은 이 안내문 쪽에 붙인다. 본문 첫 줄에 두면 "아래 전체를
+            # 붙여넣기" 대로 했을 때 --- 까지 딸려 들어간다.
+            f"---\n\n"
+            f"## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)\n\n"
+            f"{body}\n"
         )
         made.append((dst.name, title))
         print(f"  {dst.relative_to(ROOT)}")

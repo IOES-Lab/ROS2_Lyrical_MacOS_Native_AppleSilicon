@@ -7,9 +7,9 @@
 
 `UsblTransponder` plugin crashes the Gazebo server when a world file sets `<sigma>0.0</sigma>`
 
-## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
-
 ---
+
+## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
 ## Summary
 

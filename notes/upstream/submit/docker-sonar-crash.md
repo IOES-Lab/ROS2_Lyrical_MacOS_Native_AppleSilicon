@@ -7,9 +7,9 @@
 
 `dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04 aarch64, where a stock `gpu_lidar` at the same 513 × 301 ray count runs fine
 
-## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
-
 ---
+
+## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
 ## Summary
 

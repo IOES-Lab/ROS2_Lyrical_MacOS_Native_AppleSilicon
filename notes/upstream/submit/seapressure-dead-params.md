@@ -7,9 +7,9 @@
 
 `SubseaPressureSensorPlugin`: `<noise_sigma>` is ignored, `saturation` is never applied, and the documented Gaussian noise is commented out
 
-## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
-
 ---
+
+## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
 ## Summary
 

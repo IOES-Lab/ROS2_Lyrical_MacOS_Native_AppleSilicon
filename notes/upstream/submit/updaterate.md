@@ -7,9 +7,9 @@
 
 `blueview_p900` sets `<update_rate>30</update_rate>`, twice what the datasheet allows and far above what the sensor achieves — lowering it recovers most of the sonar's simulation cost
 
-## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
-
 ---
+
+## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
 ## Summary
 

@@ -7,9 +7,9 @@
 
 `SubseaPressureSensorPlugin` publishes kPa into `sensor_msgs/FluidPressure`, which is defined in Pascals — readings are 1000x too small
 
-## 이슈 본문 (아래 전체를 본문 칸에 붙여넣기)
-
 ---
+
+## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
 ## Summary
 
