@@ -17,30 +17,27 @@
 # topic output -- cross-check against validation_matrix.csv's existing
 # FUNCTIONAL PASS rows (ocean current, dvl_world, dave_ocean_waves, etc.)
 # which were verified by actually reading topic/service data, not just
-# process liveness. (multibeam sonar is a stale example here as of
-# 2026-07-23 -- it's since been downgraded to PARTIAL after a confirmed
-# simulation-progress stall, see validation_matrix.csv.)
+# process liveness. The current world-level matrix has 13 SMOKE PASS and
+# 5 FUNCTIONAL PASS rows; vehicle- and sensor-level PARTIAL verdicts are
+# tracked separately in verified-demos.md.
 #
 # WHAT THIS DOES NOT DO: it does not know the correct vehicle/namespace/
 # launch-args combination for every world. Worlds already confirmed in
 # validation_matrix.csv use their known-good args below. The 3 manipulation
 # worlds (dave_bimanual_example, dave_electrical_mating, dave_plug_and_socket)
-# are marked "unknown" and SKIPPED BY DEFAULT -- their launch file,
-# dave_world.launch.py, has no headless mode and always spawns a real Qt GUI
-# client that aborts with no X display attached, so a default run always
-# hits the same known dead end; pass --include-unknown to attempt them
-# anyway. (Bug fixed 2026-07-23: the WORLDS array previously marked every
-# entry, including these 3, as known=1, which silently made
-# --include-unknown a no-op and ran the manipulation worlds by default every
-# time, misclassifying their expected GUI abort as a surprise CRASH instead
-# of a understood NOT AUTOMATED limitation.) The two sonar-demo-adjacent
-# worlds (dave_ocean_waves_sonar, dave_ocean_waves_sonar_integrated) and
+# require the local `dave_world.launch.py` headless patch. This runner checks
+# the installed launch file: when the `headless` argument is present it runs
+# those worlds by default; when absent it skips them unless
+# `--include-unknown` or `--only` explicitly requests an attempt. Their
+# current validation is Mac process-level SMOKE only; manipulation behavior
+# and Docker execution remain unverified. The two sonar-demo-adjacent worlds
+# (dave_ocean_waves_sonar, dave_ocean_waves_sonar_integrated) and
 # dave_integrated already have confirmed-working args and are known=1.
 #
 # USAGE (run inside the Docker container or Mac native env, after sourcing
 # install/setup.bash / install/setup.zsh):
-#   ./test_worlds.sh                     # run all worlds with known/default args
-#   ./test_worlds.sh --include-unknown   # also attempt the 3 manipulation worlds
+#   ./test_worlds.sh                     # run worlds supported by the installed launch files
+#   ./test_worlds.sh --include-unknown   # also attempt manipulation worlds if the headless patch is absent
 #   ./test_worlds.sh --only dave_ocean_waves,usbl_tutorial   # just these worlds
 #   TIMEOUT_SEC=45 ./test_worlds.sh      # override the default 30s wait
 #
@@ -72,6 +69,13 @@ done
 if ! command -v ros2 >/dev/null 2>&1; then
   echo "ERROR: ros2 not found on PATH. Source install/setup.bash (or .zsh) first." >&2
   exit 1
+fi
+
+DAVE_DEMOS_PREFIX="$(ros2 pkg prefix dave_demos 2>/dev/null || true)"
+WORLD_LAUNCH_FILE="${DAVE_DEMOS_PREFIX}/share/dave_demos/launch/dave_world.launch.py"
+WORLD_HEADLESS_AVAILABLE=0
+if [[ -f "$WORLD_LAUNCH_FILE" ]] && grep -q 'LaunchConfiguration("headless")' "$WORLD_LAUNCH_FILE"; then
+  WORLD_HEADLESS_AVAILABLE=1
 fi
 
 mkdir -p "$RESULTS_DIR"
@@ -134,9 +138,9 @@ else
   echo "NOTE: 'setsid' not found (expected on macOS) -- using bash job-control (set -m) for process-group cleanup instead." >&2
 fi
 
-# world_file : launch_file : namespace : extra_args : known(1)/unknown(0)
-# "known" worlds use the exact args already verified in README.md / notes/.
-# "unknown" worlds are best-effort guesses -- see header comment.
+# world_file : launch_file : namespace : support marker : extra_args
+# marker 1 = known-good args; 0 = best-effort only; H = known-good only when
+# the installed dave_world.launch.py exposes the local `headless` argument.
 #
 # IMPORTANT (discovered 2026-07-22): dave_robot.launch.py ALWAYS requires a
 # namespace matching one of dave_robot_models/config/{rexrov,bluerov2,
@@ -149,8 +153,8 @@ fi
 WORLDS=(
   "camera_tutorial.world:dave_sensor.launch.py:camera:1"
   "dave_Santorini.world:dave_robot.launch.py:rexrov:1"
-  "dave_bimanual_example.world:dave_world.launch.py::0"
-  "dave_electrical_mating.world:dave_world.launch.py::0"
+  "dave_bimanual_example.world:dave_world.launch.py::H"
+  "dave_electrical_mating.world:dave_world.launch.py::H"
   "dave_graded_seabed.world:dave_robot.launch.py:rexrov:1"
   "dave_integrated.world:dave_robot.launch.py:rexrov:1"
   "dave_multibeam_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
@@ -160,7 +164,7 @@ WORLDS=(
   "dave_ocean_waves_sonar.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
   "dave_ocean_waves_sonar_integrated.world:dave_sensor.launch.py:blueview_p900:1:x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu"
   "dave_ocean_waves_transient_current.world:dave_robot.launch.py:rexrov:1"
-  "dave_plug_and_socket.world:dave_world.launch.py::0"
+  "dave_plug_and_socket.world:dave_world.launch.py::H"
   "dvl_world.world:dave_sensor.launch.py:dvl:1"
   "new_dvl.world:dave_sensor.launch.py:dvl:1"
   "ocean_current_plugin.world:dave_robot.launch.py:rexrov:1"
@@ -218,10 +222,10 @@ run_one() {
     # does not confirm topic data, cross-check validation_matrix.csv),
     # then clean up.
     # Bug fixed 2026-07-22: being "still alive" at the timeout check does NOT
-    # mean nothing crashed -- a sub-process (e.g. dave_world.launch.py's GUI
-    # client, which has no headless mode and unconditionally spawns a real
-    # Qt window) can abort while the top-level launch process and/or the
-    # Gazebo server component stay alive, producing a false PASS. Confirmed:
+    # mean nothing crashed -- before the 2026-07-27 headless launch fix, a
+    # dave_world.launch.py GUI client could abort while the top-level launch
+    # process and/or the Gazebo server component stayed alive, producing a
+    # false PASS. Confirmed:
     # dave_plug_and_socket.world showed "alive after 30s" here despite its
     # log containing the identical qt.qpa.xcb/SIGABRT trace seen in
     # dave_bimanual_example.world and dave_electrical_mating.world (which
@@ -307,6 +311,14 @@ IFS=',' read -ra ONLY_ARR <<< "$ONLY_LIST"
 for entry in "${WORLDS[@]}"; do
   IFS=':' read -r world launch_file namespace known extra <<< "$entry"
 
+  if [[ "$known" == "H" ]]; then
+    if [[ "$WORLD_HEADLESS_AVAILABLE" == 1 ]]; then
+      known=1
+    else
+      known=0
+    fi
+  fi
+
   if [[ -n "$ONLY_LIST" ]]; then
     match=0
     for o in "${ONLY_ARR[@]}"; do
@@ -316,8 +328,8 @@ for entry in "${WORLDS[@]}"; do
   fi
 
   if [[ $known == 0 && $INCLUDE_UNKNOWN == 0 && -z "$ONLY_LIST" ]]; then
-    echo "=== $world SKIPPED (no headless path -- dave_world.launch.py always spawns a GUI client, pass --include-unknown to attempt anyway) ==="
-    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world},${launch_file},SKIPPED,0,,\"no headless path -- dave_world.launch.py always spawns a GUI client with no X display here, not attempted by default -- see validation_matrix.csv\"" >> "$RESULTS_CSV"
+    echo "=== $world SKIPPED (installed dave_world.launch.py has no headless argument; pass --include-unknown to attempt anyway) ==="
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),${world},${launch_file},SKIPPED,0,,\"installed dave_world.launch.py has no headless argument; not attempted by default -- see validation_matrix.csv\"" >> "$RESULTS_CSV"
     echo
     continue
   fi

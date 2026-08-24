@@ -9,7 +9,7 @@ index 1b4878d..706782a 100644
 -        <sigma>0.0</sigma>
 +        <!-- sigma must be strictly > 0: std::normal_distribution asserts on
 +             sigma=0.0 (SIGABRT on libstdc++ builds with assertions enabled,
-+             e.g. Ubuntu 26.04/gcc-15) -- see notes/usbl-gui-crash-investigation.md
++             e.g. Ubuntu 26.04/gcc-15); see notes/usbl-gui-crash-investigation.md
 +             in ROS2_Lyrical_review_fixes. 0.0001 approximates "no noise". -->
 +        <sigma>0.0001</sigma>
        </plugin>
