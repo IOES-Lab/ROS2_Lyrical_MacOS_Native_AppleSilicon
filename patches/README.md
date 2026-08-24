@@ -9,7 +9,7 @@ which applies to the `ros_gz` source workspace.
 
 | Patch | Changes | Size | Why | Status |
 |---|---|---|---|---|
-| [`dave_lyrical_jetty_migration_mac.diff`](dave_lyrical_jetty_migration_mac.diff) | 8 files: 6 `CMakeLists.txt`, 1 `package.xml`, `SphericalCoords.cc` | +176 −151 | Without it DAVE does not build on Jetty at all | Required. One part proposed upstream, not yet filed |
+| [`dave_lyrical_jetty_migration_mac.diff`](dave_lyrical_jetty_migration_mac.diff) | 8 files: 6 `CMakeLists.txt`, 1 `package.xml`, `SphericalCoords.cc` | +177 −152 | Without it DAVE does not build on Jetty at all | Required. One part proposed upstream, not yet filed |
 | [`ros_gz_lyrical_jetty_mac.diff`](ros_gz_lyrical_jetty_mac.diff) | `ros_gz_bridge` and `ros_gz_sim` `CMakeLists.txt` | +6 | `ros_gz` has no macOS binary for Lyrical, and the source build fails without these | Required on macOS |
 | [`dave_world_launch_headless_fix.diff`](dave_world_launch_headless_fix.diff) | `dave_world.launch.py` | +21 | The launch file had no headless mode, so 3 manipulation worlds could not be tested at all | Fixed and confirmed on all 3 worlds |
 | [`vehicle_imu_topic_fix.diff`](vehicle_imu_topic_fix.diff) | 4 vehicle `model.sdf` | +19 | No vehicle's IMU data reached ROS | Fixed, measured before and after. Issue report ready |
@@ -46,7 +46,7 @@ Full breakdown with code:
 ## One caveat on the migration patch
 
 The original +172/−147 version was verified to apply identically and rebuild successfully on both
-macOS and Docker (2026-07-14). The current +176/−151 adds five string- and comment-only edits.
+macOS and Docker (2026-07-14). The current +177/−152 adds five string- and comment-only edits.
 Each was confirmed against the real checkout, but the full rebuild-and-compare was not re-run
 against this version. They change no logic.
 
@@ -57,6 +57,6 @@ Two experiment switches were added to `MultibeamSonarSensor.cc` (`DAVE_CV_THREAD
 default to existing behaviour, and they are **not proposed upstream** — so they are not kept here
 as a patch.
 
-The six issue reports prepared for `IOES-Lab/dave` are in
+The eight issue reports prepared for `IOES-Lab/dave` are in
 [`../notes/upstream/submit/`](../notes/upstream/submit/). Two of them correspond to patches here
 (`vehicle_imu_topic_fix`, `usbl_sigma_fix`); the rest report findings that need no patch from us.

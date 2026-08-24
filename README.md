@@ -25,8 +25,10 @@ Measurement detail and how these numbers replaced the earlier ones:
 
 ```bash
 extras/build-dave-lyrical-linux.sh     # Ubuntu 26.04 — complete build path; prints the validated launch command
-extras/build-dave-lyrical-macos.sh     # macOS Apple Silicon — see extras/README.md for one gap
+extras/build-dave-lyrical-macos.sh     # macOS Apple Silicon — see the platform notes for one gap
 ```
+
+Platform-specific caveats: [`extras/README.md`](extras/README.md).
 
 Both refuse to finish if the sonar was compiled without an `-O` flag. That is not caution: this
 workspace built unoptimised for a month, and the sonar figures taken in that time were about half
@@ -85,8 +87,8 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | ROS 2 | Lyrical (source build) | Lyrical (apt, `ros-lyrical-desktop`) |
 | Gazebo | Jetty (Homebrew) | Jetty 10.4.0 (apt vendor build) |
 | Python | 3.14 | 3.14 |
-| Rendering | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) |
-| Sonar compute | WGPU on the Metal adapter | **CPU fallback** — WGPU could not obtain an adapter in the validated run |
+| Rendering | Metal (real hardware) | **Execution-dependent** — an earlier no-X probe observed Vulkan `llvmpipe`; the 2026-08-07 output run used `ogre` + authorised X |
+| Sonar compute | WGPU on the Metal adapter | **CPU fallback in the 2026-08-07 validated run**; the earlier no-X probe had selected the WGPU `llvmpipe` software adapter |
 
 Pinned source revisions and the migration patch:
 [`notes/patch-and-pinned-commits.md`](notes/patch-and-pinned-commits.md).

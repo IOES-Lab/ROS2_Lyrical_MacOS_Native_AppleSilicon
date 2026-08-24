@@ -1,4 +1,4 @@
-# `update_rate` is the lever — 1.46x with no code change (Mac, 2026-08-06)
+# `update_rate` is the lever — 1.55x with no code change (Mac, 2026-08-06)
 
 Two attempts to make the sonar *faster* failed the same afternoon, one of them badly.
 Lowering how *often* it runs works.
@@ -74,8 +74,8 @@ the simulation for something the modelled device cannot do.
 ## Practical recommendation
 
 **Set `<update_rate>` to something the sensor can actually meet and the hardware actually
-does.** 10 Hz costs nothing measurable in frames delivered at this resolution and returns
-19% RTF; 2 Hz returns 46% and removes 69% of the sonar's overhead.
+does.** Against the shipped 30 Hz condition, 10 Hz improves RTF by 14%; 2 Hz improves RTF
+by 55% and removes 75% of the sonar's overhead. Output fidelity was not assessed.
 
 This belongs upstream as a change to the shipped `blueview_p900` model, or at minimum as
 documentation. It is the first intervention in this investigation that improves RTF without
