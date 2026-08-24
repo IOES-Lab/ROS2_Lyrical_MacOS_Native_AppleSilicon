@@ -70,6 +70,12 @@ The "4.5x sonar cost" recorded on 2026-07-31 (0.2180 against 0.9996) is now **1.
 (0.5147 against 0.9974). The denominator barely moved — 0.9996 → 0.9974, within the
 control's own spread — so essentially all of the change is in the numerator.
 
+**Canonical update:** this note uses the first two 30 Hz sonar runs
+(mean 0.5147, cost 1.94x). The same day's update-rate sweep contributed a third
+30 Hz run (0.543560). Pooling all three gives mean 0.5243 and cost **1.90x**;
+that n=3 result is the repository's canonical headline. See
+`notes/results/updaterate_2026-08-06/README.md`.
+
 **How that change splits between the `Release` rebuild, the DDS transport switch and the
 corrected settle check is not separable from these runs.** The `Release` rebuild alone was
 measured at 2.01x on 2026-08-05, which accounts for most of it, but that measurement used

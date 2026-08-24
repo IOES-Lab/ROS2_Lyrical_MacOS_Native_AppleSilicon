@@ -1,3 +1,10 @@
+> **Historical / superseded context (added 2026-08-24):** this note
+> records the 2026-08-03 startup-phase investigation. Its Docker `~0.0018`
+> comparison and the `~4.5x` headline below are not current results. The Docker
+> value was later withdrawn, and the canonical corrected 30 Hz result is
+> RTF 0.5243 against control 0.9974 — a 1.90x cost. Retain the tables below as
+> dated evidence about startup behaviour, not as the current performance summary.
+
 # dave_multibeam_sonar — startup phase vs steady state (2026-08-03, Mac/Metal)
 
 Resolves the long-open question of why this world measured at RTF ~0.012-0.015 with

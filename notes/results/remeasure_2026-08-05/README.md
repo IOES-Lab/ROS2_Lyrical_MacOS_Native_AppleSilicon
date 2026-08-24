@@ -1,3 +1,9 @@
+> **Historical measurement context (added 2026-08-24):** the relative
+> range/ray-count observations below are retained as dated experiment results,
+> but their `~4.5x` performance framing is superseded. The repository's
+> canonical corrected 30 Hz comparison is RTF 0.5243 against 0.9974, or 1.90x.
+> Do not use the raw RTF values below as the current headline benchmark.
+
 # Re-measurement of exp1 and exp4 under the stepping criterion (2026-08-05)
 
 Both were originally measured on 2026-08-03 using a *log line* as the signal that

@@ -135,10 +135,11 @@ regardless.
 `usbl_tutorial.world` has no `<gui>` element, so when launched with `gui:=true`,
 Gazebo falls through to its own **stock default GUI config** (not this
 project's per-world custom config) — a different code path than every other
-world that was actually confirmed working over RDP. That stock default is the
-most likely place the already-known, already-confirmed-separately OGRE2
-unavailability on this Ubuntu 26.04 aarch64 setup (see README Known issues)
-resurfaces, this time with nothing to catch it.
+world that was actually confirmed working over RDP. At the time, that stock default was suspected to be where the project's
+then-current OGRE2-availability hypothesis resurfaced. **That hypothesis was
+withdrawn on 2026-08-21**: OGRE2 is present and the retained evidence points to
+a DAVE-sonar-specific crash instead. This paragraph records the historical
+hypothesis; it is not a current diagnosis. See `notes/known-issues.md`.
 
 This is circumstantial, not proven: no crash log has ever been captured to
 confirm the failure signature is actually `Failed to load plugin [ogre2]`
