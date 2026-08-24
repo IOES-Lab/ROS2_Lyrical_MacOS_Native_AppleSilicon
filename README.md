@@ -5,14 +5,15 @@ Can [DAVE](https://github.com/IOES-Lab/dave) and its CUDA-free WGPU multibeam so
 DAVE is documented for Jazzy + Harmonic. Verified here on macOS (Apple Silicon, native) and
 Docker (Ubuntu 26.04).
 
-This is a verification record, not a distribution. It establishes that things build, launch and
-publish the data they should. **Acoustic accuracy has never been verified.**
+This is a verification record, not a distribution. It establishes scoped build, launch, topic
+and service behavior. **Numerical and acoustic correctness are not generally verified;
+SeaPressure is a known numerical exception.**
 
 ## Results
 
 | | |
 |---|---|
-| Worlds | 18/18 PASS-level, 0 PARTIAL |
+| Worlds | 18/18 PASS-level, 0 PARTIAL **in the world-level matrix** — vehicle/sensor-specific PARTIAL findings are tracked separately |
 | Sonar cost | RTF **0.5243** against a **0.9974** no-sonar control — 1.90x, not the 4.5x reported earlier |
 | Largest win | `update_rate` 30 Hz → 2 Hz removes 75% of that cost, with no code change |
 | Build trap | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing gets an `-O` flag. `Release` doubled RTF on the sonar world (0.218 → 0.438, n=1) |
@@ -23,7 +24,7 @@ Measurement detail and how these numbers replaced the earlier ones:
 ## Build
 
 ```bash
-extras/build-dave-lyrical-linux.sh     # Ubuntu 26.04 — complete, from apt to a running sonar
+extras/build-dave-lyrical-linux.sh     # Ubuntu 26.04 — complete build path; prints the validated launch command
 extras/build-dave-lyrical-macos.sh     # macOS Apple Silicon — see extras/README.md for one gap
 ```
 
@@ -58,7 +59,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | [`notes/what-we-got-wrong.md`](notes/what-we-got-wrong.md) | **claims that turned out false, and how each was caught.** Read this before trusting any number here |
 | [`patches/`](patches/) | **what was changed** — six patches, what each fixes and whether it is complete |
 | [`notes/verified-demos.md`](notes/verified-demos.md) | what each PASS rests on |
-| [`notes/known-issues.md`](notes/known-issues.md) | 25 issues, with cause and workaround |
+| [`notes/known-issues.md`](notes/known-issues.md) | 25 entries, including open, resolved and withdrawn findings, with cause and workaround |
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |
 | [`notes/setup/reproduction.md`](notes/setup/reproduction.md) | annotated build and launch procedure |
 | [`notes/validation_matrix.csv`](notes/validation_matrix.csv) | every world and vehicle, with its label |

@@ -117,7 +117,8 @@ if [ -f "$CC" ]; then
     Every performance figure taken from this build would be wrong. Do not proceed."
   fi
 else
-  echo "   compile_commands.json not found -- skipping the check"
+  die "compile_commands.json not found; optimisation could not be verified.
+  Do not proceed with performance measurements."
 fi
 
 cat <<EOF
