@@ -87,8 +87,9 @@
 ./go.sh 5     # 같은 조건 반복 — 재현성
 ```
 
-Docker 는 `RUN_DOCKER.md` 참고. **맥과 같은 스크립트를 써야** 두 수치를
-비교할 수 있다.
+맥은 [`RUN_MAC.md`](RUN_MAC.md), Docker 는 [`RUN_DOCKER.md`](RUN_DOCKER.md) 참고.
+**같은 `exp*.sh` 스크립트를 써야** 두 수치를 비교할 수 있다 — 준비 절차와 관측 시간은
+플랫폼별로 다르다(Docker 는 느려서 `TOTAL` 을 늘린다).
 
 경로가 다르면 환경변수로 지정한다.
 
