@@ -1,5 +1,12 @@
 # A stock `gpu_lidar` separates the two Docker failures (2026-08-07)
 
+> **Follow-up later on 2026-08-07:** the authorised-X path was subsequently tested.
+> Running as user `docker` with `DISPLAY=:10` and
+> `XAUTHORITY=/home/docker/.Xauthority` made the `ogre` path work, and the real
+> DAVE sonar world published PointCloud2. See
+> [`../docker_sonar_x_display_2026-08-07/`](../docker_sonar_x_display_2026-08-07/).
+> Statements below saying this path was untested describe the earlier probe stage only.
+
 `notes/docker-sonar-crash-issue-draft.md` has carried a "Before filing" block since
 2026-08-03 saying a maintainer's first question would be *"does this happen with a stock
 GpuRays sensor?"* — and that the report should not be filed until that was answered.
@@ -76,16 +83,17 @@ OGRE1's GL render system requires an X display, and a `docker exec` session has 
 reproduces with no DAVE code involved, so the sonar's exit-134 abort in `dllStartPlugin` is
 the same thing surfacing through a `noexcept` boundary.
 
-**Consequence beyond the sonar.** This repository and DAVE's own docs recommend patching
-world files `ogre2` → `ogre` when OGRE2 is unavailable on Ubuntu 26.04 aarch64. **In a
+**Consequence beyond the sonar.** At the time of this probe, this repository and DAVE's
+docs recommended patching world files `ogre2` → `ogre` under the now-withdrawn claim
+that OGRE2 was unavailable on Ubuntu 26.04 aarch64. **In a
 headless container that workaround cannot work for any world containing a rendering
 sensor** — camera, depth camera, lidar or sonar — because the render engine never loads.
 It is not specific to the sonar, and it was previously recorded as if it were.
 
 The 2026-08-03 attempt to set `DISPLAY=:10` against the container's xrdp socket was flagged
 in the draft as weak evidence because `XAUTHORITY` was not set. That caveat now has an
-explanation: the requirement is real, and satisfying it properly (a reachable X display
-with valid authorisation) is untested.
+explanation: the requirement is real. It was untested at this point in the probe, then
+confirmed later the same day using a reachable X display with valid authorisation.
 
 ## What this unblocks
 
@@ -101,10 +109,10 @@ The Docker crash draft can now be filed. It should be split:
 
 - One container (`lyrical-theme-test`), one architecture (aarch64), software rendering only.
 - The probe survived a 40 s window; it was not run long enough to rule out a later crash.
-- Whether the `ogre` path works when a real X display *is* available was not tested. The
-  container runs xrdp, so this is checkable and worth doing before the documentation
-  correction is written.
-- The sonar itself was not re-run in this session; its figures are from 2026-08-03.
+- **Superseded later on 2026-08-07:** the `ogre` path was tested with the container's
+  authorised xrdp X display and worked.
+- The sonar was not re-run during this initial probe, but was re-run later the same day;
+  it initialised and published PointCloud2 under the authorised-X configuration.
 
 ## Reproduce
 

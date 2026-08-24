@@ -70,7 +70,7 @@ alone: if RTF moves, the cost is compute-side; if not, it is in the point fill.*
 - The 960-ray point sits 0.098 above the fitted line — the only real deviation.
   Plausibly noise at the small end, where the fixed term dominates and relative
   error is largest, but a second regime cannot be excluded.
-- Mac / Apple M2 / Metal only. Docker cannot currently run this world at all.
+- Mac / Apple M2 / Metal only. **~~Docker cannot currently run this world at all~~ — superseded 2026-08-07:** with `ogre` and an authorised X display (`DISPLAY=:10` + `XAUTHORITY`, as user `docker`) the world runs and publishes PointCloud2. The DAVE multibeam sonar still segfaults as shipped on `ogre2`, and no RTF was measured in the working configuration, so there is still no Docker figure to compare against — but "cannot run at all" is no longer accurate.
 - RTF only. Nothing here says whether the sonar output is *correct* at reduced
   ray counts — the reduced configurations are diagnostic, not a proposed setting.
 

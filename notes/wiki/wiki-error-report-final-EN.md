@@ -1,6 +1,6 @@
-# DAVE ROS 2 Wiki — corrections (draft, ready to send)
+# DAVE ROS 2 Wiki — corrections (applied; retained as historical draft)
 
-**Status:** Draft, ready to paste as a Notion comment / email to the Wiki maintainers.
+**Status:** **Applied 2026-07-20 by editing the pages directly**, not sent. Retained as the historical draft and as the record of what was found.
 Delivery method still undecided — see the note at the bottom.
 
 Found while reading all 20 pages of the [DAVE ROS 2 Wiki](http://dave-ros2.notion.site) in

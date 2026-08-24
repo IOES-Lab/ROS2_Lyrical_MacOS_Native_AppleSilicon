@@ -61,7 +61,9 @@ callback. That is `exp1b`.
   was **not** changed, and neither was `<raySkips>`. If the implementation keys
   off `maxDistance` rather than `range/max` for its work loop, this experiment
   would show nothing even if range did matter. **Not yet checked in the source.**
-- Mac / Apple M2 / Metal only. Docker cannot currently run this world.
+- Mac / Apple M2 / Metal only. **The statement that Docker could not run this world
+  was superseded on 2026-08-07:** it runs with the `ogre` workaround and an authorised
+  X display. No comparable Docker RTF was measured in that configuration.
 - RTF only, not an accuracy benchmark.
 
 ## Reproduce

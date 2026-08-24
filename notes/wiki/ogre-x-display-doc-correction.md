@@ -1,10 +1,16 @@
 # Documentation correction draft — the `ogre2` → `ogre` workaround needs an X display
 
-**Status:** Draft, ready to send. Not a bug report — nothing here is broken. The workaround
+**Status:** **Applied 2026-08-20** to the Native manual. Retained as historical draft. Not a bug report — nothing here is broken. The workaround
 works; the instructions for it are incomplete in a way that makes it look broken.
 
-**Suggested target:** DAVE's Wiki / installation docs, alongside the existing "OGRE2 is
-unavailable on Ubuntu 26.04 aarch64, patch world files `ogre2` → `ogre`" guidance. Also
+> **Scope correction — 2026-08-21.** The general claim that OGRE2 is unavailable on
+> Ubuntu 26.04 aarch64 was withdrawn. A stock `gpu_lidar` works on `ogre2` in the same
+> container; the remaining confirmed failure is specific to DAVE's multibeam sonar.
+> This draft records the X-display requirement of the `ogre` workaround, not evidence
+> that OGRE2 is generally unavailable.
+
+**Suggested target at the time:** DAVE's Wiki / installation docs, alongside the then-existing
+"OGRE2 is unavailable on Ubuntu 26.04 aarch64, patch world files `ogre2` → `ogre`" guidance. Also
 worth folding into [`wiki-error-report-final-EN.md`](wiki-error-report-final-EN.md) if that
 is sent as one document.
 
@@ -13,9 +19,10 @@ is sent as one document.
 
 ---
 
-## What the docs say
+## What the docs said at the time
 
-When OGRE2 is unavailable — as on Ubuntu 26.04 aarch64 — world files should be patched:
+The documentation then described OGRE2 as unavailable on Ubuntu 26.04 aarch64 and said
+world files should be patched:
 
 ```diff
 - <render_engine>ogre2</render_engine>

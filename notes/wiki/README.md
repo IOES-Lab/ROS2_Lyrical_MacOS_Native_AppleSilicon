@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**두 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**세 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -41,10 +41,10 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 | `gui:=true headless:=true` 조합 | Installation Tutorial | |
 | `dave_world.launch.py` headless 부재 | Installation Tutorial | manipulation world 3개가 막혀 있었다 |
 | `ogre` 우회에 인가된 X 디스플레이 필요 | Native 매뉴얼 | [`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) |
-| aarch64 OGRE2 미지원 · 소나 segfault · WGPU CPU 폴백 | Docker 매뉴얼 | |
+| ~~aarch64 OGRE2 미지원~~ · 소나 segfault · WGPU CPU 폴백 | Docker 매뉴얼 | **OGRE2 미지원 부분은 2026-08-21 철회** — 3차 정정 참고 |
 | **해류 서비스 이름에 네임스페이스 누락** | Ocean Current Plugin | 문서는 `/set_current_velocity`, 실제는 `/hydrodynamics/` 아래. **예제 12개가 그대로는 전부 실패한다** |
 | **NVIDIA 카드 필수라는 서술** | Native 매뉴얼 · CUDA 페이지 · System Requirements | PR #44 의 WGPU 로 CUDA 없이 동작. 맥 Metal 에서 PointCloud2 확인 |
-| 백엔드가 수치적으로 같지 않음 | CUDA 페이지 | CPU 폴백에는 위상 항이 없다 — 조용히 폴백되면 PR #44 의 모델이 아니다 |
+| 백엔드가 수치적으로 같지 않음 | CUDA 페이지 | ~~CPU 폴백에는 위상 항이 없다~~ **표현 정정 2026-08-21** — 위상 항은 있다. 다만 거리 기반이 아니다 |
 | Lyrical 은 Ubuntu 26.04 필요 | System Requirements | 24.04 에서 `apt-cache search ros-lyrical` 이 빈 결과 |
 
 형식은 1차와 맞췄다 — **기존 문장을 지우지 않고** `Added 2026-08-20` /
@@ -64,6 +64,24 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 **마지막 줄이 절반이다.** 그것들은 위키의 오류가 아니라 **코드의 결함이거나 우리 검증에서 나온 관찰**이고, 읽는 사람이 걸려 넘어지지 않도록 해당 페이지에 경고로 붙인 것이다.
 
 보고서에 쓴다면 **"정정·보완 16건"** 이 정확하다.
+
+
+## 3차 — 2026-08-21
+
+앞선 두 차례에서 **우리 쪽 서술이 틀렸던 것**을 고친 회차다. 위키의 오류가 아니라
+우리가 위키에 붙인 주의사항 두 개가 잘못돼 있었다.
+
+| 항목 | 어디 | 무엇이 틀렸나 |
+|---|---|---|
+| **aarch64 에서 OGRE2 미지원** | Docker 매뉴얼 · 전체 현황 「핵심 발견 3」 · CMake 패턴 7 | **철회.** 7월에 `Failed to load plugin [ogre2]` 를 보고 적었는데, 같은 컨테이너에서 표준 `gpu_lidar` 가 소나와 같은 513×301 형상으로 `ogre2` 에서 3/3 발행한다. DAVE 소나는 `Ogre2Scene::PreRender` 안에서 죽는데, 플러그인이 로드 안 됐으면 거기까지 갈 수 없다. **OGRE2 가용성 문제가 아니라 소나 전용 크래시다** |
+| **CPU 폴백에는 위상 항이 없다** | CUDA 페이지 | **부정확.** `sonar_compute_cpu.cc:99-101` 에 위상 항이 있고 복소 진폭 합산도 한다. 틀린 건 그 위상이 **거리에서 나오지 않는다**는 점이다 — CUDA/WGPU 는 `2·d·k` (`sonar_calculation_cuda.cu:284`), CPU 는 beam·ray 인덱스의 결정론적 함수. 백엔드가 다르다는 결론은 유지되지만 근거가 다르다 |
+| `xvfb-run -a` 를 검증된 해결책처럼 서술 | CMake 패턴 7 | **미검증.** 시도 기록이 없다. 실제로 통한 건 `DISPLAY=:10` + `XAUTHORITY=/home/docker/.Xauthority` + `-u docker` 이고, `DISPLAY` 만으로는 거부된다(2026-08-03 확인) |
+| SeaPressure 를 다른 센서와 묶어 통과로 표기 | 전체 현황 · 저장소 | 발행은 되지만 값이 1000배 틀리고 `<noise_sigma>` 가 무시된다. **liveness 는 통과, 수치 정확성은 아니다** |
+| USBL Quick Start 명령 · `Vector3` 타입 표기 | USBL 페이지 | 실제 검증 명령(`paused:=false`)과 실제 타입(`dave_interfaces/msg/Location`)으로 교체 |
+| Docker 결과를 PointCloud2 내용 확인처럼 서술 | CUDA 페이지 | 2026-08-07 은 **발행만** 확인했고 내용은 안 봤다. 소나 연산은 CPU 폴백이었다 |
+
+**이 회차의 성격이 앞의 둘과 다르다.** 1·2차는 위키를 고친 것이고, 3차는 **우리가
+위키에 잘못 붙인 것을 떼어낸 것**이다. 경위는 [`../what-we-got-wrong.md`](../what-we-got-wrong.md).
 
 ## 일부러 넣지 않은 것
 

@@ -83,7 +83,9 @@ purpose, not the old one.
 
 - Single run of this world. The multibeam figure it is compared against has 12
   windows across 5 runs; this has 1.
-- Mac / Apple M2 / Metal only. Docker cannot currently run either sonar world.
+- Mac / Apple M2 / Metal only. **The statement that Docker could not run either sonar
+  world was superseded on 2026-08-07:** the world runs with the `ogre` workaround and
+  an authorised X display. No comparable Docker RTF was measured in that configuration.
 - `%CPU` is `ps` whole-process across all threads, so >100% is expected on a
   multicore machine; it is not normalised and should not be read as a core count.
 - RTF only. This is not an accuracy benchmark, and says nothing about whether the
