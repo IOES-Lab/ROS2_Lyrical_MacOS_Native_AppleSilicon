@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.SetCurrentVelocity_Request(velocity=0.0, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetCurrentVelocity_Response(success=True)

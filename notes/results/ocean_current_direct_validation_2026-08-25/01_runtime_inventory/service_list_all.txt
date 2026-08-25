@@ -1,0 +1,12 @@
+/dvl_bridge_node/describe_parameters
+/dvl_bridge_node/get_parameter_types
+/dvl_bridge_node/get_parameters
+/dvl_bridge_node/list_parameters
+/dvl_bridge_node/set_parameters
+/dvl_bridge_node/set_parameters_atomically
+/ros_gz_bridge/describe_parameters
+/ros_gz_bridge/get_parameter_types
+/ros_gz_bridge/get_parameters
+/ros_gz_bridge/list_parameters
+/ros_gz_bridge/set_parameters
+/ros_gz_bridge/set_parameters_atomically

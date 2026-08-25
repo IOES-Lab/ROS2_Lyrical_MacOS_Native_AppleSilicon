@@ -1,0 +1,65 @@
+{
+  "date": "2026-08-25",
+  "environment": {
+    "platform": "macOS Apple Silicon M2",
+    "ros": "ROS 2 Lyrical",
+    "gazebo": "Gazebo Jetty 10.4",
+    "dave_branch": "lyrical-jetty-migration",
+    "dave_commit": "6aef91c823af5da073329b84ba617b572965e79e",
+    "checkout_scope": "non-pristine local Lyrical/Jetty migration tree"
+  },
+  "service_validation": {
+    "custom_service_count": 12,
+    "services": [
+      "/hydrodynamics/get_current_horz_angle_model",
+      "/hydrodynamics/get_current_velocity_model",
+      "/hydrodynamics/get_current_vert_angle_model",
+      "/hydrodynamics/set_current_horz_angle",
+      "/hydrodynamics/set_current_horz_angle_model",
+      "/hydrodynamics/set_current_velocity",
+      "/hydrodynamics/set_current_velocity_model",
+      "/hydrodynamics/set_current_vert_angle",
+      "/hydrodynamics/set_current_vert_angle_model",
+      "/hydrodynamics/set_stratified_current_horz_angle",
+      "/hydrodynamics/set_stratified_current_velocity",
+      "/hydrodynamics/set_stratified_current_vert_angle"
+    ],
+    "valid_calls": "constant, direction, stratified and six Gauss-Markov get/set paths",
+    "invalid_input_checks": {
+      "layer_65535": false,
+      "velocity_model_mean_greater_than_max": false
+    },
+    "restoration": "original current and model parameters restored"
+  },
+  "vehicle_response": {
+    "duration_s": 8.98,
+    "zero_current_displacement_m": {
+      "x": -0.016826641089721556,
+      "y": 0.0007275380165521613,
+      "z": 4.3737255460878846
+    },
+    "current_1p5_x_displacement_m": {
+      "x": 9.034046257834552,
+      "y": 0.006994495674745805,
+      "z": 4.378378310670419
+    },
+    "paired_difference_current_minus_zero_m": {
+      "x": 9.050872898924274,
+      "y": 0.006266957658193644,
+      "z": 0.0046527645825342745
+    },
+    "end_x_velocity_difference_mps": 1.2967468554828212,
+    "control_condition_evidence": "Committed zero-current world configuration; the ROS wrapper current-topic capture for the control arm did not succeed."
+  },
+  "scope_limit": [
+    "does not validate hydrodynamic coefficient accuracy",
+    "does not validate real-ocean agreement",
+    "does not validate stratified-current force application",
+    "does not validate tidal time evolution",
+    "does not validate long-duration stability",
+    "does not validate the per-vehicle OceanCurrentModelPlugin path",
+    "does not validate depth-based stratified-force interpolation",
+    "does not validate multi-vehicle isolation"
+  ],
+  "validated_path": "OceanCurrentWorldPlugin / ROS wrapper -> global /ocean_current -> Gazebo Hydrodynamics -> REXROV motion"
+}

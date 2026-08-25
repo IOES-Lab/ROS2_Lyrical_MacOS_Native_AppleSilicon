@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.SetCurrentDirection_Request(angle=1.2)
+
+response:
+dave_interfaces.srv.SetCurrentDirection_Response(success=True)

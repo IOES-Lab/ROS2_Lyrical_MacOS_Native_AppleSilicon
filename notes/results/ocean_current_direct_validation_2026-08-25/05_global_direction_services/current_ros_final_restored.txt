@@ -1,0 +1,15 @@
+header:
+  stamp:
+    sec: 1787637465
+    nanosec: 607639000
+  frame_id: world
+twist:
+  linear:
+    x: 0.39156546058589603
+    y: 0.609827073024529
+    z: 1.8640781719344526
+  angular:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---

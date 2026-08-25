@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**네 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**다섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -107,6 +107,22 @@ checkout에 추가하지 않고 별도 overlay에서 만들었다.
 
 이 회차는 일반적인 음향 정확도를 입증하지 않는다. 한 평면 장면에서 CPU와 WGPU의
 range profile이 다르다는 것까지만 직접 확인했다.
+
+## 5차 — 2026-08-25 Ocean Current 직접 재검증
+
+「Ocean Current Plugin」 페이지의 서비스 예제와 실행 범위를 Mac Lyrical+Jetty에서
+직접 확인했다.
+
+- `/hydrodynamics/` 아래 사용자 서비스 12개의 실제 타입과 정상·비정상 호출 확인
+- Constant/Stratified/Gauss-Markov 출력 변경과 원상복구 확인
+- 전역 `/ocean_current`가 REXROV 운동을 바꾸는 paired trial 확인
+- Gazebo constant/stratified topic과 ROS wrapper topic 이름을 분리해 문서 수정
+- `flow_velocity_topic`이 상대 suffix라는 점과 namespace 예시 불일치 수정
+- 현재 REXROV에서는 `OceanCurrentModelPlugin`이 주석 처리돼 있으므로 해당 절에
+  직접 미검증 경고 추가
+
+근거:
+[`../results/ocean_current_direct_validation_2026-08-25/`](../results/ocean_current_direct_validation_2026-08-25/).
 
 ## 일부러 넣지 않은 것
 

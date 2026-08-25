@@ -4,6 +4,16 @@
 
 # 남은 일
 
+- [ ] **OceanCurrentModelPlugin 직접 검증** — 2026-08-25의 차량 실험은 전역
+  `/ocean_current` → Hydrodynamics 경로다. REXROV 모델의 Hydrodynamics namespace와
+  `OceanCurrentModelPlugin`은 주석 처리돼 있었다. 두 기능을 활성화한 별도 overlay에서
+  차량별 토픽, 서로 다른 깊이의 보간 결과와 실제 운동 반응을 확인해야 한다.
+- [ ] **Ocean Current 플러그인 설치 경로 정리** — 생성 hook은 `lib/<package>/`를
+  가리키지만 현재 CMake 설치 위치는 `lib/`다. 한쪽을 수정한 뒤 clean build하고,
+  수동 `GZ_SIM_SYSTEM_PLUGIN_PATH` 추가 없이 launch되는지 확인해야 한다.
+- [ ] **Ocean Current 후속 범위** — paused 상태 서비스 timeout 반복검증, ENU/NED
+  의미 확인, tidal harmonic/CSV 시간 변화, non-zero Gauss-Markov noise,
+  다중 차량 namespace 격리와 장시간 안정성은 아직 미검증이다.
 - [ ] **상류 보고 8건 제출** — 전부 작성 완료, 하나도 안 보냄. 붙여넣기용 변환본과
   제출 순서는 [`upstream/submit/README.md`](upstream/submit/README.md) 에 있다.
   `IOES-Lab/dave` 는 공개 저장소이고 Issues 가 열려 있어 계정만 있으면 된다.
@@ -35,11 +45,11 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-25까지 네 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-25까지 다섯 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
-  직접 실행해 CPU/WGPU·RViz·BlueROV2·CUDA 판정을 갱신했다.
+  직접 실행해 CPU/WGPU·RViz·BlueROV2·CUDA 판정을 갱신했다. 같은 날 Ocean Current 페이지도 12개 서비스와 전역 Hydrodynamics 차량 반응을 직접 재검증하고, Model Plugin 미검증 범위를 분리했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

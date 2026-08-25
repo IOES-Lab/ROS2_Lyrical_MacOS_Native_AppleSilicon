@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentDirection_Request(layer=0, angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentDirection_Response(success=True)

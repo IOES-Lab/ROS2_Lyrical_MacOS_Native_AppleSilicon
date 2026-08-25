@@ -10,7 +10,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [`upstream/`](upstream/) | 상류에 보고할 것. [`drafts/`](upstream/drafts/) 가 원본, [`submit/`](upstream/submit/) 이 붙여넣기용 변환본, [`make_submittable.py`](upstream/make_submittable.py) 가 변환기 |
-| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25 네 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
+| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류) 다섯 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
 | [`results/`](results/) | 날짜별 실험 결과. [`worlds/`](results/worlds/) 는 world 18종 스모크 테스트 로그 |
 | [`experiments/`](experiments/) | 실험 스크립트. [`common.sh`](experiments/common.sh) 가 공통 측정 절차 |
 | [`benchmarks/`](benchmarks/) | 초기 벤치마크 스크립트와 결과 (7월). `bench_results/SUPERSEDED_*` 는 폐기된 회차 |
@@ -24,6 +24,12 @@
 Wiki 명령, 사용자 정의 센서/world, Docker RDP, CPU/WGPU 평면 표적과 CUDA 실패 경로를
 실제로 실행한 기록이다.
 
+
+최신 해류 직접 검증:
+[`results/ocean_current_direct_validation_2026-08-25/`](results/ocean_current_direct_validation_2026-08-25/).
+12개 서비스, 정상·비정상 입력, 원상복구와 전역 `/ocean_current`가 REXROV 운동에
+미치는 효과를 직접 확인했다. 차량별 `OceanCurrentModelPlugin` 경로는 아직 미검증이다.
+
 ## 이 층의 파일
 
 루트 [`README.md`](../README.md) 는 입구 역할만 한다. 상류 저장소(`IOES-Lab/dave`,
@@ -34,8 +40,8 @@ Wiki 명령, 사용자 정의 센서/world, Docker RDP, CPU/WGPU 평면 표적�
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 30개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 77행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`known-issues.md`](known-issues.md) | 31개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 78행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

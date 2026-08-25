@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=65535, velocity=0.2, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=False)

@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.SetCurrentModel_Request(mean=1.5, min=0.0, max=4.0, noise=0.0, mu=0.0)
+
+response:
+dave_interfaces.srv.SetCurrentModel_Response(success=True)

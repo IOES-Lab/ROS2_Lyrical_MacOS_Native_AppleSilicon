@@ -1,0 +1,36 @@
+
+=== /hydrodynamics/get_current_horz_angle_model ===
+dave_interfaces/srv/GetCurrentModel
+
+=== /hydrodynamics/get_current_velocity_model ===
+dave_interfaces/srv/GetCurrentModel
+
+=== /hydrodynamics/get_current_vert_angle_model ===
+dave_interfaces/srv/GetCurrentModel
+
+=== /hydrodynamics/set_current_horz_angle ===
+dave_interfaces/srv/SetCurrentDirection
+
+=== /hydrodynamics/set_current_horz_angle_model ===
+dave_interfaces/srv/SetCurrentModel
+
+=== /hydrodynamics/set_current_velocity ===
+dave_interfaces/srv/SetCurrentVelocity
+
+=== /hydrodynamics/set_current_velocity_model ===
+dave_interfaces/srv/SetCurrentModel
+
+=== /hydrodynamics/set_current_vert_angle ===
+dave_interfaces/srv/SetCurrentDirection
+
+=== /hydrodynamics/set_current_vert_angle_model ===
+dave_interfaces/srv/SetCurrentModel
+
+=== /hydrodynamics/set_stratified_current_horz_angle ===
+dave_interfaces/srv/SetStratifiedCurrentDirection
+
+=== /hydrodynamics/set_stratified_current_velocity ===
+dave_interfaces/srv/SetStratifiedCurrentVelocity
+
+=== /hydrodynamics/set_stratified_current_vert_angle ===
+dave_interfaces/srv/SetStratifiedCurrentDirection
