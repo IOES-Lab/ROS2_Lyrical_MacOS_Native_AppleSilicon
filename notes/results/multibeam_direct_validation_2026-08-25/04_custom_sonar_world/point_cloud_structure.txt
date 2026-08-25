@@ -1,0 +1,14 @@
+header:
+  stamp:
+    sec: 0
+    nanosec: 86000000
+  frame_id: codex_p900/codex_p900_base_link/multibeam_sonar
+height: 61
+width: 65
+fields: '<sequence type: sensor_msgs/msg/PointField, length: 5>'
+is_bigendian: false
+point_step: 32
+row_step: 2080
+data: '<sequence type: uint8, length: 126880>'
+is_dense: false
+---

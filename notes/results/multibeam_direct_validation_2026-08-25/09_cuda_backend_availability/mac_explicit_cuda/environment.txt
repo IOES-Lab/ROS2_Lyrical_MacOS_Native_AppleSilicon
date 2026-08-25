@@ -1,0 +1,6 @@
+arm64
+nvcc: NOT FOUND
+      Chipset Model: Apple M2
+      Metal Support: Metal 3
+CUDAToolkit_NVCC_EXECUTABLE:FILEPATH=CUDAToolkit_NVCC_EXECUTABLE-NOTFOUND
+CUDA_ARCHITECTURE:STRING=native

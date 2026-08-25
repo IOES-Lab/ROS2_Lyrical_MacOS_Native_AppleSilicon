@@ -1,0 +1,3 @@
+GZPID=32488
+  PID %CPU   RSS     ELAPSED COMMAND
+32488  246 472744      02:19 /opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_multibeam_sonar.world -s -r

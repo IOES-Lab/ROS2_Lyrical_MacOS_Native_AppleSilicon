@@ -1,0 +1,32 @@
+== IDENTITY ==
+uid=0(root) gid=0(root) groups=0(root)
+aarch64
+== WORKSPACE ==
+/home/docker/dave_ws
+ROS_DISTRO=lyrical
+/home/docker/dave_ws/install
+/home/docker/dave_ws/install
+== SOURCE REVISION ==
+HEAD
+6aef91c823af5da073329b84ba617b572965e79e
+ M gazebo/dave_gz_model_plugins/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+ M gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+ M gazebo/dave_gz_world_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+ M models/dave_worlds/worlds/usbl_tutorial.world
+== DISPLAY ==
+total 0
+srwxrwxrwx 1 docker docker 0 Jul 20 06:17 X10
+-rw------- 1 docker docker 58 Jul 20 06:17 /home/docker/.Xauthority
+== WORLD RENDER ENGINE ==
+16:      <render_engine>ogre2</render_engine>
+== ACTIVE SIMULATION PROCESSES ==
+23281 /opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args
+27124 /usr/bin/python3 /opt/ros/lyrical/bin/ros2 launch dave_demos dave_sensor.launch.py namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true
+27131 /opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args
+28872 /opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args
+29361 bash -lc  echo "== IDENTITY ==" id uname -m  echo "== WORKSPACE ==" test -d /home/docker/dave_ws && echo /home/docker/dave_ws source /opt/ros/lyrical/setup.bash source /home/docker/dave_ws/install/setup.bash echo "ROS_DISTRO=$ROS_DISTRO" ros2 pkg prefix dave_demos ros2 pkg prefix multibeam_sonar  echo "== SOURCE REVISION ==" git -C /home/docker/dave_ws/src/dave rev-parse --abbrev-ref HEAD git -C /home/docker/dave_ws/src/dave rev-parse HEAD git -C /home/docker/dave_ws/src/dave status --short | head -50  echo "== DISPLAY ==" ls -l /tmp/.X11-unix || true ls -l /home/docker/.Xauthority || true  echo "== WORLD RENDER ENGINE ==" grep -n render_engine \   /home/docker/dave_ws/src/dave/models/dave_worlds/worlds/dave_multibeam_sonar.world || true  echo "== ACTIVE SIMULATION PROCESSES ==" pgrep -af "gz-sim-main|ros2 launch|parameter_bridge" || true 

@@ -1,0 +1,16 @@
+{
+  "backend": "cpu",
+  "sample_count": 5,
+  "expected_range_m": 3.99,
+  "peak_ranges_m": [
+    3.9882943630218506,
+    3.9882943630218506,
+    3.9882943630218506,
+    3.9882943630218506,
+    3.9882943630218506
+  ],
+  "median_peak_range_m": 3.9882943630218506,
+  "min_peak_range_m": 3.9882943630218506,
+  "max_peak_range_m": 3.9882943630218506,
+  "all_expected_bin_rank_1": true
+}

@@ -1,0 +1,10 @@
+REPOSITORY                   TAG                    IMAGE ID       SIZE
+lyrical-sim                  jetty-rdp-theme        708147d299ac   23.1GB
+dockwater                    2026_07_20_1407        80619496b462   8.9GB
+dockwater                    lyrical                80619496b462   8.9GB
+dockwater-lyrical-rdp-test   latest                 061893eb5451   8.9GB
+dockwater                    2026_07_20_1351        987d627ee9f2   8.9GB
+dockwater-lyrical-test       latest                 080bbaabee3d   8.68GB
+dockwater                    2026_07_20_1317        59d6ef1a6109   8.68GB
+lyrical-sim                  jetty-rdp-pr1-ca-fix   6b29d3d3a167   21.9GB
+arm64v8/ubuntu               26.04                  7f3465684b7f   180MB

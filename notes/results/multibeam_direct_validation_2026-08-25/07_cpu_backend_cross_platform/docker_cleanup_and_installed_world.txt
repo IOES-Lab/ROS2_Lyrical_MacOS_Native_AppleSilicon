@@ -1,0 +1,5 @@
+== REMAINING SIMULATION PROCESSES ==
+== INSTALLED WORLD ==
+PREFIX=/home/docker/dave_ws/install
+-rw-r--r-- 1 root root 7483 Aug  7 05:25 /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_multibeam_sonar.world
+16:      <render_engine>ogre</render_engine>

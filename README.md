@@ -6,14 +6,16 @@ DAVE is documented for Jazzy + Harmonic. Verified here on macOS (Apple Silicon, 
 Docker (Ubuntu 26.04).
 
 This is a verification record, not a distribution. It establishes scoped build, launch, topic
-and service behavior. **Numerical and acoustic correctness are not generally verified;
-SeaPressure is a known numerical exception.**
+and service behavior. **General numerical and acoustic correctness is not established.**
+A controlled planar test on 2026-08-25 found correct range localisation on the CPU backend but
+a repeatable WGPU raw-sonar mismatch; SeaPressure also remains a known numerical exception.
 
 ## Results
 
 | | |
 |---|---|
 | Worlds | 18/18 PASS-level, 0 PARTIAL **in the world-level matrix** — vehicle/sensor-specific PARTIAL findings are tracked separately |
+| Direct sonar check | Mac WGPU publishes structured 513×301 PointCloud2 and 513×399 raw sonar, but in one controlled 3.99 m planar scene the CPU peak was 3.988 m while WGPU produced 6.396–6.446 m in 5/5 frames — [evidence](notes/results/multibeam_direct_validation_2026-08-25/) |
 | Sonar cost | RTF **0.5243** against a **0.9974** no-sonar control — 1.90x, not the 4.5x reported earlier |
 | Largest win | `update_rate` 30 Hz → 2 Hz removes 75% of that cost, with no code change |
 | Build trap | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing gets an `-O` flag. `Release` doubled RTF on the sonar world (0.218 → 0.438, n=1) |
@@ -61,7 +63,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | [`notes/what-we-got-wrong.md`](notes/what-we-got-wrong.md) | **claims that turned out false, and how each was caught.** Read this before trusting any number here |
 | [`patches/`](patches/) | **what was changed** — six patches, what each fixes and whether it is complete |
 | [`notes/verified-demos.md`](notes/verified-demos.md) | what each PASS rests on |
-| [`notes/known-issues.md`](notes/known-issues.md) | 25 entries, including open, resolved and withdrawn findings, with cause and workaround |
+| [`notes/known-issues.md`](notes/known-issues.md) | 30 entries, including open, resolved and withdrawn findings, with cause and workaround |
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |
 | [`notes/setup/reproduction.md`](notes/setup/reproduction.md) | annotated build and launch procedure |
 | [`notes/validation_matrix.csv`](notes/validation_matrix.csv) | every world and vehicle, with its label |
@@ -88,7 +90,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | Gazebo | Jetty (Homebrew) | Jetty 10.4.0 (apt vendor build) |
 | Python | 3.14 | 3.14 |
 | Rendering | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) — no `/dev/dri` passthrough. Gazebo engine varied: `ogre2` in the crash reproduction, `ogre` + authorised X in the 2026-08-07 output run |
-| Sonar compute | WGPU on the Metal adapter | **CPU fallback in the 2026-08-07 validated run**; the earlier no-X probe had selected the WGPU `llvmpipe` software adapter |
+| Sonar compute | WGPU on the Metal adapter; CPU backend also run explicitly | **CPU fallback in the 2026-08-07 run; explicitly forced CPU in the 2026-08-25 RDP run.** The earlier no-X probe selected the WGPU `llvmpipe` software adapter |
 
 Pinned source revisions and the migration patch:
 [`notes/patch-and-pinned-commits.md`](notes/patch-and-pinned-commits.md).

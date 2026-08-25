@@ -1,0 +1,73 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/07_cpu_backend_cross_platform/mac_release_cpu/ros_logs/2026-08-25-10-43-49-805100-gwon-yeseol-ui-noteubug.local-51606
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [51610]
+[INFO] [create-2]: process started with pid [51611]
+[INFO] [parameter_bridge-3]: process started with pid [51612]
+[INFO] [static_transform_publisher-4]: process started with pid [51613]
+[static_transform_publisher-4] [INFO] [1787622235.445404000] [static_transform_publisher_tLrETfQw9hb7Od3Y]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'world' to 'blueview_p900/blueview_p900_base_link/multibeam_sonar'
+[create-2] [INFO] [1787622239.378213000] [ros_gz_sim]: Requesting list of world names.
+[gazebo-1] The following arguments were not expected: --v 4
+[gazebo-1] Run with --help for more information.
+[ERROR] [gazebo-1]: process has died [pid 51610, exit code 109, cmd 'ruby /opt/homebrew/bin/gz sim /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/04_custom_sonar_world/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_multibeam_sonar.world -s -r-v 4 --force-version 10'].
+[create-2] [INFO] [1787622244.380899000] [ros_gz_sim]: Requesting list of world names.
+[parameter_bridge-3] [INFO] [1787622245.380678000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622245.888700000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera (sensor_msgs/msg/Image) -> /sensor/camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622245.890243000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622246.394472000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera_info (sensor_msgs/msg/CameraInfo) -> /sensor/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622246.396367000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622246.397405000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/depth_camera (sensor_msgs/msg/Image) -> /sensor/depth_camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622246.398389000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787622246.906010000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
+[create-2] [INFO] [1787622249.381903000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622254.387251000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622259.391597000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622264.396497000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622269.400849000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622274.403087000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622279.406842000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622284.411562000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622289.416742000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622294.420395000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622299.420972000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622304.424443000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622309.429313000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622314.434979000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622319.440692000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622324.445525000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622329.449582000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622334.453279000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622339.458612000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622344.463850000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622349.467765000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622354.471570000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622359.477101000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622364.481098000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622369.486188000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622374.491546000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622379.496423000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622384.497295000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622389.501716000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622394.507187000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622399.512032000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622404.517295000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622409.523071000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622414.526536000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622419.531641000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622424.537061000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622429.542058000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622434.546646000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622439.552317000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622444.557917000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622449.562856000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622454.568732000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622459.569796000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622464.574906000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622469.577281000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622474.582465000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622479.584429000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622484.588407000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622489.591976000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787622494.596694000] [ros_gz_sim]: Requesting list of world names.

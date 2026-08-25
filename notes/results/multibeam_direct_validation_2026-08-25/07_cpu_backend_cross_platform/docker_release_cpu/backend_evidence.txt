@@ -1,0 +1,5 @@
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: cpu
+[gazebo-1] [sonar_compute_factory] Creating CPU backend
+[gazebo-1] [INFO] [1787623280.295911971] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1787623280.295951721] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1787623280.295963096] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)

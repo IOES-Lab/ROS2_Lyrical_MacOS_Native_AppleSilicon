@@ -1,0 +1,2 @@
+RVIZ_PID=48797
+name=rviz2, visible=true, windows=0

@@ -1,0 +1,12 @@
+header:
+  stamp:
+    sec: 1787617769
+    nanosec: 577738000
+  frame_id: forward_sonar_optical_link
+height: 399
+width: 513
+encoding: bgr8
+is_bigendian: 0
+step: 1539
+data: '<sequence type: uint8, length: 614061>'
+---

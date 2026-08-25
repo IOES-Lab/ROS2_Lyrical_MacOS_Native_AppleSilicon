@@ -1,0 +1,3 @@
+GZPID=51754
+  PID  %CPU    RSS ELAPSED COMMAND
+51754 262.7 346496   05:20 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/dave_multibeam_sonar.world -s -r

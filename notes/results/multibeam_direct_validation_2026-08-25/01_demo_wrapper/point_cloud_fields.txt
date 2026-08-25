@@ -1,0 +1,2 @@
+[sensor_msgs.msg.PointField(name='x', offset=0, datatype=7, count=1), sensor_msgs.msg.PointField(name='y', offset=4, datatype=7, count=1), sensor_msgs.msg.PointField(name='z', offset=8, datatype=7, count=1), sensor_msgs.msg.PointField(name='intensity', offset=16, datatype=7, count=1), sensor_msgs.msg.PointField(name='ring', offset=24, datatype=4, count=1)]
+---

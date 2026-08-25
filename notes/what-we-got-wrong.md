@@ -246,8 +246,9 @@ Superseded results stay in the repository under their original names, marked `SU
 changed and why.
 
 Claims carry the conditions they were measured under. Where something was not tested, the
-documents say so rather than leaving it implied — the sonar's acoustic accuracy has never been
-verified, and that sentence is in the README.
+documents say so rather than leaving it implied. General sonar acoustic accuracy remains
+unverified; one controlled planar test now establishes a narrower result — CPU range localisation
+passed while WGPU raw-sonar localisation failed in that scene.
 
 Edits are verified by reading the result back, not by the editing tool's return value, and the
 check has to cover everything the claim covers. A checker that passes is evidence only for the

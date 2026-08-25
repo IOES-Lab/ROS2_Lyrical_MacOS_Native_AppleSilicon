@@ -1,0 +1,25 @@
+{
+  "date": "2026-08-25",
+  "platform": "Apple M2 / Docker Desktop aarch64",
+  "planar_expected_range_m": 3.99,
+  "point_cloud_center_range_m": 3.9902441501619426,
+  "cpu": {
+    "sample_count": 5,
+    "raw_peak_range_m": 3.9882943630218506,
+    "peak_error_m": -0.0017056369781496272,
+    "expected_bin_rank_1_all_frames": true
+  },
+  "wgpu": {
+    "sample_count": 5,
+    "raw_peak_range_min_m": 6.3963212966918945,
+    "raw_peak_range_max_m": 6.446488380432129,
+    "median_peak_range_m": 6.446488380432129,
+    "expected_bin_rank_1_all_frames": false
+  },
+  "cuda_apple_m2": {
+    "nvcc_available": false,
+    "raw_sonar_topic_created": false,
+    "graceful_failure": false
+  },
+  "scope": "One controlled planar scene; not general acoustic validation."
+}

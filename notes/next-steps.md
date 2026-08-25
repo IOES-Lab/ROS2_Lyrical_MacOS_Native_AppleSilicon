@@ -8,13 +8,20 @@
   제출 순서는 [`upstream/submit/README.md`](upstream/submit/README.md) 에 있다.
   `IOES-Lab/dave` 는 공개 저장소이고 Issues 가 열려 있어 계정만 있으면 된다.
   7·8번은 2026-08-21 에 추가됐다 — SeaPressure 의 단위 오류와 동작하지 않는 파라미터 3개로,
-  [`results/seapressure_unit_2026-08-21/`](results/seapressure_unit_2026-08-21/) 에서 실행 확인했다
+  [`results/seapressure_unit_2026-08-21/`](results/seapressure_unit_2026-08-21/) 에서 실행 확인했다.
+  **2026-08-25의 WGPU/CUDA/launch/Wiki 예제 발견은 이 기존 8건에 아직 포함되지 않는다**
 - [ ] **`package.xml` 의존성 수정을 상류에 제안** — 이슈가 아니라 fork 후 PR 이어야 한다
 - [ ] **저장소 이름 변경** — `ROS2_Lyrical_MacOS_Native_AppleSilicon` → `ROS2_Lyrical`.
   현재 이름은 macOS·Apple Silicon 만 말하지만 Docker/Linux 도 다뤘다.
   **조직 owner 만 할 수 있다** — 이 저장소에 대한 권한이 Maintain 이라 설정에 이름 칸이 없다.
   문서의 절대 URL 은 옛 이름으로 두었다. GitHub 이 옛 이름을 새 이름으로 리다이렉트하므로
   지금도, 이름을 바꾼 뒤에도 동작한다 (반대 방향은 안 된다)
+- [ ] **WGPU 평면 거리 불일치 원인 규명** — PointCloud는 CPU/WGPU 모두 3.990244 m지만
+  raw sonar는 CPU 3.988294 m, WGPU 6.396–6.446 m다. 범위 변환·버퍼 배치·FFT 이후
+  index 해석을 단계별로 대조해야 한다. 현재는 원인 미확정
+- [ ] **백엔드 실패 경로와 새 발견의 상류 보고 여부 결정** — Apple M2에서 명시적 CUDA 요청이
+  clean rejection이 아니라 Gazebo 종료와 잔류 프로세스로 이어졌다. `-r-v 4` launch 인자,
+  BlueROV2 소나 예제, RViz 창 미생성도 기존 준비된 8개 이슈에는 포함되지 않는다
 - [ ] **소나 확장 방향 결정** — Profiling / Mechanical scanning / Side-scan.
   장비 분류·스펙·타 시뮬레이터 현황은 Notion 「소나 종류 분류」 에,
   코드 구조와 논문 수식 대응은 Notion 「DAVE 소나 코드 구조」 에 정리했다.
@@ -28,9 +35,11 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-21까지 세 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-25까지 네 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
-  주석 6건을 다시 정정했다. **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
+  주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
+  직접 실행해 CPU/WGPU·RViz·BlueROV2·CUDA 판정을 갱신했다.
+  **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

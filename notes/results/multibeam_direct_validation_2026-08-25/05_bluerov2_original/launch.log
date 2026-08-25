@@ -1,0 +1,97 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/05_bluerov2_original/ros_logs/2026-08-25-10-23-46-700560-gwon-yeseol-ui-noteubug.local-51069
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [51071]
+[INFO] [create-2]: process started with pid [51072]
+[create-2] [INFO] [1787621036.684990000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787621041.687965000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787621042.028531000] [ros_gz_sim]: World name was not provided. Using [oceans_waves] as the default world.
+[create-2] [INFO] [1787621042.142050000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 51072]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [launch.user]: Web joystick enabled. Open extras/virtual_joystick.html and connect to ws://127.0.0.1:8765
+[INFO] [keyboard_publisher.py-4]: process started with pid [51078]
+[INFO] [parameter_bridge-3]: process started with pid [51077]
+[INFO] [ws_to_joy.py-5]: process started with pid [51079]
+[INFO] [ardusub_manual_control.py-6]: process started with pid [51080]
+[INFO] [env-7]: process started with pid [51081]
+[ardusub_manual_control.py-6] Traceback (most recent call last):
+[ardusub_manual_control.py-6]   File "/Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models/lib/dave_robot_models/ardusub_manual_control.py", line 5, in <module>
+[ardusub_manual_control.py-6]     from mavros_msgs.msg import ManualControl, State
+[ardusub_manual_control.py-6] ModuleNotFoundError: No module named 'mavros_msgs'
+[ERROR] [ardusub_manual_control.py-6]: process has died [pid 51080, exit code 1, cmd '/Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models/lib/dave_robot_models/ardusub_manual_control.py --ros-args --params-file /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/launch_params_7_7hrofe'].
+[ws_to_joy.py-5] Traceback (most recent call last):
+[ws_to_joy.py-5]   File "/Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models/lib/dave_robot_models/ws_to_joy.py", line 8, in <module>
+[ws_to_joy.py-5]     import websockets
+[ws_to_joy.py-5] ModuleNotFoundError: No module named 'websockets'
+[ERROR] [ws_to_joy.py-5]: process has died [pid 51079, exit code 1, cmd '/Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models/lib/dave_robot_models/ws_to_joy.py --ros-args --params-file /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/launch_params_cna4w6_k'].
+[keyboard_publisher.py-4] [0m[INFO] [1787621052.665998000] [keyboard_joy_publisher]: Keyboard teleop ready on /keyboard/joy | c: arm, x: disarm, w/s: forward/back, a/d: yaw, r/f: ascend/descend, h: ALT_HOLD, j: STABILIZE, space: stop, q: quit[0m
+[gazebo-1] (2026-08-25 10:24:20.042) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[INFO] [env-7]: process has finished cleanly [pid 51081]
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[ERROR] [ardusub-8]: exception occurred while executing process:
+Traceback (most recent call last):
+  File "/Users/gwon-yeseol/ros2_lyrical/build/launch/launch/actions/execute_local.py", line 571, in __execute_process
+    transport, self._subprocess_protocol = await async_execute_process(
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "/Users/gwon-yeseol/ros2_lyrical/.venv/lib/python3.14/site-packages/osrf_pycommon/process_utils/async_execute_process_asyncio/impl.py", line 139, in async_execute_process
+    transport, protocol = await _async_execute_process_nopty(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        protocol_class, cmd, cwd, env, shell,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        stderr_to_stdout)
+        ^^^^^^^^^^^^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/.venv/lib/python3.14/site-packages/osrf_pycommon/process_utils/async_execute_process_asyncio/impl.py", line 45, in _async_execute_process_nopty
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        protocol_class, *cmd, cwd=cwd, env=env,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        stderr=stderr, close_fds=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 1808, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        protocol, popen_args, False, stdin, stdout, stderr,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        bufsize, **kwargs)
+        ^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/unix_events.py", line 203, in _make_subprocess_transport
+    transp = _UnixSubprocessTransport(self, protocol, args, shell,
+                                    stdin, stdout, stderr, bufsize,
+                                    waiter=waiter, extra=extra,
+                                    **kwargs)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_subprocess.py", line 40, in __init__
+    self._start(args=args, shell=shell, stdin=stdin, stdout=stdout,
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                stderr=stderr, bufsize=bufsize, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/unix_events.py", line 845, in _start
+    self._proc = subprocess.Popen(
+                 ~~~~~~~~~~~~~~~~^
+        args, shell=shell, stdin=stdin, stdout=stdout, stderr=stderr,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        universal_newlines=False, bufsize=bufsize, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ardusub'
+
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].
+[parameter_bridge-3] [INFO] [1787621067.738851000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787621068.946300000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787621070.280253000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787621070.281503000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787621071.332114000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/imu (gz.msgs.IMU) -> /model/bluerov2_heavy/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787621072.455726000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)

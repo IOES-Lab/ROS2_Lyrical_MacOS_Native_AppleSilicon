@@ -1,0 +1,12 @@
+header:
+  stamp:
+    sec: 1787620849
+    nanosec: 428788000
+  frame_id: codex_validation_optical_link
+height: 319
+width: 65
+encoding: bgr8
+is_bigendian: 0
+step: 195
+data: '<sequence type: uint8, length: 62205>'
+---

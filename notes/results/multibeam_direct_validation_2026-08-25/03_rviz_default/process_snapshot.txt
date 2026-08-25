@@ -1,0 +1,3 @@
+48793 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/dave_multibeam_sonar.world -r
+48795 /Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args
+48797 /Users/gwon-yeseol/ros2_lyrical/install/rviz2/lib/rviz2/rviz2 -d /Users/gwon-yeseol/dave_ws_lyrical/install/dave_multibeam_sonar_demo/share/dave_multibeam_sonar_demo/rviz/multibeam_sonar.rviz --ros-args

@@ -1,0 +1,59 @@
+{
+  "expected_nearest_surface_range_m": 3.99,
+  "point_cloud": {
+    "frame_id": "codex_p900/codex_p900_base_link/multibeam_sonar",
+    "width": 65,
+    "height": 61,
+    "center_row": 30,
+    "center_column": 32,
+    "center_xyz_m": [
+      3.990244150161743,
+      1.2486447076298646e-06,
+      -1.8209401275726123e-07
+    ],
+    "center_radial_range_m": 3.9902441501619426,
+    "center_error_m": 0.00024415016194234695,
+    "finite_point_count": 3965,
+    "median_radial_range_m": 4.358938439099299
+  },
+  "raw_sonar": {
+    "frame_id": "codex_validation_optical_link",
+    "beam_count": 65,
+    "range_bin_count": 319,
+    "center_beam_index": 32,
+    "peak_range_m": 6.446488380432129,
+    "peak_value_db": 98.987548828125,
+    "peak_range_index": 257,
+    "peak_error_m": 2.4564883804321287,
+    "top5_center_beam_peaks": [
+      {
+        "range_m": 6.446488380432129,
+        "value_db": 98.987548828125,
+        "range_index": 257
+      },
+      {
+        "range_m": 6.471571922302246,
+        "value_db": 97.29447937011719,
+        "range_index": 258
+      },
+      {
+        "range_m": 6.421404838562012,
+        "value_db": 90.44004821777344,
+        "range_index": 256
+      },
+      {
+        "range_m": 6.496655464172363,
+        "value_db": 85.35342407226562,
+        "range_index": 259
+      },
+      {
+        "range_m": 6.3963212966918945,
+        "value_db": 83.05970764160156,
+        "range_index": 255
+      }
+    ]
+  },
+  "scope": "Geometric correspondence test against one planar target. This does not establish general acoustic accuracy."
+}
+
+Saved: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/wgpu/numeric_analysis.json

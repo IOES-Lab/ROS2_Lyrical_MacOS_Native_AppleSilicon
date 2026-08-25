@@ -1,0 +1,193 @@
+Starting >>> dave_sensor_models
+Starting >>> dave_worlds
+--- output: dave_worlds
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- The C compiler identification is AppleClang 17.0.0.17000013
+-- The CXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.8.7 (/Users/gwon-yeseol/ros2_lyrical/install/ament_cmake/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (16.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/build/dave_worlds
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/ACT1951_1_Annual_2021.csv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/camera_tutorial.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_Santorini.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_bimanual_example.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_custom_sonar_validation.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_electrical_mating.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_graded_seabed.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_integrated.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_multibeam_sonar.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_models.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_waves.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_waves_mossy_ground.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_waves_sonar.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_waves_sonar_integrated.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_waves_transient_current.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_planar_range_4m.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_plug_and_socket.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dvl_world.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/new_dvl.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/ocean_current_plugin.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/transientOceanCurrentDatabase.csv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/usbl_tutorial.world
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/media/materials/textures/dirt_diffusespecular.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/media/materials/textures/flat_normal.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/media/meshes/Santorini_heightmap.tif
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/environment/dave_worlds.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/ament_index/resource_index/package_run_dependencies/dave_worlds
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/ament_index/resource_index/parent_prefix_path/dave_worlds
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/environment/ament_prefix_path.sh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/environment/ament_prefix_path.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/environment/path.sh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/environment/path.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/local_setup.bash
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/local_setup.fish
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/local_setup.sh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/local_setup.zsh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/local_setup.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/package.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/ament_index/resource_index/packages/dave_worlds
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/cmake/dave_worldsConfig.cmake
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/cmake/dave_worldsConfig-version.cmake
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/package.xml
+---
+--- stderr: dave_worlds
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+---
+Finished <<< dave_worlds [24.2s]
+--- output: dave_sensor_models
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- The C compiler identification is AppleClang 17.0.0.17000013
+-- The CXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.8.7 (/Users/gwon-yeseol/ros2_lyrical/install/ament_cmake/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (16.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/build/dave_sensor_models
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/blueview_p900/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/blueview_p900/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/codex_p900/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/codex_p900/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl1000_300/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl1000_300/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl1000_4000/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl500_300/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl500_300/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl500_6000/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/nortek_dvl500_6000/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/sonardyne_syrinx600/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/sonardyne_syrinx600/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/teledyne_explorer1000/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/teledyne_explorer1000/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/teledyne_explorer4000/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/teledyne_explorer4000/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/teledyne_whn/model.config
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/teledyne_whn/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/description/underwater_camera/model.sdf
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/launch/upload_sensor.launch.py
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/blueview_p900/COLLISION-p900.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/blueview_p900/p900.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/blueview_p900/tx-p900.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl1000_300/DVL1000-300m.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl1000_300/tx-DVL1000-300m.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl1000_4000/DVL1000-4000m.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl1000_4000/tx-DVL1000-4000m.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl500_300/DVL500-300m.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl500_300/tx-DVL500-300m.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl500_6000/DVL500-6000m.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/nortek_dvl500_6000/tx-DVL500-6000m.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/sonardyne_syrinx600/Syrinx600.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/sonardyne_syrinx600/tx-Syrinx600.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/teledyne_explorer1000/MarineExplorer.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/teledyne_explorer1000/tx-Explorer.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/teledyne_explorer4000/MarineExplorer.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/teledyne_explorer4000/tx-Explorer.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/teledyne_whn/WorkhorseNavigator.dae
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/meshes/teledyne_whn/tx-Navigator.png
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/config/blueview_p900/sensor_config.py
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/config/codex_p900/sensor_config.py
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/environment/dave_sensor_models.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/ament_index/resource_index/package_run_dependencies/dave_sensor_models
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/ament_index/resource_index/parent_prefix_path/dave_sensor_models
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/environment/ament_prefix_path.sh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/environment/ament_prefix_path.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/environment/path.sh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/environment/path.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/local_setup.bash
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/local_setup.fish
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/local_setup.sh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/local_setup.zsh
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/local_setup.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/package.dsv
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/ament_index/resource_index/packages/dave_sensor_models
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/cmake/dave_sensor_modelsConfig.cmake
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/cmake/dave_sensor_modelsConfig-version.cmake
+-- Symlinking: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_sensor_models/share/dave_sensor_models/package.xml
+---
+--- stderr: dave_sensor_models
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+---
+Finished <<< dave_sensor_models [26.0s]
+
+Summary: 2 packages finished [26.3s]
+  2 packages had stderr output: dave_sensor_models dave_worlds

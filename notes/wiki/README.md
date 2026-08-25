@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**세 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**네 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -82,6 +82,31 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 
 **이 회차의 성격이 앞의 둘과 다르다.** 1·2차는 위키를 고친 것이고, 3차는 **우리가
 위키에 잘못 붙인 것을 떼어낸 것**이다. 경위는 [`../what-we-got-wrong.md`](../what-we-got-wrong.md).
+
+## 4차 — 2026-08-25
+
+「Multibeam Sonar Plugin」 페이지에서 직접 실행하지 않았던 예제와 판정을 다시 검증했다.
+사용한 DAVE checkout은 commit `6aef91c` 기반의 기존 migration 수정이 남은
+작업 트리였으며 pristine 상태가 아니었다. 사용자 정의 센서와 world는 DAVE
+checkout에 추가하지 않고 별도 overlay에서 만들었다.
+
+| 항목 | 직접 확인한 판정 |
+|---|---|
+| Demo wrapper와 원본 `dave_sensor.launch.py` | Mac Metal WGPU에서 PointCloud2 513×301, image/raw sonar 513×399 발행 |
+| 기본 RViz launch | 프로세스·구독은 존재하지만 macOS에서 `visible=true, windows=0`; 실제 창은 생성되지 않음 |
+| 사용자 정의 sonar/world | 65×61 PointCloud2와 65×319 image/raw sonar 발행 |
+| BlueROV2 예제 | 차량은 spawn되지만 선택된 모델에 multibeam sensor가 없어 소나 예제로는 실패 |
+| Local Search | Mac Metal WGPU에서 원본 513×301/399 출력 확인 |
+| Docker RDP | Gazebo GUI와 강제 CPU backend의 513×399 raw sonar 직접 확인 |
+| 평면 3.99 m 표적 | CPU는 5/5 프레임 3.988294 m로 PASS; WGPU는 6.396–6.446 m로 FAIL |
+| 명시적 CUDA 요청 | Apple M2에는 CUDA가 없으며, 요청 시 clean rejection이 아니라 Gazebo 종료와 잔류 프로세스 발생 |
+| `debug` + `verbosity_level` | 인자가 `-r-v 4`로 붙어 Gazebo exit 109 |
+
+근거:
+[`../results/multibeam_direct_validation_2026-08-25/`](../results/multibeam_direct_validation_2026-08-25/).
+
+이 회차는 일반적인 음향 정확도를 입증하지 않는다. 한 평면 장면에서 CPU와 WGPU의
+range profile이 다르다는 것까지만 직접 확인했다.
 
 ## 일부러 넣지 않은 것
 

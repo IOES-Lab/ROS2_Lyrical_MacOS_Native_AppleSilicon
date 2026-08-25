@@ -1,0 +1,373 @@
+Starting >>> multibeam_sonar_system
+[-1787622082897985792.000s] WARNING:colcon.colcon_core.shell:The following packages are in the workspace but haven't been built:
+- wgpu_vendor
+They are being used from the following locations instead:
+- /home/docker/dave_ws/install
+To suppress this warning ignore these packages in the workspace:
+--packages-ignore wgpu_vendor
+--- stderr: multibeam_sonar_system
+/home/docker/dave_release_overlay/src/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc: In member function ‘bool gz::sensors::MultibeamSonarSensor::Implementation::InitializeBeamArrangement(gz::sensors::MultibeamSonarSensor*)’:
+/home/docker/dave_release_overlay/src/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:500:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  500 |       system("rm SonarRawData*.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/docker/dave_release_overlay/src/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:504:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  504 |       system("rm SonarRawData_beam_angles.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+--- output: multibeam_sonar_system
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib/ccache/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.8.7 (/opt/ros/lyrical/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Looking for gz-common -- found version 7.1.1
+-- Searching for dependencies of gz-common
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for dependencies of gz-utils
+-- Searching for <gz-utils> component [log]
+-- Looking for gz-utils-log -- found version 4.0.0
+-- Searching for dependencies of gz-utils-log
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Checking for module 'uuid'
+--   Found uuid, version 2.41.3
+-- Found UUID: TRUE
+-- Searching for <gz-common> component [profiler]
+-- Looking for gz-common-profiler -- found version 7.1.1
+-- Searching for dependencies of gz-common-profiler
+-- Looking for gz-plugin -- found version 4.0.0
+-- Searching for dependencies of gz-plugin
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for dependencies of gz-utils
+-- Searching for <gz-utils> component [cli]
+-- Looking for gz-utils-cli -- found version 4.0.0
+-- Searching for dependencies of gz-utils-cli
+-- Searching for <gz-plugin> component [register]
+-- Looking for gz-plugin-register -- found version 4.0.0
+-- Searching for dependencies of gz-plugin-register
+-- Looking for gz-rendering -- found version 10.0.1
+-- Searching for dependencies of gz-rendering
+-- Looking for gz-math -- found version 9.1.0
+-- Searching for dependencies of gz-math
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for <gz-math> component [eigen3]
+-- Looking for gz-math-eigen3 -- found version 9.1.0
+-- Searching for dependencies of gz-math-eigen3
+-- Looking for gz-common -- found version 7.1.1
+-- Searching for dependencies of gz-common
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for <gz-common> component [graphics]
+-- Looking for gz-common-graphics -- found version 7.1.1
+-- Searching for dependencies of gz-common-graphics
+-- Looking for gz-math -- found version 9.1.0
+-- Found GzAssimp: TRUE (found version "6.0.4")
+-- Searching for <gz-common> component [events]
+-- Looking for gz-common-events -- found version 7.1.1
+-- Searching for dependencies of gz-common-events
+-- Looking for gz-math -- found version 9.1.0
+-- Searching for <gz-common> component [geospatial]
+-- Looking for gz-common-geospatial -- found version 7.1.1
+-- Searching for dependencies of gz-common-geospatial
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-common -- found version 7.1.1
+-- Looking for gz-plugin -- found version 4.0.0
+-- Searching for dependencies of gz-plugin
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for <gz-plugin> component [all]
+-- Looking for all libraries of gz-plugin -- found version 4.0.0
+-- Looking for gz-plugin -- found version 4.0.0
+-- Looking for gz-plugin-loader -- found version 4.0.0
+-- Searching for dependencies of gz-plugin-loader
+-- Looking for gz-utils -- found version 4.0.0
+-- Found OpenGL: /usr/lib/aarch64-linux-gnu/libOpenGL.so  found components: OpenGL
+-- Searching for <gz-rendering> component [ogre]
+-- Looking for gz-rendering-ogre -- found version 10.0.1
+-- Searching for dependencies of gz-rendering-ogre
+-- Searching for <gz-rendering> component [ogre2]
+-- Looking for gz-rendering-ogre2 -- found version 10.0.1
+-- Searching for dependencies of gz-rendering-ogre2
+-- Looking for gz-sim -- found version 10.4.0
+-- Searching for dependencies of gz-sim
+-- Looking for sdformat -- found version 16.0.1
+-- Searching for dependencies of sdformat
+-- Checking for module 'tinyxml2'
+--   Found tinyxml2, version 11.0.0
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-utils -- found version 4.0.0
+-- Looking for gz-plugin -- found version 4.0.0
+-- Looking for gz-transport -- found version 15.0.2
+-- Searching for dependencies of gz-transport
+-- Found Protobuf: /usr/lib/aarch64-linux-gnu/libprotobuf.so (found version "3.21.12")
+-- Config-file not installed for ZeroMQ -- checking for pkg-config
+-- Checking for module 'libzmq >= 4'
+--   Found libzmq, version 4.3.5
+-- Found ZeroMQ: TRUE (Required is at least version "4")
+-- Looking for gz-utils -- found version 4.0.0
+-- Looking for gz-msgs -- found version 12.0.1
+-- Searching for dependencies of gz-msgs
+-- Looking for gz-utils -- found version 4.0.0
+-- Looking for gz-math -- found version 9.1.0
+-- Searching for <gz-transport> component [log]
+-- Looking for gz-transport-log -- found version 15.0.2
+-- Searching for dependencies of gz-transport-log
+-- Searching for <gz-transport> component [parameters]
+-- Looking for gz-transport-parameters -- found version 15.0.2
+-- Searching for dependencies of gz-transport-parameters
+-- Looking for gz-msgs -- found version 12.0.1
+-- Looking for gz-common -- found version 7.1.1
+-- Searching for dependencies of gz-common
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for <gz-common> component [av]
+-- Looking for gz-common-av -- found version 7.1.1
+-- Searching for dependencies of gz-common-av
+-- Checking for module 'libswscale'
+--   Found libswscale, version 9.1.100
+-- Found SWSCALE: TRUE
+-- Checking for module 'libavdevice >= 56.4.100'
+--   Found libavdevice, version 62.1.100
+-- Found AVDEVICE: TRUE (Required is at least version "56.4.100")
+-- Checking for module 'libavformat'
+--   Found libavformat, version 62.3.100
+-- Found AVFORMAT: TRUE
+-- Checking for module 'libavcodec'
+--   Found libavcodec, version 62.11.100
+-- Found AVCODEC: TRUE
+-- Checking for module 'libavutil'
+--   Found libavutil, version 60.8.100
+-- Found AVUTIL: TRUE
+-- Searching for <gz-common> component [events]
+-- Searching for <gz-common> component [graphics]
+-- Searching for <gz-common> component [io]
+-- Looking for gz-common-io -- found version 7.1.1
+-- Searching for dependencies of gz-common-io
+-- Searching for <gz-common> component [profiler]
+-- Searching for <gz-common> component [testing]
+-- Looking for gz-common-testing -- found version 7.1.1
+-- Searching for dependencies of gz-common-testing
+-- Looking for gz-fuel_tools -- found version 11.0.0
+-- Searching for dependencies of gz-fuel_tools
+-- Found CURL: /usr/lib/aarch64-linux-gnu/libcurl.so (found version "8.18.0")
+-- Checking for module 'jsoncpp'
+--   Found jsoncpp, version 1.9.6
+-- Found JSONCPP: TRUE
+-- Checking for module 'yaml-0.1'
+--   Found yaml-0.1, version 0.2.5
+-- Found YAML: TRUE
+-- Checking for module 'libzip'
+--   Found libzip, version 1.11.4
+-- Found ZIP: TRUE
+-- Looking for gz-utils -- found version 4.0.0
+-- Looking for gz-common -- found version 7.1.1
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-msgs -- found version 12.0.1
+-- Looking for gz-gui -- found version 10.0.0
+-- Searching for dependencies of gz-gui
+-- Looking for gz-utils -- found version 4.0.0
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-common -- found version 7.1.1
+-- Looking for gz-plugin -- found version 4.0.0
+-- Looking for gz-transport -- found version 15.0.2
+-- Looking for gz-rendering -- found version 10.0.1
+-- Looking for gz-msgs -- found version 12.0.1
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Found OpenGL: /usr/lib/aarch64-linux-gnu/libOpenGL.so
+-- Found WrapOpenGL: TRUE
+-- Found WrapVulkanHeaders: /usr/include
+-- Looking for gz-physics -- found version 9.3.0
+-- Searching for dependencies of gz-physics
+-- Looking for gz-common -- found version 7.1.1
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-plugin -- found version 4.0.0
+-- Looking for gz-utils -- found version 4.0.0
+-- Searching for <gz-physics> component [heightmap]
+-- Looking for gz-physics-heightmap -- found version 9.3.0
+-- Searching for dependencies of gz-physics-heightmap
+-- Looking for gz-common -- found version 7.1.1
+-- Searching for <gz-physics> component [mesh]
+-- Looking for gz-physics-mesh -- found version 9.3.0
+-- Searching for dependencies of gz-physics-mesh
+-- Looking for gz-common -- found version 7.1.1
+-- Searching for <gz-physics> component [sdf]
+-- Looking for gz-physics-sdf -- found version 9.3.0
+-- Searching for dependencies of gz-physics-sdf
+-- Looking for sdformat -- found version 16.0.1
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for dependencies of gz-sensors
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-common -- found version 7.1.1
+-- Looking for gz-transport -- found version 15.0.2
+-- Looking for gz-rendering -- found version 10.0.1
+-- Looking for gz-msgs -- found version 12.0.1
+-- Looking for sdformat -- found version 16.0.1
+-- Searching for <gz-sensors> component [air_pressure]
+-- Looking for gz-sensors-air_pressure -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-air_pressure
+-- Searching for <gz-sensors> component [air_speed]
+-- Looking for gz-sensors-air_speed -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-air_speed
+-- Searching for <gz-sensors> component [altimeter]
+-- Looking for gz-sensors-altimeter -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-altimeter
+-- Searching for <gz-sensors> component [imu]
+-- Looking for gz-sensors-imu -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-imu
+-- Searching for <gz-sensors> component [force_torque]
+-- Looking for gz-sensors-force_torque -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-force_torque
+-- Searching for <gz-sensors> component [logical_camera]
+-- Looking for gz-sensors-logical_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-logical_camera
+-- Searching for <gz-sensors> component [magnetometer]
+-- Looking for gz-sensors-magnetometer -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-magnetometer
+-- Searching for <gz-sensors> component [navsat]
+-- Looking for gz-sensors-navsat -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-navsat
+-- Searching for <gz-sensors> component [dvl]
+-- Looking for gz-sensors-dvl -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-dvl
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for dependencies of gz-sensors
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-common -- found version 7.1.1
+-- Looking for gz-transport -- found version 15.0.2
+-- Looking for gz-rendering -- found version 10.0.1
+-- Looking for gz-msgs -- found version 12.0.1
+-- Looking for sdformat -- found version 16.0.1
+-- Searching for <gz-sensors> component [rendering]
+-- Looking for gz-sensors-rendering -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-rendering
+-- Searching for <gz-sensors> component [rendering]
+-- Searching for <gz-sensors> component [lidar]
+-- Looking for gz-sensors-lidar -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-lidar
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for <gz-sensors> component [gpu_lidar]
+-- Looking for gz-sensors-gpu_lidar -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-gpu_lidar
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for <gz-sensors> component [camera]
+-- Looking for gz-sensors-camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-camera
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for <gz-sensors> component [boundingbox_camera]
+-- Looking for gz-sensors-boundingbox_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-boundingbox_camera
+-- Searching for <gz-sensors> component [segmentation_camera]
+-- Looking for gz-sensors-segmentation_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-segmentation_camera
+-- Searching for <gz-sensors> component [depth_camera]
+-- Looking for gz-sensors-depth_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-depth_camera
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for <gz-sensors> component [rgbd_camera]
+-- Looking for gz-sensors-rgbd_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-rgbd_camera
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for <gz-sensors> component [thermal_camera]
+-- Looking for gz-sensors-thermal_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-thermal_camera
+-- Looking for gz-sensors -- found version 10.0.1
+-- Searching for <gz-sensors> component [wide_angle_camera]
+-- Looking for gz-sensors-wide_angle_camera -- found version 10.0.1
+-- Searching for dependencies of gz-sensors-wide_angle_camera
+-- Looking for gz-rendering -- found version 10.0.1
+-- Looking for gz-math -- found version 9.1.0
+-- Looking for gz-utils -- found version 4.0.0
+-- Looking for gz-sensors -- found version 10.0.1
+-- Looking for gz-sim -- found version 10.4.0
+-- Looking for gz-sensors -- found version 10.0.1
+-- Looking for gz-rendering -- found version 10.0.1
+-- Looking for gz-transport -- found version 15.0.2
+-- Looking for gz-msgs -- found version 12.0.1
+-- Found rclcpp: 32.0.0 (/opt/ros/lyrical/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 5.2.1 (/opt/ros/lyrical/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.10.1 (/opt/ros/lyrical/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 9.4.8 (/opt/ros/lyrical/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found sensor_msgs: 5.9.2 (/opt/ros/lyrical/share/sensor_msgs/cmake)
+-- Found OpenCV: /usr (found version "4.10.0")
+-- Found marine_acoustic_msgs: 2.1.0 (/opt/ros/lyrical/share/marine_acoustic_msgs/cmake)
+-- Found cv_bridge: 4.1.0 (/opt/ros/lyrical/share/cv_bridge/cmake)
+-- Found wgpu_vendor: 0.1.0 (/home/docker/dave_ws/install/share/wgpu_vendor/cmake)
+-- Configuring done (4.0s)
+-- Generating done (0.5s)
+-- Build files have been written to: /home/docker/dave_release_overlay/build/multibeam_sonar_system
+[ 14%] Building CXX object multibeam_sonar/CMakeFiles/multibeam_sonar.dir/MultibeamSonarSensor.cc.o
+[ 28%] Building CXX object multibeam_sonar/CMakeFiles/multibeam_sonar.dir/sonar_compute_cpu.cc.o
+[ 42%] Building CXX object multibeam_sonar/CMakeFiles/multibeam_sonar.dir/sonar_compute_wgpu.cc.o
+[ 57%] Building CXX object multibeam_sonar/CMakeFiles/multibeam_sonar.dir/sonar_compute_cuda.cc.o
+/home/docker/dave_release_overlay/src/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc: In member function ‘bool gz::sensors::MultibeamSonarSensor::Implementation::InitializeBeamArrangement(gz::sensors::MultibeamSonarSensor*)’:
+/home/docker/dave_release_overlay/src/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:500:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  500 |       system("rm SonarRawData*.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/docker/dave_release_overlay/src/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:504:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  504 |       system("rm SonarRawData_beam_angles.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 71%] Linking CXX shared library libmultibeam_sonar.so
+[ 71%] Built target multibeam_sonar
+[ 85%] Building CXX object CMakeFiles/multibeam_sonar_system.dir/MultibeamSonarSystem.cc.o
+[100%] Linking CXX shared library libmultibeam_sonar_system.so
+[100%] Built target multibeam_sonar_system
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/lib/multibeam_sonar/libmultibeam_sonar.so
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/environment/multibeam_sonar.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/ament_index/resource_index/package_run_dependencies/multibeam_sonar
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/ament_index/resource_index/parent_prefix_path/multibeam_sonar
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/environment/ament_prefix_path.sh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/environment/ament_prefix_path.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/environment/path.sh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/environment/path.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/local_setup.bash
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/local_setup.fish
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/local_setup.sh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/local_setup.zsh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/local_setup.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/package.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/ament_index/resource_index/packages/multibeam_sonar
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/cmake/multibeam_sonarConfig.cmake
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/cmake/multibeam_sonarConfig-version.cmake
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar/package.xml
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/lib/multibeam_sonar_system/libmultibeam_sonar_system.so
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/environment/multibeam_sonar_system.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/ament_index/resource_index/package_run_dependencies/multibeam_sonar_system
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/ament_index/resource_index/parent_prefix_path/multibeam_sonar_system
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/environment/ament_prefix_path.sh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/environment/ament_prefix_path.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/environment/path.sh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/environment/path.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/local_setup.bash
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/local_setup.fish
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/local_setup.sh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/local_setup.zsh
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/local_setup.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/package.dsv
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/ament_index/resource_index/packages/multibeam_sonar_system
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/cmake/multibeam_sonar_systemConfig.cmake
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/cmake/multibeam_sonar_systemConfig-version.cmake
+-- Symlinking: /home/docker/dave_release_overlay/install/multibeam_sonar_system/share/multibeam_sonar_system/package.xml
+---
+Finished <<< multibeam_sonar_system [38.5s]
+
+Summary: 1 package finished [38.7s]
+  1 package had stderr output: multibeam_sonar_system
+== RELEASE CACHE ==
+CMAKE_BUILD_TYPE:STRING=Release
+== ACTIVE PREFIX ==
+/home/docker/dave_release_overlay/install/multibeam_sonar_system

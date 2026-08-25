@@ -1,0 +1,72 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/09_cuda_backend_availability/mac_explicit_cuda/ros_logs/2026-08-25-11-40-05-161625-gwon-yeseol-ui-noteubug.local-54822
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [54826]
+[INFO] [create-2]: process started with pid [54827]
+[INFO] [parameter_bridge-3]: process started with pid [54828]
+[INFO] [static_transform_publisher-4]: process started with pid [54829]
+[static_transform_publisher-4] [INFO] [1787625610.682222000] [static_transform_publisher_rfXRjeZhjLvXfGLo]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'world' to 'codex_p900/codex_p900_base_link/multibeam_sonar'
+[create-2] [INFO] [1787625614.994934000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787625618.479646000] [ros_gz_sim]: World name was not provided. Using [planar_range_4m] as the default world.
+[create-2] [INFO] [1787625619.015395000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 54827]
+[INFO] [launch.user]: Sensor Model Uploaded
+[parameter_bridge-3] [INFO] [1787625622.543321000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625623.079767000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera (sensor_msgs/msg/Image) -> /sensor/camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625623.081878000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625623.613675000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/camera_info (sensor_msgs/msg/CameraInfo) -> /sensor/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625623.615384000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625623.616218000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/depth_camera (sensor_msgs/msg/Image) -> /sensor/depth_camera (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625623.617144000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/codex_multibeam/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/codex_multibeam/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787625624.163949000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/codex_multibeam/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/codex_multibeam/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: cuda
+[gazebo-1] [sonar_compute_factory] Attempting CudaComputeBackend initialization...
+[gazebo-1] [sonar_compute_factory] CUDA backend requested but failed to initialize.
+[gazebo-1] (2026-08-25 11:40:27.576) [error] [MultibeamSonarSensor.cc:441] Unable to initialize requested sonar backend [cuda].
+[gazebo-1] (2026-08-25 11:40:27.576) [error] [MultibeamSonarSensor.cc:294] Failed to initialize beam arrangement for [codex_p900::codex_p900_base_link::multibeam_sonar] sensor.
+[gazebo-1] (2026-08-25 11:40:27.576) [error] [MultibeamSonarSensor.cc:836] Failed to initialize [codex_p900::codex_p900_base_link::multibeam_sonar] sensor.
+[gazebo-1] libc++abi: terminating due to uncaught exception of type Ogre::InvalidParametersException: OGRE EXCEPTION(2:InvalidParametersException): Texture 'codex_p900::codex_p900_base_link::multibeam_sonar_ray_sensor_samplerTex': Invalid settings! in TextureGpu::checkValidSettings at /private/tmp/ogre2.3-20250925-92460-k2gsz4/ogre-next-2.3.1/OgreMain/src/OgreTextureGpu.cpp (line 454)
+[gazebo-1] Stack trace (most recent call last) in thread 6139637760:
+[gazebo-1] #30   Object "libsystem_pthread.dylib", at 0x18547fbc7, in _pthread_start + 135
+[gazebo-1] #29   Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11a87fc5f, in void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::sim::v10::systems::SensorsPrivate::*)(), gz::sim::v10::systems::SensorsPrivate*>>(void*) + 71
+[gazebo-1] #28   Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11a86c5eb, in gz::sim::v10::systems::SensorsPrivate::RenderThread() + 195
+[gazebo-1] #27   Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11a86bf73, in gz::sim::v10::systems::SensorsPrivate::RunOnce() + 603
+[gazebo-1] #26   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a3ba573, in gz::rendering::v10::Ogre2Scene::PreRender() + 335
+[gazebo-1] #25   Object "libgz-rendering.10.0.1.dylib", at 0x1028553c3, in gz::rendering::v10::BaseScene::PreRender() + 75
+[gazebo-1] #24   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a33267b, in gz::rendering::v10::BaseVisual<gz::rendering::v10::Ogre2Node>::PreRender() + 67
+[gazebo-1] #23   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a337d9b, in gz::rendering::v10::BaseVisual<gz::rendering::v10::Ogre2Node>::PreRenderChildren() + 235
+[gazebo-1] #22   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a33267b, in gz::rendering::v10::BaseVisual<gz::rendering::v10::Ogre2Node>::PreRender() + 67
+[gazebo-1] #21   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a337d9b, in gz::rendering::v10::BaseVisual<gz::rendering::v10::Ogre2Node>::PreRenderChildren() + 235
+[gazebo-1] #20   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a33267b, in gz::rendering::v10::BaseVisual<gz::rendering::v10::Ogre2Node>::PreRender() + 67
+[gazebo-1] #19   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a337d9b, in gz::rendering::v10::BaseVisual<gz::rendering::v10::Ogre2Node>::PreRenderChildren() + 235
+[gazebo-1] #18   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a36b987, in gz::rendering::v10::Ogre2GpuRays::PreRender() + 47
+[gazebo-1] #17   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a36b4db, in gz::rendering::v10::Ogre2GpuRays::CreateGpuRaysTextures() + 95
+[gazebo-1] #16   Object "libgz-rendering-ogre2.10.0.1.dylib", at 0x14a36a01f, in gz::rendering::v10::Ogre2GpuRays::CreateSampleTexture() + 1015
+[gazebo-1] #15   Object "libOgreMain.2.3.1.dylib", at 0x14c2c2bc7, in Ogre::TextureGpu::_transitionTo(Ogre::GpuResidency::GpuResidency, unsigned char*, bool) + 155
+[gazebo-1] #14   Object "libOgreMain.2.3.1.dylib", at 0x14c2c3767, in Ogre::TextureGpu::transitionToResident() + 19
+[gazebo-1] #13   Object "libOgreMain.2.3.1.dylib", at 0x14c2c32bf, in Ogre::TextureGpu::checkValidSettings() + 739
+[gazebo-1] #12   Object "libOgreMain.2.3.1.dylib", at 0x14c106cf7, in Ogre::ExceptionFactory::throwException(Ogre::Exception::ExceptionCodes, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, char const*, long) + 739
+[gazebo-1] #11   Object "libc++abi.dylib", at 0x185437bd7, in __cxa_throw + 91
+[gazebo-1] #10   Object "libc++abi.dylib", at 0x185437c2f, in __cxxabiv1::failed_throw(__cxxabiv1::__cxa_exception*) + 87
+[gazebo-1] #9    Object "libc++abi.dylib", at 0x185434697, in std::__terminate(void (*)()) + 15
+[gazebo-1] #8    Object "libobjc.A.dylib", at 0x1850a8de3, in _objc_terminate() + 171
+[gazebo-1] #7    Object "libc++abi.dylib", at 0x185423cd7, in demangling_terminate_handler() + 315
+[gazebo-1] #6    Object "libc++abi.dylib", at 0x185435383, in abort_message + 131
+[gazebo-1] #5    Object "libsystem_c.dylib", at 0x1853889e3, in abort + 123
+[gazebo-1] #4    Object "libsystem_pthread.dylib", at 0x18547f847, in pthread_kill + 295
+[gazebo-1] #3    Object "libsystem_platform.dylib", at 0x1854b96a3, in _sigtramp + 55
+[gazebo-1] #2    Object "gz-sim-main", at 0x1025b3cb7, in backward::SignalHandling::sig_handler(int, __siginfo*, void*) + 19
+[gazebo-1] #1    Object "gz-sim-main", at 0x1025b3d1b, in backward::SignalHandling::handleSignal(int, __siginfo*, void*) + 71
+[gazebo-1] #0    Object "gz-sim-main", at 0x1025b3e5f, in backward::StackTraceImpl<backward::system_tag::darwin_tag>::load_from(void*, unsigned long, void*, void*) + 43
+[ERROR] [gazebo-1]: process has died [pid 54826, exit code -6, cmd 'ruby /opt/homebrew/bin/gz sim /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/dave_planar_range_4m.world -s -r --force-version 10'].
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[ERROR] [static_transform_publisher-4]: process[static_transform_publisher-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [parameter_bridge-3]: process[parameter_bridge-3] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [static_transform_publisher-4]: sending signal 'SIGTERM' to process[static_transform_publisher-4]
+[INFO] [parameter_bridge-3]: sending signal 'SIGTERM' to process[parameter_bridge-3]
+[parameter_bridge-3] [INFO] [1787630380.929483000] [rclcpp]: signal_handler(signum=15)
+[static_transform_publisher-4] [INFO] [1787630380.929382000] [rclcpp]: signal_handler(signum=15)
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 54828]
+[INFO] [static_transform_publisher-4]: process has finished cleanly [pid 54829]

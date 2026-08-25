@@ -1,0 +1,21 @@
+Type: marine_acoustic_msgs/msg/ProjectedSonarImage
+
+Publisher count: 1
+
+Node name: _NODE_NAME_UNKNOWN_
+Node namespace: _NODE_NAMESPACE_UNKNOWN_
+Topic type: marine_acoustic_msgs/msg/ProjectedSonarImage
+Topic type hash: RIHS01_e9d0b934ee8332c9f79e04c361de0793c165b2dee14f2c0d25c3227cd50d46f1
+Endpoint type: PUBLISHER
+GID: 01.0f.5f.3b.97.bd.ff.06.00.00.00.00.00.00.13.03
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): KEEP_LAST (1)
+  Durability: TRANSIENT_LOCAL
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0
+

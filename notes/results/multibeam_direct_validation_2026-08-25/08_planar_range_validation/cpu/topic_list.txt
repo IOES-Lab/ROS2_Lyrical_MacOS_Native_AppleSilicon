@@ -1,0 +1,10 @@
+/parameter_events
+/rosout
+/sensor/camera
+/sensor/camera_info
+/sensor/codex_multibeam/normal_image
+/sensor/codex_multibeam/point_cloud
+/sensor/codex_multibeam/sonar_image
+/sensor/codex_multibeam/sonar_image_raw
+/sensor/depth_camera
+/tf_static

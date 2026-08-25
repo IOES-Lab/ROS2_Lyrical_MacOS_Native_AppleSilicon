@@ -1,0 +1,8 @@
+== MULTIBEAM BUILD TYPE ==
+CMAKE_BUILD_TYPE:STRING=
+== SYSTEM BUILD TYPE ==
+CMAKE_BUILD_TYPE:STRING=
+== CPU COUNT ==
+8
+== INSTALLED WORLD ENGINE ==
+16:      <render_engine>ogre</render_engine>

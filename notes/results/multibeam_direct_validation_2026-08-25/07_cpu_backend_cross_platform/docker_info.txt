@@ -1,0 +1,1 @@
+Architecture=aarch64 OS=Docker Desktop CPUs=8 Memory=12528861184
