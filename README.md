@@ -87,7 +87,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | ROS 2 | Lyrical (source build) | Lyrical (apt, `ros-lyrical-desktop`) |
 | Gazebo | Jetty (Homebrew) | Jetty 10.4.0 (apt vendor build) |
 | Python | 3.14 | 3.14 |
-| Rendering | Metal (real hardware) | **Execution-dependent** — an earlier no-X probe observed Vulkan `llvmpipe`; the 2026-08-07 output run used `ogre` + authorised X |
+| Rendering | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) — no `/dev/dri` passthrough. Gazebo engine varied: `ogre2` in the crash reproduction, `ogre` + authorised X in the 2026-08-07 output run |
 | Sonar compute | WGPU on the Metal adapter | **CPU fallback in the 2026-08-07 validated run**; the earlier no-X probe had selected the WGPU `llvmpipe` software adapter |
 
 Pinned source revisions and the migration patch:
