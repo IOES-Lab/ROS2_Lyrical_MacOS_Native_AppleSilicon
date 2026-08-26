@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**다섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**여섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -123,6 +123,27 @@ range profile이 다르다는 것까지만 직접 확인했다.
 
 근거:
 [`../results/ocean_current_direct_validation_2026-08-25/`](../results/ocean_current_direct_validation_2026-08-25/).
+
+## 6차 — 2026-08-26 Underwater Camera 직접 검증
+
+「Underwater Camera Plugin」 페이지를 Mac 과 Docker 에서 직접 재실행하고 고쳤다.
+**Notion 수정 페이지에는 이미 반영돼 있다.**
+
+- Wiki Quickstart 를 두 플랫폼에서 재실행 — `/underwater_camera/simulated_image` 가
+  `sensor_msgs/msg/Image` 320×240 `bgr8` step 960, 230400 바이트로 발행되는 것 확인
+- 통제된 세 조건(no effect / defaults / murky)의 중심 픽셀을 구현식과 대조
+- 기본 감쇠 `1/30` 과 background `0` 이 `[48.175, 68.320, 95.473]` 을 예측하고
+  런타임과 일치하는 것 확인
+- **`attenuationR`/`backgroundR` 가 Blue 에, `attenuationB`/`backgroundB` 가 Red 에
+  적용된다는 것을 런타임에서 확인**하고 페이지에 경고 추가
+- **`<scattering>` 은 별도 SDF 파라미터가 아니라는 점 정정** — `Configure()` 가 읽는
+  것은 `attenuationR/G/B` 와 `backgroundR/G/B` 6개뿐이다
+
+이 회차가 입증하지 않는 것: 일반 수중 광학 정확성. 정적 장면 하나, 원본 색 하나이고
+murky 태그 6개를 동시에 바꿨다. 태그를 하나씩 분리한 확인은 하지 않았다.
+
+근거:
+[`../results/underwater_camera_direct_validation_2026-08-26/`](../results/underwater_camera_direct_validation_2026-08-26/).
 
 ## 일부러 넣지 않은 것
 

@@ -4,6 +4,15 @@
 
 # 남은 일
 
+- [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
+  `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,
+  [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
+  정할 문제다** — 루프에서 채널 index 를 뒤집거나, 태그 이름이 BGR 순서를 뜻한다고 문서화하거나.
+  전자는 기존 world 파일의 출력을 바꾸고 후자는 안 바꾼다. 상류 보고 초안은 아직 없다
+- [ ] **Underwater Camera 남은 범위** — 장면 1개·원본 색 1개로만 쟀고 murky 태그 6개를
+  동시에 바꿨다. 태그를 하나씩 바꾼 확인, 여러 거리에서의 감쇠 곡선, scattering 관련 문서
+  표현 점검은 아직이다. **`<scattering>` 은 별도 SDF 파라미터가 아니다** —
+  `Configure()` 가 읽는 것은 `attenuationR/G/B` 와 `backgroundR/G/B` 6개뿐이다
 - [ ] **깊이에 따라 힘이 달라지는지 확인** — 2026-08-25에 ModelPlugin 검증을 마쳤지만
   두 시험 모두 깊이 의존성을 의도적으로 제거했다. 보간은 **정지 프로브**로 쟀고(운동 없음),
   차량 반응 시험은 **12개 층을 같은 값으로 설정**한 뒤 측정했다. 따라서 "발행되는 해류가
@@ -48,11 +57,14 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-25까지 다섯 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 여섯 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
   직접 실행해 CPU/WGPU·RViz·BlueROV2·CUDA 판정을 갱신했다. 같은 날 Ocean Current 페이지도 12개 서비스와 전역 Hydrodynamics 차량 반응을 직접 재검증하고, Model Plugin 미검증 범위를 분리했다.
+  2026-08-26에는 Underwater Camera 페이지를 Mac·Docker에서 재실행해 출력 구조와
+  감쇠식을 확인하고, R/B 파라미터가 뒤바뀌어 적용된다는 경고와 `<scattering>`이
+  별도 파라미터가 아니라는 정정을 넣었다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

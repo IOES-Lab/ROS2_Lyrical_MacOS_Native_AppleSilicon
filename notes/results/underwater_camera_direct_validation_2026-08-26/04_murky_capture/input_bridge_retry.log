@@ -1,0 +1,6 @@
+[INFO] [1787705073.991721000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/underwater_camera/image (gz.msgs.Image) -> /underwater_camera/image (sensor_msgs/msg/Image)] (Lazy 0)
+[INFO] [1787705074.805185000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/underwater_camera/image (sensor_msgs/msg/Image) -> /underwater_camera/image (gz.msgs.Image)] (Lazy 0)
+[INFO] [1787705074.807512000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/underwater_camera/depth_image (gz.msgs.Image) -> /underwater_camera/depth_image (sensor_msgs/msg/Image)] (Lazy 0)
+[INFO] [1787705074.808523000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/underwater_camera/depth_image (sensor_msgs/msg/Image) -> /underwater_camera/depth_image (gz.msgs.Image)] (Lazy 0)
+[ros2run]: Received signal:  Interrupt: 2
+[INFO] [1787705183.144106000] [rclcpp]: signal_handler(signum=2)

@@ -1,0 +1,11 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/underwater_camera_direct_validation_2026-08-26/03_quickstart_retry/ros_logs/2026-08-26-09-31-47-288931-gwon-yeseol-ui-noteubug.local-70260
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [70262]
+[INFO] [create-2]: process started with pid [70263]
+[create-2] [INFO] [1787704316.764200000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787704321.766738000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787704322.291265000] [ros_gz_sim]: World name was not provided. Using [camera_world] as the default world.
+[create-2] [INFO] [1787704322.512922000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 70263]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].

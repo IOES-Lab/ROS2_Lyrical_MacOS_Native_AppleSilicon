@@ -1,0 +1,114 @@
+{
+  "variant": "ucam_murky",
+  "topic": "/ucam_murky/simulated_image",
+  "channel_order": "BGR",
+  "ignored_initial_frames": 10,
+  "captured_frames": 5,
+  "frames": [
+    {
+      "index": 1,
+      "stamp_sec": 1787707207,
+      "stamp_nanosec": 306238639,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        83,
+        103,
+        74
+      ],
+      "mean_bgr": [
+        83.54826822916667,
+        103.15755208333333,
+        72.72799479166666
+      ],
+      "sha256": "de926c4db103e2b4ffdf07b771b866d5e3a203963c874d5437fb1853d01314c8"
+    },
+    {
+      "index": 2,
+      "stamp_sec": 1787707207,
+      "stamp_nanosec": 403925847,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        83,
+        103,
+        74
+      ],
+      "mean_bgr": [
+        83.54826822916667,
+        103.15755208333333,
+        72.72799479166666
+      ],
+      "sha256": "de926c4db103e2b4ffdf07b771b866d5e3a203963c874d5437fb1853d01314c8"
+    },
+    {
+      "index": 3,
+      "stamp_sec": 1787707207,
+      "stamp_nanosec": 502960180,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        83,
+        103,
+        74
+      ],
+      "mean_bgr": [
+        83.54826822916667,
+        103.15755208333333,
+        72.72799479166666
+      ],
+      "sha256": "de926c4db103e2b4ffdf07b771b866d5e3a203963c874d5437fb1853d01314c8"
+    },
+    {
+      "index": 4,
+      "stamp_sec": 1787707207,
+      "stamp_nanosec": 603030347,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        83,
+        103,
+        74
+      ],
+      "mean_bgr": [
+        83.54826822916667,
+        103.15755208333333,
+        72.72799479166666
+      ],
+      "sha256": "de926c4db103e2b4ffdf07b771b866d5e3a203963c874d5437fb1853d01314c8"
+    },
+    {
+      "index": 5,
+      "stamp_sec": 1787707207,
+      "stamp_nanosec": 705726958,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        83,
+        103,
+        74
+      ],
+      "mean_bgr": [
+        83.54826822916667,
+        103.15755208333333,
+        72.72799479166666
+      ],
+      "sha256": "de926c4db103e2b4ffdf07b771b866d5e3a203963c874d5437fb1853d01314c8"
+    }
+  ]
+}

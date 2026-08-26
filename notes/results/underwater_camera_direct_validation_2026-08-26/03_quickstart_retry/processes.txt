@@ -1,0 +1,4 @@
+70260 /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/gwon-yeseol/ros2_lyrical/install/ros2cli/bin/ros2 launch dave_demos dave_sensor.launch.py namespace:=underwater_camera world_name:=camera_tutorial paused:=false x:=10 z:=-93.5 pitch:=0.3 yaw:=3.14 gui:=true headless:=false debug:=false
+70261 tee /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/underwater_camera_direct_validation_2026-08-26/03_quickstart_retry/launch.log
+70262 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/camera_tutorial.world -r
+70331 tee /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/underwater_camera_direct_validation_2026-08-26/03_quickstart_retry/processes.txt

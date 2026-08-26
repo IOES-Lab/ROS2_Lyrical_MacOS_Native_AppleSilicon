@@ -1,0 +1,1 @@
+WARNING: topic [/underwater_camera/simulated_image] does not appear to be published yet

@@ -1,0 +1,4 @@
+/parameter_events
+/rosout
+/tf_static
+/underwater_camera/simulated_image

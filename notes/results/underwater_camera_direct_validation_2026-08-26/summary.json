@@ -1,0 +1,70 @@
+{
+  "date": "2026-08-26",
+  "source_revision": "6aef91c823af5da073329b84ba617b572965e79e",
+  "verdict": {
+    "wiki_quickstart": "FUNCTIONAL PASS on Mac and Docker",
+    "default_attenuation": "PASS",
+    "cross_platform_output": "PASS; byte-identical",
+    "rgb_parameter_semantics": "PARTIAL; R and B are swapped",
+    "general_optical_accuracy": "NOT ESTABLISHED"
+  },
+  "controlled_range_m": 3.975,
+  "results": {
+    "no_effect": {
+      "center_bgr": [
+        55,
+        78,
+        109
+      ],
+      "image_sha256": "ec68da2430e5364c96c305ea01580de15abd4202942f2de77597df682f475846",
+      "npy_sha256": "88834c504a6f432bcab180b20b6d9925afef49ba2fa36664e75fcb399cd5cfb1",
+      "frames_per_platform": 5,
+      "mac_docker_byte_identical": true
+    },
+    "defaults": {
+      "center_bgr": [
+        48,
+        68,
+        95
+      ],
+      "image_sha256": "87d8568248fbf5f61ae40417f49f748daa46a7db19caaa7018daeeb06307c7e5",
+      "npy_sha256": "53c87ea2299519317962c777662bcad1a9be9f13919c6e339f7d4d2da2e036e1",
+      "frames_per_platform": 5,
+      "mac_docker_byte_identical": true
+    },
+    "murky": {
+      "center_bgr": [
+        83,
+        103,
+        74
+      ],
+      "image_sha256": "de926c4db103e2b4ffdf07b771b866d5e3a203963c874d5437fb1853d01314c8",
+      "npy_sha256": "1f094edc3ae8e3cf2fe86de8bfdb7b435fe0aa1a8962cdf4f842b305577e1e60",
+      "frames_per_platform": 5,
+      "mac_docker_byte_identical": true
+    }
+  },
+  "predictions": {
+    "defaults_bgr": [
+      48,
+      68,
+      95
+    ],
+    "current_direct_bgr_mapping": [
+      83,
+      103,
+      74
+    ],
+    "semantic_rgb_mapping": [
+      50,
+      103,
+      85
+    ]
+  },
+  "finding": "After conversion to OpenCV BGR, attenuationR/backgroundR apply to Blue and attenuationB/backgroundB apply to Red.",
+  "limits": [
+    "One static planar scene and one source colour.",
+    "Murky values tested together, not one tag at a time.",
+    "General underwater optical accuracy was not tested."
+  ]
+}
