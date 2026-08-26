@@ -1,0 +1,12 @@
+[INFO] [1787644732.744571000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/odometry (gz.msgs.Odometry) -> /model/rexrov/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[INFO] [1787644733.346583000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/odometry (nav_msgs/msg/Odometry) -> /model/rexrov/odometry (gz.msgs.Odometry)] (Lazy 0)
+[INFO] [1787644938.934758000] [ros_gz_bridge]: Passing message from ROS nav_msgs/msg/Odometry to Gazebo gz.msgs.Odometry (showing msg only once per type)
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address
+Exception sending a multicast message:Can't assign requested address

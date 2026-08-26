@@ -1,0 +1,2 @@
+/model/depth_probe_15m/ocean_current
+/model/depth_probe_5m/ocean_current

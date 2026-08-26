@@ -4,13 +4,16 @@
 
 # 남은 일
 
-- [ ] **OceanCurrentModelPlugin 직접 검증** — 2026-08-25의 차량 실험은 전역
-  `/ocean_current` → Hydrodynamics 경로다. REXROV 모델의 Hydrodynamics namespace와
-  `OceanCurrentModelPlugin`은 주석 처리돼 있었다. 두 기능을 활성화한 별도 overlay에서
-  차량별 토픽, 서로 다른 깊이의 보간 결과와 실제 운동 반응을 확인해야 한다.
-- [ ] **Ocean Current 플러그인 설치 경로 정리** — 생성 hook은 `lib/<package>/`를
-  가리키지만 현재 CMake 설치 위치는 `lib/`다. 한쪽을 수정한 뒤 clean build하고,
-  수동 `GZ_SIM_SYSTEM_PLUGIN_PATH` 추가 없이 launch되는지 확인해야 한다.
+- [ ] **깊이에 따라 힘이 달라지는지 확인** — 2026-08-25에 ModelPlugin 검증을 마쳤지만
+  두 시험 모두 깊이 의존성을 의도적으로 제거했다. 보간은 **정지 프로브**로 쟀고(운동 없음),
+  차량 반응 시험은 **12개 층을 같은 값으로 설정**한 뒤 측정했다. 따라서 "발행되는 해류가
+  깊이에 따라 보간된다"까지는 확인됐고, **"서로 다른 깊이의 차량이 서로 다른 힘을 받는다"는
+  아직 미확인**이다. 같은 world에서 깊이만 다른 두 차량, 또는 하강하는 한 차량으로 봐야 한다.
+- [ ] **Ocean Current 플러그인 설치 경로 정리** — 런타임 `GZ_SIM_SYSTEM_PLUGIN_PATH` 에는
+  `lib/<package>/` 가 들어 있었고 dylib 는 `lib/` 에 설치돼 있었다. **그 항목이 어디서
+  주입되는지가 먼저다** — 두 패키지의 install 트리에는 `GZ_SIM_SYSTEM_PLUGIN_PATH` 를
+  쓰는 파일이 없다([`known-issues.md`](known-issues.md) 참고). 출처를 찾은 뒤 한쪽을
+  고치고 clean build 해서, 수동 경로 추가 없이 launch 되는지 확인해야 한다.
 - [ ] **Ocean Current 후속 범위** — paused 상태 서비스 timeout 반복검증, ENU/NED
   의미 확인, tidal harmonic/CSV 시간 변화, non-zero Gauss-Markov noise,
   다중 차량 namespace 격리와 장시간 안정성은 아직 미검증이다.

@@ -28,7 +28,10 @@ Wiki 명령, 사용자 정의 센서/world, Docker RDP, CPU/WGPU 평면 표적�
 최신 해류 직접 검증:
 [`results/ocean_current_direct_validation_2026-08-25/`](results/ocean_current_direct_validation_2026-08-25/).
 12개 서비스, 정상·비정상 입력, 원상복구와 전역 `/ocean_current`가 REXROV 운동에
-미치는 효과를 직접 확인했다. 차량별 `OceanCurrentModelPlugin` 경로는 아직 미검증이다.
+미치는 효과를 직접 확인했다. 차량별 `OceanCurrentModelPlugin` 경로는 같은 날
+[`results/ocean_current_model_plugin_validation_2026-08-25/`](results/ocean_current_model_plugin_validation_2026-08-25/)
+에서 따로 검증했다 — 층 중점 두 곳의 보간과 차량 운동까지 확인했고,
+**깊이에 따라 힘이 달라지는지는 아직 미검증**이다.
 
 ## 이 층의 파일
 
@@ -41,7 +44,7 @@ Wiki 명령, 사용자 정의 센서/world, Docker RDP, CPU/WGPU 평면 표적�
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
 | [`known-issues.md`](known-issues.md) | 31개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 78행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 79행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

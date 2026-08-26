@@ -1,0 +1,731 @@
+(2026-08-25 17:00:06.732) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+(2026-08-25 17:00:06.786) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/ocean_current_model_plugin_validation_2026-08-25/test_assets/ocean_current_model_validation.world].
+(2026-08-25 17:00:08.741) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+(2026-08-25 17:00:08.745) [info] [SimulationRunner.cc:347] Serving world controls on [/world/ocp_model_validation/control], [/world/ocp_model_validation/control/state] and [/world/ocp_model_validation/playback/control]
+(2026-08-25 17:00:08.745) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/ocp_model_validation/gui/info]
+(2026-08-25 17:00:08.745) [info] [SimulationRunner.cc:376] World [ocp_model_validation] initialized with [1ms] physics profile.
+(2026-08-25 17:00:08.745) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/ocp_model_validation/generate_world_sdf]
+(2026-08-25 17:00:08.746) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+(2026-08-25 17:00:08.746) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-25 17:00:08.746) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-25 17:00:08.746) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-25 17:00:08.747) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+(2026-08-25 17:00:08.747) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+(2026-08-25 17:00:08.747) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+(2026-08-25 17:00:08.747) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+(2026-08-25 17:00:09.095) [debug] [Physics.cc:994] Loaded [gz::physics::dartsim::Plugin] from library [/opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.dylib]
+(2026-08-25 17:00:09.095) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-25 17:00:09.115) [info] [UserCommands.cc:751] Create service on [/world/ocp_model_validation/create_multiple] (async)
+(2026-08-25 17:00:09.115) [info] [UserCommands.cc:753] Create service on [/world/ocp_model_validation/create_multiple/blocking] (blocking)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:751] Remove service on [/world/ocp_model_validation/remove] (async)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:753] Remove service on [/world/ocp_model_validation/remove/blocking] (blocking)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:751] Pose service on [/world/ocp_model_validation/set_pose] (async)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:753] Pose service on [/world/ocp_model_validation/set_pose/blocking] (blocking)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:751] Pose service on [/world/ocp_model_validation/set_pose_vector] (async)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:753] Pose service on [/world/ocp_model_validation/set_pose_vector/blocking] (blocking)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:751] Light configuration service on [/world/ocp_model_validation/light_config] (async)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:753] Light configuration service on [/world/ocp_model_validation/light_config/blocking] (blocking)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:751] Physics service on [/world/ocp_model_validation/set_physics] (async)
+(2026-08-25 17:00:09.116) [info] [UserCommands.cc:753] Physics service on [/world/ocp_model_validation/set_physics/blocking] (blocking)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/ocp_model_validation/set_spherical_coordinates] (async)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/ocp_model_validation/set_spherical_coordinates/blocking] (blocking)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:751] Enable collision service on [/world/ocp_model_validation/enable_collision] (async)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:753] Enable collision service on [/world/ocp_model_validation/enable_collision/blocking] (blocking)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:751] Disable collision service on [/world/ocp_model_validation/disable_collision] (async)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:753] Disable collision service on [/world/ocp_model_validation/disable_collision/blocking] (blocking)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:751] Material service on [/world/ocp_model_validation/visual_config] (async)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:753] Material service on [/world/ocp_model_validation/visual_config/blocking] (blocking)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:751] Material service on [/world/ocp_model_validation/wheel_slip] (async)
+(2026-08-25 17:00:09.117) [info] [UserCommands.cc:753] Material service on [/world/ocp_model_validation/wheel_slip/blocking] (blocking)
+(2026-08-25 17:00:09.117) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-25 17:00:09.136) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-25 17:00:09.153) [debug] [Buoyancy.cc:494] Default density set to 1025
+(2026-08-25 17:00:09.153) [debug] [Buoyancy.cc:512] Added layer at 0, 1
+(2026-08-25 17:00:09.153) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Buoyancy] for entity [1]
+(2026-08-25 17:00:09.680) [info] [OceanCurrentWorldPlugin.cc:132] Loading Ocean current world plugin
+(2026-08-25 17:00:09.680) [info] [OceanCurrentWorldPlugin.cc:627] Current velocity [m/s] Gauss-Markov process model:
+(2026-08-25 17:00:09.680) [info] [gauss_markov_process.cc:85] 	Mean = 2
+	Min. Limit = 0
+	Max. Limit = 5
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 17:00:09.680) [info] [OceanCurrentWorldPlugin.cc:687] Current velocity horizontal angle [rad] Gauss-Markov process model:
+(2026-08-25 17:00:09.680) [info] [gauss_markov_process.cc:85] 	Mean = 1
+	Min. Limit = -3.14159
+	Max. Limit = 3.14159
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 17:00:09.680) [info] [OceanCurrentWorldPlugin.cc:747] Current velocity vertical angle [rad] Gauss-Markov process model:
+(2026-08-25 17:00:09.680) [info] [gauss_markov_process.cc:85] 	Mean = 1.2
+	Min. Limit = -3.14159
+	Max. Limit = 3.14159
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 17:00:09.682) [info] [OceanCurrentWorldPlugin.cc:442] /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/transientOceanCurrentDatabase.csv
+(2026-08-25 17:00:09.682) [info] [OceanCurrentWorldPlugin.cc:460] Statified Ocean Current Database loaded : /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/transientOceanCurrentDatabase.csv
+(2026-08-25 17:00:09.682) [info] [OceanCurrentWorldPlugin.cc:530] Stratified current velocity topic name: hydrodynamics/stratified_current_velocity
+(2026-08-25 17:00:09.684) [info] [OceanCurrentWorldPlugin.cc:337] Tidal Oscillation  Database loaded : /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/ACT1951_1_Annual_2021.csv
+(2026-08-25 17:00:09.715) [info] [OceanCurrentWorldPlugin.cc:140] Tidal oscillation is enabled
+(2026-08-25 17:00:09.715) [info] [OceanCurrentWorldPlugin.cc:152] Underwater current plugin loaded!
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:00:09.715) [debug] [SystemManager.cc:80] Loaded system [dave_gz_world_plugins::OceanCurrentWorldPlugin] for entity [1]
+(2026-08-25 17:00:45.111) [debug] [SystemManager.cc:80] Loaded system [dave_ros_gz_plugins::OceanCurrentPlugin] for entity [1]
+(2026-08-25 17:00:45.150) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::ShaderParam] for entity [11]
+(2026-08-25 17:00:45.150) [info] [LevelManager.cc:646] Loaded level [default]
+(2026-08-25 17:00:45.150) [debug] [ServerConfig.cc:1042] Loading (3) plugins from file [/Users/gwon-yeseol/.gz/sim/10/server.config]
+(2026-08-25 17:00:45.150) [debug] [SimulationRunner.cc:1919] Additional plugins to load:
+(2026-08-25 17:00:45.151) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 5
+(2026-08-25 17:00:45.151) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-25 17:00:45.152) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-25 17:00:45.152) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-25 17:00:45.152) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-25 17:00:45.306) [warning] [Buoyancy.cc:663] Unsupported collision geometry for graded buoyancy[5]
+(2026-08-25 17:00:45.316) [debug] [SDFFeatures.cc:364] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+(2026-08-25 17:00:45.316) [debug] [SDFFeatures.cc:896] The geometry element of collision [ground] couldn't be created
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/ocp_model_validation/scene/info]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/ocp_model_validation/scene/graph]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/ocp_model_validation/state]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/ocp_model_validation/state_async]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/ocp_model_validation/scene/info]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/ocp_model_validation/scene/deletion]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/ocp_model_validation/state]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/ocp_model_validation/pose/info]
+(2026-08-25 17:00:45.356) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/ocp_model_validation/dynamic_pose/info]
+(2026-08-25 17:00:46.429) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:47.112) [info] [OceanCurrentPlugin.cc:421] Layer 0 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:00:47.605) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:48.773) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:49.947) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:51.114) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:52.281) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:52.675) [info] [OceanCurrentPlugin.cc:421] Layer 1 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:00:53.450) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:54.617) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:55.784) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:56.951) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:58.119) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:00:58.405) [info] [OceanCurrentPlugin.cc:421] Layer 2 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:00:59.286) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:00.469) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:01.643) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:02.810) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:03.977) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:04.258) [info] [OceanCurrentPlugin.cc:421] Layer 3 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:05.145) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:06.317) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:07.485) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:08.655) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:09.687) [info] [OceanCurrentPlugin.cc:421] Layer 4 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:09.823) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:10.989) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:12.156) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:13.325) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:14.490) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:15.450) [info] [OceanCurrentPlugin.cc:421] Layer 5 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:15.655) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:16.822) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:17.988) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:19.153) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:20.318) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:21.169) [info] [OceanCurrentPlugin.cc:421] Layer 6 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:21.483) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:22.650) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:23.815) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:24.983) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:26.148) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:26.718) [info] [OceanCurrentPlugin.cc:421] Layer 7 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:27.314) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:28.477) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:29.646) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:30.811) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:31.976) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:32.453) [info] [OceanCurrentPlugin.cc:421] Layer 8 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:33.168) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:34.334) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:35.502) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:36.668) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:37.833) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:37.888) [info] [OceanCurrentPlugin.cc:421] Layer 9 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:38.999) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:40.166) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:41.331) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:42.497) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:43.282) [info] [OceanCurrentPlugin.cc:421] Layer 10 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:43.665) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:44.830) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:45.996) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:47.161) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:48.748) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:49.784) [info] [OceanCurrentPlugin.cc:421] Layer 11 current velocity [m/s] = 1.5
+  Horizontal angle [rad] = 0
+  Vertical angle [rad] = 0
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 17:01:50.338) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:51.499) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:52.658) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:53.824) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:54.992) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:56.155) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:57.319) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:58.485) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:01:59.651) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:00.817) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:01.496) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster1_joint/cmd_thrust]
+(2026-08-25 17:02:01.496) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster1_joint/enable_deadband]
+(2026-08-25 17:02:01.496) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.496) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.501) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster2_joint/cmd_thrust]
+(2026-08-25 17:02:01.501) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster2_joint/enable_deadband]
+(2026-08-25 17:02:01.501) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.501) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.506) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster3_joint/cmd_thrust]
+(2026-08-25 17:02:01.506) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster3_joint/enable_deadband]
+(2026-08-25 17:02:01.507) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.507) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.512) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster4_joint/cmd_thrust]
+(2026-08-25 17:02:01.512) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster4_joint/enable_deadband]
+(2026-08-25 17:02:01.512) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.512) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.517) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster5_joint/cmd_thrust]
+(2026-08-25 17:02:01.517) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster5_joint/enable_deadband]
+(2026-08-25 17:02:01.517) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.517) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.522) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster6_joint/cmd_thrust]
+(2026-08-25 17:02:01.522) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster6_joint/enable_deadband]
+(2026-08-25 17:02:01.522) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.522) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.527) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster7_joint/cmd_thrust]
+(2026-08-25 17:02:01.527) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster7_joint/enable_deadband]
+(2026-08-25 17:02:01.527) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.527) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.532) [info] [Thruster.cc:407] Thruster listening to commands on [/model/rexrov/joint/thruster8_joint/cmd_thrust]
+(2026-08-25 17:02:01.532) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/rexrov/joint/thruster8_joint/enable_deadband]
+(2026-08-25 17:02:01.532) [debug] [Thruster.cc:496] Using velocity control for propeller joint.
+(2026-08-25 17:02:01.532) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [24]
+(2026-08-25 17:02:01.553) [warning] [Hydrodynamics.cc:435] Plugin-based added mass has known numerical instabilities. If using the DART physics engine, consider migrating to SDF <fluid_added_mass> for unconditionally stable added mass [http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass]. Other physics engines (Bullet, MuJoCo) only support plugin-based added mass.
+(2026-08-25 17:02:01.553) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Hydrodynamics] for entity [24]
+(2026-08-25 17:02:01.594) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Imu] for entity [24]
+(2026-08-25 17:02:01.629) [debug] [Magnetometer.cc:261] Magnetometer: using param [use_units_gauss: 1].
+(2026-08-25 17:02:01.629) [debug] [Magnetometer.cc:269] Magnetometer: using param [use_earth_frame_ned: 1].
+(2026-08-25 17:02:01.629) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Magnetometer] for entity [24]
+(2026-08-25 17:02:01.651) [info] [OdometryPublisher.cc:263] OdometryPublisher publishing odometry on [/model/rexrov/odometry]
+(2026-08-25 17:02:01.652) [info] [OdometryPublisher.cc:278] OdometryPublisher publishing odometry with covariance on [/model/rexrov/odometry_with_covariance]
+(2026-08-25 17:02:01.652) [info] [OdometryPublisher.cc:295] OdometryPublisher publishing Pose_V (TF) on [/model/rexrov/pose]
+(2026-08-25 17:02:01.652) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::OdometryPublisher] for entity [24]
+(2026-08-25 17:02:01.674) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::JointStatePublisher] for entity [24]
+(2026-08-25 17:02:01.709) [debug] [DVLBridge.cc:48] dave_ros_gz_plugins::DVLBridge::Configure on entity: 24
+(2026-08-25 17:02:01.714) [info] [DVLBridge.cc:66] dvl topic: /model/rexrov/dvl/velocity
+(2026-08-25 17:02:03.845) [debug] [SystemManager.cc:80] Loaded system [dave_ros_gz_plugins::DVLBridge] for entity [24]
+(2026-08-25 17:02:03.924) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 24
+(2026-08-25 17:02:05.630) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [24]
+(2026-08-25 17:02:05.696) [debug] [OceanCurrentModelPlugin.cc:133] dave_gz_model_plugins::OceanCurrentModelPlugin::Configure on entity: 24
+(2026-08-25 17:02:05.696) [info] [OceanCurrentModelPlugin.cc:146] Loading ocean current model plugin...
+(2026-08-25 17:02:05.696) [warning] [OceanCurrentModelPlugin.cc:168] Setting flow_velocity_topic to anything other than 'ocean_current' is not recommended, as it might not be compatible with the hydrodynamics plugin.
+(2026-08-25 17:02:05.696) [info] [OceanCurrentModelPlugin.cc:177] Transient velocity topic name for rexrov : model/rexrov/ocean_current
+(2026-08-25 17:02:05.696) [info] [OceanCurrentModelPlugin.cc:268] For vehicle rexrov -> Current north-direction velocity [m/s] Gauss-Markov process model:
+(2026-08-25 17:02:05.696) [info] [gauss_markov_process.cc:85] 	Mean = 1
+	Min. Limit = 1
+	Max. Limit = 1
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 17:02:05.696) [info] [OceanCurrentModelPlugin.cc:317] For vehicle rexrov -> Current east-direction velocity [m/s] Gauss-Markov process model:
+(2026-08-25 17:02:05.696) [info] [gauss_markov_process.cc:85] 	Mean = 1
+	Min. Limit = 1
+	Max. Limit = 1
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 17:02:05.696) [info] [OceanCurrentModelPlugin.cc:366] For vehicle rexrov -> Current down-direction velocity [m/s]Gauss-Markov process model:
+(2026-08-25 17:02:05.696) [info] [gauss_markov_process.cc:85] 	Mean = 1
+	Min. Limit = 1
+	Max. Limit = 1
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 17:02:07.308) [info] [OceanCurrentModelPlugin.cc:201] Transient current model plugin loaded!
+(2026-08-25 17:02:07.308) [debug] [SystemManager.cc:80] Loaded system [dave_gz_model_plugins::OceanCurrentModelPlugin] for entity [24]
+(2026-08-25 17:02:14.363) [debug] [UnderwaterCamera.cc:104] dave_gz_sensor_plugins::UnderwaterCamera::Configure on entity: 34
+(2026-08-25 17:02:14.368) [info] [UnderwaterCamera.cc:191] Camera intrinsics: fx=277, fy=277, cx=160, cy=120
+(2026-08-25 17:02:14.368) [info] [UnderwaterCamera.cc:194] Image size: width=1920, height=1080
+(2026-08-25 17:02:14.368) [info] [UnderwaterCamera.cc:197] Min range: 0.1, Max range: 10
+(2026-08-25 17:02:18.916) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::UnderwaterCamera] for entity [34]
+(2026-08-25 17:02:18.916) [debug] [UserCommands.cc:1107] Created entity [24] named [rexrov]
+(2026-08-25 17:02:18.929) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-25 17:02:18.929) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-25 17:02:18.929) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-25 17:02:18.929) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 22
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (9)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (10)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (11)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (12)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (13)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (14)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (15)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (16)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (17)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (18)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (19)
+(2026-08-25 17:02:18.930) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (20)
+(2026-08-25 17:02:18.932) [debug] [ImuSensor.cc:150] IMU data for [rexrov::imu_link::imu_sensor] advertised on [/model/rexrov/imu]
+(2026-08-25 17:02:18.932) [debug] [MagnetometerSensor.cc:117] Magnetometer data for [rexrov::magnetometer_link::magnetometer_sensor] advertised on [/model/rexrov/magnetometer]
+(2026-08-25 17:02:19.746) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:19.746) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:19.746) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:19.746) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:19.746) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:21.205) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:21.205) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:21.205) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:21.205) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:21.206) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:22.659) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:22.659) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:22.659) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:22.659) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:22.660) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:24.111) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:24.111) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:24.111) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:24.111) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:24.111) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:25.555) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:25.555) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:25.555) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:25.555) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:25.555) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:26.986) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:26.987) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:26.987) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:26.987) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:26.987) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:28.431) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:28.431) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:28.431) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:28.431) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:28.431) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:29.866) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:29.866) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:29.866) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:29.866) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:29.866) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:31.309) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:31.309) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:31.309) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:31.309) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:31.310) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:32.799) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:32.799) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:32.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:32.799) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:32.800) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:34.232) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:34.232) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:34.232) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:34.233) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:34.233) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:35.666) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:35.666) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:35.666) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:35.666) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:35.666) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:37.105) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:37.105) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:37.105) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:37.106) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:37.106) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:38.549) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:38.549) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:38.549) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:38.549) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:38.550) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:39.989) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:39.989) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:39.989) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:39.989) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:39.989) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:41.416) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:41.416) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:41.416) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:41.416) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:41.416) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:42.849) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:42.849) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:42.849) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:42.849) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:42.849) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:44.294) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:44.294) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:44.295) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:44.295) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:44.295) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:45.737) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:45.737) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:45.737) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:45.738) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:45.738) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:47.174) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:47.174) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:47.174) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:47.174) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:47.175) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:48.622) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:48.622) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:48.622) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:48.622) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:48.623) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:50.626) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:50.626) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:50.626) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:50.626) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:50.627) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:52.253) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:52.253) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:52.253) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:52.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:52.253) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:53.736) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:53.736) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:53.736) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:53.736) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:53.736) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:55.174) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:55.174) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:55.174) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:55.174) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:55.175) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:56.611) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:56.611) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:56.611) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:56.611) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:56.612) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:58.045) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:58.045) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:58.045) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:58.045) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:58.046) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:02:59.480) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:02:59.480) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:02:59.480) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:02:59.480) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:02:59.480) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:00.922) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:00.922) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:00.922) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:00.922) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:00.923) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:02.371) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:02.371) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:02.371) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:02.371) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:02.371) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:03.804) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:03.804) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:03.804) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:03.804) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:03.804) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:05.381) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:05.381) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:05.381) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:05.381) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:05.381) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:06.994) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:06.994) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:06.994) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:06.994) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:06.995) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:08.671) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:08.671) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:08.671) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:08.671) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:08.671) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:10.411) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:10.411) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:10.411) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:10.411) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:10.411) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:16.936) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:16.936) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:16.936) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:16.936) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:16.937) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:19.132) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:19.132) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:19.132) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:19.132) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:19.133) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:21.377) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:21.377) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:21.377) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:21.377) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:21.377) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:23.668) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:23.668) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:23.668) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:23.668) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:23.669) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:25.477) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:25.477) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:25.477) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:25.477) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:25.478) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:27.252) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:27.252) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:27.252) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:27.252) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:27.252) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:30.133) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:30.133) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:30.133) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:30.133) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:30.134) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:31.868) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:31.868) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:31.868) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:31.869) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:31.869) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:33.614) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:33.614) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:33.614) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:33.614) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:33.615) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:35.440) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:35.440) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:35.440) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:35.441) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:35.441) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:37.380) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:37.380) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:37.380) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:37.380) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:37.380) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:38.998) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:38.998) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:38.998) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:38.998) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:38.998) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:40.631) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:40.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:40.631) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:40.631) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:40.631) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:42.329) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:42.329) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:42.329) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:42.329) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:42.330) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:43.920) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:43.920) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:43.920) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:43.920) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:43.921) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:45.549) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:45.549) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:45.549) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:45.549) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:45.549) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:47.211) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:47.211) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:47.211) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:47.211) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:47.211) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:48.855) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:48.855) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:48.855) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:48.855) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:48.856) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:50.569) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:50.569) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:50.569) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:50.569) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:50.570) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:52.192) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:52.192) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:52.192) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:52.192) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:52.192) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:53.813) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:53.813) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:53.813) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:53.813) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:53.814) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:55.434) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:55.434) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:55.434) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:55.434) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:55.434) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:57.081) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:57.081) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:57.081) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:57.081) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:57.081) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:03:58.728) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:03:58.728) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:03:58.728) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:03:58.728) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:03:58.728) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:00.427) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:00.428) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:00.429) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:00.429) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:00.430) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:02.175) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:02.175) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:02.175) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:02.175) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:02.175) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:03.817) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:03.817) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:03.817) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:03.817) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:03.818) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:05.455) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:05.455) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:05.455) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:05.455) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:05.456) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:07.084) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:07.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:07.084) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:07.084) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:07.085) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:08.680) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:08.680) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:08.680) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:08.680) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:08.681) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:10.293) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:10.293) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:10.293) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:10.293) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:10.294) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:11.912) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:11.912) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:11.912) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:11.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:11.912) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:13.520) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:13.520) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:13.520) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:13.520) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:13.520) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:15.178) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:15.178) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:15.178) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:15.178) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:15.179) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:17.688) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:17.688) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:17.688) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:17.688) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:17.689) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:19.826) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:19.826) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:19.826) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:19.827) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:19.827) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:21.921) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:21.921) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:21.921) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:21.921) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:21.921) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:23.857) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:23.857) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:23.857) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:23.857) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:23.857) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:25.887) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:25.887) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:25.887) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:25.887) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:25.888) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:28.400) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:28.400) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:28.400) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:28.400) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:28.400) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:30.553) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:30.554) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:30.554) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:30.554) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:30.554) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:32.662) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:32.662) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:32.662) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:32.662) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:32.662) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:35.088) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:35.088) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:35.088) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:35.088) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:35.088) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:37.413) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:37.413) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:37.413) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:37.413) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:37.414) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:39.344) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:39.344) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:39.344) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:39.344) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:39.344) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:41.289) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:41.289) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:41.289) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:41.289) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:41.289) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:42.903) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:42.903) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:42.903) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:42.903) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:42.904) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:44.701) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:44.701) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:44.701) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:44.701) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:44.701) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 17:04:46.505) [info] [DVLBridge.cc:192] dave_ros_gz_plugins::DVLBridge::PostUpdate
+(2026-08-25 17:04:46.505) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-25 17:04:46.505) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 17:04:46.505) [info] [UnderwaterCamera.cc:449] dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate
+(2026-08-25 17:04:46.506) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate

@@ -1,0 +1,4 @@
+[INFO] [1787644935.574548000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov/odometry (gz.msgs.Odometry) -> /model/rexrov/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[INFO] [1787644936.163683000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov/odometry (nav_msgs/msg/Odometry) -> /model/rexrov/odometry (gz.msgs.Odometry)] (Lazy 0)
+[ros2run]: Received signal:  Terminated: 15
+[INFO] [1787645093.091610000] [rclcpp]: signal_handler(signum=15)

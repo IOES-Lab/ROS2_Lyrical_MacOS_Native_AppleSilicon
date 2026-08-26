@@ -1,0 +1,6 @@
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:146] Loading ocean current model plugin...
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:177] Transient velocity topic name for depth_probe_5m : model/depth_probe_5m/ocean_current
+(2026-08-25 16:52:32.944) [info] [OceanCurrentModelPlugin.cc:201] Transient current model plugin loaded!
+(2026-08-25 16:52:40.410) [info] [OceanCurrentModelPlugin.cc:146] Loading ocean current model plugin...
+(2026-08-25 16:52:40.410) [info] [OceanCurrentModelPlugin.cc:177] Transient velocity topic name for depth_probe_15m : model/depth_probe_15m/ocean_current
+(2026-08-25 16:52:40.411) [info] [OceanCurrentModelPlugin.cc:201] Transient current model plugin loaded!

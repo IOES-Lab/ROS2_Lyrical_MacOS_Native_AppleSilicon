@@ -1,0 +1,104 @@
+{
+  "date": "2026-08-25",
+  "overall_verdict": "FUNCTIONAL PASS",
+  "environment": "Mac Apple Silicon, ROS 2 Lyrical, Gazebo Jetty 10.4",
+  "source_basis": {
+    "dave_commit": "6aef91c823af5da073329b84ba617b572965e79e",
+    "checkout_state": "existing non-pristine Lyrical/Jetty migration checkout",
+    "source_tree_modified_by_test": false
+  },
+  "depth_interpolation": {
+    "verdict": "PASS",
+    "scope": "OceanCurrentModelPlugin topic publication and linear interpolation at two fixed depths. Static probes isolate interpolation from vehicle dynamics.",
+    "global_constant_current_enabled": false,
+    "depth_5m": {
+      "expected_mps": [
+        0.005,
+        0.04,
+        0.0
+      ],
+      "actual_mps": [
+        0.005,
+        0.04,
+        0.0
+      ],
+      "error_mps": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "depth_15m": {
+      "expected_mps": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "actual_mps": [
+        0.01,
+        0.025,
+        0.0
+      ],
+      "error_mps": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "tolerance_mps": 1e-12,
+    "not_established": [
+      "vehicle physical response",
+      "hydrodynamic coefficient accuracy",
+      "general ocean-model accuracy"
+    ]
+  },
+  "vehicle_physical_response": {
+    "verdict": "FUNCTIONAL PASS",
+    "tested_path": "OceanCurrentWorldPlugin and ROS wrapper -> stratified database -> OceanCurrentModelPlugin -> /model/rexrov/ocean_current -> Gazebo Hydrodynamics -> REXROV motion",
+    "baseline_zero_current": {
+      "published_current_mps": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "duration_s": 8.980000000000004,
+      "x_displacement_m": -0.014398287366787523,
+      "average_x_velocity_mps": -0.0016033727579941556,
+      "end_x_velocity_mps": -0.003195828552415367
+    },
+    "current_1p5x": {
+      "published_current_mps": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "duration_s": 8.989999999999995,
+      "x_displacement_m": 11.549603172288151,
+      "average_x_velocity_mps": 1.2847167043702066,
+      "end_x_velocity_mps": 1.3815380350885595
+    },
+    "paired_differences": {
+      "x_displacement_m": 11.56400145965494,
+      "average_x_velocity_mps": 1.2863200771282006,
+      "end_x_velocity_mps": 1.384733863640975
+    },
+    "limitations": [
+      "One independent run per condition.",
+      "Vehicle state at the beginning of each recorded window was not identical.",
+      "This establishes functional application, not hydrodynamic-coefficient accuracy.",
+      "This does not establish real-ocean or general physical accuracy."
+    ]
+  },
+  "established": [
+    "OceanCurrentModelPlugin publishes vehicle-specific ROS and Gazebo topics.",
+    "The stock database is interpolated correctly at fixed depths of 5 m and 15 m.",
+    "The vehicle-specific current is consumed by Gazebo Hydrodynamics.",
+    "A +1.5 m/s X current changes actual REXROV motion relative to zero current."
+  ],
+  "not_established": [
+    "Hydrodynamic-coefficient accuracy.",
+    "Real-ocean or general physical accuracy.",
+    "Repeatability beyond one physical run per condition.",
+    "Tidal evolution, non-zero noise, multi-vehicle isolation or long stability."
+  ]
+}

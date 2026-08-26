@@ -202,6 +202,32 @@ conclusion.
 
 The fix cost one launch. Recognising it was needed cost a review round.
 
+### A mechanism invented to explain a real symptom
+
+**Believed:** the Ocean Current plugins failed to load because both packages' generated `.dsv`
+hooks prepend `lib/<package>/` to `GZ_SIM_SYSTEM_PLUGIN_PATH` while CMake installs the dylibs
+to `lib/`.
+
+**Actually:** the symptom is real. The environment did carry `lib/<package>/`, the dylibs are in
+`lib/`, the load failed with `Could not find shared library`, and adding the real directories
+fixed it. The *mechanism* was not. No file under either package's install tree references
+`GZ_SIM_SYSTEM_PLUGIN_PATH` at all, and the hooks those packages generate are
+`cmake_prefix_path.dsv` and `dyld_library_path.dsv` — a different variable, pointing at `lib`.
+Where the `lib/<package>/` entries come from is still unknown.
+
+**Caught by** opening the two `.dsv` files instead of reasoning about what a hook of that name
+would do.
+
+**This is the first entry here that was flagged in review before the commit and went in anyway.**
+The review note and the commit crossed; the sentence reached `origin/main` unchanged and was
+corrected in a later commit. That the claim was wrong is half of it. The other half is that a
+correction which is not applied before the commit is not a correction — it is a note.
+
+The shape is familiar: a real observation, an explanation that fits it, and no check that the
+explanation is the one operating. Several entries above have it. What is new is that the
+explanation named a specific artefact — two files, by name — which could have been opened in one
+command and never was.
+
 ---
 
 ## What actually went wrong, five times over

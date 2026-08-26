@@ -1,0 +1,72 @@
+=== layer 0 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=0, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 1 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=1, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 2 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=2, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 3 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=3, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 4 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=4, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 5 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=5, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 6 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=6, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 7 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=7, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 8 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=8, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 9 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=9, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 10 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=10, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+
+=== layer 11 -> +X 1.5 m/s ===
+requester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=11, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)
+
+response:
+dave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)
+

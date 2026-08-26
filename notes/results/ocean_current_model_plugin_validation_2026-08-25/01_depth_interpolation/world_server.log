@@ -1,0 +1,517 @@
+(2026-08-25 16:50:37.929) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+(2026-08-25 16:50:37.993) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/ocean_current_model_plugin_validation_2026-08-25/test_assets/ocean_current_model_validation.world].
+(2026-08-25 16:50:39.943) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+(2026-08-25 16:50:39.946) [info] [SimulationRunner.cc:347] Serving world controls on [/world/ocp_model_validation/control], [/world/ocp_model_validation/control/state] and [/world/ocp_model_validation/playback/control]
+(2026-08-25 16:50:39.946) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/ocp_model_validation/gui/info]
+(2026-08-25 16:50:39.946) [info] [SimulationRunner.cc:376] World [ocp_model_validation] initialized with [1ms] physics profile.
+(2026-08-25 16:50:39.947) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/ocp_model_validation/generate_world_sdf]
+(2026-08-25 16:50:39.947) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+(2026-08-25 16:50:39.947) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-25 16:50:39.947) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-25 16:50:39.948) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-25 16:50:39.948) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+(2026-08-25 16:50:39.948) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+(2026-08-25 16:50:39.948) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+(2026-08-25 16:50:39.948) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+(2026-08-25 16:50:40.277) [debug] [Physics.cc:994] Loaded [gz::physics::dartsim::Plugin] from library [/opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.dylib]
+(2026-08-25 16:50:40.277) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-25 16:50:40.297) [info] [UserCommands.cc:751] Create service on [/world/ocp_model_validation/create_multiple] (async)
+(2026-08-25 16:50:40.297) [info] [UserCommands.cc:753] Create service on [/world/ocp_model_validation/create_multiple/blocking] (blocking)
+(2026-08-25 16:50:40.297) [info] [UserCommands.cc:751] Remove service on [/world/ocp_model_validation/remove] (async)
+(2026-08-25 16:50:40.297) [info] [UserCommands.cc:753] Remove service on [/world/ocp_model_validation/remove/blocking] (blocking)
+(2026-08-25 16:50:40.297) [info] [UserCommands.cc:751] Pose service on [/world/ocp_model_validation/set_pose] (async)
+(2026-08-25 16:50:40.297) [info] [UserCommands.cc:753] Pose service on [/world/ocp_model_validation/set_pose/blocking] (blocking)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:751] Pose service on [/world/ocp_model_validation/set_pose_vector] (async)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:753] Pose service on [/world/ocp_model_validation/set_pose_vector/blocking] (blocking)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:751] Light configuration service on [/world/ocp_model_validation/light_config] (async)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:753] Light configuration service on [/world/ocp_model_validation/light_config/blocking] (blocking)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:751] Physics service on [/world/ocp_model_validation/set_physics] (async)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:753] Physics service on [/world/ocp_model_validation/set_physics/blocking] (blocking)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/ocp_model_validation/set_spherical_coordinates] (async)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/ocp_model_validation/set_spherical_coordinates/blocking] (blocking)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:751] Enable collision service on [/world/ocp_model_validation/enable_collision] (async)
+(2026-08-25 16:50:40.298) [info] [UserCommands.cc:753] Enable collision service on [/world/ocp_model_validation/enable_collision/blocking] (blocking)
+(2026-08-25 16:50:40.299) [info] [UserCommands.cc:751] Disable collision service on [/world/ocp_model_validation/disable_collision] (async)
+(2026-08-25 16:50:40.299) [info] [UserCommands.cc:753] Disable collision service on [/world/ocp_model_validation/disable_collision/blocking] (blocking)
+(2026-08-25 16:50:40.299) [info] [UserCommands.cc:751] Material service on [/world/ocp_model_validation/visual_config] (async)
+(2026-08-25 16:50:40.299) [info] [UserCommands.cc:753] Material service on [/world/ocp_model_validation/visual_config/blocking] (blocking)
+(2026-08-25 16:50:40.299) [info] [UserCommands.cc:751] Material service on [/world/ocp_model_validation/wheel_slip] (async)
+(2026-08-25 16:50:40.299) [info] [UserCommands.cc:753] Material service on [/world/ocp_model_validation/wheel_slip/blocking] (blocking)
+(2026-08-25 16:50:40.299) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-25 16:50:40.317) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-25 16:50:40.334) [debug] [Buoyancy.cc:494] Default density set to 1025
+(2026-08-25 16:50:40.334) [debug] [Buoyancy.cc:512] Added layer at 0, 1
+(2026-08-25 16:50:40.334) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Buoyancy] for entity [1]
+(2026-08-25 16:50:40.904) [info] [OceanCurrentWorldPlugin.cc:132] Loading Ocean current world plugin
+(2026-08-25 16:50:40.904) [info] [OceanCurrentWorldPlugin.cc:627] Current velocity [m/s] Gauss-Markov process model:
+(2026-08-25 16:50:40.904) [info] [gauss_markov_process.cc:85] 	Mean = 2
+	Min. Limit = 0
+	Max. Limit = 5
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:50:40.904) [info] [OceanCurrentWorldPlugin.cc:687] Current velocity horizontal angle [rad] Gauss-Markov process model:
+(2026-08-25 16:50:40.904) [info] [gauss_markov_process.cc:85] 	Mean = 1
+	Min. Limit = -3.14159
+	Max. Limit = 3.14159
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:50:40.904) [info] [OceanCurrentWorldPlugin.cc:747] Current velocity vertical angle [rad] Gauss-Markov process model:
+(2026-08-25 16:50:40.904) [info] [gauss_markov_process.cc:85] 	Mean = 1.2
+	Min. Limit = -3.14159
+	Max. Limit = 3.14159
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:50:40.908) [info] [OceanCurrentWorldPlugin.cc:442] /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/transientOceanCurrentDatabase.csv
+(2026-08-25 16:50:40.908) [info] [OceanCurrentWorldPlugin.cc:460] Statified Ocean Current Database loaded : /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/transientOceanCurrentDatabase.csv
+(2026-08-25 16:50:40.908) [info] [OceanCurrentWorldPlugin.cc:530] Stratified current velocity topic name: hydrodynamics/stratified_current_velocity
+(2026-08-25 16:50:40.910) [info] [OceanCurrentWorldPlugin.cc:337] Tidal Oscillation  Database loaded : /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/ACT1951_1_Annual_2021.csv
+(2026-08-25 16:50:40.941) [info] [OceanCurrentWorldPlugin.cc:140] Tidal oscillation is enabled
+(2026-08-25 16:50:40.941) [info] [OceanCurrentWorldPlugin.cc:152] Underwater current plugin loaded!
+	WARNING: Current velocity calculated in the ENU frame
+(2026-08-25 16:50:40.941) [debug] [SystemManager.cc:80] Loaded system [dave_gz_world_plugins::OceanCurrentWorldPlugin] for entity [1]
+(2026-08-25 16:51:16.553) [debug] [SystemManager.cc:80] Loaded system [dave_ros_gz_plugins::OceanCurrentPlugin] for entity [1]
+(2026-08-25 16:51:16.589) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::ShaderParam] for entity [11]
+(2026-08-25 16:51:16.589) [info] [LevelManager.cc:646] Loaded level [default]
+(2026-08-25 16:51:16.590) [debug] [ServerConfig.cc:1042] Loading (3) plugins from file [/Users/gwon-yeseol/.gz/sim/10/server.config]
+(2026-08-25 16:51:16.590) [debug] [SimulationRunner.cc:1919] Additional plugins to load:
+(2026-08-25 16:51:16.591) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 5
+(2026-08-25 16:51:16.591) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-25 16:51:16.591) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-25 16:51:16.591) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-25 16:51:16.591) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-25 16:51:16.735) [warning] [Buoyancy.cc:663] Unsupported collision geometry for graded buoyancy[5]
+(2026-08-25 16:51:16.744) [debug] [SDFFeatures.cc:364] Mesh construction from an SDF has not been implemented yet for dartsim. Use AttachMeshShapeFeature to use mesh shapes.
+(2026-08-25 16:51:16.744) [debug] [SDFFeatures.cc:896] The geometry element of collision [ground] couldn't be created
+(2026-08-25 16:51:16.782) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/ocp_model_validation/scene/info]
+(2026-08-25 16:51:16.782) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/ocp_model_validation/scene/graph]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/ocp_model_validation/state]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/ocp_model_validation/state_async]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/ocp_model_validation/scene/info]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/ocp_model_validation/scene/deletion]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/ocp_model_validation/state]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/ocp_model_validation/pose/info]
+(2026-08-25 16:51:16.783) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/ocp_model_validation/dynamic_pose/info]
+(2026-08-25 16:51:17.846) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:19.080) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:20.324) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:21.722) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:22.886) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:24.055) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:25.229) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:26.423) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:27.657) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:28.819) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:29.978) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:31.137) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:32.295) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:33.513) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:34.676) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:35.838) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:36.999) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:38.159) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:39.321) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:40.483) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:41.644) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:42.802) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:43.961) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:45.137) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:46.329) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:47.505) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:48.675) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:49.989) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:51.162) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:52.336) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:53.518) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:54.708) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:55.895) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:57.078) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:58.259) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:51:59.444) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:00.865) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:02.064) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:03.343) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:04.644) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:05.800) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:06.955) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:08.109) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:09.274) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:10.436) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:11.696) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:12.854) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:14.014) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:15.187) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:16.351) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:17.520) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:18.689) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:19.850) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:21.016) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:22.172) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:23.328) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:24.489) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:25.648) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:26.807) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:27.969) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:29.134) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:30.296) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:31.459) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:31.793) [debug] [OceanCurrentModelPlugin.cc:133] dave_gz_model_plugins::OceanCurrentModelPlugin::Configure on entity: 24
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:146] Loading ocean current model plugin...
+(2026-08-25 16:52:31.794) [warning] [OceanCurrentModelPlugin.cc:168] Setting flow_velocity_topic to anything other than 'ocean_current' is not recommended, as it might not be compatible with the hydrodynamics plugin.
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:177] Transient velocity topic name for depth_probe_5m : model/depth_probe_5m/ocean_current
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:268] For vehicle depth_probe_5m -> Current north-direction velocity [m/s] Gauss-Markov process model:
+(2026-08-25 16:52:31.794) [info] [gauss_markov_process.cc:85] 	Mean = 0
+	Min. Limit = 0
+	Max. Limit = 0
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:317] For vehicle depth_probe_5m -> Current east-direction velocity [m/s] Gauss-Markov process model:
+(2026-08-25 16:52:31.794) [info] [gauss_markov_process.cc:85] 	Mean = 0
+	Min. Limit = 0
+	Max. Limit = 0
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:52:31.794) [info] [OceanCurrentModelPlugin.cc:366] For vehicle depth_probe_5m -> Current down-direction velocity [m/s]Gauss-Markov process model:
+(2026-08-25 16:52:31.794) [info] [gauss_markov_process.cc:85] 	Mean = 0
+	Min. Limit = 0
+	Max. Limit = 0
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:52:32.944) [info] [OceanCurrentModelPlugin.cc:201] Transient current model plugin loaded!
+(2026-08-25 16:52:32.945) [debug] [SystemManager.cc:80] Loaded system [dave_gz_model_plugins::OceanCurrentModelPlugin] for entity [24]
+(2026-08-25 16:52:32.945) [debug] [UserCommands.cc:1107] Created entity [24] named [depth_probe_5m]
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 6
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-25 16:52:32.952) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-25 16:52:33.997) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:33.997) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:35.164) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:35.165) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:36.332) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:36.332) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:37.502) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:37.502) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:38.671) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:38.672) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:39.841) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:39.841) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+[WARN] [1787644360.406983000] [rcl.logging_rosout]: Publisher already registered for node name: 'OceanCurrentModelPlugin'. If this is due to multiple nodes with the same name then all logs for the logger named 'OceanCurrentModelPlugin' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-25 16:52:40.410) [debug] [OceanCurrentModelPlugin.cc:133] dave_gz_model_plugins::OceanCurrentModelPlugin::Configure on entity: 27
+(2026-08-25 16:52:40.410) [info] [OceanCurrentModelPlugin.cc:146] Loading ocean current model plugin...
+(2026-08-25 16:52:40.410) [warning] [OceanCurrentModelPlugin.cc:168] Setting flow_velocity_topic to anything other than 'ocean_current' is not recommended, as it might not be compatible with the hydrodynamics plugin.
+(2026-08-25 16:52:40.410) [info] [OceanCurrentModelPlugin.cc:177] Transient velocity topic name for depth_probe_15m : model/depth_probe_15m/ocean_current
+(2026-08-25 16:52:40.411) [info] [OceanCurrentModelPlugin.cc:268] For vehicle depth_probe_15m -> Current north-direction velocity [m/s] Gauss-Markov process model:
+(2026-08-25 16:52:40.411) [info] [gauss_markov_process.cc:85] 	Mean = 0
+	Min. Limit = 0
+	Max. Limit = 0
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:52:40.411) [info] [OceanCurrentModelPlugin.cc:317] For vehicle depth_probe_15m -> Current east-direction velocity [m/s] Gauss-Markov process model:
+(2026-08-25 16:52:40.411) [info] [gauss_markov_process.cc:85] 	Mean = 0
+	Min. Limit = 0
+	Max. Limit = 0
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:52:40.411) [info] [OceanCurrentModelPlugin.cc:366] For vehicle depth_probe_15m -> Current down-direction velocity [m/s]Gauss-Markov process model:
+(2026-08-25 16:52:40.411) [info] [gauss_markov_process.cc:85] 	Mean = 0
+	Min. Limit = 0
+	Max. Limit = 0
+	Mu = 0
+	Noise Amp. = 0
+(2026-08-25 16:52:40.411) [info] [OceanCurrentModelPlugin.cc:201] Transient current model plugin loaded!
+(2026-08-25 16:52:40.411) [debug] [SystemManager.cc:80] Loaded system [dave_gz_model_plugins::OceanCurrentModelPlugin] for entity [27]
+(2026-08-25 16:52:40.411) [debug] [UserCommands.cc:1107] Created entity [27] named [depth_probe_15m]
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 7
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-25 16:52:40.418) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-25 16:52:41.171) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:41.171) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:41.171) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:42.343) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:42.343) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:42.343) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:43.519) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:43.520) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:43.520) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:44.695) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:44.696) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:44.696) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:45.868) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:45.869) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:45.869) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:47.040) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:47.040) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:47.040) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:48.213) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:48.213) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:48.213) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:49.386) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:49.387) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:49.387) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:50.560) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:50.561) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:50.561) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:51.767) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:51.768) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:51.768) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:52.981) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:52.982) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:52.982) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:54.178) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:54.179) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:54.179) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:55.357) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:55.357) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:55.357) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:56.529) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:56.529) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:56.529) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:57.779) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:57.779) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:57.779) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:58.973) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:52:58.973) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:52:58.974) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:00.161) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:00.161) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:00.161) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:01.345) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:01.345) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:01.345) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:02.544) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:02.544) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:02.545) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:03.737) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:03.737) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:03.737) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:05.095) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:05.095) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:05.095) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:06.440) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:06.440) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:06.440) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:07.978) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:07.979) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:07.979) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:09.467) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:09.468) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:09.468) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:10.784) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:10.784) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:10.785) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:12.369) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:12.369) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:12.369) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:13.807) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:13.807) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:13.807) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:15.252) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:15.252) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:15.252) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:16.679) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:16.679) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:16.679) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:18.053) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:18.054) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:18.054) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:19.232) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:19.233) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:19.233) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:20.407) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:20.408) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:20.408) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:21.585) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:21.585) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:21.585) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:22.767) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:22.767) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:22.767) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:23.953) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:23.953) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:23.953) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:25.135) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:25.135) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:25.135) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:26.314) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:26.315) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:26.315) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:27.491) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:27.492) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:27.492) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:28.676) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:28.676) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:28.676) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:29.852) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:29.852) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:29.852) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:31.027) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:31.027) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:31.027) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:32.202) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:32.202) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:32.203) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:33.408) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:33.409) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:33.409) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:34.585) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:34.585) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:34.585) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:36.345) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:36.345) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:36.345) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:38.874) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:38.874) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:38.875) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:40.281) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:40.282) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:40.282) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:41.664) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:41.665) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:41.665) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:43.027) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:43.028) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:43.028) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:44.402) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:44.403) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:44.403) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:45.759) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:45.760) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:45.760) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:47.118) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:47.118) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:47.118) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:48.492) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:48.492) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:48.492) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:49.858) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:49.859) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:49.859) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:51.269) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:51.269) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:51.269) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:52.644) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:52.645) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:52.645) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:54.118) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:54.118) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:54.118) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:55.522) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:55.522) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:55.522) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:56.917) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:56.917) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:56.917) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:58.311) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:58.311) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:58.311) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:59.698) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:53:59.699) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:53:59.699) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:01.103) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:01.103) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:01.103) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:02.501) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:02.501) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:02.501) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:03.890) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:03.891) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:03.891) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:05.269) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:05.269) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:05.269) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:06.862) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:06.862) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:06.862) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:08.273) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:08.274) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:08.274) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:09.636) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:09.637) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:09.637) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:11.019) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:11.019) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:11.019) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:12.567) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:12.567) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:12.567) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:13.958) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:13.958) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:13.958) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:15.332) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:15.333) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:15.333) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:16.714) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:16.714) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:16.714) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:18.094) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:18.095) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:18.095) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:19.466) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:19.467) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:19.467) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:20.850) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:20.851) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:20.851) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:22.220) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:22.220) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:22.220) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:23.606) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:23.607) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:23.607) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:24.997) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:24.997) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:24.997) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:26.622) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:26.623) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:26.623) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:28.215) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:28.215) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:28.215) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:30.198) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:30.199) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:30.199) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:31.922) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:31.923) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:31.923) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:34.243) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:34.244) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:34.244) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:36.309) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:36.309) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:36.309) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:38.526) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:38.526) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:38.526) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:40.050) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:40.051) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:40.051) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:42.104) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:42.104) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:42.104) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:43.483) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:43.483) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:43.483) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:44.933) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:44.934) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:44.934) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:46.105) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:46.105) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:46.105) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:47.276) [info] [OceanCurrentPlugin.cc:595] dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate
+(2026-08-25 16:54:47.276) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate
+(2026-08-25 16:54:47.276) [info] [OceanCurrentModelPlugin.cc:646] dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate

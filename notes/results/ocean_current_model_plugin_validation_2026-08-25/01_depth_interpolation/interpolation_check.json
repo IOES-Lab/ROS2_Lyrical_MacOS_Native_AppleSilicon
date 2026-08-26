@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS",
+  "scope": "OceanCurrentModelPlugin topic publication and linear interpolation at two fixed depths. Static probes isolate interpolation from vehicle dynamics.",
+  "global_constant_current_enabled": false,
+  "depth_5m": {
+    "expected_mps": [
+      0.005,
+      0.04,
+      0.0
+    ],
+    "actual_mps": [
+      0.005,
+      0.04,
+      0.0
+    ],
+    "error_mps": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "depth_15m": {
+    "expected_mps": [
+      0.01,
+      0.025,
+      0.0
+    ],
+    "actual_mps": [
+      0.01,
+      0.025,
+      0.0
+    ],
+    "error_mps": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "tolerance_mps": 1e-12,
+  "not_established": [
+    "vehicle physical response",
+    "hydrodynamic coefficient accuracy",
+    "general ocean-model accuracy"
+  ]
+}

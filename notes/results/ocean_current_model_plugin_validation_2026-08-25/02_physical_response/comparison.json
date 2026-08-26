@@ -1,0 +1,37 @@
+{
+  "verdict": "FUNCTIONAL PASS",
+  "tested_path": "OceanCurrentWorldPlugin and ROS wrapper -> stratified database -> OceanCurrentModelPlugin -> /model/rexrov/ocean_current -> Gazebo Hydrodynamics -> REXROV motion",
+  "baseline_zero_current": {
+    "published_current_mps": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "duration_s": 8.980000000000004,
+    "x_displacement_m": -0.014398287366787523,
+    "average_x_velocity_mps": -0.0016033727579941556,
+    "end_x_velocity_mps": -0.003195828552415367
+  },
+  "current_1p5x": {
+    "published_current_mps": [
+      1.5,
+      0.0,
+      0.0
+    ],
+    "duration_s": 8.989999999999995,
+    "x_displacement_m": 11.549603172288151,
+    "average_x_velocity_mps": 1.2847167043702066,
+    "end_x_velocity_mps": 1.3815380350885595
+  },
+  "paired_differences": {
+    "x_displacement_m": 11.56400145965494,
+    "average_x_velocity_mps": 1.2863200771282006,
+    "end_x_velocity_mps": 1.384733863640975
+  },
+  "limitations": [
+    "One independent run per condition.",
+    "Vehicle state at the beginning of each recorded window was not identical.",
+    "This establishes functional application, not hydrodynamic-coefficient accuracy.",
+    "This does not establish real-ocean or general physical accuracy."
+  ]
+}

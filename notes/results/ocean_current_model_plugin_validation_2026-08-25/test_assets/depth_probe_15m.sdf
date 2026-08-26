@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="depth_probe_15m">
+    <static>true</static>
+
+    <link name="base_link">
+      <visual name="visual">
+        <geometry>
+          <sphere><radius>0.15</radius></sphere>
+        </geometry>
+      </visual>
+    </link>
+
+    <plugin
+      filename="OceanCurrentModelPlugin"
+      name="dave_gz_model_plugins::OceanCurrentModelPlugin">
+      <namespace>depth_probe_15m</namespace>
+      <flow_velocity_topic>ocean_current</flow_velocity_topic>
+
+      <transient_current>
+        <topic_stratified>hydrodynamics/stratified_current_velocity_topic_database</topic_stratified>
+
+        <velocity_north>
+          <mean>0.0</mean>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+          <noiseFreq>0.0</noiseFreq>
+        </velocity_north>
+
+        <velocity_east>
+          <mean>0.0</mean>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+          <noiseFreq>0.0</noiseFreq>
+        </velocity_east>
+
+        <velocity_down>
+          <mean>0.0</mean>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+          <noiseFreq>0.0</noiseFreq>
+        </velocity_down>
+      </transient_current>
+
+      <tide_oscillation>false</tide_oscillation>
+    </plugin>
+  </model>
+</sdf>
