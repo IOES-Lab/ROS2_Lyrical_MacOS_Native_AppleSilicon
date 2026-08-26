@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**일곱 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**여덟 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -165,6 +165,27 @@ water-mass 기능을 확인한 것이며 Mac crash의 하위 원인은 미확정
 
 근거:
 [`../results/dvl_direct_validation_2026-08-26/`](../results/dvl_direct_validation_2026-08-26/).
+
+## 8차 — 2026-08-26 SeaPressure 직접 재검증
+
+「SeaPressure Plugin」 페이지의 기존 2026-08-21 정정을 Mac·Docker 통제 행렬로
+확장했다. 발행 여부와 소스만 본 것이 아니라, 10개 조건의 pressure·variance·depth와
+topic graph를 양쪽 플랫폼에서 직접 읽었다.
+
+- surface `101.325`, `|z|=10 m` `199.3888`이 ROS Pascal 필드에 들어가는 단위 오류 확인
+- `standard_pressure`·`kPa_per_meter`·`topic`·`estimate_depth_on`이 동작함을 양성 대조로 확인
+- `saturation=50`·`noise_sigma=0.123`·`update_rate=2`가 각각 clamp·variance·주기를
+  바꾸지 않는다는 것을 런타임 확인
+- `z=+10 m`과 `z=-10 m`이 같은 pressure와 depth `10`을 내는 `abs(z)` 동작 확인
+- retained ROS pressure frame의 `header.frame_id`가 두 플랫폼 모두 비어 있음을 확인
+- Gazebo Transport는 Docker 10조건과 Mac baseline에서 직접 읽음
+
+첫 full-matrix 시도는 기존 world 정리에 실패하고 두 SDF 태그를 중복 생성해 제외했다.
+정정 runner는 한 서버, 고유 world·namespace, 태그당 단일 값으로 재실행했다. 정적 probe와
+최대 `|z|=10 m`만 다루므로 실제 센서 정확도·장기 noise 통계·극심도 동작은 입증하지 않는다.
+
+근거:
+[`../results/seapressure_full_validation_2026-08-26/`](../results/seapressure_full_validation_2026-08-26/).
 
 ## 일부러 넣지 않은 것
 

@@ -1,5 +1,11 @@
 # SeaPressure: a Pascal-field unit error and an ignored `noise_sigma`, both confirmed at runtime
 
+> **Scope superseded 2026-08-26.** This file remains the original one-depth Mac record. The later
+> [Mac/Docker ten-condition matrix](../seapressure_full_validation_2026-08-26/) numerically checks
+> depth, runtime-confirms `saturation` and `update_rate` as ignored, and adds the `abs(z)` and empty
+> `frame_id` findings. Source-only labels below describe what was known on 2026-08-21, not the
+> current evidence set.
+
 **2026-08-21** · macOS / Apple M2 / Metal · ROS 2 Lyrical + Gazebo Jetty 10.4.0 · headless
 
 The unit mismatch was found by reading `sea_pressure_sensor.cc`. This run confirms it against a

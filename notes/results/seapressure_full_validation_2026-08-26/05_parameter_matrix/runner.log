@@ -1,0 +1,23 @@
+assets: /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/work_mac_tmp/sp_overlay.cWo9mh/assets
+=== sp_baseline (z=0) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_baseline/summary.json
+=== sp_depth10 (z=-10) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_depth10/summary.json
+=== sp_above10 (z=10) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_above10/summary.json
+=== sp_saturation (z=-10) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_saturation/summary.json
+=== sp_stdpress (z=0) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_stdpress/summary.json
+=== sp_kpa (z=-10) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_kpa/summary.json
+=== sp_noise (z=0) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_noise/summary.json
+=== sp_topic (z=0) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_topic/summary.json
+=== sp_nodepth (z=-10) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_nodepth/summary.json
+=== sp_rate (z=0) ===
+  spawn=0 capture=0 -> /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/sp_rate/summary.json
+platform=mac done. results under /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix
+temporary assets were copied to /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/05_parameter_matrix/test_assets

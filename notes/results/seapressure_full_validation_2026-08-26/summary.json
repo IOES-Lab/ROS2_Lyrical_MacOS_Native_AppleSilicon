@@ -1,0 +1,380 @@
+{
+  "date": "2026-08-26",
+  "verdict": "PARTIAL",
+  "platforms": [
+    "macOS Apple Silicon / ROS 2 Lyrical / Gazebo Jetty",
+    "Docker ARM64 / ROS 2 Lyrical / Gazebo Jetty"
+  ],
+  "conditions": {
+    "sp_baseline": {
+      "mac": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0009999999999994458,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0009999999999998899,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_depth10": {
+      "mac": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0010000000000012221,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0009999999999994458,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_above10": {
+      "mac": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0009999999999976694,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0009999999999994458,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_saturation": {
+      "mac": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0009999999999976694,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0010000000000012221,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_stdpress": {
+      "mac": {
+        "fluid_pressure": 200.0,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0010000000000047748,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 200.0,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0010000000000012221,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_kpa": {
+      "mac": {
+        "fluid_pressure": 111.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0009999999999976694,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 111.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 10.0
+        },
+        "median_stamp_interval_s": 0.0010000000000012221,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_noise": {
+      "mac": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0010000000000047748,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0010000000000012221,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_topic": {
+      "mac": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0010000000000047748,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0009999999999976694,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_nodepth": {
+      "mac": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": false,
+        "depth_sample": null,
+        "median_stamp_interval_s": 0.0010000000000047748,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 199.3888,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": false,
+        "depth_sample": null,
+        "median_stamp_interval_s": 0.0010000000000012221,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    },
+    "sp_rate": {
+      "mac": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0010000000000047748,
+        "frame_id_values": [
+          ""
+        ]
+      },
+      "docker": {
+        "fluid_pressure": 101.325,
+        "variance": 9.0,
+        "deterministic_five_kept_frames": true,
+        "depth_topic_present": true,
+        "depth_sample": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "median_stamp_interval_s": 0.0009999999999976694,
+        "frame_id_values": [
+          ""
+        ]
+      }
+    }
+  },
+  "cross_platform": {
+    "all_ten_pressure_values_equal": true,
+    "all_ten_variance_values_equal": true,
+    "depth_topic_presence_equal": true,
+    "gazebo_transport_sampled": {
+      "mac": [
+        "sp_baseline"
+      ],
+      "docker": [
+        "sp_baseline",
+        "sp_depth10",
+        "sp_above10",
+        "sp_saturation",
+        "sp_stdpress",
+        "sp_kpa",
+        "sp_noise",
+        "sp_topic",
+        "sp_nodepth",
+        "sp_rate"
+      ]
+    }
+  },
+  "runtime_confirmed": {
+    "ros_pascal_field_receives_kpa_sized_values": true,
+    "surface_value": 101.325,
+    "depth_minus_10m_value": 199.3888,
+    "depth_plus_10m_value": 199.3888,
+    "absolute_z_is_used_above_and_below_origin": true,
+    "inferred_depth_matches_absolute_z_at_0_and_plus_minus_10m": true,
+    "saturation_50_is_ignored_observed": 199.3888,
+    "noise_sigma_0p123_is_ignored_observed_variance": 9.0,
+    "noise_sigma_if_applied_variance": 0.015129,
+    "update_rate_2hz_is_ignored_observed_median_period_s": {
+      "mac": 0.001,
+      "docker": 0.001
+    },
+    "standard_pressure_override_200_observed": 200.0,
+    "kpa_per_meter_override_1_observed_at_10m": 111.325,
+    "custom_topic_override_works": true,
+    "estimate_depth_false_suppresses_depth_topic": true,
+    "all_kept_pressure_frames_deterministic": true,
+    "ros_frame_id_empty_on_both_platforms": true,
+    "gazebo_transport_baseline": {
+      "mac": "pressure: 101.325\nvariance: 9",
+      "docker": "pressure: 101.325\nvariance: 9"
+    }
+  },
+  "limitations": [
+    "Controlled static probes only; maximum absolute Z was 10 m.",
+    "No comparison with a physical pressure sensor or real ocean data.",
+    "Five kept frames per condition demonstrate deterministic output in these runs, not a long-duration statistical guarantee.",
+    "The meaning intended for variance=9.0 while no noise is applied cannot be inferred from runtime output.",
+    "Above-origin behavior is measured relative to a controlled world whose origin represents the surface; other world conventions were not tested."
+  ],
+  "invalid_attempt": {
+    "path": "invalid_duplicate_tag_and_cleanup_attempt",
+    "reason": "The first full-matrix script duplicated parameter tags and failed to stop prior worlds, so its results are excluded."
+  }
+}

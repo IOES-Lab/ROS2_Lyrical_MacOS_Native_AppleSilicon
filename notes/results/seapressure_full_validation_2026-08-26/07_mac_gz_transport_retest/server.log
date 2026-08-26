@@ -1,0 +1,72 @@
+Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/sim/log/2026-08-26T16:32:56.80400000/server_console.log for writing: No such file or directory
+(2026-08-26 16:32:56.087) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+(2026-08-26 16:32:56.216) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/07_mac_gz_transport_retest/sp_validation.world].
+(2026-08-26 16:32:58.110) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+(2026-08-26 16:32:58.114) [info] [SimulationRunner.cc:347] Serving world controls on [/world/sp_gz_mac_1787729541/control], [/world/sp_gz_mac_1787729541/control/state] and [/world/sp_gz_mac_1787729541/playback/control]
+(2026-08-26 16:32:58.115) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/sp_gz_mac_1787729541/gui/info]
+(2026-08-26 16:32:58.118) [info] [SimulationRunner.cc:376] World [sp_gz_mac_1787729541] initialized with [default_physics] physics profile.
+(2026-08-26 16:32:58.118) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/sp_gz_mac_1787729541/generate_world_sdf]
+(2026-08-26 16:32:58.119) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+(2026-08-26 16:32:58.119) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-26 16:32:58.119) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-26 16:32:58.119) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-26 16:32:58.119) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+(2026-08-26 16:32:58.119) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+(2026-08-26 16:32:58.119) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+(2026-08-26 16:32:58.120) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+(2026-08-26 16:32:58.666) [debug] [Physics.cc:994] Loaded [gz::physics::dartsim::Plugin] from library [/opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.dylib]
+(2026-08-26 16:32:58.666) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-26 16:32:58.704) [info] [UserCommands.cc:751] Create service on [/world/sp_gz_mac_1787729541/create_multiple] (async)
+(2026-08-26 16:32:58.704) [info] [UserCommands.cc:753] Create service on [/world/sp_gz_mac_1787729541/create_multiple/blocking] (blocking)
+(2026-08-26 16:32:58.705) [info] [UserCommands.cc:751] Remove service on [/world/sp_gz_mac_1787729541/remove] (async)
+(2026-08-26 16:32:58.705) [info] [UserCommands.cc:753] Remove service on [/world/sp_gz_mac_1787729541/remove/blocking] (blocking)
+(2026-08-26 16:32:58.710) [info] [UserCommands.cc:751] Pose service on [/world/sp_gz_mac_1787729541/set_pose] (async)
+(2026-08-26 16:32:58.710) [info] [UserCommands.cc:753] Pose service on [/world/sp_gz_mac_1787729541/set_pose/blocking] (blocking)
+(2026-08-26 16:32:58.711) [info] [UserCommands.cc:751] Pose service on [/world/sp_gz_mac_1787729541/set_pose_vector] (async)
+(2026-08-26 16:32:58.711) [info] [UserCommands.cc:753] Pose service on [/world/sp_gz_mac_1787729541/set_pose_vector/blocking] (blocking)
+(2026-08-26 16:32:58.711) [info] [UserCommands.cc:751] Light configuration service on [/world/sp_gz_mac_1787729541/light_config] (async)
+(2026-08-26 16:32:58.711) [info] [UserCommands.cc:753] Light configuration service on [/world/sp_gz_mac_1787729541/light_config/blocking] (blocking)
+(2026-08-26 16:32:58.712) [info] [UserCommands.cc:751] Physics service on [/world/sp_gz_mac_1787729541/set_physics] (async)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:753] Physics service on [/world/sp_gz_mac_1787729541/set_physics/blocking] (blocking)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/sp_gz_mac_1787729541/set_spherical_coordinates] (async)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/sp_gz_mac_1787729541/set_spherical_coordinates/blocking] (blocking)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:751] Enable collision service on [/world/sp_gz_mac_1787729541/enable_collision] (async)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:753] Enable collision service on [/world/sp_gz_mac_1787729541/enable_collision/blocking] (blocking)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:751] Disable collision service on [/world/sp_gz_mac_1787729541/disable_collision] (async)
+(2026-08-26 16:32:58.713) [info] [UserCommands.cc:753] Disable collision service on [/world/sp_gz_mac_1787729541/disable_collision/blocking] (blocking)
+(2026-08-26 16:32:58.714) [info] [UserCommands.cc:751] Material service on [/world/sp_gz_mac_1787729541/visual_config] (async)
+(2026-08-26 16:32:58.714) [info] [UserCommands.cc:753] Material service on [/world/sp_gz_mac_1787729541/visual_config/blocking] (blocking)
+(2026-08-26 16:32:58.714) [info] [UserCommands.cc:751] Material service on [/world/sp_gz_mac_1787729541/wheel_slip] (async)
+(2026-08-26 16:32:58.714) [info] [UserCommands.cc:753] Material service on [/world/sp_gz_mac_1787729541/wheel_slip/blocking] (blocking)
+(2026-08-26 16:32:58.714) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-26 16:32:58.747) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-26 16:32:58.747) [info] [LevelManager.cc:646] Loaded level [default]
+(2026-08-26 16:32:58.748) [debug] [ServerConfig.cc:1042] Loading (3) plugins from file [/Users/gwon-yeseol/.gz/sim/10/server.config]
+(2026-08-26 16:32:58.748) [debug] [SimulationRunner.cc:1919] Additional plugins to load:
+(2026-08-26 16:32:58.748) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 2
+(2026-08-26 16:32:58.748) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/sp_gz_mac_1787729541/scene/info]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/sp_gz_mac_1787729541/scene/graph]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/sp_gz_mac_1787729541/state]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/sp_gz_mac_1787729541/state_async]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/sp_gz_mac_1787729541/scene/info]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/sp_gz_mac_1787729541/scene/deletion]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/sp_gz_mac_1787729541/state]
+(2026-08-26 16:32:58.758) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/sp_gz_mac_1787729541/pose/info]
+(2026-08-26 16:32:58.759) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/sp_gz_mac_1787729541/dynamic_pose/info]
+(2026-08-26 16:33:15.977) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 4
+[37;1m2026-08-26 16:33:15.985 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed to create segment 995aedf337c6fdd2: Operation not permitted[34;1m -> Function [36mcompute_per_allocation_extra_size[m
+[37;1m2026-08-26 16:33:15.986 [31;1m[[37;1mRTPS_TRANSPORT_SHM[31;1m Error] [37mFailed to create Shared Memory Manager for domain fastdds: Operation not permitted[34;1m -> Function [36mcreate[m
+[37;1m2026-08-26 16:33:15.987 [31;1m[[37;1mRTPS_PARTICIPANT[31;1m Error] [37mUnable to Register SHM Transport. SHM Transport is not supported in the current platform.[34;1m -> Function [36msetup_transports[m
+(2026-08-26 16:33:48.959) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [4]
+(2026-08-26 16:33:48.963) [debug] [UserCommands.cc:1107] Created entity [4] named [sp_baseline]
+(2026-08-26 16:33:48.977) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:33:48.977) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 3
+(2026-08-26 16:33:48.977) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:33:48.977) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:33:48.983) [debug] [SignalHandler.cc:278] Received signal[2].
+[INFO] [1787729628.983679000] [rclcpp]: signal_handler(signum=2)
+(2026-08-26 16:33:48.983) [debug] [ServerPrivate.cc:129] Server received signal[2]
+(2026-08-26 16:33:48.984) [debug] [sim_main.cc:584] Shutting down gz-sim-server
+(2026-08-26 16:33:48.995) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:33:48.995) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)

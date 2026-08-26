@@ -1,0 +1,1045 @@
+Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/sim/log/2026-08-26T16:20:28.514436000/server_console.log for writing: No such file or directory
+(2026-08-26 16:20:28.521) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+(2026-08-26 16:20:28.635) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/seapressure_full_validation_2026-08-26/work_mac_tmp/sp_overlay.cWo9mh/assets/sp_validation.world].
+(2026-08-26 16:20:30.536) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+(2026-08-26 16:20:30.539) [info] [SimulationRunner.cc:347] Serving world controls on [/world/sp_validation_mac_1787728808/control], [/world/sp_validation_mac_1787728808/control/state] and [/world/sp_validation_mac_1787728808/playback/control]
+(2026-08-26 16:20:30.540) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/sp_validation_mac_1787728808/gui/info]
+(2026-08-26 16:20:30.540) [info] [SimulationRunner.cc:376] World [sp_validation_mac_1787728808] initialized with [default_physics] physics profile.
+(2026-08-26 16:20:30.540) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/sp_validation_mac_1787728808/generate_world_sdf]
+(2026-08-26 16:20:30.540) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+(2026-08-26 16:20:30.540) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-26 16:20:30.540) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-26 16:20:30.540) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-26 16:20:30.540) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+(2026-08-26 16:20:30.540) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+(2026-08-26 16:20:30.541) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+(2026-08-26 16:20:30.551) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+(2026-08-26 16:20:31.045) [debug] [Physics.cc:994] Loaded [gz::physics::dartsim::Plugin] from library [/opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.dylib]
+(2026-08-26 16:20:31.045) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:751] Create service on [/world/sp_validation_mac_1787728808/create_multiple] (async)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:753] Create service on [/world/sp_validation_mac_1787728808/create_multiple/blocking] (blocking)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:751] Remove service on [/world/sp_validation_mac_1787728808/remove] (async)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:753] Remove service on [/world/sp_validation_mac_1787728808/remove/blocking] (blocking)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:751] Pose service on [/world/sp_validation_mac_1787728808/set_pose] (async)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:753] Pose service on [/world/sp_validation_mac_1787728808/set_pose/blocking] (blocking)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:751] Pose service on [/world/sp_validation_mac_1787728808/set_pose_vector] (async)
+(2026-08-26 16:20:31.081) [info] [UserCommands.cc:753] Pose service on [/world/sp_validation_mac_1787728808/set_pose_vector/blocking] (blocking)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:751] Light configuration service on [/world/sp_validation_mac_1787728808/light_config] (async)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:753] Light configuration service on [/world/sp_validation_mac_1787728808/light_config/blocking] (blocking)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:751] Physics service on [/world/sp_validation_mac_1787728808/set_physics] (async)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:753] Physics service on [/world/sp_validation_mac_1787728808/set_physics/blocking] (blocking)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/sp_validation_mac_1787728808/set_spherical_coordinates] (async)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/sp_validation_mac_1787728808/set_spherical_coordinates/blocking] (blocking)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:751] Enable collision service on [/world/sp_validation_mac_1787728808/enable_collision] (async)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:753] Enable collision service on [/world/sp_validation_mac_1787728808/enable_collision/blocking] (blocking)
+(2026-08-26 16:20:31.082) [info] [UserCommands.cc:751] Disable collision service on [/world/sp_validation_mac_1787728808/disable_collision] (async)
+(2026-08-26 16:20:31.083) [info] [UserCommands.cc:753] Disable collision service on [/world/sp_validation_mac_1787728808/disable_collision/blocking] (blocking)
+(2026-08-26 16:20:31.083) [info] [UserCommands.cc:751] Material service on [/world/sp_validation_mac_1787728808/visual_config] (async)
+(2026-08-26 16:20:31.083) [info] [UserCommands.cc:753] Material service on [/world/sp_validation_mac_1787728808/visual_config/blocking] (blocking)
+(2026-08-26 16:20:31.083) [info] [UserCommands.cc:751] Material service on [/world/sp_validation_mac_1787728808/wheel_slip] (async)
+(2026-08-26 16:20:31.083) [info] [UserCommands.cc:753] Material service on [/world/sp_validation_mac_1787728808/wheel_slip/blocking] (blocking)
+(2026-08-26 16:20:31.083) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-26 16:20:31.114) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-26 16:20:31.114) [info] [LevelManager.cc:646] Loaded level [default]
+(2026-08-26 16:20:31.114) [debug] [ServerConfig.cc:1042] Loading (3) plugins from file [/Users/gwon-yeseol/.gz/sim/10/server.config]
+(2026-08-26 16:20:31.114) [debug] [SimulationRunner.cc:1919] Additional plugins to load:
+(2026-08-26 16:20:31.115) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 2
+(2026-08-26 16:20:31.115) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:20:31.122) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/sp_validation_mac_1787728808/scene/info]
+(2026-08-26 16:20:31.122) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/sp_validation_mac_1787728808/scene/graph]
+(2026-08-26 16:20:31.122) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/sp_validation_mac_1787728808/state]
+(2026-08-26 16:20:31.123) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/sp_validation_mac_1787728808/state_async]
+(2026-08-26 16:20:31.123) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/sp_validation_mac_1787728808/scene/info]
+(2026-08-26 16:20:31.123) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/sp_validation_mac_1787728808/scene/deletion]
+(2026-08-26 16:20:31.123) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/sp_validation_mac_1787728808/state]
+(2026-08-26 16:20:31.123) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/sp_validation_mac_1787728808/pose/info]
+(2026-08-26 16:20:31.123) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/sp_validation_mac_1787728808/dynamic_pose/info]
+(2026-08-26 16:20:48.479) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 4
+(2026-08-26 16:21:22.149) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [4]
+(2026-08-26 16:21:22.150) [debug] [UserCommands.cc:1107] Created entity [4] named [sp_baseline]
+(2026-08-26 16:21:22.164) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:21:22.164) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 3
+(2026-08-26 16:21:22.164) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:21:22.164) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:21:23.110) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:24.342) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:25.574) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:26.801) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:28.041) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:29.286) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:30.514) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:31.740) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:32.010) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 6
+[WARN] [1787728892.010544000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:21:32.020) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [6]
+(2026-08-26 16:21:32.020) [debug] [UserCommands.cc:1107] Created entity [6] named [sp_depth10]
+(2026-08-26 16:21:32.028) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:21:32.028) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:21:32.028) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 4
+(2026-08-26 16:21:32.028) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:21:32.028) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:21:32.028) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:21:32.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:32.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:33.959) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:33.959) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:35.177) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:35.177) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:36.447) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:36.448) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:37.743) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:37.743) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:39.091) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:39.091) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:40.397) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:40.398) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:41.733) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:41.733) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:43.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:43.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:44.470) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:44.470) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:45.810) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:45.810) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:47.193) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:47.193) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:48.526) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:48.526) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:49.865) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:49.866) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:51.185) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:51.187) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:52.530) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:52.530) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:53.892) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:53.892) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:55.218) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:55.218) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:56.586) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:56.586) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:57.869) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 8
+[WARN] [1787728917.869942000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:21:57.878) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [8]
+(2026-08-26 16:21:57.878) [debug] [UserCommands.cc:1107] Created entity [8] named [sp_above10]
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 5
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:21:57.886) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:21:58.079) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:58.079) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:58.079) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:59.080) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:59.080) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:21:59.080) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:00.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:00.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:00.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:01.110) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:01.111) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:01.111) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:02.554) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:02.554) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:02.554) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:04.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:04.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:04.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:05.463) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:05.463) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:05.463) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:06.904) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:06.905) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:06.905) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:08.340) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:08.340) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:08.340) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:09.757) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:09.758) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:09.758) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:11.208) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:11.208) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:11.208) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:12.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:12.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:12.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:14.031) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:14.031) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:14.031) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:15.458) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:15.458) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:15.458) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:16.933) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:16.933) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:16.933) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:18.365) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:18.365) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:18.365) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:19.801) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:19.801) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:19.801) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:21.256) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:21.256) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:21.258) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:22.703) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:22.703) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:22.703) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:23.782) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 10
+[WARN] [1787728943.782676000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:22:23.791) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [10]
+(2026-08-26 16:22:23.791) [debug] [UserCommands.cc:1107] Created entity [10] named [sp_saturation]
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 6
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:22:23.800) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:22:24.165) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:24.165) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:24.165) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:24.165) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:25.211) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:25.211) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:25.211) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:25.211) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:26.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:26.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:26.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:26.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:27.372) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:27.372) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:27.373) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:27.373) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:28.843) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:28.843) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:28.843) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:28.843) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:30.501) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:30.502) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:30.502) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:30.502) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:32.019) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:32.019) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:32.019) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:32.019) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:33.538) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:33.538) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:33.538) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:33.538) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:35.114) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:35.115) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:35.116) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:35.116) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:36.666) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:36.666) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:36.667) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:36.667) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:38.196) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:38.196) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:38.196) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:38.196) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:39.706) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:39.707) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:39.706) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:39.706) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:41.201) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:41.201) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:41.201) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:41.202) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:42.719) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:42.720) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:42.720) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:42.720) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:44.251) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:44.251) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:44.251) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:44.251) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:45.755) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:45.756) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:45.756) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:45.757) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:47.313) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:47.313) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:47.313) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:47.313) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:48.964) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:48.964) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:48.964) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:48.965) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:50.055) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 12
+[WARN] [1787728970.057230000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:22:50.085) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [12]
+(2026-08-26 16:22:50.086) [debug] [UserCommands.cc:1107] Created entity [12] named [sp_stdpress]
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 7
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:22:50.102) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:22:50.103) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 16:22:50.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:50.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:50.920) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:50.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:50.921) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:52.350) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:52.350) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:52.350) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:52.350) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:52.350) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:53.897) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:53.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:53.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:53.897) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:53.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:55.580) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:55.581) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:55.581) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:55.582) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:55.580) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:57.680) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:57.680) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:57.680) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:57.680) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:57.680) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:59.710) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:59.710) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:59.710) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:59.710) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:22:59.710) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:01.805) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:01.805) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:01.805) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:01.805) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:01.805) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:03.712) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:03.712) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:03.712) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:03.712) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:03.712) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:05.642) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:05.642) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:05.643) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:05.642) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:05.643) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:07.354) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:07.355) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:07.355) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:07.354) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:07.355) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:09.230) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:09.230) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:09.230) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:09.230) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:09.230) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:10.823) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:10.824) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:10.824) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:10.824) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:10.824) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:12.465) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:12.466) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:12.466) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:12.468) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:12.468) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:14.065) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:14.066) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:14.066) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:14.066) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:14.066) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:15.665) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:15.665) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:15.665) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:15.665) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:15.665) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:17.348) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:17.348) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:17.348) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:17.348) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:17.348) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:18.931) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:18.932) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:18.931) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:18.932) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:18.932) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:19.459) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 14
+[WARN] [1787728999.460336000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:23:19.493) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [14]
+(2026-08-26 16:23:19.493) [debug] [UserCommands.cc:1107] Created entity [14] named [sp_kpa]
+(2026-08-26 16:23:19.501) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 16:23:19.501) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:23:19.501) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:23:19.501) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:23:19.501) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:23:19.501) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 8
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 16:23:19.502) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 16:23:20.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:20.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:20.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:20.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:20.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:20.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:22.054) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:22.054) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:22.054) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:22.054) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:22.054) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:22.054) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:23.698) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:23.698) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:23.698) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:23.698) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:23.698) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:23.698) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:25.387) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:25.387) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:25.387) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:25.387) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:25.387) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:25.387) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:27.075) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:27.075) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:27.076) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:27.075) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:27.075) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:27.075) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:28.785) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:28.785) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:28.785) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:28.786) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:28.785) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:28.785) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:30.496) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:30.496) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:30.496) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:30.496) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:30.496) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:30.496) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:32.135) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:32.135) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:32.135) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:32.135) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:32.135) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:32.135) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:33.798) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:33.798) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:33.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:33.800) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:33.801) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:33.798) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:35.459) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:35.459) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:35.459) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:35.459) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:35.459) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:35.459) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:37.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:37.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:37.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:37.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:37.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:37.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:38.845) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:38.845) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:38.845) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:38.845) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:38.846) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:38.846) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:40.531) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:40.531) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:40.532) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:40.532) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:40.532) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:40.533) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:42.193) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:42.193) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:42.194) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:42.194) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:42.193) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:42.193) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:43.864) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:43.864) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:43.864) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:43.864) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:43.864) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:43.864) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:45.492) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:45.492) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:45.492) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:45.492) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:45.492) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:45.492) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:46.392) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 16
+[WARN] [1787729026.393100000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:23:46.401) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [16]
+(2026-08-26 16:23:46.402) [debug] [UserCommands.cc:1107] Created entity [16] named [sp_noise]
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 9
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 16:23:46.411) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:47.295) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:48.912) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:50.592) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:52.339) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:54.130) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:55.898) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:57.660) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.404) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.406) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.407) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.408) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.408) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.410) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:23:59.411) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.172) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.173) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.173) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.173) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.172) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.173) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:01.173) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:02.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.628) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.628) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.629) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.631) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:04.632) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.408) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.408) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.409) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.409) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.409) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.409) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:06.409) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.191) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.192) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.192) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.191) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.191) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.191) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:08.191) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.002) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.001) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:10.002) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.821) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.821) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.821) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.822) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.822) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.821) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:11.822) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.676) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 18
+[WARN] [1787729053.676514000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:24:13.685) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [18]
+(2026-08-26 16:24:13.685) [debug] [UserCommands.cc:1107] Created entity [18] named [sp_topic]
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 10
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 16:24:13.694) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-26 16:24:13.741) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.741) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.741) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.742) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.741) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.742) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.742) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:13.742) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:15.279) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:17.287) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:19.134) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.084) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.085) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.085) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:21.085) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:22.982) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.926) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.926) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.926) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.927) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.927) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.926) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.926) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:24.927) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:26.818) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.676) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.676) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.677) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.676) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.677) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:28.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.525) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.526) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.526) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.528) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.528) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.529) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.530) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:30.531) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:32.422) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.328) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.328) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.328) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.328) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.329) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.328) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.329) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:34.329) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:36.261) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.317) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.318) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.318) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.319) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.320) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.321) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.321) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:38.323) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.253) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:41.254) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.683) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.683) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.684) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.684) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.684) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.684) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.684) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:43.684) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:44.684) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 20
+[WARN] [1787729084.684838000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:24:44.697) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [20]
+(2026-08-26 16:24:44.697) [debug] [UserCommands.cc:1107] Created entity [20] named [sp_nodepth]
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 16:24:44.707) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (8)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 11
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-26 16:24:44.708) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (9)
+(2026-08-26 16:24:46.224) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.224) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.919) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.920) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.920) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.920) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.920) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:48.921) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.737) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.737) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:51.738) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:54.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.640) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.642) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.642) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.642) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.643) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.643) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.640) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.640) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:56.644) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:24:59.478) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.965) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.966) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.966) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.966) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.966) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.965) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.966) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.966) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:01.967) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.234) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:04.233) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:06.424) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.677) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.677) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.677) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.677) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:08.678) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.952) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.952) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.953) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.953) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.953) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.953) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.953) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.952) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:10.952) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.117) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.117) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:13.118) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.320) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.320) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.320) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.320) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.321) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.321) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.320) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.321) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:15.321) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.532) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.533) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.535) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.537) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:17.538) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:18.971) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 22
+[WARN] [1787729118.971669000] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 16:25:18.981) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [22]
+(2026-08-26 16:25:18.981) [debug] [UserCommands.cc:1107] Created entity [22] named [sp_rate]
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (9)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (8)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 12
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 16:25:18.994) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 16:25:18.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 16:25:18.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 16:25:18.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 16:25:18.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-26 16:25:18.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (9)
+(2026-08-26 16:25:18.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (10)
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:19.847) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.760) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.760) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.760) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.760) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.761) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.761) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.760) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.761) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.760) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:21.761) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.049) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.049) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.049) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:24.050) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:26.487) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.867) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:28.868) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.197) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:31.198) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.488) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.489) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.489) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.489) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.489) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.490) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.490) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.490) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.490) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:33.491) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:35.840) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.073) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 16:25:38.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+[INFO] [1787729138.552639000] [rclcpp]: signal_handler(signum=2)
+(2026-08-26 16:25:38.552) [debug] [SignalHandler.cc:278] Received signal[2].
+(2026-08-26 16:25:38.552) [debug] [ServerPrivate.cc:129] Server received signal[2]
+(2026-08-26 16:25:38.552) [debug] [sim_main.cc:584] Shutting down gz-sim-server
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (10)
+(2026-08-26 16:25:38.572) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 16:25:38.572) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (9)
+(2026-08-26 16:25:38.572) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (8)
+(2026-08-26 16:25:38.571) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)

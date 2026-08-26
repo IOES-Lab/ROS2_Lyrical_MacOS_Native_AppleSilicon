@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="sp_kpa">
+    <static>true</static>
+    <pose>0 0 -10 0 0 0</pose>
+    <link name="base_link">
+      <visual name="visual">
+        <geometry><sphere><radius>0.15</radius></sphere></geometry>
+      </visual>
+    </link>
+    <plugin filename="sea_pressure_sensor"
+            name="dave_gz_sensor_plugins::SubseaPressureSensorPlugin">
+      <namespace>sp_kpa</namespace>
+      <topic>sea_pressure</topic>
+      <update_rate>10</update_rate>
+      <estimate_depth_on>true</estimate_depth_on>
+      <kPa_per_meter>9.80638</kPa_per_meter>
+      <standard_pressure>101.325</standard_pressure><kPa_per_meter>1.0</kPa_per_meter>
+    </plugin>
+  </model>
+</sdf>

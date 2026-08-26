@@ -273,6 +273,25 @@ variables. The old observation was real; **the scope assigned to it was not**.
 asking separately what each message field and operating mode established. A topic is evidence of
 publication, not of every mode exposed by the same sensor.
 
+### A ten-condition matrix whose conditions were not isolated
+
+**Believed:** the first SeaPressure full-matrix runner had tested each SDF parameter independently.
+
+**Actually:** it relied on process-name cleanup that did not stop the previous Gazebo world, so
+models accumulated in an old server. It also copied a base plugin block and appended overrides,
+creating duplicate `kPa_per_meter` and `estimate_depth_on` elements. The script produced plausible
+JSON for every named condition, but neither the running world nor the generated SDF matched the
+isolation claim.
+
+**Caught by** reading the generated test assets and enumerating live worlds rather than accepting
+the runner's exit codes. The excluded attempt remains under
+[`results/seapressure_full_validation_2026-08-26/invalid_duplicate_tag_and_cleanup_attempt/`](results/seapressure_full_validation_2026-08-26/invalid_duplicate_tag_and_cleanup_attempt/).
+The corrected runner starts one tracked server with a unique world name, gives every probe a unique
+namespace, emits each tested tag at most once, and validates all ten result JSON files independently.
+
+This is the same scope error in test-fixture form: ten result files do not prove ten independent
+conditions unless the fixture proves what was loaded and what was varied.
+
 ---
 
 ## What actually went wrong, five times over

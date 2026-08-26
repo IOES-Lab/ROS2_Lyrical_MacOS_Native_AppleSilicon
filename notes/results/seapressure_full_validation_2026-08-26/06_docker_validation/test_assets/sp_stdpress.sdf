@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="sp_stdpress">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+    <link name="base_link"/>
+    <plugin filename="sea_pressure_sensor"
+            name="dave_gz_sensor_plugins::SubseaPressureSensorPlugin">
+      <namespace>sp_stdpress</namespace>
+      <standard_pressure>200.0</standard_pressure>
+    </plugin>
+  </model>
+</sdf>

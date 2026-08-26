@@ -24,8 +24,9 @@ The plugin computes pressure in **kilopascals** and assigns that number directly
 `fluid_pressure` field of [`sensor_msgs/msg/FluidPressure`](https://docs.ros.org/en/rolling/p/sensor_msgs/msg/FluidPressure.html),
 which the message definition specifies in **Pascals**.
 
-At the surface the topic therefore carries `101.325` where a consumer reading the message
-according to its own definition expects `101325`.
+At the controlled surface the topic carries `101.325` where a consumer reading the message
+according to its own definition expects `101325`. At `|z|=10 m` it carries `199.3888` rather
+than `199388.8`. Both values were reproduced on macOS and Docker.
 
 The message definition reads:
 
@@ -34,7 +35,7 @@ float64 fluid_pressure       # Absolute pressure reading in Pascals.
 float64 variance             # 0 is interpreted as variance unknown
 ```
 
-Measured on a running simulation, REXROV at `z:=0` in `dave_ocean_waves`:
+Measured first on REXROV at `z:=0` in `dave_ocean_waves`:
 
 ```
 $ ros2 topic type /model/rexrov/sea_pressure
@@ -45,6 +46,18 @@ fluid_pressure: 101.32505915145917
 ```
 
 `101.32505915145917` against an expected `101325` Pa — a factor of 1000.
+
+The finding was then re-run on 2026-08-26 in a copied controlled world with ten uniquely
+namespaced static probes on both macOS and Docker. The unit-discriminating conditions were:
+
+| Controlled pose/configuration | macOS | Docker | Pascal-contract value |
+|---|---:|---:|---:|
+| `z=0`, compiled defaults | `101.325` | `101.325` | `101325` |
+| `z=-10 m`, compiled defaults | `199.3888` | `199.3888` | `199388.8` |
+| `z=+10 m`, compiled defaults | `199.3888` | `199.3888` | `199388.8` |
+
+The same baseline number was also read directly from Gazebo Transport on both platforms. This
+report cites the ROS Pascal contract only; the Gazebo message's unit convention is not assumed.
 
 ## Where it comes from
 
@@ -68,9 +81,11 @@ The value is then published without conversion:
 rosPressureMsg.fluid_pressure = this->dataPtr->pressure;   // kPa into a Pa field
 ```
 
-The depth estimate published on `sea_pressure_depth` divides by the same `kPaPerM`, so on
-dimensional grounds the units should cancel and the metres come out right. **That has not been
-checked against a known depth**, so it is reasoning about the code rather than a measurement.
+The depth estimate published on `sea_pressure_depth` divides by the same `kPaPerM`. It was checked
+numerically in the controlled run: `z=0` produced depth `0`, and both `z=-10` and `z=+10` produced
+depth `10`. A `kPa_per_meter=1.0` control at `z=-10` still produced depth `10`. This establishes
+self-consistency of the implemented inverse; it also exposes the separate `abs(z)` behavior and
+does not establish real-sensor accuracy.
 
 ## Why this is easy to miss
 
@@ -109,25 +124,20 @@ the value and document the unit, though that leaves the ROS message contract vio
 
 - **The 1000x factor is confirmed at runtime**, not inferred from reading the source. The echo
   output above is from a live simulation.
-- **Only the surface value was measured**, at `z:=0`. The scaling at depth follows from the same
-  code path but was not measured at several depths. The value was identical across two separate
-  launches.
-- **`sea_pressure_depth` was not checked numerically.** The reasoning that its units cancel is
-  from reading the code, not from comparing its output against a known depth.
-- **Only the ROS-side message was examined.** The Pascal convention cited is
-  `sensor_msgs/msg/FluidPressure`'s; no equivalent claim is made for the Gazebo message.
-- Measured on macOS / Apple Silicon / Metal under ROS 2 Lyrical + Gazebo Jetty 10.4, headless.
-  Nothing about the defect looks platform-specific — it is a missing unit conversion visible in
-  the source.
+- **Surface and ±10 m values are runtime-confirmed on Mac and Docker.** The controlled matrix
+  contains five retained post-warmup frames per condition and the platform values agree.
+- **`sea_pressure_depth` was checked numerically** at 0 and ±10 m, plus one slope override.
+- **The Pascal claim is ROS-specific.** Gazebo Transport was sampled, but no equivalent unit
+  convention is claimed for `gz::msgs::FluidPressure`.
+- The controlled range is small and static. No physical pressure sensor, real ocean, extreme depth
+  or long-duration stability comparison was performed.
 
 ## Environment
 
 - Local `lyrical-jetty-migration` workspace built on `naitikpahwa18/dave` commit `6aef91c`
   (the same commit as that fork's `wgpu_integration` head at the time of checkout)
-- ROS 2 Lyrical + Gazebo Jetty 10.4.0, macOS, Apple M2, Metal
-- Headless; the process ran ~2 minutes and exited cleanly. **A default GUI launch of the same
-  world exits `-6`** on this machine — a separate, rendering-side failure, which is why the
-  reproduction below passes `headless:=true`
+- ROS 2 Lyrical + Gazebo Jetty 10.4.0 on macOS / Apple M2 and Docker ARM64
+- Controlled copied world and models; the DAVE checkout was loaded but not edited
 
 ## Reproduce
 
@@ -144,7 +154,7 @@ ros2 topic type /model/rexrov/sea_pressure
 ros2 topic echo /model/rexrov/sea_pressure --once
 ```
 
-`headless:=true` is not incidental — the default GUI launch exits `-6` here, so this is the
-command the measurement actually came from.
-
 At `z:=0` the surface value should read `101325` if the field is Pascals. It reads `101.325`.
+
+The cross-platform matrix, generated SDF and machine-readable results are preserved at
+[`../../results/seapressure_full_validation_2026-08-26/`](../../results/seapressure_full_validation_2026-08-26/).

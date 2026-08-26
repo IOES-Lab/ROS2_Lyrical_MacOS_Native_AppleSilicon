@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <world name="sp_validation_docker_1787729237">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+  </world>
+</sdf>

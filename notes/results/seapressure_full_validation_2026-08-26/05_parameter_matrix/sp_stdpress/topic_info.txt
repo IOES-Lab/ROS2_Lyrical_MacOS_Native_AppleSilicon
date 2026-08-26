@@ -1,0 +1,21 @@
+Type: sensor_msgs/msg/FluidPressure
+
+Publisher count: 1
+
+Node name: subsea_pressure_sensor
+Node namespace: /
+Topic type: sensor_msgs/msg/FluidPressure
+Topic type hash: RIHS01_22dfb2b145a0bd5a31a1ac3882a1b32148b51d9b2f3bab250290d66f3595bc32
+Endpoint type: PUBLISHER
+GID: 01.0f.5f.3b.02.55.b2.98.00.00.00.00.00.00.57.03
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): KEEP_LAST (10)
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0
+

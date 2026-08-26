@@ -4,6 +4,12 @@
 
 # 남은 일
 
+- [ ] **SeaPressure 결함의 수정·보고 범위 결정** — 2026-08-26 Mac·Docker 10조건 행렬에서
+  kPa→Pa 단위 오류, 무시되는 `saturation`·`noise_sigma`·`update_rate`, `abs(z)`의
+  above-origin 대칭, 빈 ROS `frame_id`를 런타임 확인했다. 기존 이슈 초안 7·8은 단위와
+  dead-parameter 범위를 갱신했지만, `abs(z)`와 `frame_id`를 같은 보고에 포함할지 별도
+  이슈로 나눌지는 사람의 판단이 필요하다. 수정 후에는 깊이·발행 주기·메타데이터와
+  기존 kPa 소비자 호환성을 다시 시험해야 한다
 - [ ] **DVL 후속 3건** — (1) Mac에서 DAVE Wiki/headless/공식 ros_gz/`ogre` 통제가
   모두 Gazebo Sensors render thread에서 종료하는 원인을 좁힌다. (2) DAVE custom
   `DVLBridge`가 Gazebo의 frame ID를 ROS 메시지에 복사하도록 고치거나 공식 `ros_gz`
@@ -35,8 +41,9 @@
 - [ ] **상류 보고 8건 제출** — 전부 작성 완료, 하나도 안 보냄. 붙여넣기용 변환본과
   제출 순서는 [`upstream/submit/README.md`](upstream/submit/README.md) 에 있다.
   `IOES-Lab/dave` 는 공개 저장소이고 Issues 가 열려 있어 계정만 있으면 된다.
-  7·8번은 2026-08-21 에 추가됐다 — SeaPressure 의 단위 오류와 동작하지 않는 파라미터 3개로,
-  [`results/seapressure_unit_2026-08-21/`](results/seapressure_unit_2026-08-21/) 에서 실행 확인했다.
+  7·8번은 SeaPressure 단위 오류와 동작하지 않는 설정을 다룬다. 2026-08-26에 Mac·Docker
+  10조건 행렬로 다시 확인하고, `saturation`과 `update_rate`까지 런타임 근거를 추가했다:
+  [`results/seapressure_full_validation_2026-08-26/`](results/seapressure_full_validation_2026-08-26/).
   **2026-08-25의 WGPU/CUDA/launch/Wiki 예제 발견은 이 기존 8건에 아직 포함되지 않는다**
 - [ ] **`package.xml` 의존성 수정을 상류에 제안** — 이슈가 아니라 fork 후 PR 이어야 한다
 - [ ] **저장소 이름 변경** — `ROS2_Lyrical_MacOS_Native_AppleSilicon` → `ROS2_Lyrical`.
@@ -63,7 +70,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 일곱 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 여덟 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
@@ -72,7 +79,8 @@
   감쇠식을 확인하고, R/B 파라미터가 뒤바뀌어 적용된다는 경고와 `<scattering>`이
   별도 파라미터가 아니라는 정정을 넣었다. 같은 날 DVL 페이지의 launch 인자와
   bridge 설명을 소스·런타임에 맞추고, Docker 통과 범위와 Mac crash·frame ID·water-mass
-  한계를 분리해 기록했다.
+  한계를 분리해 기록했다. 이어 SeaPressure 페이지를 Mac·Docker 10조건 행렬에 맞춰
+  갱신해 단위·무시되는 세 설정·`abs(z)`·빈 `frame_id`와 실제 동작하는 네 설정을 분리했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

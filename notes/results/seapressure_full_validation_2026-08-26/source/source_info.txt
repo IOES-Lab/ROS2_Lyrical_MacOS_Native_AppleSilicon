@@ -1,0 +1,7 @@
+source_path=/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_sensor_plugins/src/sea_pressure_sensor.cc
+repository_commit=6aef91c823af5da073329b84ba617b572965e79e
+repository_branch=lyrical-jetty-migration
+file_sha256=291e56f512002e603548ae632745a7ca9adc8fbc054f6e65f427cea9bb1eb55d
+copied_file_sha256=291e56f512002e603548ae632745a7ca9adc8fbc054f6e65f427cea9bb1eb55d
+
+repository_status_for_source_file:

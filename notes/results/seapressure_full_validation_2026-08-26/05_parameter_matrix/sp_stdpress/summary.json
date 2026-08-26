@@ -1,0 +1,82 @@
+{
+  "condition": "sp_stdpress",
+  "pressure_topic": "model/sp_stdpress/sea_pressure",
+  "depth_topic": "model/sp_stdpress/sea_pressure_depth",
+  "z_m": 0.0,
+  "captured": 15,
+  "warmup_discarded": 10,
+  "frames": [
+    {
+      "stamp_s": 89.038,
+      "frame_id": "",
+      "fluid_pressure": 200.0,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 89.039,
+      "frame_id": "",
+      "fluid_pressure": 200.0,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 89.04,
+      "frame_id": "",
+      "fluid_pressure": 200.0,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 89.041,
+      "frame_id": "",
+      "fluid_pressure": 200.0,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 89.042,
+      "frame_id": "",
+      "fluid_pressure": 200.0,
+      "variance": 9.0
+    }
+  ],
+  "deterministic": true,
+  "fields_that_varied": [],
+  "pressure": {
+    "claim": "formula",
+    "observed": 200.0,
+    "predicted_from_source_as_implemented": 200.0,
+    "predicted_if_saturation_applied": 200.0,
+    "predicted_if_saturation_ignored": 200.0,
+    "predicted_if_abs_were_signed": 200.0,
+    "matches_source_as_implemented": true,
+    "discriminating": false,
+    "pascal_expectation_if_units_were_correct": 200000.0
+  },
+  "variance": {
+    "observed": 9.0,
+    "predicted_if_noise_sigma_applied": 9.0,
+    "predicted_if_noise_sigma_ignored": 9.0,
+    "discriminating": false
+  },
+  "inferred_depth": {
+    "observed": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "predicted_abs_z": 0.0,
+    "samples": 2,
+    "topic_present_in_graph": true,
+    "data_received": true
+  },
+  "timing": {
+    "configured_update_rate_hz": null,
+    "configured_period_s": null,
+    "observed_stamp_intervals_s": [
+      0.0010000000000047748,
+      0.0010000000000047748,
+      0.000999999999990564,
+      0.0010000000000047748
+    ],
+    "observed_median_stamp_interval_s": 0.0010000000000047748,
+    "matches_configured_period": null
+  }
+}

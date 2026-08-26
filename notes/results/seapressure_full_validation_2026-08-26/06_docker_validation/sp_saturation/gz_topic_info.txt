@@ -1,0 +1,3 @@
+Publishers [Address, Message Type]:
+  tcp://172.17.0.4:38247, gz.msgs.FluidPressure
+No subscribers on topic [/model/sp_saturation/sea_pressure]

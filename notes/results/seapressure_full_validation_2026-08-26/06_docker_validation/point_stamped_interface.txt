@@ -1,0 +1,11 @@
+# This represents a Point with reference coordinate frame and timestamp
+
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+Point point
+	float64 x
+	float64 y
+	float64 z

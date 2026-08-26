@@ -1,0 +1,419 @@
+(2026-08-26 07:27:18.812) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+(2026-08-26 07:27:18.837) [info] [ServerPrivate.cc:697] Loading SDF world file[/home/docker/seapressure_validation_2026_08_26/tmp/sp_overlay.NPvd7U/assets/sp_validation.world].
+(2026-08-26 07:27:20.817) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+(2026-08-26 07:27:20.819) [info] [SimulationRunner.cc:347] Serving world controls on [/world/sp_validation_docker_1787729237/control], [/world/sp_validation_docker_1787729237/control/state] and [/world/sp_validation_docker_1787729237/playback/control]
+(2026-08-26 07:27:20.819) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/sp_validation_docker_1787729237/gui/info]
+(2026-08-26 07:27:20.819) [info] [SimulationRunner.cc:376] World [sp_validation_docker_1787729237] initialized with [default_physics] physics profile.
+(2026-08-26 07:27:20.820) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/sp_validation_docker_1787729237/generate_world_sdf]
+(2026-08-26 07:27:20.820) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+(2026-08-26 07:27:20.820) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-26 07:27:20.820) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-26 07:27:20.820) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-26 07:27:20.820) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+(2026-08-26 07:27:20.820) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+(2026-08-26 07:27:20.820) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+(2026-08-26 07:27:20.821) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+(2026-08-26 07:27:21.145) [debug] [Physics.cc:994] Loaded [gz::physics::dartsim::Plugin] from library [/opt/ros/lyrical/opt/gz_physics_vendor/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.so]
+(2026-08-26 07:27:21.145) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:751] Create service on [/world/sp_validation_docker_1787729237/create_multiple] (async)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:753] Create service on [/world/sp_validation_docker_1787729237/create_multiple/blocking] (blocking)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:751] Remove service on [/world/sp_validation_docker_1787729237/remove] (async)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:753] Remove service on [/world/sp_validation_docker_1787729237/remove/blocking] (blocking)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:751] Pose service on [/world/sp_validation_docker_1787729237/set_pose] (async)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:753] Pose service on [/world/sp_validation_docker_1787729237/set_pose/blocking] (blocking)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:751] Pose service on [/world/sp_validation_docker_1787729237/set_pose_vector] (async)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:753] Pose service on [/world/sp_validation_docker_1787729237/set_pose_vector/blocking] (blocking)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:751] Light configuration service on [/world/sp_validation_docker_1787729237/light_config] (async)
+(2026-08-26 07:27:21.148) [info] [UserCommands.cc:753] Light configuration service on [/world/sp_validation_docker_1787729237/light_config/blocking] (blocking)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:751] Physics service on [/world/sp_validation_docker_1787729237/set_physics] (async)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:753] Physics service on [/world/sp_validation_docker_1787729237/set_physics/blocking] (blocking)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/sp_validation_docker_1787729237/set_spherical_coordinates] (async)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/sp_validation_docker_1787729237/set_spherical_coordinates/blocking] (blocking)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:751] Enable collision service on [/world/sp_validation_docker_1787729237/enable_collision] (async)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:753] Enable collision service on [/world/sp_validation_docker_1787729237/enable_collision/blocking] (blocking)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:751] Disable collision service on [/world/sp_validation_docker_1787729237/disable_collision] (async)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:753] Disable collision service on [/world/sp_validation_docker_1787729237/disable_collision/blocking] (blocking)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:751] Material service on [/world/sp_validation_docker_1787729237/visual_config] (async)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:753] Material service on [/world/sp_validation_docker_1787729237/visual_config/blocking] (blocking)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:751] Material service on [/world/sp_validation_docker_1787729237/wheel_slip] (async)
+(2026-08-26 07:27:21.149) [info] [UserCommands.cc:753] Material service on [/world/sp_validation_docker_1787729237/wheel_slip/blocking] (blocking)
+(2026-08-26 07:27:21.149) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-26 07:27:21.151) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-26 07:27:21.151) [info] [LevelManager.cc:646] Loaded level [default]
+(2026-08-26 07:27:21.151) [debug] [ServerConfig.cc:1042] Loading (3) plugins from file [/home/docker/.gz/sim/10/server.config]
+(2026-08-26 07:27:21.151) [debug] [SimulationRunner.cc:1919] Additional plugins to load:
+(2026-08-26 07:27:21.151) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 2
+(2026-08-26 07:27:21.151) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/sp_validation_docker_1787729237/scene/info]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/sp_validation_docker_1787729237/scene/graph]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/sp_validation_docker_1787729237/state]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/sp_validation_docker_1787729237/state_async]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/sp_validation_docker_1787729237/scene/info]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/sp_validation_docker_1787729237/scene/deletion]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/sp_validation_docker_1787729237/state]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/sp_validation_docker_1787729237/pose/info]
+(2026-08-26 07:27:21.155) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/sp_validation_docker_1787729237/dynamic_pose/info]
+(2026-08-26 07:27:24.427) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 4
+(2026-08-26 07:27:24.515) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [4]
+(2026-08-26 07:27:24.516) [debug] [UserCommands.cc:1107] Created entity [4] named [sp_baseline]
+(2026-08-26 07:27:24.528) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:27:24.528) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 3
+(2026-08-26 07:27:24.528) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:27:24.528) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:27:24.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:26.351) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:28.367) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:30.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:31.972) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:32.652) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 6
+[WARN] [1787729252.653687924] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:27:32.664) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [6]
+(2026-08-26 07:27:32.664) [debug] [UserCommands.cc:1107] Created entity [6] named [sp_depth10]
+(2026-08-26 07:27:32.676) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:27:32.676) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:27:32.676) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 4
+(2026-08-26 07:27:32.676) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:27:32.676) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:27:32.676) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:27:34.100) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:34.100) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:35.997) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:35.997) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:38.009) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:38.009) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:39.935) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:39.935) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:40.974) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 8
+[WARN] [1787729260.974753094] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:27:40.989) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [8]
+(2026-08-26 07:27:40.989) [debug] [UserCommands.cc:1107] Created entity [8] named [sp_above10]
+(2026-08-26 07:27:40.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:27:40.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:27:40.994) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:27:40.994) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 5
+(2026-08-26 07:27:40.994) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:27:40.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:27:40.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:27:40.995) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:27:42.138) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:42.142) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:42.144) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:44.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:44.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:44.030) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:46.225) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:48.714) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:48.714) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:48.714) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:49.837) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 10
+[WARN] [1787729269.837868501] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:27:49.854) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [10]
+(2026-08-26 07:27:49.854) [debug] [UserCommands.cc:1107] Created entity [10] named [sp_saturation]
+(2026-08-26 07:27:49.859) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:27:49.859) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:27:49.859) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:27:49.859) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:27:49.860) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 6
+(2026-08-26 07:27:49.860) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:27:49.860) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:27:49.860) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:27:49.860) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:27:49.860) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:27:51.241) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:51.241) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:51.241) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:51.241) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:53.529) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:53.529) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:53.533) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:53.535) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:55.368) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:55.368) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:55.368) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:55.368) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:57.563) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:57.563) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:57.563) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:57.563) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:59.121) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 12
+[WARN] [1787729279.121493547] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:27:59.133) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [12]
+(2026-08-26 07:27:59.133) [debug] [UserCommands.cc:1107] Created entity [12] named [sp_stdpress]
+(2026-08-26 07:27:59.141) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:27:59.141) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:27:59.141) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 07:27:59.141) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:27:59.141) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 7
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:27:59.142) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 07:27:59.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:59.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:59.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:59.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:27:59.889) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:01.878) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:01.878) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:01.879) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:01.879) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:01.879) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:04.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:04.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:04.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:04.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:04.072) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:05.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:05.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:05.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:05.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:05.956) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:08.293) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 14
+[WARN] [1787729288.295498343] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:28:08.332) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [14]
+(2026-08-26 07:28:08.332) [debug] [UserCommands.cc:1107] Created entity [14] named [sp_kpa]
+(2026-08-26 07:28:08.338) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:28:08.338) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 07:28:08.338) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:28:08.338) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:28:08.338) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 07:28:08.339) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:28:08.339) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 8
+(2026-08-26 07:28:08.339) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:28:08.339) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:28:08.341) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:28:08.341) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:28:08.341) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:28:08.341) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 07:28:08.342) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 07:28:09.190) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:09.190) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:09.190) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:09.190) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:09.190) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:09.190) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:11.696) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:11.696) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:11.696) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:11.697) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:11.701) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:11.701) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:14.417) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:14.417) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:14.417) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:14.417) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:14.417) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:14.417) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:16.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:16.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:16.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:16.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:16.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:16.799) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:17.210) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 16
+[WARN] [1787729297.210804250] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:28:17.223) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [16]
+(2026-08-26 07:28:17.223) [debug] [UserCommands.cc:1107] Created entity [16] named [sp_noise]
+(2026-08-26 07:28:17.230) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 07:28:17.231) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 07:28:17.231) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:28:17.230) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:28:17.230) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:28:17.231) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 07:28:17.230) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 9
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 07:28:17.232) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 07:28:19.397) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:19.397) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:19.397) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:19.397) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:19.399) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:19.399) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:19.400) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:21.877) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:24.315) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:26.048) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 18
+[WARN] [1787729306.049373379] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:28:26.086) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [18]
+(2026-08-26 07:28:26.087) [debug] [UserCommands.cc:1107] Created entity [18] named [sp_topic]
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:28:26.095) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 10
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 07:28:26.096) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:27.460) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:30.337) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.751) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.751) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.751) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.752) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.752) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.752) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.754) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:32.754) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.022) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 20
+[WARN] [1787729315.023472341] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:28:35.036) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [20]
+(2026-08-26 07:28:35.036) [debug] [UserCommands.cc:1107] Created entity [20] named [sp_nodepth]
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (8)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 11
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:28:35.050) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-26 07:28:35.051) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (9)
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:35.605) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:38.260) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:41.014) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.369) [debug] [sea_pressure_sensor.cc:70] dave_gz_sensor_plugins::SubseaPressureSensorPlugin::Configure on entity: 22
+[WARN] [1787729323.369970054] [rcl.logging_rosout]: Publisher already registered for node name: 'subsea_pressure_sensor'. If this is due to multiple nodes with the same name then all logs for the logger named 'subsea_pressure_sensor' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+(2026-08-26 07:28:43.379) [debug] [SystemManager.cc:80] Loaded system [dave_gz_sensor_plugins::SubseaPressureSensorPlugin] for entity [22]
+(2026-08-26 07:28:43.379) [debug] [UserCommands.cc:1107] Created entity [22] named [sp_rate]
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (7)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (2)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (9)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (8)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (6)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (3)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (5)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (4)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (1)
+(2026-08-26 07:28:43.388) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 12
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (7)
+(2026-08-26 07:28:43.389) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (8)
+(2026-08-26 07:28:43.390) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (9)
+(2026-08-26 07:28:43.390) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (10)
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:43.894) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.584) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:46.587) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+(2026-08-26 07:28:49.575) [info] [sea_pressure_sensor.cc:252] dave_ros_gz_plugins::SubseaPressureSensorPlugin::PostUpdate
+[INFO] [1787729331.397234043] [rclcpp]: signal_handler(signum=2)
+(2026-08-26 07:28:51.398) [debug] [SignalHandler.cc:278] Received signal[2].
+(2026-08-26 07:28:51.398) [debug] [ServerPrivate.cc:129] Server received signal[2]
+terminate called after throwing an instance of 'rclcpp::exceptions::RCLError'
+  what():  failed to create guard condition: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/guard_condition.c:60
+terminate called recursively
+Stack trace (most recent call last) in thread 44713:
+terminate called recursively

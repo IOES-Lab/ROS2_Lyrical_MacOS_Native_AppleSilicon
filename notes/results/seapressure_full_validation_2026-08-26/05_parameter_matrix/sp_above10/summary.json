@@ -1,0 +1,82 @@
+{
+  "condition": "sp_above10",
+  "pressure_topic": "model/sp_above10/sea_pressure",
+  "depth_topic": "model/sp_above10/sea_pressure_depth",
+  "z_m": 10.0,
+  "captured": 15,
+  "warmup_discarded": 10,
+  "frames": [
+    {
+      "stamp_s": 53.854,
+      "frame_id": "",
+      "fluid_pressure": 199.3888,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 53.855,
+      "frame_id": "",
+      "fluid_pressure": 199.3888,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 53.856,
+      "frame_id": "",
+      "fluid_pressure": 199.3888,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 53.857,
+      "frame_id": "",
+      "fluid_pressure": 199.3888,
+      "variance": 9.0
+    },
+    {
+      "stamp_s": 53.858,
+      "frame_id": "",
+      "fluid_pressure": 199.3888,
+      "variance": 9.0
+    }
+  ],
+  "deterministic": true,
+  "fields_that_varied": [],
+  "pressure": {
+    "claim": "formula",
+    "observed": 199.3888,
+    "predicted_from_source_as_implemented": 199.3888,
+    "predicted_if_saturation_applied": 199.3888,
+    "predicted_if_saturation_ignored": 199.3888,
+    "predicted_if_abs_were_signed": 101.325,
+    "matches_source_as_implemented": true,
+    "discriminating": false,
+    "pascal_expectation_if_units_were_correct": 199388.80000000002
+  },
+  "variance": {
+    "observed": 9.0,
+    "predicted_if_noise_sigma_applied": 9.0,
+    "predicted_if_noise_sigma_ignored": 9.0,
+    "discriminating": false
+  },
+  "inferred_depth": {
+    "observed": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 10.0
+    },
+    "predicted_abs_z": 10.0,
+    "samples": 5,
+    "topic_present_in_graph": true,
+    "data_received": true
+  },
+  "timing": {
+    "configured_update_rate_hz": null,
+    "configured_period_s": null,
+    "observed_stamp_intervals_s": [
+      0.0009999999999976694,
+      0.0010000000000047748,
+      0.0009999999999976694,
+      0.0009999999999976694
+    ],
+    "observed_median_stamp_interval_s": 0.0009999999999976694,
+    "matches_configured_period": null
+  }
+}
