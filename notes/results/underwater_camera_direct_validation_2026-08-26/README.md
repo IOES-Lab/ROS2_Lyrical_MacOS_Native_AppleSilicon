@@ -62,5 +62,29 @@ The empty files are left in place rather than deleted, so the failed route
 stays visible. Three files in `03_quickstart_retry/` also remain empty for the
 same reason, alongside the ones that did produce output.
 
+## Whitespace check, stated exactly
+
+`cae3a96`'s message says "git diff --check clean". That is narrower than it
+reads, and the record is corrected here rather than by editing the evidence.
+
+| Command | Scope | Result |
+|---|---|---|
+| `git diff --check` | working tree against index | passes |
+| `git diff --cached --check` | index against `HEAD` | passes |
+| `git show --check cae3a96` | lines that commit added | **two warnings** |
+
+The two warnings are `new blank line at EOF` on
+`03_quickstart_retry/camera_node_info.txt` and
+`03_quickstart_retry/simulated_image_info.txt`. Both are raw `ros2 node info`
+and `ros2 topic info` output, where the trailing blank line is what the command
+prints for a section header with nothing under it — `Action Clients:` in the
+first case. **They are kept as captured.** Removing them would edit evidence to
+make an earlier sentence true, and would not clear `git show --check cae3a96`
+in any case, since that commit added the lines.
+
+The original claim was written after running `git diff --check` while the
+evidence files were still untracked and thus invisible to it. See
+[`../../what-we-got-wrong.md`](../../what-we-got-wrong.md).
+
 This validates output and the implemented transform in one controlled scene.
 It does not establish general underwater optical accuracy.

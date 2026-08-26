@@ -228,6 +228,36 @@ explanation is the one operating. Several entries above have it. What is new is 
 explanation named a specific artefact — two files, by name — which could have been opened in one
 command and never was.
 
+### A whitespace check that could not see the files it was said to cover
+
+**Believed:** `cae3a96` was committed with a message ending "UTF-8 clean, git diff --check clean".
+
+**Actually:** `git diff --check` compares the working tree against the index. It was run before
+anything was staged, when the 72 new evidence files were still untracked and therefore outside
+its view. Once staged, `git diff --cached --check` reported two `new blank line at EOF` warnings,
+and `git show --check cae3a96` reports them still. The check that was run was real and its result
+was real; it simply did not cover what the sentence next to it claimed.
+
+**Caught by** an outside review reading the commit message against the repository.
+
+Two things are worth separating. The **warnings themselves are not a defect** — the two files are
+raw `ros2 node info` and `ros2 topic info` output, and the trailing blank line is what the command
+prints for an empty `Action Clients:` section. Deleting it to make the sentence true afterwards
+would be editing evidence to fit a claim, which is the wrong direction, and it would not even
+work: `git show --check cae3a96` would still flag the lines that commit added. So the correction
+is to the sentence.
+
+The review that caught it named `git diff --check` as the failing command; on a clean tree that
+command passes and `git show --check` is what reports the warnings. **The same substitution
+happened on both sides** — a checker named, and its scope quietly taken to be the scope of the
+claim.
+
+This is the seventh entry on this page with that shape and the second in three days, and it is the
+first one where the rule being broken was already written down on this page. Knowing the failure
+mode is not the same as running the check that would catch it. What would have caught this is one
+sentence before committing: *this command compares the working tree to the index, and the files in
+question are not in the index yet.*
+
 ---
 
 ## What actually went wrong, five times over
