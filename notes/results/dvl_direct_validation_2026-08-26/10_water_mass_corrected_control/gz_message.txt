@@ -1,0 +1,139 @@
+header {
+  stamp {
+    sec: 3
+    nsec: 751000000
+  }
+  data {
+    key: "frame_id"
+    value: "nortek_dvl500_300::dvl500_base_link::nortek_dvl500_300"
+  }
+  data {
+    key: "seq"
+    value: "30"
+  }
+}
+type: DVL_TYPE_PHASED_ARRAY
+target {
+  type: DVL_TARGET_WATER_MASS
+  range {
+    mean: 60.685785542937055
+    variance: 821.77391163644961
+  }
+}
+velocity {
+  reference: DVL_REFERENCE_SHIP
+  mean {
+    x: 0.49920351475518421
+    y: 1.0003965775101629
+    z: 0.00159328654753644
+  }
+  covariance: 0.00062987736736275647
+  covariance: -1.6157733608628825e-19
+  covariance: -1.8609494278133855e-20
+  covariance: -1.6157733608628825e-19
+  covariance: 0.00062987594335695907
+  covariance: 8.9410817409693281e-07
+  covariance: -1.8609494278133855e-20
+  covariance: 8.9410817409693281e-07
+  covariance: 6.84825833088346e-05
+}
+beams {
+  id: 1
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: -0.04468709185257444
+      y: 0.044831595980303694
+      z: -0.13534757559043958
+    }
+    covariance: 0
+    covariance: -0
+    covariance: 0
+    covariance: -0
+    covariance: 0
+    covariance: -0
+    covariance: 0
+    covariance: -0
+    covariance: 0
+  }
+  range {
+    mean: 60.685785542937055
+    variance: 821.77391163644961
+  }
+  locked: true
+}
+beams {
+  id: 2
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: 0.13384793223186461
+      y: 0.13470813099619203
+      z: -0.40604238698944828
+    }
+    covariance: 0
+    covariance: 0
+    covariance: -0
+    covariance: 0
+    covariance: 0
+    covariance: -0
+    covariance: -0
+    covariance: -0
+    covariance: 0
+  }
+  range {
+    mean: 60.685785542937055
+    variance: 821.77391163644961
+  }
+  locked: true
+}
+beams {
+  id: 3
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: -0.044687091852574273
+      y: 0.044400245670508404
+      z: 0.13548969112352902
+    }
+    covariance: 0
+    covariance: -0
+    covariance: -0
+    covariance: -0
+    covariance: 0
+    covariance: 0
+    covariance: -0
+    covariance: 0
+    covariance: 0
+  }
+  range {
+    mean: 60.685785542937055
+    variance: 821.77391163644961
+  }
+  locked: true
+}
+beams {
+  id: 4
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: 0.13384793223186445
+      y: 0.13341408006680652
+      z: 0.4064694131524576
+    }
+    covariance: 9.1582713052314764e-35
+    covariance: 9.1285858572181338e-35
+    covariance: 2.7811839158485121e-34
+    covariance: 9.1285858572181338e-35
+    covariance: 9.0989966310565338e-35
+    covariance: 2.7721690387174635e-34
+    covariance: 2.7811839158485121e-34
+    covariance: 2.7721690387174639e-34
+    covariance: 8.4458995764364509e-34
+  }
+  range {
+    mean: 60.685785542937055
+    variance: 821.77391163644961
+  }
+  locked: true
+}

@@ -1,0 +1,15 @@
+stamp:
+  sec: 7
+  nanosec: 250000000
+frame_id: ''
+---
+stamp:
+  sec: 7
+  nanosec: 376000000
+frame_id: ''
+---
+stamp:
+  sec: 7
+  nanosec: 501000000
+frame_id: ''
+---

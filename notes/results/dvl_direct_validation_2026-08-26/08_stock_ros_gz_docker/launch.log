@@ -1,0 +1,5 @@
+[INFO] [launch]: All log files can be found below /home/docker/dvl_validation_2026-08-26/04_stock_ros_gz_demo/ros_logs/2026-08-26-05-36-48-238610-67d4b1d39687-40853
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [40857]
+[INFO] [parameter_bridge-2]: process started with pid [40859]
+[parameter_bridge-2] [INFO] [1787722608.703181169] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/dvl/velocity (gz.msgs.DVLVelocityTracking) -> /dvl/velocity (marine_acoustic_msgs/msg/Dvl)] (Lazy 0)

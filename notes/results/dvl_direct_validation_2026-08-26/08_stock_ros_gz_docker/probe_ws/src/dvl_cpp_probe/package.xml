@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dvl_cpp_probe</name>
+  <version>0.0.1</version>
+  <description>One-shot DVL bridge probe</description>
+  <maintainer email="validation@example.com">validation</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>marine_acoustic_msgs</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

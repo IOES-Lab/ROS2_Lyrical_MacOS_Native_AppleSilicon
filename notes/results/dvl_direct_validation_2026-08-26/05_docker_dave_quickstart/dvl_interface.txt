@@ -1,0 +1,36 @@
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+string type
+DVLTarget target
+	string type
+	float64 range
+geometry_msgs/TwistWithCovariance velocity
+	Twist twist
+		Vector3  linear
+			float64 x
+			float64 y
+			float64 z
+		Vector3  angular
+			float64 x
+			float64 y
+			float64 z
+	float64[36] covariance
+DVLBeam[] beams
+	int64 id
+	string reference
+	float64 range
+	bool locked
+	geometry_msgs/TwistWithCovariance velocity
+		Twist twist
+			Vector3  linear
+				float64 x
+				float64 y
+				float64 z
+			Vector3  angular
+				float64 x
+				float64 y
+				float64 z
+		float64[36] covariance

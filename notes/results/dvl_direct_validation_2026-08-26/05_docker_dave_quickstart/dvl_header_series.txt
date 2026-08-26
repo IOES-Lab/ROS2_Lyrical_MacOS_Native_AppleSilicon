@@ -1,0 +1,65 @@
+stamp:
+  sec: 14
+  nanosec: 126000000
+frame_id: ''
+---
+stamp:
+  sec: 14
+  nanosec: 251000000
+frame_id: ''
+---
+stamp:
+  sec: 14
+  nanosec: 375000000
+frame_id: ''
+---
+stamp:
+  sec: 14
+  nanosec: 501000000
+frame_id: ''
+---
+stamp:
+  sec: 14
+  nanosec: 626000000
+frame_id: ''
+---
+stamp:
+  sec: 14
+  nanosec: 751000000
+frame_id: ''
+---
+stamp:
+  sec: 14
+  nanosec: 876000000
+frame_id: ''
+---
+stamp:
+  sec: 15
+  nanosec: 1000000
+frame_id: ''
+---
+stamp:
+  sec: 15
+  nanosec: 126000000
+frame_id: ''
+---
+stamp:
+  sec: 15
+  nanosec: 251000000
+frame_id: ''
+---
+stamp:
+  sec: 15
+  nanosec: 376000000
+frame_id: ''
+---
+stamp:
+  sec: 15
+  nanosec: 501000000
+frame_id: ''
+---
+stamp:
+  sec: 15
+  nanosec: 626000000
+frame_id: ''
+---

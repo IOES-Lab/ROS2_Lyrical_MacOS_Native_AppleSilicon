@@ -1,0 +1,17 @@
+{
+  "sample_count": 20,
+  "all_frame_ids_empty": true,
+  "all_bottom_track": false,
+  "all_four_beams_locked": false,
+  "mean_sim_interval_s": 0.12500000000000003,
+  "sim_message_rate_hz": 7.999999999999998,
+  "target_range_mean_m": 0.0,
+  "target_range_min_m": 0.0,
+  "target_range_max_m": 0.0,
+  "velocity_mean_mps": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "speed_mean_mps": 0.0
+}

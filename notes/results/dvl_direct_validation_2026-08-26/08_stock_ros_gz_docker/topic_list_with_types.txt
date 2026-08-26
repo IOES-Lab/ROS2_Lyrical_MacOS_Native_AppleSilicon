@@ -1,0 +1,4 @@
+/dvl/velocity [marine_acoustic_msgs/msg/Dvl]
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/rosout [rcl_interfaces/msg/Log]
+/tf_static [tf2_msgs/msg/TFMessage]

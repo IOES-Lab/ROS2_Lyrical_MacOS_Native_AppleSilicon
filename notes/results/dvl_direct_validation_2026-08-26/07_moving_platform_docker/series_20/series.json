@@ -1,0 +1,541 @@
+{
+  "summary": {
+    "sample_count": 20,
+    "all_frame_ids_empty": true,
+    "all_bottom_track": true,
+    "all_four_beams_locked": true,
+    "mean_sim_interval_s": 0.12500000000000003,
+    "sim_message_rate_hz": 7.999999999999998,
+    "target_range_mean_m": 21.867185592651367,
+    "target_range_min_m": 21.867185592651367,
+    "target_range_max_m": 21.867185592651367,
+    "velocity_mean_mps": {
+      "x": 0.0009983373559980732,
+      "y": -1.000355472463437,
+      "z": -0.0010534389025852106
+    },
+    "speed_mean_mps": 1.000405335836097
+  },
+  "samples": [
+    {
+      "index": 1,
+      "stamp_sec": 3,
+      "stamp_nanosec": 251000000,
+      "stamp_s": 3.251,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.0046579737421931664,
+      "velocity_y_mps": -1.0017691521739525,
+      "velocity_z_mps": 0.00297580786223162,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 2,
+      "stamp_sec": 3,
+      "stamp_nanosec": 375000000,
+      "stamp_s": 3.375,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.010177609102385469,
+      "velocity_y_mps": -1.0025038020044645,
+      "velocity_z_mps": -0.002339793255996611,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 3,
+      "stamp_sec": 3,
+      "stamp_nanosec": 501000000,
+      "stamp_s": 3.501,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.014717137112350903,
+      "velocity_y_mps": -1.0054223342498516,
+      "velocity_z_mps": 0.001963781824576724,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 4,
+      "stamp_sec": 3,
+      "stamp_nanosec": 625000000,
+      "stamp_s": 3.625,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.013044426022940451,
+      "velocity_y_mps": -0.9918695367812609,
+      "velocity_z_mps": -0.004005546749470106,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 5,
+      "stamp_sec": 3,
+      "stamp_nanosec": 751000000,
+      "stamp_s": 3.751,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.01697767922213361,
+      "velocity_y_mps": -0.9915025009809723,
+      "velocity_z_mps": 0.00012526408442638693,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 6,
+      "stamp_sec": 3,
+      "stamp_nanosec": 876000000,
+      "stamp_s": 3.876,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.007875885596797434,
+      "velocity_y_mps": -1.0065512489423563,
+      "velocity_z_mps": -0.0019438110685596223,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 7,
+      "stamp_sec": 4,
+      "stamp_nanosec": 1000000,
+      "stamp_s": 4.001,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.00396388138533757,
+      "velocity_y_mps": -0.9971609772890977,
+      "velocity_z_mps": -0.004400840154482345,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 8,
+      "stamp_sec": 4,
+      "stamp_nanosec": 126000000,
+      "stamp_s": 4.126,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.005861838859825014,
+      "velocity_y_mps": -1.0045223775664325,
+      "velocity_z_mps": 0.0014854630510367295,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867187499999996,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 9,
+      "stamp_sec": 4,
+      "stamp_nanosec": 251000000,
+      "stamp_s": 4.251,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.005406685818644969,
+      "velocity_y_mps": -0.9956621893223606,
+      "velocity_z_mps": 5.680520145808857e-05,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867187499999996,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 10,
+      "stamp_sec": 4,
+      "stamp_nanosec": 376000000,
+      "stamp_s": 4.376,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.0003783126374288748,
+      "velocity_y_mps": -1.002356326832173,
+      "velocity_z_mps": -0.0007590117384652548,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.867187499999996,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 11,
+      "stamp_sec": 4,
+      "stamp_nanosec": 501000000,
+      "stamp_s": 4.501,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.004850470474370719,
+      "velocity_y_mps": -1.002150876285088,
+      "velocity_z_mps": 0.0017026611735402955,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 12,
+      "stamp_sec": 4,
+      "stamp_nanosec": 625000000,
+      "stamp_s": 4.625,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.010261668064186153,
+      "velocity_y_mps": -1.0093304955781564,
+      "velocity_z_mps": -0.001058989032950224,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 13,
+      "stamp_sec": 4,
+      "stamp_nanosec": 751000000,
+      "stamp_s": 4.751,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.00836891862449397,
+      "velocity_y_mps": -0.9886181162488601,
+      "velocity_z_mps": -0.0001660422978497803,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 14,
+      "stamp_sec": 4,
+      "stamp_nanosec": 876000000,
+      "stamp_s": 4.876,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.005069632376962117,
+      "velocity_y_mps": -0.9966303567426182,
+      "velocity_z_mps": -0.006385738797972242,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 15,
+      "stamp_sec": 5,
+      "stamp_nanosec": 1000000,
+      "stamp_s": 5.001,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.0032803051319982043,
+      "velocity_y_mps": -1.005441889454169,
+      "velocity_z_mps": -0.006395321805840281,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 16,
+      "stamp_sec": 5,
+      "stamp_nanosec": 125000000,
+      "stamp_s": 5.125,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.022879078852149005,
+      "velocity_y_mps": -1.0065885813946989,
+      "velocity_z_mps": 0.0040962973826136045,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 17,
+      "stamp_sec": 5,
+      "stamp_nanosec": 251000000,
+      "stamp_s": 5.251,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -0.0021720574132101304,
+      "velocity_y_mps": -0.998600639000755,
+      "velocity_z_mps": -0.000739912532957791,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 18,
+      "stamp_sec": 5,
+      "stamp_nanosec": 376000000,
+      "stamp_s": 5.376,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.009157608007615082,
+      "velocity_y_mps": -1.0103690875606992,
+      "velocity_z_mps": -0.0022258090892480474,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 19,
+      "stamp_sec": 5,
+      "stamp_nanosec": 501000000,
+      "stamp_s": 5.501,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": -2.8072764267271656e-05,
+      "velocity_y_mps": -1.0005173322517338,
+      "velocity_z_mps": 0.0018467096353491958,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 20,
+      "stamp_sec": 5,
+      "stamp_nanosec": 626000000,
+      "stamp_s": 5.626,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_BOTTOM",
+      "target_range_m": 21.867185592651367,
+      "velocity_x_mps": 0.003488422861694871,
+      "velocity_y_mps": -0.9895416286090378,
+      "velocity_z_mps": -0.004900751743144553,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        21.867185592651367,
+        21.86718940734863,
+        21.867185592651367,
+        21.867185592651367
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}

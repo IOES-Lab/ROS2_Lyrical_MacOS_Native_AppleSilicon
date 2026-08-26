@@ -1,0 +1,9 @@
+[INFO] [launch]: All log files can be found below /home/docker/dvl_validation_2026-08-26/01_dave_wiki_quickstart/ros_logs/2026-08-26-05-27-39-945660-67d4b1d39687-39159
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [39179]
+[INFO] [create-2]: process started with pid [39180]
+[create-2] [INFO] [1787722060.233320929] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787722062.825418555] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 39180]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].

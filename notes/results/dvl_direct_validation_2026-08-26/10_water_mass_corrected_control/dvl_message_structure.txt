@@ -1,0 +1,22 @@
+header:
+  stamp:
+    sec: 0
+    nanosec: 626000000
+  frame_id: ''
+type: DVL_TYPE_PHASED_ARRAY
+target:
+  type: DVL_TARGET_WATER_MASS
+  range: 60.685785542937055
+velocity:
+  twist:
+    linear:
+      x: 0.4992035147551842
+      y: 1.0003965775101629
+      z: 0.00159328654753644
+    angular:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+  covariance: '<array type: double[36]>'
+beams: '<sequence type: dave_interfaces/msg/DVLBeam, length: 4>'
+---

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="dvl_flat_20m">
+    <physics name="1ms" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-dvl-system" name="gz::sim::systems::DopplerVelocityLogSystem"/>
+    <model name="flat_bottom">
+      <static>true</static>
+      <pose>0 0 -20 0 0 0</pose>
+      <link name="bottom_link">
+        <collision name="bottom_collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="bottom_visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="nortek_dvl500_300">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="dvl500_base_link">
+        <sensor name="nortek_dvl500_300" type="custom" gz:type="dvl">
+          <pose>0 0 0 0 0 0</pose>
+          <always_on>true</always_on>
+          <update_rate>8</update_rate>
+          <topic>/dvl/velocity</topic>
+          <gz:dvl>
+            <type>phased_array</type>
+            <arrangement degrees="true">
+              <beam id="1"><aperture>3</aperture><rotation>-135</rotation><tilt>25</tilt></beam>
+              <beam id="2"><aperture>3</aperture><rotation>135</rotation><tilt>25</tilt></beam>
+              <beam id="3"><aperture>3</aperture><rotation>45</rotation><tilt>25</tilt></beam>
+              <beam id="4"><aperture>3</aperture><rotation>-45</rotation><tilt>25</tilt></beam>
+            </arrangement>
+            <tracking>
+              <water_mass_mode>
+                <when>best</when>
+                <water_velocity><x>0</x><y>0</y><z>0</z></water_velocity>
+                <boundaries><near>10</near><far>100</far></boundaries>
+                <bins>10</bins>
+                <noise type="gaussian"><stddev>0.015</stddev></noise>
+                <visualize>false</visualize>
+              </water_mass_mode>
+              <bottom_mode>
+                <when>best</when>
+                <noise type="gaussian"><stddev>0.005</stddev></noise>
+                <visualize>false</visualize>
+              </bottom_mode>
+            </tracking>
+            <maximum_range>200</maximum_range>
+            <minimum_range>0.3</minimum_range>
+            <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+          </gz:dvl>
+        </sensor>
+      </link>
+      <plugin filename="DVLBridge" name="dave_ros_gz_plugins::DVLBridge">
+        <topic>/dvl/velocity</topic>
+      </plugin>
+    </model>
+  </world>
+</sdf>

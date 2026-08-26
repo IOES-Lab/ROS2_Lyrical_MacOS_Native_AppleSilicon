@@ -1,0 +1,406 @@
+DAVE_SOURCE_COMMIT
+6aef91c823af5da073329b84ba617b572965e79e
+
+SOURCE_WORKTREE_SCOPE
+DAVE and ros_gz were non-pristine Lyrical/Jetty migration workspaces.
+DAVE DVL launch/model/bridge source quoted below was not listed as modified.
+ros_gz DVL conversion source quoted below was not listed as modified; its CMake files were.
+ros_gz base commit: 0ea9efc010c7427385c6493c1a8016cdf1ef450b
+
+DAVE_DVL_LAUNCH_ARGUMENTS
+    10	    paused = LaunchConfiguration("paused")
+    11	    gui = LaunchConfiguration("gui")
+    12	    use_sim_time = LaunchConfiguration("use_sim_time")
+    13	    debug = LaunchConfiguration("debug")
+    14	    headless = LaunchConfiguration("headless")
+    15	    verbosity_level = LaunchConfiguration("verbosity_level")
+    16	    namespace = LaunchConfiguration("namespace")
+    17	    world_name = LaunchConfiguration("world_name")
+    18	    x = LaunchConfiguration("x")
+    35
+    36	    if headless.perform(context) == "true":
+    37	        gz_args.append(" -s")
+    38	    if paused.perform(context) == "false":
+    39	        gz_args.append(" -r")
+    40	    if debug.perform(context) == "true":
+    41	        gz_args.append(f"-v {verbosity_level.perform(context)}")
+    42
+    43	    gz_sim_launch = IncludeLaunchDescription(
+   115	            default_value="false",
+   116	            description="Flag to enable the gazebo headless mode",
+   117	        ),
+   118	        DeclareLaunchArgument(
+   119	            "verbosity_level",
+   120	            default_value="1",
+   121	            description="Verbosity level for Gazebo if debug is enabled (0-4)",
+   122	        ),
+   123	        DeclareLaunchArgument(
+
+DAVE_DVL_MODEL_TRACKING
+    20	      <velocity_decay/>
+    21
+    22	      <sensor
+    23	        name="nortek_dvl500_300" type="custom"
+    24	        gz:type="dvl">
+    25	        <pose>0 0 0 0 0 0</pose>
+    26	        <always_on>1</always_on>
+    27	        <update_rate>8</update_rate>
+    28	        <topic>/dvl/velocity</topic>
+    29	        <gz:dvl>
+    30	          <type>phased_array</type>
+    31	          <arrangement degrees="true">
+    32	            <beam id="1">
+    33	              <aperture>3</aperture>
+    34	              <rotation>-135</rotation>
+    35	              <tilt>25</tilt>
+    36	            </beam>
+    37	            <beam>
+    38	              <aperture>3</aperture>
+    39	              <rotation>135</rotation>
+    40	              <tilt>25</tilt>
+    41	            </beam>
+    42	            <beam>
+    43	              <aperture>3</aperture>
+    44	              <rotation>45</rotation>
+    45	              <tilt>25</tilt>
+    46	            </beam>
+    47	            <beam>
+    48	              <aperture>3</aperture>
+    49	              <rotation>-45</rotation>
+    50	              <tilt>25</tilt>
+    51	            </beam>
+    52	          </arrangement>
+    53	          <tracking>
+    54	            <water_mass_mode>
+    55	              <when>best</when>
+    56	              <water_velocity>
+    57	                <x>0.</x>
+    58	                <y>0.</y>
+    59	                <z>0.</z>
+    60	              </water_velocity>
+    61	              <boundaries>
+    62	                <near>10.</near>
+    63	                <far>100.</far>
+    64	              </boundaries>
+    65	              <bins>10</bins>
+    66	              <noise type="gaussian">
+    67	                <stddev>0.015</stddev>
+    68	              </noise>
+    69	              <visualize>true</visualize>
+    70	            </water_mass_mode>
+    71	            <bottom_mode>
+    72	              <when>best</when>
+    73	              <noise type="gaussian">
+    74	                <stddev>0.005</stddev>
+    75	              </noise>
+    76	              <visualize>true</visualize>
+    77	            </bottom_mode>
+    78	          </tracking>
+    79	          <maximum_range>200.</maximum_range>
+    80	          <minimum_range>0.3</minimum_range>
+    81	          <!-- ENU to FSD -->
+    82	          <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+    83	        </gz:dvl>
+    84	      </sensor>
+    85
+    86	      <self_collide>0</self_collide>
+    87	      <enable_wind>0</enable_wind>
+    88	      <kinematic>0</kinematic>
+    89	      <visual name="dvl500_base_link_visual">
+    90	        <pose>0 0 0 0 0 3.14159</pose>
+    91	        <geometry>
+    92	          <mesh>
+    93	            <scale>1 1 1</scale>
+    94	            <!-- Mesh is actually for a Nortek DVL1000-4000m for now -->
+    95	            <uri>model://meshes/nortek_dvl500_300/DVL500-300m.dae</uri>
+    96	          </mesh>
+    97	        </geometry>
+    98	        <transparency>0</transparency>
+
+DAVE_ALL_WATER_VELOCITY_TAGS
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-254-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-255-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf:256:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-257-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-258-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-259-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-260-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf-261-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-54-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-55-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf:56:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-57-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-58-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-59-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-60-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300/model.sdf-61-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-54-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-55-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf:56:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-57-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-58-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-59-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-60-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer4000/model.sdf-61-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-53-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-54-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf:55:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-56-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-57-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-58-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-59-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_explorer1000/model.sdf-60-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-54-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-55-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf:56:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-57-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-58-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-59-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-60-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_4000/model.sdf-61-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-54-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-55-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf:56:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-57-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-58-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-59-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-60-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl1000_300/model.sdf-61-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-55-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-56-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf:57:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-58-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-59-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-60-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-61-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/teledyne_whn/model.sdf-62-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-54-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-55-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf:56:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-57-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-58-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-59-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-60-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_6000/model.sdf-61-              <boundaries>
+--
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-54-            <water_mass_mode>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-55-              <when>best</when>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:56:              <water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-57-                <x>0.</x>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-58-                <y>0.</y>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-59-                <z>0.</z>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-60-              </water_velocity>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf-61-              <boundaries>
+
+DAVE_ENVIRONMENTAL_DATA_LOADERS
+
+DAVE_BRIDGE_HEADER_MAPPING
+    70	  std::function<void(const gz::msgs::DVLVelocityTracking &)> callback =
+    71	    std::bind(&DVLBridge::receiveGazeboCallback, this, std::placeholders::_1);
+    72
+    73	  this->dataPtr->gz_node.Subscribe(this->dataPtr->dvl_topic, callback);
+    74
+    75	  // ROS2 publisher
+    76	  this->dataPtr->dvl_pub =
+    77	    this->ros_node_->create_publisher<dave_interfaces::msg::DVL>(this->dataPtr->dvl_topic, 1);
+    78	}
+    79
+    80	void DVLBridge::receiveGazeboCallback(const gz::msgs::DVLVelocityTracking & msg)
+    81	{
+    82	  std::lock_guard<std::mutex> lock(this->dataPtr->mutex_);
+    83
+    84	  gzmsg << "dave_ros_gz_plugins::DVLBridge::receiveGazeboCallback" << std::endl;
+    85
+    86	  auto dvl_msg = dave_interfaces::msg::DVL();
+    87	  dvl_msg.header.stamp.sec = msg.header().stamp().sec();
+    88	  dvl_msg.header.stamp.nanosec = msg.header().stamp().nsec();
+    89
+    90	  std::string dvl_type;
+    91	  std::string target_type;
+    92	  std::string reference_type;
+    93
+    94	  switch (msg.type())
+    95	  {
+    96	    case gz::msgs::DVLVelocityTracking::DVL_TYPE_UNSPECIFIED:
+    97	      dvl_type = "DVL_TYPE_UNSPECIFIED";
+    98	      break;
+    99	    case gz::msgs::DVLVelocityTracking::DVL_TYPE_PISTON:
+   100	      dvl_type = "DVL_TYPE_PISTON";
+   101	      break;
+   102	    case gz::msgs::DVLVelocityTracking::DVL_TYPE_PHASED_ARRAY:
+   103	      dvl_type = "DVL_TYPE_PHASED_ARRAY";
+   104	      break;
+   105	    default:
+   106	      dvl_type = "DVL_TYPE_UNSPECIFIED";
+   107	  }
+   108
+   109	  switch (msg.target().type())
+   110	  {
+   111	    case gz::msgs::DVLTrackingTarget::DVL_TARGET_UNSPECIFIED:
+   112	      target_type = "DVL_TARGET_UNSPECIFIED";
+   113	      break;
+   114	    case gz::msgs::DVLTrackingTarget::DVL_TARGET_BOTTOM:
+   115	      target_type = "DVL_TARGET_BOTTOM";
+   116	      break;
+   117	    case gz::msgs::DVLTrackingTarget::DVL_TARGET_WATER_MASS:
+   118	      target_type = "DVL_TARGET_WATER_MASS";
+   119	      break;
+   120	    default:
+   121	      target_type = "DVL_TARGET_UNSPECIFIED";
+   122	  }
+   123
+   124	  dvl_msg.type = dvl_type;
+   125
+   126	  dvl_msg.target.type = target_type;
+   127	  dvl_msg.target.range = msg.target().range().mean();
+   128
+   129	  dvl_msg.velocity.twist.linear.x = msg.velocity().mean().x();
+   130	  dvl_msg.velocity.twist.linear.y = msg.velocity().mean().y();
+   131	  dvl_msg.velocity.twist.linear.z = msg.velocity().mean().z();
+   132
+   133	  size_t covariance_size = msg.velocity().covariance().size();
+   134
+   135	  for (size_t i = 0; i < covariance_size; i++)
+   136	  {
+   137	    dvl_msg.velocity.covariance[i] = msg.velocity().covariance()[i];
+   138	  }
+   139
+   140	  size_t beam_size = msg.beams().size();
+   141
+   142	  for (size_t i = 0; i < beam_size; i++)
+   143	  {
+   144	    auto beam = dave_interfaces::msg::DVLBeam();
+   145	    beam.id = msg.beams()[i].id();
+   146
+   147	    switch (msg.beams()[i].velocity().reference())
+   148	    {
+   149	      case gz::msgs::DVLKinematicEstimate::DVL_REFERENCE_UNSPECIFIED:
+   150	        reference_type = "DVL_REFERENCE_UNSPECIFIED";
+
+ROS_GZ_DVL_CONVERSION
+    90
+    91	  // Map altitude to target range when available.
+    92	  // For bottom tracking, altitude is the distance to the sea floor.
+    93	  if (ros_msg.altitude >= 0) {
+    94	    gz_msg.mutable_target()->mutable_range()->set_mean(ros_msg.altitude);
+    95	    // target.range.variance defaults to 0 (unknown) in protobuf.
+    96	  }
+    97	  // target.position is not available from the ROS message.
+    98
+    99	  // ROS Dvl message has no status field; defaults to 0 (OK) in protobuf.
+   100	}
+   101
+   102	template<>
+   103	void
+   104	convert_gz_to_ros(
+   105	  const gz::msgs::DVLVelocityTracking & gz_msg,
+   106	  marine_acoustic_msgs::msg::Dvl & ros_msg)
+   107	{
+   108	  convert_gz_to_ros(gz_msg.header(), ros_msg.header);
+   109
+   110	  if (gz_msg.target().type() == gz::msgs::DVLTrackingTarget::DVL_TARGET_BOTTOM) {
+   111	    ros_msg.velocity_mode = marine_acoustic_msgs::msg::Dvl::DVL_MODE_BOTTOM;
+   112	  } else if (gz_msg.target().type() == gz::msgs::DVLTrackingTarget::DVL_TARGET_WATER_MASS) {
+   113	    ros_msg.velocity_mode = marine_acoustic_msgs::msg::Dvl::DVL_MODE_WATER;
+   114	  } else {
+   115	    // ROS has no "unspecified" target concept; default to bottom tracking.
+   116	    ros_msg.velocity_mode = marine_acoustic_msgs::msg::Dvl::DVL_MODE_BOTTOM;
+   117	  }
+   118
+   119	  if (gz_msg.type() == gz::msgs::DVLVelocityTracking::DVL_TYPE_PISTON) {
+   120	    ros_msg.dvl_type = marine_acoustic_msgs::msg::Dvl::DVL_TYPE_PISTON;
+   121	  } else if (gz_msg.type() == gz::msgs::DVLVelocityTracking::DVL_TYPE_PHASED_ARRAY) {
+   122	    ros_msg.dvl_type = marine_acoustic_msgs::msg::Dvl::DVL_TYPE_PHASED_ARRAY;
+   123	  } else {
+   124	    // ROS has no "unspecified" DVL type; default to piston.
+   125	    ros_msg.dvl_type = marine_acoustic_msgs::msg::Dvl::DVL_TYPE_PISTON;
+   126	  }
+   127
+   128	  // Note: The Gazebo velocity may be in DVL_REFERENCE_EARTH or DVL_REFERENCE_SHIP frame.
+   129	  // The ROS Dvl message does not specify a reference frame convention.
+   130	  // This bridge assumes both sides use the same frame convention (typically body-frame).
+   131	  convert_gz_to_ros(gz_msg.velocity().mean(), ros_msg.velocity);
+   132
+   133	  for (auto i = 0; i < 9; ++i) {
+   134	    if (gz_msg.velocity().covariance_size() > i) {
+   135	      ros_msg.velocity_covar[i] = gz_msg.velocity().covariance()[i];
+   136	    } else {
+   137	      ros_msg.velocity_covar[i] = -1;
+   138	    }
+   139	  }
+   140
+   141	  // Map altitude from target range when bottom tracking.
+   142	  if (gz_msg.target().type() == gz::msgs::DVLTrackingTarget::DVL_TARGET_BOTTOM &&
+   143	    gz_msg.target().has_range() && gz_msg.target().range().mean() > 0)
+   144	  {
+   145	    ros_msg.altitude = gz_msg.target().range().mean();
+   146	  } else {
+   147	    ros_msg.altitude = -1;
+   148	  }
+   149	  ros_msg.course_gnd = std::atan2(ros_msg.velocity.y, ros_msg.velocity.x);
+   150	  ros_msg.speed_gnd = std::sqrt(ros_msg.velocity.x * ros_msg.velocity.x + ros_msg.velocity.y *
+   151	      ros_msg.velocity.y);
+   152
+   153	  // Unsupported in Gazebo.
+   154	  ros_msg.sound_speed = -1;
+   155
+   156	  ros_msg.beam_ranges_valid = false;
+   157	  ros_msg.beam_velocities_valid = false;
+   158
+   159	  // Crop num beams if needed.
+   160	  uint8_t numGoodBeams = 0u;
+   161	  auto numBeams = std::min(gz_msg.beams_size(), 4);
+   162
+   163	  for (auto i = 0; i < numBeams; ++i) {
+   164	    if (!gz_msg.beams()[i].locked()) {
+   165	      continue;
+
+OFFICIAL_INSTALLED_DVL_API
+   140	    /// - `<tracking><bottom_mode><visualize>` enables visual aids to validate
+   141	    /// bottom tracking. Acoustic beam reflection paths are depicted, where
+   142	    /// the color scales linearly in hue with measured speed and low opacity
+   143	    /// sections depict range uncertainty (+/- 2 standard deviations).
+   144	    /// - `<tracking><water_mass_mode>` configures the water-mass tracking
+   145	    /// mode.
+   146	    /// - `<tracking><water_mass_mode><when>` enables (or disables) the
+   147	    /// water-mass tracking mode. Supported values are 'never', to disable it
+   148	    /// completely (as if no <water_mass_mode> configuration had been
+   149	    /// specified), 'always' to enable it at all times, and 'best' to track at
+   150	    /// all times but only publish estimates when it performs best among all
+   151	    /// configured modes. Defaults to 'always' if left unspecified.
+   152	    /// - `<tracking><water_mass_mode><water_velocity>` set the variables in
+   153	    /// world environmental data to be used to sample water velocity w.r.t.
+   154	    /// the world frame in each axis. At least one axis must be specified.
+   155	    /// - `<tracking><water_mass_mode><water_velocity><x>` set the variable
+   156	    /// in world environmental data to be used to sample water velocity w.r.t.
+   157	    /// the world frame along the x-axis (that is, towards east). Defaults to
+   158	    /// none (and thus zero water velocity in this axis) if left unspecified.
+   159	    /// - `<tracking><water_mass_mode><water_velocity><y>` set the variable in
+   160	    /// world environmental data to be used to sample water velocity w.r.t. the
+   161	    /// world frame along the y-axis (that is, towards north). Defaults to none
+   162	    /// (and thus zero water velocity in this axis) if left unspecified.
+   163	    /// - `<tracking><water_mass_mode><water_velocity><z>` set the variable in
+   164	    /// world environmental data to be used to sample water velocity w.r.t. the
+   165	    /// world frame along the z-axis (that is, upwards). Defaults to none (and
+   166	    /// thus zero water velocity in this axis) if left unspecified.
+   167	    /// - `<tracking><water_mass_mode><boundaries>` sets water-mass layer
+   168	    /// boundaries. These boundaries are planar at given z-offsets in the
+   169	    /// sensor frame.
+   170	    /// - `<tracking><water_mass_mode><boundaries><near>` sets the water-mass
+   171	    /// layer boundary that is the closest to the sensor.
+   172	    /// - `<tracking><water_mass_mode><boundaries><far>` sets the water-mass
+   173	    /// layer boundary that is the farthest to the sensor.
+   174	    /// - `<tracking><water_mass_mode><bins>` sets the number of bins to use
+   175	    /// for water-mass velocity sampling. Each bin is a slab of water between
+   176	    /// boundaries.
+   177	    /// - `<tracking><water_mass_mode><noise>` sets the noise model for
+   178	    /// velocity estimates. Only 'gaussian' noise is currently supported.
+   179	    /// Defaults to none if left unspecified.
+   180	    /// - `<tracking><water_mass_mode><visualize>` enables visual aids to

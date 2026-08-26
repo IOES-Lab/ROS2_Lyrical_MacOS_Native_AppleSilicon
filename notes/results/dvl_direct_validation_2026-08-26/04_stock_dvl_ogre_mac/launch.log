@@ -1,0 +1,9 @@
+Stack trace (most recent call last) in thread 6108672000:
+#7    Object "libsystem_pthread.dylib", at 0x18547fbc7, in _pthread_start + 135
+#6    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11c6a7c5f, in void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::sim::v10::systems::SensorsPrivate::*)(), gz::sim::v10::systems::SensorsPrivate*>>(void*) + 71
+#5    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11c6945d7, in gz::sim::v10::systems::SensorsPrivate::RenderThread() + 175
+#4    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11c6939af, in gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 511
+#3    Object "libsystem_platform.dylib", at 0x1854b96a3, in _sigtramp + 55
+#2    Object "gz-sim-main", at 0x10433bcb7, in backward::SignalHandling::sig_handler(int, __siginfo*, void*) + 19
+#1    Object "gz-sim-main", at 0x10433bd1b, in backward::SignalHandling::handleSignal(int, __siginfo*, void*) + 71
+#0    Object "gz-sim-main", at 0x10433be5f, in backward::StackTraceImpl<backward::system_tag::darwin_tag>::load_from(void*, unsigned long, void*, void*) + 43

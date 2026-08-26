@@ -1,0 +1,4 @@
+Publishers [Address, Message Type]:
+  tcp://172.17.0.4:45887, gz.msgs.DVLVelocityTracking
+Subscribers [Address, Message Type]:
+  tcp://172.17.0.4:45887, gz.msgs.DVLVelocityTracking

@@ -1,0 +1,13 @@
+sim_time {
+  sec: 7
+  nsec: 803000000
+}
+real_time {
+  sec: 43
+  nsec: 261821437
+}
+iterations: 7803
+real_time_factor: 0.2373183031741323
+step_size {
+  nsec: 1000000
+}

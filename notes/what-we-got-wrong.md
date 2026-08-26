@@ -258,6 +258,21 @@ mode is not the same as running the check that would catch it. What would have c
 sentence before committing: *this command compares the working tree to the index, and the files in
 question are not in the index yet.*
 
+### A publishing DVL topic that was promoted to a whole-plugin pass
+
+**Believed:** DVL was a functional pass because an early run launched and published a real topic.
+
+**Actually:** the evidence did not preserve the exact `world_name` or inspect range, velocity,
+frame metadata, water-mass mode, bridge choice or the current Mac execution path. Direct testing
+on 2026-08-26 found a narrower split verdict: the exact Wiki command and controlled bottom,
+velocity and corrected water-mass paths pass in Docker, while four Mac controls crash, DAVE's
+custom bridge loses `frame_id`, and the shipped water-mass tags do not name environmental
+variables. The old observation was real; **the scope assigned to it was not**.
+
+**Caught by** replaying the documentation rather than searching for an existing success line, then
+asking separately what each message field and operating mode established. A topic is evidence of
+publication, not of every mode exposed by the same sensor.
+
 ---
 
 ## What actually went wrong, five times over

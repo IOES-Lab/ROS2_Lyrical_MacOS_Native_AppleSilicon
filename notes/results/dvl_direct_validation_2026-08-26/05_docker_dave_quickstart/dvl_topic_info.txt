@@ -1,0 +1,20 @@
+Type: dave_interfaces/msg/DVL
+
+Publisher count: 1
+
+Node name: dvl_bridge_node
+Node namespace: /
+Topic type: dave_interfaces/msg/DVL
+Topic type hash: RIHS01_e496f4786aa1548a8da20af500177118f9134231564f14347546a4abaac60984
+Endpoint type: PUBLISHER
+GID: 01.0f.8a.2f.0d.99.d3.fb.00.00.00.00.00.00.2b.03
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): KEEP_LAST (1)
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0

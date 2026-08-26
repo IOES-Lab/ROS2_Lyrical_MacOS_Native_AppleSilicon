@@ -10,7 +10,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [`upstream/`](upstream/) | 상류에 보고할 것. [`drafts/`](upstream/drafts/) 가 원본, [`submit/`](upstream/submit/) 이 붙여넣기용 변환본, [`make_submittable.py`](upstream/make_submittable.py) 가 변환기 |
-| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라) 여섯 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
+| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL) 일곱 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
 | [`results/`](results/) | 날짜별 실험 결과. [`worlds/`](results/worlds/) 는 world 18종 스모크 테스트 로그 |
 | [`experiments/`](experiments/) | 실험 스크립트. [`common.sh`](experiments/common.sh) 가 공통 측정 절차 |
 | [`benchmarks/`](benchmarks/) | 초기 벤치마크 스크립트와 결과 (7월). `bench_results/SUPERSEDED_*` 는 폐기된 회차 |
@@ -39,6 +39,14 @@ Wiki Quickstart 를 Mac 과 Docker 에서 재실행하고, 통제된 세 조건�
 대조했다. **출력은 FUNCTIONAL PASS 이지만 `attenuationR` 이 Blue 에, `attenuationB` 가
 Red 에 적용된다** — 파라미터 의미론은 PARTIAL 이다. 일반 수중 광학 정확성은 검증하지 않았다.
 
+최신 DVL 직접 검증:
+[`results/dvl_direct_validation_2026-08-26/`](results/dvl_direct_validation_2026-08-26/).
+Docker 에서 Wiki Quickstart, 평면 bottom range, 1 m/s 이동, 공식 `ros_gz` bridge와
+환경변수 기반 water-mass tracking을 직접 확인했다. **전체 판정은 PARTIAL**이다 — 같은
+DVL 센서 경로가 Mac에서 네 가지 통제 조건 모두 Gazebo Sensors render thread에서
+종료하고, DAVE custom bridge는 `frame_id`를 잃으며, 배포 모델의 water-mass 태그는
+환경변수 이름 대신 `0.`을 사용한다.
+
 ## 이 층의 파일
 
 루트 [`README.md`](../README.md) 는 입구 역할만 한다. 상류 저장소(`IOES-Lab/dave`,
@@ -49,8 +57,8 @@ Red 에 적용된다** — 파라미터 의미론은 PARTIAL 이다. 일반 수�
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 32개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 80행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`known-issues.md`](known-issues.md) | 35개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 81행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

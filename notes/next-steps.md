@@ -4,6 +4,12 @@
 
 # 남은 일
 
+- [ ] **DVL 후속 3건** — (1) Mac에서 DAVE Wiki/headless/공식 ros_gz/`ogre` 통제가
+  모두 Gazebo Sensors render thread에서 종료하는 원인을 좁힌다. (2) DAVE custom
+  `DVLBridge`가 Gazebo의 frame ID를 ROS 메시지에 복사하도록 고치거나 공식 `ros_gz`
+  변환으로 대체한다. (3) 배포 DVL 모델의 water-mass 태그를 실제 environmental variable
+  이름과 preload에 연결한다. Docker bottom/velocity 및 수정된 water-mass control은
+  직접 통과했지만 이 세 결함 때문에 전체 판정은 PARTIAL이다
 - [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
   `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,
   [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
@@ -57,14 +63,16 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 여섯 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 일곱 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
   직접 실행해 CPU/WGPU·RViz·BlueROV2·CUDA 판정을 갱신했다. 같은 날 Ocean Current 페이지도 12개 서비스와 전역 Hydrodynamics 차량 반응을 직접 재검증하고, Model Plugin 미검증 범위를 분리했다.
   2026-08-26에는 Underwater Camera 페이지를 Mac·Docker에서 재실행해 출력 구조와
   감쇠식을 확인하고, R/B 파라미터가 뒤바뀌어 적용된다는 경고와 `<scattering>`이
-  별도 파라미터가 아니라는 정정을 넣었다.
+  별도 파라미터가 아니라는 정정을 넣었다. 같은 날 DVL 페이지의 launch 인자와
+  bridge 설명을 소스·런타임에 맞추고, Docker 통과 범위와 Mac crash·frame ID·water-mass
+  한계를 분리해 기록했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

@@ -1,0 +1,541 @@
+{
+  "summary": {
+    "sample_count": 20,
+    "all_frame_ids_empty": true,
+    "all_bottom_track": false,
+    "all_four_beams_locked": true,
+    "mean_sim_interval_s": 0.125,
+    "sim_message_rate_hz": 8.0,
+    "target_range_mean_m": 60.68578554293706,
+    "target_range_min_m": 60.685785542937055,
+    "target_range_max_m": 60.685785542937055,
+    "velocity_mean_mps": {
+      "x": 0.4992035147551842,
+      "y": 1.0003965775101629,
+      "z": 0.0015932865475364398
+    },
+    "speed_mean_mps": 1.1180339887498945
+  },
+  "samples": [
+    {
+      "index": 1,
+      "stamp_sec": 1,
+      "stamp_nanosec": 251000000,
+      "stamp_s": 1.251,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 2,
+      "stamp_sec": 1,
+      "stamp_nanosec": 376000000,
+      "stamp_s": 1.376,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 3,
+      "stamp_sec": 1,
+      "stamp_nanosec": 501000000,
+      "stamp_s": 1.501,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 4,
+      "stamp_sec": 1,
+      "stamp_nanosec": 626000000,
+      "stamp_s": 1.626,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 5,
+      "stamp_sec": 1,
+      "stamp_nanosec": 751000000,
+      "stamp_s": 1.751,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 6,
+      "stamp_sec": 1,
+      "stamp_nanosec": 876000000,
+      "stamp_s": 1.876,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 7,
+      "stamp_sec": 2,
+      "stamp_nanosec": 1000000,
+      "stamp_s": 2.001,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 8,
+      "stamp_sec": 2,
+      "stamp_nanosec": 126000000,
+      "stamp_s": 2.126,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 9,
+      "stamp_sec": 2,
+      "stamp_nanosec": 251000000,
+      "stamp_s": 2.251,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 10,
+      "stamp_sec": 2,
+      "stamp_nanosec": 376000000,
+      "stamp_s": 2.376,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 11,
+      "stamp_sec": 2,
+      "stamp_nanosec": 501000000,
+      "stamp_s": 2.501,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 12,
+      "stamp_sec": 2,
+      "stamp_nanosec": 626000000,
+      "stamp_s": 2.626,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 13,
+      "stamp_sec": 2,
+      "stamp_nanosec": 751000000,
+      "stamp_s": 2.751,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 14,
+      "stamp_sec": 2,
+      "stamp_nanosec": 876000000,
+      "stamp_s": 2.876,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 15,
+      "stamp_sec": 3,
+      "stamp_nanosec": 1000000,
+      "stamp_s": 3.001,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 16,
+      "stamp_sec": 3,
+      "stamp_nanosec": 126000000,
+      "stamp_s": 3.126,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 17,
+      "stamp_sec": 3,
+      "stamp_nanosec": 251000000,
+      "stamp_s": 3.251,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 18,
+      "stamp_sec": 3,
+      "stamp_nanosec": 376000000,
+      "stamp_s": 3.376,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 19,
+      "stamp_sec": 3,
+      "stamp_nanosec": 501000000,
+      "stamp_s": 3.501,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "index": 20,
+      "stamp_sec": 3,
+      "stamp_nanosec": 626000000,
+      "stamp_s": 3.626,
+      "frame_id": "",
+      "type": "DVL_TYPE_PHASED_ARRAY",
+      "target_type": "DVL_TARGET_WATER_MASS",
+      "target_range_m": 60.685785542937055,
+      "velocity_x_mps": 0.4992035147551842,
+      "velocity_y_mps": 1.0003965775101629,
+      "velocity_z_mps": 0.00159328654753644,
+      "beam_count": 4,
+      "beam_ranges_m": [
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055,
+        60.685785542937055
+      ],
+      "beam_locked": [
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}

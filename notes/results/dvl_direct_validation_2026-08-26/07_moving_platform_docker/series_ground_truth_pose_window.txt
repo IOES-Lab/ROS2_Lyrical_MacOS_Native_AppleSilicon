@@ -1,0 +1,47 @@
+==POSE1==
+
+Requesting state for world [dvl_flat_move_1mps]...
+
+Model: [8]
+  - Name: nortek_dvl500_300
+  - Pose [ XYZ (m) ] [ RPY (rad) ]:
+    [7.678000 0.000000 0.000000]
+    [0.000000 -0.000000 0.000000]
+==STATS1==
+sim_time {
+  sec: 7
+  nsec: 821000000
+}
+real_time {
+  sec: 42
+  nsec: 536350186
+}
+iterations: 7821
+real_time_factor: 0.55370985603543743
+step_size {
+  nsec: 1000000
+}
+
+==POSE2==
+
+Requesting state for world [dvl_flat_move_1mps]...
+
+Model: [8]
+  - Name: nortek_dvl500_300
+  - Pose [ XYZ (m) ] [ RPY (rad) ]:
+    [8.694000 0.000000 0.000000]
+    [0.000000 -0.000000 0.000000]
+==STATS2==
+sim_time {
+  sec: 8
+  nsec: 841000000
+}
+real_time {
+  sec: 47
+  nsec: 387685313
+}
+iterations: 8841
+real_time_factor: 0.53119664793667287
+step_size {
+  nsec: 1000000
+}

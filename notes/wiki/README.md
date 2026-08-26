@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**여섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**일곱 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -144,6 +144,27 @@ murky 태그 6개를 동시에 바꿨다. 태그를 하나씩 분리한 확인�
 
 근거:
 [`../results/underwater_camera_direct_validation_2026-08-26/`](../results/underwater_camera_direct_validation_2026-08-26/).
+
+## 7차 — 2026-08-26 DVL 직접 검증
+
+「DVL Plugin」 페이지의 Quickstart, launch 인자, bridge 설명과 water-mass 범위를
+소스와 직접 실행 결과에 맞췄다.
+
+- launch 인자는 `verbose`가 아니라 `verbosity_level`, 기본값은 `1`이다
+- `ros_gz`에 DVL 변환이 없다는 문구를 철회했다 — 공식 demo와 C++ subscriber로
+  populated `marine_acoustic_msgs/msg/Dvl`을 직접 읽었다
+- exact DAVE Quickstart, 평면 bottom range, 1 m/s 이동과 수정된 water-mass control은
+  Docker에서 통과했다
+- **Mac 판정은 FAIL** — Wiki GUI, headless DAVE, 공식 ros_gz demo와 `ogre` 통제가
+  모두 Gazebo Sensors render thread에서 종료한다
+- DAVE custom `DVLBridge`가 `frame_id`를 복사하지 않는 점과, 배포 water-mass 태그의
+  `0.`이 환경변수 이름으로 해석되지 않아 20/20 unspecified/no-lock이 되는 점을 경고했다
+
+이 회차는 일반 DVL 정확도를 입증하지 않는다. 통제된 bottom range와 속도 변환,
+water-mass 기능을 확인한 것이며 Mac crash의 하위 원인은 미확정이다.
+
+근거:
+[`../results/dvl_direct_validation_2026-08-26/`](../results/dvl_direct_validation_2026-08-26/).
 
 ## 일부러 넣지 않은 것
 

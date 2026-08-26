@@ -1,0 +1,116 @@
+{
+  "date": "2026-08-26",
+  "overall_verdict": "PARTIAL",
+  "source_revisions": {
+    "dave": "6aef91c823af5da073329b84ba617b572965e79e",
+    "ros_gz": "0ea9efc010c7427385c6493c1a8016cdf1ef450b",
+    "ros_distribution": "Lyrical",
+    "gazebo": "Jetty 10.4.0",
+    "worktree_scope": "Both source checkouts were non-pristine Lyrical/Jetty migration workspaces. The DVL launch/model/bridge files and ros_gz DVL conversion source quoted in source_audit.txt were not listed as modified; ros_gz CMake files and other DAVE migration files were modified."
+  },
+  "mac": {
+    "verdict": "FAIL",
+    "tested_paths": [
+      "DAVE Wiki Quickstart with GUI",
+      "DAVE Wiki Quickstart headless",
+      "official ros_gz_sim_demos DVL launch",
+      "official stock DVL world forced from ogre2 to ogre"
+    ],
+    "common_failure": "SIGSEGV in gz::sim::v10::systems::SensorsPrivate::RenderThread / WaitForInit",
+    "scope": "The controls rule out a DAVE-only world defect, a GUI-client-only defect, and an ogre2-only defect. They do not identify the exact lower-level macOS root cause."
+  },
+  "docker_dave_quickstart": {
+    "verdict": "FUNCTIONAL PASS",
+    "topic": "/dvl/velocity",
+    "ros_type": "dave_interfaces/msg/DVL",
+    "target": "DVL_TARGET_BOTTOM",
+    "beam_count": 4,
+    "sim_message_rate_hz": 8.0,
+    "ros_frame_id": "",
+    "gazebo_frame_id": "nortek_dvl500_300::dvl500_base_link::nortek_dvl500_300"
+  },
+  "bottom_range_control": {
+    "verdict": "FUNCTIONAL PASS",
+    "sample_count": 20,
+    "vertical_plane_distance_m": 20.0,
+    "beam_tilt_deg": 25.0,
+    "beam_aperture_deg": 3.0,
+    "center_ray_range_m": 22.067566,
+    "aperture_envelope_m": [
+      21.80882,
+      22.34801
+    ],
+    "observed_range_m": 21.867185592651367,
+    "all_four_beams_locked": true,
+    "sim_message_rate_hz": 7.999999999999998,
+    "scope": "One flat target and one geometry; this is not a general acoustic-accuracy validation."
+  },
+  "moving_platform_control": {
+    "verdict": "FUNCTIONAL PASS",
+    "sample_count": 20,
+    "commanded_world_velocity_mps": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "mean_dvl_velocity_mps": [
+      0.0009983373559980732,
+      -1.000355472463437,
+      -0.0010534389025852106
+    ],
+    "mean_speed_mps": 1.000405335836097,
+    "sim_message_rate_hz": 7.999999999999998,
+    "frame_mapping_note": "The model's ENU-to-FSD reference transform maps positive world X motion approximately to negative DVL Y."
+  },
+  "bridges": {
+    "dave_custom_bridge": {
+      "verdict": "PARTIAL",
+      "finding": "DVLBridge copies the timestamp but not the Gazebo frame_id, so every directly sampled ROS message had an empty frame_id."
+    },
+    "official_ros_gz_bridge": {
+      "verdict": "FUNCTIONAL PASS",
+      "ros_type": "marine_acoustic_msgs/msg/Dvl",
+      "verification_method": "one-shot C++ subscriber",
+      "frame_id": "tethys/base_link/teledyne_pathfinder_dvl",
+      "num_good_beams": 4,
+      "beam_ranges_valid": true,
+      "beam_velocities_valid": true
+    }
+  },
+  "water_mass": {
+    "dave_configuration_control": {
+      "verdict": "FAIL",
+      "sample_count": 20,
+      "target": "DVL_TARGET_UNSPECIFIED",
+      "all_four_beams_locked": false,
+      "mean_speed_mps": 0.0,
+      "finding": "Without bottom return, the shipped DAVE configuration did not produce a water-mass estimate. The world has no environmental-data loader, and the water_velocity x/y/z elements contain 0., which the Gazebo API treats as environmental variable names rather than numeric vector components."
+    },
+    "corrected_environment_control": {
+      "verdict": "FUNCTIONAL PASS",
+      "sample_count": 20,
+      "environment_world_velocity_mps": [
+        1.0,
+        0.5,
+        0.0
+      ],
+      "target": "DVL_TARGET_WATER_MASS",
+      "all_four_beams_locked": true,
+      "target_range_m": 60.68578554293706,
+      "mean_dvl_velocity_mps": [
+        0.4992035147551842,
+        1.0003965775101629,
+        0.0015932865475364398
+      ],
+      "mean_speed_mps": 1.1180339887498945,
+      "sim_message_rate_hz": 8.0,
+      "scope": "This proves the Gazebo water-mass path works when time-varying environmental data and matching variable names are supplied; it does not validate a real ocean profile."
+    }
+  },
+  "documentation_corrections": [
+    "The launch argument is verbosity_level with default 1, not verbose with default 0.",
+    "The current Lyrical ros_gz bridge supports gz.msgs.DVLVelocityTracking to marine_acoustic_msgs/msg/Dvl.",
+    "The available-sensors link on the page is broken.",
+    "The current Mac and Docker verdicts must be separated."
+  ]
+}

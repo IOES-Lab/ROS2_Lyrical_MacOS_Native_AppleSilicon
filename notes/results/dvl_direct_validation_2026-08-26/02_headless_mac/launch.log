@@ -1,0 +1,19 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/dvl_direct_validation_2026-08-26/02_headless_mac/ros_logs/2026-08-26-14-18-11-294921-gwon-yeseol-ui-noteubug.local-81249
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [81251]
+[INFO] [create-2]: process started with pid [81252]
+[create-2] [INFO] [1787721500.230310000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787721503.372899000] [ros_gz_sim]: World name was not provided. Using [dvl_world] as the default world.
+[create-2] [INFO] [1787721503.627498000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 81252]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] Stack trace (most recent call last) in thread 6137819136:
+[gazebo-1] #7    Object "libsystem_pthread.dylib", at 0x18547fbc7, in _pthread_start + 135
+[gazebo-1] #6    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11a76bc5f, in void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::sim::v10::systems::SensorsPrivate::*)(), gz::sim::v10::systems::SensorsPrivate*>>(void*) + 71
+[gazebo-1] #5    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11a7585d7, in gz::sim::v10::systems::SensorsPrivate::RenderThread() + 175
+[gazebo-1] #4    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11a7579af, in gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 511
+[gazebo-1] #3    Object "libsystem_platform.dylib", at 0x1854b96a3, in _sigtramp + 55
+[gazebo-1] #2    Object "gz-sim-main", at 0x10276fcb7, in backward::SignalHandling::sig_handler(int, __siginfo*, void*) + 19
+[gazebo-1] #1    Object "gz-sim-main", at 0x10276fd1b, in backward::SignalHandling::handleSignal(int, __siginfo*, void*) + 71
+[gazebo-1] #0    Object "gz-sim-main", at 0x10276fe5f, in backward::StackTraceImpl<backward::system_tag::darwin_tag>::load_from(void*, unsigned long, void*, void*) + 43
+[ERROR] [gazebo-1]: process has died [pid 81251, exit code -11, cmd 'ruby /opt/homebrew/bin/gz sim /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/dvl_world.world -s -r --force-version 10'].

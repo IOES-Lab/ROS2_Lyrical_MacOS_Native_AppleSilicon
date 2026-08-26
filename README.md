@@ -14,8 +14,9 @@ a repeatable WGPU raw-sonar mismatch; SeaPressure also remains a known numerical
 
 | | |
 |---|---|
-| Worlds | 18/18 PASS-level, 0 PARTIAL **in the world-level matrix** — vehicle/sensor-specific PARTIAL findings are tracked separately |
+| Worlds | 17/18 PASS-level, 1 PARTIAL **in the world-level matrix** — `dvl_world.world` is PARTIAL after direct cross-platform testing; vehicle/sensor-specific findings are tracked separately |
 | Direct sonar check | Mac WGPU publishes structured 513×301 PointCloud2 and 513×399 raw sonar, but in one controlled 3.99 m planar scene the CPU peak was 3.988 m while WGPU produced 6.396–6.446 m in 5/5 frames — [evidence](notes/results/multibeam_direct_validation_2026-08-25/) |
+| Direct DVL check | The exact DAVE Wiki Quickstart and controlled bottom/velocity/water-mass tests pass in Docker, including 8 Hz output, four locked beams and the official `ros_gz` bridge. **PARTIAL overall:** all four Mac controls crash in Gazebo Sensors, DAVE's custom bridge drops `frame_id`, and the shipped water-mass tags do not name environmental variables — [evidence](notes/results/dvl_direct_validation_2026-08-26/) |
 | Direct ocean-current check | Mac Lyrical+Jetty exposed and called all 12 `/hydrodynamics/` services. A controlled 8.98 s REXROV comparison measured an X-displacement difference of +9.05087 m for a +1.5 m/s current. This validates the global `/ocean_current` Hydrodynamics path — [evidence](notes/results/ocean_current_direct_validation_2026-08-25/) |
 | Direct underwater-camera check | The Wiki Quickstart runs on Mac and Docker and publishes 320×240 `bgr8`, 230400 bytes. Three controlled conditions produced byte-identical frames across the two platforms, and the default `1/30` attenuation matched its predicted output exactly. **But `attenuationR` acts on Blue and `attenuationB` on Red** — output PASS, parameter semantics PARTIAL — [evidence](notes/results/underwater_camera_direct_validation_2026-08-26/) |
 | Direct Model Plugin check | Enabling `OceanCurrentModelPlugin` in copied test assets, the per-vehicle current interpolated correctly at two layer midpoints (5 m and 15 m) and moved REXROV. **Depth-dependent force is still untested** — the interpolation used static probes and the motion run set all 12 layers alike — [evidence](notes/results/ocean_current_model_plugin_validation_2026-08-25/) |
@@ -66,7 +67,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | [`notes/what-we-got-wrong.md`](notes/what-we-got-wrong.md) | **claims that turned out false, and how each was caught.** Read this before trusting any number here |
 | [`patches/`](patches/) | **what was changed** — six patches, what each fixes and whether it is complete |
 | [`notes/verified-demos.md`](notes/verified-demos.md) | what each PASS rests on |
-| [`notes/known-issues.md`](notes/known-issues.md) | 32 entries, including open, resolved and withdrawn findings, with cause and workaround |
+| [`notes/known-issues.md`](notes/known-issues.md) | 35 entries, including open, resolved and withdrawn findings, with cause and workaround |
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |
 | [`notes/setup/reproduction.md`](notes/setup/reproduction.md) | annotated build and launch procedure |
 | [`notes/validation_matrix.csv`](notes/validation_matrix.csv) | every world and vehicle, with its label |
