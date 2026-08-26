@@ -1,0 +1,8 @@
+/gz/get_origin_spherical_coordinates [dave_interfaces/srv/GetOriginSphericalCoord]
+/sc_node/describe_parameters [rcl_interfaces/srv/DescribeParameters]
+/sc_node/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
+/sc_node/get_parameters [rcl_interfaces/srv/GetParameters]
+/sc_node/get_type_description [type_description_interfaces/srv/GetTypeDescription]
+/sc_node/list_parameters [rcl_interfaces/srv/ListParameters]
+/sc_node/set_parameters [rcl_interfaces/srv/SetParameters]
+/sc_node/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]

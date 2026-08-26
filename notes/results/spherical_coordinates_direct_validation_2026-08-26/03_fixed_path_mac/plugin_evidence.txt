@@ -1,0 +1,53 @@
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/sim/log/2026-08-26T17:10:29.742821000/server_console.log for writing: No such file or directory
+[gazebo-1] (2026-08-26 17:11:01.538) [info] [SphericalCoords.cc:76] Spherical coordinates reference=
+[gazebo-1] (2026-08-26 17:11:22.860) [info] [SphericalCoords.cc:169] Called Get
+[gazebo-1] (2026-08-26 17:11:25.004) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:27.802) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:30.622) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:33.015) [info] [SphericalCoords.cc:212] Current Spherical Coordinates after Setting: Latitude: -24.719, Longitude: -46.5156, Altitude: 100
+[gazebo-1] (2026-08-26 17:11:33.614) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:36.151) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:38.807) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:41.410) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:43.026) [info] [SphericalCoords.cc:169] Called Get
+[gazebo-1] (2026-08-26 17:11:43.902) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:46.641) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:49.170) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:51.566) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:53.362) [info] [SphericalCoords.cc:146] Called TO and X: 100
+[gazebo-1] (2026-08-26 17:11:53.900) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:56.251) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:58.510) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:00.681) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:03.042) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:03.498) [info] [SphericalCoords.cc:122] Called FROM and latitude: -24.719
+[gazebo-1] (2026-08-26 17:12:05.149) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:07.251) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:09.293) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:11.319) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:13.377) [info] [SphericalCoords.cc:146] Called TO and X: 0
+[gazebo-1] (2026-08-26 17:12:13.385) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:15.323) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:17.275) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:19.213) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:21.152) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:23.116) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:23.374) [info] [SphericalCoords.cc:122] Called FROM and latitude: -24.7208
+[gazebo-1] (2026-08-26 17:12:25.023) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:26.969) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:28.942) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:30.875) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:32.773) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:33.352) [info] [SphericalCoords.cc:146] Called TO and X: nan
+[gazebo-1] (2026-08-26 17:12:34.659) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:36.666) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:38.567) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:41.012) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:42.803) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:43.475) [info] [SphericalCoords.cc:122] Called FROM and latitude: nan
+[gazebo-1] (2026-08-26 17:12:44.515) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:46.422) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:48.308) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:50.125) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:51.951) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:53.101) [info] [SphericalCoords.cc:212] Current Spherical Coordinates after Setting: Latitude: 35.0748, Longitude: 129.085, Altitude: 0

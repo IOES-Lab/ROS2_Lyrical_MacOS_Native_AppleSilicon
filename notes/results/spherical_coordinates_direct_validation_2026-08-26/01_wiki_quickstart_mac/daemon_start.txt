@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/Users/gwon-yeseol/ros2_lyrical/install/ros2cli/bin/ros2", line 33, in <module>
+    sys.exit(load_entry_point('ros2cli', 'console_scripts', 'ros2')())
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/cli.py", line 91, in main
+    rc = extension.main(parser=parser, args=args)
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/command/daemon.py", line 38, in main
+    return extension.main(args=args)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/verb/daemon/start.py", line 28, in main
+    if spawn_daemon(args, timeout=10.0, debug=args.debug):
+       ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/node/daemon.py", line 145, in spawn_daemon
+    server = daemon.make_xmlrpc_server()
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/daemon/__init__.py", line 58, in make_xmlrpc_server
+    return LocalXMLRPCServer(
+        address, logRequests=False,
+        requestHandler=RequestHandler,
+        allow_none=True
+    )
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/server.py", line 595, in __init__
+    socketserver.TCPServer.__init__(self, addr, requestHandler, bind_and_activate)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 457, in __init__
+    self.server_bind()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted

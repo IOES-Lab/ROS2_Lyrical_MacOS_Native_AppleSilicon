@@ -1,0 +1,116 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/spherical_coordinates_direct_validation_2026-08-26/03_fixed_path_mac/ros_logs/2026-08-26-17-10-10-987456-gwon-yeseol-ui-noteubug.local-90727
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [90734]
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/sim/log/2026-08-26T17:10:29.742821000/server_console.log for writing: No such file or directory
+[gazebo-1] (2026-08-26 17:10:29.749) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+[gazebo-1] (2026-08-26 17:10:29.867) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/dave_bimanual_example.world].
+[gazebo-1] (2026-08-26 17:10:31.760) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+[gazebo-1] (2026-08-26 17:10:31.765) [info] [SimulationRunner.cc:347] Serving world controls on [/world/dave_bimanual_example/control], [/world/dave_bimanual_example/control/state] and [/world/dave_bimanual_example/playback/control]
+[gazebo-1] (2026-08-26 17:10:31.766) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/dave_bimanual_example/gui/info]
+[gazebo-1] (2026-08-26 17:10:31.766) [info] [SimulationRunner.cc:376] World [dave_bimanual_example] initialized with [1ms] physics profile.
+[gazebo-1] (2026-08-26 17:10:31.766) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/dave_bimanual_example/generate_world_sdf]
+[gazebo-1] (2026-08-26 17:10:31.767) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+[gazebo-1] (2026-08-26 17:10:31.767) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] (2026-08-26 17:10:31.767) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] (2026-08-26 17:10:31.767) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] (2026-08-26 17:10:31.768) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] (2026-08-26 17:10:31.768) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+[gazebo-1] (2026-08-26 17:10:31.768) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+[gazebo-1] (2026-08-26 17:10:31.769) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+[gazebo-1] (2026-08-26 17:10:31.958) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+[gazebo-1] (2026-08-26 17:10:31.958) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+[gazebo-1] (2026-08-26 17:10:31.958) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+[gazebo-1] (2026-08-26 17:10:31.958) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+[gazebo-1] (2026-08-26 17:10:32.449) [info] [UserCommands.cc:751] Create service on [/world/dave_bimanual_example/create_multiple] (async)
+[gazebo-1] (2026-08-26 17:10:32.450) [info] [UserCommands.cc:753] Create service on [/world/dave_bimanual_example/create_multiple/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.452) [info] [UserCommands.cc:751] Remove service on [/world/dave_bimanual_example/remove] (async)
+[gazebo-1] (2026-08-26 17:10:32.452) [info] [UserCommands.cc:753] Remove service on [/world/dave_bimanual_example/remove/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.452) [info] [UserCommands.cc:751] Pose service on [/world/dave_bimanual_example/set_pose] (async)
+[gazebo-1] (2026-08-26 17:10:32.452) [info] [UserCommands.cc:753] Pose service on [/world/dave_bimanual_example/set_pose/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.453) [info] [UserCommands.cc:751] Pose service on [/world/dave_bimanual_example/set_pose_vector] (async)
+[gazebo-1] (2026-08-26 17:10:32.453) [info] [UserCommands.cc:753] Pose service on [/world/dave_bimanual_example/set_pose_vector/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.453) [info] [UserCommands.cc:751] Light configuration service on [/world/dave_bimanual_example/light_config] (async)
+[gazebo-1] (2026-08-26 17:10:32.453) [info] [UserCommands.cc:753] Light configuration service on [/world/dave_bimanual_example/light_config/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.453) [info] [UserCommands.cc:751] Physics service on [/world/dave_bimanual_example/set_physics] (async)
+[gazebo-1] (2026-08-26 17:10:32.453) [info] [UserCommands.cc:753] Physics service on [/world/dave_bimanual_example/set_physics/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.454) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/dave_bimanual_example/set_spherical_coordinates] (async)
+[gazebo-1] (2026-08-26 17:10:32.454) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/dave_bimanual_example/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.455) [info] [UserCommands.cc:751] Enable collision service on [/world/dave_bimanual_example/enable_collision] (async)
+[gazebo-1] (2026-08-26 17:10:32.455) [info] [UserCommands.cc:753] Enable collision service on [/world/dave_bimanual_example/enable_collision/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.455) [info] [UserCommands.cc:751] Disable collision service on [/world/dave_bimanual_example/disable_collision] (async)
+[gazebo-1] (2026-08-26 17:10:32.455) [info] [UserCommands.cc:753] Disable collision service on [/world/dave_bimanual_example/disable_collision/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.455) [info] [UserCommands.cc:751] Material service on [/world/dave_bimanual_example/visual_config] (async)
+[gazebo-1] (2026-08-26 17:10:32.455) [info] [UserCommands.cc:753] Material service on [/world/dave_bimanual_example/visual_config/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:10:32.456) [info] [UserCommands.cc:751] Material service on [/world/dave_bimanual_example/wheel_slip] (async)
+[gazebo-1] (2026-08-26 17:10:32.456) [info] [UserCommands.cc:753] Material service on [/world/dave_bimanual_example/wheel_slip/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:11:01.538) [info] [SphericalCoords.cc:76] Spherical coordinates reference=
+[gazebo-1] 	- Latitude [degrees]=35.0748
+[gazebo-1] 	- Longitude [degrees]=129.085
+[gazebo-1] 	- Altitude [m]=0
+[gazebo-1] 	- Heading [degrees] =0
+[gazebo-1] (2026-08-26 17:11:22.444) [info] [LevelManager.cc:646] Loaded level [default]
+[gazebo-1] (2026-08-26 17:11:22.768) [warning] [Buoyancy.cc:663] Unsupported collision geometry for graded buoyancy[5]
+[gazebo-1] (2026-08-26 17:11:22.860) [info] [SphericalCoords.cc:169] Called Get
+[gazebo-1] (2026-08-26 17:11:22.861) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/dave_bimanual_example/scene/info]
+[gazebo-1] (2026-08-26 17:11:22.861) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/dave_bimanual_example/scene/graph]
+[gazebo-1] (2026-08-26 17:11:22.861) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/dave_bimanual_example/state]
+[gazebo-1] (2026-08-26 17:11:22.861) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/dave_bimanual_example/state_async]
+[gazebo-1] (2026-08-26 17:11:22.862) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/dave_bimanual_example/scene/info]
+[gazebo-1] (2026-08-26 17:11:22.862) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/dave_bimanual_example/scene/deletion]
+[gazebo-1] (2026-08-26 17:11:22.862) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/dave_bimanual_example/state]
+[gazebo-1] (2026-08-26 17:11:22.862) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/dave_bimanual_example/pose/info]
+[gazebo-1] (2026-08-26 17:11:22.862) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/dave_bimanual_example/dynamic_pose/info]
+[gazebo-1] (2026-08-26 17:11:25.004) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:27.802) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:30.622) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:33.015) [info] [SphericalCoords.cc:212] Current Spherical Coordinates after Setting: Latitude: -24.719, Longitude: -46.5156, Altitude: 100
+[gazebo-1] (2026-08-26 17:11:33.614) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:36.151) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:38.807) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:41.410) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:43.026) [info] [SphericalCoords.cc:169] Called Get
+[gazebo-1] (2026-08-26 17:11:43.902) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:46.641) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:49.170) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:51.566) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:53.362) [info] [SphericalCoords.cc:146] Called TO and X: 100
+[gazebo-1] (2026-08-26 17:11:53.900) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:56.251) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:11:58.510) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:00.681) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:03.042) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:03.498) [info] [SphericalCoords.cc:122] Called FROM and latitude: -24.719
+[gazebo-1] (2026-08-26 17:12:05.149) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:07.251) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:09.293) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:11.319) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:13.377) [info] [SphericalCoords.cc:146] Called TO and X: 0
+[gazebo-1] (2026-08-26 17:12:13.385) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:15.323) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:17.275) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:19.213) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:21.152) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:23.116) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:23.374) [info] [SphericalCoords.cc:122] Called FROM and latitude: -24.7208
+[gazebo-1] (2026-08-26 17:12:25.023) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:26.969) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:28.942) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:30.875) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:32.773) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:33.352) [info] [SphericalCoords.cc:146] Called TO and X: nan
+[gazebo-1] (2026-08-26 17:12:34.659) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:36.666) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:38.567) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:41.012) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:42.803) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:43.475) [info] [SphericalCoords.cc:122] Called FROM and latitude: nan
+[gazebo-1] (2026-08-26 17:12:44.515) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:46.422) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:48.308) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:50.125) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:51.951) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:53.101) [info] [SphericalCoords.cc:212] Current Spherical Coordinates after Setting: Latitude: 35.0748, Longitude: 129.085, Altitude: 0
+[gazebo-1] (2026-08-26 17:12:53.706) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:55.185) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:56.680) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate
+[gazebo-1] (2026-08-26 17:12:58.208) [info] [SphericalCoords.cc:234] dave_ros_gz_plugins::SphericalCoords::PostUpdate

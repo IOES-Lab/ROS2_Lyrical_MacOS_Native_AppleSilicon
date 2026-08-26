@@ -1,0 +1,5 @@
+Mac installed library:
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_ros_gz_plugins/lib/libSphericalCoords.dylib
+
+Mac generated build-time plugin path:
+GZ_SIM_SYSTEM_PLUGIN_PATH=/Users/gwon-yeseol/dave_ws_lyrical/install/multibeam_sonar_system/lib/multibeam_sonar_system/:/Users/gwon-yeseol/dave_ws_lyrical/install/multibeam_sonar/lib/multibeam_sonar/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_model_plugins/lib/dave_gz_model_plugins/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_ros_gz_plugins/lib/dave_ros_gz_plugins/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_world_plugins/lib/dave_gz_world_plugins/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_sensor_plugins/lib/dave_gz_sensor_plugins/

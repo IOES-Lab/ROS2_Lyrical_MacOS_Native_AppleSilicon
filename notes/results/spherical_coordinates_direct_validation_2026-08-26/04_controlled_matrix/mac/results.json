@@ -1,0 +1,131 @@
+{
+  "platform": "mac",
+  "services": {
+    "get": "/gz/get_origin_spherical_coordinates",
+    "set": "/gz/set_origin_spherical_coordinates",
+    "to": "/gz/transform_to_spherical_coordinates",
+    "from": "/gz/transform_from_spherical_coordinates"
+  },
+  "initial_origin": {
+    "latitude_deg": 35.074823,
+    "longitude_deg": 129.08479800000003,
+    "altitude": 0.0
+  },
+  "set_wiki_origin_success": true,
+  "origin_after_set": {
+    "latitude_deg": -24.71897669633431,
+    "longitude_deg": -46.515625,
+    "altitude": 100.0
+  },
+  "round_trips": [
+    {
+      "input_local": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "spherical": {
+        "latitude_deg": -24.71897669633431,
+        "longitude_deg": -46.515625,
+        "altitude": 99.99999999906868
+      },
+      "returned_local": {
+        "x": 3.030297375406407e-10,
+        "y": -4.1657066966754156e-10,
+        "z": -9.049000098487627e-10
+      },
+      "error_m": {
+        "x": 3.030297375406407e-10,
+        "y": -4.1657066966754156e-10,
+        "z": -9.049000098487627e-10
+      }
+    },
+    {
+      "input_local": {
+        "x": 100.0,
+        "y": 200.0,
+        "z": 3.0
+      },
+      "spherical": {
+        "latitude_deg": -24.71717115826974,
+        "longitude_deg": -46.51463667787355,
+        "altitude": 103.00393470935524
+      },
+      "returned_local": {
+        "x": 100.00000000044467,
+        "y": 200.0000000000656,
+        "z": 2.999999999725539
+      },
+      "error_m": {
+        "x": 4.446718548933859e-10,
+        "y": 6.559730536537245e-11,
+        "z": -2.7446089845284405e-10
+      }
+    },
+    {
+      "input_local": {
+        "x": -250.0,
+        "y": 50.0,
+        "z": -20.0
+      },
+      "spherical": {
+        "latitude_deg": -24.71852529068743,
+        "longitude_deg": -46.51809584095329,
+        "altitude": 80.00509357452393
+      },
+      "returned_local": {
+        "x": -249.9999999994916,
+        "y": 50.00000000020535,
+        "z": -20.000000000097614
+      },
+      "error_m": {
+        "x": 5.084075382910669e-10,
+        "y": 2.0534685063466895e-10,
+        "z": -9.761436103872256e-11
+      }
+    }
+  ],
+  "wiki_documented_spherical_for_local_100_200_3": {
+    "latitude_deg": -24.720782227452414,
+    "longitude_deg": -46.51661335064305,
+    "altitude": 103.00393470842391
+  },
+  "wiki_documented_spherical_converts_to_local": {
+    "x": -100.00000000054106,
+    "y": -199.9999999996236,
+    "z": 3.000000000046833
+  },
+  "non_finite_input": {
+    "to_spherical": {
+      "latitude_deg": NaN,
+      "longitude_deg": NaN,
+      "altitude": NaN
+    },
+    "to_spherical_all_finite": false,
+    "from_spherical": {
+      "x": NaN,
+      "y": NaN,
+      "z": NaN
+    },
+    "from_spherical_all_finite": false
+  },
+  "out_of_range_origin": {
+    "request": {
+      "latitude_deg": 100.0,
+      "longitude_deg": 200.0,
+      "altitude": 0.0
+    },
+    "service_success": true,
+    "reported_after_set": {
+      "latitude_deg": 100.0,
+      "longitude_deg": 200.0,
+      "altitude": 0.0
+    }
+  },
+  "restore_success": true,
+  "restored_origin": {
+    "latitude_deg": 35.074823,
+    "longitude_deg": 129.08479800000003,
+    "altitude": 0.0
+  }
+}

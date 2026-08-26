@@ -1,0 +1,12 @@
+[gazebo-1] InitializeSockets() Error: Operation not permitted
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/auto_default.log for writing: Operation not permitted
+[gazebo-1] Node::Subscribe(): Error discovering topic [@/gwon-yeseol-ui-noteubug.local:gwon-yeseol@/gazebo/starting_world]. Did you forget to start the discovery service?
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/auto_default.log for writing: Operation not permitted
+[gazebo-1] InitializeSockets() Error: Operation not permitted
+[gazebo-1] Node::Advertise(): Error advertising topic [/gazebo/starting_world]. Did you forget to start the discovery service?
+[gazebo-1] ~PublisherPrivate() Error unadvertising topic []
+[gazebo-1] PasteBoard: Error creating pasteboard: com.apple.pasteboard.clipboard [-4960]
+[gazebo-1] PasteBoard: Error creating pasteboard: com.apple.pasteboard.find [-4960]
+[gazebo-1] 2026-08-26 17:07:25.747 gz-sim-gui-client[90507:13131828] Error received in message reply handler: Connection invalid
+[gazebo-1] 2026-08-26 17:07:25.747 gz-sim-gui-client[90507:13131988] Connection Invalid error for service com.apple.hiservices-xpcservice.
+[gazebo-1] (2026-08-26 17:07:26.678) [error] [Application.cc:927] [GUI] [QT] Cannot create window: no screens available

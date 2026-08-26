@@ -292,6 +292,21 @@ namespace, emits each tested tag at most once, and validates all ten result JSON
 This is the same scope error in test-fixture form: ten result files do not prove ten independent
 conditions unless the fixture proves what was loaded and what was varied.
 
+### A coordinate example that was trusted without reversing it
+
+**Believed:** the Spherical Coordinates Wiki's response for local `(100,200,3)` was a usable
+numeric example because its fields and general transform flow matched the source.
+
+**Actually:** after setting the exact Wiki origin, the runtime result has the opposite latitude
+and longitude direction from the documented value. Feeding the documented spherical triple into
+the inverse service returns approximately `(-100,-200,3)`, not `(100,200,3)`. The current example
+world's initial origin has also changed since the page's older North Sea value.
+
+**Caught by** treating a documented numeric response as a test vector and running it in both
+directions on Mac and Docker. Three independent finite round-trip points passed at sub-nanometre
+axis error, so the positive transform path and the bad example can be stated separately. A
+round-trip checks internal consistency; it still does not establish independent geodesic accuracy.
+
 ---
 
 ## What actually went wrong, five times over

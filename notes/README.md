@@ -10,7 +10,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [`upstream/`](upstream/) | 상류에 보고할 것. [`drafts/`](upstream/drafts/) 가 원본, [`submit/`](upstream/submit/) 이 붙여넣기용 변환본, [`make_submittable.py`](upstream/make_submittable.py) 가 변환기 |
-| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL·SeaPressure) 여덟 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
+| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL·SeaPressure·Spherical Coordinates) 아홉 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
 | [`results/`](results/) | 날짜별 실험 결과. [`worlds/`](results/worlds/) 는 world 18종 스모크 테스트 로그 |
 | [`experiments/`](experiments/) | 실험 스크립트. [`common.sh`](experiments/common.sh) 가 공통 측정 절차 |
 | [`benchmarks/`](benchmarks/) | 초기 벤치마크 스크립트와 결과 (7월). `bench_results/SUPERSEDED_*` 는 폐기된 회차 |
@@ -54,6 +54,14 @@ Mac·Docker에서 통제 조건 10개를 실행했고 압력·variance·depth-to
 **Pascal 필드의 kPa 크기 값, 무시되는 `saturation`·`noise_sigma`·`update_rate`, `abs(z)`,
 빈 ROS `frame_id` 때문에 전체 판정은 PARTIAL**이다.
 
+최신 Spherical Coordinates 직접 검증:
+[`results/spherical_coordinates_direct_validation_2026-08-26/`](results/spherical_coordinates_direct_validation_2026-08-26/).
+Mac·Docker에서 네 서비스를 호출하고 유한점 3개를 왕복 변환했다. 양성 경로의 최대 축
+오차는 `9.71e-10 m`이었지만, Wiki 원점·변환 결과가 현재 world/runtime과 맞지 않고
+NaN·범위 밖 원점을 받아들이며, Mac 기본 플러그인 경로에서는 서비스가 나타나지 않아
+**전체 판정은 PARTIAL**이다. Docker 기본 경로에서는 `install/lib`가
+`LD_LIBRARY_PATH`에 있어 네 서비스가 그대로 나타났다.
+
 ## 이 층의 파일
 
 루트 [`README.md`](../README.md) 는 입구 역할만 한다. 상류 저장소(`IOES-Lab/dave`,
@@ -64,8 +72,8 @@ Mac·Docker에서 통제 조건 10개를 실행했고 압력·variance·depth-to
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 39개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 82행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`known-issues.md`](known-issues.md) | 41개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 83행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

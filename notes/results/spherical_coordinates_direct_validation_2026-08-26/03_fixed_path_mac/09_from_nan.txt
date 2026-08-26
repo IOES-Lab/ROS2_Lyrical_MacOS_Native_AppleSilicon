@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.TransformFromSphericalCoord_Request(latitude_deg=nan, longitude_deg=-46.515625, altitude=100.0)
+
+response:
+dave_interfaces.srv.TransformFromSphericalCoord_Response(output=geometry_msgs.msg.Vector3(x=nan, y=nan, z=nan))

@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/Users/gwon-yeseol/ros2_lyrical/install/ros2cli/bin/ros2", line 33, in <module>
+    sys.exit(load_entry_point('ros2cli', 'console_scripts', 'ros2')())
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/cli.py", line 91, in main
+    rc = extension.main(parser=parser, args=args)
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2service/ros2service/command/service.py", line 41, in main
+    return extension.main(args=args)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2service/ros2service/verb/type.py", line 32, in main
+    with NodeStrategy(args) as node:
+         ~~~~~~~~~~~~^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/node/strategy.py", line 33, in __init__
+    if use_daemon and is_daemon_running(args):
+                      ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/node/daemon.py", line 75, in is_daemon_running
+    return node.connected
+           ^^^^^^^^^^^^^^
+  File "/Users/gwon-yeseol/ros2_lyrical/build/ros2cli/ros2cli/node/daemon.py", line 46, in connected
+    for method in self._proxy.system.listMethods()
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/client.py", line 1096, in __call__
+    return self.__send(self.__name, args)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/client.py", line 1435, in __request
+    response = self.__transport.request(
+        self.__host,
+    ...<2 lines>...
+        verbose=self.__verbose
+        )
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/client.py", line 1140, in request
+    return self.single_request(host, handler, request_body, verbose)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/client.py", line 1152, in single_request
+    http_conn = self.send_request(host, handler, request_body, verbose)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/client.py", line 1265, in send_request
+    self.send_content(connection, request_body)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xmlrpc/client.py", line 1295, in send_content
+    connection.endheaders(request_body)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1362, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1122, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1066, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1032, in connect
+    self.sock = self._create_connection(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        (self.host,self.port), self.timeout, self.source_address)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 874, in create_connection
+    raise exceptions[0]
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 859, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+PermissionError: [Errno 1] Operation not permitted

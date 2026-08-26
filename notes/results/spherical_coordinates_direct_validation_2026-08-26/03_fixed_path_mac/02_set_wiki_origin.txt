@@ -1,0 +1,4 @@
+requester: making request: dave_interfaces.srv.SetOriginSphericalCoord_Request(latitude_deg=-24.71897669633431, longitude_deg=-46.515625, altitude=100.0)
+
+response:
+dave_interfaces.srv.SetOriginSphericalCoord_Response(success=True)

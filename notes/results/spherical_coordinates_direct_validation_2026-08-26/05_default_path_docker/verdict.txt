@@ -1,0 +1,4 @@
+PRESENT /gz/get_origin_spherical_coordinates
+PRESENT /gz/set_origin_spherical_coordinates
+PRESENT /gz/transform_to_spherical_coordinates
+PRESENT /gz/transform_from_spherical_coordinates

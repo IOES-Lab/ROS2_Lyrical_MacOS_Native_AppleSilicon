@@ -1,0 +1,4 @@
+MISSING /gz/get_origin_spherical_coordinates
+MISSING /gz/set_origin_spherical_coordinates
+MISSING /gz/transform_from_spherical_coordinates
+MISSING /gz/transform_to_spherical_coordinates

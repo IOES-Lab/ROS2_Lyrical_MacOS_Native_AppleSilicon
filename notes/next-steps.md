@@ -4,6 +4,12 @@
 
 # 남은 일
 
+- [ ] **Spherical Coordinates 후속 3건** — (1) Wiki의 현재 world 원점과
+  `(100,200,3)` 변환 결과를 2026-08-26 런타임 값으로 유지한다. (2) NaN과
+  latitude `100°`/longitude `200°` 같은 비정상 입력을 거부하고 실패를 표현할 API를
+  정한다. 변환 `.srv`에는 현재 success 필드가 없다. (3) Mac 설치의
+  `GZ_SIM_SYSTEM_PLUGIN_PATH`와 실제 dylib 위치를 맞춘 clean rebuild를 확인한다.
+  유한점 3개 왕복은 Mac·Docker 모두 통과했지만 독립 geodesy 정확도 검증은 아니다
 - [ ] **SeaPressure 결함의 수정·보고 범위 결정** — 2026-08-26 Mac·Docker 10조건 행렬에서
   kPa→Pa 단위 오류, 무시되는 `saturation`·`noise_sigma`·`update_rate`, `abs(z)`의
   above-origin 대칭, 빈 ROS `frame_id`를 런타임 확인했다. 기존 이슈 초안 7·8은 단위와
@@ -30,7 +36,8 @@
   차량 반응 시험은 **12개 층을 같은 값으로 설정**한 뒤 측정했다. 따라서 "발행되는 해류가
   깊이에 따라 보간된다"까지는 확인됐고, **"서로 다른 깊이의 차량이 서로 다른 힘을 받는다"는
   아직 미확인**이다. 같은 world에서 깊이만 다른 두 차량, 또는 하강하는 한 차량으로 봐야 한다.
-- [ ] **Ocean Current 플러그인 설치 경로 정리** — 런타임 `GZ_SIM_SYSTEM_PLUGIN_PATH` 에는
+- [ ] **Ocean Current/Spherical Coordinates 플러그인 설치 경로 정리** — Mac 런타임
+  `GZ_SIM_SYSTEM_PLUGIN_PATH` 에는
   `lib/<package>/` 가 들어 있었고 dylib 는 `lib/` 에 설치돼 있었다. **그 항목이 어디서
   주입되는지가 먼저다** — 두 패키지의 install 트리에는 `GZ_SIM_SYSTEM_PLUGIN_PATH` 를
   쓰는 파일이 없다([`known-issues.md`](known-issues.md) 참고). 출처를 찾은 뒤 한쪽을
@@ -70,7 +77,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 여덟 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 아홉 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
@@ -81,6 +88,8 @@
   bridge 설명을 소스·런타임에 맞추고, Docker 통과 범위와 Mac crash·frame ID·water-mass
   한계를 분리해 기록했다. 이어 SeaPressure 페이지를 Mac·Docker 10조건 행렬에 맞춰
   갱신해 단위·무시되는 세 설정·`abs(z)`·빈 `frame_id`와 실제 동작하는 네 설정을 분리했다.
+  마지막으로 Spherical Coordinates 페이지의 현재 world 원점, 부호가 뒤집힌 변환 예제,
+  입력 검증과 Mac/Docker 플러그인 발견 범위를 직접 실행 결과로 교체했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

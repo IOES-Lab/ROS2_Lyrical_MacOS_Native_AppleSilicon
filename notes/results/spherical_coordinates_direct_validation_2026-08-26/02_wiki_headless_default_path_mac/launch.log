@@ -1,0 +1,45 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/spherical_coordinates_direct_validation_2026-08-26/02_wiki_headless_default_path_mac/ros_logs/2026-08-26-17-08-31-850635-gwon-yeseol-ui-noteubug.local-90605
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [90609]
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/sim/log/2026-08-26T17:08:48.135384000/server_console.log for writing: No such file or directory
+[gazebo-1] (2026-08-26 17:08:48.141) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+[gazebo-1] (2026-08-26 17:08:48.243) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/dave_bimanual_example.world].
+[gazebo-1] (2026-08-26 17:08:50.156) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+[gazebo-1] (2026-08-26 17:08:50.160) [info] [SimulationRunner.cc:347] Serving world controls on [/world/dave_bimanual_example/control], [/world/dave_bimanual_example/control/state] and [/world/dave_bimanual_example/playback/control]
+[gazebo-1] (2026-08-26 17:08:50.161) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/dave_bimanual_example/gui/info]
+[gazebo-1] (2026-08-26 17:08:50.161) [info] [SimulationRunner.cc:376] World [dave_bimanual_example] initialized with [1ms] physics profile.
+[gazebo-1] (2026-08-26 17:08:50.161) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/dave_bimanual_example/generate_world_sdf]
+[gazebo-1] (2026-08-26 17:08:50.163) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+[gazebo-1] (2026-08-26 17:08:50.163) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] (2026-08-26 17:08:50.163) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] (2026-08-26 17:08:50.163) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] (2026-08-26 17:08:50.163) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] (2026-08-26 17:08:50.164) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+[gazebo-1] (2026-08-26 17:08:50.164) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+[gazebo-1] (2026-08-26 17:08:50.165) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+[gazebo-1] (2026-08-26 17:08:50.314) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+[gazebo-1] (2026-08-26 17:08:50.314) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+[gazebo-1] (2026-08-26 17:08:50.314) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+[gazebo-1] (2026-08-26 17:08:50.314) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:751] Create service on [/world/dave_bimanual_example/create_multiple] (async)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:753] Create service on [/world/dave_bimanual_example/create_multiple/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:751] Remove service on [/world/dave_bimanual_example/remove] (async)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:753] Remove service on [/world/dave_bimanual_example/remove/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:751] Pose service on [/world/dave_bimanual_example/set_pose] (async)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:753] Pose service on [/world/dave_bimanual_example/set_pose/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:751] Pose service on [/world/dave_bimanual_example/set_pose_vector] (async)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:753] Pose service on [/world/dave_bimanual_example/set_pose_vector/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:751] Light configuration service on [/world/dave_bimanual_example/light_config] (async)
+[gazebo-1] (2026-08-26 17:08:50.771) [info] [UserCommands.cc:753] Light configuration service on [/world/dave_bimanual_example/light_config/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:751] Physics service on [/world/dave_bimanual_example/set_physics] (async)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:753] Physics service on [/world/dave_bimanual_example/set_physics/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/dave_bimanual_example/set_spherical_coordinates] (async)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/dave_bimanual_example/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:751] Enable collision service on [/world/dave_bimanual_example/enable_collision] (async)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:753] Enable collision service on [/world/dave_bimanual_example/enable_collision/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:751] Disable collision service on [/world/dave_bimanual_example/disable_collision] (async)
+[gazebo-1] (2026-08-26 17:08:50.772) [info] [UserCommands.cc:753] Disable collision service on [/world/dave_bimanual_example/disable_collision/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.773) [info] [UserCommands.cc:751] Material service on [/world/dave_bimanual_example/visual_config] (async)
+[gazebo-1] (2026-08-26 17:08:50.773) [info] [UserCommands.cc:753] Material service on [/world/dave_bimanual_example/visual_config/blocking] (blocking)
+[gazebo-1] (2026-08-26 17:08:50.773) [info] [UserCommands.cc:751] Material service on [/world/dave_bimanual_example/wheel_slip] (async)
+[gazebo-1] (2026-08-26 17:08:50.773) [info] [UserCommands.cc:753] Material service on [/world/dave_bimanual_example/wheel_slip/blocking] (blocking)

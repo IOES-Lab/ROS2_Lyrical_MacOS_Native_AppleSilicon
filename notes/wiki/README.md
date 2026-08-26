@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**여덟 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**아홉 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -186,6 +186,31 @@ topic graph를 양쪽 플랫폼에서 직접 읽었다.
 
 근거:
 [`../results/seapressure_full_validation_2026-08-26/`](../results/seapressure_full_validation_2026-08-26/).
+
+## 9차 — 2026-08-26 Spherical Coordinates 직접 재검증
+
+「Spherical Coordinates Plugin」 페이지의 네 서비스를 Mac·Docker 통제 행렬과 현재
+`dave_bimanual_example.world`에 맞춰 다시 썼다.
+
+- 현재 world 원점은 `(35.074823, 129.084798, 0)`이다. 페이지의 오래된 North Sea
+  원점을 현재 기본값처럼 읽히지 않게 했다
+- Wiki 원점을 명시적으로 설정한 뒤 local `(100,200,3)`의 실제 변환 결과는
+  `(-24.71717115826974, -46.51463667787355, 103.00393470935524)`였다
+- 기존 문서 결과는 역변환하면 약 `(-100,-200,3)`이므로 X/Y 방향이 반대라고 경고했다
+- 네 서비스의 필드가 `float64`인 기존 정정은 유지했다
+- NaN 변환은 NaN을 반환하고, 위도 `100°`·경도 `200°` 원점도 `success=true`로
+  받아들이므로 입력 검증이 없다는 범위를 추가했다
+- Mac의 생성된 nested plugin path에서는 네 서비스가 없었고 실제 `lib/` 추가 후
+  나타났다. Docker 기본 환경에서는 `install/lib`가 `LD_LIBRARY_PATH`에 있어 수동
+  Gazebo 경로 추가 없이 네 서비스가 나타났다
+
+유한점 3개를 플랫폼별로 왕복한 최대 축 오차는 `9.71e-10 m`였지만, 독립 geodesy
+구현이나 측량값과 비교하지 않았으므로 일반 좌표 정확도 검증으로 확대하지 않는다.
+소스에서 본 optional-empty→zero fallback은 런타임에서 유발하지 못했고 별도 코드
+문제로 남긴다.
+
+근거:
+[`../results/spherical_coordinates_direct_validation_2026-08-26/`](../results/spherical_coordinates_direct_validation_2026-08-26/).
 
 ## 일부러 넣지 않은 것
 

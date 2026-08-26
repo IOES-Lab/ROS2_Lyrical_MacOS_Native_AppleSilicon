@@ -1,0 +1,2 @@
+GZ_SIM_SYSTEM_PLUGIN_PATH=/home/docker/dave_ws/install/lib/multibeam_sonar_system/:/home/docker/dave_ws/install/lib/multibeam_sonar/:/home/docker/dave_ws/install/lib/dave_gz_model_plugins/:/home/docker/dave_ws/install/lib/dave_ros_gz_plugins/:/home/docker/dave_ws/install/lib/dave_gz_world_plugins/:/home/docker/dave_ws/install/lib/dave_gz_sensor_plugins/
+/home/docker/dave_ws/install/lib/libSphericalCoords.so

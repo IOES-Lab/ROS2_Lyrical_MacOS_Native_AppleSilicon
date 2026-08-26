@@ -1,0 +1,2 @@
+Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/sim/log/2026-08-26T17:17:41.470854000/server_console.log for writing: No such file or directory
+[INFO] [1787732301.385866000] [rclcpp]: signal_handler(signum=2)

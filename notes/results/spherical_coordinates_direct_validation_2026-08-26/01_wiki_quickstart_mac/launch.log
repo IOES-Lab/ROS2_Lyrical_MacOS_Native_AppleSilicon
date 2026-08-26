@@ -1,0 +1,35 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/spherical_coordinates_direct_validation_2026-08-26/01_wiki_quickstart_mac/ros_logs/2026-08-26-17-06-51-234595-gwon-yeseol-ui-noteubug.local-90500
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [90503]
+[gazebo-1] Binding to a local port failed.
+[gazebo-1] Binding to a local port failed.
+[gazebo-1] InitializeSockets() Error: Operation not permitted
+[gazebo-1] Gazebo Transport has not been correctly initialized
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/auto_default.log for writing: Operation not permitted
+[gazebo-1] Node::Subscribe(): Error discovering topic [@/gwon-yeseol-ui-noteubug.local:gwon-yeseol@/gazebo/starting_world]. Did you forget to start the discovery service?
+[gazebo-1] Error creating log file: Failed opening file /Users/gwon-yeseol/.gz/auto_default.log for writing: Operation not permitted
+[gazebo-1] (2026-08-26 17:07:15.107) [info] [Gui.cc:339] Gazebo Sim GUI    v10.4.0
+[gazebo-1] Binding to a local port failed.
+[gazebo-1] Binding to a local port failed.
+[gazebo-1] InitializeSockets() Error: Operation not permitted
+[gazebo-1] Gazebo Transport has not been correctly initialized
+[gazebo-1] Node::Advertise(): Error advertising topic [/gazebo/starting_world]. Did you forget to start the discovery service?
+[gazebo-1] (2026-08-26 17:07:25.483) [warning] [Gui.cc:421] Waited for 10s for a subscriber to [/gazebo/starting_world] and got none.
+[gazebo-1] ~PublisherPrivate() Error unadvertising topic []
+[gazebo-1] PasteBoard: Error creating pasteboard: com.apple.pasteboard.clipboard [-4960]
+[gazebo-1] PasteBoard: Error creating pasteboard: com.apple.pasteboard.find [-4960]
+[gazebo-1] 2026-08-26 17:07:25.747 gz-sim-gui-client[90507:13131828] Error received in message reply handler: Connection invalid
+[gazebo-1] 2026-08-26 17:07:25.747 gz-sim-gui-client[90507:13131988] Connection Invalid error for service com.apple.hiservices-xpcservice.
+[gazebo-1] 2026-08-26 17:07:25.820 gz-sim-gui-client[90507:13131828] Failure on line 687 in function id scheduleApplicationNotification(LSNotificationCode, NSWorkspaceNotificationCenter *): noErr == _LSModifyNotification(notificationID, 1, &code, 0, NULL, NULL, NULL)
+[gazebo-1] (2026-08-26 17:07:25.942) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/Main.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-08-26 17:07:26.678) [error] [Application.cc:927] [GUI] [QT] Cannot create window: no screens available
+[gazebo-1] Stack trace (most recent call last):
+[gazebo-1] #8    Object "QtCore", at 0x106cd83ff, in QMessageLogger::fatal(char const*, ...) const + 95
+[gazebo-1] #7    Object "QtCore", at 0x1069a4dcf, in qt_message(QtMsgType, QMessageLogContext const&, char const*, char*) + 215
+[gazebo-1] #6    Object "QtCore", at 0x10698d48f, in qAbort() + 11
+[gazebo-1] #5    Object "libsystem_c.dylib", at 0x1853889e3, in abort + 123
+[gazebo-1] #4    Object "libsystem_pthread.dylib", at 0x18547f847, in pthread_kill + 295
+[gazebo-1] #3    Object "libsystem_platform.dylib", at 0x1854b96a3, in _sigtramp + 55
+[gazebo-1] #2    Object "gz-sim-gui-client", at 0x100ce9533, in backward::SignalHandling::sig_handler(int, __siginfo*, void*) + 19
+[gazebo-1] #1    Object "gz-sim-gui-client", at 0x100ce9597, in backward::SignalHandling::handleSignal(int, __siginfo*, void*) + 71
+[gazebo-1] #0    Object "gz-sim-gui-client", at 0x100ce96db, in backward::StackTraceImpl<backward::system_tag::darwin_tag>::load_from(void*, unsigned long, void*, void*) + 43
