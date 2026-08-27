@@ -85,6 +85,12 @@ USBL then moved PASS → PARTIAL → PASS across three weeks as a *second*, unre
 the world loads paused unless `paused:=false` is passed, which silently blocks the plugin's
 `rclcpp::spin_some()` and every ROS 2 subscription callback.
 
+**A third mistake was hidden by a successful output check.** The Wiki used the generic sensor
+launcher with `namespace:=usbl`. The world-embedded USBL plugins still published, so the command
+looked valid, while the same launch log repeatedly said that `description/usbl/model.sdf` does not
+exist. Directly checking output proved only the embedded world path, not that every action in the
+launcher succeeded. Re-running the world-only launcher on both platforms removed the error.
+
 ### Five hypotheses about the CPU cost, four of them wrong
 
 **Believed, in order:** `FillPointCloudMsg` dominates; the spawn hang is double-sourcing; the

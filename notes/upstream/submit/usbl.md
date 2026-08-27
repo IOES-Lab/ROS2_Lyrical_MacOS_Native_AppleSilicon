@@ -13,29 +13,30 @@
 
 ## Summary
 
-The Gazebo **server** process (not the GUI client) aborts with `SIGABRT` when a world file
-configures a `UsblTransponder` plugin instance with `<sigma>0.0</sigma>`. The included
+On Docker/libstdc++, the Gazebo **server** process (not the GUI client) aborts with `SIGABRT`
+when a world file configures a `UsblTransponder` plugin instance with `<sigma>0.0</sigma>`. The included
 `usbl_tutorial.world` demo world itself ships with this exact configuration on both of its
 `UsblTransponder` instances, so the crash reproduces out of the box from a fresh checkout —
 no custom world file needed.
 
 This was originally reported/investigated as a "GUI crash" because the symptom (the demo
-failing to come up) was observed via a GUI launch; the actual failure is server-side and
-reproduces identically with `gui:=false`.
+failing to come up) was observed via a GUI launch; the Docker failure is server-side and
+reproduces without a GUI. Direct 2026-08-27 controls also showed that macOS/libc++ accepts
+the same literal zero and returns finite near-exact coordinates. That platform difference
+does not make the input portable; it shows why the plugin must handle zero explicitly.
 
 ## Environment
 
-- ROS 2 Lyrical, Gazebo Jetty (also expected on Jazzy/Harmonic and other libstdc++ builds
-  where `_GLIBCXX_ASSERTIONS`-style checks are enabled — this is a libstdc++ contract
-  violation, not a Gazebo- or ROS-distro-specific bug)
+- ROS 2 Lyrical, Gazebo Jetty
 - Ubuntu 26.04, gcc-15 / libstdc++ (Docker, arm64)
-- Reproduced on both Docker and macOS-native Gazebo Jetty builds
+- Docker/libstdc++: abort on the first ping, exit 134
+- macOS arm64/libc++: finite output for the same literal-zero control
 
 ## Steps to reproduce
 
 ```bash
-ros2 launch dave_demos dave_sensor.launch.py \
-  namespace:=usbl world_name:=usbl_tutorial gui:=false headless:=true
+ros2 launch dave_demos dave_world.launch.py \
+  world_name:=usbl_tutorial
 ```
 
 ## Observed behavior
@@ -48,6 +49,9 @@ ros2 launch dave_demos dave_sensor.launch.py \
 
 Exit code 134 = `SIGABRT`. The Gazebo server dies within a few seconds of startup; no GUI is
 involved.
+
+The abort occurs on the first interrogation ping, not merely while loading the world. On
+macOS/libc++, the same world and ping sequence returned finite data instead of aborting.
 
 ## Root cause
 
@@ -67,27 +71,24 @@ this->dataPtr->m_noiseSigma = _sdf->Get<double>("sigma");
 The plugin's own compiled-in default (`m_noiseSigma = 1.0`) is safe, but
 [`usbl_tutorial.world`](https://github.com/IOES-Lab/dave/search?q=usbl_tutorial) explicitly
 sets `<sigma>0.0</sigma>` on both of its `UsblTransponder` instances (`sphere` and `sphere2`
-models), overriding the safe default. `std::normal_distribution`'s constructor requires
-`stddev > 0` strictly per the C++ standard; libstdc++ builds with debug assertions enabled
-enforce this at runtime with an `abort()`, which is what kills the Gazebo server process.
-
-Whether the assertion is compiled in depends on the specific libstdc++ build's assertion
-flags — this may be why the bug wasn't caught on other platforms/toolchains where the check
-is compiled out (in which case `sigma=0` would silently construct an actually-invalid
-distribution object instead of crashing, arguably worse).
+models), overriding the safe default. The standard distribution has a strictly positive
+standard-deviation precondition. The tested libstdc++ build enforces it with an assertion
+and abort; the tested libc++ build accepted zero and returned finite values. Relying on either
+library's behavior leaves the plugin non-portable.
 
 ## Suggested fix
 
-Guard the distribution construction against non-positive sigma, e.g.:
+Handle zero and negative values before constructing the distribution, e.g.:
 
 ```cpp
-if (this->dataPtr->m_noiseSigma <= 0)
+if (this->dataPtr->m_noiseSigma < 0)
 {
-  gzwarn << "[UsblTransponder] sigma must be > 0; ignoring configured value ("
-         << this->dataPtr->m_noiseSigma << ") and disabling noise for this instance."
-         << std::endl;
-  // skip noise application entirely, or clamp to a small positive epsilon --
-  // maintainer's call on which behavior is more correct for this plugin
+  gzerr << "[UsblTransponder] sigma must be non-negative" << std::endl;
+  return;  // or fail configuration using the project's preferred mechanism
+}
+else if (this->dataPtr->m_noiseSigma == 0)
+{
+  // Return the configured mean directly; do not construct the distribution.
 }
 else
 {
@@ -96,9 +97,8 @@ else
 }
 ```
 
-Separately, `usbl_tutorial.world`'s own `<sigma>0.0</sigma>` should probably be reconsidered —
-it's unclear whether zero noise was ever actually reachable/intended, or whether it was meant
-to approximate "no noise" without realizing the constructor doesn't accept exactly zero.
+This preserves the tutorial world's apparent intent that zero means "no noise" while rejecting
+negative values explicitly.
 
 ## What we did as a workaround (not a substitute for the real fix)
 
@@ -110,5 +110,5 @@ needed for that.
 
 ## Additional context
 
-Full investigation notes, including the earlier (superseded) hypothesis that this was a
-GUI/rendering issue, are available on request if useful for triage.
+Full investigation notes and the Mac/Docker direct evidence, including common/individual
+routing controls and the earlier superseded GUI hypothesis, are available on request.

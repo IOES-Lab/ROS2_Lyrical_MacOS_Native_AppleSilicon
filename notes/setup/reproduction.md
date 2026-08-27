@@ -220,11 +220,13 @@ programmatically without string-matching on free text:
 
 | column | values |
 |---|---|
-| `status` | exactly one of `SMOKE PASS`, `FUNCTIONAL PASS`, `PARTIAL`, `NOT AUTOMATED` — no qualifiers, no dates |
+| `status` | exactly one of `SMOKE PASS`, `FUNCTIONAL PASS`, `FUNCTIONAL PASS WITH REQUIRED WORKAROUNDS`, `PARTIAL`, `NOT AUTOMATED` — no dates |
 | `workaround` | `TRUE` if the pass depends on a patch or launch-arg workaround rather than stock behaviour, else `FALSE` |
 | `evidence_date` | date of the evidence the current `status` rests on, not the date the row was first written |
 | `notes` | full prose history, including superseded findings and what is inferred vs. directly confirmed |
 
 `SMOKE PASS` means the process stayed alive without crashing; it does **not** imply the world's functionality was
-checked. `FUNCTIONAL PASS` requires real topic/service data on record. Two rows currently carry
-`workaround = TRUE`: `new_dvl` (Fuel URI patch) and `usbl_tutorial` (sigma patch + `paused:=false` launch arg).
+checked. `FUNCTIONAL PASS` requires real topic/service data on record. `FUNCTIONAL PASS WITH REQUIRED WORKAROUNDS`
+adds that the functional path still depends on documented non-stock or launch constraints. Two rows currently carry
+`workaround = TRUE`: `new_dvl` (Fuel URI patch) and `usbl_tutorial` (positive-sigma world patch, world-only launcher,
+and an unpaused simulation so the plugin can pump ROS callbacks).

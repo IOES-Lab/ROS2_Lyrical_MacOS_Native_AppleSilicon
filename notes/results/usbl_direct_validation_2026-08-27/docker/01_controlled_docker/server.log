@@ -1,0 +1,6 @@
+0 0 0.5 0 0 0
+3 3 1 0 0 0
+6 6 1 0 0 0
+(2026-08-27 00:25:59.671) [error] [UserCommands.cc:934] Error Code 1: Msg: Error finding file [/home/docker/dave_ws/install/share/dave_sensor_models/description/usbl/model.sdf].
+(2026-08-27 00:25:59.671) [error] [UserCommands.cc:934] Error Code 1: Msg: Unable to read file: [/home/docker/dave_ws/install/share/dave_sensor_models/description/usbl/model.sdf]
+[INFO] [1787790388.551521429] [rclcpp]: signal_handler(signum=15)

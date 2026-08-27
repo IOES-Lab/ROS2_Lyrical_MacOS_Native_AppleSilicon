@@ -1,5 +1,17 @@
 # USBL GUI Crash — Root Cause Investigation (2026-07-22)
 
+
+> **Current status — revalidated 2026-08-27 on Mac and Docker.** The historical
+> `dave_sensor.launch.py namespace:=usbl ... paused:=false` command below is no
+> longer the recommended Quickstart: it produces data from the world-embedded
+> plugins but also tries to spawn nonexistent `description/usbl/model.sdf`.
+> Use `ros2 launch dave_demos dave_world.launch.py world_name:=usbl_tutorial`.
+> Common and individual paths passed on both platforms. Literal `sigma=0` is
+> platform-dependent: macOS/libc++ returned finite data, Docker/libstdc++
+> aborted with exit 134. Current evidence:
+> [`results/usbl_direct_validation_2026-08-27/`](results/usbl_direct_validation_2026-08-27/).
+
+
 ## Status: CONFIRMED (2026-07-22, `notes/results/usbl_tutorial.log`)
 
 **This is not a GUI crash.** It is the Gazebo **server** process (`gz sim ... -s -r`, `-s`
@@ -353,3 +365,31 @@ world-file epsilon rather than a plugin-level guard. Not yet reported
 upstream; a single report covering both the sigma/SIGABRT bug and the
 paused-state/`spin_some()` gap (both live in the same two plugin files)
 would be the natural way to file it.
+
+## Direct cross-platform revalidation (2026-08-27)
+
+The July root-cause findings were rerun rather than accepted from the old log.
+Controlled worlds outside the DAVE checkout exercised common mode and each
+individual channel on Mac and Docker. Both transponders produced spherical and
+Cartesian data in common mode; individual channels returned only the selected
+ID. Across retained positive-sigma runs, the maximum static-coordinate axis
+error was `0.000258 m`.
+
+The paused control retained all expected graph endpoints but produced zero
+output samples on both platforms. The literal-zero control split by standard
+library: libc++ accepted `sigma=0`, while libstdc++ aborted on the first ping
+with `_M_stddev > 0` and exit 134. The epsilon world patch therefore remains a
+portability workaround, not a plugin fix.
+
+The old Wiki command was also found to be structurally wrong. Because the USBL
+plugins are embedded in `usbl_tutorial.world`, the generic sensor launcher can
+still produce data while simultaneously failing to spawn nonexistent
+`dave_sensor_models/description/usbl/model.sdf`. The world-only launcher was
+then run on both platforms, produced both IDs, and emitted no missing-model
+error:
+
+```bash
+ros2 launch dave_demos dave_world.launch.py world_name:=usbl_tutorial
+```
+
+Evidence: [`results/usbl_direct_validation_2026-08-27/`](results/usbl_direct_validation_2026-08-27/).

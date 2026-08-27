@@ -1,0 +1,53 @@
+{
+  "date": "2026-08-27",
+  "verdict": "FUNCTIONAL PASS WITH REQUIRED WORKAROUNDS",
+  "dave_commit": "6aef91c823af5da073329b84ba617b572965e79e",
+  "tested_platforms": [
+    "macOS arm64, ROS 2 Lyrical, Gazebo Jetty",
+    "Docker Linux arm64, ROS 2 Lyrical, Gazebo Jetty"
+  ],
+  "positive_sigma_static_geometry": {
+    "sigma": 0.0001,
+    "controlled_platforms": [
+      "mac_controlled",
+      "docker_controlled"
+    ],
+    "common_path": "6 spherical + 6 Cartesian samples per platform; IDs 1 and 2",
+    "individual_path": "3 spherical + 3 Cartesian samples per selected ID per platform; no cross-channel IDs",
+    "maximum_observed_cartesian_axis_error_m": 0.00025795250425891814,
+    "scope": "Tutorial static geometry and routing only; not general acoustic or travel-time accuracy."
+  },
+  "old_wiki_quickstart": {
+    "command_family": "dave_sensor.launch.py namespace:=usbl world_name:=usbl_tutorial",
+    "mac_output": true,
+    "docker_output": true,
+    "defect": "The launcher also repeatedly tries to spawn nonexistent dave_sensor_models/description/usbl/model.sdf."
+  },
+  "corrected_quickstart": {
+    "command": "ros2 launch dave_demos dave_world.launch.py world_name:=usbl_tutorial",
+    "mac_common_output": true,
+    "docker_common_output": true,
+    "nonexistent_model_spawn_error": false
+  },
+  "paused_state": {
+    "mac_graph_endpoints_present": true,
+    "docker_graph_endpoints_present": true,
+    "mac_output_samples": 0,
+    "docker_output_samples": 0,
+    "cause_from_source": "Both USBL PostUpdate methods call rclcpp::spin_some only while the simulation is unpaused."
+  },
+  "sigma_zero": {
+    "mac_libcpp": "accepted; both transponders produced finite output",
+    "mac_maximum_cartesian_axis_error_m": 6.1253992433840665e-09,
+    "docker_libstdcpp": "Gazebo server aborted on first ping",
+    "docker_exit_code": 134,
+    "portability_conclusion": "sigma=0 behavior is platform-dependent; a plugin-level guard is required."
+  },
+  "limitations": [
+    "Three samples per transponder and trigger path in the controlled positive-sigma runs.",
+    "Static tutorial geometry only; no moving transceiver or transponders.",
+    "No independent acoustic propagation or travel-time ground truth.",
+    "The DAVE workspaces were based on commit 6aef91c and were not pristine; controlled test worlds were kept outside the DAVE checkout.",
+    "The sigma=0 Mac success does not make zero sigma portable because Docker/libstdc++ aborts."
+  ]
+}

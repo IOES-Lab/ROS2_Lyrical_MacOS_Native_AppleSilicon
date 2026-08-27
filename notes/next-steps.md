@@ -22,6 +22,13 @@
   변환으로 대체한다. (3) 배포 DVL 모델의 water-mass 태그를 실제 environmental variable
   이름과 preload에 연결한다. Docker bottom/velocity 및 수정된 water-mass control은
   직접 통과했지만 이 세 결함 때문에 전체 판정은 PARTIAL이다
+- [ ] **USBL 후속 3건** — (1) `sigma == 0`이면 분포를 만들지 않고 평균을
+  반환하며 음수는 거부하는 plugin-level guard를 구현해 Mac·Docker에서 다시 시험한다.
+  (2) paused 상태에서 endpoint만 보이고 출력은 0인 현재 동작을 API/문서에 명시하거나
+  callback pumping을 simulation pause와 분리할지 결정한다. (3) static tutorial geometry를
+  넘어 이동 표적·travel time·장시간·다중 transceiver 정확성을 검증한다. 2026-08-27에
+  common/individual과 두 transponder, 잘못된 Quickstart launcher는 직접 확인·정정했지만
+  이 후속 범위와 upstream 보고는 열려 있다.
 - [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
   `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,
   [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
@@ -77,7 +84,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-26까지 아홉 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
@@ -88,8 +95,10 @@
   bridge 설명을 소스·런타임에 맞추고, Docker 통과 범위와 Mac crash·frame ID·water-mass
   한계를 분리해 기록했다. 이어 SeaPressure 페이지를 Mac·Docker 10조건 행렬에 맞춰
   갱신해 단위·무시되는 세 설정·`abs(z)`·빈 `frame_id`와 실제 동작하는 네 설정을 분리했다.
-  마지막으로 Spherical Coordinates 페이지의 현재 world 원점, 부호가 뒤집힌 변환 예제,
+  Spherical Coordinates 페이지의 현재 world 원점, 부호가 뒤집힌 변환 예제,
   입력 검증과 Mac/Docker 플러그인 발견 범위를 직접 실행 결과로 교체했다.
+  2026-08-27에는 USBL common/individual 경로와 paused·`sigma=0` 통제를 양쪽 플랫폼에서
+  재실행하고, 없는 센서 모델을 spawn하던 Quickstart를 world-only launcher로 교체했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

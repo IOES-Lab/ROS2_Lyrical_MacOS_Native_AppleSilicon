@@ -1,0 +1,8 @@
+date=2026-08-27T00:25:11+00:00
+Linux 67d4b1d39687 6.12.76-linuxkit #1 SMP Sun Mar  8 14:41:59 UTC 2026 aarch64 GNU/Linux
+ROS_DISTRO=lyrical
+RMW_IMPLEMENTATION=
+GZ_SIM_SYSTEM_PLUGIN_PATH=/home/docker/dave_ws/install/lib/multibeam_sonar_system/:/home/docker/dave_ws/install/lib/multibeam_sonar/:/home/docker/dave_ws/install/lib/dave_gz_model_plugins/:/home/docker/dave_ws/install/lib/dave_ros_gz_plugins/:/home/docker/dave_ws/install/lib/dave_gz_world_plugins/:/home/docker/dave_ws/install/lib/dave_gz_sensor_plugins/
+LD_LIBRARY_PATH=/home/docker/dave_ws/install/lib/multibeam_sonar_system/:/home/docker/dave_ws/install/lib/multibeam_sonar/:/home/docker/dave_ws/install/lib:/opt/ros/lyrical/opt/gz_sim_vendor/lib:/opt/ros/lyrical/opt/gz_sensors_vendor/lib:/opt/ros/lyrical/opt/gz_gui_vendor/lib:/opt/ros/lyrical/opt/gz_transport_vendor/lib:/opt/ros/lyrical/opt/zenoh_cpp_vendor/lib:/opt/ros/lyrical/opt/gz_physics_vendor/lib:/opt/ros/lyrical/opt/sdformat_vendor/lib:/opt/ros/lyrical/opt/gz_rendering_vendor/lib:/opt/ros/lyrical/opt/gz_plugin_vendor/lib:/opt/ros/lyrical/opt/gz_fuel_tools_vendor/lib:/opt/ros/lyrical/opt/gz_msgs_vendor/lib:/opt/ros/lyrical/opt/gz_common_vendor/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/aarch64-linux-gnu:/opt/ros/lyrical/opt/gz_tools_vendor/lib:/opt/ros/lyrical/opt/gz_ogre_next_vendor/lib:/opt/ros/lyrical/opt/gz_dartsim_vendor/lib:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib
+/home/docker/dave_ws/install
+/home/docker/dave_ws/install

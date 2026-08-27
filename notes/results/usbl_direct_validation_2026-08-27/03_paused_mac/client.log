@@ -1,0 +1,41 @@
+{
+  "expected_cartesian_m": {
+    "1": [
+      3.0,
+      3.0,
+      0.5
+    ],
+    "2": [
+      6.0,
+      6.0,
+      0.5
+    ]
+  },
+  "graph": {
+    "cartesian_publishers": 1,
+    "channel_subscribers": 1,
+    "common_ping_subscribers": 2,
+    "individual_1_subscribers": 1,
+    "individual_2_subscribers": 1,
+    "location_publishers": 1,
+    "mode_subscribers": 3
+  },
+  "phases": {
+    "common": {
+      "cartesian_count": 0,
+      "cartesian_ids": [],
+      "maximum_cartesian_axis_error_m": null,
+      "maximum_spherical_cartesian_reconstruction_error_m": null,
+      "spherical_count": 0,
+      "spherical_ids": [],
+      "unexpected_ids": []
+    }
+  },
+  "raw": {
+    "common": {
+      "cartesian": [],
+      "spherical": []
+    }
+  },
+  "scope": "Common and individual ROS trigger paths in the two-transponder tutorial geometry. This checks message routing and geometric self-consistency, not general acoustic accuracy."
+}

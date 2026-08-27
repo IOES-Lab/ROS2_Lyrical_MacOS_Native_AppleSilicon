@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**아홉 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -211,6 +211,28 @@ topic graph를 양쪽 플랫폼에서 직접 읽었다.
 
 근거:
 [`../results/spherical_coordinates_direct_validation_2026-08-26/`](../results/spherical_coordinates_direct_validation_2026-08-26/).
+
+## 10차 — 2026-08-27 USBL 직접 재검증
+
+「USBL Plugin」 페이지의 Quickstart와 두 trigger path를 Mac·Docker에서 직접 다시
+실행했다.
+
+- common mode에서 transponder 1·2의 spherical/Cartesian 출력을 양쪽 플랫폼에서 확인
+- individual channel 1/2는 선택한 ID만 출력하고 cross-channel ID는 없음을 확인
+- `sigma=0.0001` 정적 좌표의 retained run 최대 축 오차는 `0.000258 m`
+- paused 상태는 endpoint가 보여도 두 플랫폼 모두 출력 0 — `spin_some()` pause gate 재확인
+- literal `sigma=0`은 Mac/libc++에서는 finite output, Docker/libstdc++에서는 첫 ping에
+  assertion abort(exit 134) — 플랫폼 의존 결함으로 범위 수정
+- 기존 `dave_sensor.launch.py namespace:=usbl` Quickstart는 world plugin 출력이 나와도
+  없는 `description/usbl/model.sdf`를 spawn하려는 오류를 함께 발생시킴
+- Quickstart를 검증된 world-only launcher
+  `ros2 launch dave_demos dave_world.launch.py world_name:=usbl_tutorial`로 교체
+
+이 회차는 static tutorial geometry와 routing만 확인한다. 일반 USBL 음향·travel-time
+정확도, 이동 표적, 장시간·다중 transceiver는 검증하지 않았다.
+
+근거:
+[`../results/usbl_direct_validation_2026-08-27/`](../results/usbl_direct_validation_2026-08-27/).
 
 ## 일부러 넣지 않은 것
 

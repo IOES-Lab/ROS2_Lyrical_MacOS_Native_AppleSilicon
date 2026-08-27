@@ -1,0 +1,8 @@
+date=2026-08-27T09:12:54+09:00
+Darwin gwon-yeseol-ui-noteubug.local 24.6.0 Darwin Kernel Version 24.6.0: Wed Nov  5 21:33:59 PST 2025; root:xnu-11417.140.69.705.2~1/RELEASE_ARM64_T8112 arm64
+ROS_DISTRO=lyrical
+RMW_IMPLEMENTATION=
+GZ_SIM_SYSTEM_PLUGIN_PATH=/Users/gwon-yeseol/dave_ws_lyrical/install/multibeam_sonar_system/lib/multibeam_sonar_system/:/Users/gwon-yeseol/dave_ws_lyrical/install/multibeam_sonar/lib/multibeam_sonar/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_model_plugins/lib/dave_gz_model_plugins/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_ros_gz_plugins/lib/dave_ros_gz_plugins/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_world_plugins/lib/dave_gz_world_plugins/:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_sensor_plugins/lib/dave_gz_sensor_plugins/
+LD_LIBRARY_PATH=/Users/gwon-yeseol/dave_ws_lyrical/install/multibeam_sonar_system/lib/multibeam_sonar_system/:/Users/gwon-yeseol/dave_ws_lyrical/install/multibeam_sonar/lib/multibeam_sonar/
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_sensor_plugins
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_interfaces

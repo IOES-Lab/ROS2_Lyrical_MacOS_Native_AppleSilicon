@@ -1,0 +1,279 @@
+{
+  "expected_cartesian_m": {
+    "1": [
+      3.0,
+      3.0,
+      0.5
+    ],
+    "2": [
+      6.0,
+      6.0,
+      0.5
+    ]
+  },
+  "graph": {
+    "cartesian_publishers": 1,
+    "channel_subscribers": 1,
+    "common_ping_subscribers": 2,
+    "individual_1_subscribers": 1,
+    "individual_2_subscribers": 1,
+    "location_publishers": 1,
+    "mode_subscribers": 3
+  },
+  "phases": {
+    "common": {
+      "cartesian_count": 6,
+      "cartesian_ids": [
+        1,
+        2
+      ],
+      "maximum_cartesian_axis_error_m": 0.0001922776901137624,
+      "maximum_spherical_cartesian_reconstruction_error_m": 0.0001922776901137624,
+      "spherical_count": 6,
+      "spherical_ids": [
+        1,
+        2
+      ],
+      "unexpected_ids": []
+    },
+    "individual_1": {
+      "cartesian_count": 3,
+      "cartesian_ids": [
+        1
+      ],
+      "maximum_cartesian_axis_error_m": 7.283326704810023e-05,
+      "maximum_spherical_cartesian_reconstruction_error_m": 7.283326704765614e-05,
+      "spherical_count": 3,
+      "spherical_ids": [
+        1
+      ],
+      "unexpected_ids": []
+    },
+    "individual_2": {
+      "cartesian_count": 3,
+      "cartesian_ids": [
+        2
+      ],
+      "maximum_cartesian_axis_error_m": 0.00012864162643744237,
+      "maximum_spherical_cartesian_reconstruction_error_m": 0.00012864162643833055,
+      "spherical_count": 3,
+      "spherical_ids": [
+        2
+      ],
+      "unexpected_ids": []
+    }
+  },
+  "raw": {
+    "common": {
+      "cartesian": [
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787790336.1352491,
+          "x": 3.000041713509288,
+          "y": 2.9999600457504214,
+          "z": 0.5001888807967303
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787790336.1362064,
+          "x": 5.999869397100412,
+          "y": 6.000119944739426,
+          "z": 0.5000819820446436
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787790336.3960125,
+          "x": 5.999884881353278,
+          "y": 6.000192277690114,
+          "z": 0.4998958317879517
+        },
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787790336.3964887,
+          "x": 2.9999552471409325,
+          "y": 2.9999881916168967,
+          "z": 0.5000093929768312
+        },
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787790336.660413,
+          "x": 2.9999663576149724,
+          "y": 2.9998841261745515,
+          "z": 0.5001793987346106
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787790336.6607714,
+          "x": 5.9999728003909905,
+          "y": 6.000073551949696,
+          "z": 0.4999431351579993
+        }
+      ],
+      "spherical": [
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787790336.1351025,
+          "x": 44.999220130577825,
+          "y": 4.2720252194207955,
+          "z": 6.723883216933103
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787790336.1361382,
+          "x": 45.00119627791921,
+          "y": 8.499997301310607,
+          "z": 3.3728413289764188
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787790336.3959248,
+          "x": 45.00146769995736,
+          "y": 8.500048341120342,
+          "z": 3.3715641042403868
+        },
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787790336.396284,
+          "x": 45.000314599537525,
+          "y": 4.271963252154013,
+          "z": 6.721557234846467
+        },
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787790336.6603022,
+          "x": 44.99921472801834,
+          "y": 4.2719178770447135,
+          "z": 6.723924894828036
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787790336.660707,
+          "x": 45.00048105139961,
+          "y": 8.500029374809804,
+          "z": 3.3718910446669277
+        }
+      ]
+    },
+    "individual_1": {
+      "cartesian": [
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787790338.2287965,
+          "x": 2.9999427305111643,
+          "y": 2.999944788563626,
+          "z": 0.4999868480398562
+        },
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787790338.4933174,
+          "x": 3.000011257107671,
+          "y": 3.0000072976184016,
+          "z": 0.49998030099060164
+        },
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787790338.7512734,
+          "x": 3.000072833267048,
+          "y": 3.000071757740563,
+          "z": 0.5000337832378388
+        }
+      ],
+      "spherical": [
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787790338.2287061,
+          "x": 45.000019653321786,
+          "y": 4.271921343961013,
+          "z": 6.72131900908948
+        },
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787790338.4932296,
+          "x": 44.99996218977957,
+          "y": 4.272012597115681,
+          "z": 6.721086358875997
+        },
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787790338.7511706,
+          "x": 44.99998972972611,
+          "y": 4.272107365326703,
+          "z": 6.721658823458635
+        }
+      ]
+    },
+    "individual_2": {
+      "cartesian": [
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787790340.3101437,
+          "x": 6.000063324712722,
+          "y": 6.000128641626437,
+          "z": 0.5000137077657747
+        },
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787790340.5723097,
+          "x": 5.99990979219851,
+          "y": 6.00003859822176,
+          "z": 0.5000982130381585
+        },
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787790340.8909078,
+          "x": 5.999937464453629,
+          "y": 5.9999738621810135,
+          "z": 0.4998857724727639
+        }
+      ],
+      "spherical": [
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787790340.3100529,
+          "x": 45.00031186030167,
+          "y": 8.500136312117723,
+          "z": 3.37232509980585
+        },
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787790340.572182,
+          "x": 45.000615006104006,
+          "y": 8.499969348024408,
+          "z": 3.372962032024071
+        },
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787790340.8903534,
+          "x": 45.000173787631105,
+          "y": 8.499930688525072,
+          "z": 3.3715429012595894
+        }
+      ]
+    }
+  },
+  "scope": "Common and individual ROS trigger paths in the two-transponder tutorial geometry. This checks message routing and geometric self-consistency, not general acoustic accuracy."
+}
