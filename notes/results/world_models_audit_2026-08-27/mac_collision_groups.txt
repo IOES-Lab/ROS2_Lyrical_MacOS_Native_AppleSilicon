@@ -1,0 +1,3 @@
+default: dave_multibeam_sonar.world, usbl_tutorial.world
+dvl_world: dvl_world.world, new_dvl.world
+oceans_waves: dave_ocean_waves.world, dave_ocean_waves_mossy_ground.world, dave_ocean_waves_sonar.world

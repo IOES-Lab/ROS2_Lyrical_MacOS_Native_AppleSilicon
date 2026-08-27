@@ -1,0 +1,15 @@
+platform=Ubuntu 26.04 aarch64 Docker
+source_repo=/home/docker/dave_ws/src/dave
+revision=6aef91c823af5da073329b84ba617b572965e79e
+source_world_count=18
+installed_world_count=1
+source_status:
+ M gazebo/dave_gz_model_plugins/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+ M gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+ M gazebo/dave_gz_world_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+ M models/dave_worlds/worlds/usbl_tutorial.world

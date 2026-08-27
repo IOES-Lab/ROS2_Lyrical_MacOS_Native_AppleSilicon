@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열한 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열두 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -35,7 +35,7 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 | `paused:=false` 없으면 모든 ROS 콜백 차단 | USBL Plugin | Quick Start 명령에 없었다 |
 | `update_rate` 30 Hz 도달 불가 · P900 SDF 불일치 | Multibeam Sonar | 데이터시트 "up to 15 Hz" |
 | 소나가 145~175초 뒤에야 살아남 | Multibeam Sonar | 그 전 측정은 전부 무효 |
-| world 이름 `oceans_waves` 충돌 | Dave World Models | 우리가 실제로 측정을 잘못 귀속시켰다 |
+| world 내부 이름 충돌(당시 `oceans_waves` 2파일만 확인, 12차에서 전체 범위 재정정) | Dave World Models | 우리가 실제로 측정을 잘못 귀속시켰다 |
 | 차량 IMU 가 ROS 에 도달하지 않음 | ROV · Glider Models | 4대 전후 측정 |
 | Fast DDS 스폰 무한 대기 | Installation Tutorial | 공유메모리 1/9, UDPv4 5/5 |
 | `gui:=true headless:=true` 조합 | Installation Tutorial | |
@@ -254,6 +254,30 @@ MAVROS 연결, 반복·장시간 안정성과 fifth variant sonar root cause는 
 
 근거:
 [`../results/rov_direct_validation_2026-08-27/`](../results/rov_direct_validation_2026-08-27/).
+
+
+## 12차 — 2026-08-27 Dave World Models 전체 감사
+
+「Dave World Models」 페이지의 Quickstart와 18개 배포 world 파일을 전체 대조했다.
+
+- 현재 world-level matrix는 `FUNCTIONAL PASS` 5, `FUNCTIONAL PASS WITH REQUIRED
+  WORKAROUNDS` 1, `SMOKE PASS` 11, `PARTIAL` 1 — 17/18 PASS-level이지만 기능 17개
+  완전 통과라는 뜻은 아님
+- 18개 파일의 내부 `<world name>`은 14개뿐이며, **7개 파일이 세 중복 그룹**에 속함:
+  `oceans_waves` 3개, `default` 2개, `dvl_world` 2개
+- 기존 페이지와 이슈 초안은 `oceans_waves` 2파일만 적고 `default`를 unique라고 했으므로 철회
+- Mac source·Docker source·Docker install의 filename/name inventory가 일치함
+- 18/18 파일이 remote Fuel URI를 가지며 총 remote include URI는 128개 — 빈 cache의 첫
+  실행은 네트워크가 필요함
+- `dave_ocean_waves` Quickstart를 Mac의 검증된 headless extension과 Docker RDP/X의
+  정확한 Wiki 명령으로 재실행했고, 양쪽에서 `/world/oceans_waves/stats` 진행을 확인
+
+이 회차의 single stats sample은 launch/liveness 근거이지 성능 benchmark가 아니다.
+그날 다시 실행한 world는 `dave_ocean_waves` 하나뿐이며, 나머지 17행은 기존 날짜의
+evidence를 유지한다. source inventory만으로 어떤 SMOKE도 FUNCTIONAL로 올리지 않았다.
+
+근거:
+[`../results/world_models_audit_2026-08-27/`](../results/world_models_audit_2026-08-27/).
 
 ## 일부러 넣지 않은 것
 

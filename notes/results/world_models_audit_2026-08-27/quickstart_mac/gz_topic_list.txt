@@ -1,0 +1,12 @@
+/clock
+/gazebo/resource_paths
+/stats
+/world/oceans_waves/clock
+/world/oceans_waves/dynamic_pose/info
+/world/oceans_waves/light_config
+/world/oceans_waves/material_color
+/world/oceans_waves/pose/info
+/world/oceans_waves/scene/deletion
+/world/oceans_waves/scene/info
+/world/oceans_waves/state
+/world/oceans_waves/stats

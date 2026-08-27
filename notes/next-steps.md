@@ -36,6 +36,7 @@
   PointCloud2 원인을 분리하고 IMU topic·가짜 magnetometer bridge를 정리한다. (4) stock
   `empty.sdf`를 REXROV sensor 예제로 계속 쓸지, Sensors system이 있는 world로 문서를
   바꿀지 결정한다. 일반 thrust dynamics와 장시간·반복 안정성도 아직 검증하지 않았다.
+- [ ] **World 내부 이름 중복 3그룹 정리·보고** — 2026-08-27 전체 18파일 감사에서 `oceans_waves` 3파일, `default` 2파일, `dvl_world` 2파일이 같은 내부 이름을 공유함을 확인했다. 파일명과 맞는 고유 이름으로 바꾸면 `/world/<name>/...` API가 달라지므로, 호환성 공지·launch/test 갱신 범위를 정한 뒤 확장된 issue 5를 제출해야 한다.
 - [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
   `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,
   [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
@@ -91,7 +92,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열한 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열두 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
@@ -109,6 +110,8 @@
   같은 날 Dave ROV Models의 exact/isolated 경로를 Mac·Docker에서 실행해 REXROV 7/7,
   fifth multibeam variant의 runtime PARTIAL, standalone Joy PASS와 통합 MAVROS blocker를
   현재 판정으로 반영했다.
+  이어 Dave World Models의 18개 파일 전체를 대조해 14개 내부 이름과 3개 중복 그룹을
+  기록하고, Mac·Docker Quickstart의 진행을 다시 확인했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

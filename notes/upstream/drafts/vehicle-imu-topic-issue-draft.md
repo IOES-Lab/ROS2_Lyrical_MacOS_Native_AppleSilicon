@@ -19,8 +19,9 @@ but never publishes
 ## Summary
 
 Four base vehicle models — `rexrov`, `bluerov2`, `bluerov2_heavy`, `glider_slocum` — were
-runtime-tested, and a fifth, `bluerov2_heavy_multibeam_sonar`, shows the same omission by source
-inspection only. All five declare
+runtime-tested before and after the topic patch. A fifth, `bluerov2_heavy_multibeam_sonar`, was
+later launched as shipped on Mac and Docker and remained silent for 120 seconds on both; it was not
+retested after the patch. All five declare
 an `imu_sensor` with no `<topic>` element. Gazebo therefore publishes on its default sensor
 path, while each vehicle's `robot_config.py` bridges the short name:
 
@@ -97,7 +98,7 @@ Two possible fixes, and the choice is yours rather than ours:
 
 - **Message content was not inspected**, only that messages arrive. This does not say the
   IMU data is correct, only that before the fix there was none.
-- **Four vehicles measured, a fifth read only.** The four base vehicles were measured before and after on a running simulation. A fifth model, `bluerov2_heavy_multibeam_sonar`, has the same omission in the current `ros2` source — its `imu_sensor` declares no `<topic>` while the camera and sonar in the same file do — but it was **not** launched, so that one is source-only.
+- **Four vehicles have before/after measurements; the fifth has an as-shipped runtime failure only.** The four base vehicles were measured before and after on a running simulation. `bluerov2_heavy_multibeam_sonar` was later launched on Mac and Docker and produced no IMU samples in either 120-second capture; its `imu_sensor` has the same missing `<topic>`, but the fixed form was not rerun for that fifth variant.
 - **n = 1 per vehicle.** The before/after is the exception: all four measured silent before
   and publishing after.
 - Tested only in `dave_ocean_waves`. Whether behaviour differs by world is untested.

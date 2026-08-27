@@ -1,0 +1,4 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/world_models_audit_2026-08-27/quickstart_mac/ros_logs/2026-08-27-11-34-50-819937-gwon-yeseol-ui-noteubug.local-22925
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [22929]
+[INFO] [gazebo-1]: process has finished cleanly [pid 22929]

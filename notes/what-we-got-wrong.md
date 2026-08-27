@@ -22,9 +22,12 @@ publishing, and belonged to something else entirely.
 
 **Caught by** trying to re-measure it and noticing the world name did not match.
 
-The "123x Mac/Docker gap" was built on this one number and went with it. Two world files also
-turned out to share the internal name `oceans_waves`, which is what made the mistake possible;
-that is now an upstream issue report of its own.
+The "123x Mac/Docker gap" was built on this one number and went with it. We first documented
+only two files sharing `oceans_waves`. A complete 18-file audit on 2026-08-27 found that the
+correction itself was too narrow: seven files occupy three duplicate-name groups
+(`oceans_waves`, `default`, `dvl_world`). The upstream draft now reports the full inventory.
+The lesson is the same as the original failure: checking only the names already suspected is
+not evidence that the rest are unique.
 
 ### A 4.5x cost that was 1.90x
 

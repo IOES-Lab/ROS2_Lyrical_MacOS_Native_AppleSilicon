@@ -1,0 +1,4 @@
+[INFO] [launch]: All log files can be found below /home/docker/world_models_audit_quickstart/ros_logs/2026-08-27-02-38-05-379741-67d4b1d39687-51288
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [51308]
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].

@@ -28,11 +28,11 @@ before/after, so they are the easiest for a maintainer to act on. The last two w
 
 | # | File | What it reports | Fix size |
 |---|---|---|---|
-| 1 | [`vehicle-imu-topic.md`](vehicle-imu-topic.md) | No vehicle's IMU data reaches ROS. Four models omit `<topic>` on `imu_sensor`, so the bridged topic exists and stays silent — measured before/after. A fifth, `bluerov2_heavy_multibeam_sonar`, has the same omission in source but was not launched. | One line per model |
+| 1 | [`vehicle-imu-topic.md`](vehicle-imu-topic.md) | Four base models omit `<topic>` on `imu_sensor`, so the bridged topic exists and stays silent — measured before/after. The fifth `bluerov2_heavy_multibeam_sonar` variant was later launched as shipped on Mac and Docker and stayed silent for 120 s on both, but its fixed form was not rerun. | One line per model |
 | 2 | [`build-type.md`](build-type.md) | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing is compiled with `-O`. `Release` doubles RTF. | One flag |
 | 3 | [`updaterate.md`](updaterate.md) | `blueview_p900` asks for 30 Hz, which the sensor cannot reach and the hardware does not do. 2 Hz removes 75% of the sonar's cost. | One number |
 | 4 | [`usbl.md`](usbl.md) | `UsblTransponder` aborts the Gazebo **server** on `<sigma>0.0</sigma>`, which the shipped demo world sets. | Input validation |
-| 5 | [`world-name-collision.md`](world-name-collision.md) | Two world files declare the same `<world name>`, making their topics indistinguishable. Caused a real misattributed measurement here. | One attribute |
+| 5 | [`world-name-collision.md`](world-name-collision.md) | Seven of 18 world files occupy three duplicate `<world name>` groups, making their topic namespaces ambiguous. One collision contributed to a real misattributed measurement here. | Seven attributes, with namespace migration |
 | 6 | [`docker-sonar-crash.md`](docker-sonar-crash.md) | `dave_multibeam_sonar` segfaults in `Ogre2GpuRays::CreateSampleTexture()` on Ubuntu 26.04 aarch64, where a stock `gpu_lidar` at the same ray count and angles does not. | Not identified |
 | 7 | [`seapressure-unit.md`](seapressure-unit.md) | `SubseaPressureSensorPlugin` puts kPa into `sensor_msgs/FluidPressure`, which is defined in Pascals. Cross-platform controlled values were `101.325` at the surface and `199.3888` at `|z|=10 m`. | One multiplication |
 | 8 | [`seapressure-dead-params.md`](seapressure-dead-params.md) | Same plugin: `<noise_sigma>`, `saturation` and `<update_rate>` do not affect their documented output properties in Mac and Docker controls; Gaussian noise is commented out while non-zero `variance` is published. | Docs, or three small additions |
