@@ -279,6 +279,31 @@ evidence를 유지한다. source inventory만으로 어떤 SMOKE도 FUNCTIONAL�
 근거:
 [`../results/world_models_audit_2026-08-27/`](../results/world_models_audit_2026-08-27/).
 
+## 13차 — 2026-08-27 Dave Glider Models 직접 재검증
+
+「Dave Glider Models」 페이지의 `empty.sdf`와 `dave_ocean_waves` 예제를 Docker RDP에서
+직접 다시 실행하고, 기존 `6/6`의 분모를 원본 스크립트까지 역추적했다.
+
+- 두 Wiki launch 모두 model을 spawn하고 config의 9개 bridge topic을 전부 노출
+- as-shipped `empty.sdf`는 state/sensor 5/6 — IMU만 silent
+- local IMU `<topic>` overlay의 ocean run은 state/sensor 6/6
+- 과거 `6/6` extractor는 `grep -v '^joint'`로 joint 3개를 제외했으므로, thruster가
+  여섯에 포함됐다는 문구를 철회
+- ROS `cmd_thrust=25.0`이 Gazebo `data: 25`로 도달하고 `ang_vel`이 `-0`에서
+  `55776.3435`로 변함 — command coupling만 확인, calibration은 미검증
+- integrated `enable_deadband`는 Gazebo→ROS `true`는 통과하고 ROS→Gazebo는 timeout;
+  isolated Bool bridge는 양방향 통과하여 원인 미확정
+- fresh Mac 두 예제는 `/stats`와 model data가 진행되지 않은 `NOT_STEPPING` 재현으로
+  미확정이며 현재 functional 근거에 사용하지 않음
+- ROV page의 `bluerov2_heavy_multibeam_sonar` source-only 문구도 11차 runtime 결과로 갱신
+
+이 회차는 Wiki launch, 여섯 state/sensor output과 한 thrust-command coupling을 검증한다.
+일반 glider dynamics, actuator calibration, battery depletion, navigation 성능과 장시간
+안정성은 검증하지 않았다.
+
+근거:
+[`../results/glider_direct_validation_2026-08-27/`](../results/glider_direct_validation_2026-08-27/).
+
 ## 일부러 넣지 않은 것
 
 문서가 아니라 **코드로 고쳐야 하는 것들**이다. 문서에 "이거 없으면 실패한다"고

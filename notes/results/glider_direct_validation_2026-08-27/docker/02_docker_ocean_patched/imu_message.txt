@@ -1,0 +1,22 @@
+header:
+  stamp:
+    sec: 16
+    nanosec: 60000000
+  frame_id: glider_slocum/imu_link/imu_sensor
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 1.0
+orientation_covariance: '<array type: double[9]>'
+angular_velocity:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular_velocity_covariance: '<array type: double[9]>'
+linear_acceleration:
+  x: 0.0
+  y: 0.0
+  z: 9.800437170098116
+linear_acceleration_covariance: '<array type: double[9]>'
+---

@@ -1,0 +1,5 @@
+[INFO] [1787808300.719028966] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/codex_bool_test (gz.msgs.Boolean) -> /codex_bool_test (std_msgs/msg/Bool)] (Lazy 0)
+[INFO] [1787808300.722155133] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/codex_bool_test (std_msgs/msg/Bool) -> /codex_bool_test (gz.msgs.Boolean)] (Lazy 0)
+[INFO] [1787808309.045836304] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Bool to Gazebo gz.msgs.Boolean (showing msg only once per type)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1787808313.580506708] [rclcpp]: signal_handler(signum=2)

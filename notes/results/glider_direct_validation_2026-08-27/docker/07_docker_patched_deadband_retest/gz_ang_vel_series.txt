@@ -1,0 +1,3131 @@
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: -0
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027
+
+data: 55776.343531645027

@@ -1,0 +1,9 @@
+--- /home/docker/glider_validation/results/source/as_shipped_glider_model_excerpt.sdf	2026-08-27 05:16:40.838378013 +0000
++++ /home/docker/glider_validation/results/source/patched_glider_model_excerpt.sdf	2026-08-27 05:16:40.845378013 +0000
+@@ -13,6 +13,7 @@
+       <sensor name="imu_sensor" type="imu">
+         <always_on>true</always_on>
+         <update_rate>50.0</update_rate>
++        <topic>/model/glider_slocum/imu</topic>
+       </sensor>
+     </link>

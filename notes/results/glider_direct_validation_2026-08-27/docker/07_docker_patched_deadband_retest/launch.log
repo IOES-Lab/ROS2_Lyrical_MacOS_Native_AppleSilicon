@@ -1,0 +1,34 @@
+[INFO] [launch]: All log files can be found below /home/docker/glider_validation/results/07_docker_patched_deadband_retest/ros_logs/2026-08-27-05-19-44-157363-67d4b1d39687-55457
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [55478]
+[INFO] [create-2]: process started with pid [55479]
+[create-2] [INFO] [1787807985.273195126] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787807988.807381669] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 55479]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [parameter_bridge-3]: process started with pid [55582]
+[parameter_bridge-3] [INFO] [1787807989.357027086] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/battery/battery/state (gz.msgs.BatteryState) -> /model/glider_slocum/battery/battery/state (sensor_msgs/msg/BatteryState)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.366443503] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/battery/battery/state (sensor_msgs/msg/BatteryState) -> /model/glider_slocum/battery/battery/state (gz.msgs.BatteryState)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.368395961] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/joint/propeller_joint/cmd_thrust (gz.msgs.Double) -> /model/glider_slocum/joint/propeller_joint/cmd_thrust (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.372305836] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/joint/propeller_joint/cmd_thrust (std_msgs/msg/Float64) -> /model/glider_slocum/joint/propeller_joint/cmd_thrust (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.376704295] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/joint/propeller_joint/ang_vel (gz.msgs.Double) -> /model/glider_slocum/joint/propeller_joint/ang_vel (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.384730045] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/joint/propeller_joint/ang_vel (std_msgs/msg/Float64) -> /model/glider_slocum/joint/propeller_joint/ang_vel (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.385492711] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/joint/propeller_joint/enable_deadband (gz.msgs.Boolean) -> /model/glider_slocum/joint/propeller_joint/enable_deadband (std_msgs/msg/Bool)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.386659711] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/joint/propeller_joint/enable_deadband (std_msgs/msg/Bool) -> /model/glider_slocum/joint/propeller_joint/enable_deadband (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.489860670] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/navsat (gz.msgs.NavSat) -> /model/glider_slocum/navsat (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.491375378] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/navsat (sensor_msgs/msg/NavSatFix) -> /model/glider_slocum/navsat (gz.msgs.NavSat)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.492611878] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/odometry (gz.msgs.Odometry) -> /model/glider_slocum/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.511485461] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/odometry (nav_msgs/msg/Odometry) -> /model/glider_slocum/odometry (gz.msgs.Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.512722211] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/glider_slocum/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.514429295] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/odometry_with_covariance (nav_msgs/msg/Odometry) -> /model/glider_slocum/odometry_with_covariance (gz.msgs.OdometryWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.515423086] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/pose (gz.msgs.Pose_V) -> /model/glider_slocum/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.517322753] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/pose (geometry_msgs/msg/PoseArray) -> /model/glider_slocum/pose (gz.msgs.Pose_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.520017420] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/glider_slocum/imu (gz.msgs.IMU) -> /model/glider_slocum/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787807989.524947670] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/glider_slocum/imu (sensor_msgs/msg/Imu) -> /model/glider_slocum/imu (gz.msgs.IMU)] (Lazy 0)
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].
+[parameter_bridge-3] [INFO] [1787807999.005772216] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Bool to Gazebo gz.msgs.Boolean (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1787808004.240988302] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Float64 to Gazebo gz.msgs.Double (showing msg only once per type)
+[gazebo-1]
+[gazebo-1] ODE INTERNAL ERROR 1: assertion "aabbBound >= dMinIntExact && aabbBound < dMaxIntExact" failed in collide() [collision_space.cpp:460]
+[gazebo-1] Stack trace (most recent call last):
+[gazebo-1] #20   Object "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1", at 0xffffffffffffffff, in

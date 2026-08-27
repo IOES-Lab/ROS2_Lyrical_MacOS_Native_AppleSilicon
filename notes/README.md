@@ -78,6 +78,15 @@ odometry는 통과했지만 IMU·magnetometer·sonar PointCloud2가 120초 동�
 Docker의 standalone keyboard/WebSocket Joy 경로는 통과했지만, exact BlueROV2 통합 launch는
 현재 이미지의 `mavros`·`mavros_msgs` 부재로 완료되지 않는다.
 
+최신 Glider 모델 직접 검증:
+[`results/glider_direct_validation_2026-08-27/`](results/glider_direct_validation_2026-08-27/).
+Docker RDP에서 Wiki의 `empty.sdf`와 `dave_ocean_waves` 예제를 재실행했고, 설정된 9개
+브리지 토픽을 모두 확인했다. local IMU `<topic>` patch에서는 6개 상태/센서 출력이
+모두 발행됐다. 이전 `6/6`은 joint 3개를 명시적으로 제외했으므로 thruster를 포함했다는
+표현은 철회한다. `cmd_thrust=25.0`은 Gazebo에 도달해 propeller `ang_vel`을 바꿨지만,
+integrated `enable_deadband`의 ROS→Gazebo 방향은 한 직접 시험에서 관측되지 않아 actuator
+범위는 PARTIAL이다. Mac 재시험은 두 예제 모두 `NOT_STEPPING`으로 미확정이다.
+
 최신 World Models 전체 감사:
 [`results/world_models_audit_2026-08-27/`](results/world_models_audit_2026-08-27/).
 18개 배포 world의 내부 이름을 Mac source·Docker source·Docker install에서 대조했다. 고유 이름은 14개뿐이고 **7개 파일이 `oceans_waves`·`default`·`dvl_world` 세 중복 그룹**에 속한다. `dave_ocean_waves` Quickstart는 Mac·Docker에서 다시 진행을 확인했지만, 나머지 17행은 기존 날짜의 증거를 유지하며 SMOKE를 기능 검증으로 올리지 않았다.
@@ -92,8 +101,8 @@ Docker의 standalone keyboard/WebSocket Joy 경로는 통과했지만, exact Blu
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 43개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 86행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`known-issues.md`](known-issues.md) | 44개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 87행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

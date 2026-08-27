@@ -1,0 +1,34 @@
+publisher: beginning loop
+publishing #1: std_msgs.msg.Bool(data=False)
+
+publishing #2: std_msgs.msg.Bool(data=False)
+
+publishing #3: std_msgs.msg.Bool(data=False)
+
+publishing #4: std_msgs.msg.Bool(data=False)
+
+publishing #5: std_msgs.msg.Bool(data=False)
+
+publishing #6: std_msgs.msg.Bool(data=False)
+
+publishing #7: std_msgs.msg.Bool(data=False)
+
+publishing #8: std_msgs.msg.Bool(data=False)
+
+publishing #9: std_msgs.msg.Bool(data=False)
+
+publishing #10: std_msgs.msg.Bool(data=False)
+
+publishing #11: std_msgs.msg.Bool(data=False)
+
+publishing #12: std_msgs.msg.Bool(data=False)
+
+publishing #13: std_msgs.msg.Bool(data=False)
+
+publishing #14: std_msgs.msg.Bool(data=False)
+
+publishing #15: std_msgs.msg.Bool(data=False)
+
+publishing #16: std_msgs.msg.Bool(data=False)
+
+publishing #17: std_msgs.msg.Bool(data=False)

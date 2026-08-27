@@ -1,0 +1,11 @@
+header {
+  stamp {
+    sec: 1
+    nsec: 142000000
+  }
+}
+voltage: 4.2
+charge: 4.32
+capacity: 4.8
+percentage: 0.90000000000000013
+power_supply_status: FULL

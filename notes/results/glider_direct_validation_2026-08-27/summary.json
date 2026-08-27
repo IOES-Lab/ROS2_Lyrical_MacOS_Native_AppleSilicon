@@ -1,0 +1,55 @@
+{
+  "date": "2026-08-27",
+  "overall_verdict": "FUNCTIONAL PASS for the two Wiki launch examples and six state/sensor outputs with the local IMU-topic patch; actuator-command coverage is PARTIAL",
+  "source_revision": "6aef91c823af5da073329b84ba617b572965e79e",
+  "direct_cases": {
+    "docker_ocean_as_shipped": {
+      "bridge_topics_listed": 9,
+      "state_sensor_messages_received": 4,
+      "state_sensor_topics": 6,
+      "imu_message_rc": "124"
+    },
+    "docker_ocean_imu_patched": {
+      "bridge_topics_listed": 9,
+      "state_sensor_messages_received": 6,
+      "state_sensor_topics": 6,
+      "imu_message_rc": "0"
+    },
+    "docker_empty_as_shipped": {
+      "bridge_topics_listed": 9,
+      "state_sensor_messages_received": 5,
+      "state_sensor_topics": 6,
+      "imu_message_rc": "124"
+    }
+  },
+  "bridge_scope": {
+    "configured_topics": 9,
+    "state_sensor_topics": 6,
+    "joint_topics": 3,
+    "previous_6_of_6_method_excluded_joint_topics": true,
+    "previous_wording_that_included_thruster_in_6_of_6": "withdrawn"
+  },
+  "actuator": {
+    "cmd_thrust_ros_command": 25.0,
+    "cmd_thrust_observed_on_gazebo": 25.0,
+    "ang_vel_before": 0.0,
+    "ang_vel_after": 55776.34353164503,
+    "functional_response_observed": true,
+    "physical_accuracy_established": false,
+    "enable_deadband_integrated_gazebo_to_ros_true": "PASS",
+    "enable_deadband_integrated_ros_to_gazebo_true": "NOT OBSERVED (Gazebo echo timeout 124)",
+    "isolated_bool_bridge_both_directions": "PASS",
+    "enable_deadband_conclusion": "Integrated ROS-command path remains unresolved; the generic Bool converter is not the blocker."
+  },
+  "mac_retest": {
+    "ocean_world": "NOT_STEPPING / inconclusive",
+    "empty_world": "NOT_STEPPING after explicit unpause / inconclusive",
+    "used_as_current_functional_evidence": false
+  },
+  "limits": [
+    "One Docker run per Wiki example; the actuator command was repeated within a run but not across independent simulations.",
+    "The local IMU topic patch changes only the glider model SDF and is not present as shipped.",
+    "The 55776.3435 rad/s response establishes command coupling, not actuator or hydrodynamic accuracy.",
+    "Battery depletion, navigation performance, long-duration stability and real glider dynamics were not validated."
+  ]
+}

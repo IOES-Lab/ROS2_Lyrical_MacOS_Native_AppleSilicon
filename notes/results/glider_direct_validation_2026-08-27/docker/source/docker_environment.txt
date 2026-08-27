@@ -1,0 +1,16 @@
+dave_revision=6aef91c823af5da073329b84ba617b572965e79e
+architecture=aarch64
+ros_distro=lyrical
+display_socket=/tmp/.X11-unix/X10
+as_shipped_prefix=/home/docker/dave_ws/install
+patched_overlay_prefix=/home/docker/glider_validation/overlay_ws/install/dave_robot_models
+
+ M gazebo/dave_gz_model_plugins/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+ M gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+ M gazebo/dave_gz_world_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+ M models/dave_worlds/worlds/usbl_tutorial.world

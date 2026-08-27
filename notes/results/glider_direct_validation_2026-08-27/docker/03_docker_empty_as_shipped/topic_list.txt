@@ -1,0 +1,13 @@
+/model/glider_slocum/battery/battery/state
+/model/glider_slocum/imu
+/model/glider_slocum/joint/propeller_joint/ang_vel
+/model/glider_slocum/joint/propeller_joint/cmd_thrust
+/model/glider_slocum/joint/propeller_joint/enable_deadband
+/model/glider_slocum/navsat
+/model/glider_slocum/odometry
+/model/glider_slocum/odometry_with_covariance
+/model/glider_slocum/pose
+/model/glider_slocum/sea_pressure
+/model/glider_slocum/sea_pressure_depth
+/parameter_events
+/rosout

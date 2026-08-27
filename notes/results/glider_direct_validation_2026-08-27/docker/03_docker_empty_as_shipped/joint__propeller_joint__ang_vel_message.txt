@@ -1,0 +1,14 @@
+A message was lost!!!
+	total count change:1
+	total count: 1---
+A message was lost!!!
+	total count change:1
+	total count: 2---
+A message was lost!!!
+	total count change:1
+	total count: 3---
+A message was lost!!!
+	total count change:2
+	total count: 5---
+data: -0.0
+---

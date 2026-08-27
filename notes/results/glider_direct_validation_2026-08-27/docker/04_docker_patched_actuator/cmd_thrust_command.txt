@@ -1,0 +1,106 @@
+publisher: beginning loop
+publishing #1: std_msgs.msg.Float64(data=25.0)
+
+publishing #2: std_msgs.msg.Float64(data=25.0)
+
+publishing #3: std_msgs.msg.Float64(data=25.0)
+
+publishing #4: std_msgs.msg.Float64(data=25.0)
+
+publishing #5: std_msgs.msg.Float64(data=25.0)
+
+publishing #6: std_msgs.msg.Float64(data=25.0)
+
+publishing #7: std_msgs.msg.Float64(data=25.0)
+
+publishing #8: std_msgs.msg.Float64(data=25.0)
+
+publishing #9: std_msgs.msg.Float64(data=25.0)
+
+publishing #10: std_msgs.msg.Float64(data=25.0)
+
+publishing #11: std_msgs.msg.Float64(data=25.0)
+
+publishing #12: std_msgs.msg.Float64(data=25.0)
+
+publishing #13: std_msgs.msg.Float64(data=25.0)
+
+publishing #14: std_msgs.msg.Float64(data=25.0)
+
+publishing #15: std_msgs.msg.Float64(data=25.0)
+
+publishing #16: std_msgs.msg.Float64(data=25.0)
+
+publishing #17: std_msgs.msg.Float64(data=25.0)
+
+publishing #18: std_msgs.msg.Float64(data=25.0)
+
+publishing #19: std_msgs.msg.Float64(data=25.0)
+
+publishing #20: std_msgs.msg.Float64(data=25.0)
+
+publishing #21: std_msgs.msg.Float64(data=25.0)
+
+publishing #22: std_msgs.msg.Float64(data=25.0)
+
+publishing #23: std_msgs.msg.Float64(data=25.0)
+
+publishing #24: std_msgs.msg.Float64(data=25.0)
+
+publishing #25: std_msgs.msg.Float64(data=25.0)
+
+publishing #26: std_msgs.msg.Float64(data=25.0)
+
+publishing #27: std_msgs.msg.Float64(data=25.0)
+
+publishing #28: std_msgs.msg.Float64(data=25.0)
+
+publishing #29: std_msgs.msg.Float64(data=25.0)
+
+publishing #30: std_msgs.msg.Float64(data=25.0)
+
+publishing #31: std_msgs.msg.Float64(data=25.0)
+
+publishing #32: std_msgs.msg.Float64(data=25.0)
+
+publishing #33: std_msgs.msg.Float64(data=25.0)
+
+publishing #34: std_msgs.msg.Float64(data=25.0)
+
+publishing #35: std_msgs.msg.Float64(data=25.0)
+
+publishing #36: std_msgs.msg.Float64(data=25.0)
+
+publishing #37: std_msgs.msg.Float64(data=25.0)
+
+publishing #38: std_msgs.msg.Float64(data=25.0)
+
+publishing #39: std_msgs.msg.Float64(data=25.0)
+
+publishing #40: std_msgs.msg.Float64(data=25.0)
+
+publishing #41: std_msgs.msg.Float64(data=25.0)
+
+publishing #42: std_msgs.msg.Float64(data=25.0)
+
+publishing #43: std_msgs.msg.Float64(data=25.0)
+
+publishing #44: std_msgs.msg.Float64(data=25.0)
+
+publishing #45: std_msgs.msg.Float64(data=25.0)
+
+publishing #46: std_msgs.msg.Float64(data=25.0)
+
+publishing #47: std_msgs.msg.Float64(data=25.0)
+
+publishing #48: std_msgs.msg.Float64(data=25.0)
+
+publishing #49: std_msgs.msg.Float64(data=25.0)
+
+publishing #50: std_msgs.msg.Float64(data=25.0)
+
+publishing #51: std_msgs.msg.Float64(data=25.0)
+
+publishing #52: std_msgs.msg.Float64(data=25.0)
+
+publishing #53: std_msgs.msg.Float64(data=25.0)

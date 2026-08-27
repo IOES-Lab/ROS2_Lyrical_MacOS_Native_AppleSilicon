@@ -1,0 +1,7 @@
+header:
+  stamp:
+    sec: 14
+    nanosec: 180000000
+  frame_id: map
+poses: '<sequence type: geometry_msgs/msg/Pose, length: 1>'
+---

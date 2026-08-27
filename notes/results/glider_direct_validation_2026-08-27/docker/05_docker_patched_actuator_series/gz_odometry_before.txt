@@ -1,0 +1,29 @@
+header {
+  stamp {
+    nsec: 944000000
+  }
+  data {
+    key: "frame_id"
+    value: "map"
+  }
+  data {
+    key: "child_frame_id"
+    value: "base_link"
+  }
+}
+pose {
+  position {
+    x: 4
+    z: -1.4208629244180229
+  }
+  orientation {
+    w: 1
+  }
+}
+twist {
+  linear {
+    z: 0.244218688051423
+  }
+  angular {
+  }
+}

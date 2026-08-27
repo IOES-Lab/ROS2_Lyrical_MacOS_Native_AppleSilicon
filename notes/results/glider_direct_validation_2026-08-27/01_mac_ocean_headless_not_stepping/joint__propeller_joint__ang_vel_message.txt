@@ -1,0 +1,1 @@
+Failed to publish: publisher's context is invalid, at /Users/gwon-yeseol/ros2_lyrical/src/ros2/rcl/rcl/src/rcl/publisher.c:427

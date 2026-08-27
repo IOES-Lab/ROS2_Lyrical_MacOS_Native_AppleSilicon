@@ -36,6 +36,13 @@
   PointCloud2 원인을 분리하고 IMU topic·가짜 magnetometer bridge를 정리한다. (4) stock
   `empty.sdf`를 REXROV sensor 예제로 계속 쓸지, Sensors system이 있는 world로 문서를
   바꿀지 결정한다. 일반 thrust dynamics와 장시간·반복 안정성도 아직 검증하지 않았다.
+- [ ] **Glider 모델 후속 3건** — (1) integrated `enable_deadband`에서 Gazebo→ROS는
+  통과하지만 ROS→Gazebo가 관측되지 않은 원인을 좁힌다. 동일 Bool bridge의 isolated
+  control은 양방향 통과했다. (2) `cmd_thrust=25.0`에서 관측된 `ang_vel=55776.3435`의
+  설정·단위·calibration을 검토한다. 현재 결과는 coupling만 입증한다. (3) 이번 Mac
+  `NOT_STEPPING`을 clean isolated session에서 반복하고, battery depletion·navigation·
+  장시간 dynamics 범위를 별도 시험한다. 이전 `6/6`은 joint 세 경로를 제외했으므로
+  actuator 완료 근거로 재사용하지 않는다.
 - [ ] **World 내부 이름 중복 3그룹 정리·보고** — 2026-08-27 전체 18파일 감사에서 `oceans_waves` 3파일, `default` 2파일, `dvl_world` 2파일이 같은 내부 이름을 공유함을 확인했다. 파일명과 맞는 고유 이름으로 바꾸면 `/world/<name>/...` API가 달라지므로, 호환성 공지·launch/test 갱신 범위를 정한 뒤 확장된 issue 5를 제출해야 한다.
 - [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
   `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,

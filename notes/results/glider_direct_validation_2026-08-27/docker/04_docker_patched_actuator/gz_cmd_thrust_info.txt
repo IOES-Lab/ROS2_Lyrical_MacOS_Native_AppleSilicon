@@ -1,0 +1,5 @@
+Publishers [Address, Message Type]:
+  tcp://172.17.0.4:36985, gz.msgs.Double
+Subscribers [Address, Message Type]:
+  tcp://172.17.0.4:36985, gz.msgs.Double
+  tcp://172.17.0.4:43937, gz.msgs.Double

@@ -1,0 +1,9 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/glider_direct_validation_2026-08-27/01_mac_ocean_gui_domain78_default_transport/ros_logs/2026-08-27-13-52-38-385934-gwon-yeseol-ui-noteubug.local-28308
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [28317]
+[INFO] [create-2]: process started with pid [28318]
+[create-2] [INFO] [1787806379.530167000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787806384.533230000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787806389.539438000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787806391.124306000] [ros_gz_sim]: World name was not provided. Using [oceans_waves] as the default world.
+[create-2] [INFO] [1787806392.443969000] [ros_gz_sim]: Entity creation successful.

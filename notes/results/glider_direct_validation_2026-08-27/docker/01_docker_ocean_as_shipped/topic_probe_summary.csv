@@ -1,0 +1,10 @@
+suffix,listed,info_rc,message_rc,bytes
+battery/battery/state,yes,0,1,146
+navsat,yes,0,0,303
+odometry,yes,0,0,471
+odometry_with_covariance,yes,0,0,471
+pose,yes,0,0,132
+imu,yes,0,124,0
+joint/propeller_joint/cmd_thrust,yes,0,NA,0
+joint/propeller_joint/ang_vel,yes,0,0,15
+joint/propeller_joint/enable_deadband,yes,0,NA,0

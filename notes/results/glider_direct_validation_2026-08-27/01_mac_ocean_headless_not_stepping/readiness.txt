@@ -1,0 +1,1 @@
+bridge_topics_discovered=yes

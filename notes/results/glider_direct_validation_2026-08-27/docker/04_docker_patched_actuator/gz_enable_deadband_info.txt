@@ -1,0 +1,5 @@
+Publishers [Address, Message Type]:
+  tcp://172.17.0.4:36985, gz.msgs.Boolean
+Subscribers [Address, Message Type]:
+  tcp://172.17.0.4:36985, gz.msgs.Boolean
+  tcp://172.17.0.4:43937, gz.msgs.Boolean

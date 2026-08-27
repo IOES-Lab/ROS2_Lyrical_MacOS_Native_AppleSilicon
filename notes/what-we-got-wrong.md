@@ -391,3 +391,19 @@ source-only"라고 정확히 범위를 적었지만, 그 상태를 최종 판정
 설명했지만, 실행은 **다른 실패가 함께 있는지**를 보여줬다. 따라서 source-only 항목에는
 "읽음" 표시뿐 아니라 후속 runtime test가 명시돼야 하고, 실행 뒤에는 모든 현재 문서에서
 그 표시를 제거하거나 날짜 붙은 역사로 바꿔야 한다.
+
+## 2026-08-27 — `6/6`의 분모가 actuator를 포함한다고 잘못 읽었다
+
+**Believed:** Glider의 `6/6 FUNCTIONAL`이 battery·thruster·NavSat·odometry·pose·IMU를
+직접 확인했다는 뜻이었다.
+
+**Actually:** 그 결과를 만든 `exp12_vehicles.sh`의 topic extractor 마지막 줄은
+`grep -v '^joint'`였다. `cmd_thrust`, `ang_vel`, `enable_deadband` 세 경로는 검사 대상에서
+의도적으로 빠졌고, 여섯은 battery·NavSat·odometry·odometry-with-covariance·pose·IMU였다.
+브리지 생성 로그에 joint topic이 보였다는 사실을 메시지·명령 검증과 합쳐 읽었다.
+
+**Caught by** 2026-08-27에 `robot_config.py`의 9개 항목을 먼저 분모로 고정하고, state/sensor
+6개와 joint 3개를 별도 시험한 것이다. `cmd_thrust`는 실제 ROS→Gazebo 전달과 `ang_vel`
+변화를 확인했지만 `enable_deadband`는 integrated ROS→Gazebo가 아직 미확정이다. 앞으로
+`N/N`은 포함된 항목 목록 또는 추출식을 함께 인용하며, config에 있는 항목 수와 test가 만든
+분모를 먼저 대조한다.

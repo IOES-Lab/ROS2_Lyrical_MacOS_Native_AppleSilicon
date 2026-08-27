@@ -1,0 +1,14 @@
+header:
+  stamp:
+    sec: 8
+    nanosec: 745000000
+  frame_id: glider_slocum/navsat_link/navsat_sensor
+status:
+  status: 0
+  service: 0
+latitude: 35.074822999992065
+longitude: 129.08484185724873
+altitude: -0.097902518697083
+position_covariance: '<array type: double[9]>'
+position_covariance_type: 0
+---
