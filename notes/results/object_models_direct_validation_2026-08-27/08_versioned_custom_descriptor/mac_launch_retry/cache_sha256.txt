@@ -1,0 +1,10 @@
+4fcebe7ff087552302039e513bf462f9d46df67acce4ee82939efad66b4c3c38  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/materials/textures/cinder_block_diffuse.png
+2fd3ccbcb63928ced1477f60e8ccc7046f665bbbd3859d39820781d6f6041fbf  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/materials/textures/grass.png
+8d8789047645f04ae2890b884aa21f521088fa15a2203291256a9b8cee4debe7  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/meshes/mossy_cinder_block.dae
+9e136e78ed7ea86c289a6747df1eea3fb67d7c1ef0864a6c4a61095630e1d078  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model-1_4.sdf
+b73f2d3404c4cbf3caddce46db11a997999b0c62ceb4999c87ac402cf54c8ace  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model.config
+9f164e807bcdf00994010f042d978f51b3137ae0706fb7db20b4986c4a506347  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model.sdf
+94b59a0ffbf278b72d392b736f848e303f5a7baf585008b6230596573233e395  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-21.png
+6317a34b73c53f2b96eae74a05fb2a730847476df524a46b38d15fb5c2ee2e1b  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-31.png
+dc59984bbeb48134c6dae2406e9c5f5e1470203e888e9c7ee8dadbd7824429aa  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-41.png
+77e3005cce17dae1771ec93853475136e66da937df84d15d62b150e773653c0e  fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-33-02.png

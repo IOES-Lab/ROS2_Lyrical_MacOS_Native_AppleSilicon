@@ -1,0 +1,22 @@
+Downloading model: [36m
+  [96m[1mName: [0m[37mmossy_cinder_block[0m
+  [96m[1mOwner: [0m[37mhmoyen[0m
+  [96m[1mVersion: [0m[37m1[0m
+  [96m[1mServer:[0m
+    [96m[1mURL: [0m[37mhttps://fuel.gazebosim.org[0m
+    [96m[1mVersion: [0m[37m1.0[0m
+[39m
+(2026-08-27 06:47:25.198) [warning] [gz.cc:514] Requested version [1], but currently only the model's latest (tip) version is supported.
+(2026-08-27 06:47:25.198) [info] [FuelClient.cc:682] Downloading model [fuel.gazebosim.org/hmoyen/models/mossy_cinder_block]
+(2026-08-27 06:47:26.277) [debug] [FuelClient.cc:1968] Downloading from a referral link [https://gz-fuel-resources-production.s3.amazonaws.com/hmoyen/446cd598-427e-4f45-9821-41afb47bdf0f/.zips/1.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS5OHIRKDBY6VUUFF%2F20260827%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260827T064728Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e84445f25db752ae0796eaeab201942e732a81ffec338a6ce12630ffcb846499]
+(2026-08-27 06:47:29.213) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/materials/textures/cinder_block_diffuse.png]
+(2026-08-27 06:47:29.218) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/materials/textures/grass.png]
+(2026-08-27 06:47:29.223) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/meshes/mossy_cinder_block.dae]
+(2026-08-27 06:47:29.223) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model-1_4.sdf]
+(2026-08-27 06:47:29.223) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model.config]
+(2026-08-27 06:47:29.223) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model.sdf]
+(2026-08-27 06:47:29.225) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-21.png]
+(2026-08-27 06:47:29.226) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-31.png]
+(2026-08-27 06:47:29.227) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-41.png]
+(2026-08-27 06:47:29.230) [debug] [Zip.cc:180] Created file [/home/docker/object_models_custom_20260827/version_probe_docker/cache/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-33-02.png]
+Download succeeded.

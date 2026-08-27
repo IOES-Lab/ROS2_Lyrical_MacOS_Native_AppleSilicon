@@ -1,0 +1,85 @@
+header {
+  stamp {
+    sec: 1
+    nsec: 546000000
+  }
+}
+pose {
+  name: "ground_plane"
+  id: 4
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "codex_versioned_block"
+  id: 10
+  position {
+    x: 3.4657733905945887e-22
+    y: -3.212739147683556e-21
+    z: -5.0309770795349538e-10
+  }
+  orientation {
+    x: 1.0088268285942202e-20
+    y: 6.2186890875390743e-21
+    z: 7.8075238257764279e-22
+    w: 1
+  }
+}
+pose {
+  name: "link"
+  id: 5
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "link"
+  id: 11
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "visual"
+  id: 6
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "sunVisual"
+  id: 9
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "visual"
+  id: 12
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "sun"
+  id: 8
+  position {
+    z: 10
+  }
+  orientation {
+    w: 1
+  }
+}

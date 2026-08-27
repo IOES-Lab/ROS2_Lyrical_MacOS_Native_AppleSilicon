@@ -6,9 +6,13 @@
   The exact Wiki command spawned the only object descriptor shipped by this DAVE
   checkout on both Mac native and Docker/RDP. The model appeared in the world and
   simulation time advanced.
-- **Generic Fuel include example: FUNCTIONAL PASS for download and spawn on Mac.**
-  The page's exact Teledyne Fuel URL downloaded into an isolated cache, its resolved
-  SDF validated, and the model appeared in a minimal world.
+- **Generic Fuel include example: FUNCTIONAL PASS for download and spawn on Mac and Docker.**
+  The page's exact Teledyne Fuel URL resolved in isolated caches, its SDF validated,
+  and the model appeared in progressing minimal worlds on both platforms.
+- **Custom descriptor source workflow: FUNCTIONAL PASS on Mac and Docker.** A copied
+  source package with `description/codex_versioned_block/` built, installed and spawned
+  on both platforms. The attempted `/1` Fuel pin is **not effective** with these clients:
+  both warn that only the latest tip is supported.
 - **Failure reporting: PARTIAL.** A deliberately missing descriptor caused Gazebo to
   report that it could not read the file and no entity appeared, but `ros_gz_sim
   create` still exited zero and the launch handler printed `Object Model Uploaded`.
@@ -92,21 +96,37 @@ https://fuel.gazebosim.org/1.0/hmoyen/models/teledyne_whn_uuvsim_bare_model
 ```
 
 An isolated direct download returned five files and a valid resolved SDF:
-[`05_fuel_snippet_direct_download/`](05_fuel_snippet_direct_download/). A separate
-minimal Mac world then spawned `teledyne_whn_uuvsim`, recorded its pose, and advanced
-to `sim_time=64.237 s`:
-[`06_fuel_snippet_spawn_mac/`](06_fuel_snippet_spawn_mac/).
+[`05_fuel_snippet_direct_download/`](05_fuel_snippet_direct_download/). Separate
+minimal worlds then spawned `teledyne_whn_uuvsim` and advanced simulation time on Mac
+and Docker:
 
-Gazebo emitted four warnings that the model's LIDAR sensor type was unsupported and
-suggested GPU LIDAR. This test therefore establishes **model retrieval and spawn**,
-not operation of the bundled sensor elements.
+- Mac: [`06_fuel_snippet_spawn_mac/`](06_fuel_snippet_spawn_mac/)
+- Docker: [`07_fuel_snippet_spawn_docker/`](07_fuel_snippet_spawn_docker/)
+
+The two resolved SDFs differ only by trailing whitespace in one XML comment. The Mac
+run emitted four unsupported-LIDAR warnings. The Docker server-only world did not load
+a Sensors system. These tests therefore establish **model retrieval and spawn**, not
+operation of the bundled sensor elements.
+
+## Custom descriptor and version-suffix check
+
+A copied `dave_object_models` source package was extended with
+`description/codex_versioned_block/`, rebuilt and sourced as an overlay. The normal
+`dave_object.launch.py` path created that model and advanced simulation time on Mac and
+Docker. This directly validates the corrected source-package extension workflow.
+
+The wrapper requested `mossy_cinder_block/1`, but direct Fuel probes on both platforms
+warned that the requested version is ignored because only the latest tip is supported.
+The `/1` suffix is therefore not an immutable pin in this environment. Full evidence:
+[`08_versioned_custom_descriptor/`](08_versioned_custom_descriptor/).
 
 ## Scope and limits
 
-- Only the one object descriptor shipped by this DAVE checkout was tested.
-- The generic Fuel example was spawned on Mac, not repeated in Docker.
-- The tests used the Fuel model versions resolved on 2026-08-27; the source URIs are
-  unversioned, so future remote content may differ.
+- One shipped descriptor and one added test descriptor were exercised.
+- The generic Fuel example was spawned in minimal worlds on Mac and Docker.
+- The tests used Fuel content resolved on 2026-08-27. The shipped URIs are unversioned,
+  and the current clients warn that a `/1` request still resolves the latest tip, so
+  future remote content may differ unless it is vendored or independently locked.
 - Visual mesh fidelity, collision geometry, inertial properties, contact physics,
   and quantitative dynamics were not validated.
 - Uploading a new model through a Fuel account and using the Gazebo Resource Spawner

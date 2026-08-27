@@ -1,0 +1,17 @@
+Starting >>> dave_object_models
+--- stderr: dave_object_models
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+---
+Finished <<< dave_object_models [27.4s]
+The application cannot be opened for an unexpected reason, error=Error Domain=NSOSStatusErrorDomain Code=-10827 "kLSNoExecutableErr: The executable is missing" UserInfo={_LSLine=4257, _LSFunction=_LSOpenStuffCallLocal}
+
+Summary: 1 package finished [27.8s]
+  1 package had stderr output: dave_object_models

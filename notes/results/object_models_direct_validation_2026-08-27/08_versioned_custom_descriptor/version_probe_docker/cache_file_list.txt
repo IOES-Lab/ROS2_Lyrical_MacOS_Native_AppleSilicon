@@ -1,0 +1,10 @@
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/materials/textures/cinder_block_diffuse.png
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/materials/textures/grass.png
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/meshes/mossy_cinder_block.dae
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model-1_4.sdf
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model.config
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/model.sdf
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-21.png
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-31.png
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-32-41.png
+fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/thumbnails/Screenshot from 2024-06-07 11-33-02.png

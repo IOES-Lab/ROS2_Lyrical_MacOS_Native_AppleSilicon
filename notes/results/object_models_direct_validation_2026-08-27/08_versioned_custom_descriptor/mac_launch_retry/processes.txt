@@ -1,0 +1,2 @@
+35504 /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/gwon-yeseol/ros2_lyrical/install/ros2cli/bin/ros2 launch dave_demos dave_object.launch.py namespace:=codex_versioned_block paused:=false gui:=true headless:=true
+35510 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main empty.sdf -s -r

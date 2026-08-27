@@ -1,0 +1,80 @@
+header {
+  stamp {
+    sec: 2
+    nsec: 711000000
+  }
+}
+pose {
+  name: "teledyne_whn_uuvsim"
+  id: 4
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "dvl_base_link"
+  id: 5
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "dvl_sonar0_link"
+  id: 8
+  position {
+  }
+  orientation {
+    y: 0.501559094144177
+    w: 0.86512338720050364
+  }
+}
+pose {
+  name: "dvl_sonar1_link"
+  id: 11
+  position {
+  }
+  orientation {
+    x: 0.18178214652693689
+    y: 0.68334190839544862
+    z: 0.181782146526937
+    w: 0.683340572949232
+  }
+}
+pose {
+  name: "dvl_sonar2_link"
+  id: 14
+  position {
+  }
+  orientation {
+    x: 4.82375248640884e-07
+    y: 0.86512338719986281
+    z: 4.82375248640884e-07
+    w: 0.50155909414481714
+  }
+}
+pose {
+  name: "dvl_sonar3_link"
+  id: 17
+  position {
+  }
+  orientation {
+    x: -0.18178214652693689
+    y: 0.68334190839544862
+    z: -0.181782146526937
+    w: 0.683340572949232
+  }
+}
+pose {
+  name: "dvl_base_link_visual"
+  id: 6
+  position {
+  }
+  orientation {
+    y: 0.70710678118654746
+    w: 0.70710678118654757
+  }
+}

@@ -18,15 +18,22 @@
   },
   "generic_fuel_example": {
     "url": "https://fuel.gazebosim.org/1.0/hmoyen/models/teledyne_whn_uuvsim_bare_model",
-    "platform": "Mac native",
     "download_exit_code": 0,
     "downloaded_file_count": 5,
     "resolved_sdf_valid": true,
     "spawned_model_name": "teledyne_whn_uuvsim",
-    "model_present": true,
-    "simulation_progressed": true,
-    "lidar_warning_count": 4,
-    "sensor_operation_validated": false
+    "sensor_operation_validated": false,
+    "platforms": [
+      "Mac native",
+      "Docker server-only"
+    ],
+    "mac_model_present": true,
+    "docker_model_present": true,
+    "mac_simulation_progressed": true,
+    "docker_simulation_progressed": true,
+    "mac_docker_resolved_sdf_equal_after_trailing_whitespace_normalization": true,
+    "mac_lidar_warning_count": 4,
+    "docker_sensor_system_loaded": false
   },
   "missing_descriptor_negative_control": {
     "namespace": "definitely_missing_object",
@@ -38,11 +45,26 @@
     "verdict": "PARTIAL - false success reporting"
   },
   "limits": [
-    "Only one shipped descriptor was tested.",
-    "The generic Fuel model spawn was not repeated in Docker.",
-    "Fuel URIs are unversioned and may resolve to different future content.",
+    "One shipped descriptor and one added test descriptor were exercised.",
+    "The current Fuel clients accept a /1 URI but warn that only latest tip is supported, so the suffix is not an immutable pin.",
     "Visual, collision, inertial, contact and quantitative dynamics accuracy were not validated.",
     "Fuel-account upload and Resource Spawner GUI workflows were not tested.",
+    "Offline operation was not tested.",
     "The generic Teledyne model's bundled sensor behavior was not validated."
-  ]
+  ],
+  "custom_descriptor_extension": {
+    "namespace": "codex_versioned_block",
+    "requested_uri": "https://fuel.gazebosim.org/1.0/hmoyen/models/mossy_cinder_block/1",
+    "source_overlay_build_mac": true,
+    "source_overlay_build_docker": true,
+    "model_present_mac": true,
+    "model_present_docker": true,
+    "simulation_progressed_mac": true,
+    "simulation_progressed_docker": true,
+    "resolved_cache_file_count_each": 10,
+    "mac_docker_cache_hashes_identical": true,
+    "requested_version_honored": false,
+    "client_warning_both_platforms": "Requested version [1], but currently only the model's latest (tip) version is supported.",
+    "verdict": "custom descriptor workflow PASS; immutable version pin NOT ESTABLISHED"
+  }
 }

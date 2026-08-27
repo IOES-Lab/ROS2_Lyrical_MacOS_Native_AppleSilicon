@@ -1,0 +1,6 @@
+user=docker
+uid=1001
+arch=aarch64
+ROS_DISTRO=lyrical
+GZ_FUEL_CACHE_PATH=/home/docker/object_models_additional_20260827_retry/fuel_cache
+10.4.0

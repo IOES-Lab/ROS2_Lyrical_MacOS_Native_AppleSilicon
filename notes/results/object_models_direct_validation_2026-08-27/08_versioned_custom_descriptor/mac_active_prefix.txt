@@ -1,0 +1,1 @@
+OBJECT_PREFIX=/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/object_models_direct_validation_2026-08-27/08_versioned_custom_descriptor/overlay_ws/install/dave_object_models

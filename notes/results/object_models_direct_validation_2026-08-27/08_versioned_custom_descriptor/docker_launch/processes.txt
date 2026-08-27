@@ -1,0 +1,2 @@
+58670 ros2            /usr/bin/python3 /opt/ros/lyrical/bin/ros2 launch dave_demos dave_object.launch.py namespace:=codex_versioned_block paused:=false gui:=true headless:=true
+58687 gz-sim-main     /opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main empty.sdf -s -r

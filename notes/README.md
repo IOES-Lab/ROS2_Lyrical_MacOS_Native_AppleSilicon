@@ -94,10 +94,10 @@ integrated `enable_deadband`의 ROS→Gazebo 방향은 한 직접 시험에서 �
 최신 Object Models 직접 검증:
 [`results/object_models_direct_validation_2026-08-27/`](results/object_models_direct_validation_2026-08-27/).
 배포된 유일한 descriptor `mossy_cinder_block`의 정확한 Wiki 명령을 Mac·Docker에서
-실행해 model 존재와 simulation progress를 확인했다. 일반 Fuel URL 예제도 Mac에서
-download·SDF validation·spawn을 확인했다. **오류 보고는 PARTIAL**이다 — 없는 descriptor는
-서버 오류와 entity 부재를 만들지만 client가 exit 0과 성공 문구를 내므로 model list 확인이
-필요하다.
+실행해 model 존재와 simulation progress를 확인했다. 일반 Teledyne URL과 copied-source
+custom descriptor도 양쪽에서 spawn했다. **전체는 PARTIAL**이다 — 없는 descriptor는 entity가
+없어도 성공 문구를 내고, `/1` 요청도 두 client가 latest tip만 지원한다고 경고하므로 immutable
+Fuel pin이 아니다.
 
 ## 이 층의 파일
 
@@ -109,7 +109,7 @@ download·SDF validation·spawn을 확인했다. **오류 보고는 PARTIAL**이
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 45개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`known-issues.md`](known-issues.md) | 46개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
 | [`progress-log.md`](progress-log.md) | 날짜별 작업 88행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |

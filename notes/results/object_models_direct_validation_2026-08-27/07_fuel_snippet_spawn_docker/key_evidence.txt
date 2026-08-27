@@ -1,0 +1,6 @@
+/home/docker/object_models_additional_20260827_retry/07_fuel_snippet_spawn_docker/model_list.txt:    - teledyne_whn_uuvsim
+/home/docker/object_models_additional_20260827_retry/07_fuel_snippet_spawn_docker/pose_sample.txt:  name: "teledyne_whn_uuvsim"
+/home/docker/object_models_additional_20260827_retry/07_fuel_snippet_spawn_docker/stats_sample.txt:sim_time {
+/home/docker/object_models_additional_20260827_retry/07_fuel_snippet_spawn_docker/stats_sample.txt:iterations: 3011
+/home/docker/object_models_additional_20260827_retry/07_fuel_snippet_spawn_docker/stats_sample.txt:sim_time {
+/home/docker/object_models_additional_20260827_retry/07_fuel_snippet_spawn_docker/stats_sample.txt:iterations: 3051

@@ -1,0 +1,2 @@
+stats_topic=/stats
+pose_topic=/world/empty/pose/info

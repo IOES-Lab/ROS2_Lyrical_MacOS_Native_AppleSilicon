@@ -1,0 +1,8 @@
+[INFO] [launch]: All log files can be found below /home/docker/object_models_custom_20260827/docker_launch/ros_logs/2026-08-27-06-47-30-386399-67d4b1d39687-58670
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [58685]
+[INFO] [create-2]: process started with pid [58686]
+[create-2] [INFO] [1787813251.193653964] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787813256.135500924] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 58686]
+[INFO] [launch.user]: Object Model Uploaded

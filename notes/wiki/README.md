@@ -312,8 +312,11 @@ evidence를 유지한다. source inventory만으로 어떤 SMOKE도 FUNCTIONAL�
 - exact Wiki launch를 Mac의 빈 Fuel cache와 Docker/RDP의 기존 cache에서 각각 실행하고,
   model 존재와 simulation progress를 확인
 - 양쪽 cache의 10개 상대 파일명과 SHA-256이 같음을 확인
-- generic Teledyne Fuel URL을 isolated cache로 내려받아 SDF를 검증하고 Mac minimal
-  world에서 model spawn까지 확인; bundled LIDAR warning 때문에 sensor 동작은 미검증
+- generic Teledyne Fuel URL을 isolated cache로 내려받아 SDF를 검증하고 Mac·Docker
+  minimal world에서 model spawn까지 확인; bundled sensor 동작은 미검증
+- copied source package에 `description/codex_versioned_block/`을 추가해 Mac·Docker에서
+  build·install·spawn을 확인. `/1`을 붙인 URI는 양쪽 client가 latest tip만 지원한다고
+  경고했으므로 immutable version pin으로 인정하지 않음
 - 없는 descriptor는 서버에서 file error와 entity 부재가 나는데 client는 exit 0과
   `Entity creation successful`, launch handler는 `Object Model Uploaded`를 출력하는
   false-success 경로를 경고
@@ -321,9 +324,9 @@ evidence를 유지한다. source inventory만으로 어떤 SMOKE도 FUNCTIONAL�
   `description/<namespace>/`로 정정
 - 뒤의 DVL 예제는 Object Models 완료 근거가 아니라 DVL의 Docker PASS/Mac crash 범위로 연결
 
-이 회차는 한 개의 배포 object와 한 개의 일반 Fuel model spawn을 확인한 것이다. visual,
-collision, inertial/contact physics, Fuel account upload, Resource Spawner GUI와 장기 dynamics는
-검증하지 않았다.
+이 회차는 한 개의 배포 object, 한 개의 일반 Fuel model과 한 개의 copied-source custom
+descriptor를 확인한 것이다. visual, collision, inertial/contact physics, offline operation,
+Fuel account upload, Resource Spawner GUI와 장기 dynamics는 검증하지 않았다.
 
 근거:
 [`../results/object_models_direct_validation_2026-08-27/`](../results/object_models_direct_validation_2026-08-27/).

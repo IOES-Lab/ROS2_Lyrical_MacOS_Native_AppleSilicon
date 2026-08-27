@@ -1,0 +1,2 @@
+[create-2] [INFO] [1787813256.135500924] [ros_gz_sim]: Entity creation successful.
+[INFO] [launch.user]: Object Model Uploaded
