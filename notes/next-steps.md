@@ -44,6 +44,13 @@
   장시간 dynamics 범위를 별도 시험한다. 이전 `6/6`은 joint 세 경로를 제외했으므로
   actuator 완료 근거로 재사용하지 않는다.
 - [ ] **World 내부 이름 중복 3그룹 정리·보고** — 2026-08-27 전체 18파일 감사에서 `oceans_waves` 3파일, `default` 2파일, `dvl_world` 2파일이 같은 내부 이름을 공유함을 확인했다. 파일명과 맞는 고유 이름으로 바꾸면 `/world/<name>/...` API가 달라지므로, 호환성 공지·launch/test 갱신 범위를 정한 뒤 확장된 issue 5를 제출해야 한다.
+- [ ] **Object Models 실패 보고와 Fuel 재현성 정리** — 없는 descriptor를 요청하면 Gazebo
+  서버는 파일 오류를 내고 entity를 만들지 않지만 `ros_gz_sim create`는 exit 0과
+  `Entity creation successful`을 내며, `upload_object.launch.py`의 무조건적인
+  `OnProcessExit`도 `Object Model Uploaded`를 출력한다. descriptor 존재를 launch 전에
+  검사하고 server failure를 client exit로 전달한 뒤 성공 로그를 조건부로 바꿔야 한다.
+  배포 object와 문서의 일반 예제 모두 unversioned Fuel URI이므로 version pin 또는 vendoring
+  여부도 정한다. Fuel account upload·Resource Spawner GUI·일반 object physics는 별도 범위다.
 - [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
   `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,
   [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
@@ -99,7 +106,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열두 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열네 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
@@ -119,6 +126,10 @@
   현재 판정으로 반영했다.
   이어 Dave World Models의 18개 파일 전체를 대조해 14개 내부 이름과 3개 중복 그룹을
   기록하고, Mac·Docker Quickstart의 진행을 다시 확인했다.
+  Dave Glider Models는 두 Wiki launch와 9개 bridge topic을 다시 실행해 state/sensor와
+  actuator 범위를 분리했다. Object Models는 유일한 배포 descriptor의 exact launch를
+  Mac·Docker에서 확인하고, 일반 Fuel URL의 download·spawn 및 missing-descriptor 성공
+  오보고를 현재 판정에 반영했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

@@ -1,0 +1,85 @@
+header {
+  stamp {
+    sec: 116
+    nsec: 34000000
+  }
+}
+pose {
+  name: "ground_plane"
+  id: 4
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "mossy_cinder_block"
+  id: 10
+  position {
+    x: -1.2423474087112069e-16
+    y: -2.098033400449218e-16
+    z: -5.0315942638072235e-08
+  }
+  orientation {
+    x: 2.7654544069178409e-16
+    y: -3.2219885773571805e-16
+    z: -1.0252749165096084e-17
+    w: 1
+  }
+}
+pose {
+  name: "link"
+  id: 5
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "link"
+  id: 11
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "visual"
+  id: 6
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "sunVisual"
+  id: 9
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "visual"
+  id: 12
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "sun"
+  id: 8
+  position {
+    z: 10
+  }
+  orientation {
+    w: 1
+  }
+}

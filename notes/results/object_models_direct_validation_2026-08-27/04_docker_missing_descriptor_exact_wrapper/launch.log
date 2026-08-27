@@ -1,0 +1,34 @@
+[INFO] [launch]: All log files can be found below /home/docker/object_models_missing/ros_logs/2026-08-27-05-56-40-084190-67d4b1d39687-57340
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [57349]
+[INFO] [create-2]: process started with pid [57350]
+[create-2] [INFO] [1787810201.031464220] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810206.048480333] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810211.057008669] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810216.060877005] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810221.092278091] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810226.092796343] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810231.093759970] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810236.085651167] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810241.089741378] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810246.133245338] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810251.139529091] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810256.184547551] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810261.216617470] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810266.224447625] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810271.226073503] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810276.229346547] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810281.238369299] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810286.254336468] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810291.255493595] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810296.258484042] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810301.270843878] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810306.273061922] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810311.292227841] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810316.329833426] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810321.330925429] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810326.329415834] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810331.330545419] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810336.340159338] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810341.344520424] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810346.346447635] [ros_gz_sim]: Requesting list of world names.

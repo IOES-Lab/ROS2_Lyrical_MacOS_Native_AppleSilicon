@@ -10,7 +10,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [`upstream/`](upstream/) | 상류에 보고할 것. [`drafts/`](upstream/drafts/) 가 원본, [`submit/`](upstream/submit/) 이 붙여넣기용 변환본, [`make_submittable.py`](upstream/make_submittable.py) 가 변환기 |
-| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL·SeaPressure·Spherical Coordinates)·08-27(USBL·ROV Models·World Models) 열두 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
+| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL·SeaPressure·Spherical Coordinates)·08-27(USBL·ROV·World·Glider·Object Models) 열네 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
 | [`results/`](results/) | 날짜별 실험 결과. [`worlds/`](results/worlds/) 는 world 18종 스모크 테스트 로그 |
 | [`experiments/`](experiments/) | 실험 스크립트. [`common.sh`](experiments/common.sh) 가 공통 측정 절차 |
 | [`benchmarks/`](benchmarks/) | 초기 벤치마크 스크립트와 결과 (7월). `bench_results/SUPERSEDED_*` 는 폐기된 회차 |
@@ -91,6 +91,14 @@ integrated `enable_deadband`의 ROS→Gazebo 방향은 한 직접 시험에서 �
 [`results/world_models_audit_2026-08-27/`](results/world_models_audit_2026-08-27/).
 18개 배포 world의 내부 이름을 Mac source·Docker source·Docker install에서 대조했다. 고유 이름은 14개뿐이고 **7개 파일이 `oceans_waves`·`default`·`dvl_world` 세 중복 그룹**에 속한다. `dave_ocean_waves` Quickstart는 Mac·Docker에서 다시 진행을 확인했지만, 나머지 17행은 기존 날짜의 증거를 유지하며 SMOKE를 기능 검증으로 올리지 않았다.
 
+최신 Object Models 직접 검증:
+[`results/object_models_direct_validation_2026-08-27/`](results/object_models_direct_validation_2026-08-27/).
+배포된 유일한 descriptor `mossy_cinder_block`의 정확한 Wiki 명령을 Mac·Docker에서
+실행해 model 존재와 simulation progress를 확인했다. 일반 Fuel URL 예제도 Mac에서
+download·SDF validation·spawn을 확인했다. **오류 보고는 PARTIAL**이다 — 없는 descriptor는
+서버 오류와 entity 부재를 만들지만 client가 exit 0과 성공 문구를 내므로 model list 확인이
+필요하다.
+
 ## 이 층의 파일
 
 루트 [`README.md`](../README.md) 는 입구 역할만 한다. 상류 저장소(`IOES-Lab/dave`,
@@ -101,8 +109,8 @@ integrated `enable_deadband`의 ROS→Gazebo 방향은 한 직접 시험에서 �
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 44개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 87행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`known-issues.md`](known-issues.md) | 45개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 88행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

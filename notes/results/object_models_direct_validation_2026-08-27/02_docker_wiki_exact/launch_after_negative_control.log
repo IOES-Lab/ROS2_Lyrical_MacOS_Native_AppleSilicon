@@ -1,0 +1,10 @@
+[INFO] [launch]: All log files can be found below /home/docker/object_models_validation/ros_logs/2026-08-27-05-53-24-396117-67d4b1d39687-56651
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [56666]
+[INFO] [create-2]: process started with pid [56667]
+[create-2] [INFO] [1787810005.244701463] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787810008.917955173] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 56667]
+[INFO] [launch.user]: Object Model Uploaded
+[gazebo-1] (2026-08-27 05:54:33.487) [error] [UserCommands.cc:934] Error Code 1: Msg: Error finding file [/home/docker/dave_ws/install/share/dave_object_models/description/definitely_missing_object/model.sdf].
+[gazebo-1] (2026-08-27 05:54:33.488) [error] [UserCommands.cc:934] Error Code 1: Msg: Unable to read file: [/home/docker/dave_ws/install/share/dave_object_models/description/definitely_missing_object/model.sdf]

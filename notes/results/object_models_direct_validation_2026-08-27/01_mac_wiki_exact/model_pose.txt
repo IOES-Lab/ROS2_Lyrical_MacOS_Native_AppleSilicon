@@ -1,0 +1,8 @@
+
+Requesting state for world [empty]...
+
+Model: [10]
+  - Name: mossy_cinder_block
+  - Pose [ XYZ (m) ] [ RPY (rad) ]:
+    [-0.000000 -0.000000 -0.000000]
+    [0.000000 -0.000000 -0.000000]

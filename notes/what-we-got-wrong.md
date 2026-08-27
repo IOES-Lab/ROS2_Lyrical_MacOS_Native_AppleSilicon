@@ -407,3 +407,19 @@ source-only"라고 정확히 범위를 적었지만, 그 상태를 최종 판정
 변화를 확인했지만 `enable_deadband`는 integrated ROS→Gazebo가 아직 미확정이다. 앞으로
 `N/N`은 포함된 항목 목록 또는 추출식을 함께 인용하며, config에 있는 항목 수와 test가 만든
 분모를 먼저 대조한다.
+
+## 2026-08-27 — `Object Model Uploaded`를 entity 존재 증거로 쓸 수 없다
+
+**Believed:** `ros_gz_sim create`의 `Entity creation successful`, exit 0, 이어지는
+`Object Model Uploaded`면 object가 world에 추가된 것이다.
+
+**Actually:** 존재하지 않는 `description/definitely_missing_object/model.sdf`를 요청한
+통제에서 Gazebo server는 `Error finding file`과 `Unable to read file`을 기록했고 model
+list에도 entity가 없었다. 그런데 create client는 성공 문구와 exit 0을 냈고,
+`upload_object.launch.py`의 `OnProcessExit`는 exit 결과를 검사하지 않은 채 성공 로그를
+출력했다.
+
+**Caught by** 성공 로그가 아니라 server error와 실행 후 `gz model --list`를 함께 읽은
+것이다. process 종료·exit 0·성공 문자열은 각각 entity 존재와 다른 속성이다. spawn 검증은
+요청 전후 model/entity 목록 또는 실제 topic/pose를 확인해야 하며, 실패 통제 하나를 넣어
+성공 판정기가 실패도 성공으로 분류하지 않는지 먼저 확인한다.

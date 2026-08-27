@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열두 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열네 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -304,6 +304,30 @@ evidence를 유지한다. source inventory만으로 어떤 SMOKE도 FUNCTIONAL�
 근거:
 [`../results/glider_direct_validation_2026-08-27/`](../results/glider_direct_validation_2026-08-27/).
 
+## 14차 — 2026-08-27 Object Models 직접 재검증
+
+「Object Models」 페이지의 배포 object launch와 일반 Fuel include 예제를 직접 실행했다.
+
+- 이 checkout이 배포하는 object descriptor는 `mossy_cinder_block` 하나임을 명시
+- exact Wiki launch를 Mac의 빈 Fuel cache와 Docker/RDP의 기존 cache에서 각각 실행하고,
+  model 존재와 simulation progress를 확인
+- 양쪽 cache의 10개 상대 파일명과 SHA-256이 같음을 확인
+- generic Teledyne Fuel URL을 isolated cache로 내려받아 SDF를 검증하고 Mac minimal
+  world에서 model spawn까지 확인; bundled LIDAR warning 때문에 sensor 동작은 미검증
+- 없는 descriptor는 서버에서 file error와 entity 부재가 나는데 client는 exit 0과
+  `Entity creation successful`, launch handler는 `Object Model Uploaded`를 출력하는
+  false-success 경로를 경고
+- descriptor를 추가할 위치를 install tree가 아니라 source package의
+  `description/<namespace>/`로 정정
+- 뒤의 DVL 예제는 Object Models 완료 근거가 아니라 DVL의 Docker PASS/Mac crash 범위로 연결
+
+이 회차는 한 개의 배포 object와 한 개의 일반 Fuel model spawn을 확인한 것이다. visual,
+collision, inertial/contact physics, Fuel account upload, Resource Spawner GUI와 장기 dynamics는
+검증하지 않았다.
+
+근거:
+[`../results/object_models_direct_validation_2026-08-27/`](../results/object_models_direct_validation_2026-08-27/).
+
 ## 일부러 넣지 않은 것
 
 문서가 아니라 **코드로 고쳐야 하는 것들**이다. 문서에 "이거 없으면 실패한다"고
@@ -334,5 +358,5 @@ ArduSub 의 Python 3.14 호환성 문제는 위키에 ArduSub 페이지가 없�
 는 검색이 상위 10건만 돌려주는 바람에 안 보였다.
 
 **보장할 수 있는 범위는 "우리가 검증한 것과 대조했을 때 빠진 게 없다"까지다.**
-우리가 손대지 않은 영역(매니퓰레이터, Object Models 세부, Migration Progress 등)에
+우리가 손대지 않은 영역(매니퓰레이터, Migration Progress 등)에
 다른 오류가 있는지는 확인한 적이 없으므로 알 수 없다.

@@ -1,0 +1,2 @@
+/home/docker/.gz/fuel/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block
+/home/docker/.gz/fuel/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/meshes/mossy_cinder_block.dae

@@ -1,0 +1,1 @@
+/tmp/object_models_teledyne_spawn_cache

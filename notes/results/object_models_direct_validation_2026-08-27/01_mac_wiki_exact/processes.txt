@@ -1,0 +1,12 @@
+31552 /bin/zsh -lc source /Users/gwon-yeseol/ros2_lyrical/.venv/bin/activate
+source /Users/gwon-yeseol/ros2_lyrical/install/setup.zsh
+source /Users/gwon-yeseol/ros_gz_ws_lyrical/install/local_setup.zsh
+source /Users/gwon-yeseol/dave_ws_lyrical/install/local_setup.zsh
+ROOT=/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/object_models_direct_validation_2026-08-27
+OUT="$ROOT/01_mac_wiki_exact"
+export ROS_LOG_DIR="$OUT/ros_logs"
+export ROS_DOMAIN_ID=91
+export FASTDDS_BUILTIN_TRANSPORTS=UDPv4
+ros2 launch dave_demos dave_object.launch.py namespace:=mossy_cinder_block paused:=false 2>&1 | tee "$OUT/launch.log"
+31590 /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/gwon-yeseol/ros2_lyrical/install/ros2cli/bin/ros2 launch dave_demos dave_object.launch.py namespace:=mossy_cinder_block paused:=false
+31592 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main empty.sdf -r

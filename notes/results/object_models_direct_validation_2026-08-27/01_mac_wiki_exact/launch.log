@@ -1,0 +1,10 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/object_models_direct_validation_2026-08-27/01_mac_wiki_exact/ros_logs/2026-08-27-14-48-35-435400-gwon-yeseol-ui-noteubug.local-31590
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [31592]
+[INFO] [create-2]: process started with pid [31593]
+[create-2] [INFO] [1787809736.740156000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787809741.748151000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787809746.656695000] [ros_gz_sim]: World name was not provided. Using [empty] as the default world.
+[create-2] [INFO] [1787809747.734434000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 31593]
+[INFO] [launch.user]: Object Model Uploaded

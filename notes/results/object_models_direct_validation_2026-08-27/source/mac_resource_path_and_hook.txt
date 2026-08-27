@@ -1,0 +1,9 @@
+== GZ_SIM_RESOURCE_PATH ==
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_sensor_models/share/dave_sensor_models
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models/share/dave_robot_models
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_object_models/share/dave_object_models
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_multibeam_sonar_demo/share/dave_multibeam_sonar_demo
+/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_sim_demos/share
+== INSTALLED OBJECT HOOK ==
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;/Users/gwon-yeseol/dave_ws_lyrical/install/dave_object_models/share/dave_object_models

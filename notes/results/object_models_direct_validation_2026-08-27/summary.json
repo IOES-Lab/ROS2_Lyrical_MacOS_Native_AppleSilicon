@@ -1,0 +1,48 @@
+{
+  "date": "2026-08-27",
+  "source_revision": "6aef91c823af5da073329b84ba617b572965e79e",
+  "packaged_object_count": 1,
+  "packaged_objects": [
+    "mossy_cinder_block"
+  ],
+  "packaged_path": {
+    "verdict": "FUNCTIONAL PASS in tested scope",
+    "mac_exact_wiki_launch": true,
+    "docker_exact_wiki_launch": true,
+    "mac_model_present": true,
+    "docker_model_present": true,
+    "mac_fresh_download": true,
+    "docker_cache_preexisting": true,
+    "resolved_cache_file_count_each": 10,
+    "mac_docker_cache_hashes_identical": true
+  },
+  "generic_fuel_example": {
+    "url": "https://fuel.gazebosim.org/1.0/hmoyen/models/teledyne_whn_uuvsim_bare_model",
+    "platform": "Mac native",
+    "download_exit_code": 0,
+    "downloaded_file_count": 5,
+    "resolved_sdf_valid": true,
+    "spawned_model_name": "teledyne_whn_uuvsim",
+    "model_present": true,
+    "simulation_progressed": true,
+    "lidar_warning_count": 4,
+    "sensor_operation_validated": false
+  },
+  "missing_descriptor_negative_control": {
+    "namespace": "definitely_missing_object",
+    "gazebo_file_error": true,
+    "entity_present_after_attempt": false,
+    "create_client_exit_code": 0,
+    "client_reported_entity_creation_successful": true,
+    "launch_reported_object_model_uploaded": true,
+    "verdict": "PARTIAL - false success reporting"
+  },
+  "limits": [
+    "Only one shipped descriptor was tested.",
+    "The generic Fuel model spawn was not repeated in Docker.",
+    "Fuel URIs are unversioned and may resolve to different future content.",
+    "Visual, collision, inertial, contact and quantitative dynamics accuracy were not validated.",
+    "Fuel-account upload and Resource Spawner GUI workflows were not tested.",
+    "The generic Teledyne model's bundled sensor behavior was not validated."
+  ]
+}

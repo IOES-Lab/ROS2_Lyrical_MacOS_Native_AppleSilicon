@@ -1,0 +1,4 @@
+== PACKAGED WRAPPER SDF ==
+[1;31mError [Utils.cc:176][0m Tried to use callback in sdf::findFile(), but the callback is empty.  Did you call sdf::setFindCallback()?Error Code 14: [/sdf/include[0]/uri:/Users/gwon-yeseol/dave_ws_lyrical/install/dave_object_models/share/dave_object_models/description/mossy_cinder_block/model.sdf:L6]: Msg: Unable to find uri[https://fuel.gazebosim.org/1.0/hmoyen/models/mossy_cinder_block]
+== RESOLVED FUEL MODEL SDF ==
+Valid.

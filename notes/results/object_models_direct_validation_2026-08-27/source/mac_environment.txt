@@ -1,0 +1,22 @@
+date=2026-08-27
+Darwin gwon-yeseol-ui-noteubug.local 24.6.0 Darwin Kernel Version 24.6.0: Wed Nov  5 21:33:59 PST 2025; root:xnu-11417.140.69.705.2~1/RELEASE_ARM64_T8112 arm64
+ProductName:		macOS
+ProductVersion:		15.7.3
+BuildVersion:		24G419
+6aef91c823af5da073329b84ba617b572965e79e
+ M examples/dave_demos/launch/dave_world.launch.py
+ M gazebo/dave_gz_model_plugins/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+ M gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+ M gazebo/dave_gz_world_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+ M models/dave_robot_models/description/bluerov2/model.sdf
+ M models/dave_robot_models/description/bluerov2_heavy/model.sdf
+ M models/dave_robot_models/description/glider_slocum/model.sdf
+ M models/dave_robot_models/description/rexrov/model.sdf
+ M models/dave_worlds/worlds/new_dvl.world
+ M models/dave_worlds/worlds/usbl_tutorial.world

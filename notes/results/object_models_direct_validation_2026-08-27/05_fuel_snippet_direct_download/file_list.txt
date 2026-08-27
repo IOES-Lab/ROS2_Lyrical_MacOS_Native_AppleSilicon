@@ -1,0 +1,5 @@
+fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/meshes/WorkhorseNavigator.dae
+fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/meshes/tx-Navigator.png
+fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/model.config
+fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/model.sdf
+fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/thumbnails/Screenshot from 2024-06-06 10-09-09.png

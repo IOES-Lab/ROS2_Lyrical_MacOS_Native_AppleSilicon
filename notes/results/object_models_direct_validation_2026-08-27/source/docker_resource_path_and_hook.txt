@@ -1,0 +1,8 @@
+== GZ_SIM_RESOURCE_PATH ==
+/home/docker/dave_ws/install/share/dave_worlds
+/home/docker/dave_ws/install/share/dave_sensor_models
+/home/docker/dave_ws/install/share/dave_robot_models
+/home/docker/dave_ws/install/share/dave_object_models
+/opt/ros/lyrical/share
+== INSTALLED OBJECT HOOK ==
+prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;/home/docker/dave_ws/install/share/dave_object_models

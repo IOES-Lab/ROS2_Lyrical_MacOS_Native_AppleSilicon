@@ -1,0 +1,5 @@
+509b0597f789bb9e413aad1396fc3b2b9ecd6ebeeef601977b9faaa58140e5fe  ./fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/meshes/WorkhorseNavigator.dae
+a857944f132f253f4084692c50a8a5317dfe8bfcfc1b253a8962e7c231d54346  ./fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/meshes/tx-Navigator.png
+bd197161911c49a91a942816930417a423c7903b2ecaee09af93f7fb865dd88d  ./fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/model.config
+9d33fe0c065499078226cf440785fff056c28ac24fae00e442fd52ddd84d3425  ./fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/model.sdf
+8750536791b7937ba7bdded4d8e336bcd24580d52a787050307882b4885a0f5f  ./fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/thumbnails/Screenshot from 2024-06-06 10-09-09.png

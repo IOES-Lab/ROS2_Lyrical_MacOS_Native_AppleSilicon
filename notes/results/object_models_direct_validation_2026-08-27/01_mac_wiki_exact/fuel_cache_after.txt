@@ -1,0 +1,2 @@
+/Users/gwon-yeseol/.gz/fuel/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block
+/Users/gwon-yeseol/.gz/fuel/fuel.gazebosim.org/hmoyen/models/mossy_cinder_block/1/meshes/mossy_cinder_block.dae
