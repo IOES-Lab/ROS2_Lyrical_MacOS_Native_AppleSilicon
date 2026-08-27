@@ -1,0 +1,126 @@
+[INFO] [launch]: All log files can be found below /home/docker/rov_validation/bluerov2_exact/ros_logs/2026-08-27-01-39-50-373520-67d4b1d39687-47321
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [47330]
+[INFO] [create-2]: process started with pid [47331]
+[create-2] [INFO] [1787794790.990776508] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787794793.883615051] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 47331]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [launch.user]: Web joystick enabled. Open extras/virtual_joystick.html and connect to ws://127.0.0.1:8765
+[gazebo-1] (2026-08-27 01:39:54.074) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[INFO] [keyboard_publisher.py-4]: process started with pid [47441]
+[INFO] [parameter_bridge-3]: process started with pid [47440]
+[INFO] [ws_to_joy.py-5]: process started with pid [47442]
+[INFO] [ardusub_manual_control.py-6]: process started with pid [47443]
+[INFO] [env-7]: process started with pid [47444]
+[INFO] [env-8]: process started with pid [47445]
+[INFO] [env-9]: process started with pid [47446]
+[INFO] [env-10]: process started with pid [47448]
+[parameter_bridge-3] [INFO] [1787794794.449050093] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794794.569319009] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/odometry (gz.msgs.Odometry) -> /model/bluerov2/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794794.589334384] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794794.604594884] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/pose (gz.msgs.Pose_V) -> /model/bluerov2/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794794.611622218] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/imu (gz.msgs.IMU) -> /model/bluerov2/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794794.621844718] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[ardusub_manual_control.py-6] Traceback (most recent call last):
+[ardusub_manual_control.py-6]   File "/home/docker/dave_ws/install/lib/dave_robot_models/ardusub_manual_control.py", line 5, in <module>
+[ardusub_manual_control.py-6]     from mavros_msgs.msg import ManualControl, State
+[ardusub_manual_control.py-6] ModuleNotFoundError: No module named 'mavros_msgs'
+[ERROR] [ardusub_manual_control.py-6]: process has died [pid 47443, exit code 1, cmd '/home/docker/dave_ws/install/lib/dave_robot_models/ardusub_manual_control.py --ros-args --params-file /tmp/launch_params_sdn2olfv'].
+[keyboard_publisher.py-4] Traceback (most recent call last):
+[keyboard_publisher.py-4]   File [35m"/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py"[0m, line [35m72[0m, in [35m_open_input_stream[0m
+[keyboard_publisher.py-4]     return open("/dev/tty", "rb", buffering=0)
+[keyboard_publisher.py-4] [1;35mOSError[0m: [35m[Errno 6] No such device or address: '/dev/tty'[0m
+[keyboard_publisher.py-4]
+[keyboard_publisher.py-4] During handling of the above exception, another exception occurred:
+[keyboard_publisher.py-4]
+[keyboard_publisher.py-4] Traceback (most recent call last):
+[keyboard_publisher.py-4]   File [35m"/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py"[0m, line [35m200[0m, in [35m<module>[0m
+[keyboard_publisher.py-4]     [31mmain[0m[1;31m()[0m
+[keyboard_publisher.py-4]     [31m~~~~[0m[1;31m^^[0m
+[keyboard_publisher.py-4]   File [35m"/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py"[0m, line [35m187[0m, in [35mmain[0m
+[keyboard_publisher.py-4]     node = KeyboardJoyPublisher()
+[keyboard_publisher.py-4]   File [35m"/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py"[0m, line [35m47[0m, in [35m__init__[0m
+[keyboard_publisher.py-4]     self.input_stream = [31mself._open_input_stream[0m[1;31m()[0m
+[keyboard_publisher.py-4]                         [31m~~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^[0m
+[keyboard_publisher.py-4]   File [35m"/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py"[0m, line [35m74[0m, in [35m_open_input_stream[0m
+[keyboard_publisher.py-4]     [1;31mself.get_logger().warn[0m(
+[keyboard_publisher.py-4]     [1;31m^^^^^^^^^^^^^^^^^^^^^^[0m
+[keyboard_publisher.py-4] [1;35mAttributeError[0m: [35m'RcutilsLogger' object has no attribute 'warn'[0m
+[ws_to_joy.py-5] [INFO] [1787794795.159163135] [joy_ws_server]: WebSocket listening on ws://0.0.0.0:8765 -> /joy
+[ERROR] [keyboard_publisher.py-4]: process has died [pid 47441, exit code 1, cmd '/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py --ros-args --params-file /tmp/launch_params_gj_tnb7q'].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].
+[env-9] [47632] Sandbox: CanCreateUserNamespace() clone() failure: EPERM
+[INFO] [env-10]: process has finished cleanly [pid 47448]
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [ardusub-11]: process started with pid [47651]
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): "package 'mavros' not found, searching: ['/home/docker/dave_ws/install', '/opt/ros/lyrical']"
+[INFO] [ardusub-11]: sending signal 'SIGINT' to process[ardusub-11]
+[INFO] [env-9]: sending signal 'SIGINT' to process[env-9]
+[ERROR] [ardusub-11]: process has died [pid 47651, exit code -2, cmd 'ardusub -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0'].
+[INFO] [env-8]: sending signal 'SIGINT' to process[env-8]
+[INFO] [env-7]: sending signal 'SIGINT' to process[env-7]
+[INFO] [ws_to_joy.py-5]: sending signal 'SIGINT' to process[ws_to_joy.py-5]
+[ERROR] [env-7]: process has died [pid 47444, exit code -2, cmd '/usr/bin/env bash -lc sleep 2.0; gz service -s /gui/move_to/pose --reqtype gz.msgs.GUICamera --reptype gz.msgs.Boolean --timeout 500 --req 'pose: {position:{x:-1, y:0, z:0.5}, orientation:{x:0.0, y:0.0, z:0.0, w:0.0}}''].
+[INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[parameter_bridge-3] [INFO] [1787794796.788439552] [rclcpp]: signal_handler(signum=2)
+[ws_to_joy.py-5] Traceback (most recent call last):
+[ws_to_joy.py-5]   File "/usr/lib/python3.14/asyncio/runners.py", line 127, in run
+[ws_to_joy.py-5]     return self._loop.run_until_complete(task)
+[ws_to_joy.py-5]            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+[ws_to_joy.py-5]   File "/usr/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+[ws_to_joy.py-5]     return future.result()
+[ws_to_joy.py-5]            ~~~~~~~~~~~~~^^
+[ws_to_joy.py-5]   File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 70, in main_async
+[ws_to_joy.py-5]     await asyncio.sleep(0.01)
+[ws_to_joy.py-5]   File "/usr/lib/python3.14/asyncio/tasks.py", line 702, in sleep
+[ws_to_joy.py-5]     return await future
+[ws_to_joy.py-5]            ^^^^^^^^^^^^
+[ws_to_joy.py-5] asyncio.exceptions.CancelledError
+[ws_to_joy.py-5]
+[ws_to_joy.py-5] During handling of the above exception, another exception occurred:
+[ws_to_joy.py-5]
+[ws_to_joy.py-5] Traceback (most recent call last):
+[ws_to_joy.py-5]   File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 82, in <module>
+[ws_to_joy.py-5]     main()
+[ws_to_joy.py-5]     ~~~~^^
+[ws_to_joy.py-5]   File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 78, in main
+[ws_to_joy.py-5]     asyncio.run(main_async())
+[ws_to_joy.py-5]     ~~~~~~~~~~~^^^^^^^^^^^^^^
+[ws_to_joy.py-5]   File "/usr/lib/python3.14/asyncio/runners.py", line 204, in run
+[ws_to_joy.py-5]     return runner.run(main)
+[ws_to_joy.py-5]            ~~~~~~~~~~^^^^^^
+[ws_to_joy.py-5]   File "/usr/lib/python3.14/asyncio/runners.py", line 132, in run
+[ws_to_joy.py-5]     raise KeyboardInterrupt()
+[ws_to_joy.py-5] KeyboardInterrupt
+[ERROR] [parameter_bridge-3]: process has died [pid 47440, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/bluerov2/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry /model/bluerov2/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance /model/bluerov2/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V /model/bluerov2/imu@sensor_msgs/msg/Imu[gz.msgs.IMU /model/bluerov2/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer --ros-args'].
+[ERROR] [ws_to_joy.py-5]: process has died [pid 47442, exit code -2, cmd '/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py --ros-args --params-file /tmp/launch_params_l5l_gqmj'].
+[env-8] qt.multimedia.symbolsresolver: Couldn't load pipewire-0.3 library
+[env-8] qt.multimedia.symbolsresolver: Couldn't resolve pipewire-0.3 symbols
+[env-8] API.QGCApplication: Qt lib localization for "C" is not present
+[env-8] API.QGCApplication: Error loading source localization for "C"
+[env-8] API.QGCApplication: Error loading json localization for "C"
+[env-8]      1.059 Using Qt multimedia with FFmpeg version 7.1.3 LGPL version 2.1 or later - qt.multimedia.ffmpeg - (unknown:0)
+[env-9] libEGL warning: DRI3 error: Could not get DRI3 device
+[env-9] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[env-9] libEGL warning: DRI3 error: Could not get DRI3 device
+[env-9] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[env-9] libEGL warning: DRI3 error: Could not get DRI3 device
+[env-9] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[env-9] libEGL warning: DRI3 error: Could not get DRI3 device
+[env-9] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[env-9] libEGL warning: DRI3 error: Could not get DRI3 device
+[env-9] libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+[env-8]      2.642 Warning: Member enabled of the object QQuickPinchArea overrides a member of the base object. Consider renaming it or adding final or override specifier - qt.qml.propertyCache.append - (unknown:0)
+[env-9] WARNING: Glycin running without sandbox.
+[ERROR] [env-9]: process[env-9] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [env-8]: process[env-8] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [gazebo-1]: process[gazebo-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [env-9]: sending signal 'SIGTERM' to process[env-9]
+[INFO] [env-8]: sending signal 'SIGTERM' to process[env-8]
+[INFO] [gazebo-1]: sending signal 'SIGTERM' to process[gazebo-1]
+[ERROR] [env-9]: process has died [pid 47446, exit code -15, cmd '/usr/bin/env bash -lc if ! command -v firefox >/dev/null 2>&1; then echo "Firefox not found, skipping open_virtual_joystick."; exit 0; fi; sleep 2.0; if [ "$(id -u)" -eq 0 ]; then sudo -u ubuntu firefox --new-window 'https://ioes-lab.github.io/dave/extras/virtual_joystick.html'; else firefox --new-window 'https://ioes-lab.github.io/dave/extras/virtual_joystick.html'; fi'].
+[ERROR] [env-8]: process has died [pid 47445, exit code -15, cmd '/usr/bin/env bash -lc if ! command -v qgroundcontrol >/dev/null 2>&1; then echo "QGroundControl not found, skipping open_qgc."; exit 0; fi; sleep 2.0; while true; do if [ "$(id -u)" -eq 0 ]; then sudo -u ubuntu qgroundcontrol; else qgroundcontrol; fi; sleep 3; done'].
+[ERROR] [gazebo-1]: process has died [pid 47330, exit code -15, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -r --force-version 10'].

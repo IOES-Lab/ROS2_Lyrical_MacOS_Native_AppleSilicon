@@ -1,0 +1,13 @@
+[create-2] [INFO] [1787793600.550897000] [ros_gz_sim]: Entity creation successful.
+[INFO] [launch.user]: Web joystick enabled. Open extras/virtual_joystick.html and connect to ws://127.0.0.1:8765
+[env-8] Firefox not found, skipping open_virtual_joystick.
+[gazebo-1] (2026-08-27 10:20:03.560) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[ardusub_manual_control.py-6] ModuleNotFoundError: No module named 'mavros_msgs'
+[ws_to_joy.py-5] ModuleNotFoundError: No module named 'websockets'
+[keyboard_publisher.py-4] [0m[INFO] [1787793623.159309000] [keyboard_joy_publisher]: Keyboard teleop ready on /keyboard/joy | c: arm, x: disarm, w/s: forward/back, a/d: yaw, r/f: ascend/descend, h: ALT_HOLD, j: STABILIZE, space: stop, q: quit[0m
+FileNotFoundError: [Errno 2] No such file or directory: 'ardusub'
+[parameter_bridge-3] [INFO] [1787793659.212050000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/odometry (gz.msgs.Odometry) -> /model/bluerov2/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787793661.341529000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787793661.528407000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/pose (gz.msgs.Pose_V) -> /model/bluerov2/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787793663.490609000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/imu (gz.msgs.IMU) -> /model/bluerov2/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787793665.376364000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)

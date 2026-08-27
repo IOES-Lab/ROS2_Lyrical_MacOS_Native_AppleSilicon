@@ -1,0 +1,8 @@
+[create-2] [INFO] [1787796321.450990757] [ros_gz_sim]: Entity creation successful.
+[gazebo-1] (2026-08-27 02:05:21.687) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[parameter_bridge-3] [INFO] [1787796321.921427466] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796321.954109007] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796321.996058674] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796322.000521341] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796322.006885799] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/imu (gz.msgs.IMU) -> /model/bluerov2_heavy/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796322.016716799] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)

@@ -1,0 +1,25 @@
+{
+  "namespace": "bluerov2_heavy_multibeam_sonar",
+  "received": {
+    "odometry": {
+      "frame_id": "map",
+      "child_frame_id": "base_link",
+      "position": [
+        -0.0009957973736994857,
+        -4.052972738671506e-18,
+        -0.08672712751644446
+      ],
+      "linear_velocity": [
+        -0.00015403653906132322,
+        -1.0947764033325895e-18,
+        -0.03614779921091851
+      ]
+    }
+  },
+  "missing": [
+    "imu",
+    "magnetometer",
+    "sonar_point_cloud"
+  ],
+  "timeout_s": 120
+}

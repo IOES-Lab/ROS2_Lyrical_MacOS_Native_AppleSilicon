@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열한 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -233,6 +233,27 @@ topic graph를 양쪽 플랫폼에서 직접 읽었다.
 
 근거:
 [`../results/usbl_direct_validation_2026-08-27/`](../results/usbl_direct_validation_2026-08-27/).
+
+
+## 11차 — 2026-08-27 Dave ROV Models 직접 재검증
+
+「Dave ROV Models」 페이지의 네 명령과 입력 보조 경로를 Mac·Docker에서 직접 확인했다.
+
+- patched Mac `dave_ocean_waves`에서 REXROV 7/7 메시지 내용을 직접 읽음
+- stock `empty.sdf`는 spawn 예제로만 범위를 축소 — Docker는 4/7이며 world에 Sensors
+  system이 없고 image에는 local IMU patch가 없음
+- BlueROV2·Heavy의 기존 4/5 PARTIAL 범위를 유지하되 2026-08-27 직접 recheck 범위를 분리
+- formerly source-only `bluerov2_heavy_multibeam_sonar`를 Mac·Docker에서 처음 실행:
+  양쪽 모두 odometry만 발행, IMU·magnetometer·sonar PointCloud2는 120초 동안 미발행
+- Docker standalone WebSocket/keyboard Joy는 실제 non-neutral message로 PASS
+- exact BlueROV2 통합 launch는 QGC·Firefox·ArduSub startup까지 가지만 현재 image의
+  `mavros_msgs`/`mavros` 부재로 종료 — process startup을 vehicle-control PASS로 쓰지 않음
+
+이 회차는 일반 ROV dynamics나 QGC 제어를 입증하지 않는다. thrust command response,
+MAVROS 연결, 반복·장시간 안정성과 fifth variant sonar root cause는 후속 범위다.
+
+근거:
+[`../results/rov_direct_validation_2026-08-27/`](../results/rov_direct_validation_2026-08-27/).
 
 ## 일부러 넣지 않은 것
 

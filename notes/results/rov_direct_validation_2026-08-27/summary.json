@@ -1,0 +1,180 @@
+{
+  "date": "2026-08-27",
+  "source_revision": "6aef91c823af5da073329b84ba617b572965e79e",
+  "source_checkout": "non-pristine Lyrical/Jetty migration checkout",
+  "verdicts": {
+    "rexrov_dave_ocean_waves_mac_patched": {
+      "verdict": "FUNCTIONAL PASS within the seven-topic bridge scope",
+      "received": [
+        "camera_image",
+        "camera_info",
+        "imu",
+        "magnetometer",
+        "odometry",
+        "odometry_with_covariance",
+        "pose"
+      ],
+      "received_count": 7,
+      "expected_count": 7
+    },
+    "rexrov_empty_mac_exact_wiki_command": {
+      "verdict": "SMOKE PASS only",
+      "basis": "entity creation and bridge startup; retained ROS message discovery was inconclusive"
+    },
+    "rexrov_empty_docker_exact_wiki_command": {
+      "verdict": "PARTIAL",
+      "received": [
+        "magnetometer",
+        "odometry",
+        "odometry_with_covariance",
+        "pose"
+      ],
+      "missing": [
+        "camera_image",
+        "camera_info",
+        "imu"
+      ],
+      "received_count": 4,
+      "expected_count": 7,
+      "explanation": "stock empty.sdf lacks the Sensors system, and the image lacks the local IMU-topic patch"
+    },
+    "bluerov2_mac_patched_recheck": {
+      "verdict": "PARTIAL in the three-sensor recheck",
+      "received": [
+        "imu",
+        "odometry"
+      ],
+      "missing": [
+        "magnetometer"
+      ]
+    },
+    "bluerov2_heavy_mac_patched_recheck": {
+      "verdict": "PARTIAL in the three-sensor recheck",
+      "received": [
+        "imu",
+        "odometry"
+      ],
+      "missing": [
+        "magnetometer"
+      ]
+    },
+    "bluerov2_docker_as_shipped_isolated": {
+      "verdict": "PARTIAL",
+      "received": [
+        "odometry"
+      ],
+      "missing": [
+        "imu",
+        "magnetometer"
+      ]
+    },
+    "bluerov2_heavy_docker_as_shipped_isolated": {
+      "verdict": "PARTIAL",
+      "received": [
+        "odometry"
+      ],
+      "missing": [
+        "imu",
+        "magnetometer"
+      ]
+    },
+    "bluerov2_heavy_multibeam_sonar_mac": {
+      "verdict": "PARTIAL",
+      "received": [
+        "odometry"
+      ],
+      "missing": [
+        "imu",
+        "magnetometer",
+        "sonar_point_cloud"
+      ],
+      "timeout_s": 120
+    },
+    "bluerov2_heavy_multibeam_sonar_docker": {
+      "verdict": "PARTIAL",
+      "received": [
+        "odometry"
+      ],
+      "missing": [
+        "imu",
+        "magnetometer",
+        "sonar_point_cloud"
+      ],
+      "timeout_s": 120
+    },
+    "docker_websocket_virtual_joystick_standalone": {
+      "verdict": "FUNCTIONAL PASS",
+      "message": {
+        "frame_id": "browser_gamepad:codex_runtime_probe",
+        "axes": [
+          0.25,
+          -0.800000011920929,
+          0.5,
+          0.0
+        ],
+        "buttons": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "semantic_match": true
+      }
+    },
+    "docker_keyboard_tty_standalone": {
+      "verdict": "FUNCTIONAL PASS",
+      "message": {
+        "frame_id": "keyboard",
+        "axes": [
+          0.0,
+          -0.800000011920929,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "buttons": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "docker_exact_bluerov2_integrated_stack": {
+      "verdict": "PARTIAL / launch does not complete",
+      "observed": [
+        "vehicle entity created",
+        "WebSocket server started",
+        "Firefox and QGroundControl processes started",
+        "ArduSub started after the Gazebo IMU appeared"
+      ],
+      "blockers": [
+        "mavros_msgs is absent, so ardusub_manual_control.py exits",
+        "mavros package is absent, so launch tears down after ArduSub starts",
+        "keyboard non-TTY error handling calls removed RcutilsLogger.warn() and exits",
+        "libArduPilotPlugin.so is absent"
+      ]
+    }
+  },
+  "limits": [
+    "The 2026-08-27 BlueROV2 and Heavy reruns tracked odometry, IMU, and magnetometer; the earlier 4/5 matrix remains the basis for their broader page verdict.",
+    "No successful MAVROS/QGroundControl vehicle-control loop was established.",
+    "No commanded-thrust dynamics, quantitative maneuver response, or multi-run stability matrix was measured.",
+    "The fifth variant's silent sonar output was observed but its root cause was not isolated.",
+    "The Docker image and patched Mac workspace are different source/patch states and must not be treated as a pure platform comparison."
+  ]
+}

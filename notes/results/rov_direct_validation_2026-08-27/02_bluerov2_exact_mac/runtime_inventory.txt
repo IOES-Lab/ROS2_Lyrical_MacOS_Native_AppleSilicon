@@ -1,0 +1,12 @@
+== processes ==
+18085 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main /Users/gwon-yeseol/dave_ws_lyrical/install/dave_worlds/share/dave_worlds/worlds/dave_ocean_waves.world -r
+18100 /Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/bluerov2/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry /model/bluerov2/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance /model/bluerov2/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V /model/bluerov2/imu@sensor_msgs/msg/Imu[gz.msgs.IMU /model/bluerov2/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer --ros-args
+18101 /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models/lib/dave_robot_models/keyboard_publisher.py --ros-args --params-file /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/launch_params_snh4ijrh
+== port 8765 ==
+COMMAND   PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Python  35633 gwon-yeseol    4u  IPv6 0xedf2982bacd381ea      0t0  TCP *:8765 (LISTEN)
+== package/command inventory ==
+not found: "/Users/gwon-yeseol/ros_gz_ws_lyrical/install/vision_msgs_rviz_plugins/share/vision_msgs_rviz_plugins/local_setup.zsh"
+ardusub NOT_FOUND
+qgroundcontrol NOT_FOUND
+firefox NOT_FOUND

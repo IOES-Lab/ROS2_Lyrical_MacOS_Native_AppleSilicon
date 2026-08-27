@@ -10,7 +10,7 @@
 | 폴더 | 내용 |
 |---|---|
 | [`upstream/`](upstream/) | 상류에 보고할 것. [`drafts/`](upstream/drafts/) 가 원본, [`submit/`](upstream/submit/) 이 붙여넣기용 변환본, [`make_submittable.py`](upstream/make_submittable.py) 가 변환기 |
-| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL·SeaPressure·Spherical Coordinates)·08-27(USBL) 열 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
+| [`wiki/`](wiki/) | DAVE 문서(`dave-ros2.notion.site`) 정정. **2026-07-20·08-20·08-21·08-25(소나·해류)·08-26(카메라·DVL·SeaPressure·Spherical Coordinates)·08-27(USBL·ROV Models) 열한 차례 반영 완료** — 경위와 일부러 빼놓은 것은 [`wiki/README.md`](wiki/README.md) |
 | [`results/`](results/) | 날짜별 실험 결과. [`worlds/`](results/worlds/) 는 world 18종 스모크 테스트 로그 |
 | [`experiments/`](experiments/) | 실험 스크립트. [`common.sh`](experiments/common.sh) 가 공통 측정 절차 |
 | [`benchmarks/`](benchmarks/) | 초기 벤치마크 스크립트와 결과 (7월). `bench_results/SUPERSEDED_*` 는 폐기된 회차 |
@@ -70,6 +70,14 @@ Mac·Docker에서 common/individual 경로와 transponder 1·2를 직접 확인�
 ROS 콜백이 돌지 않으며, literal `sigma=0`은 Mac에서는 통과하지만 Docker에서는 exit 134로
 서버를 중단시킨다. 일반 USBL 음향·travel-time 정확성은 검증하지 않았다.
 
+최신 ROV 모델 직접 검증:
+[`results/rov_direct_validation_2026-08-27/`](results/rov_direct_validation_2026-08-27/).
+REXROV는 Mac의 sensor-enabled ocean world에서 7/7 메시지 내용을 직접 확인했다. 다섯 번째
+`bluerov2_heavy_multibeam_sonar` 변형은 이제 source-only가 아니다 — Mac·Docker에서 spawn과
+odometry는 통과했지만 IMU·magnetometer·sonar PointCloud2가 120초 동안 발행되지 않았다.
+Docker의 standalone keyboard/WebSocket Joy 경로는 통과했지만, exact BlueROV2 통합 launch는
+현재 이미지의 `mavros`·`mavros_msgs` 부재로 완료되지 않는다.
+
 ## 이 층의 파일
 
 루트 [`README.md`](../README.md) 는 입구 역할만 한다. 상류 저장소(`IOES-Lab/dave`,
@@ -80,8 +88,8 @@ ROS 콜백이 돌지 않으며, literal `sigma=0`은 Mac에서는 통과하지�
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 41개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 84행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`known-issues.md`](known-issues.md) | 43개 항목(현재 문제·해결·철회 이력 포함), 증상·원인·우회 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 85행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

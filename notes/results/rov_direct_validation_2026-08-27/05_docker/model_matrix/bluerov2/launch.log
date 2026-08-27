@@ -1,0 +1,16 @@
+[INFO] [launch]: All log files can be found below /home/docker/rov_validation/model_matrix/bluerov2/ros_logs/2026-08-27-02-04-01-866141-67d4b1d39687-50602
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [50610]
+[INFO] [create-2]: process started with pid [50612]
+[create-2] [INFO] [1787796242.832020846] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787796245.712587875] [ros_gz_sim]: Entity creation successful.
+[gazebo-1] (2026-08-27 02:04:05.862) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[INFO] [create-2]: process has finished cleanly [pid 50612]
+[INFO] [launch.user]: bluerov2 uploaded (isolated)
+[INFO] [parameter_bridge-3]: process started with pid [50664]
+[parameter_bridge-3] [INFO] [1787796246.117731125] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796246.121954500] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/odometry (gz.msgs.Odometry) -> /model/bluerov2/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796246.132457250] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796246.133152875] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/pose (gz.msgs.Pose_V) -> /model/bluerov2/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796246.134129417] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/imu (gz.msgs.IMU) -> /model/bluerov2/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787796246.136787667] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)

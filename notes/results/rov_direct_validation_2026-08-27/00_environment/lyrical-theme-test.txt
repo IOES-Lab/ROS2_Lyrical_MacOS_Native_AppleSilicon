@@ -1,0 +1,12 @@
+== lyrical-theme-test ==
+uid=0(root) gid=0(root) groups=0(root)
+aarch64
+ROS_DISTRO=lyrical
+dave_demos
+dave_robot_models
+/usr/local/bin/ardusub
+qgroundcontrol NOT_FOUND
+/usr/local/bin/firefox
+websockets PYTHON_OK
+mavros_msgs PYTHON_FAIL ModuleNotFoundError("No module named 'mavros_msgs'")
+47193 bash -lc id; uname -m; source /opt/ros/lyrical/setup.bash; [ -f /home/docker/dave_ws/install/setup.bash ] && source /home/docker/dave_ws/install/setup.bash; echo ROS_DISTRO=$ROS_DISTRO; ros2 pkg list | grep -E "^(dave_demos|dave_robot_models|mavros|mavros_msgs)$" || true; for x in ardusub qgroundcontrol firefox; do command -v "$x" || echo "$x NOT_FOUND"; done; python3 - <<"PY" for m in ("websockets","mavros_msgs"):  try:   __import__(m); print(m,"PYTHON_OK")  except Exception as e: print(m,"PYTHON_FAIL",repr(e)) PY pgrep -af "gz-sim-main|ros2 launch|parameter_bridge|ardusub|mavros" || true

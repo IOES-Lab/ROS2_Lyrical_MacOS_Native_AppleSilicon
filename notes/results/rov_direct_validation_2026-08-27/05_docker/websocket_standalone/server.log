@@ -1,0 +1,57 @@
+[INFO] [1787795213.056915217] [joy_ws_server]: WebSocket listening on ws://0.0.0.0:8765 -> /joy
+[INFO] [1787795214.668129218] [joy_ws_server]: Web joystick client connected
+[ros2run]: Received signal:  Interrupt
+connection handler failed
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/websockets/asyncio/server.py", line 376, in conn_handler
+    await self.handler(connection)
+  File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 55, in handler
+    async for message in websocket:
+    ...<9 lines>...
+            node.get_logger().error(f"Failed to publish Joy payload: {exc}")
+  File "/usr/lib/python3/dist-packages/websockets/asyncio/connection.py", line 242, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/websockets/asyncio/connection.py", line 322, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+Traceback (most recent call last):
+  File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 82, in <module>
+    main()
+    ~~~~^^
+  File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 78, in main
+    asyncio.run(main_async())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/docker/dave_ws/install/lib/dave_robot_models/ws_to_joy.py", line 69, in main_async
+    rclpy.spin_once(node, timeout_sec=0.01)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/__init__.py", line 303, in spin_once
+    executor.spin_once(timeout_sec=timeout_sec)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 1020, in spin_once
+    self._spin_once_impl(timeout_sec)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 1000, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        timeout_sec, None, wait_condition)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 970, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 848, in _wait_for_ready_callbacks
+    wait_set = _rclpy.WaitSet(
+        entity_count.num_subscriptions,
+    ...<4 lines>...
+        entity_count.num_events,
+        self._context.handle)
+rclpy._rclpy_pybind11.RCLError: failed to initialize wait set: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/wait.c:110
+[ros2run]: Process exited with failure 1

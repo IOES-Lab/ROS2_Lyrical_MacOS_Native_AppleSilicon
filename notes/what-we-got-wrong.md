@@ -378,3 +378,13 @@ and the difference is entirely in what else was varied.
 Reports state which of their claims are measured and which are read from source, per claim rather
 than per document. The two are not interchangeable, and a reader deciding whether to act on a
 report needs to know which one they are being handed.
+
+## 2026-08-27 — `source-only`는 영구 판정이 아니다
+
+`bluerov2_heavy_multibeam_sonar`를 2026-08-21에 소스로만 읽고 "네 대 runtime + 한 대
+source-only"라고 정확히 범위를 적었지만, 그 상태를 최종 판정처럼 오래 두면 별도의 runtime
+결함을 볼 수 없다. 2026-08-27에 처음 양쪽 플랫폼에서 띄워 보니 IMU omission은 재현됐고,
+동시에 선언된 sonar PointCloud2도 120초 동안 발행되지 않았다. 소스 감사는 이미 아는 실패를
+설명했지만, 실행은 **다른 실패가 함께 있는지**를 보여줬다. 따라서 source-only 항목에는
+"읽음" 표시뿐 아니라 후속 runtime test가 명시돼야 하고, 실행 뒤에는 모든 현재 문서에서
+그 표시를 제거하거나 날짜 붙은 역사로 바꿔야 한다.

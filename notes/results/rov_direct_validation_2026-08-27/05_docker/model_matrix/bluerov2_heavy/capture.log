@@ -1,0 +1,24 @@
+{
+  "namespace": "bluerov2_heavy",
+  "received": {
+    "odometry": {
+      "frame_id": "map",
+      "child_frame_id": "base_link",
+      "position": [
+        8.528904004625222e-11,
+        5.063303253514286e-22,
+        -0.4999691012010785
+      ],
+      "linear_velocity": [
+        7.978660307097186e-09,
+        -7.513657726433292e-21,
+        0.0028861348719266457
+      ]
+    }
+  },
+  "missing": [
+    "imu",
+    "magnetometer"
+  ],
+  "timeout_s": 60
+}

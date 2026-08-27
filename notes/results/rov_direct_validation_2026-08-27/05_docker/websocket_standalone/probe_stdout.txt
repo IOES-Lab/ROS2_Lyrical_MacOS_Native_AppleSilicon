@@ -1,0 +1,16 @@
+{
+  "frame_id": "browser_gamepad:codex_runtime_probe",
+  "axes": [
+    0.25,
+    -0.800000011920929,
+    0.5,
+    0.0
+  ],
+  "buttons": [
+    1,
+    0,
+    1,
+    0
+  ],
+  "semantic_match": true
+}

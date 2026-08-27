@@ -29,6 +29,13 @@
   넘어 이동 표적·travel time·장시간·다중 transceiver 정확성을 검증한다. 2026-08-27에
   common/individual과 두 transponder, 잘못된 Quickstart launcher는 직접 확인·정정했지만
   이 후속 범위와 upstream 보고는 열려 있다.
+- [ ] **ROV 모델 후속 4건** — (1) 현재 RDP 이미지에 `mavros`·`mavros_msgs`와
+  `libArduPilotPlugin.so`를 같은 환경으로 통합한 뒤 exact BlueROV2 launch에서 실제
+  MAVROS/QGC 연결과 차량 제어를 확인한다. (2) `keyboard_publisher.py`의 non-TTY
+  `.warn()` 실패 경로를 고친다. (3) `bluerov2_heavy_multibeam_sonar`의 silent sonar
+  PointCloud2 원인을 분리하고 IMU topic·가짜 magnetometer bridge를 정리한다. (4) stock
+  `empty.sdf`를 REXROV sensor 예제로 계속 쓸지, Sensors system이 있는 world로 문서를
+  바꿀지 결정한다. 일반 thrust dynamics와 장시간·반복 안정성도 아직 검증하지 않았다.
 - [ ] **Underwater Camera 의 R/B 매핑 결정** — `attenuationR`/`backgroundR` 가 Blue 에,
   `attenuationB`/`backgroundB` 가 Red 에 적용된다(2026-08-26 런타임 확인,
   [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
@@ -84,7 +91,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열한 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를
@@ -99,6 +106,9 @@
   입력 검증과 Mac/Docker 플러그인 발견 범위를 직접 실행 결과로 교체했다.
   2026-08-27에는 USBL common/individual 경로와 paused·`sigma=0` 통제를 양쪽 플랫폼에서
   재실행하고, 없는 센서 모델을 spawn하던 Quickstart를 world-only launcher로 교체했다.
+  같은 날 Dave ROV Models의 exact/isolated 경로를 Mac·Docker에서 실행해 REXROV 7/7,
+  fifth multibeam variant의 runtime PARTIAL, standalone Joy PASS와 통합 MAVROS blocker를
+  현재 판정으로 반영했다.
   **초안을 "전달"한 게 아니라 문서를 직접 고쳤다**
 
 완료된 항목의 전체 이력은 [`progress-log.md`](progress-log.md) 에 있다.

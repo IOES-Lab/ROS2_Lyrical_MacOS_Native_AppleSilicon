@@ -1,0 +1,23 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/rov_direct_validation_2026-08-27/03_vehicle_matrix_mac/bluerov2_heavy/ros_logs/2026-08-27-10-30-29-271855-gwon-yeseol-ui-noteubug.local-18697
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [18705]
+[INFO] [create-2]: process started with pid [18706]
+[create-2] [INFO] [1787794247.059568000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787794250.895121000] [ros_gz_sim]: World name was not provided. Using [oceans_waves] as the default world.
+[create-2] [INFO] [1787794251.385395000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 18706]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [parameter_bridge-3]: process started with pid [18739]
+[INFO] [env-4]: process started with pid [18740]
+[gazebo-1] (2026-08-27 10:30:52.386) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[env-4] Service call timed out
+[INFO] [env-4]: process has finished cleanly [pid 18740]
+[parameter_bridge-3] [INFO] [1787794285.354934000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794286.719944000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794288.058969000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794288.060987000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794289.021945000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/imu (gz.msgs.IMU) -> /model/bluerov2_heavy/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794290.287746000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1787794432.513543000] [rclcpp]: signal_handler(signum=15)
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 18739]
+[INFO] [gazebo-1]: process has finished cleanly [pid 18705]

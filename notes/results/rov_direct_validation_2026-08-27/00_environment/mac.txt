@@ -1,0 +1,16 @@
+date=2026-08-27
+platform=macOS Apple Silicon
+Darwin gwon-yeseol-ui-noteubug.local 24.6.0 Darwin Kernel Version 24.6.0: Wed Nov  5 21:33:59 PST 2025; root:xnu-11417.140.69.705.2~1/RELEASE_ARM64_T8112 arm64
+ProductName:		macOS
+ProductVersion:		15.7.3
+BuildVersion:		24G419
+dave_source_head=6aef91c823af5da073329b84ba617b572965e79e
+review_head=ad3d5f1e2cd5028c7fb799a8e33b5316bb5ad3f9
+mac_packages:
+not found: "/Users/gwon-yeseol/ros_gz_ws_lyrical/install/vision_msgs_rviz_plugins/share/vision_msgs_rviz_plugins/local_setup.zsh"
+dave_demos
+dave_robot_models
+commands:
+ardusub NOT_FOUND
+qgroundcontrol NOT_FOUND
+firefox NOT_FOUND

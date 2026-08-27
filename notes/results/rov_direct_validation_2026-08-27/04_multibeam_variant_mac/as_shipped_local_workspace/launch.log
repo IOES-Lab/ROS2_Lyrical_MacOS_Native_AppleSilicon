@@ -1,0 +1,26 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/rov_direct_validation_2026-08-27/04_multibeam_variant_mac/as_shipped_local_workspace/ros_logs/2026-08-27-10-34-31-737455-gwon-yeseol-ui-noteubug.local-18913
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [18924]
+[INFO] [create-2]: process started with pid [18925]
+[create-2] [INFO] [1787794489.840068000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787794493.729116000] [ros_gz_sim]: World name was not provided. Using [oceans_waves] as the default world.
+[create-2] [INFO] [1787794494.239954000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 18925]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [static_transform_publisher-3]: process started with pid [18959]
+[INFO] [parameter_bridge-4]: process started with pid [18960]
+[gazebo-1] (2026-08-27 10:34:55.250) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[static_transform_publisher-3] [INFO] [1787794504.346563000] [static_transform_publisher_ecdMsGI7AlMOROvl]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'world' to 'bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar'
+[parameter_bridge-4] [INFO] [1787794527.691817000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794529.146247000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy_multibeam_sonar/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794530.517080000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794530.519283000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy_multibeam_sonar/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794531.427911000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/imu (gz.msgs.IMU) -> /model/bluerov2_heavy_multibeam_sonar/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794532.547910000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy_multibeam_sonar/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794533.919448000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1787794683.186163000] [rclcpp]: signal_handler(signum=15)
+[INFO] [parameter_bridge-4]: process has finished cleanly [pid 18960]
+[INFO] [gazebo-1]: process has finished cleanly [pid 18924]

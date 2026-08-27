@@ -1,0 +1,36 @@
+{
+  "namespace": "bluerov2_heavy",
+  "received": {
+    "imu": {
+      "frame_id": "bluerov2_heavy/base_link/imu_sensor",
+      "linear_acceleration": [
+        3.100807063992049e-05,
+        -0.003957863265976625,
+        -9.716209466674197
+      ],
+      "angular_velocity": [
+        -4.152750391909403e-19,
+        -2.0988643414088596e-05,
+        8.54964908359167e-09
+      ]
+    },
+    "odometry": {
+      "frame_id": "map",
+      "child_frame_id": "base_link",
+      "position": [
+        1.0544797494862714e-05,
+        -5.157059382317101e-18,
+        -0.08277971855372446
+      ],
+      "linear_velocity": [
+        1.7673168027677498e-06,
+        -1.5336946063153344e-18,
+        0.05206012904542847
+      ]
+    }
+  },
+  "missing": [
+    "magnetometer"
+  ],
+  "timeout_s": 120
+}

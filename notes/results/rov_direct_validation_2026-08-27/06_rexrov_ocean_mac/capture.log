@@ -1,0 +1,50 @@
+{
+  "example": "rexrov + empty.sdf",
+  "received": {
+    "magnetometer": {
+      "frame_id": "rexrov/magnetometer_link/magnetometer_sensor",
+      "magnetic_field": [
+        0.8821619030863429,
+        0.339546936241395,
+        -0.005158838523260767
+      ]
+    },
+    "odometry": {
+      "frame_id": "map",
+      "position": [
+        8.39682581528662e-09,
+        2.0311675289820457e-11,
+        -4.999981183541379
+      ]
+    },
+    "odometry_with_covariance": {
+      "frame_id": "map"
+    },
+    "pose": {
+      "frame_id": "map",
+      "pose_count": 1
+    },
+    "imu": {
+      "frame_id": "rexrov/imu_link/imu_sensor",
+      "linear_acceleration": [
+        0.0019512078772613004,
+        4.34931553089845e-06,
+        12.755525908710117
+      ]
+    },
+    "camera_info": {
+      "frame_id": "rexrov/camera_link/underwater_camera",
+      "width": 1920,
+      "height": 1080
+    },
+    "camera_image": {
+      "frame_id": "rexrov/camera_link/underwater_camera",
+      "width": 1920,
+      "height": 1080,
+      "encoding": "rgb8",
+      "data_length": 6220800
+    }
+  },
+  "missing": [],
+  "timeout_s": 90
+}

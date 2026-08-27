@@ -1,0 +1,34 @@
+{
+  "example": "rexrov + empty.sdf",
+  "received": {
+    "odometry": {
+      "frame_id": "map",
+      "position": [
+        -8.314538785126038e-05,
+        -1.7081371896947187e-07,
+        1.823787472408867
+      ]
+    },
+    "odometry_with_covariance": {
+      "frame_id": "map"
+    },
+    "pose": {
+      "frame_id": "map",
+      "pose_count": 1
+    },
+    "magnetometer": {
+      "frame_id": "rexrov/magnetometer_link/magnetometer_sensor",
+      "magnetic_field": [
+        0.36125568614376996,
+        0.24485927907633576,
+        0.22879318027280987
+      ]
+    }
+  },
+  "missing": [
+    "camera_image",
+    "camera_info",
+    "imu"
+  ],
+  "timeout_s": 120
+}

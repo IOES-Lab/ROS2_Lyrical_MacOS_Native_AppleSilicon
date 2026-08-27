@@ -1,0 +1,3 @@
+Command: docker exec -it lyrical-theme-test ... ros2 run dave_robot_models keyboard_publisher.py
+Input: w
+Result: non-neutral /keyboard/joy captured; q exited cleanly.
