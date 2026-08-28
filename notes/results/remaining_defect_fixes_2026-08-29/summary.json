@@ -1,0 +1,178 @@
+{
+  "date": "2026-08-29",
+  "status": "validated patch candidates; upstream DAVE checkout remains read-only",
+  "fixed_and_validated": {
+    "multibeam_wgpu_gross_range_shift": {
+      "platform": "Mac/Metal",
+      "expected_range_m": 3.99,
+      "peak_ranges_m": [
+        4.038461208343506,
+        4.063545227050781,
+        3.9882943630218506,
+        4.013377666473389,
+        4.013377666473389
+      ],
+      "median_peak_range_m": 4.013377666473389,
+      "maximum_absolute_error_m": 0.07354522705078104,
+      "scope": "one controlled planar scene; not general acoustic validation"
+    },
+    "unavailable_cuda_failure_handling": {
+      "platform": "Mac/Apple M2",
+      "result": "explicit CUDA request fell back to CPU; simulator stayed alive and raw sonar published",
+      "test_shape": "5 beams x 5 rays x 8 range bins"
+    },
+    "underwater_camera_rgb_semantics": {
+      "mac_fixed_murky_center_bgr": [
+        50,
+        103,
+        85
+      ],
+      "docker_fixed_murky_center_bgr": [
+        50,
+        103,
+        85
+      ],
+      "cross_platform_equal": true
+    },
+    "seapressure_contract_and_controls": {
+      "mac_verdict": "PASS",
+      "docker_verdict": "PASS",
+      "mac_checks": {
+        "surface_pa": true,
+        "surface_variance_zero": true,
+        "surface_frame": true,
+        "depth10_pa": true,
+        "depth10_m": true,
+        "above_surface_pa": true,
+        "above_depth_zero": true,
+        "saturation_applied": true,
+        "noise_variance": true,
+        "noise_varies": true,
+        "noise_mean_near_surface": true,
+        "noise_stdev_plausible": true,
+        "rate_2hz": true,
+        "custom_topic_and_values": true,
+        "custom_frame": true,
+        "custom_depth_absent": true
+      },
+      "docker_checks": {
+        "surface_pa": true,
+        "surface_variance_zero": true,
+        "surface_frame": true,
+        "depth10_pa": true,
+        "depth10_m": true,
+        "above_surface_pa": true,
+        "above_depth_zero": true,
+        "saturation_applied": true,
+        "noise_variance": true,
+        "noise_varies": true,
+        "noise_mean_near_surface": true,
+        "noise_stdev_plausible": true,
+        "rate_2hz": true,
+        "custom_topic_and_values": true,
+        "custom_frame": true,
+        "custom_depth_absent": true
+      }
+    },
+    "spherical_validation_and_failure_status": {
+      "mac": {
+        "mode": "configured",
+        "services_responded_while_world_paused": true,
+        "original": [
+          35.074823,
+          129.08479800000003,
+          0.0
+        ],
+        "valid_roundtrip_input_xyz": [
+          100.0,
+          200.0,
+          3.0
+        ],
+        "valid_roundtrip_output_xyz": [
+          100.00000000023319,
+          199.99999999857803,
+          2.9999999999455027
+        ],
+        "nan_local_rejected": true,
+        "out_of_range_spherical_rejected": true,
+        "out_of_range_origin_rejected_and_unchanged": true,
+        "valid_set_and_restore": true,
+        "wall_seconds": 27.795776625047438
+      },
+      "docker": {
+        "mode": "configured",
+        "services_responded_while_world_paused": true,
+        "original": [
+          35.074823,
+          129.08479800000003,
+          0.0
+        ],
+        "valid_roundtrip_input_xyz": [
+          100.0,
+          200.0,
+          3.0
+        ],
+        "valid_roundtrip_output_xyz": [
+          100.00000000023319,
+          199.99999999857803,
+          2.9999999999455027
+        ],
+        "nan_local_rejected": true,
+        "out_of_range_spherical_rejected": true,
+        "out_of_range_origin_rejected_and_unchanged": true,
+        "valid_set_and_restore": true,
+        "wall_seconds": 0.2882184999762103
+      },
+      "api_note": "adds success fields to three service responses and is an interface change"
+    },
+    "dvl_dave_configuration_and_bridge": {
+      "docker_descriptors_tested": 8,
+      "all_published_four_beam_messages": true,
+      "all_frame_ids_populated": true,
+      "all_initialization_errors_absent": true,
+      "actual_descriptor_water_mass_target": "DVL_TARGET_WATER_MASS"
+    },
+    "usbl_sigma_pause_and_fractional_travel_time": {
+      "platforms": [
+        "Mac",
+        "Docker"
+      ],
+      "result": "sigma=0 and paused callbacks pass; moving target passes; 1539/1541 m delays remain continuous near one second"
+    },
+    "plugin_discovery_hooks": {
+      "platforms": [
+        "Mac",
+        "Docker"
+      ],
+      "result": "clean sourced overlays load tested plugins without manual plugin-path injection"
+    },
+    "launch_object_and_world_regressions": {
+      "mac": [
+        "object_preflight=PASS",
+        "keyboard_non_tty=PASS",
+        "headless_semantics=PASS",
+        "debug_arguments=PASS"
+      ],
+      "docker": [
+        "object_preflight=PASS",
+        "keyboard_non_tty=PASS",
+        "headless_semantics=PASS",
+        "unique_world_name=PASS"
+      ],
+      "unique_internal_world_names": "18/18"
+    }
+  },
+  "remaining_not_closed_by_these_patches": [
+    "Mac stock Gazebo Sensors DVL SIGSEGV (also reproduces outside DAVE)",
+    "DAVE multibeam ogre2 crash in the tested Docker image",
+    "Docker hardware WGPU/CUDA paths and NVIDIA CUDA execution",
+    "default RViz macOS window creation",
+    "integrated BlueROV2 MAVROS/QGroundControl and missing sonar example scope",
+    "Fuel immutable pin/account upload, Windows/WSL and hardware-in-the-loop",
+    "general acoustic, optical, hydrodynamic and long-duration physical accuracy",
+    "upstream submission, repository rename, LICENSE and research-direction decisions",
+    "Fast DDS intermittent ros_gz_sim create hang outside the UDPv4 workaround",
+    "fresh Mac Underwater Camera Quickstart topic-absence reproducibility gap",
+    "blueview_p900 30 Hz target and ROV/Glider actuator-calibration design decisions"
+  ]
+}

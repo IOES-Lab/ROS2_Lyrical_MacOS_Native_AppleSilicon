@@ -1,0 +1,114 @@
+{
+  "variant": "ucam_no_effect",
+  "topic": "/ucam_no_effect/simulated_image",
+  "channel_order": "BGR",
+  "ignored_initial_frames": 10,
+  "captured_frames": 5,
+  "frames": [
+    {
+      "index": 1,
+      "stamp_sec": 1787933827,
+      "stamp_nanosec": 360552467,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        55,
+        78,
+        109
+      ],
+      "mean_bgr": [
+        55.0,
+        78.0,
+        109.0
+      ],
+      "sha256": "ec68da2430e5364c96c305ea01580de15abd4202942f2de77597df682f475846"
+    },
+    {
+      "index": 2,
+      "stamp_sec": 1787933827,
+      "stamp_nanosec": 460716051,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        55,
+        78,
+        109
+      ],
+      "mean_bgr": [
+        55.0,
+        78.0,
+        109.0
+      ],
+      "sha256": "ec68da2430e5364c96c305ea01580de15abd4202942f2de77597df682f475846"
+    },
+    {
+      "index": 3,
+      "stamp_sec": 1787933827,
+      "stamp_nanosec": 561915926,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        55,
+        78,
+        109
+      ],
+      "mean_bgr": [
+        55.0,
+        78.0,
+        109.0
+      ],
+      "sha256": "ec68da2430e5364c96c305ea01580de15abd4202942f2de77597df682f475846"
+    },
+    {
+      "index": 4,
+      "stamp_sec": 1787933827,
+      "stamp_nanosec": 671403592,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        55,
+        78,
+        109
+      ],
+      "mean_bgr": [
+        55.0,
+        78.0,
+        109.0
+      ],
+      "sha256": "ec68da2430e5364c96c305ea01580de15abd4202942f2de77597df682f475846"
+    },
+    {
+      "index": 5,
+      "stamp_sec": 1787933827,
+      "stamp_nanosec": 774700884,
+      "width": 320,
+      "height": 240,
+      "encoding": "bgr8",
+      "step": 960,
+      "data_length": 230400,
+      "center_bgr": [
+        55,
+        78,
+        109
+      ],
+      "mean_bgr": [
+        55.0,
+        78.0,
+        109.0
+      ],
+      "sha256": "ec68da2430e5364c96c305ea01580de15abd4202942f2de77597df682f475846"
+    }
+  ]
+}

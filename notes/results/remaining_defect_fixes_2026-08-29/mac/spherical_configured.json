@@ -1,0 +1,24 @@
+{
+  "mode": "configured",
+  "services_responded_while_world_paused": true,
+  "original": [
+    35.074823,
+    129.08479800000003,
+    0.0
+  ],
+  "valid_roundtrip_input_xyz": [
+    100.0,
+    200.0,
+    3.0
+  ],
+  "valid_roundtrip_output_xyz": [
+    100.00000000023319,
+    199.99999999857803,
+    2.9999999999455027
+  ],
+  "nan_local_rejected": true,
+  "out_of_range_spherical_rejected": true,
+  "out_of_range_origin_rejected_and_unchanged": true,
+  "valid_set_and_restore": true,
+  "wall_seconds": 27.795776625047438
+}

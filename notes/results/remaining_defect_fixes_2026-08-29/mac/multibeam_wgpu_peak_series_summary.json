@@ -1,0 +1,16 @@
+{
+  "backend": "wgpu",
+  "sample_count": 5,
+  "expected_range_m": 3.99,
+  "peak_ranges_m": [
+    4.038461208343506,
+    4.063545227050781,
+    3.9882943630218506,
+    4.013377666473389,
+    4.013377666473389
+  ],
+  "median_peak_range_m": 4.013377666473389,
+  "min_peak_range_m": 3.9882943630218506,
+  "max_peak_range_m": 4.063545227050781,
+  "all_expected_bin_rank_1": false
+}

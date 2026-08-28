@@ -1,0 +1,105 @@
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/sonar_compute_cpu.cc b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/sonar_compute_cpu.cc
+index 92acdf0..282db97 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/sonar_compute_cpu.cc
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/sonar_compute_cpu.cc
+@@ -167,9 +167,10 @@ std::unique_ptr<ComputeBackend> CreateComputeBackend(const std::string & request
+       std::cerr << "[sonar_compute_factory] SUCCESS: WgpuComputeBackend initialized!" << std::endl;
+       return wgpuBackend;
+     }
+-    std::cerr << "[sonar_compute_factory] WGPU backend requested but FAILED to initialize."
++    std::cerr << "[sonar_compute_factory] WGPU backend requested but FAILED to initialize; "
++                 "falling back to CPU so the simulator remains usable."
+               << std::endl;
+-    return nullptr;
++    return std::make_unique<CpuComputeBackend>();
+   }
+ 
+   if (backend == "cuda")
+@@ -183,9 +184,10 @@ std::unique_ptr<ComputeBackend> CreateComputeBackend(const std::string & request
+       std::cerr << "[sonar_compute_factory] SUCCESS: CudaComputeBackend initialized!" << std::endl;
+       return cudaBackend;
+     }
+-    std::cerr << "[sonar_compute_factory] CUDA backend requested but failed to initialize."
++    std::cerr << "[sonar_compute_factory] CUDA backend requested but failed to initialize; "
++                 "falling back to CPU so the simulator remains usable."
+               << std::endl;
+-    return nullptr;
++    return std::make_unique<CpuComputeBackend>();
+   }
+ 
+   if (backend == "cpu")
+diff --git a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs
+index f8a7c17..6291062 100644
+--- a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs
++++ b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs
+@@ -248,7 +248,8 @@ pub extern "C" fn sonar_wgpu_compute(
+     });
+ 
+     let spectrum_bytes = (spectrum_len * std::mem::size_of::<f32>()) as u64;
+-    // Zero-pad n_freq to the next power of 2 for the GPU FFT (max 4096 = shared memory limit).
++    // The shader uses radix-2 when n_freq is already a power of two and an exact N-point
++    // DFT otherwise. padded_n still sizes the shared-memory guard and carries log2(N).
+     let padded_n = (n_freq_us.next_power_of_two() as u32).min(4096);
+ 
+     // ---- Single command encoder: all passes + staging copy in one GPU submission ----
+@@ -307,8 +308,8 @@ pub extern "C" fn sonar_wgpu_compute(
+         }
+     }
+ 
+-    // FFT Dispatch: always runs on GPU via zero-padding to the next power of 2 (max 4096).
+-    // Copy MM output -> FFT working buffers -> dispatch FFT shader -> copy to staging.
++    // Spectrum-transform dispatch: radix-2 FFT for power-of-two sizes, exact DFT otherwise.
++    // Copy MM output -> working buffers -> dispatch shader -> copy to staging.
+     enc.copy_buffer_to_buffer(&buf.mm_re_out, 0, &buf.p_re_buf, 0, spectrum_bytes);
+     enc.copy_buffer_to_buffer(&buf.mm_im_out, 0, &buf.p_im_buf, 0, spectrum_bytes);
+ 
+diff --git a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl
+index 4c46085..0e890ea 100644
+--- a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl
++++ b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl
+@@ -1,6 +1,9 @@
+-// Cooley-Tukey FFT with zero-padding to the next power of 2.
+-// Supports any n_freq <= 4096. The input is padded to padded_n (next power of 2 >= n_freq)
+-// in shared memory; only the first n_freq output bins are written back per beam.
++// Exact DFT for non-power-of-two inputs and Cooley-Tukey FFT for power-of-two inputs.
++//
++// Zero-padding a 319-bin spectrum to 512 and then writing the first 319 outputs changes
++// the frequency grid.  The caller still interprets those outputs on the original 319-bin
++// range grid, which moves a 3.99 m return to about 6.4 m.  Keep the fast FFT path when no
++// padding is needed, but evaluate the original N-point DFT directly otherwise.
+ 
+ struct Params {
+   n_beams:  u32,
+@@ -43,6 +46,32 @@ fn main(
+   let n_real = params.n_freq;     // actual data count stored in the buffer
+   let base   = beam * n_real;     // flat offset into the (non-padded) p_re/p_im buffers
+ 
++  // A padded FFT samples a different frequency grid.  For a non-power-of-two input,
++  // load the original samples in natural order and evaluate the exact N-point DFT.
++  // This is slower than radix-2, but it preserves the physical range bins and correctness.
++  if (n_real != n) {
++    for (var i: u32 = lid.x; i < n_real; i = i + 256u) {
++      smem_re[i] = p_re[base + i];
++      smem_im[i] = p_im[base + i];
++    }
++    workgroupBarrier();
++
++    for (var k: u32 = lid.x; k < n_real; k = k + 256u) {
++      var sum_re = 0.0;
++      var sum_im = 0.0;
++      for (var i: u32 = 0u; i < n_real; i = i + 1u) {
++        let angle = -2.0 * 3.14159265358979323846 * f32(k * i) / f32(n_real);
++        let wr = cos(angle);
++        let wi = sin(angle);
++        sum_re = sum_re + smem_re[i] * wr - smem_im[i] * wi;
++        sum_im = sum_im + smem_re[i] * wi + smem_im[i] * wr;
++      }
++      p_re[base + k] = sum_re;
++      p_im[base + k] = sum_im;
++    }
++    return;
++  }
++
+   // Load with zero-padding into bit-reversed positions:
+   //   indices [0, n_real) come from the buffer; [n_real, n) are zero-padded.
+   for (var i: u32 = lid.x; i < n; i = i + 256u) {

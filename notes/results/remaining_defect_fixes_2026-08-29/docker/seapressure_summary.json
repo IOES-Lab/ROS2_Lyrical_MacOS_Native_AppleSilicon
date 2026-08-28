@@ -1,0 +1,122 @@
+{
+  "verdict": "PASS",
+  "checks": {
+    "surface_pa": true,
+    "surface_variance_zero": true,
+    "surface_frame": true,
+    "depth10_pa": true,
+    "depth10_m": true,
+    "above_surface_pa": true,
+    "above_depth_zero": true,
+    "saturation_applied": true,
+    "noise_variance": true,
+    "noise_varies": true,
+    "noise_mean_near_surface": true,
+    "noise_stdev_plausible": true,
+    "rate_2hz": true,
+    "custom_topic_and_values": true,
+    "custom_frame": true,
+    "custom_depth_absent": true
+  },
+  "counts": {
+    "sp_surface": 25,
+    "sp_depth10": 25,
+    "sp_above10": 25,
+    "sp_saturation": 25,
+    "sp_noise": 50,
+    "sp_rate": 5,
+    "sp_custom": 12
+  },
+  "median_period_s": {
+    "sp_surface": 0.09999999999999964,
+    "sp_depth10": 0.09999999999999964,
+    "sp_above10": 0.09999999999999964,
+    "sp_saturation": 0.09999999999999964,
+    "sp_noise": 0.04999999999999982,
+    "sp_rate": 0.5,
+    "sp_custom": 0.20000000000000018
+  },
+  "noise": {
+    "mean_pa": 101334.23081352992,
+    "stdev_pa": 122.3915451655682,
+    "min_pa": 101070.05104907673,
+    "max_pa": 101621.29473528708,
+    "unique": 50
+  },
+  "last_pressure": {
+    "sp_surface": {
+      "stamp": 5.553,
+      "frame_id": "surface_frame",
+      "pressure_pa": 101325.0,
+      "variance_pa2": 0.0
+    },
+    "sp_depth10": {
+      "stamp": 5.553,
+      "frame_id": "depth_frame",
+      "pressure_pa": 199388.80000000002,
+      "variance_pa2": 0.0
+    },
+    "sp_above10": {
+      "stamp": 5.553,
+      "frame_id": "above_frame",
+      "pressure_pa": 101325.0,
+      "variance_pa2": 0.0
+    },
+    "sp_saturation": {
+      "stamp": 5.553,
+      "frame_id": "saturation_frame",
+      "pressure_pa": 150000.0,
+      "variance_pa2": 0.0
+    },
+    "sp_noise": {
+      "stamp": 5.553,
+      "frame_id": "noise_frame",
+      "pressure_pa": 101070.05104907673,
+      "variance_pa2": 15129.0
+    },
+    "sp_rate": {
+      "stamp": 5.553,
+      "frame_id": "rate_frame",
+      "pressure_pa": 101325.0,
+      "variance_pa2": 0.0
+    },
+    "sp_custom": {
+      "stamp": 5.453,
+      "frame_id": "custom_frame",
+      "pressure_pa": 201000.0,
+      "variance_pa2": 0.0
+    }
+  },
+  "last_depth": {
+    "sp_surface": {
+      "stamp": 5.453,
+      "frame_id": "surface_frame",
+      "depth_m": 0.0
+    },
+    "sp_depth10": {
+      "stamp": 5.453,
+      "frame_id": "depth_frame",
+      "depth_m": 10.0
+    },
+    "sp_above10": {
+      "stamp": 5.453,
+      "frame_id": "above_frame",
+      "depth_m": 0.0
+    },
+    "sp_saturation": {
+      "stamp": 5.453,
+      "frame_id": "saturation_frame",
+      "depth_m": 4.963605326328369
+    },
+    "sp_noise": {
+      "stamp": 5.503,
+      "frame_id": "noise_frame",
+      "depth_m": 0.011668557183472511
+    },
+    "sp_rate": {
+      "stamp": 5.053,
+      "frame_id": "rate_frame",
+      "depth_m": 0.0
+    }
+  }
+}

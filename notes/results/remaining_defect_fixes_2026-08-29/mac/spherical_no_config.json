@@ -1,0 +1,12 @@
+{
+  "mode": "no_config",
+  "services_responded_without_spherical_configuration": true,
+  "server_remained_alive": true,
+  "success_values": {
+    "get": false,
+    "to": false,
+    "from": false,
+    "set": false
+  },
+  "wall_seconds": 28.321801917045377
+}

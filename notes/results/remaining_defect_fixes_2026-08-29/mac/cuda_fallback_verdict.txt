@@ -1,0 +1,6 @@
+explicit_cuda_unavailable=CPU_FALLBACK
+simulator_alive=true
+raw_sonar_published=true
+beam_count=5
+range_bin_count=8
+small_test_configuration=true

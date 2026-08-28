@@ -1,0 +1,194 @@
+diff --git a/dave_interfaces/srv/GetOriginSphericalCoord.srv b/dave_interfaces/srv/GetOriginSphericalCoord.srv
+index 0056764..e6a97de 100644
+--- a/dave_interfaces/srv/GetOriginSphericalCoord.srv
++++ b/dave_interfaces/srv/GetOriginSphericalCoord.srv
+@@ -14,9 +14,10 @@
+ # limitations under the License.
+ 
+ ---
++bool success
+ # Latitude [degrees]. Positive is north of equator; negative is south.
+ float64 latitude_deg
+ # Longitude [degrees]. Positive is east of prime meridian; negative is west.
+ float64 longitude_deg
+ # Altitude [m]. Positive is above the WGS 84 ellipsoid
+-float64 altitude
+\ No newline at end of file
++float64 altitude
+diff --git a/dave_interfaces/srv/TransformFromSphericalCoord.srv b/dave_interfaces/srv/TransformFromSphericalCoord.srv
+index 63e5915..4a9d8f3 100644
+--- a/dave_interfaces/srv/TransformFromSphericalCoord.srv
++++ b/dave_interfaces/srv/TransformFromSphericalCoord.srv
+@@ -20,4 +20,5 @@ float64 longitude_deg
+ # Altitude [m]. Positive is above the WGS 84 ellipsoid
+ float64 altitude
+ ---
+-geometry_msgs/Vector3 output
+\ No newline at end of file
++bool success
++geometry_msgs/Vector3 output
+diff --git a/dave_interfaces/srv/TransformToSphericalCoord.srv b/dave_interfaces/srv/TransformToSphericalCoord.srv
+index 29d3174..6ab4053 100644
+--- a/dave_interfaces/srv/TransformToSphericalCoord.srv
++++ b/dave_interfaces/srv/TransformToSphericalCoord.srv
+@@ -15,9 +15,10 @@
+ 
+ geometry_msgs/Vector3 input
+ ---
++bool success
+ # Latitude [degrees]. Positive is north of equator; negative is south.
+ float64 latitude_deg
+ # Longitude [degrees]. Positive is east of prime meridian; negative is west.
+ float64 longitude_deg
+ # Altitude [m]. Positive is above the WGS 84 ellipsoid
+-float64 altitude
+\ No newline at end of file
++float64 altitude
+diff --git a/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc b/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+index 72aceed..3ed9d4b 100644
+--- a/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
++++ b/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+@@ -14,6 +14,7 @@
+  * limitations under the License.
+  */
+ 
++#include <cmath>
+ #include <iostream>
+ 
+ #include <gz/common/Console.hh>
+@@ -114,6 +115,16 @@ bool SphericalCoords::TransformFromSphericalCoord(
+   const std::shared_ptr<dave_interfaces::srv::TransformFromSphericalCoord::Request> request,
+   std::shared_ptr<dave_interfaces::srv::TransformFromSphericalCoord::Response> response)
+ {
++  if (!std::isfinite(request->latitude_deg) || !std::isfinite(request->longitude_deg) ||
++      !std::isfinite(request->altitude) || request->latitude_deg < -90.0 ||
++      request->latitude_deg > 90.0 || request->longitude_deg < -180.0 ||
++      request->longitude_deg > 180.0)
++  {
++    gzerr << "Rejected invalid spherical coordinates" << std::endl;
++    response->success = false;
++    return true;
++  }
++
+   gz::math::Angle lat, lon;
+   lat.SetDegree(request->latitude_deg);
+   lon.SetDegree(request->longitude_deg);
+@@ -122,6 +133,12 @@ bool SphericalCoords::TransformFromSphericalCoord(
+   gzmsg << "Called FROM and latitude: " << request->latitude_deg << std::endl;
+ 
+   auto coords = this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm);
++  if (!coords.has_value())
++  {
++    gzerr << "Spherical coordinates are not configured for this world" << std::endl;
++    response->success = false;
++    return true;
++  }
+   gz::math::Vector3d cartVec = gz::math::Vector3d::Zero;
+   auto cartOpt = coords->LocalFromSphericalPosition(scVec);
+   if (cartOpt && cartOpt->AsMetricVector())
+@@ -132,6 +149,7 @@ bool SphericalCoords::TransformFromSphericalCoord(
+   response->output.x = cartVec.X();
+   response->output.y = cartVec.Y();
+   response->output.z = cartVec.Z();
++  response->success = cartOpt.has_value() && cartOpt->AsMetricVector().has_value();
+ 
+   return true;
+ }
+@@ -140,17 +158,33 @@ bool SphericalCoords::TransformToSphericalCoord(
+   const std::shared_ptr<dave_interfaces::srv::TransformToSphericalCoord::Request> request,
+   std::shared_ptr<dave_interfaces::srv::TransformToSphericalCoord::Response> response)
+ {
++  if (!std::isfinite(request->input.x) || !std::isfinite(request->input.y) ||
++      !std::isfinite(request->input.z))
++  {
++    gzerr << "Rejected non-finite local coordinates" << std::endl;
++    response->success = false;
++    return true;
++  }
++
+   auto cartVec =
+     gz::math::CoordinateVector3::Metric(request->input.x, request->input.y, request->input.z);
+ 
+   gzmsg << "Called TO and X: " << request->input.x << std::endl;
+ 
+   auto coords = this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm);
++  if (!coords.has_value())
++  {
++    gzerr << "Spherical coordinates are not configured for this world" << std::endl;
++    response->success = false;
++    return true;
++  }
+   auto scOpt = coords->SphericalFromLocalPosition(cartVec);
+ 
+   response->latitude_deg = (scOpt && scOpt->Lat()) ? scOpt->Lat()->Degree() : 0.0;
+   response->longitude_deg = (scOpt && scOpt->Lon()) ? scOpt->Lon()->Degree() : 0.0;
+   response->altitude = (scOpt && scOpt->Z()) ? *scOpt->Z() : 0.0;
++  response->success = scOpt.has_value() && scOpt->Lat().has_value() && scOpt->Lon().has_value() &&
++                      scOpt->Z().has_value();
+ 
+   return true;
+ }
+@@ -159,12 +193,20 @@ bool SphericalCoords::GetOriginSphericalCoord(
+   const std::shared_ptr<dave_interfaces::srv::GetOriginSphericalCoord::Request> request,
+   std::shared_ptr<dave_interfaces::srv::GetOriginSphericalCoord::Response> response)
+ {
+-  response->latitude_deg =
+-    this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm)->LatitudeReference().Degree();
+-  response->longitude_deg =
+-    this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm)->LongitudeReference().Degree();
+-  response->altitude =
+-    this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm)->ElevationReference();
++  auto coords = this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm);
++  if (!coords.has_value())
++  {
++    gzerr << "Spherical coordinates are not configured for this world" << std::endl;
++    response->success = false;
++    return true;
++  }
++
++  response->latitude_deg = coords->LatitudeReference().Degree();
++  response->longitude_deg = coords->LongitudeReference().Degree();
++  response->altitude = coords->ElevationReference();
++  response->success = std::isfinite(response->latitude_deg) &&
++                      std::isfinite(response->longitude_deg) &&
++                      std::isfinite(response->altitude);
+ 
+   gzmsg << "Called Get" << std::endl;
+   return true;
+@@ -174,13 +216,23 @@ bool SphericalCoords::SetOriginSphericalCoord(
+   const std::shared_ptr<dave_interfaces::srv::SetOriginSphericalCoord::Request> request,
+   std::shared_ptr<dave_interfaces::srv::SetOriginSphericalCoord::Response> response)
+ {
++  if (!std::isfinite(request->latitude_deg) || !std::isfinite(request->longitude_deg) ||
++      !std::isfinite(request->altitude) || request->latitude_deg < -90.0 ||
++      request->latitude_deg > 90.0 || request->longitude_deg < -180.0 ||
++      request->longitude_deg > 180.0)
++  {
++    gzerr << "Rejected invalid spherical-coordinate origin" << std::endl;
++    response->success = false;
++    return true;
++  }
++
+   auto optionalSphericalCoords = this->dataPtr->world.SphericalCoordinates(*this->dataPtr->ecm);
+ 
+   if (!optionalSphericalCoords.has_value())
+   {
+     gzmsg << "Failed to get spherical coordinates" << std::endl;
+     response->success = false;
+-    return false;
++    return true;
+   }
+ 
+   auto sphericalCoords = optionalSphericalCoords.value();
+@@ -225,10 +277,9 @@ bool SphericalCoords::SetOriginSphericalCoord(
+ void SphericalCoords::PostUpdate(
+   const gz::sim::UpdateInfo & _info, const gz::sim::EntityComponentManager & _ecm)
+ {
++  rclcpp::spin_some(this->ros_node_);
+   if (!_info.paused)
+   {
+-    rclcpp::spin_some(this->ros_node_);
+-
+     if (_info.iterations % 1000 == 0)
+     {
+       gzmsg << "dave_ros_gz_plugins::SphericalCoords::PostUpdate" << std::endl;

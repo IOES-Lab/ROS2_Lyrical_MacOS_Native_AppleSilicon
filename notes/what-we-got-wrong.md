@@ -443,3 +443,15 @@ layered environment도 DAVE setup 뒤 그 nested 경로를 만들었다. 실제 
 있다. “설치 트리 한 위치에 문자열이 없다”는 검사는 환경 항목의 출처 전체를 부정하지 못한다.
 환경 변수 provenance는 clean shell에서 setup layer별 값을 읽고 source hook·generated hook·
 실제 install destination을 함께 대조해야 한다.
+
+
+## 2026-08-29 — 결함 목록을 현재 판정처럼 읽었다
+
+`known-issues.md`는 실패 발견 시점의 근거를 보존하는 감사 이력인데, 후보 패치를 검증한 뒤에도
+루트 README·matrix·next-steps가 그 문장을 현재형으로 반복했다. 코드를 고친 것과 판정 전파는
+별개이며, 후자를 하지 않으면 사용자는 이미 닫힌 재현 가능 결함과 외부 blocker를 구분할 수 없다.
+
+이번에는 각 항목을 (1) 후보 패치로 재현 실패가 사라진 것, (2) stock Gazebo·외부 패키지·하드웨어
+때문에 남은 것, (3) 일반 과학 정확도로 나눴다. 단, 로컬 후보 패치의 PASS를 upstream 반영으로
+쓰지 않았다. 앞으로 결함 수정의 완료 조건에는 원인 통제, 양 플랫폼 가능 범위, patch-apply 검사,
+현재 문서 전파와 "아직 주장하지 않는 것" 목록을 함께 둔다.

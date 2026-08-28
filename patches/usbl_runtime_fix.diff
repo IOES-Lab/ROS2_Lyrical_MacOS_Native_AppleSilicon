@@ -1,0 +1,140 @@
+diff --git a/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc b/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc
+index 05b9c52..26b359e 100644
+--- a/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc
++++ b/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc
+@@ -16,8 +16,10 @@
+ 
+ #include <gz/msgs/vector3d.pb.h>
+ #include <algorithm>
++#include <chrono>
+ #include <iostream>
+ #include <string>
++#include <thread>
+ #include <unordered_map>
+ #include <vector>
+ 
+@@ -423,7 +425,11 @@ void UsblTransceiver::sendPing()
+     double dist = (pose_transponder.Pos() - pose_transceiver.Pos()).Length();
+     this->dataPtr->m_soundSpeed = 1540.4 + pose_transceiver.Z() / 1000 * 17;
+ 
+-    sleep(dist / this->dataPtr->m_soundSpeed);
++    if (this->dataPtr->m_soundSpeed > 0.0)
++    {
++      std::this_thread::sleep_for(
++        std::chrono::duration<double>(dist / this->dataPtr->m_soundSpeed));
++    }
+ 
+     if (this->dataPtr->m_interrogationMode.compare("common") == 0)
+     {
+@@ -600,10 +606,10 @@ void UsblTransceiver::calculateRelativePose(
+ void UsblTransceiver::PostUpdate(
+   const gz::sim::UpdateInfo & _info, const gz::sim::EntityComponentManager & _ecm)
+ {
++  // Service and topic callbacks are wall-time events and must remain responsive while paused.
++  rclcpp::spin_some(this->ros_node_);
+   if (!_info.paused)
+   {
+-    rclcpp::spin_some(this->ros_node_);
+-
+     if (!this->dataPtr->setGlobalMode)
+     {
+       std_msgs::msg::String mode;
+diff --git a/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc b/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc
+index c1a94cc..8e4d41e 100644
+--- a/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc
++++ b/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc
+@@ -15,8 +15,10 @@
+  */
+ 
+ #include <algorithm>
++#include <chrono>
+ #include <random>
+ #include <string>
++#include <thread>
+ #include <vector>
+ 
+ #include <gz/common/Console.hh>
+@@ -195,6 +197,11 @@ void UsblTransponder::Configure(
+   if (_sdf->HasElement("sigma"))
+   {
+     this->dataPtr->m_noiseSigma = _sdf->Get<double>("sigma");
++    if (this->dataPtr->m_noiseSigma < 0.0)
++    {
++      gzwarn << "Negative USBL sigma is invalid; using deterministic sigma=0" << std::endl;
++      this->dataPtr->m_noiseSigma = 0.0;
++    }
+   }
+ 
+   // Get transceiver model name
+@@ -257,19 +264,21 @@ void UsblTransponder::Configure(
+ 
+ void UsblTransponder::sendLocation()
+ {
+-  // randomly generate from normal distribution for noise
+-  std::random_device rd{};
+-  std::mt19937 gen{rd()};
+-  std::normal_distribution<> d(this->dataPtr->m_noiseMu, this->dataPtr->m_noiseSigma);
+-
+   gz::math::Pose3d pose = worldPose(this->dataPtr->linkEntity, *this->dataPtr->ecm);
+   gz::math::Vector3<double> position = pose.Pos();
+   auto pub_msg = gz::msgs::Vector3d();
+-  // std::cout << position.X() << " " << position.Y() << " "
+-  //           << position.Z() << std::endl;
+-  pub_msg.set_x(position.X() + d(gen));
+-  pub_msg.set_y(position.Y() + d(gen));
+-  pub_msg.set_z(position.Z() + d(gen));
++  gz::math::Vector3d noise = gz::math::Vector3d::Zero;
++  if (this->dataPtr->m_noiseSigma > 0.0)
++  {
++    std::random_device rd{};
++    std::mt19937 gen{rd()};
++    std::normal_distribution<> distribution(
++      this->dataPtr->m_noiseMu, this->dataPtr->m_noiseSigma);
++    noise.Set(distribution(gen), distribution(gen), distribution(gen));
++  }
++  pub_msg.set_x(position.X() + noise.X());
++  pub_msg.set_y(position.Y() + noise.Y());
++  pub_msg.set_z(position.Z() + noise.Z());
+   this->dataPtr->m_globalPosPub.Publish(pub_msg);
+ }
+ 
+@@ -296,7 +305,11 @@ void UsblTransponder::iisRosCallback(const std_msgs::msg::String::SharedPtr msg)
+       // gzmsg << "Distance " << dist << std::endl;
+       // gzmsg << "Pose transponder " << position_transponder << std::endl;
+       // gzmsg << "Pose transceiver " << position_transceiver << std::endl;
+-      sleep(dist / this->dataPtr->m_soundSpeed);
++      if (this->dataPtr->m_soundSpeed > 0.0)
++      {
++        std::this_thread::sleep_for(
++          std::chrono::duration<double>(dist / this->dataPtr->m_soundSpeed));
++      }
+       sendLocation();
+     }
+     else
+@@ -330,7 +343,11 @@ void UsblTransponder::cisRosCallback(const std_msgs::msg::String::SharedPtr msg)
+     {
+       gzmsg << this->dataPtr->m_transponderDevice + "_" + this->dataPtr->m_transponderID +
+                  ": Received cis_ping, responding\n";
+-      sleep(dist / this->dataPtr->m_soundSpeed);
++      if (this->dataPtr->m_soundSpeed > 0.0)
++      {
++        std::this_thread::sleep_for(
++          std::chrono::duration<double>(dist / this->dataPtr->m_soundSpeed));
++      }
+       sendLocation();
+     }
+     else
+@@ -379,11 +396,8 @@ void UsblTransponder::commandRosCallback(const dave_interfaces::msg::UsblCommand
+ void UsblTransponder::PostUpdate(
+   const gz::sim::UpdateInfo & _info, const gz::sim::EntityComponentManager & _ecm)
+ {
+-  if (!_info.paused)
+-  {
+-    // gzdbg << "dave_gz_sensor_plugins::UsblTransponder::PostUpdate" << std::endl;
+-    rclcpp::spin_some(this->ros_node_);
+-  }
++  // Service and topic callbacks are wall-time events and must remain responsive while paused.
++  rclcpp::spin_some(this->ros_node_);
+ }
+ 
+ }  // namespace dave_gz_sensor_plugins

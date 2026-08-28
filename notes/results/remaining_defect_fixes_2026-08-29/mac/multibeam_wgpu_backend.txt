@@ -1,0 +1,2 @@
+[gazebo-1] [sonar_wgpu] [metal] selected adapter: Apple M2
+[gazebo-1] [INFO] [1787933246.810358000] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============

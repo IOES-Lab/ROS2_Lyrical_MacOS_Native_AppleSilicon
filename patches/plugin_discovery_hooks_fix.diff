@@ -1,0 +1,119 @@
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+index 9e4ec67..d8c78b0 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+@@ -159,6 +159,7 @@ endif()
+ install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
+ 
+ ament_environment_hooks(
+-  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in")
++  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in"
++  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in")
+ 
+ ament_package()
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.dsv.in b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.dsv.in
+index 07f53dc..4e8a0b0 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.dsv.in
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.dsv.in
+@@ -1,2 +1,3 @@
+ prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+ prepend-non-duplicate;LD_LIBRARY_PATH;lib/@PROJECT_NAME@/
++prepend-non-duplicate;DYLD_LIBRARY_PATH;lib/@PROJECT_NAME@/
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.sh.in b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.sh.in
+new file mode 100644
+index 0000000..738cd95
+--- /dev/null
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.sh.in
+@@ -0,0 +1,3 @@
++ament_prepend_unique_value GZ_SIM_SYSTEM_PLUGIN_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
++ament_prepend_unique_value LD_LIBRARY_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
++ament_prepend_unique_value DYLD_LIBRARY_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+index c1a974d..baa9f2c 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+@@ -41,6 +41,7 @@ install(TARGETS ${PROJECT_NAME}
+ # Environment hooks
+ ament_environment_hooks(
+   "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in"
++  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in"
+ )
+ 
+ ament_package()
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.dsv.in b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.dsv.in
+index 07f53dc..4e8a0b0 100644
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.dsv.in
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.dsv.in
+@@ -1,2 +1,3 @@
+ prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+ prepend-non-duplicate;LD_LIBRARY_PATH;lib/@PROJECT_NAME@/
++prepend-non-duplicate;DYLD_LIBRARY_PATH;lib/@PROJECT_NAME@/
+diff --git a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.sh.in b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.sh.in
+new file mode 100644
+index 0000000..738cd95
+--- /dev/null
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.sh.in
+@@ -0,0 +1,3 @@
++ament_prepend_unique_value GZ_SIM_SYSTEM_PLUGIN_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
++ament_prepend_unique_value LD_LIBRARY_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
++ament_prepend_unique_value DYLD_LIBRARY_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
+diff --git a/gazebo/dave_gz_world_plugins/CMakeLists.txt b/gazebo/dave_gz_world_plugins/CMakeLists.txt
+index 358537e..2b3666b 100644
+--- a/gazebo/dave_gz_world_plugins/CMakeLists.txt
++++ b/gazebo/dave_gz_world_plugins/CMakeLists.txt
+@@ -154,7 +154,8 @@ ament_export_dependencies(
+ 
+ # Environment hooks
+ ament_environment_hooks(
+-  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in")
++  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in"
++  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in")
+ 
+ # Testing setup
+ if(BUILD_TESTING)
+diff --git a/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.dsv.in b/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.dsv.in
+index 5e60e0e..e8c4d5a 100644
+--- a/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.dsv.in
++++ b/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.dsv.in
+@@ -1 +1,2 @@
+-prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+\ No newline at end of file
++prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib
++prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+diff --git a/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.sh.in b/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.sh.in
+new file mode 100644
+index 0000000..75fb321
+--- /dev/null
++++ b/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.sh.in
+@@ -0,0 +1,2 @@
++ament_prepend_unique_value GZ_SIM_SYSTEM_PLUGIN_PATH "$AMENT_CURRENT_PREFIX/lib"
++ament_prepend_unique_value GZ_SIM_SYSTEM_PLUGIN_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"
+diff --git a/gazebo/dave_ros_gz_plugins/CMakeLists.txt b/gazebo/dave_ros_gz_plugins/CMakeLists.txt
+index 3a04c53..7a8ad91 100644
+--- a/gazebo/dave_ros_gz_plugins/CMakeLists.txt
++++ b/gazebo/dave_ros_gz_plugins/CMakeLists.txt
+@@ -111,6 +111,7 @@ ament_export_dependencies(
+ # Environment hooks
+ ament_environment_hooks(
+   "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in"
++  "${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.sh.in"
+ )
+ 
+ # Optional: Testing setup
+diff --git a/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.dsv.in b/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.dsv.in
+index 5e60e0e..e8c4d5a 100644
+--- a/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.dsv.in
++++ b/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.dsv.in
+@@ -1 +1,2 @@
+-prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+\ No newline at end of file
++prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib
++prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+diff --git a/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.sh.in b/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.sh.in
+new file mode 100644
+index 0000000..75fb321
+--- /dev/null
++++ b/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.sh.in
+@@ -0,0 +1,2 @@
++ament_prepend_unique_value GZ_SIM_SYSTEM_PLUGIN_PATH "$AMENT_CURRENT_PREFIX/lib"
++ament_prepend_unique_value GZ_SIM_SYSTEM_PLUGIN_PATH "$AMENT_CURRENT_PREFIX/lib/@PROJECT_NAME@"

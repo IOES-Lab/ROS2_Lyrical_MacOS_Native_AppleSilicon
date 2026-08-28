@@ -1,0 +1,4 @@
+object_preflight=PASS
+keyboard_non_tty=PASS
+headless_semantics=PASS
+unique_world_name=PASS

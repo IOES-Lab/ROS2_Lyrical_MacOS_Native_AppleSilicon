@@ -1,0 +1,64 @@
+diff --git a/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc b/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc
+index f55f975..57d5a01 100644
+--- a/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc
++++ b/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc
+@@ -224,11 +224,11 @@ void UnderwaterCamera::Configure(
+ 
+   if (!_sdf->HasElement("attenuationR"))
+   {
+-    this->dataPtr->attenuation[0] = 1.f / 30.f;
++    this->dataPtr->attenuation[2] = 1.f / 30.f;
+   }
+   else
+   {
+-    this->dataPtr->attenuation[0] = _sdf->Get<float>("attenuationR");
++    this->dataPtr->attenuation[2] = _sdf->Get<float>("attenuationR");
+   }
+ 
+   if (!_sdf->HasElement("attenuationG"))
+@@ -242,20 +242,20 @@ void UnderwaterCamera::Configure(
+ 
+   if (!_sdf->HasElement("attenuationB"))
+   {
+-    this->dataPtr->attenuation[2] = 1.f / 30.f;
++    this->dataPtr->attenuation[0] = 1.f / 30.f;
+   }
+   else
+   {
+-    this->dataPtr->attenuation[2] = _sdf->Get<float>("attenuationB");
++    this->dataPtr->attenuation[0] = _sdf->Get<float>("attenuationB");
+   }
+ 
+   if (!_sdf->HasElement("backgroundR"))
+   {
+-    this->dataPtr->background[0] = (unsigned char)0;
++    this->dataPtr->background[2] = (unsigned char)0;
+   }
+   else
+   {
+-    this->dataPtr->background[0] = (unsigned char)_sdf->Get<int>("backgroundR");
++    this->dataPtr->background[2] = (unsigned char)_sdf->Get<int>("backgroundR");
+   }
+ 
+   if (!_sdf->HasElement("backgroundG"))
+@@ -269,11 +269,11 @@ void UnderwaterCamera::Configure(
+ 
+   if (!_sdf->HasElement("backgroundB"))
+   {
+-    this->dataPtr->background[2] = (unsigned char)0;
++    this->dataPtr->background[0] = (unsigned char)0;
+   }
+   else
+   {
+-    this->dataPtr->background[2] = (unsigned char)_sdf->Get<int>("backgroundB");
++    this->dataPtr->background[0] = (unsigned char)_sdf->Get<int>("backgroundB");
+   }
+ 
+   // Gazebo camera subscriber
+@@ -451,4 +451,4 @@ void UnderwaterCamera::PostUpdate(
+   }
+ }
+ 
+-}  // namespace dave_gz_sensor_plugins
+\ No newline at end of file
++}  // namespace dave_gz_sensor_plugins

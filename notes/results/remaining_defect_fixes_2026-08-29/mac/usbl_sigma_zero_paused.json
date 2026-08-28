@@ -1,0 +1,215 @@
+{
+  "expected_cartesian_m": {
+    "1": [
+      3.0,
+      3.0,
+      0.5
+    ],
+    "2": [
+      6.0,
+      6.0,
+      0.5
+    ]
+  },
+  "graph": {
+    "cartesian_publishers": 1,
+    "channel_subscribers": 1,
+    "common_ping_subscribers": 2,
+    "individual_1_subscribers": 1,
+    "individual_2_subscribers": 1,
+    "location_publishers": 1,
+    "mode_subscribers": 3
+  },
+  "phases": {
+    "common": {
+      "cartesian_count": 4,
+      "cartesian_ids": [
+        1,
+        2
+      ],
+      "maximum_cartesian_axis_error_m": 8.881784197001252e-16,
+      "maximum_spherical_cartesian_reconstruction_error_m": 8.881784197001252e-16,
+      "spherical_count": 4,
+      "spherical_ids": [
+        1,
+        2
+      ],
+      "unexpected_ids": []
+    },
+    "individual_1": {
+      "cartesian_count": 2,
+      "cartesian_ids": [
+        1
+      ],
+      "maximum_cartesian_axis_error_m": 4.440892098500626e-16,
+      "maximum_spherical_cartesian_reconstruction_error_m": 4.440892098500626e-16,
+      "spherical_count": 2,
+      "spherical_ids": [
+        1
+      ],
+      "unexpected_ids": []
+    },
+    "individual_2": {
+      "cartesian_count": 2,
+      "cartesian_ids": [
+        2
+      ],
+      "maximum_cartesian_axis_error_m": 8.881784197001252e-16,
+      "maximum_spherical_cartesian_reconstruction_error_m": 8.881784197001252e-16,
+      "spherical_count": 2,
+      "spherical_ids": [
+        2
+      ],
+      "unexpected_ids": []
+    }
+  },
+  "raw": {
+    "common": {
+      "cartesian": [
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787933367.1096032,
+          "x": 3.0,
+          "y": 2.9999999999999996,
+          "z": 0.4999999999999999
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787933367.111145,
+          "x": 6.0,
+          "y": 5.999999999999999,
+          "z": 0.5
+        },
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787933367.406261,
+          "x": 3.0,
+          "y": 2.9999999999999996,
+          "z": 0.4999999999999999
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787933367.407677,
+          "x": 6.0,
+          "y": 5.999999999999999,
+          "z": 0.5
+        }
+      ],
+      "spherical": [
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787933367.109129,
+          "x": 45.0,
+          "y": 4.272001872658765,
+          "z": 6.721369339369456
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787933367.110943,
+          "x": 45.0,
+          "y": 8.5,
+          "z": 3.372286683433898
+        },
+        {
+          "phase": "common",
+          "transponder_id": 1,
+          "wall_time": 1787933367.404743,
+          "x": 45.0,
+          "y": 4.272001872658765,
+          "z": 6.721369339369456
+        },
+        {
+          "phase": "common",
+          "transponder_id": 2,
+          "wall_time": 1787933367.405866,
+          "x": 45.0,
+          "y": 8.5,
+          "z": 3.372286683433898
+        }
+      ]
+    },
+    "individual_1": {
+      "cartesian": [
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787933369.0944269,
+          "x": 3.0,
+          "y": 2.9999999999999996,
+          "z": 0.4999999999999999
+        },
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787933369.4207811,
+          "x": 3.0,
+          "y": 2.9999999999999996,
+          "z": 0.4999999999999999
+        }
+      ],
+      "spherical": [
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787933369.094204,
+          "x": 45.0,
+          "y": 4.272001872658765,
+          "z": 6.721369339369456
+        },
+        {
+          "phase": "individual_1",
+          "transponder_id": 1,
+          "wall_time": 1787933369.402657,
+          "x": 45.0,
+          "y": 4.272001872658765,
+          "z": 6.721369339369456
+        }
+      ]
+    },
+    "individual_2": {
+      "cartesian": [
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787933372.2835991,
+          "x": 6.0,
+          "y": 5.999999999999999,
+          "z": 0.5
+        },
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787933372.2847831,
+          "x": 6.0,
+          "y": 5.999999999999999,
+          "z": 0.5
+        }
+      ],
+      "spherical": [
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787933372.28339,
+          "x": 45.0,
+          "y": 8.5,
+          "z": 3.372286683433898
+        },
+        {
+          "phase": "individual_2",
+          "transponder_id": 2,
+          "wall_time": 1787933372.284607,
+          "x": 45.0,
+          "y": 8.5,
+          "z": 3.372286683433898
+        }
+      ]
+    }
+  },
+  "scope": "Common and individual ROS trigger paths in the two-transponder tutorial geometry. This checks message routing and geometric self-consistency, not general acoustic accuracy."
+}

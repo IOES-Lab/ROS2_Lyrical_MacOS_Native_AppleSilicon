@@ -1,0 +1,363 @@
+diff --git a/examples/dave_demos/launch/dave_object.launch.py b/examples/dave_demos/launch/dave_object.launch.py
+index 5568d59..9d4e408 100755
+--- a/examples/dave_demos/launch/dave_object.launch.py
++++ b/examples/dave_demos/launch/dave_object.launch.py
+@@ -2,7 +2,6 @@ from launch import LaunchDescription
+ from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
+ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+ from launch.launch_description_sources import PythonLaunchDescriptionSource
+-from launch.conditions import IfCondition
+ from launch_ros.substitutions import FindPackageShare
+ 
+ 
+@@ -33,7 +32,7 @@ def launch_setup(context, *args, **kwargs):
+     else:
+         gz_args = [world_name]
+ 
+-    if headless.perform(context) == "true":
++    if headless.perform(context).lower() == "true" or gui.perform(context).lower() == "false":
+         gz_args.append(" -s")
+     if paused.perform(context) == "false":
+         gz_args.append(" -r")
+@@ -56,7 +55,6 @@ def launch_setup(context, *args, **kwargs):
+         launch_arguments=[
+             ("gz_args", gz_args),
+         ],
+-        condition=IfCondition(gui),
+     )
+ 
+     object_launch = IncludeLaunchDescription(
+@@ -72,7 +70,7 @@ def launch_setup(context, *args, **kwargs):
+             ]
+         ),
+         launch_arguments={
+-            "gui": gui,
++            "gui": "true",
+             "use_sim_time": use_sim_time,
+             "namespace": namespace,
+             "x": x,
+diff --git a/examples/dave_demos/launch/dave_robot.launch.py b/examples/dave_demos/launch/dave_robot.launch.py
+index 8700471..1250220 100644
+--- a/examples/dave_demos/launch/dave_robot.launch.py
++++ b/examples/dave_demos/launch/dave_robot.launch.py
+@@ -4,7 +4,6 @@ from launch.actions import (
+     IncludeLaunchDescription,
+     OpaqueFunction,
+ )
+-from launch.conditions import IfCondition
+ from launch.launch_description_sources import PythonLaunchDescriptionSource
+ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+ from launch_ros.substitutions import FindPackageShare
+@@ -48,7 +47,7 @@ def launch_setup(context, *args, **kwargs):
+ 
+     zoom_camera_value = "true" if selected_world_name == "dave_ocean_waves" else "false"
+ 
+-    if headless.perform(context) == "true":
++    if headless.perform(context).lower() == "true" or gui.perform(context).lower() == "false":
+         gz_args.append(" -s")
+     if paused.perform(context) == "false":
+         gz_args.append(" -r")
+@@ -72,7 +71,6 @@ def launch_setup(context, *args, **kwargs):
+         launch_arguments=[
+             ("gz_args", gz_args),
+         ],
+-        condition=IfCondition(gui),
+     )
+ 
+     # Include the second launch file with model name
+@@ -89,7 +87,7 @@ def launch_setup(context, *args, **kwargs):
+             ]
+         ),
+         launch_arguments={
+-            "gui": gui,
++            "gui": "true",
+             "use_sim_time": use_sim_time,
+             "namespace": namespace,
+             "x": x,
+diff --git a/examples/dave_demos/launch/dave_sensor.launch.py b/examples/dave_demos/launch/dave_sensor.launch.py
+index 37fbb9e..e01430a 100644
+--- a/examples/dave_demos/launch/dave_sensor.launch.py
++++ b/examples/dave_demos/launch/dave_sensor.launch.py
+@@ -2,7 +2,6 @@ from launch import LaunchDescription
+ from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
+ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+ from launch.launch_description_sources import PythonLaunchDescriptionSource
+-from launch.conditions import IfCondition
+ from launch_ros.substitutions import FindPackageShare
+ 
+ 
+@@ -33,12 +32,12 @@ def launch_setup(context, *args, **kwargs):
+     else:
+         gz_args = [world_name]
+ 
+-    if headless.perform(context) == "true":
++    if headless.perform(context).lower() == "true" or gui.perform(context).lower() == "false":
+         gz_args.append(" -s")
+     if paused.perform(context) == "false":
+         gz_args.append(" -r")
+     if debug.perform(context) == "true":
+-        gz_args.append(f"-v {verbosity_level.perform(context)}")
++        gz_args.append(f" -v {verbosity_level.perform(context)}")
+ 
+     gz_sim_launch = IncludeLaunchDescription(
+         PythonLaunchDescriptionSource(
+@@ -55,7 +54,6 @@ def launch_setup(context, *args, **kwargs):
+         launch_arguments=[
+             ("gz_args", gz_args),
+         ],
+-        condition=IfCondition(gui),
+     )
+ 
+     sensor_launch = IncludeLaunchDescription(
+@@ -71,7 +69,7 @@ def launch_setup(context, *args, **kwargs):
+             ]
+         ),
+         launch_arguments={
+-            "gui": gui,
++            "gui": "true",
+             "use_sim_time": use_sim_time,
+             "namespace": namespace,
+             "x": x,
+diff --git a/examples/dave_demos/launch/dave_world.launch.py b/examples/dave_demos/launch/dave_world.launch.py
+index a6ef6d1..01ef1b6 100644
+--- a/examples/dave_demos/launch/dave_world.launch.py
++++ b/examples/dave_demos/launch/dave_world.launch.py
+@@ -4,7 +4,6 @@ from launch import LaunchDescription
+ from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription
+ from launch.launch_description_sources import PythonLaunchDescriptionSource
+ from launch.substitutions import LaunchConfiguration
+-from launch.conditions import IfCondition
+ 
+ 
+ def launch_setup(context, *args, **kwargs):
+@@ -24,13 +23,12 @@ def launch_setup(context, *args, **kwargs):
+     gz_args = f"-r {world_path}"
+     if verbose_flag.lower() == "true":
+         gz_args += " --verbose"
+-    if headless_flag.lower() == "true":
++    if headless_flag.lower() == "true" or gui.perform(context).lower() == "false":
+         gz_args += " -s"
+ 
+     gz_sim = IncludeLaunchDescription(
+         PythonLaunchDescriptionSource(os.path.join(pkg_ros_gz_sim, "launch", "gz_sim.launch.py")),
+         launch_arguments={"gz_args": gz_args}.items(),
+-        condition=IfCondition(gui),
+     )
+ 
+     return [gz_sim]
+@@ -52,12 +50,7 @@ def generate_launch_description():
+             DeclareLaunchArgument(
+                 "gui",
+                 default_value="true",
+-                description=(
+-                    "Flag to enable launching Gazebo at all -- matches "
+-                    "dave_sensor.launch.py/dave_robot.launch.py's existing convention: "
+-                    "gui:=false disables Gazebo entirely, not just the window. "
+-                    "Pass gui:=true headless:=true for real headless mode."
+-                ),
++                description="Enable the Gazebo GUI; false starts the server only",
+             ),
+             DeclareLaunchArgument(
+                 "headless",
+diff --git a/gazebo/DEMO_GUIDE.md b/gazebo/DEMO_GUIDE.md
+index 6fb3fb0..96d92d6 100644
+--- a/gazebo/DEMO_GUIDE.md
++++ b/gazebo/DEMO_GUIDE.md
+@@ -27,11 +27,11 @@ Build in two steps on a fresh clone (the Rust library must be ready before the p
+ source /opt/ros/rolling/setup.bash
+ 
+ # Step 1: build and install the Rust library
+-colcon build --packages-select wgpu_vendor
++colcon build --packages-select wgpu_vendor --cmake-args -DCMAKE_BUILD_TYPE=Release
+ source install/setup.bash
+ 
+ # Step 2: build the plugin and everything else
+-colcon build --packages-select dave_demos dave_worlds dave_interfaces multibeam_sonar multibeam_sonar_system dave_multibeam_sonar_demo dave_sensor_models
++colcon build --packages-select dave_demos dave_worlds dave_interfaces multibeam_sonar multibeam_sonar_system dave_multibeam_sonar_demo dave_sensor_models --cmake-args -DCMAKE_BUILD_TYPE=Release
+ source install/setup.bash
+ ```
+ 
+@@ -81,4 +81,4 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+ | mm_re_in, mm_im_in | n_beams × n_freq | f32 | After convert pass |
+ | mm_re_out, mm_im_out | n_beams × n_freq | f32 | After beam correction |
+ | p_re_buf, p_im_buf | n_beams × fft_len | f32 | FFT input/output (zero-padded) |
+-| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
+\ No newline at end of file
++| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
+diff --git a/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md b/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md
+index a55c17c..273d447 100644
+--- a/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md
++++ b/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md
+@@ -31,11 +31,11 @@ Build in two steps on a fresh clone (the Rust library must be ready before the p
+ source /opt/ros/jazzy/setup.bash
+ 
+ # Step 1: build and install the Rust library
+-colcon build --packages-select wgpu_vendor
++colcon build --packages-select wgpu_vendor --cmake-args -DCMAKE_BUILD_TYPE=Release
+ source install/setup.bash
+ 
+ # Step 2: build the plugin and everything else
+-colcon build --packages-select dave_demos dave_worlds dave_interfaces multibeam_sonar multibeam_sonar_system dave_multibeam_sonar_demo dave_sensor_models
++colcon build --packages-select dave_demos dave_worlds dave_interfaces multibeam_sonar multibeam_sonar_system dave_multibeam_sonar_demo dave_sensor_models --cmake-args -DCMAKE_BUILD_TYPE=Release
+ source install/setup.bash
+ ```
+ 
+@@ -85,4 +85,4 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+ | mm_re_in, mm_im_in | n_beams × n_freq | f32 | After convert pass |
+ | mm_re_out, mm_im_out | n_beams × n_freq | f32 | After beam correction |
+ | p_re_buf, p_im_buf | n_beams × fft_len | f32 | FFT input/output (zero-padded) |
+-| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
+\ No newline at end of file
++| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
+diff --git a/models/dave_object_models/launch/upload_object.launch.py b/models/dave_object_models/launch/upload_object.launch.py
+index 6be7284..234ed58 100755
+--- a/models/dave_object_models/launch/upload_object.launch.py
++++ b/models/dave_object_models/launch/upload_object.launch.py
+@@ -1,5 +1,8 @@
++import os
++
++from ament_index_python.packages import get_package_share_directory
+ from launch import LaunchDescription
+-from launch.actions import DeclareLaunchArgument, RegisterEventHandler, LogInfo
++from launch.actions import DeclareLaunchArgument, RegisterEventHandler, LogInfo, OpaqueFunction
+ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+ from launch.conditions import IfCondition
+ from launch_ros.substitutions import FindPackageShare
+@@ -7,6 +10,22 @@ from launch.event_handlers import OnProcessExit
+ from launch_ros.actions import Node
+ 
+ 
++def validate_description(context, *args, **kwargs):
++    namespace = LaunchConfiguration("namespace").perform(context)
++    description_file = os.path.join(
++        get_package_share_directory("dave_object_models"),
++        "description",
++        namespace,
++        "model.sdf",
++    )
++    if not os.path.isfile(description_file):
++        raise FileNotFoundError(
++            f"Object descriptor does not exist for namespace [{namespace}]: "
++            f"{description_file}"
++        )
++    return []
++
++
+ def generate_launch_description():
+     gui = LaunchConfiguration("gui")
+     use_sim_time = LaunchConfiguration("use_sim_time")
+@@ -134,4 +153,6 @@ def generate_launch_description():
+         )
+     ]
+ 
+-    return LaunchDescription(args + nodes + event_handlers)
++    return LaunchDescription(
++        args + [OpaqueFunction(function=validate_description)] + nodes + event_handlers
++    )
+diff --git a/models/dave_robot_models/scripts/keyboard_publisher.py b/models/dave_robot_models/scripts/keyboard_publisher.py
+index 940e7a7..05880e8 100755
+--- a/models/dave_robot_models/scripts/keyboard_publisher.py
++++ b/models/dave_robot_models/scripts/keyboard_publisher.py
+@@ -71,7 +71,7 @@ class KeyboardJoyPublisher(Node):
+             # Use unbuffered binary mode for reliable single-key reads.
+             return open("/dev/tty", "rb", buffering=0)
+         except OSError as exc:
+-            self.get_logger().warn(
++            self.get_logger().warning(
+                 "No interactive TTY for keyboard teleop " f"({exc}). Run launch from a terminal."
+             )
+             return None
+diff --git a/models/dave_worlds/worlds/dave_multibeam_sonar.world b/models/dave_worlds/worlds/dave_multibeam_sonar.world
+index ec31774..9f4cb08 100644
+--- a/models/dave_worlds/worlds/dave_multibeam_sonar.world
++++ b/models/dave_worlds/worlds/dave_multibeam_sonar.world
+@@ -1,7 +1,7 @@
+ <?xml version="1.0"?>
+ 
+ <sdf version="1.6">
+-  <world name="default">
++  <world name="dave_multibeam_sonar">
+     <physics name="1ms" type="ignored">
+       <max_step_size>0.001</max_step_size>
+       <real_time_factor>1.0</real_time_factor>
+diff --git a/models/dave_worlds/worlds/dave_ocean_waves.world b/models/dave_worlds/worlds/dave_ocean_waves.world
+index ad16419..8dd8811 100644
+--- a/models/dave_worlds/worlds/dave_ocean_waves.world
++++ b/models/dave_worlds/worlds/dave_ocean_waves.world
+@@ -17,7 +17,7 @@
+ <!-- Modified for different Gazebo GUI camera angle -->
+ 
+ <sdf version="1.4">
+-  <world name="oceans_waves">
++  <world name="dave_ocean_waves">
+     <scene>
+       <ambient>0.01 0.01 0.01 1.0</ambient>
+       <sky>
+diff --git a/models/dave_worlds/worlds/dave_ocean_waves_mossy_ground.world b/models/dave_worlds/worlds/dave_ocean_waves_mossy_ground.world
+index 073bd04..5b5cf82 100644
+--- a/models/dave_worlds/worlds/dave_ocean_waves_mossy_ground.world
++++ b/models/dave_worlds/worlds/dave_ocean_waves_mossy_ground.world
+@@ -17,7 +17,7 @@
+ <!-- Modified for different Gazebo GUI camera angle -->
+ 
+ <sdf version="1.4">
+-  <world name="oceans_waves">
++  <world name="dave_ocean_waves_mossy_ground">
+     <physics name="1ms" type="ignored">
+       <max_step_size>0.001</max_step_size>
+       <real_time_factor>1.0</real_time_factor>
+diff --git a/models/dave_worlds/worlds/dave_ocean_waves_sonar.world b/models/dave_worlds/worlds/dave_ocean_waves_sonar.world
+index 415d0cf..eb21b6e 100644
+--- a/models/dave_worlds/worlds/dave_ocean_waves_sonar.world
++++ b/models/dave_worlds/worlds/dave_ocean_waves_sonar.world
+@@ -17,7 +17,7 @@
+ <!-- Modified for different Gazebo GUI camera angle -->
+ 
+ <sdf version="1.4">
+-  <world name="oceans_waves">
++  <world name="dave_ocean_waves_sonar">
+     <scene>
+       <ambient>0.01 0.01 0.01 1.0</ambient>
+       <sky>
+diff --git a/models/dave_worlds/worlds/new_dvl.world b/models/dave_worlds/worlds/new_dvl.world
+index 8b1fe99..589b6f9 100644
+--- a/models/dave_worlds/worlds/new_dvl.world
++++ b/models/dave_worlds/worlds/new_dvl.world
+@@ -16,7 +16,7 @@
+ -->
+ 
+ <sdf version="1.4">
+-	<world name="dvl_world">
++	<world name="new_dvl">
+       <scene>
+       <!-- For turquoise ambient to match particle effect -->
+       <ambient>0.0 1.0 1.0</ambient>
+@@ -49,7 +49,7 @@
+ 		<plugin
+ 			filename="gz-sim-sensors-system"
+ 			name="gz::sim::systems::Sensors">
+-    	</plugin>
++	</plugin>
+ 		<plugin
+ 			filename="gz-sim-dvl-system"
+ 			name="gz::sim::systems::DopplerVelocityLogSystem">
+@@ -411,4 +411,4 @@
+     </plugin>
+ 
+ 	</world>
+-</sdf>
+\ No newline at end of file
++</sdf>
+diff --git a/models/dave_worlds/worlds/usbl_tutorial.world b/models/dave_worlds/worlds/usbl_tutorial.world
+index 1ed259f..1377cc3 100644
+--- a/models/dave_worlds/worlds/usbl_tutorial.world
++++ b/models/dave_worlds/worlds/usbl_tutorial.world
+@@ -1,7 +1,7 @@
+ <?xml version="1.0"?>
+ 
+ <sdf version="1.4">
+-  <world name="default">
++  <world name="usbl_tutorial">
+ 
+     <include>
+       <uri>

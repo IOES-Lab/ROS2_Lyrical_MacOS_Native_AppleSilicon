@@ -1,0 +1,10 @@
+Mac isolated builds: PASS
+Docker isolated builds: PASS (non-WGPU packages; container has no cargo)
+Python launch/script compilation: PASS
+Shell parse: PASS
+World XML and package XML parse: PASS
+Internal world names unique: 18/18
+Generated patches git-apply check: PASS
+Generated patch set reproduces modified snapshot: PASS (49 changed files; 225/225 snapshot files identical)
+Applied-source whitespace check: PASS (0 errors)
+Unified-diff context-prefix whitespace is exempted only for patches/*.diff via .gitattributes

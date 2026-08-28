@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열다섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열여섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -336,14 +336,13 @@ Fuel account upload, Resource Spawner GUI와 장기 dynamics는 검증하지 않
 근거:
 [`../results/object_models_direct_validation_2026-08-27/`](../results/object_models_direct_validation_2026-08-27/).
 
-## 일부러 넣지 않은 것
+## 당시 일부러 문서 정정에 넣지 않은 코드 항목 — 현재 상태 갱신
 
-문서가 아니라 **코드로 고쳐야 하는 것들**이다. 문서에 "이거 없으면 실패한다"고
-적는 건 해결이 아니다.
+2026-08-20에는 문서에 우회만 적는 대신 코드로 고쳐야 한다고 분리했다. 현재 상태는 다음과 같다.
 
-- `multibeam_sonar_system` 의 `package.xml` 의존성 누락 — fork 후 PR
-- `SphericalCoords.cc` 패치가 변환 실패를 0/원점으로 감출 수 있는 문제 — 우리 패치 쪽
-- 빌드 로그가 Jetty 빌드인데 "Harmonic" 이라고 찍는 것 — 상류 코드
+- `multibeam_sonar_system` 의 `package.xml` 의존성 누락 — 상류 PR 결정이 아직 필요하다.
+- `SphericalCoords.cc`의 silent 0/origin fallback — 2026-08-29 검증 후보 패치에 포함됐다.
+- Jetty 빌드의 "Harmonic" 로그 문구 — 2026-07-23 기존 migration patch에서 이미 고쳤다.
 
 그리고 **우리 환경 얘기**라 DAVE 문서에 들어갈 내용이 아닌 것들: Docker 이미지 비밀번호,
 `--privileged` 불필요, `rosdep || true` 가 실패를 가리던 것, mavros 소스 빌드, xrdp 권한.
@@ -359,7 +358,7 @@ ArduSub 의 Python 3.14 호환성 문제는 위키에 ArduSub 페이지가 없�
 | [`dave-wiki-inaccuracies.md`](dave-wiki-inaccuracies.md) | 20 페이지를 읽으며 남긴 원본 기록 |
 | [`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) | `ogre` 우회의 X 디스플레이 요건. **버그가 아니라 문서 정정** — 우회는 동작하는데 설명이 불완전해 정상 설정이 고장난 것처럼 보인다 |
 
-## 이 확인의 한계
+## 2026-08-20 확인의 한계 — 당시 기준
 
 2026-08-20 에 **20 페이지를 전부 열어** 우리 발견과 대조했다. 그전 두 번은 검색 결과와
 기억에 기댔고, 그래서 두 번 다 빠뜨렸다 — DVL 과 Underwater Camera 의 `colcon build`
@@ -389,3 +388,26 @@ account upload는 현재 prerequisite가 없어 **BLOCKED**로 적었다. 실행
 
 근거:
 [`../results/full_gap_validation_2026-08-27/`](../results/full_gap_validation_2026-08-27/).
+
+
+## 16차 — 2026-08-29 후보 패치 판정 전파
+
+2026-08-28 감사에서 재현된 로컬 결함을 격리된 source snapshot에서 수정하고 Mac·Docker의
+가능한 범위를 다시 실행했다. Notion의 16개 현재 페이지에 2026-08-29 callout을 추가해,
+수정 전 PARTIAL 블록을 역사로 남기면서 현재 후보 패치 판정을 맨 위에서 분리했다.
+
+- Multibeam WGPU gross range shift와 explicit CUDA CPU fallback
+- Underwater Camera R/B 의미론, SeaPressure ROS 계약·설정
+- Spherical invalid-input/status/no-config/paused와 plugin discovery
+- DVL frame ID·water variable·8/8 descriptor Docker 경로
+- USBL zero-noise·paused·fractional delay
+- World 18/18 unique names, Object missing-descriptor preflight
+- Ocean Current discovery, ROV/Glider의 공유 launch 범위
+- 전체 현황·다음 연구 방향·소나 코드/이론·대조표의 현재 판정
+
+**후보 패치는 상류 DAVE나 사용자 설치 workspace에 아직 반영되지 않았다.** Mac stock Gazebo
+DVL SIGSEGV, Docker sonar `ogre2`, NVIDIA/hardware GPU, RViz Mac 창, BlueROV2 통합,
+Fuel/Windows/HIL 및 일반 과학 정확도는 계속 열린 범위로 남겼다.
+
+근거:
+[`../results/remaining_defect_fixes_2026-08-29/`](../results/remaining_defect_fixes_2026-08-29/).
