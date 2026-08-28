@@ -1,0 +1,12 @@
+/clock
+/gazebo/resource_paths
+/gui/camera/pose
+/gui/currently_tracked
+/gui/record_video/stats
+/gui/track
+/stats
+/world/camera_world/clock
+/world/camera_world/light_config
+/world/camera_world/material_color
+/world/camera_world/state
+/world/camera_world/stats

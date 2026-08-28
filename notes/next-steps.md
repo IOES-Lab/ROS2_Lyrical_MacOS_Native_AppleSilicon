@@ -4,31 +4,18 @@
 
 # 남은 일
 
-- [ ] **Spherical Coordinates 후속 3건** — (1) Wiki의 현재 world 원점과
-  `(100,200,3)` 변환 결과를 2026-08-26 런타임 값으로 유지한다. (2) NaN과
-  latitude `100°`/longitude `200°` 같은 비정상 입력을 거부하고 실패를 표현할 API를
-  정한다. 변환 `.srv`에는 현재 success 필드가 없다. (3) Mac 설치의
-  `GZ_SIM_SYSTEM_PLUGIN_PATH`와 실제 dylib 위치를 맞춘 clean rebuild를 확인한다.
-  유한점 3개 왕복은 Mac·Docker 모두 통과했지만 독립 geodesy 정확도 검증은 아니다
+- [ ] **Spherical Coordinates 후속 2건** — 독립 WGS-84/ECEF/ENU oracle는 4지역 13점에서 통과했다. 남은 것은 (1) NaN과 latitude `100°`/longitude `200°` 같은 비정상 입력을 거부하고 실패를 표현할 API, (2) 확인된 `.dsv` hook의 nested path와 실제 `lib/` 설치 위치를 맞춘 clean rebuild다.
+
 - [ ] **SeaPressure 결함의 수정·보고 범위 결정** — 2026-08-26 Mac·Docker 10조건 행렬에서
   kPa→Pa 단위 오류, 무시되는 `saturation`·`noise_sigma`·`update_rate`, `abs(z)`의
   above-origin 대칭, 빈 ROS `frame_id`를 런타임 확인했다. 기존 이슈 초안 7·8은 단위와
   dead-parameter 범위를 갱신했지만, `abs(z)`와 `frame_id`를 같은 보고에 포함할지 별도
   이슈로 나눌지는 사람의 판단이 필요하다. 수정 후에는 깊이·발행 주기·메타데이터와
   기존 kPa 소비자 호환성을 다시 시험해야 한다
-- [ ] **DVL 후속 3건** — (1) Mac에서 DAVE Wiki/headless/공식 ros_gz/`ogre` 통제가
-  모두 Gazebo Sensors render thread에서 종료하는 원인을 좁힌다. (2) DAVE custom
-  `DVLBridge`가 Gazebo의 frame ID를 ROS 메시지에 복사하도록 고치거나 공식 `ros_gz`
-  변환으로 대체한다. (3) 배포 DVL 모델의 water-mass 태그를 실제 environmental variable
-  이름과 preload에 연결한다. Docker bottom/velocity 및 수정된 water-mass control은
-  직접 통과했지만 이 세 결함 때문에 전체 판정은 PARTIAL이다
-- [ ] **USBL 후속 3건** — (1) `sigma == 0`이면 분포를 만들지 않고 평균을
-  반환하며 음수는 거부하는 plugin-level guard를 구현해 Mac·Docker에서 다시 시험한다.
-  (2) paused 상태에서 endpoint만 보이고 출력은 0인 현재 동작을 API/문서에 명시하거나
-  callback pumping을 simulation pause와 분리할지 결정한다. (3) static tutorial geometry를
-  넘어 이동 표적·travel time·장시간·다중 transceiver 정확성을 검증한다. 2026-08-27에
-  common/individual과 두 transponder, 잘못된 Quickstart launcher는 직접 확인·정정했지만
-  이 후속 범위와 upstream 보고는 열려 있다.
+- [ ] **DVL 후속 4건** — (1) Mac Gazebo Sensors crash 원인, (2) custom `DVLBridge`의 frame ID 누락, (3) water-mass environmental-variable 이름/preload, (4) 8개 descriptor 중 4개에서 100 m far boundary가 maximum range 66–90 m를 넘는 초기화 실패를 수정한다. Docker 기능 통제는 통과하지만 배포 descriptor 행렬은 4/8 output이라 전체 PARTIAL이다.
+
+- [ ] **USBL 후속 4건** — (1) `sigma <= 0` guard, (2) paused callback 정책, (3) integer-second `sleep(dist/soundSpeed)`를 연속 시간 지연으로 교체, (4) 장시간·다중 transceiver 정확성을 검증한다. 이동 표적은 통과했지만 1539/1541 m 경계에서 latency가 0.002803→1.010797초로 뛰었다.
+
 - [ ] **ROV 모델 후속 4건** — (1) 현재 RDP 이미지에 `mavros`·`mavros_msgs`와
   `libArduPilotPlugin.so`를 같은 환경으로 통합한 뒤 exact BlueROV2 launch에서 실제
   MAVROS/QGC 연결과 차량 제어를 확인한다. (2) `keyboard_publisher.py`의 non-TTY
@@ -36,13 +23,8 @@
   PointCloud2 원인을 분리하고 IMU topic·가짜 magnetometer bridge를 정리한다. (4) stock
   `empty.sdf`를 REXROV sensor 예제로 계속 쓸지, Sensors system이 있는 world로 문서를
   바꿀지 결정한다. 일반 thrust dynamics와 장시간·반복 안정성도 아직 검증하지 않았다.
-- [ ] **Glider 모델 후속 3건** — (1) integrated `enable_deadband`에서 Gazebo→ROS는
-  통과하지만 ROS→Gazebo가 관측되지 않은 원인을 좁힌다. 동일 Bool bridge의 isolated
-  control은 양방향 통과했다. (2) `cmd_thrust=25.0`에서 관측된 `ang_vel=55776.3435`의
-  설정·단위·calibration을 검토한다. 현재 결과는 coupling만 입증한다. (3) 이번 Mac
-  `NOT_STEPPING`을 clean isolated session에서 반복하고, battery depletion·navigation·
-  장시간 dynamics 범위를 별도 시험한다. 이전 `6/6`은 joint 세 경로를 제외했으므로
-  actuator 완료 근거로 재사용하지 않는다.
+- [ ] **Glider 모델 후속 2건** — integrated `enable_deadband`는 반복 송신에서 50/50 통과해 one-shot 비대칭 주장을 철회했다. 남은 것은 (1) `cmd_thrust=25.0`→`ang_vel=55776.3435`의 단위·calibration, (2) fresh Mac `NOT_STEPPING`, battery depletion·navigation·장시간 dynamics다.
+
 - [ ] **World 내부 이름 중복 3그룹 정리·보고** — 2026-08-27 전체 18파일 감사에서 `oceans_waves` 3파일, `default` 2파일, `dvl_world` 2파일이 같은 내부 이름을 공유함을 확인했다. 파일명과 맞는 고유 이름으로 바꾸면 `/world/<name>/...` API가 달라지므로, 호환성 공지·launch/test 갱신 범위를 정한 뒤 확장된 issue 5를 제출해야 한다.
 - [ ] **Object Models 실패 보고와 Fuel 재현성 정리** — 없는 descriptor를 요청하면 Gazebo
   서버는 파일 오류를 내고 entity를 만들지 않지만 `ros_gz_sim create`는 exit 0과
@@ -58,24 +40,15 @@
   [`known-issues.md`](known-issues.md)). 고치는 방법은 두 가지이고 **어느 쪽인지는 상류가
   정할 문제다** — 루프에서 채널 index 를 뒤집거나, 태그 이름이 BGR 순서를 뜻한다고 문서화하거나.
   전자는 기존 world 파일의 출력을 바꾸고 후자는 안 바꾼다. 상류 보고 초안은 아직 없다
-- [ ] **Underwater Camera 남은 범위** — 장면 1개·원본 색 1개로만 쟀고 murky 태그 6개를
-  동시에 바꿨다. 태그를 하나씩 바꾼 확인, 여러 거리에서의 감쇠 곡선, scattering 관련 문서
-  표현 점검은 아직이다. **`<scattering>` 은 별도 SDF 파라미터가 아니다** —
-  `Configure()` 가 읽는 것은 `attenuationR/G/B` 와 `backgroundR/G/B` 6개뿐이다
-- [ ] **깊이에 따라 힘이 달라지는지 확인** — 2026-08-25에 ModelPlugin 검증을 마쳤지만
-  두 시험 모두 깊이 의존성을 의도적으로 제거했다. 보간은 **정지 프로브**로 쟀고(운동 없음),
-  차량 반응 시험은 **12개 층을 같은 값으로 설정**한 뒤 측정했다. 따라서 "발행되는 해류가
-  깊이에 따라 보간된다"까지는 확인됐고, **"서로 다른 깊이의 차량이 서로 다른 힘을 받는다"는
-  아직 미확인**이다. 같은 world에서 깊이만 다른 두 차량, 또는 하강하는 한 차량으로 봐야 한다.
-- [ ] **Ocean Current/Spherical Coordinates 플러그인 설치 경로 정리** — Mac 런타임
-  `GZ_SIM_SYSTEM_PLUGIN_PATH` 에는
-  `lib/<package>/` 가 들어 있었고 dylib 는 `lib/` 에 설치돼 있었다. **그 항목이 어디서
-  주입되는지가 먼저다** — 두 패키지의 install 트리에는 `GZ_SIM_SYSTEM_PLUGIN_PATH` 를
-  쓰는 파일이 없다([`known-issues.md`](known-issues.md) 참고). 출처를 찾은 뒤 한쪽을
-  고치고 clean build 해서, 수동 경로 추가 없이 launch 되는지 확인해야 한다.
-- [ ] **Ocean Current 후속 범위** — paused 상태 서비스 timeout 반복검증, ENU/NED
-  의미 확인, tidal harmonic/CSV 시간 변화, non-zero Gauss-Markov noise,
-  다중 차량 namespace 격리와 장시간 안정성은 아직 미검증이다.
+- [ ] **Underwater Camera 남은 범위** — 여섯 태그 개별 활성화와 1·2·4·6 m 감소 추세는 Docker에서 확인했다. 남은 것은 R/B 의미론 수정 방향, 여러 색·재질·산란 장면의 일반 광학 대조, 그리고 2026-08-27 fresh Mac에서 image topic이 나타나지 않은 현재 재현성 문제다. `<scattering>`은 별도 SDF 파라미터가 아니다.
+
+- [x] **깊이에 따라 힘이 달라지는지 확인** — 2026-08-28 고정 깊이 두 차량 Docker 통제에서 5 m는 0 m/s·Δx 0, 15 m는 시작 0.750000 m/s·6초 Δx 2.400436 m로 직접 확인했다. 검증 범위 내 완료이며 계수·실해양 정확도는 아니다.
+
+- [ ] **Ocean Current/Spherical Coordinates 플러그인 설치 경로 수정** — 출처는 확인됐다. 두 패키지의 source `.dsv` hook이 `lib/@PROJECT_NAME@/`을 추가하지만 Ocean/Spherical dylib는 plain `lib/`에 설치된다. hook 또는 설치 destination을 맞추고 clean build에서 수동 경로 없이 launch 되는지 확인해야 한다. 모든 DAVE plugin이 같은 것은 아니며 Underwater Camera sensor plugin의 nested 경로는 실제 설치와 일치한다.
+
+- [ ] **Ocean Current 후속 범위** — 두 깊이·두 namespace의 current→motion은 확인했다. 남은 것은 paused 서비스 반복, ENU/NED 의미, tidal harmonic/CSV 시간 변화, non-zero Gauss-Markov noise, 장시간 안정성과 hydrodynamic coefficient/실해양 대조다.
+
+- [ ] **환경·외부 계정 때문에 현재 BLOCKED인 검증** — 통합 MAVROS/QGroundControl(현재 컨테이너에 `mavros`·`mavros_msgs`, Mac에 QGC 없음), NVIDIA CUDA, Windows/WSL, 실제 USB/gamepad/해양 hardware-in-the-loop, Fuel 계정 upload는 현재 환경에서 직접 실행할 수 없다. prerequisite가 생길 때까지 PASS/FAIL로 추론하지 않는다. 근거: [`results/full_gap_validation_2026-08-27/00_environment_boundaries/`](results/full_gap_validation_2026-08-27/00_environment_boundaries/).
 - [ ] **상류 보고 8건 제출** — 전부 작성 완료, 하나도 안 보냄. 붙여넣기용 변환본과
   제출 순서는 [`upstream/submit/README.md`](upstream/submit/README.md) 에 있다.
   `IOES-Lab/dave` 는 공개 저장소이고 Issues 가 열려 있어 계정만 있으면 된다.
@@ -108,7 +81,7 @@
 
 ## 완료
 
-- [x] **DAVE 문서(Wiki) 정정** — 2026-08-27까지 열네 차례 완료. 경위는
+- [x] **DAVE 문서(Wiki) 정정** — 2026-08-28까지 열다섯 차례 완료. 경위는
   [`wiki/README.md`](wiki/README.md) 참고. 2026-07-20에 4건, 2026-08-20에
   16건을 12페이지에 반영했고, 2026-08-21에는 우리 쪽의 잘못되거나 오래된
   주석 6건을 다시 정정했다. 2026-08-25에는 Multibeam 페이지의 미검증 예제를

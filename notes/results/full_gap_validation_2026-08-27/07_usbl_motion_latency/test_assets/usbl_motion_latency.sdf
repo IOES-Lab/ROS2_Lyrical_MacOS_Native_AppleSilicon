@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <world name="usbl_gap">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+
+    <model name="box">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="box_link"/>
+      <plugin filename="UsblTransceiver" name="dave_gz_sensor_plugins::UsblTransceiver">
+        <namespace>USBLGAP</namespace>
+        <transceiver_device>transceiver</transceiver_device>
+        <transponder_device>transponder</transponder_device>
+        <transponder_ID>1,2</transponder_ID>
+        <transceiver_ID>168</transceiver_ID>
+        <enable_ping_scheduler>false</enable_ping_scheduler>
+        <interrogation_mode>common</interrogation_mode>
+        <ping_frequency>1.0</ping_frequency>
+        <transponder_attached_object>sphere_near,sphere_latency</transponder_attached_object>
+        <sound_speed>1540</sound_speed>
+      </plugin>
+    </model>
+
+    <model name="sphere_near">
+      <static>true</static>
+      <pose>3 0 0 0 0 0</pose>
+      <link name="sphere_near_link"/>
+      <plugin filename="UsblTransponder" name="dave_gz_sensor_plugins::UsblTransponder">
+        <namespace>USBLGAP</namespace>
+        <transponder_device>transponder</transponder_device>
+        <transponder_ID>1</transponder_ID>
+        <transceiver_device>transceiver</transceiver_device>
+        <transceiver_ID>168</transceiver_ID>
+        <transceiver_model>box</transceiver_model>
+        <sound_speed>1540</sound_speed>
+        <mu>0</mu>
+        <sigma>0.0001</sigma>
+      </plugin>
+    </model>
+
+    <model name="sphere_latency">
+      <static>true</static>
+      <pose>1539 0 0 0 0 0</pose>
+      <link name="sphere_latency_link"/>
+      <plugin filename="UsblTransponder" name="dave_gz_sensor_plugins::UsblTransponder">
+        <namespace>USBLGAP</namespace>
+        <transponder_device>transponder</transponder_device>
+        <transponder_ID>2</transponder_ID>
+        <transceiver_device>transceiver</transceiver_device>
+        <transceiver_ID>168</transceiver_ID>
+        <transceiver_model>box</transceiver_model>
+        <sound_speed>1540</sound_speed>
+        <mu>0</mu>
+        <sigma>0.0001</sigma>
+      </plugin>
+    </model>
+  </world>
+</sdf>

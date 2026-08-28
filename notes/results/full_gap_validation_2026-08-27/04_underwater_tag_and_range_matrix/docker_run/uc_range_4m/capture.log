@@ -1,0 +1,1 @@
+{"variant": "uc_range_4m", "width": 320, "height": 240, "encoding": "bgr8", "step": 960, "data_length": 230400, "center_bgr": [24, 35, 49], "mean_bgr": [22.787734375, 32.5251171875, 45.6496484375], "sha256": "9bccfa6bb03b7dfabfd6a223eae13b05b1f69e795e3e6840fd9df4baa8548f10"}

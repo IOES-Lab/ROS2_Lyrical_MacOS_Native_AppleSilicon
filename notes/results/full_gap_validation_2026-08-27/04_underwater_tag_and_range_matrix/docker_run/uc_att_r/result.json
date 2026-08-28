@@ -1,0 +1,19 @@
+{
+  "variant": "uc_att_r",
+  "width": 320,
+  "height": 240,
+  "encoding": "bgr8",
+  "step": 960,
+  "data_length": 230400,
+  "center_bgr": [
+    2,
+    68,
+    95
+  ],
+  "mean_bgr": [
+    1.2704296875,
+    67.09319010416667,
+    93.95997395833334
+  ],
+  "sha256": "a02808572a2da48f303b708b5615f7791ee11ab740f0495e24c5b4e3bd02ab3f"
+}

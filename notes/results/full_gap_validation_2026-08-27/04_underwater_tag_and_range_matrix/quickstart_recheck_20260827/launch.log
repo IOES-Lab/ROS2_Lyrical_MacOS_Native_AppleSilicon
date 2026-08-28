@@ -1,0 +1,10 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/full_gap_validation_2026-08-27/04_underwater_tag_and_range_matrix/quickstart_recheck_20260827/ros_logs/2026-08-27-17-19-06-577070-gwon-yeseol-ui-noteubug.local-43036
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [43038]
+[INFO] [create-2]: process started with pid [43039]
+[create-2] [INFO] [1787818757.529956000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787818762.533334000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1787818763.129639000] [ros_gz_sim]: World name was not provided. Using [camera_world] as the default world.
+[create-2] [INFO] [1787818763.418255000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 43039]
+[INFO] [launch.user]: Sensor Model Uploaded

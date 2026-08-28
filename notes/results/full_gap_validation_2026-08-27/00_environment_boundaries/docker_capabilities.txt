@@ -1,0 +1,10 @@
+== ARCH ==
+aarch64
+== CUDA ==
+nvcc: NOT FOUND
+== NVIDIA ==
+nvidia-smi: NOT FOUND
+== DRI ==
+ls: cannot access '/dev/dri': No such file or directory
+== USB ==
+bash: line 6: lsusb: command not found

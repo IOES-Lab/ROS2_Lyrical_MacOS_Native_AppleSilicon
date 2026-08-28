@@ -1,0 +1,111 @@
+{
+  "models": {
+    "rexrov5": {
+      "current_start": {
+        "sim_time_s": 4.0,
+        "linear_mps": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "current_end": {
+        "sim_time_s": 10.0,
+        "linear_mps": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "current_x_min_mps": 0.0,
+      "current_x_max_mps": 0.0,
+      "start": {
+        "sim_time_s": 4.7,
+        "position_m": {
+          "x": 0.0,
+          "y": -5.0,
+          "z": -5.0
+        },
+        "linear_velocity_mps": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "end": {
+        "sim_time_s": 10.71,
+        "position_m": {
+          "x": 0.0,
+          "y": -5.0,
+          "z": -5.0
+        },
+        "linear_velocity_mps": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "duration_s": 6.010000000000001,
+      "displacement_m": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "average_x_velocity_mps": 0.0
+    },
+    "rexrov15": {
+      "current_start": {
+        "sim_time_s": 4.0,
+        "linear_mps": [
+          0.7500004153539654,
+          0.0,
+          0.0
+        ]
+      },
+      "current_end": {
+        "sim_time_s": 10.0,
+        "linear_mps": [
+          0.7184989094616667,
+          0.0,
+          0.0
+        ]
+      },
+      "current_x_min_mps": 0.7184989094616667,
+      "current_x_max_mps": 0.7504157692481987,
+      "start": {
+        "sim_time_s": 4.702,
+        "position_m": {
+          "x": 0.004641717950322594,
+          "y": 5.000004253967881,
+          "z": -15.000002769026436
+        },
+        "linear_velocity_mps": {
+          "x": 0.0590504836810025,
+          "y": 5.4015637325268776e-05,
+          "z": 0.00016762492058345333
+        }
+      },
+      "end": {
+        "sim_time_s": 10.702,
+        "position_m": {
+          "x": 2.405077475169727,
+          "y": 5.000236601116212,
+          "z": -14.790620171257757
+        },
+        "linear_velocity_mps": {
+          "x": 0.29547029857006746,
+          "y": -1.1704972114921607e-05,
+          "z": 0.46356323237517305
+        }
+      },
+      "duration_s": 6.0,
+      "displacement_m": {
+        "x": 2.4004357572194044,
+        "y": 0.00023234714833098025,
+        "z": 0.20938259776867874
+      },
+      "average_x_velocity_mps": 0.4000726262032341
+    }
+  },
+  "scope": "Simultaneous two-depth functional response; not coefficient or real-ocean accuracy."
+}

@@ -1,0 +1,1 @@
+[parameter_bridge-3] [INFO] [1787819396.594195971] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Bool to Gazebo gz.msgs.Boolean (showing msg only once per type)

@@ -1,0 +1,26 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-08-27-07-55-01-621566-67d4b1d39687-61668
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [61678]
+[INFO] [create-2]: process started with pid [61679]
+[create-2] [INFO] [1787817301.876314086] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787817304.273114462] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 61679]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] (2026-08-27 07:55:05.541) [error] [DopplerVelocityLog.cc:908] Far boundary for water mass mode cannot greater than the maximum range for [teledyne_explorer4000::explorer4000_base_link::teledyne_explorer4000] sensor.
+[gazebo-1] (2026-08-27 07:55:05.541) [error] [DopplerVelocityLog.cc:736] Failed to initialize velocity tracking modes for [teledyne_explorer4000::explorer4000_base_link::teledyne_explorer4000] sensor.
+[gazebo-1] (2026-08-27 07:55:05.541) [error] [DopplerVelocityLog.cc:1325] Failed to initialize [teledyne_explorer4000::explorer4000_base_link::teledyne_explorer4000] sensor.
+[gazebo-1] (2026-08-27 07:55:05.547) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:05.615) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:05.726) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:05.849) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:05.962) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.071) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.182) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.291) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.400) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.515) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.623) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.732) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:55:06.843) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] [INFO] [1787817306.938637963] [rclcpp]: signal_handler(signum=2)
+[INFO] [gazebo-1]: process has finished cleanly [pid 61678]

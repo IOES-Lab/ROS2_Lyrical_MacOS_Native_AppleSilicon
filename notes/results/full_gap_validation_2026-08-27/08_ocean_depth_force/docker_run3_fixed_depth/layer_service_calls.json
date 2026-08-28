@@ -1,0 +1,62 @@
+[
+  {
+    "layer": 0,
+    "velocity": 0.0,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=0, velocity=0.0, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 1,
+    "velocity": 0.0,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=1, velocity=0.0, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 2,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=2, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 3,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=3, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 4,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=4, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 5,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=5, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 6,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=6, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 7,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=7, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 8,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=8, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 9,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=9, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 10,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=10, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  },
+  {
+    "layer": 11,
+    "velocity": 1.5,
+    "output": "waiting for service to become available...\nrequester: making request: dave_interfaces.srv.SetStratifiedCurrentVelocity_Request(layer=11, velocity=1.5, horizontal_angle=0.0, vertical_angle=0.0)\n\nresponse:\ndave_interfaces.srv.SetStratifiedCurrentVelocity_Response(success=True)\n\n"
+  }
+]

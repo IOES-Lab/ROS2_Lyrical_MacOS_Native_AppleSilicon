@@ -1,0 +1,9 @@
+model	descriptor_exists	message_received	beam_length	frame_id	initialization_error	server_died
+nortek_dvl500_300	1	1	4	frame_id: ''	0	0
+nortek_dvl500_6000	1	1	4	frame_id: ''	0	0
+nortek_dvl1000_300	1	0			1	0
+nortek_dvl1000_4000	1	1	4	frame_id: ''	0	0
+sonardyne_syrinx600	1	1	4	frame_id: ''	0	0
+teledyne_explorer1000	1	0			1	0
+teledyne_explorer4000	1	0			1	0
+teledyne_whn	1	0			1	0

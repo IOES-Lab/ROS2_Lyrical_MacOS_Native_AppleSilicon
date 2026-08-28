@@ -1,0 +1,7 @@
+[INFO] [1787926691.007047679] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov5/odometry (gz.msgs.Odometry) -> /model/rexrov5/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[INFO] [1787926691.009707054] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov5/odometry (nav_msgs/msg/Odometry) -> /model/rexrov5/odometry (gz.msgs.Odometry)] (Lazy 0)
+[INFO] [1787926691.010496679] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/rexrov15/odometry (gz.msgs.Odometry) -> /model/rexrov15/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[INFO] [1787926691.010691845] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model/rexrov15/odometry (nav_msgs/msg/Odometry) -> /model/rexrov15/odometry (gz.msgs.Odometry)] (Lazy 0)
+[INFO] [1787926704.541361921] [rclcpp]: signal_handler(signum=2)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1787926704.541985712] [rclcpp]: signal_handler(signum=2)

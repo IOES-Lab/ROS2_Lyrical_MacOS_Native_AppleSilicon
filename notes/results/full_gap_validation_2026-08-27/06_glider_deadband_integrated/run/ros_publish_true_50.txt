@@ -1,0 +1,100 @@
+publisher: beginning loop
+publishing #1: std_msgs.msg.Bool(data=True)
+
+publishing #2: std_msgs.msg.Bool(data=True)
+
+publishing #3: std_msgs.msg.Bool(data=True)
+
+publishing #4: std_msgs.msg.Bool(data=True)
+
+publishing #5: std_msgs.msg.Bool(data=True)
+
+publishing #6: std_msgs.msg.Bool(data=True)
+
+publishing #7: std_msgs.msg.Bool(data=True)
+
+publishing #8: std_msgs.msg.Bool(data=True)
+
+publishing #9: std_msgs.msg.Bool(data=True)
+
+publishing #10: std_msgs.msg.Bool(data=True)
+
+publishing #11: std_msgs.msg.Bool(data=True)
+
+publishing #12: std_msgs.msg.Bool(data=True)
+
+publishing #13: std_msgs.msg.Bool(data=True)
+
+publishing #14: std_msgs.msg.Bool(data=True)
+
+publishing #15: std_msgs.msg.Bool(data=True)
+
+publishing #16: std_msgs.msg.Bool(data=True)
+
+publishing #17: std_msgs.msg.Bool(data=True)
+
+publishing #18: std_msgs.msg.Bool(data=True)
+
+publishing #19: std_msgs.msg.Bool(data=True)
+
+publishing #20: std_msgs.msg.Bool(data=True)
+
+publishing #21: std_msgs.msg.Bool(data=True)
+
+publishing #22: std_msgs.msg.Bool(data=True)
+
+publishing #23: std_msgs.msg.Bool(data=True)
+
+publishing #24: std_msgs.msg.Bool(data=True)
+
+publishing #25: std_msgs.msg.Bool(data=True)
+
+publishing #26: std_msgs.msg.Bool(data=True)
+
+publishing #27: std_msgs.msg.Bool(data=True)
+
+publishing #28: std_msgs.msg.Bool(data=True)
+
+publishing #29: std_msgs.msg.Bool(data=True)
+
+publishing #30: std_msgs.msg.Bool(data=True)
+
+publishing #31: std_msgs.msg.Bool(data=True)
+
+publishing #32: std_msgs.msg.Bool(data=True)
+
+publishing #33: std_msgs.msg.Bool(data=True)
+
+publishing #34: std_msgs.msg.Bool(data=True)
+
+publishing #35: std_msgs.msg.Bool(data=True)
+
+publishing #36: std_msgs.msg.Bool(data=True)
+
+publishing #37: std_msgs.msg.Bool(data=True)
+
+publishing #38: std_msgs.msg.Bool(data=True)
+
+publishing #39: std_msgs.msg.Bool(data=True)
+
+publishing #40: std_msgs.msg.Bool(data=True)
+
+publishing #41: std_msgs.msg.Bool(data=True)
+
+publishing #42: std_msgs.msg.Bool(data=True)
+
+publishing #43: std_msgs.msg.Bool(data=True)
+
+publishing #44: std_msgs.msg.Bool(data=True)
+
+publishing #45: std_msgs.msg.Bool(data=True)
+
+publishing #46: std_msgs.msg.Bool(data=True)
+
+publishing #47: std_msgs.msg.Bool(data=True)
+
+publishing #48: std_msgs.msg.Bool(data=True)
+
+publishing #49: std_msgs.msg.Bool(data=True)
+
+publishing #50: std_msgs.msg.Bool(data=True)

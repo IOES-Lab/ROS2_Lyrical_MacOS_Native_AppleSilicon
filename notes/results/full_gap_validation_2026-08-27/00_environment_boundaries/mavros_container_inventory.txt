@@ -1,0 +1,15 @@
+== ROS PKGS ==
+mavros=Package not found
+mavros_msgs=Package not found
+dave_robot_models=/home/docker/dave_ws/install
+dave_demos=/home/docker/dave_ws/install
+== ARDUPILOT ==
+/usr/local/bin/ardusub
+/home/docker/ardupilot/docs/config/ardusub
+/home/docker/ardupilot/docs/config/arducopter
+/home/docker/ardupilot/build/sitl/bin/ardusub
+== PROCESSES ==
+  154 bash            bash -lc  source /opt/ros/lyrical/setup.bash source /home/docker/dave_ws/install/setup.bash 2>/dev/null || true echo "== ROS PKGS ==" for p in mavros mavros_msgs dave_robot_models dave_demos; do   printf "%s=" "$p"; ros2 pkg prefix "$p" 2>&1 || true done echo "== ARDUPILOT ==" find / -type f \( -name arducopter -o -name ardusub -o -name libArduPilotPlugin.so \) 2>/dev/null | head -30 echo "== PROCESSES ==" ps -eo pid,comm,args | grep -E "[a]rdusub|[m]avros|[g]z-sim-main|[r]os2 launch" || true echo "== DISPLAY ==" printf "DISPLAY=%s\n" "${DISPLAY-}"; ls -l /tmp/.X11-unix 2>/dev/null || true
+== DISPLAY ==
+DISPLAY=
+total 0

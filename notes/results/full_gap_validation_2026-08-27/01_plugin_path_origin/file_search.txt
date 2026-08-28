@@ -1,0 +1,27 @@
+== INSTALLED DAVE DYLIBS ==
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_gz_world_plugins/lib/libOceanCurrentWorldPlugin.dylib
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_ros_gz_plugins/lib/libOceanCurrentPlugin.dylib
+/Users/gwon-yeseol/dave_ws_lyrical/install/dave_ros_gz_plugins/lib/libSphericalCoords.dylib
+
+== SOURCE CMAKE ENV HOOKS ==
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/extras/ros-jazzy-gz-harmonic-install.sh:138:export GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ardusub_ws/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/extras/ardusub-ubuntu-install.sh:41:export GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ardusub_ws/ardupilot_gazebo/build:\$GZ_SIM_SYSTEM_PLUGIN_PATH
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/extras/ardusub-ubuntu-install-local.sh:44:export GZ_SIM_SYSTEM_PLUGIN_PATH=/home/$USER/ardusub_ws/ardupilot_gazebo/build:\$GZ_SIM_SYSTEM_PLUGIN_PATH
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/examples/dave_demos/README.md:37:   ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/${PROJECT_NAME}.dsv.in")
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_model_plugins/hooks/dave_gz_model_plugins.dsv.in:1:prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_ros_gz_plugins/CMakeLists.txt:112:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_ros_gz_plugins/hooks/dave_ros_gz_plugins.dsv.in:1:prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_object_models/CMakeLists.txt:11:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_demo/CMakeLists.txt:22:  ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_model_plugins/CMakeLists.txt:58:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/hooks/multibeam_sonar_system.dsv.in:1:prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt:42:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/hooks/multibeam_sonar.dsv.in:1:prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt:161:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_sensor_plugins/hooks/dave_gz_sensor_plugins.dsv.in:1:prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_sensor_plugins/CMakeLists.txt:100:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/CMakeLists.txt:19:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_world_plugins/CMakeLists.txt:156:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/gazebo/dave_gz_world_plugins/hooks/dave_gz_world_plugins.dsv.in:1:prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;lib/@PROJECT_NAME@/
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/CMakeLists.txt:11:ament_environment_hooks(
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_worlds/CMakeLists.txt:12:ament_environment_hooks(

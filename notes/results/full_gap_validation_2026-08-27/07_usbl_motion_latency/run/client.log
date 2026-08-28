@@ -1,0 +1,163 @@
+{
+  "graph": {
+    "location_publishers": 1,
+    "mode_subscribers": 3,
+    "channel_subscribers": 1,
+    "ping1_subscribers": 1,
+    "ping2_subscribers": 1
+  },
+  "moving_target": {
+    "before": [
+      {
+        "wall_monotonic_s": 845628.75156084,
+        "transponder_id": 1,
+        "x": 2.999916891748804,
+        "y": -3.4662440437436814e-05,
+        "z": -3.8866249594779344e-05,
+        "latency_s": 0.004800125025212765
+      },
+      {
+        "wall_monotonic_s": 845629.701771007,
+        "transponder_id": 1,
+        "x": 2.9999591990277596,
+        "y": -4.720762657329169e-05,
+        "z": 3.792519986033755e-05,
+        "latency_s": 0.0028462500777095556
+      },
+      {
+        "wall_monotonic_s": 845630.688554008,
+        "transponder_id": 1,
+        "x": 2.9999535826961012,
+        "y": 1.5864319800679383e-05,
+        "z": 8.127057525470363e-06,
+        "latency_s": 0.0027130000526085496
+      }
+    ],
+    "set_pose": {
+      "command": [
+        "gz",
+        "service",
+        "-s",
+        "/world/usbl_gap/set_pose",
+        "--reqtype",
+        "gz.msgs.Pose",
+        "--reptype",
+        "gz.msgs.Boolean",
+        "--timeout",
+        "5000",
+        "--req",
+        "name: \"sphere_near\" position: {x: 9.0, y: 0.0, z: 0.0} orientation: {w: 1}"
+      ],
+      "returncode": 0,
+      "stdout": "data: true\n\n",
+      "stderr": ""
+    },
+    "after": [
+      {
+        "wall_monotonic_s": 845632.479579842,
+        "transponder_id": 1,
+        "x": 9.00014705688426,
+        "y": -0.0001164846315949021,
+        "z": 1.7189034802631545e-05,
+        "latency_s": 0.0031197499483823776
+      },
+      {
+        "wall_monotonic_s": 845633.446118092,
+        "transponder_id": 1,
+        "x": 8.999972914218008,
+        "y": -5.367275539187841e-05,
+        "z": 8.66666098632975e-05,
+        "latency_s": 0.0036802500253543258
+      },
+      {
+        "wall_monotonic_s": 845634.413118676,
+        "transponder_id": 1,
+        "x": 8.99982303632717,
+        "y": 0.00010199928470572981,
+        "z": 3.0484526891389302e-05,
+        "latency_s": 0.00382237508893013
+      }
+    ],
+    "median_x_before_m": 2.9999535826961012,
+    "median_x_after_m": 8.999972914218008
+  },
+  "travel_time_quantization": {
+    "sound_speed_mps": 1540.0,
+    "below_one_second_distance_m": 1539.0,
+    "above_one_second_distance_m": 1541.0,
+    "below": [
+      {
+        "wall_monotonic_s": 845635.39661401,
+        "transponder_id": 2,
+        "x": 1538.9999643117342,
+        "y": -0.00013737596637847745,
+        "z": 0.00012693263866962037,
+        "latency_s": 0.002699499949812889
+      },
+      {
+        "wall_monotonic_s": 845636.37164551,
+        "transponder_id": 2,
+        "x": 1539.0000811321568,
+        "y": -2.4319421356661986e-05,
+        "z": -1.6706907891921418e-05,
+        "latency_s": 0.004773207940161228
+      },
+      {
+        "wall_monotonic_s": 845637.347554802,
+        "transponder_id": 2,
+        "x": 1538.9997400431075,
+        "y": -4.535018461663077e-05,
+        "z": 8.423076647761759e-05,
+        "latency_s": 0.0028027499793097377
+      }
+    ],
+    "set_pose": {
+      "command": [
+        "gz",
+        "service",
+        "-s",
+        "/world/usbl_gap/set_pose",
+        "--reqtype",
+        "gz.msgs.Pose",
+        "--reptype",
+        "gz.msgs.Boolean",
+        "--timeout",
+        "5000",
+        "--req",
+        "name: \"sphere_latency\" position: {x: 1541.0, y: 0.0, z: 0.0} orientation: {w: 1}"
+      ],
+      "returncode": 0,
+      "stdout": "data: true\n\n",
+      "stderr": ""
+    },
+    "above": [
+      {
+        "wall_monotonic_s": 845640.172433762,
+        "transponder_id": 2,
+        "x": 1541.0000503667209,
+        "y": 9.964015692785086e-05,
+        "z": -4.6552809883645615e-06,
+        "latency_s": 1.0107972499681637
+      },
+      {
+        "wall_monotonic_s": 845642.134629305,
+        "transponder_id": 2,
+        "x": 1541.0001653926981,
+        "y": -0.00035736159002506266,
+        "z": 8.195859120058555e-06,
+        "latency_s": 1.003735666978173
+      },
+      {
+        "wall_monotonic_s": 845644.082131764,
+        "transponder_id": 2,
+        "x": 1541.0000855116791,
+        "y": 2.092484097362532e-05,
+        "z": 3.215566799105473e-05,
+        "latency_s": 1.012415042030625
+      }
+    ],
+    "median_latency_below_s": 0.0028027499793097377,
+    "median_latency_above_s": 1.0107972499681637
+  },
+  "scope": "Moving-target geometry and the implemented wall-clock delay around the one-second sound-travel boundary; not general acoustic accuracy."
+}

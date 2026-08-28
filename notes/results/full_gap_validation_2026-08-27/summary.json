@@ -1,0 +1,299 @@
+{
+  "date_range_kst": [
+    "2026-08-27",
+    "2026-08-28"
+  ],
+  "scope": "All feasible open runtime gaps identified in the repository/Notion audit; hardware, account and unavailable-platform items are explicitly blocked rather than inferred.",
+  "spherical_independent_geodesy": {
+    "verdict": "PASS in tested scope",
+    "case_count": 4,
+    "point_count": 13,
+    "maximum_error": {
+      "latitude_deg": 6.643574579356937e-12,
+      "longitude_deg": 3.126388037344441e-13,
+      "altitude_m": 5.159527063369751e-07,
+      "from_enu_axis_m": 1.8033836823860838e-07
+    }
+  },
+  "dvl_distributed_descriptors_docker": {
+    "verdict": "PARTIAL",
+    "descriptor_count": 8,
+    "messages_received": 4,
+    "initialization_failures": 4,
+    "rows": [
+      {
+        "model": "nortek_dvl500_300",
+        "descriptor_exists": "1",
+        "message_received": "1",
+        "beam_length": "4",
+        "frame_id": "frame_id: ''",
+        "initialization_error": "0",
+        "server_died": "0"
+      },
+      {
+        "model": "nortek_dvl500_6000",
+        "descriptor_exists": "1",
+        "message_received": "1",
+        "beam_length": "4",
+        "frame_id": "frame_id: ''",
+        "initialization_error": "0",
+        "server_died": "0"
+      },
+      {
+        "model": "nortek_dvl1000_300",
+        "descriptor_exists": "1",
+        "message_received": "0",
+        "beam_length": "",
+        "frame_id": "",
+        "initialization_error": "1",
+        "server_died": "0"
+      },
+      {
+        "model": "nortek_dvl1000_4000",
+        "descriptor_exists": "1",
+        "message_received": "1",
+        "beam_length": "4",
+        "frame_id": "frame_id: ''",
+        "initialization_error": "0",
+        "server_died": "0"
+      },
+      {
+        "model": "sonardyne_syrinx600",
+        "descriptor_exists": "1",
+        "message_received": "1",
+        "beam_length": "4",
+        "frame_id": "frame_id: ''",
+        "initialization_error": "0",
+        "server_died": "0"
+      },
+      {
+        "model": "teledyne_explorer1000",
+        "descriptor_exists": "1",
+        "message_received": "0",
+        "beam_length": "",
+        "frame_id": "",
+        "initialization_error": "1",
+        "server_died": "0"
+      },
+      {
+        "model": "teledyne_explorer4000",
+        "descriptor_exists": "1",
+        "message_received": "0",
+        "beam_length": "",
+        "frame_id": "",
+        "initialization_error": "1",
+        "server_died": "0"
+      },
+      {
+        "model": "teledyne_whn",
+        "descriptor_exists": "1",
+        "message_received": "0",
+        "beam_length": "",
+        "frame_id": "",
+        "initialization_error": "1",
+        "server_died": "0"
+      }
+    ]
+  },
+  "underwater_camera_additional_matrix_docker": {
+    "verdict": "PASS for tag activation and range trend; semantic R/B defect remains",
+    "condition_count": 12,
+    "assertions": {
+      "attenuation_tags_change_same_bgr_array_index_only": true,
+      "background_tags_change_same_bgr_array_index_only": true,
+      "range_strictly_decreases_by_bgr_channel": [
+        true,
+        true,
+        true
+      ]
+    },
+    "range_center_bgr": {
+      "1m": [
+        45,
+        64,
+        89
+      ],
+      "2m": [
+        37,
+        52,
+        73
+      ],
+      "4m": [
+        24,
+        35,
+        49
+      ],
+      "6m": [
+        16,
+        23,
+        32
+      ]
+    },
+    "mac_2026_08_27_recheck": "NO IMAGE TOPIC in repeated controls; prior 2026-08-26 Mac success remains retained"
+  },
+  "seapressure_extreme_pause_long_mac": {
+    "verdict": "PARTIAL; implementation stable but known contract defects remain",
+    "paused_counts": {
+      "surface": 0,
+      "deep_1000": 0,
+      "above_1000": 0
+    },
+    "surface_sample_count": 10000,
+    "extreme_pressure_plus_minus_1000m": 9907.705,
+    "assertions": {
+      "no_messages_while_paused_for_5_wall_seconds": true,
+      "surface_10000_frames_completed": true,
+      "extreme_plus_minus_1000m_matches_implemented_abs_z_formula": true,
+      "all_values_finite_and_timestamps_monotonic": true
+    }
+  },
+  "glider_integrated_deadband_docker": {
+    "verdict": "PASS after repeated publication",
+    "ros_publish_count": 50,
+    "gazebo_true_count": 50,
+    "false_count": 0
+  },
+  "usbl_motion_and_travel_time_docker": {
+    "verdict": "PARTIAL; moving target passes, delay is integer-second quantized",
+    "median_x_before_m": 2.9999535826961012,
+    "median_x_after_m": 8.999972914218008,
+    "median_latency_1539m_s": 0.0028027499793097377,
+    "median_latency_1541m_s": 1.0107972499681637
+  },
+  "ocean_depth_dependent_force_docker": {
+    "verdict": "PASS in controlled two-depth scope",
+    "models": {
+      "rexrov5": {
+        "current_start": {
+          "sim_time_s": 4.0,
+          "linear_mps": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "current_end": {
+          "sim_time_s": 10.0,
+          "linear_mps": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "current_x_min_mps": 0.0,
+        "current_x_max_mps": 0.0,
+        "start": {
+          "sim_time_s": 4.7,
+          "position_m": {
+            "x": 0.0,
+            "y": -5.0,
+            "z": -5.0
+          },
+          "linear_velocity_mps": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "end": {
+          "sim_time_s": 10.71,
+          "position_m": {
+            "x": 0.0,
+            "y": -5.0,
+            "z": -5.0
+          },
+          "linear_velocity_mps": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "duration_s": 6.010000000000001,
+        "displacement_m": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "average_x_velocity_mps": 0.0
+      },
+      "rexrov15": {
+        "current_start": {
+          "sim_time_s": 4.0,
+          "linear_mps": [
+            0.7500004153539654,
+            0.0,
+            0.0
+          ]
+        },
+        "current_end": {
+          "sim_time_s": 10.0,
+          "linear_mps": [
+            0.7184989094616667,
+            0.0,
+            0.0
+          ]
+        },
+        "current_x_min_mps": 0.7184989094616667,
+        "current_x_max_mps": 0.7504157692481987,
+        "start": {
+          "sim_time_s": 4.702,
+          "position_m": {
+            "x": 0.004641717950322594,
+            "y": 5.000004253967881,
+            "z": -15.000002769026436
+          },
+          "linear_velocity_mps": {
+            "x": 0.0590504836810025,
+            "y": 5.4015637325268776e-05,
+            "z": 0.00016762492058345333
+          }
+        },
+        "end": {
+          "sim_time_s": 10.702,
+          "position_m": {
+            "x": 2.405077475169727,
+            "y": 5.000236601116212,
+            "z": -14.790620171257757
+          },
+          "linear_velocity_mps": {
+            "x": 0.29547029857006746,
+            "y": -1.1704972114921607e-05,
+            "z": 0.46356323237517305
+          }
+        },
+        "duration_s": 6.0,
+        "displacement_m": {
+          "x": 2.4004357572194044,
+          "y": 0.00023234714833098025,
+          "z": 0.20938259776867874
+        },
+        "average_x_velocity_mps": 0.4000726262032341
+      }
+    }
+  },
+  "plugin_path_origin": {
+    "verdict": "CONFIRMED DEFECT on Mac package installs",
+    "origin": "source package .dsv hooks prepend lib/@PROJECT_NAME@/",
+    "actual_ocean_spherical_location": "package_prefix/lib",
+    "consequence": "default Mac load failure; explicit actual lib paths succeed",
+    "docker_note": "merged install libraries are under install/lib and were found only when that root was added"
+  },
+  "blocked_by_environment": {
+    "integrated_mavros_qgroundcontrol": [
+      "mavros and mavros_msgs absent from tested DAVE container",
+      "QGroundControl absent on Mac"
+    ],
+    "cuda_nvidia": [
+      "Apple M2, no nvcc/NVIDIA device; Docker has no /dev/dri or NVIDIA device"
+    ],
+    "windows_wsl": [
+      "no Windows/WSL runtime"
+    ],
+    "physical_usb_gamepad_real_ocean": [
+      "no attached qualifying hardware"
+    ],
+    "fuel_account_upload": [
+      "requires external account and produces an external side effect"
+    ]
+  }
+}

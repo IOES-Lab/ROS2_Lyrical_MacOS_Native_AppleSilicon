@@ -1,0 +1,17 @@
+[INFO] [launch]: All log files can be found below /home/docker/underwater_full_gap_20260827/overlay_run2/uc_range_4m/ros_logs/2026-08-27-08-23-34-324975-67d4b1d39687-63887
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [63890]
+[INFO] [create-2]: process started with pid [63891]
+[create-2] [INFO] [1787819014.558871794] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787819016.858985670] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 63891]
+[INFO] [launch.user]: Sensor Model Uploaded
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[gazebo-1] [INFO] [1787819020.215940005] [rclcpp]: signal_handler(signum=2)
+[gazebo-1] terminate called after throwing an instance of 'rclcpp::exceptions::RCLError'
+[gazebo-1]   what():  failed to create guard condition: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/guard_condition.c:60
+[gazebo-1] Stack trace (most recent call last) in thread 63953:
+[gazebo-1] #18   Object "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1", at 0xffffffffffffffff, in
+[gazebo-1] #17   Source "../sysdeps/unix/sysv/linux/aarch64/clone.S", line 76, in thread_start [0xffff9b6468ab]
+[gazebo-1] #16   Source "./nptl/pthread_create.c", line 454, in start_thread [0xffff9b5dc287]

@@ -1,0 +1,12 @@
+[INFO] [launch]: All log files can be found below /home/docker/underwater_full_gap_20260827/overlay_run2/uc_bg_base/ros_logs/2026-08-27-08-22-13-972086-67d4b1d39687-63011
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [63014]
+[INFO] [create-2]: process started with pid [63015]
+[create-2] [INFO] [1787818934.201337882] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787818936.538680675] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 63015]
+[INFO] [launch.user]: Sensor Model Uploaded
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[gazebo-1] [INFO] [1787818941.065219093] [rclcpp]: signal_handler(signum=2)
+[ERROR] [gazebo-1]: process has died [pid 63014, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/underwater_full_gap_20260827/overlay_ws/install/dave_worlds/share/dave_worlds/worlds/camera_parameter_validation.world -s -r --force-version 10'].

@@ -1,0 +1,73 @@
+{
+  "paused_wall_window_s": 5.0,
+  "paused_counts": {
+    "surface": 0,
+    "deep_1000": 0,
+    "above_1000": 0
+  },
+  "conditions": {
+    "surface": {
+      "z_m": 0.0,
+      "sample_count": 10000,
+      "first_stamp_s": 0.0,
+      "last_stamp_s": 9.999,
+      "simulated_span_s": 9.999,
+      "median_interval_s": 0.0010000000000000009,
+      "observed_pressure": 101.325,
+      "expected_implemented_formula": 101.325,
+      "variance_values": [
+        9.0
+      ],
+      "frame_id_values": [
+        ""
+      ],
+      "all_finite": true,
+      "pressure_constant": true,
+      "stamps_strictly_increasing": true
+    },
+    "deep_1000": {
+      "z_m": -1000.0,
+      "sample_count": 1000,
+      "first_stamp_s": 0.0,
+      "last_stamp_s": 0.999,
+      "simulated_span_s": 0.999,
+      "median_interval_s": 0.0010000000000000009,
+      "observed_pressure": 9907.705,
+      "expected_implemented_formula": 9907.705000000002,
+      "variance_values": [
+        9.0
+      ],
+      "frame_id_values": [
+        ""
+      ],
+      "all_finite": true,
+      "pressure_constant": true,
+      "stamps_strictly_increasing": true
+    },
+    "above_1000": {
+      "z_m": 1000.0,
+      "sample_count": 1000,
+      "first_stamp_s": 0.0,
+      "last_stamp_s": 0.999,
+      "simulated_span_s": 0.999,
+      "median_interval_s": 0.0010000000000000009,
+      "observed_pressure": 9907.705,
+      "expected_implemented_formula": 9907.705000000002,
+      "variance_values": [
+        9.0
+      ],
+      "frame_id_values": [
+        ""
+      ],
+      "all_finite": true,
+      "pressure_constant": true,
+      "stamps_strictly_increasing": true
+    }
+  },
+  "assertions": {
+    "no_messages_while_paused_for_5_wall_seconds": true,
+    "surface_10000_frames_completed": true,
+    "extreme_plus_minus_1000m_matches_implemented_abs_z_formula": true,
+    "all_values_finite_and_timestamps_monotonic": true
+  }
+}

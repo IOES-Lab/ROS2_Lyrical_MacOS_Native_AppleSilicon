@@ -1,0 +1,4 @@
+ros_publish_rc=0
+gz_capture_rc=124
+true_count=50
+false_count=0

@@ -1,0 +1,102 @@
+[INFO] [launch]: All log files can be found below /home/docker/.ros/log/2026-08-27-07-54-33-350860-67d4b1d39687-61476
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [61486]
+[INFO] [create-2]: process started with pid [61487]
+[create-2] [INFO] [1787817273.627647003] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1787817276.038931546] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 61487]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] (2026-08-27 07:54:37.498) [error] [DopplerVelocityLog.cc:908] Far boundary for water mass mode cannot greater than the maximum range for [teledyne_explorer1000::explorer_base_link::teledyne_explorer1000] sensor.
+[gazebo-1] (2026-08-27 07:54:37.498) [error] [DopplerVelocityLog.cc:736] Failed to initialize velocity tracking modes for [teledyne_explorer1000::explorer_base_link::teledyne_explorer1000] sensor.
+[gazebo-1] (2026-08-27 07:54:37.498) [error] [DopplerVelocityLog.cc:1325] Failed to initialize [teledyne_explorer1000::explorer_base_link::teledyne_explorer1000] sensor.
+[gazebo-1] (2026-08-27 07:54:37.504) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:37.572) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:37.681) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:37.782) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:37.886) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.003) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.121) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.236) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.348) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.461) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.579) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.716) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.837) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:38.962) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:39.095) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:39.239) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:39.422) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:39.584) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:39.739) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:39.917) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:40.101) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:40.280) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:40.469) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:40.762) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:40.957) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:41.162) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:41.422) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:41.659) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:41.910) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:42.131) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:42.368) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:42.608) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:42.864) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:43.148) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:43.417) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:43.674) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:43.901) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:44.203) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:44.445) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:44.685) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:44.958) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:45.267) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:45.545) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:45.784) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:46.035) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:46.266) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:46.547) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:46.819) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:47.163) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:47.396) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:47.522) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:47.640) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:47.802) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:47.942) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.085) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.226) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.351) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.520) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.658) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.798) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:48.932) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:49.103) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:49.244) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:49.398) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:49.544) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:49.709) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:49.866) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.053) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.197) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.359) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.482) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.620) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.815) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:50.946) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.083) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.251) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.391) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.517) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.651) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.792) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:51.943) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:52.097) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:52.252) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:52.392) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:52.584) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:52.749) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:52.981) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:53.194) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] (2026-08-27 07:54:53.384) [error] [DopplerVelocityLog.cc:1409] Not initialized, update ignored.
+[gazebo-1] [INFO] [1787817293.466486638] [rclcpp]: signal_handler(signum=2)
+[INFO] [gazebo-1]: process has finished cleanly [pid 61486]

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/full_gap_validation_2026-08-27/04_underwater_tag_and_range_matrix/test_assets/capture_one.py", line 52, in <module>
+    raise TimeoutError(f"no image for {variant}; callbacks={node.seen}")
+TimeoutError: no image for underwater_camera; callbacks=0

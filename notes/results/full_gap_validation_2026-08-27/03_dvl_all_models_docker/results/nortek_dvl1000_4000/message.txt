@@ -1,0 +1,22 @@
+header:
+  stamp:
+    sec: 0
+    nanosec: 251000000
+  frame_id: ''
+type: DVL_TYPE_PHASED_ARRAY
+target:
+  type: DVL_TARGET_BOTTOM
+  range: 51.21825027465821
+velocity:
+  twist:
+    linear:
+      x: -0.016062353116883563
+      y: 0.03530999713079347
+      z: 0.00978380332121899
+    angular:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+  covariance: '<array type: double[36]>'
+beams: '<sequence type: dave_interfaces/msg/DVLBeam, length: 4>'
+---

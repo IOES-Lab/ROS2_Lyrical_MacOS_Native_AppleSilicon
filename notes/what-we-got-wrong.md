@@ -313,8 +313,10 @@ world's initial origin has also changed since the page's older North Sea value.
 
 **Caught by** treating a documented numeric response as a test vector and running it in both
 directions on Mac and Docker. Three independent finite round-trip points passed at sub-nanometre
-axis error, so the positive transform path and the bad example can be stated separately. A
-round-trip checks internal consistency; it still does not establish independent geodesic accuracy.
+axis error, so the positive transform path and the bad example can be stated separately. At that
+stage a round-trip checked only internal consistency and did not establish independent geodesic
+accuracy. The later 2026-08-28 WGS-84/ECEF/ENU oracle closed that specific gap with 13 points
+across four geographic cases; invalid-input handling and packaging remain separate problems.
 
 ---
 
@@ -423,3 +425,21 @@ list에도 entity가 없었다. 그런데 create client는 성공 문구와 exit
 것이다. process 종료·exit 0·성공 문자열은 각각 entity 존재와 다른 속성이다. spawn 검증은
 요청 전후 model/entity 목록 또는 실제 topic/pose를 확인해야 하며, 실패 통제 하나를 넣어
 성공 판정기가 실패도 성공으로 분류하지 않는지 먼저 확인한다.
+
+## 2026-08-28 — one-shot timeout을 양방향 결함으로 올렸다
+
+Glider integrated `enable_deadband`에서 ROS publisher가 성공하고 Gazebo echo가 한 번 timeout된
+것을 비대칭 bridge 결함으로 기록했다. 동일 경로를 반복 송신하자 ROS `true` 50개가 Gazebo
+`true` 50개로 관측되고 false는 0개였다. 한 번의 subscriber timing 결과는 메시지 경로의
+부재와 구별되지 않는다. 앞으로 양방향 bridge 부재를 주장하려면 subscriber discovery 뒤
+반복 송신·반복 관측과 양성 대조를 함께 둔다.
+
+## 2026-08-28 — hook attribution을 좁은 검색으로 잘못 철회했다
+
+Ocean/Spherical의 nested `GZ_SIM_SYSTEM_PLUGIN_PATH`를 package hook 탓이라고 했다가 install
+tree 검색에서 문자열을 못 찾아 “지원되지 않는 추정”으로 철회했다. 그러나 source package의
+`.dsv.in`을 포함해 검색하자 두 package가 정확히 `lib/@PROJECT_NAME@/`을 prepend했고, clean
+layered environment도 DAVE setup 뒤 그 nested 경로를 만들었다. 실제 dylib는 plain `lib/`에
+있다. “설치 트리 한 위치에 문자열이 없다”는 검사는 환경 항목의 출처 전체를 부정하지 못한다.
+환경 변수 provenance는 clean shell에서 setup layer별 값을 읽고 source hook·generated hook·
+실제 install destination을 함께 대조해야 한다.

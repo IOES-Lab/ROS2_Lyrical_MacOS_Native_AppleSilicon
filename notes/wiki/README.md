@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열네 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열다섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -138,9 +138,13 @@ range profile이 다르다는 것까지만 직접 확인했다.
   적용된다는 것을 런타임에서 확인**하고 페이지에 경고 추가
 - **`<scattering>` 은 별도 SDF 파라미터가 아니라는 점 정정** — `Configure()` 가 읽는
   것은 `attenuationR/G/B` 와 `backgroundR/G/B` 6개뿐이다
+- launch 인자는 `verbose`/기본값 `0` 이 아니라 **`verbosity_level`/기본값 `1`** 이다.
+  현재 `dave_sensor.launch.py` 의 선언과 실행 경로를 다시 대조해 표를 고쳤다
 
 이 회차가 입증하지 않는 것: 일반 수중 광학 정확성. 정적 장면 하나, 원본 색 하나이고
-murky 태그 6개를 동시에 바꿨다. 태그를 하나씩 분리한 확인은 하지 않았다.
+murky 태그 6개를 동시에 바꿨다. **이 제한은 15차에서 보완했다** — 여섯 태그를 하나씩
+분리하고 1·2·4·6 m 거리 조건을 Docker에서 직접 실행했다. 일반 수중 광학 정확성은
+여전히 입증하지 않았다.
 
 근거:
 [`../results/underwater_camera_direct_validation_2026-08-26/`](../results/underwater_camera_direct_validation_2026-08-26/).
@@ -291,8 +295,9 @@ evidence를 유지한다. source inventory만으로 어떤 SMOKE도 FUNCTIONAL�
   여섯에 포함됐다는 문구를 철회
 - ROS `cmd_thrust=25.0`이 Gazebo `data: 25`로 도달하고 `ang_vel`이 `-0`에서
   `55776.3435`로 변함 — command coupling만 확인, calibration은 미검증
-- integrated `enable_deadband`는 Gazebo→ROS `true`는 통과하고 ROS→Gazebo는 timeout;
-  isolated Bool bridge는 양방향 통과하여 원인 미확정
+- 13차의 one-shot integrated `enable_deadband`는 Gazebo→ROS `true`만 보고 ROS→Gazebo는
+  timeout이었다. **15차 반복 통제에서 ROS `true` 50개가 Gazebo `true` 50개로 도달하고
+  false 0을 확인해, 그 비대칭 주장을 철회했다**
 - fresh Mac 두 예제는 `/stats`와 model data가 진행되지 않은 `NOT_STEPPING` 재현으로
   미확정이며 현재 functional 근거에 사용하지 않음
 - ROV page의 `bluerov2_heavy_multibeam_sonar` source-only 문구도 11차 runtime 결과로 갱신
@@ -363,3 +368,24 @@ ArduSub 의 Python 3.14 호환성 문제는 위키에 ArduSub 페이지가 없�
 **보장할 수 있는 범위는 "우리가 검증한 것과 대조했을 때 빠진 게 없다"까지다.**
 우리가 손대지 않은 영역(매니퓰레이터, Migration Progress 등)에
 다른 오류가 있는지는 확인한 적이 없으므로 알 수 없다.
+
+## 15차 — 2026-08-28 전체 잔여 직접 검증
+
+Notion 전 페이지 감사에서 아직 직접 실행되지 않았다고 남은 항목 중 현재 Mac·Docker에서
+실행 가능한 범위를 다시 시험했다.
+
+- Spherical Coordinates: 독립 WGS-84/ECEF/ENU oracle, 4지역 13점 통과
+- DVL: 배포 descriptor 8개 전수 실행, 4개 output·4개 range 설정 초기화 실패
+- Underwater Camera: 여섯 태그 개별 활성화와 1·2·4·6 m 추세, fresh Mac recheck 분리
+- SeaPressure: paused 5초, ±1000 m, surface 10,000-frame 안정성
+- Glider: integrated deadband 50/50 통과로 one-shot 비대칭 주장 철회
+- USBL: 이동 표적 통과, integer-second travel-delay 양자화 발견
+- Ocean Current ModelPlugin: 고정 깊이 두 차량·두 namespace의 current→motion 확인
+- Ocean/Spherical plugin discovery: source `.dsv` hook을 nested path의 출처로 확정
+
+NVIDIA CUDA, Windows/WSL, MAVROS/QGroundControl 통합, 실제 USB/gamepad/해양 HIL과 Fuel
+account upload는 현재 prerequisite가 없어 **BLOCKED**로 적었다. 실행하지 못한 것을 PASS로
+올리지 않는다.
+
+근거:
+[`../results/full_gap_validation_2026-08-27/`](../results/full_gap_validation_2026-08-27/).

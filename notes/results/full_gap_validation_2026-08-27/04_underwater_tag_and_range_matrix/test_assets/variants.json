@@ -1,0 +1,55 @@
+{
+  "uc_no_effect": {},
+  "uc_att_r": {
+    "attenuationR": 0.8
+  },
+  "uc_att_g": {
+    "attenuationG": 0.8
+  },
+  "uc_att_b": {
+    "attenuationB": 0.8
+  },
+  "uc_bg_base": {
+    "attenuationR": 0.8,
+    "attenuationG": 0.8,
+    "attenuationB": 0.8
+  },
+  "uc_bg_r": {
+    "attenuationR": 0.8,
+    "attenuationG": 0.8,
+    "attenuationB": 0.8,
+    "backgroundR": 85
+  },
+  "uc_bg_g": {
+    "attenuationR": 0.8,
+    "attenuationG": 0.8,
+    "attenuationB": 0.8,
+    "backgroundG": 107
+  },
+  "uc_bg_b": {
+    "attenuationR": 0.8,
+    "attenuationG": 0.8,
+    "attenuationB": 0.8,
+    "backgroundB": 47
+  },
+  "uc_range_1m": {
+    "attenuationR": 0.2,
+    "attenuationG": 0.2,
+    "attenuationB": 0.2
+  },
+  "uc_range_2m": {
+    "attenuationR": 0.2,
+    "attenuationG": 0.2,
+    "attenuationB": 0.2
+  },
+  "uc_range_4m": {
+    "attenuationR": 0.2,
+    "attenuationG": 0.2,
+    "attenuationB": 0.2
+  },
+  "uc_range_6m": {
+    "attenuationR": 0.2,
+    "attenuationG": 0.2,
+    "attenuationB": 0.2
+  }
+}
