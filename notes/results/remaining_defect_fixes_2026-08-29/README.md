@@ -7,7 +7,9 @@ or the installed user workspace already contains the fixes.
 ## Closed in the tested patch set
 
 - WGPU's gross planar raw-sonar range shift: old 6.396–6.446 m for a 3.99 m target became
-  3.988294–4.063545 m on Mac/Metal.
+  3.988294–4.063545 m on Mac/Metal. A post-commit boundary audit also added an explicit
+  `n_freq <= 4096` GPU limit: 4097 bins return before GPU initialisation for the existing C++ CPU
+  fallback instead of exceeding the shader's fixed workgroup arrays.
 - Explicit unavailable CUDA now falls back to CPU, keeps Gazebo alive and publishes raw sonar in a
   small discriminating test.
 - Underwater Camera semantic R/G/B tags now produce expected BGR `[50, 103, 85]` on both Mac and Docker.
@@ -31,4 +33,5 @@ broad scientific validation. They are intentionally not relabelled PASS.
 - `mac/` — selected Mac results.
 - `docker/` — selected Docker results.
 - `build_and_static_checks.txt` — build, syntax, XML and patch-application checks.
+- `post_commit_audit.txt` — 4096-bin boundary test and stale-current-document propagation audit.
 - `patch_sha256.txt` — hashes of the eight candidate patches kept in `patches/`.

@@ -1,0 +1,50 @@
+Post-commit boundary and propagation audit — 2026-08-29
+
+WGPU boundary finding
+---------------------
+
+The exact non-power-of-two DFT uses two WGSL workgroup arrays of 4096 f32 values.
+The previous host code clamped padded_n to 4096 but did not reject n_freq > 4096;
+the exact-DFT loop could therefore index those arrays out of bounds.
+
+Correction:
+- host returns null before slices or GPU initialization when n_freq > 4096
+- C++'s existing null-result path performs the CPU fallback
+- WGSL independently rejects n_freq > 4096
+- a 4097-bin Rust unit test returns null without initializing a GPU
+
+Checks:
+- cargo test --lib: PASS (1/1)
+- cargo check: PASS
+- all eight candidate patches apply in dependency order: PASS
+- patched tracked source equals the reconstructed candidate snapshot: 246/246 files
+
+Documentation propagation finding
+---------------------------------
+
+The two source DEMO_GUIDE files still described a zero-padded fft_len pipeline even
+though the candidate uses n_freq-sized buffers and an exact DFT for non-power-of-two
+inputs. Current GitHub verdict pages also retained pre-candidate gui/headless wording.
+The guides, current migration pattern, verified-demo row and two matrix rows were
+corrected without rewriting dated runtime evidence.
+
+Scope
+-----
+
+This is a boundary unit/static check. It does not add a >4096-bin runtime sonar result,
+general acoustic validation, an upstream merge, or an installed-workspace fix.
+
+Notion propagation verification
+-------------------------------
+
+The current-verdict text was updated and fetched again on seven pages:
+- Multibeam Sonar Plugin
+- CMake migration patterns
+- overall project hub
+- next research directions
+- sonar theory
+- sonar code structure
+- Wiki-versus-validation comparison
+
+Required candidate/boundary wording was present and the targeted stale current wording
+was absent. Dated pre-fix evidence remains intentionally preserved as history.

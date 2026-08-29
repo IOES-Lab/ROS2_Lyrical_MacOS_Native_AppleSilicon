@@ -207,7 +207,8 @@ colcon build --merge-install --executor sequential \
 
 source install/setup.bash
 
-# gui:=true headless:=true together == real headless mode (see Known Issues)
+# Pre-candidate installed workspace: gui:=true headless:=true is the verified headless form.
+# The 2026-08-29 candidate also supports gui:=false or headless:=true independently.
 ros2 launch dave_demos dave_sensor.launch.py \
   namespace:=blueview_p900 world_name:=dave_multibeam_sonar paused:=false \
   x:=5.8 z:=2 yaw:=3.14 compute_backend:=wgpu gui:=true headless:=true

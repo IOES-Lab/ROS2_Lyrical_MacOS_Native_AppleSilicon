@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열여섯 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열일곱 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -411,3 +411,23 @@ Fuel/Windows/HIL 및 일반 과학 정확도는 계속 열린 범위로 남겼�
 
 근거:
 [`../results/remaining_defect_fixes_2026-08-29/`](../results/remaining_defect_fixes_2026-08-29/).
+
+## 17차 — 2026-08-29 후속 경계·전파 감사
+
+후보 패치를 커밋하기 직전의 판별 입력만 다시 보는 대신, 구현 경계와 현재형 문서까지
+역방향으로 감사했다. WGPU exact-DFT shader의 workgroup 배열은 4096개이므로 기존
+`min(4096)`만으로는 4097개 이상의 입력을 안전하게 처리하지 못한다는 것을 확인했다.
+
+- host와 WGSL에 4096 frequency-bin 경계를 명시
+- 4097 bins는 GPU 초기화 전에 null을 반환해 기존 C++ CPU fallback으로 넘김
+- 4097-bin Rust 단위 시험과 `cargo check` 통과
+- 두 source guide의 오래된 zero-padded `fft_len` 설명을 현재 exact-N DFT 구조로 정정
+- CMake 패턴 6, Multibeam 현재 표·범위·launch callout, 전체 현황, 다음 연구 방향,
+  소나 코드·이론·대조표를 후보 판정과 동일하게 갱신
+- Notion 7페이지를 다시 fetch해 새 문구 존재와 현재형 stale 문구 부재를 확인
+
+이 회차는 **경계 단위·정적 검사**다. 4097-bin 전체 소나 runtime, 일반 음향 정확도,
+상류 병합 또는 설치 workspace 수정으로 확대하지 않는다.
+
+근거:
+[`../results/remaining_defect_fixes_2026-08-29/post_commit_audit.txt`](../results/remaining_defect_fixes_2026-08-29/post_commit_audit.txt).

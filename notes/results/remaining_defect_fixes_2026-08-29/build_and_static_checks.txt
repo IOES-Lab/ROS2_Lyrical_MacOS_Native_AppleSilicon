@@ -1,10 +1,16 @@
 Mac isolated builds: PASS
 Docker isolated builds: PASS (non-WGPU packages; container has no cargo)
-Python launch/script compilation: PASS
+Python launch/script compilation: PASS (19 candidate Python files)
 Shell parse: PASS
-World XML and package XML parse: PASS
+World XML and package XML parse: PASS (32 files)
 Internal world names unique: 18/18
 Generated patches git-apply check: PASS
-Generated patch set reproduces modified snapshot: PASS (49 changed files; 225/225 snapshot files identical)
+Initial generated patch set reproduces modified snapshot: PASS (49 changed files; 225/225 snapshot files identical)
 Applied-source whitespace check: PASS (0 errors)
 Unified-diff context-prefix whitespace is exempted only for patches/*.diff via .gitattributes
+Post-commit boundary and propagation audit: PASS
+Rust cargo test --lib: PASS (1/1 oversized-frequency boundary test)
+Rust cargo check: PASS
+All eight candidate patches apply in dependency order: PASS
+Reconstructed candidate tracked-source equality: PASS (246/246)
+Notion current-verdict propagation: PASS (7/7 pages fetched after update)

@@ -21,7 +21,7 @@ documented in this folder. Apply the base port first, then the new candidates.
 
 | Patch | Scope | Validation |
 |---|---|---|
-| [`multibeam_wgpu_and_backend_fix.diff`](multibeam_wgpu_and_backend_fix.diff) | Exact non-power-of-two WGPU DFT and unavailable-backend CPU fallback | Mac/Metal planar target and explicit-CUDA small raw-sonar control |
+| [`multibeam_wgpu_and_backend_fix.diff`](multibeam_wgpu_and_backend_fix.diff) | Exact non-power-of-two WGPU DFT, explicit 4096-bin GPU boundary and unavailable-backend CPU fallback | Mac/Metal planar target, 4097-bin pre-GPU unit test and explicit-CUDA small raw-sonar control |
 | [`underwater_camera_channel_fix.diff`](underwater_camera_channel_fix.diff) | Semantic RGB tags mapped to BGR storage | Mac and Docker discriminating arrays equal `[50,103,85]` |
 | [`seapressure_contract_fix.diff`](seapressure_contract_fix.diff) | Pa/Pa², sign, saturation, noise, rate, frame/topic controls | Full Mac and Docker control summaries PASS |
 | [`dvl_configuration_and_bridge_fix.diff`](dvl_configuration_and_bridge_fix.diff) | Frame ID, named water velocity, descriptor far boundaries | Docker 8/8 four-beam output plus actual water-mass target |
@@ -33,8 +33,10 @@ documented in this folder. Apply the base port first, then the new candidates.
 The exact hashes and compact evidence are in
 [`../notes/results/remaining_defect_fixes_2026-08-29/`](../notes/results/remaining_defect_fixes_2026-08-29/).
 All eight patches pass `git apply --check` in dependency order and collectively reproduce the
-isolated modified snapshot. Docker has no Cargo toolchain, so the modified WGPU implementation was
-built and run on Mac/Metal; Docker sonar validation remains CPU fallback.
+isolated modified snapshot. The WGPU crate also passes its Rust unit test and `cargo check`; its
+source guides now describe the exact-DFT path, actual `n_freq` buffer dimensions and 4096-bin
+boundary. Docker has no Cargo toolchain, so the modified WGPU implementation was built and run on
+Mac/Metal; Docker sonar validation remains CPU fallback.
 
 ## What remains outside these patches
 

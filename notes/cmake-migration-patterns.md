@@ -70,7 +70,14 @@ if (cartOpt && cartOpt->AsMetricVector()) cartVec = *cartOpt->AsMetricVector();
 
 ## 6. `gui`/`headless` launch argument gating (runtime)
 
-`dave_sensor.launch.py` / `dave_robot.launch.py` gate all of Gazebo behind `condition=IfCondition(gui)`. `gui:=false` disables Gazebo entirely. Correct headless invocation: `gui:=true headless:=true`.
+**Historical pre-candidate behaviour:** `dave_sensor.launch.py` and `dave_robot.launch.py` gated all
+of Gazebo behind `condition=IfCondition(gui)`, so `gui:=false` disabled the simulator entirely and
+the working invocation was `gui:=true headless:=true`.
+
+**Validated candidate behaviour (2026-08-29):** the three DAVE launch files always start Gazebo and
+add server-only `-s` when either `gui:=false` or `headless:=true`. Scoped Mac/Docker regressions
+confirmed both forms. The installed/upstream workspaces remain unchanged until the candidate patch
+is applied.
 
 ## 7. `ogre2` → `ogre` as a sonar workaround (Docker only)
 

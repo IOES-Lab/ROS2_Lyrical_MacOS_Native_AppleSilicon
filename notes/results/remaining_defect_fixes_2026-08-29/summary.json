@@ -14,7 +14,11 @@
       ],
       "median_peak_range_m": 4.013377666473389,
       "maximum_absolute_error_m": 0.07354522705078104,
-      "scope": "one controlled planar scene; not general acoustic validation"
+      "scope": "one controlled planar scene; not general acoustic validation",
+      "gpu_frequency_bin_limit": 4096,
+      "oversize_behavior": "n_freq > 4096 returns null before GPU initialization for the existing C++ CPU fallback",
+      "boundary_test": "4097-bin Rust unit test passed",
+      "documentation_audit": "source guides now describe exact non-power-of-two DFT and n_beams x n_freq buffers"
     },
     "unavailable_cuda_failure_handling": {
       "platform": "Mac/Apple M2",

@@ -29,10 +29,28 @@ index 92acdf0..282db97 100644
  
    if (backend == "cpu")
 diff --git a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs
-index f8a7c17..6291062 100644
+index f8a7c17..606d7e7 100644
 --- a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs
 +++ b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/lib.rs
-@@ -248,7 +248,8 @@ pub extern "C" fn sonar_wgpu_compute(
+@@ -107,6 +107,17 @@ pub extern "C" fn sonar_wgpu_compute(
+         return std::ptr::null_mut();
+     }
+ 
++    // fft.wgsl uses two 4096-element workgroup arrays.  Reject larger spectra
++    // before creating slices or a GPU context so C++ can use its CPU fallback
++    // instead of submitting an out-of-bounds shader workload.
++    if n_freq_us > 4096 {
++        eprintln!(
++            "[sonar_wgpu] n_freq={} exceeds the 4096-bin GPU limit; returning null for CPU fallback.",
++            n_freq_us
++        );
++        return std::ptr::null_mut();
++    }
++
+     use std::sync::Once;
+ 
+     let depth_len = n_beams_us * n_rays_us;
+@@ -248,7 +259,8 @@ pub extern "C" fn sonar_wgpu_compute(
      });
  
      let spectrum_bytes = (spectrum_len * std::mem::size_of::<f32>()) as u64;
@@ -42,7 +60,7 @@ index f8a7c17..6291062 100644
      let padded_n = (n_freq_us.next_power_of_two() as u32).min(4096);
  
      // ---- Single command encoder: all passes + staging copy in one GPU submission ----
-@@ -307,8 +308,8 @@ pub extern "C" fn sonar_wgpu_compute(
+@@ -307,8 +319,8 @@ pub extern "C" fn sonar_wgpu_compute(
          }
      }
  
@@ -53,8 +71,60 @@ index f8a7c17..6291062 100644
      enc.copy_buffer_to_buffer(&buf.mm_re_out, 0, &buf.p_re_buf, 0, spectrum_bytes);
      enc.copy_buffer_to_buffer(&buf.mm_im_out, 0, &buf.p_im_buf, 0, spectrum_bytes);
  
+@@ -439,3 +451,37 @@ pub extern "C" fn sonar_wgpu_free(ptr: *mut f32, len: usize) {
+         let _ = Vec::from_raw_parts(ptr, len, len);
+     }
+ }
++
++#[cfg(test)]
++mod tests {
++    #[test]
++    fn oversized_frequency_count_returns_before_gpu_initialization() {
++        let one = [0.0_f32];
++        let output = super::sonar_wgpu_compute(
++            one.as_ptr(),
++            one.as_ptr(),
++            one.as_ptr(),
++            one.as_ptr(),
++            one.as_ptr(),
++            1,
++            1,
++            4097,
++            1,
++            1500.0,
++            10.0,
++            0.0,
++            0.0,
++            0.0,
++            1.0,
++            1.0,
++            1.0,
++            1.0,
++            1.0,
++            0,
++            0,
++            false,
++        );
++
++        assert!(output.is_null());
++    }
++}
+diff --git a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/pipeline.rs b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/pipeline.rs
+index d208d61..e876bca 100644
+--- a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/pipeline.rs
++++ b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/pipeline.rs
+@@ -161,7 +161,8 @@ pub struct GpuContext {
+     pub mm_pipeline: wgpu::ComputePipeline,
+     pub mm_bgl: wgpu::BindGroupLayout,
+ 
+-    // FFT kernel: power-of-2 only, N≤4096 (4096 is the shared memory limit). CPU fallback via Bluestein for arbitrary N.
++    // Spectrum transform: radix-2 FFT for power-of-two N and exact DFT otherwise.
++    // The host rejects N > 4096 so C++ can fall back to the CPU backend.
+     pub fft_pipeline: wgpu::ComputePipeline,
+     pub fft_bgl: wgpu::BindGroupLayout,
+ 
 diff --git a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl
-index 4c46085..0e890ea 100644
+index 4c46085..e356873 100644
 --- a/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl
 +++ b/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/src/shaders/fft.wgsl
 @@ -1,6 +1,9 @@
@@ -70,6 +140,15 @@ index 4c46085..0e890ea 100644
  
  struct Params {
    n_beams:  u32,
+@@ -35,7 +38,7 @@ fn main(
+   @builtin(local_invocation_id) lid: vec3<u32>  // lid.x = thread 0..255
+ ) {
+   let beam = wg.x;
+-  if (beam >= params.n_beams || params.padded_n > 4096u) {
++  if (beam >= params.n_beams || params.n_freq > 4096u || params.padded_n > 4096u) {
+     return;
+   }
+ 
 @@ -43,6 +46,32 @@ fn main(
    let n_real = params.n_freq;     // actual data count stored in the buffer
    let base   = beam * n_real;     // flat offset into the (non-padded) p_re/p_im buffers

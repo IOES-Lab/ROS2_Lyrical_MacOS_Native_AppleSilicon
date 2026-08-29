@@ -28,7 +28,7 @@
 
 검증된 후보 패치 범위:
 
-- Multibeam WGPU의 한 평면 장면 gross range shift와 명시적 CUDA 실패 경로
+- Multibeam WGPU의 한 평면 장면 gross range shift, 4096-bin GPU 경계와 명시적 CUDA 실패 경로
 - Underwater Camera R/B 의미론
 - SeaPressure ROS 계약과 여섯 설정 제어
 - Spherical 입력 검증·실패 상태·paused/no-config·plugin discovery
@@ -57,7 +57,7 @@ pin/upload, Windows/WSL·HIL과 일반 음향·광학·유체역학·장시간 �
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
 | [`known-issues.md`](known-issues.md) | 48개 항목(열림·후보 패치 해결·철회 이력 포함), 현재 처리는 문서 맨 위 표 참고 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 97행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 98행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

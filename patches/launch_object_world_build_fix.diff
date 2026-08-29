@@ -160,7 +160,7 @@ index a6ef6d1..01ef1b6 100644
              DeclareLaunchArgument(
                  "headless",
 diff --git a/gazebo/DEMO_GUIDE.md b/gazebo/DEMO_GUIDE.md
-index 6fb3fb0..96d92d6 100644
+index 6fb3fb0..f7e672f 100644
 --- a/gazebo/DEMO_GUIDE.md
 +++ b/gazebo/DEMO_GUIDE.md
 @@ -27,11 +27,11 @@ Build in two steps on a fresh clone (the Rust library must be ready before the p
@@ -177,15 +177,37 @@ index 6fb3fb0..96d92d6 100644
  source install/setup.bash
  ```
  
-@@ -81,4 +81,4 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+@@ -58,7 +58,7 @@ You'll see RViz2 launch with a point cloud display. The sonar fan should update
+ 
+ ## How It Works
+ 
+-Each frame, Gazebo renders depth and surface normals. The sonar plugin reads these and runs acoustic physics on your selected backend. The wgpu backend dispatches four compute shaders: backscatter (acoustic return per ray), convert (fixed-point i32 -> f32), matmul (beam correction), and FFT (range compression). Output goes to ROS 2 topics as a point cloud and sonar image via ros_gz_bridge. The Rust library compiles to a static library linked into the C++ Gazebo plugin via C FFI.
++Each frame, Gazebo renders depth and surface normals. The sonar plugin reads these and runs acoustic physics on your selected backend. The wgpu backend dispatches four compute shaders: backscatter (acoustic return per ray), convert (fixed-point i32 -> f32), matmul (beam correction), and a spectrum transform for range compression. The transform uses a radix-2 FFT when the frequency-bin count is a power of two and an exact N-point DFT otherwise. Counts above the 4096-bin workgroup-memory limit return control for CPU fallback. Output goes to ROS 2 topics as a point cloud and sonar image via ros_gz_bridge. The Rust library compiles to a static library linked into the C++ Gazebo plugin via C FFI.
+ 
+ ## Data Flow
+ 
+@@ -68,8 +68,8 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+ 2. **backscatter.wgsl** - Computes acoustic return per ray using Lambert model, outputs to atomic accumulators
+ 3. **convert.wgsl** - Converts fixed-point i32 results to f32
+ 4. **matmul.wgsl** - Applies beam correction matrix to each beam
+-5. **fft.wgsl** - Performs in-place FFT with zero-padding to power-of-2 for range compression
+-6. **Readback** - CPU reads first n_freq bins from staging buffers
++5. **fft.wgsl** - Performs an in-place radix-2 FFT for power-of-two inputs or an exact N-point DFT otherwise
++6. **Readback** - CPU reads n_freq bins from staging buffers
+ 7. **Output** - Results published to ROS 2 as point cloud and sonar image
+ 
+ **Buffer details:**
+@@ -80,5 +80,5 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+ | out_re_i32, out_im_i32 | n_beams × n_freq | i32 | Atomic accumulators (zeroed each frame) |
  | mm_re_in, mm_im_in | n_beams × n_freq | f32 | After convert pass |
  | mm_re_out, mm_im_out | n_beams × n_freq | f32 | After beam correction |
- | p_re_buf, p_im_buf | n_beams × fft_len | f32 | FFT input/output (zero-padded) |
+-| p_re_buf, p_im_buf | n_beams × fft_len | f32 | FFT input/output (zero-padded) |
 -| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
 \ No newline at end of file
-+| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
++| p_re_buf, p_im_buf | n_beams × n_freq | f32 | Spectrum-transform input/output |
++| stg_re, stg_im | n_beams × n_freq | f32 | Staging for CPU readback |
 diff --git a/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md b/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md
-index a55c17c..273d447 100644
+index a55c17c..83d3978 100644
 --- a/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md
 +++ b/gazebo/DEMO_GUIDE_AppleSilicon_MacOSX.md
 @@ -31,11 +31,11 @@ Build in two steps on a fresh clone (the Rust library must be ready before the p
@@ -202,13 +224,35 @@ index a55c17c..273d447 100644
  source install/setup.bash
  ```
  
-@@ -85,4 +85,4 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+@@ -62,7 +62,7 @@ You'll see RViz2 launch with a point cloud display. The sonar fan should update
+ 
+ ## How It Works
+ 
+-Each frame, Gazebo renders depth and surface normals. The sonar plugin reads these and runs acoustic physics on your selected backend. The wgpu backend dispatches four compute shaders: backscatter (acoustic return per ray), convert (fixed-point i32 -> f32), matmul (beam correction), and FFT (range compression). Output goes to ROS 2 topics as a point cloud and sonar image via ros_gz_bridge. The Rust library compiles to a static library linked into the C++ Gazebo plugin via C FFI.
++Each frame, Gazebo renders depth and surface normals. The sonar plugin reads these and runs acoustic physics on your selected backend. The wgpu backend dispatches four compute shaders: backscatter (acoustic return per ray), convert (fixed-point i32 -> f32), matmul (beam correction), and a spectrum transform for range compression. The transform uses a radix-2 FFT when the frequency-bin count is a power of two and an exact N-point DFT otherwise. Counts above the 4096-bin workgroup-memory limit return control for CPU fallback. Output goes to ROS 2 topics as a point cloud and sonar image via ros_gz_bridge. The Rust library compiles to a static library linked into the C++ Gazebo plugin via C FFI.
+ 
+ ## Data Flow
+ 
+@@ -72,8 +72,8 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+ 2. **backscatter.wgsl** - Computes acoustic return per ray using Lambert model, outputs to atomic accumulators
+ 3. **convert.wgsl** - Converts fixed-point i32 results to f32
+ 4. **matmul.wgsl** - Applies beam correction matrix to each beam
+-5. **fft.wgsl** - Performs in-place FFT with zero-padding to power-of-2 for range compression
+-6. **Readback** - CPU reads first n_freq bins from staging buffers
++5. **fft.wgsl** - Performs an in-place radix-2 FFT for power-of-two inputs or an exact N-point DFT otherwise
++6. **Readback** - CPU reads n_freq bins from staging buffers
+ 7. **Output** - Results published to ROS 2 as point cloud and sonar image
+ 
+ **Buffer details:**
+@@ -84,5 +84,5 @@ Each frame, Gazebo renders depth and surface normals. The sonar plugin reads the
+ | out_re_i32, out_im_i32 | n_beams × n_freq | i32 | Atomic accumulators (zeroed each frame) |
  | mm_re_in, mm_im_in | n_beams × n_freq | f32 | After convert pass |
  | mm_re_out, mm_im_out | n_beams × n_freq | f32 | After beam correction |
- | p_re_buf, p_im_buf | n_beams × fft_len | f32 | FFT input/output (zero-padded) |
+-| p_re_buf, p_im_buf | n_beams × fft_len | f32 | FFT input/output (zero-padded) |
 -| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
 \ No newline at end of file
-+| stg_re, stg_im | n_beams × fft_len | f32 | Staging for CPU readback |
++| p_re_buf, p_im_buf | n_beams × n_freq | f32 | Spectrum-transform input/output |
++| stg_re, stg_im | n_beams × n_freq | f32 | Staging for CPU readback |
 diff --git a/models/dave_object_models/launch/upload_object.launch.py b/models/dave_object_models/launch/upload_object.launch.py
 index 6be7284..234ed58 100755
 --- a/models/dave_object_models/launch/upload_object.launch.py

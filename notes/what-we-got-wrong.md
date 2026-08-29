@@ -455,3 +455,20 @@ layered environment도 DAVE setup 뒤 그 nested 경로를 만들었다. 실제 
 때문에 남은 것, (3) 일반 과학 정확도로 나눴다. 단, 로컬 후보 패치의 PASS를 upstream 반영으로
 쓰지 않았다. 앞으로 결함 수정의 완료 조건에는 원인 통제, 양 플랫폼 가능 범위, patch-apply 검사,
 현재 문서 전파와 "아직 주장하지 않는 것" 목록을 함께 둔다.
+
+## 2026-08-29 — 패치가 통과한 입력 범위를 구현 경계 전체로 늘려 쓴 다음, 예전 판정을 다른 문서에 남겼다
+
+**Believed:** 평면 타겟의 319-bin WGPU 장면과 패치 적용 검사가 통과했으므로
+non-power-of-two 처리와 후속 문서 전파도 끝났다.
+
+**Actually:** shader의 workgroup array는 4096개인데 host는 `next_power_of_two().min(4096)`만
+사용했다. `n_freq > 4096`에서는 exact-DFT branch가 고정 array 밖을 index할 수 있었다.
+동시에 source guide는 아직 zero-padded `fft_len` buffer를 설명했고,
+`cmake-migration-patterns.md`·`verified-demos.md`·matrix는 2026-08-29 launch 후보 패치 전의
+`gui:=false` 판정을 현재형으로 남겼다.
+
+**Caught by** 실행한 319-bin 통제가 아니라 shader storage 한계에서 입력 도메인을 역으로
+계산하고, 후보 패치가 건드린 원본 guide와 현재 판정 문서를 따로 검색한 것이다. host·shader
+양쪽에 4096-bin guard를 두고, GPU 초기화 전에 4097-bin이 null을 반환하는 unit test를
+추가했다. 앞으로 특정 크기의 PASS를 크기 전체의 PASS로 올리지 않고, 패치 완료 시 코드
+주석·원본 guide·현재 verdict를 별도 전파 목록으로 검사한다.
