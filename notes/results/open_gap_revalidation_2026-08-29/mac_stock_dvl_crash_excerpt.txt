@@ -1,0 +1,4 @@
+[parameter_bridge-2] [INFO] [1788003789.824826000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/dvl/velocity (gz.msgs.DVLVelocityTracking) -> /dvl/velocity (marine_acoustic_msgs/msg/Dvl)] (Lazy 0)
+[gazebo-1] #5    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11f0705d7, in gz::sim::v10::systems::SensorsPrivate::RenderThread() + 175
+[gazebo-1] #4    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x11f06f9af, in gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 511
+[ERROR] [gazebo-1]: process has died [pid 87814, exit code -11, cmd 'ruby /opt/homebrew/bin/gz sim -r /Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_sim_demos/share/ros_gz_sim_demos/worlds/dvl.sdf --force-version 10'].

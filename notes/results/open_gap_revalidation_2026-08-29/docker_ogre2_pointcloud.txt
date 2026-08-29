@@ -1,0 +1,25 @@
+header {
+  stamp {
+    sec: 1
+    nsec: 34000000
+  }
+  data {
+    key: "frame_id"
+    value: "blueview_p900::blueview_p900_base_link::multibeam_sonar"
+  }
+  data {
+    key: "seq"
+    value: "0"
+  }
+}
+field {
+  name: "x"
+  datatype: FLOAT32
+  count: 1
+}
+field {
+  name: "y"
+  offset: 4
+  datatype: FLOAT32
+  count: 1
+}

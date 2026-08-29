@@ -2,7 +2,7 @@
 
 ## 기준
 
-2026-08-29에 현재 Mac·Docker에서 재현하고 판별할 수 있던 로컬 결함은 8개 후보 패치
+2026-08-29에 현재 Mac·Docker에서 재현하고 판별할 수 있던 로컬 결함은 9개 후보 패치
 그룹으로 수정·검증했다. 상류 DAVE checkout과 사용자 설치 workspace는 수정하지 않았으므로,
 아래의 `[x]`는 **격리된 후보 패치에서 검증 완료**라는 뜻이지 상류 병합 완료가 아니다.
 
@@ -19,22 +19,24 @@
 - [x] USBL `sigma<=0`·paused callback·fractional propagation delay
 - [x] Ocean/Spherical/sonar plugin-discovery hook
 - [x] launch server-only/headless/debug·non-TTY keyboard·object preflight·Release 안내·18/18 world 이름
+- [x] fifth ROV sonar가 쓰이는 `dave_ocean_waves` world의 `MultibeamSonarSystem` 누락
+
+## 현재 재검증에서 닫힌 failure 판정
+
+- [x] **Docker DAVE multibeam `ogre2` 현재 재검증** — 2026-08-29 isolated server run에서 실제 PointCloud를 발행해 2026-08-03 crash를 재현하지 못했다. software WGPU는 실패 후 CPU fallback했으며, 과거 crash의 image/state trigger 차이는 미확정이다.
 
 ## 아직 열린 환경·외부 스택 항목
 
 - [ ] **Mac stock Gazebo Sensors DVL SIGSEGV** — DAVE 밖 official DVL 예제에서도 재현된다.
   DAVE-local DVL 결함은 Docker 후보 패치에서 닫혔지만 이 플랫폼 crash는 별개다.
-- [ ] **Docker DAVE multibeam `ogre2` crash** — stock `gpu_lidar`의 OGRE2 동작과 구분된다.
 - [ ] **Docker hardware WGPU·NVIDIA CUDA** — 현재 컨테이너는 `/dev/dri`/NVIDIA/Cargo가 없고
   sonar는 CPU fallback이다. explicit-unavailable fallback만 Mac에서 검증했다.
 - [ ] **macOS 기본 RViz 창 생성** — process/node는 생기지만 window 0인 재현이 남아 있다.
-- [ ] **BlueROV2 통합 MAVROS/QGroundControl과 fifth sonar** — 현재 이미지의 패키지·plugin과
-  실장비/네트워크 prerequisite가 부족하다.
+- [ ] **BlueROV2 통합 control loop** — 기존 MAVROS overlay를 source하면 ArduSub·MAVROS와 TCP 5760 연결은 시작한다. 하지만 `libArduPilotPlugin.so`가 없어 JSON sensor input이 없고 `/mavros/state`는 disconnected이며, QGroundControl은 반복 SIGSEGV한다. fifth sonar world 누락은 별도 9번째 후보로 닫혔다.
 - [ ] **Fuel immutable pin/account upload, Windows/WSL, USB/gamepad/해양 HIL** — prerequisite가
   생기기 전에는 PASS/FAIL로 추론하지 않는다.
-- [ ] **Fast DDS 간헐적 create hang** — UDPv4 workaround 밖의 middleware 원인 규명.
-- [ ] **fresh Mac camera 재현성 차이** — 후보 패치의 통제 world는 Mac/Docker에서 통과했지만,
-  2026-08-27 기존 quickstart fresh run의 topic 부재 원인은 별도 재현성 이력으로 남긴다.
+- [ ] **Fast DDS 과거 간헐 create hang trigger** — 2026-08-29 최소 통제는 SHM 5/5와 UDPv4 5/5 모두 성공해 현재 실패를 재현하지 못했다. 과거 1/9의 stale-segment/플랫폼 trigger를 규명하기 전에는 해결로 단정하지 않는다.
+- [ ] **fresh Mac camera 과거 실패 trigger** — 2026-08-29 고유 partition/domain의 exact Quickstart는 3/3 이미지 발행(54/58/72 s)이라 2026-08-27 topic 부재를 재현하지 못했다. 현재 기능 실패가 아니라 과거 환경·격리 차이의 원인 규명 항목이다.
 
 ## 과학적·장시간·설계 범위
 

@@ -1,0 +1,3 @@
+dave_ocean_waves.world multibeam_sonar_system count: 0
+dave_multibeam_sonar.world multibeam_sonar_system count: 1
+candidate patch: patches/fifth_rov_sonar_world_fix.diff

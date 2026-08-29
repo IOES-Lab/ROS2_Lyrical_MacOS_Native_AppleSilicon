@@ -11,6 +11,15 @@
 
 ## 이슈 본문 (이 줄 아래 전체를 본문 칸에 붙여넣기)
 
+## Current status — do not file as-is
+
+A 2026-08-29 isolated OGRE2 run in the same named Docker container loaded the DAVE sonar and
+published a real PointCloud. Explicit software-WGPU initialization failed and fell back to CPU,
+but the historical `CreateSampleTexture()` crash did not reproduce. The 2026-08-03 stack below is
+valid dated evidence, not a current always-fails verdict. A new issue needs a fresh reproducer or
+a version/image-state delta first.
+
+
 ## Summary
 
 On an Ubuntu 26.04 aarch64 container with `llvmpipe` software rendering, the

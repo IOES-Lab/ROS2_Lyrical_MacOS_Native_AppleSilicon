@@ -7,10 +7,12 @@ Docker (Ubuntu 26.04).
 
 This is a verification record, not a distribution. It establishes scoped build, launch, topic
 and service behavior. **General numerical, acoustic, optical and hydrodynamic correctness is not
-established.** On 2026-08-29 eight candidate patch groups closed every remaining defect that could
-be reproduced and discriminated in the available Mac and Docker environments. The upstream DAVE
+established.** On 2026-08-29 nine candidate patch groups closed every remaining defect that could
+be reproduced and discriminated in the available Mac and Docker environments. The ninth closes
+the fifth-ROV sonar world-composition omission found in the final open-gap recheck. The upstream DAVE
 checkout and the user's installed workspace remain unchanged; the fixes live in [`patches/`](patches/)
-and are backed by [`notes/results/remaining_defect_fixes_2026-08-29/`](notes/results/remaining_defect_fixes_2026-08-29/).
+and are backed by [`notes/results/remaining_defect_fixes_2026-08-29/`](notes/results/remaining_defect_fixes_2026-08-29/)
+and the final [`open-gap revalidation`](notes/results/open_gap_revalidation_2026-08-29/).
 External-stack, hardware and broad scientific-validation boundaries remain open and are listed in
 [`notes/next-steps.md`](notes/next-steps.md).
 
@@ -22,7 +24,7 @@ External-stack, hardware and broad scientific-validation boundaries remain open 
 | Direct world-model audit | A candidate patch gives all 18 distributed files unique internal `<world name>` values; Mac/Docker scoped regression checks pass. The earlier 14-name/3-duplicate-group result remains historical evidence, not the patched verdict — [current evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
 | Direct sonar check | The candidate WGPU fix removes the gross 6.4 m planar shift: for a 3.99 m target, five Mac/Metal peaks are 3.988–4.064 m (median 4.013 m, maximum absolute error 0.0736 m). The GPU path now rejects frequency counts above its 4096-bin workgroup-memory limit before GPU initialisation so C++ can fall back to CPU; explicit unavailable CUDA also falls back to CPU and still publishes raw sonar. This is one controlled scene plus a boundary unit test, not general acoustic validation — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
 | Direct DVL check | With the candidate patch, all 8 shipped descriptors publish four-beam Docker messages, frame IDs are populated, range initialization errors are absent, and an actual descriptor reports water-mass target with non-zero environmental velocity. Overall remains PARTIAL because the stock Gazebo Sensors DVL path still SIGSEGVs on the tested Mac — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
-| Direct ROV-model check | In the patched Mac ocean world REXROV published 7/7 configured message types. The fifth `bluerov2_heavy_multibeam_sonar` variant is no longer source-only: it spawned on Mac and Docker but published only odometry among the four tracked outputs. Standalone keyboard and WebSocket Joy paths pass in Docker, while the exact integrated BlueROV2 launch remains incomplete because the current image lacks `mavros`/`mavros_msgs` — [evidence](notes/results/rov_direct_validation_2026-08-27/) |
+| Direct ROV-model check | Patched Mac REXROV remains 7/7 in the configured state/sensor scope. The fifth `bluerov2_heavy_multibeam_sonar` silence is now root-caused: `dave_ocean_waves.world` omitted `MultibeamSonarSystem`; the ninth isolated candidate adds it and publishes a 513×301 PointCloud2 on Apple-M2 WGPU. Docker integration now starts ArduSub and MAVROS when the existing MAVROS overlay is sourced, but `libArduPilotPlugin.so` is absent, `/mavros/state` stays disconnected and QGroundControl repeatedly SIGSEGVs — [evidence](notes/results/open_gap_revalidation_2026-08-29/) |
 | Direct Glider-model check | Docker RDP reran both Wiki launches and all 9 bridge topics. State/sensor 6/6 passes with the local IMU patch; `cmd_thrust` changes propeller velocity. A repeated integrated deadband control delivered **50/50 ROS `true` messages to Gazebo with 0 false**, withdrawing the earlier one-shot asymmetry claim. Calibration, Mac stepping and long dynamics remain open — [evidence](notes/results/full_gap_validation_2026-08-27/06_glider_deadband_integrated/) |
 | Direct Object-model check | Packaged, generic Fuel and copied-source descriptor paths pass. The candidate launch preflight now rejects a missing descriptor instead of printing false success on Mac and Docker. Fuel `/1` remains a client/external reproducibility limitation, not an immutable pin — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
 | Direct USBL check | Candidate plugin changes pass `sigma=0`, paused callbacks, moving-target routing and fractional 1539/1541 m propagation-delay controls on Mac and Docker. Long-duration, multi-transceiver and real-acoustic accuracy remain outside this result — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
@@ -76,7 +78,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | | |
 |---|---|
 | [`notes/what-we-got-wrong.md`](notes/what-we-got-wrong.md) | **claims that turned out false, and how each was caught.** Read this before trusting any number here |
-| [`patches/`](patches/) | **what was changed** — fourteen patches; the eight 2026-08-29 candidates include validation and dependency order |
+| [`patches/`](patches/) | **what was changed** — fifteen patches; the nine 2026-08-29 candidates include validation and dependency order |
 | [`notes/verified-demos.md`](notes/verified-demos.md) | what each PASS rests on |
 | [`notes/known-issues.md`](notes/known-issues.md) | 48 entries, including open, resolved and withdrawn findings, with cause and workaround |
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |
@@ -104,8 +106,8 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | ROS 2 | Lyrical (source build) | Lyrical (apt, `ros-lyrical-desktop`) |
 | Gazebo | Jetty (Homebrew) | Jetty 10.4.0 (apt vendor build) |
 | Python | 3.14 | 3.14 |
-| Rendering | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) — no `/dev/dri` passthrough. Gazebo engine varied: `ogre2` in the crash reproduction, `ogre` + authorised X in the 2026-08-07 output run |
-| Sonar compute | WGPU on the Metal adapter; CPU backend also run explicitly | **CPU fallback in the 2026-08-07 run; explicitly forced CPU in the 2026-08-25 RDP run.** The earlier no-X probe selected the WGPU `llvmpipe` software adapter |
+| Rendering | Metal (real hardware) | Vulkan `llvmpipe` (CPU software renderer) — no `/dev/dri` passthrough. A current isolated `ogre2` sonar run published PointCloud2; the historical 2026-08-03 crash did not reproduce and remains dated history |
+| Sonar compute | WGPU on the Metal adapter; CPU backend also run explicitly | CPU fallback in validated runs. On 2026-08-29 explicit software-WGPU initialization failed and safely fell back to CPU while the `ogre2` sonar still published; Docker hardware WGPU/CUDA remains untested |
 
 Pinned source revisions and the migration patch:
 [`notes/patch-and-pinned-commits.md`](notes/patch-and-pinned-commits.md).

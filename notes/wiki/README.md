@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열일곱 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**열여덟 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -41,7 +41,7 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 | `gui:=true headless:=true` 조합 | Installation Tutorial | |
 | `dave_world.launch.py` headless 부재 | Installation Tutorial | manipulation world 3개가 막혀 있었다 |
 | `ogre` 우회에 인가된 X 디스플레이 필요 | Native 매뉴얼 | [`ogre-x-display-doc-correction.md`](ogre-x-display-doc-correction.md) |
-| ~~aarch64 OGRE2 미지원~~ · 소나 segfault · WGPU CPU 폴백 | Docker 매뉴얼 | **OGRE2 미지원 부분은 2026-08-21 철회** — 3차 정정 참고 |
+| ~~aarch64 OGRE2 미지원~~ · 2026-08-03 소나 segfault · WGPU CPU 폴백 | Docker 매뉴얼 | **OGRE2 미지원은 2026-08-21 철회, 현재 항상-crash 판정은 2026-08-29 철회** — isolated OGRE2 DAVE-sonar run이 PointCloud를 발행했고 software WGPU는 CPU로 fallback |
 | **해류 서비스 이름에 네임스페이스 누락** | Ocean Current Plugin | 문서는 `/set_current_velocity`, 실제는 `/hydrodynamics/` 아래. **예제 12개가 그대로는 전부 실패한다** |
 | **NVIDIA 카드 필수라는 서술** | Native 매뉴얼 · CUDA 페이지 · System Requirements | PR #44 의 WGPU 로 CUDA 없이 동작. 맥 Metal 에서 PointCloud2 확인 |
 | 백엔드가 수치적으로 같지 않음 | CUDA 페이지 | ~~CPU 폴백에는 위상 항이 없다~~ **표현 정정 2026-08-21** — 위상 항은 있다. 다만 거리 기반이 아니다 |
@@ -73,7 +73,7 @@ DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site
 
 | 항목 | 어디 | 무엇이 틀렸나 |
 |---|---|---|
-| **aarch64 에서 OGRE2 미지원** | Docker 매뉴얼 · 전체 현황 「핵심 발견 3」 · CMake 패턴 7 | **철회.** 7월에 `Failed to load plugin [ogre2]` 를 보고 적었는데, 같은 컨테이너에서 표준 `gpu_lidar` 가 소나와 같은 513×301 형상으로 `ogre2` 에서 3/3 발행한다. DAVE 소나는 `Ogre2Scene::PreRender` 안에서 죽는데, 플러그인이 로드 안 됐으면 거기까지 갈 수 없다. **OGRE2 가용성 문제가 아니라 소나 전용 크래시다** |
+| **aarch64 에서 OGRE2 미지원** | Docker 매뉴얼 · 전체 현황 「핵심 발견 3」 · CMake 패턴 7 | **철회.** stock `gpu_lidar`가 OGRE2에서 3/3 발행했다. DAVE sonar의 2026-08-03 `CreateSampleTexture()` crash도 현재 항상-fails 판정은 아니다: 2026-08-29 같은 컨테이너의 isolated OGRE2 run이 실제 PointCloud를 발행했다. 과거 stack은 날짜 붙은 이력으로만 유지하고 trigger 차이는 미확정으로 둔다 |
 | **CPU 폴백에는 위상 항이 없다** | CUDA 페이지 | **부정확.** `sonar_compute_cpu.cc:99-101` 에 위상 항이 있고 복소 진폭 합산도 한다. 틀린 건 그 위상이 **거리에서 나오지 않는다**는 점이다 — CUDA/WGPU 는 `2·d·k` (`sonar_calculation_cuda.cu:284`), CPU 는 beam·ray 인덱스의 결정론적 함수. 백엔드가 다르다는 결론은 유지되지만 근거가 다르다 |
 | `xvfb-run -a` 를 검증된 해결책처럼 서술 | CMake 패턴 7 | **미검증.** 시도 기록이 없다. 실제로 통한 건 `DISPLAY=:10` + `XAUTHORITY=/home/docker/.Xauthority` + `-u docker` 이고, `DISPLAY` 만으로는 거부된다(2026-08-03 확인) |
 | SeaPressure 를 다른 센서와 묶어 통과로 표기 | 전체 현황 · 저장소 | 발행은 되지만 값이 1000배 틀리고 `<noise_sigma>` 가 무시된다. **liveness 는 통과, 수치 정확성은 아니다** |
@@ -250,11 +250,13 @@ topic graph를 양쪽 플랫폼에서 직접 읽었다.
 - formerly source-only `bluerov2_heavy_multibeam_sonar`를 Mac·Docker에서 처음 실행:
   양쪽 모두 odometry만 발행, IMU·magnetometer·sonar PointCloud2는 120초 동안 미발행
 - Docker standalone WebSocket/keyboard Joy는 실제 non-neutral message로 PASS
-- exact BlueROV2 통합 launch는 QGC·Firefox·ArduSub startup까지 가지만 현재 image의
-  `mavros_msgs`/`mavros` 부재로 종료 — process startup을 vehicle-control PASS로 쓰지 않음
+- exact BlueROV2 통합 launch는 당시 shell에서 `mavros_msgs`/`mavros`가 보이지 않아 종료.
+  **2026-08-29 정정:** image 안의 기존 MAVROS overlay를 source하면 ArduSub·MAVROS는 시작하지만,
+  ArduPilot Gazebo plugin 부재·disconnected MAVROS·QGC SIGSEGV로 control loop는 여전히 PARTIAL
 
 이 회차는 일반 ROV dynamics나 QGC 제어를 입증하지 않는다. thrust command response,
-MAVROS 연결, 반복·장시간 안정성과 fifth variant sonar root cause는 후속 범위다.
+MAVROS 실제 연결, 반복·장시간 안정성은 후속 범위다. fifth variant sonar root cause는
+2026-08-29 world의 `MultibeamSonarSystem` 누락으로 확정돼 9번째 후보 패치에서 닫혔다.
 
 근거:
 [`../results/rov_direct_validation_2026-08-27/`](../results/rov_direct_validation_2026-08-27/).
@@ -406,8 +408,9 @@ account upload는 현재 prerequisite가 없어 **BLOCKED**로 적었다. 실행
 - 전체 현황·다음 연구 방향·소나 코드/이론·대조표의 현재 판정
 
 **후보 패치는 상류 DAVE나 사용자 설치 workspace에 아직 반영되지 않았다.** Mac stock Gazebo
-DVL SIGSEGV, Docker sonar `ogre2`, NVIDIA/hardware GPU, RViz Mac 창, BlueROV2 통합,
-Fuel/Windows/HIL 및 일반 과학 정확도는 계속 열린 범위로 남겼다.
+DVL SIGSEGV, NVIDIA/hardware GPU, RViz Mac 창, BlueROV2 통합,
+Fuel/Windows/HIL 및 일반 과학 정확도는 계속 열린 범위로 남겼다. Docker sonar `ogre2`의
+현재 always-crash 판정은 18차 재검증에서 철회됐다.
 
 근거:
 [`../results/remaining_defect_fixes_2026-08-29/`](../results/remaining_defect_fixes_2026-08-29/).
@@ -431,3 +434,27 @@ Fuel/Windows/HIL 및 일반 과학 정확도는 계속 열린 범위로 남겼�
 
 근거:
 [`../results/remaining_defect_fixes_2026-08-29/post_commit_audit.txt`](../results/remaining_defect_fixes_2026-08-29/post_commit_audit.txt).
+
+## 18차 — 2026-08-29 전체 open-gap 재실행
+
+후보 패치 커밋 뒤에도 현재형으로 남은 실행 가능 항목을 새 partition/domain과 직접 출력
+구독으로 다시 시험했다.
+
+- 공식 stock DVL Mac SIGSEGV와 RViz `visible=true, windows=0`는 재현됨
+- Underwater Camera exact Mac Quickstart는 3/3 이미지 발행(54/58/72초), 과거 topic 부재는
+  현재 failure가 아니라 historical trigger 조사로 축소
+- Fast DDS 최소 create는 SHM 5/5·UDPv4 5/5, 과거 1/9 trigger는 미재현
+- Docker isolated OGRE2 DAVE sonar는 실제 PointCloud를 발행; software WGPU는 CPU fallback
+- fifth ROV sonar silence는 `dave_ocean_waves.world`의 `MultibeamSonarSystem` 누락으로 확정,
+  9번째 후보에서 513×301 PointCloud2 발행
+- Docker 기존 MAVROS overlay를 source하면 ArduSub·MAVROS와 TCP endpoint는 시작. 하지만
+  `libArduPilotPlugin.so` 부재, disconnected MAVROS, QGroundControl 반복 SIGSEGV로 통합
+  control loop는 계속 PARTIAL
+
+따라서 “MAVROS가 image에 없다”, “fifth sonar 원인 미확정”, “Docker OGRE2 sonar는 현재도
+항상 crash”, “fresh Mac camera는 현재 topic 부재”를 현재 판정으로 쓰지 않는다. 후보 9개는
+순서대로 apply되고 Rust/Python/XML/SDF 검사와 snapshot equality를 통과한다. 상류와 사용자
+설치 workspace에는 적용하지 않았다.
+
+근거:
+[`../results/open_gap_revalidation_2026-08-29/`](../results/open_gap_revalidation_2026-08-29/).

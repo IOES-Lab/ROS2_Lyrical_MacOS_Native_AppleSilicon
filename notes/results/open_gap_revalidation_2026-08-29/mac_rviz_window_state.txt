@@ -1,0 +1,3 @@
+RVIZ_PID=88962
+name=rviz2, visible=true, windows=0
+after30s name=rviz2, visible=true, windows=0

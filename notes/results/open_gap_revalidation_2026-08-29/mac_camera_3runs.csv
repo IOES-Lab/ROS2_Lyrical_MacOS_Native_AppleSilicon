@@ -1,0 +1,4 @@
+attempt,result,wait_seconds,topic_count,stats_bytes,image_bytes
+1,IMAGE_CAPTURED,54,       3,     166,     190
+2,IMAGE_CAPTURED,58,       3,     167,     190
+3,IMAGE_CAPTURED,72,       3,       0,     190

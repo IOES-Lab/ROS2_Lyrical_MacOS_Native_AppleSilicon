@@ -1,0 +1,130 @@
+== ROS PACKAGES ==
+mavros=Package not found
+mavros_msgs=Package not found
+ardupilot_gazebo=Package not found
+dave_robot_models=/Users/gwon-yeseol/dave_ws_lyrical/install/dave_robot_models
+dave_sensor_models=/Users/gwon-yeseol/dave_ws_lyrical/install/dave_sensor_models
+== BINARIES ==
+ardusub=NOT_FOUND
+sim_vehicle.py=NOT_FOUND
+mavproxy.py=NOT_FOUND
+== QGC APPS ==
+== ARDUPILOT PLUGINS ==
+/Users/gwon-yeseol/dave-lyrical-docker/gz_jetty_ws/src/gz-sim/tutorials/migrating_ardupilot_plugin.md
+/Users/gwon-yeseol/gz_harmonic/src/gz-sim/tutorials/migrating_ardupilot_plugin.md
+== MULTIBEAM VEHICLE/SENSOR REFERENCES ==
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:3:  <model name="sonardyne_syrinx600">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:23:        name="sonardyne_syrinx600" type="custom"
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:95:            <uri>model://meshes/sonardyne_syrinx600/Syrinx600.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:59:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:62:        <topic>/sensor/multibeam_sonar</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:64:        <gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:83:        </gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:3:  <model name="blueview_p900">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:5:    <link name="blueview_p900_base_link">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:59:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:62:        <topic>/sensor/multibeam_sonar</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:64:        <gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:86:            <sonarFreq>900e3</sonarFreq>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:101:            <sonarImageRawTopicName>sonar_image_raw</sonarImageRawTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:102:            <sonarImageTopicName>sonar_image</sonarImageTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:103:            <frameName>forward_sonar_optical_link</frameName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:105:        </gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:112:      <visual name="blueview_p900_base_link_visual">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:117:            <uri>model://meshes/blueview_p900/p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:123:      <collision name="blueview_p900_base_link_collision">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:127:            <uri>model://meshes/blueview_p900/COLLISION-p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:3:  <model name="bluerov2_heavy_multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:69:        <topic>/model/bluerov2_heavy_multibeam_sonar/camera</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:109:    <link name="sonar_link">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:122:      <visual name="sonar_visual">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:127:            <uri>model://meshes/blueview_p900/p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:133:      <collision name="sonar_collision">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:137:            <uri>model://meshes/blueview_p900/COLLISION-p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:141:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:144:        <topic>/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:146:        <gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:168:            <sonarFreq>900e3</sonarFreq>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:180:            <sonarImageRawTopicName>sonar_image_raw</sonarImageRawTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:181:            <sonarImageTopicName>sonar_image</sonarImageTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:182:            <frameName>forward_sonar_optical_link</frameName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:184:        </gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:188:    <joint name="sonar_joint" type="fixed">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:190:      <child>sonar_link</child>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:473:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:485:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:497:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:510:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:523:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:535:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:548:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:561:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:594:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster1_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:603:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster2_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:612:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster3_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:621:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster4_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:630:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster5_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:639:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster6_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:648:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster7_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:657:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster8_joint/cmd_thrust</cmd_topic>
+== ROBOT MODELS ==
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2/model.sdf
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy/model.sdf
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/glider_slocum/model.sdf
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/rexrov/model.sdf
+== SONAR REFERENCES ==
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:3:  <model name="bluerov2_heavy_multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:69:        <topic>/model/bluerov2_heavy_multibeam_sonar/camera</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:109:    <link name="sonar_link">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:122:      <visual name="sonar_visual">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:127:            <uri>model://meshes/blueview_p900/p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:133:      <collision name="sonar_collision">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:137:            <uri>model://meshes/blueview_p900/COLLISION-p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:141:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:144:        <topic>/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:146:        <gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:168:            <sonarFreq>900e3</sonarFreq>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:180:            <sonarImageRawTopicName>sonar_image_raw</sonarImageRawTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:181:            <sonarImageTopicName>sonar_image</sonarImageTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:182:            <frameName>forward_sonar_optical_link</frameName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:184:        </gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:188:    <joint name="sonar_joint" type="fixed">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:190:      <child>sonar_link</child>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:473:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:485:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:497:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:510:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:523:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:535:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:548:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:561:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:594:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster1_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:603:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster2_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:612:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster3_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:621:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster4_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:630:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster5_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:639:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster6_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:648:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster7_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf:657:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster8_joint/cmd_thrust</cmd_topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:3:  <model name="blueview_p900">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:5:    <link name="blueview_p900_base_link">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:59:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:62:        <topic>/sensor/multibeam_sonar</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:64:        <gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:86:            <sonarFreq>900e3</sonarFreq>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:101:            <sonarImageRawTopicName>sonar_image_raw</sonarImageRawTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:102:            <sonarImageTopicName>sonar_image</sonarImageTopicName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:103:            <frameName>forward_sonar_optical_link</frameName>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:105:        </gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:112:      <visual name="blueview_p900_base_link_visual">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:117:            <uri>model://meshes/blueview_p900/p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:123:      <collision name="blueview_p900_base_link_collision">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/blueview_p900/model.sdf:127:            <uri>model://meshes/blueview_p900/COLLISION-p900.dae</uri>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:59:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:62:        <topic>/sensor/multibeam_sonar</topic>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:64:        <gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/nortek_dvl500_300_with_multibeam_sonar/model.sdf:83:        </gz:multibeam_sonar>
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:3:  <model name="sonardyne_syrinx600">
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:23:        name="sonardyne_syrinx600" type="custom"
+/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_sensor_models/description/sonardyne_syrinx600/model.sdf:95:            <uri>model://meshes/sonardyne_syrinx600/Syrinx600.dae</uri>

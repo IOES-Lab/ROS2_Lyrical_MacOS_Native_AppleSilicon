@@ -472,3 +472,16 @@ non-power-of-two 처리와 후속 문서 전파도 끝났다.
 양쪽에 4096-bin guard를 두고, GPU 초기화 전에 4097-bin이 null을 반환하는 unit test를
 추가했다. 앞으로 특정 크기의 PASS를 크기 전체의 PASS로 올리지 않고, 패치 완료 시 코드
 주석·원본 guide·현재 verdict를 별도 전파 목록으로 검사한다.
+
+## 2026-08-29 — “not in the sourced environment” was reported as “not in the image”
+
+The 2026-08-27 BlueROV2 run correctly showed that `mavros` and `mavros_msgs` were absent from
+that shell's package index, but the current write-up expanded that observation to the container.
+The container actually had `/home/docker/mavros_ws/install`; sourcing it started ArduSub and MAVROS
+and opened their TCP endpoint. The remaining failure is different: the ArduPilot Gazebo system
+plugin is absent, MAVROS stays disconnected, and QGroundControl SIGSEGVs.
+
+The same sweep found a second scope error: the fifth ROV's declared sonar was called “unexplained”
+after reading only its model and bridge. The selected **world** did not load
+`MultibeamSonarSystem`; adding that system made a 513×301 PointCloud appear. For plugin-driven
+sensors, the audit boundary is model + bridge + world systems + sourced overlays, not any one file.

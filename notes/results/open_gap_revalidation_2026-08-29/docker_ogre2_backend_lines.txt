@@ -1,0 +1,28 @@
+1:[sonar_compute_factory] CreateComputeBackend called with: wgpu
+2:[sonar_compute_factory] Attempting WgpuComputeBackend initialization...
+3:[sonar_wgpu] Trying backend set: vulkan
+4:[sonar_wgpu] Trying backend set: all
+5:libEGL warning: DRI3 error: Could not get DRI3 device
+11:[sonar_wgpu] [all] GPU init panicked; trying next backend set
+12:[sonar_wgpu] GPU init failed for all backend sets; falling back to CPU path
+13:[sonar_wgpu] GPU init failed -> returning null (C++ will use CPU backend).
+14:[sonar_wgpu] GPU probe failed -> will fall back to CPU at compute time.
+15:[sonar_compute_factory] SUCCESS: WgpuComputeBackend initialized!
+16:[INFO] [1788006511.241304167] [multibeam_sonar_node]:
+17:[INFO] [1788006511.241446459] [multibeam_sonar_node]: ==================================================
+18:[INFO] [1788006511.241455375] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+19:[INFO] [1788006511.241459959] [multibeam_sonar_node]: ==================================================
+20:[INFO] [1788006511.241464084] [multibeam_sonar_node]: ============       RAY VERSION       =============
+21:[INFO] [1788006511.241468167] [multibeam_sonar_node]: ==================================================
+22:[INFO] [1788006511.241474625] [multibeam_sonar_node]: Maximum view range  [m] = 10
+23:[INFO] [1788006511.241479375] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+24:[INFO] [1788006511.241484125] [multibeam_sonar_node]: # of Beams = 513
+25:[INFO] [1788006511.241488500] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+26:[INFO] [1788006511.241492709] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+27:[INFO] [1788006511.241496750] [multibeam_sonar_node]: # of Time data / Beam = 399
+28:[INFO] [1788006511.241500625] [multibeam_sonar_node]: ==================================================
+29:[INFO] [1788006511.241504584] [multibeam_sonar_node]:
+30:[sonar_wgpu] GPU probe failed -> will fall back to CPU at compute time.
+31:[sonar_wgpu] GPU unavailable on first compute -> creating CPU fallback backend
+32:[sonar_compute_factory] CreateComputeBackend called with: cpu
+33:[sonar_compute_factory] Creating CPU backend

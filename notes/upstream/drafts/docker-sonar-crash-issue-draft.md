@@ -1,13 +1,15 @@
 # Upstream issue draft — `dave_multibeam_sonar` segfaults in `Ogre2GpuRays` where a stock `gpu_lidar` does not
 
-**Status:** Draft, ready to file. Scoping resolved 2026-08-07.
+**Status:** Historical draft — **do not file as-is**. The 2026-08-03 crash was real, but a
+2026-08-29 current isolated OGRE2 DAVE-sonar run published PointCloud and did not reproduce it.
 
 **Scope note (2026-08-07):** this draft used to cover two failures. The second one — an
 `abort` when the world was patched to `ogre` — turned out **not to be a bug at all**: OGRE1
 needs an X display, and once one was supplied correctly the world ran and published sonar
 data. That half has been moved to
 [`ogre-x-display-doc-correction.md`](../../wiki/ogre-x-display-doc-correction.md) as a documentation
-correction. **Only the `ogre2` segfault is reported here.**
+correction. The `ogre2` stack below is retained as dated evidence, but a report now needs a fresh
+reproducer or a version/image-state delta because the current bounded recheck passed.
 
 **Suggested target repo:** [`IOES-Lab/dave`](https://github.com/IOES-Lab/dave). The crash
 occurs inside `libgz-rendering-ogre2`, but a stock `gpu_lidar` at the same ray count does
@@ -19,6 +21,14 @@ attached.
 **Suggested labels:** `bug`, `crash`
 
 ---
+
+## Current status — do not file as-is
+
+A 2026-08-29 isolated OGRE2 run in the same named Docker container loaded the DAVE sonar and
+published a real PointCloud. Explicit software-WGPU initialization failed and fell back to CPU,
+but the historical `CreateSampleTexture()` crash did not reproduce. The 2026-08-03 stack below is
+valid dated evidence, not a current always-fails verdict. A new issue needs a fresh reproducer or
+a version/image-state delta first.
 
 ## Title
 

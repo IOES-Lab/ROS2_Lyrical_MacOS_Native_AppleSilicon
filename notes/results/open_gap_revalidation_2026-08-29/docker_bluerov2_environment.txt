@@ -1,0 +1,13 @@
+ROS_DISTRO=lyrical
+AMENT_PREFIX_PATH=/home/docker/dave_ws/install:/home/docker/mavros_ws/install:/opt/ros/lyrical
+DISPLAY=:10
+XAUTHORITY=/home/docker/.Xauthority
+XDG_RUNTIME_DIR=/run/user/1001
+FASTDDS_BUILTIN_TRANSPORTS=UDPv4
+ROS_DOMAIN_ID=129
+GZ_PARTITION=codex_bluerov2_integrated_20260829
+/home/docker/mavros_ws/install
+/home/docker/mavros_ws/install
+/home/docker/dave_ws/install
+/usr/local/bin/ardusub
+/home/docker/.local/bin/qgroundcontrol

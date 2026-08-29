@@ -23,7 +23,9 @@
 ## 현재 기준선 — 2026-08-29
 
 [`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/)은
-기존 감사에서 남은 재현 가능한 결함을 수정한 **후보 패치**의 Mac/Docker 결과다.
+기존 감사에서 남은 재현 가능한 결함을 수정한 최초 **8개 후보 패치**의 Mac/Docker 결과다.
+최종 open-gap sweep에서 fifth-ROV sonar world 누락을 닫은 9번째 후보와 현재 재검증은
+[`results/open_gap_revalidation_2026-08-29/`](results/open_gap_revalidation_2026-08-29/)에 있다.
 상류 DAVE checkout과 사용자 설치 workspace를 수정했다는 뜻은 아니다.
 
 검증된 후보 패치 범위:
@@ -36,11 +38,14 @@
 - USBL `sigma=0`, paused callback, 이동 표적, fractional delay
 - object missing-descriptor preflight, launch headless/debug/non-TTY, 18/18 world 이름
 - Ocean/Spherical/sonar package plugin-discovery hooks와 Release build 안내
+- `dave_ocean_waves`의 fifth-ROV sonar용 `MultibeamSonarSystem` world 누락
 
-여전히 열린 범위는 Mac stock Gazebo DVL SIGSEGV, Docker DAVE sonar `ogre2` crash,
-NVIDIA/하드웨어 GPU, RViz Mac 창, BlueROV2 MAVROS/QGC 통합, Fast DDS 간헐성,
-fresh Mac camera Quickstart 재현성, sonar 30 Hz·ROV/Glider calibration 결정, Fuel immutable
-pin/upload, Windows/WSL·HIL과 일반 음향·광학·유체역학·장시간 정확도다. 자세한 목록은
+여전히 열린 범위는 Mac stock Gazebo DVL SIGSEGV, NVIDIA/하드웨어 GPU, RViz Mac 창,
+BlueROV2의 누락된 ArduPilot Gazebo plugin·QGC SIGSEGV·disconnected MAVROS loop, Fast DDS와
+fresh Mac camera의 **과거 실패 trigger** 재현, sonar 30 Hz·ROV/Glider calibration 결정,
+Fuel immutable pin/upload, Windows/WSL·HIL과 일반 음향·광학·유체역학·장시간 정확도다.
+Docker `ogre2` sonar와 fresh Mac camera는 2026-08-29 현재 재검증에서 각각 출력 1회와 3/3을
+통과했으므로 현재 기능 실패로 쓰지 않는다. 자세한 목록은
 [`next-steps.md`](next-steps.md)에 있다.
 
 이전 날짜의 직접 검증 폴더는 삭제하지 않는다. 2026-08-29 패치가 무엇을 바꿨는지
@@ -57,7 +62,7 @@ pin/upload, Windows/WSL·HIL과 일반 음향·광학·유체역학·장시간 �
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
 | [`known-issues.md`](known-issues.md) | 48개 항목(열림·후보 패치 해결·철회 이력 포함), 현재 처리는 문서 맨 위 표 참고 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 98행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 99행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

@@ -1,0 +1,14 @@
+diff --git a/models/dave_worlds/worlds/dave_ocean_waves.world b/models/dave_worlds/worlds/dave_ocean_waves.world
+--- a/models/dave_worlds/worlds/dave_ocean_waves.world
++++ b/models/dave_worlds/worlds/dave_ocean_waves.world
+@@ -47,6 +47,10 @@
+       filename="gz-sim-sensors-system"
+       name="gz::sim::systems::Sensors">
+       <render_engine>ogre2</render_engine>
++    </plugin>
++    <plugin
++      filename="multibeam_sonar_system"
++      name="custom::MultibeamSonarSystem">
+     </plugin>
+     <plugin
+       filename="gz-sim-dvl-system"

@@ -1,0 +1,8 @@
+[gazebo-1] [sonar_wgpu] [metal] selected adapter: Apple M2
+[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+[gazebo-1] [INFO] [1788005853.595445000] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788005853.595482000] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788005853.595488000] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [sonar_wgpu] GPU #50    |   90.8 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #100   |   93.6 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #150   |   85.6 ms | 513 beams × 31 rays × 399 freq

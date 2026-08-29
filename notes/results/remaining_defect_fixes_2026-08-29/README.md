@@ -1,3 +1,8 @@
+> **Superseded current-boundary note (2026-08-29):** this folder is the first eight-candidate
+> snapshot. A ninth world-system patch and current OGRE2/camera/Fast-DDS/BlueROV2 rechecks are in
+> [`../open_gap_revalidation_2026-08-29/`](../open_gap_revalidation_2026-08-29/). Historical raw
+> measurements here are unchanged.
+
 # Remaining defect patch validation — 2026-08-29
 
 This folder records validation of **candidate patches** assembled from the tested DAVE source

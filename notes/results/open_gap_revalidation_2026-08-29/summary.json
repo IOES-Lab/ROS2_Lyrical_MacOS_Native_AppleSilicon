@@ -1,0 +1,73 @@
+{
+  "date": "2026-08-29",
+  "candidate_stack": {
+    "patch_groups": 9,
+    "apply_order_pass": true,
+    "rust_tests": "1/1",
+    "python_compile": 19,
+    "xml_parse": 32,
+    "gz_sdf_check": 17,
+    "tracked_equal": "246/246",
+    "added_equal": "5/5"
+  },
+  "mac": {
+    "stock_dvl": "SIGSEGV -11 in Gazebo Sensors RenderThread; official ros_gz demo",
+    "underwater_camera_quickstart": {
+      "runs": 3,
+      "image_captured": 3,
+      "shape": "320x240",
+      "wait_seconds": [
+        54,
+        58,
+        72
+      ],
+      "historical_failure_reproduced": false
+    },
+    "rviz": {
+      "process_alive": true,
+      "node_alive": true,
+      "visible": true,
+      "windows": 0
+    },
+    "fastdds_minimal_create": {
+      "shm": "5/5 success",
+      "udp4": "5/5 success",
+      "historical_intermittency_reproduced": false
+    },
+    "fifth_rov_sonar_candidate": {
+      "world_system_missing_as_shipped": true,
+      "candidate_pointcloud": true,
+      "shape": "513x301",
+      "fields": 5,
+      "backend": "WGPU Apple M2",
+      "wait_seconds": 42
+    }
+  },
+  "docker": {
+    "ogre2_sonar_recheck": {
+      "pointcloud": true,
+      "historical_crash_reproduced": false,
+      "compute": "explicit WGPU failed then CPU fallback",
+      "hardware_gpu": false
+    },
+    "bluerov2_integrated": {
+      "ardusub_started": true,
+      "mavros_started": true,
+      "mavros_nodes": 11,
+      "mavros_state_connected": false,
+      "qgc": "repeated SIGSEGV",
+      "libArduPilotPlugin_present": false,
+      "json_sensor_messages": false
+    },
+    "hardware": {
+      "dri": false,
+      "nvidia": false,
+      "renderer": "llvmpipe"
+    }
+  },
+  "limits": [
+    "No upstream DAVE checkout or installed workspace was changed.",
+    "Candidate runtime is isolated and not upstream-merged.",
+    "No NVIDIA CUDA, Windows/WSL, physical HIL, real-ocean, or broad scientific-accuracy claim."
+  ]
+}

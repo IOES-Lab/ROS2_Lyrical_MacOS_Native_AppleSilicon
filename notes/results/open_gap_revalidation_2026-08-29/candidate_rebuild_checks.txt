@@ -1,0 +1,34 @@
+BASE_HEAD=8588e97510a57af408d99b21eff7e8c02e7771ea
+TMP=/tmp/dave-candidate-recheck.owcf2s
+APPLY multibeam_wgpu_and_backend_fix.diff
+APPLY underwater_camera_channel_fix.diff
+APPLY seapressure_contract_fix.diff
+APPLY dvl_configuration_and_bridge_fix.diff
+APPLY spherical_validation_fix.diff
+APPLY plugin_discovery_hooks_fix.diff
+APPLY usbl_runtime_fix.diff
+APPLY launch_object_world_build_fix.diff
+APPLY fifth_rov_sonar_world_fix.diff
+PATCH_APPLY=PASS_9_OF_9
+   Compiling sonar_wgpu v0.1.0 (/private/tmp/dave-candidate-recheck.owcf2s/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.12s
+warning: the following packages contain code that will be rejected by a future version of Rust: block v0.1.6
+note: to see what the problems were, use the option `--future-incompat-report`, or run `cargo report future-incompatibilities --id 1`
+     Running unittests src/lib.rs (/Users/gwon-yeseol/Documents/Codex/2026-07-15/dave-ros-2-lyrical-validation/work/open_gap_revalidation_2026-08-29/cargo_target/debug/deps/sonar_wgpu-b6e0571d45d8a079)
+
+running 1 test
+test tests::oversized_frequency_count_returns_before_gpu_initialization ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+    Checking sonar_wgpu v0.1.0 (/private/tmp/dave-candidate-recheck.owcf2s/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.26s
+warning: the following packages contain code that will be rejected by a future version of Rust: block v0.1.6
+note: to see what the problems were, use the option `--future-incompat-report`, or run `cargo report future-incompatibilities --id 1`
+RUST_TEST_CHECK=PASS
+PY_COMPILE=19
+XML_PARSE=32
+GZ_SDF_CHECK=17
+TRACKED_EQUAL=246/246
+ADDED_EQUAL=5/5
+CANDIDATE_RECONSTRUCTION=PASS

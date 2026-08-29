@@ -1,0 +1,174 @@
+[create-2] [INFO] [1788006902.222958375] [ros_gz_sim]: Entity creation successful.
+[gazebo-1] (2026-08-29 12:35:02.312) [error] [SystemLoader.cc:150] Failed to load system plugin [libArduPilotPlugin.so] : Could not find shared library.
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[env-5] bash: line 1: 78129 Segmentation fault         qgroundcontrol
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [ardusub-7]: process started with pid [78203]
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[INFO] [mavros_node-8]: process started with pid [78204]
+[ardusub-7] Starting SITL: JSON
+[ardusub-7] Home: 35.074823 129.084798 alt=0.000000m hdg=270.000000
+[ardusub-7] JSON control interface set to 127.0.0.1:9002
+[ardusub-7] Starting sketch 'ArduSub'
+[ardusub-7] Starting SITL input
+[ardusub-7] Using Irlock at port : 9005
+[ardusub-7] bind port 5760 for SERIAL0
+[ardusub-7] SERIAL0 on TCP port 5760
+[ardusub-7] Waiting for connection ....
+[mavros_node-8] [INFO] [1788006907.711875752] [mavros_node]: Starting mavros_node container
+[mavros_node-8] [INFO] [1788006907.711958044] [mavros_node]: FCU URL: tcp://127.0.0.1:5760
+[mavros_node-8] [INFO] [1788006907.711975460] [mavros_node]: GCS URL: udp://@localhost:14550
+[mavros_node-8] [INFO] [1788006907.711992169] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-8] [INFO] [1788006907.712000210] [mavros_node]: Starting mavros router node
+[mavros_node-8] [INFO] [1788006907.757982044] [mavros_router]: Built-in SIMD instructions: ARM NEON
+[mavros_node-8] [INFO] [1788006907.758039711] [mavros_router]: Built-in MAVLink package version: 2026.6.19
+[mavros_node-8] [INFO] [1788006907.758054002] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-8] [INFO] [1788006907.758059336] [mavros_router]: MAVROS Router started
+[mavros_node-8] [INFO] [1788006907.758126919] [mavros_node]: Starting mavros uas node
+[mavros_node-8] [INFO] [1788006907.800856919] [mavros_router]: Requested to add endpoint: type: 0, url: tcp://127.0.0.1:5760
+[mavros_node-8] [INFO] [1788006907.801012336] [mavros_router]: Endpoint link[1000] created
+[ardusub-7] Connection on serial port 5760
+[mavros_node-8] [INFO] [1788006907.803909919] [mavros_router]: link[1000] opened successfully
+[mavros_node-8] [INFO] [1788006907.803958169] [mavros_router]: Requested to add endpoint: type: 1, url: udp://@localhost:14550
+[mavros_node-8] [INFO] [1788006907.803990836] [mavros_router]: Endpoint link[1001] created
+[mavros_node-8] [INFO] [1788006907.804351336] [mavros_router]: link[1001] opened successfully
+[mavros_node-8] [INFO] [1788006907.804370669] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-8] [INFO] [1788006907.804404586] [mavros_router]: Endpoint link[1002] created
+[mavros_node-8] [INFO] [1788006907.805912877] [mavros_router]: link[1002] opened successfully
+[ardusub-7] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[mavros_node-8] [INFO] [1788006907.810966586] [mavros]: UAS Executor started, threads: 8
+[mavros_node-8] [INFO] [1788006907.810995419] [mavros]: Plugin actuator_control ignored
+[mavros_node-8] [INFO] [1788006907.811067669] [mavros]: Plugin adsb ignored
+[mavros_node-8] [INFO] [1788006907.811073919] [mavros]: Plugin altitude ignored
+[mavros_node-8] [INFO] [1788006907.811079127] [mavros]: Plugin cam_imu_sync ignored
+[mavros_node-8] [INFO] [1788006907.811083919] [mavros]: Plugin camera ignored
+[mavros_node-8] [INFO] [1788006907.811088711] [mavros]: Plugin cellular_status ignored
+[mavros_node-8] [INFO] [1788006908.024038877] [mavros]: Plugin command created
+[mavros_node-8] [INFO] [1788006908.024302211] [mavros]: Plugin command initialized
+[mavros_node-8] [INFO] [1788006908.024318752] [mavros]: Plugin companion_process_status ignored
+[mavros_node-8] [INFO] [1788006908.024324961] [mavros]: Plugin debug_value ignored
+[mavros_node-8] [INFO] [1788006908.024330252] [mavros]: Plugin distance_sensor ignored
+[mavros_node-8] [INFO] [1788006908.024337252] [mavros]: Plugin esc_status ignored
+[mavros_node-8] [INFO] [1788006908.024349252] [mavros]: Plugin esc_telemetry ignored
+[mavros_node-8] [INFO] [1788006908.024354086] [mavros]: Plugin fake_gps ignored
+[mavros_node-8] [INFO] [1788006908.024358961] [mavros]: Plugin ftp ignored
+[mavros_node-8] [INFO] [1788006908.024363586] [mavros]: Plugin geofence ignored
+[mavros_node-8] [INFO] [1788006908.024368169] [mavros]: Plugin gimbal_control ignored
+[mavros_node-8] [INFO] [1788006908.037769086] [mavros]: Plugin global_position created
+[mavros_node-8] [INFO] [1788006908.038056461] [mavros]: Plugin global_position initialized
+[mavros_node-8] [INFO] [1788006908.038073961] [mavros]: Plugin gps_input ignored
+[mavros_node-8] [INFO] [1788006908.038080127] [mavros]: Plugin gps_rtk ignored
+[mavros_node-8] [INFO] [1788006908.038085169] [mavros]: Plugin gps_status ignored
+[mavros_node-8] [INFO] [1788006908.038090169] [mavros]: Plugin guided_target ignored
+[mavros_node-8] [INFO] [1788006908.038095044] [mavros]: Plugin hil ignored
+[mavros_node-8] [INFO] [1788006908.038099752] [mavros]: Plugin home_position ignored
+[mavros_node-8] [INFO] [1788006908.043896377] [mavros]: Plugin imu created
+[mavros_node-8] [INFO] [1788006908.044237169] [mavros]: Plugin imu initialized
+[mavros_node-8] [INFO] [1788006908.044255252] [mavros]: Plugin landing_target ignored
+[mavros_node-8] [INFO] [1788006908.049554669] [mavros]: Plugin local_position created
+[mavros_node-8] [INFO] [1788006908.049811086] [mavros]: Plugin local_position initialized
+[mavros_node-8] [INFO] [1788006908.049825211] [mavros]: Plugin log_transfer ignored
+[mavros_node-8] [INFO] [1788006908.049831169] [mavros]: Plugin mag_calibration_status ignored
+[mavros_node-8] [INFO] [1788006908.054364377] [mavros]: Plugin manual_control created
+[mavros_node-8] [INFO] [1788006908.054521544] [mavros]: Plugin manual_control initialized
+[mavros_node-8] [INFO] [1788006908.054533086] [mavros]: Plugin mocap_pose_estimate ignored
+[mavros_node-8] [INFO] [1788006908.054560919] [mavros]: Plugin mount_control ignored
+[mavros_node-8] [INFO] [1788006908.054567169] [mavros]: Plugin nav_controller_output ignored
+[mavros_node-8] [INFO] [1788006908.054572294] [mavros]: Plugin obstacle_distance ignored
+[mavros_node-8] [INFO] [1788006908.054577294] [mavros]: Plugin obstacle_distance_3d ignored
+[mavros_node-8] [INFO] [1788006908.054582211] [mavros]: Plugin odometry ignored
+[mavros_node-8] [INFO] [1788006908.054587211] [mavros]: Plugin onboard_computer_status ignored
+[mavros_node-8] [INFO] [1788006908.054592044] [mavros]: Plugin open_drone_id ignored
+[mavros_node-8] [INFO] [1788006908.054596794] [mavros]: Plugin optical_flow ignored
+[mavros_node-8] [INFO] [1788006908.065508127] [mavros]: Plugin param created
+[mavros_node-8] [INFO] [1788006908.065633044] [mavros]: Plugin param initialized
+[mavros_node-8] [INFO] [1788006908.065642752] [mavros]: Plugin play_tune ignored
+[mavros_node-8] [INFO] [1788006908.065648419] [mavros]: Plugin px4flow ignored
+[mavros_node-8] [INFO] [1788006908.065653502] [mavros]: Plugin rallypoint ignored
+[mavros_node-8] [INFO] [1788006908.065658794] [mavros]: Plugin rangefinder ignored
+[mavros_node-8] [INFO] [1788006908.071522086] [mavros]: Plugin rc_io created
+[mavros_node-8] [INFO] [1788006908.071711086] [mavros]: Plugin rc_io initialized
+[mavros_node-8] [INFO] [1788006908.071735127] [mavros]: Plugin setpoint_accel ignored
+[mavros_node-8] [INFO] [1788006908.071741002] [mavros]: Plugin setpoint_attitude ignored
+[mavros_node-8] [INFO] [1788006908.071746627] [mavros]: Plugin setpoint_position ignored
+[mavros_node-8] [INFO] [1788006908.071751586] [mavros]: Plugin setpoint_raw ignored
+[mavros_node-8] [INFO] [1788006908.071756752] [mavros]: Plugin setpoint_trajectory ignored
+[mavros_node-8] [INFO] [1788006908.071762002] [mavros]: Plugin setpoint_velocity ignored
+[mavros_node-8] [INFO] [1788006908.071766877] [mavros]: Plugin sim_state ignored
+[mavros_node-8] [INFO] [1788006908.085406211] [mavros]: Plugin sys_status created
+[mavros_node-8] [INFO] [1788006908.085974211] [mavros]: Plugin sys_status initialized
+[mavros_node-8] [INFO] [1788006908.085989794] [mavros]: Plugin sys_time ignored
+[mavros_node-8] [INFO] [1788006908.085995669] [mavros]: Plugin tdr_radio ignored
+[mavros_node-8] [INFO] [1788006908.086000752] [mavros]: Plugin terrain ignored
+[mavros_node-8] [INFO] [1788006908.086005752] [mavros]: Plugin trajectory ignored
+[mavros_node-8] [INFO] [1788006908.086010711] [mavros]: Plugin tunnel ignored
+[mavros_node-8] [INFO] [1788006908.086015627] [mavros]: Plugin vfr_hud ignored
+[mavros_node-8] [INFO] [1788006908.086020252] [mavros]: Plugin vibration ignored
+[mavros_node-8] [INFO] [1788006908.086025086] [mavros]: Plugin vision_pose ignored
+[mavros_node-8] [INFO] [1788006908.086029836] [mavros]: Plugin vision_speed ignored
+[mavros_node-8] [INFO] [1788006908.086034586] [mavros]: Plugin waypoint ignored
+[mavros_node-8] [INFO] [1788006908.086039252] [mavros]: Plugin wheel_odometry ignored
+[mavros_node-8] [INFO] [1788006908.086044044] [mavros]: Plugin wind_estimation ignored
+[mavros_node-8] [INFO] [1788006908.086928919] [mavros]: Built-in SIMD instructions: ARM NEON
+[mavros_node-8] [INFO] [1788006908.086941502] [mavros]: Built-in MAVLink package version: 2026.6.19
+[mavros_node-8] [INFO] [1788006908.086945294] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-8] [INFO] [1788006908.086949836] [mavros]: MAVROS UAS via /uas1 started. MY ID 255.191, TARGET ID 1.1
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[ardusub-7] No JSON sensor message received, resending servos
+[mavros_node-8] [INFO] [1788006909.079641253] [mavros_router]: link[1002] detected remote address 255.191
+[env-5] bash: line 1: 78246 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[mavros_node-8] [WARN] [1788006910.088144795] [mavros.sys]: VER: broadcast request timeout, retries left 4
+[mavros_node-8] [WARN] [1788006911.090398129] [mavros.sys]: VER: broadcast request timeout, retries left 3
+[ardusub-7] No JSON sensor message received, resending servos
+[mavros_node-8] [WARN] [1788006912.088059338] [mavros.sys]: VER: unicast request timeout, retries left 2
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[mavros_node-8] [WARN] [1788006913.087646088] [mavros.sys]: VER: unicast request timeout, retries left 1
+[env-5] bash: line 1: 78293 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[mavros_node-8] [WARN] [1788006914.087903797] [mavros.sys]: VER: unicast request timeout, retries left 0
+[ardusub-7] No JSON sensor message received, resending servos
+[mavros_node-8] [WARN] [1788006915.087471089] [mavros.sys]: VER: your FCU don't support AUTOPILOT_VERSION, switched to default capabilities
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] bash: line 1: 78340 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] bash: line 1: 78387 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] bash: line 1: 78434 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[env-5] bash: line 1: 78481 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] bash: line 1: 78552 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] API.QGCApplication: Error loading source localization for "C"
+[env-5] API.QGCApplication: Error loading json localization for "C"
+[ardusub-7] No JSON sensor message received, resending servos
+[env-5] bash: line 1: 78628 Segmentation fault         qgroundcontrol
+[ardusub-7] No JSON sensor message received, resending servos

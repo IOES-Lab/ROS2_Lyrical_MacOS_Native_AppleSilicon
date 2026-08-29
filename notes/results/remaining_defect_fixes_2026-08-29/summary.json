@@ -178,5 +178,17 @@
     "Fast DDS intermittent ros_gz_sim create hang outside the UDPv4 workaround",
     "fresh Mac Underwater Camera Quickstart topic-absence reproducibility gap",
     "blueview_p900 30 Hz target and ROV/Glider actuator-calibration design decisions"
+  ],
+  "superseded_by": "../open_gap_revalidation_2026-08-29/summary.json",
+  "current_boundary_update_2026_08_29": [
+    "Mac stock Gazebo Sensors DVL SIGSEGV remains reproduced outside DAVE",
+    "Docker DAVE sonar OGRE2 current isolated PointCloud run passed; historical crash trigger unresolved",
+    "Docker hardware WGPU/CUDA and NVIDIA execution remain untested",
+    "default RViz macOS window creation remains reproduced",
+    "fifth ROV sonar world omission closed by ninth candidate patch",
+    "BlueROV2 MAVROS starts when its overlay is sourced, but ArduPilot plugin is absent, MAVROS disconnected and QGC SIGSEGVs",
+    "Fast DDS current minimal SHM 5/5 and UDPv4 5/5; historical intermittent trigger unresolved",
+    "fresh Mac camera current Quickstart 3/3; historical topic-absence trigger unresolved",
+    "Fuel/Windows/HIL, scientific accuracy, upstream and management decisions remain external"
   ]
 }
