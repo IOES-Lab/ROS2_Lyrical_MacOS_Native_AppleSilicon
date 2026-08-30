@@ -1,0 +1,466 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-30-00-30-29-593635-fa23651019d5-74
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [85]
+[INFO] [create-2]: process started with pid [86]
+[create-2] [INFO] [1788049830.033272090] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1788049836.803858885] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 86]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [static_transform_publisher-3]: process started with pid [172]
+[INFO] [parameter_bridge-4]: process started with pid [173]
+[INFO] [env-5]: process started with pid [174]
+[static_transform_publisher-3] [INFO] [1788049837.038146843] [static_transform_publisher_ungXZ4FYbZBNXsYQ]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'world' to 'bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar'
+[parameter_bridge-4] [INFO] [1788049837.128179885] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788049837.130861926] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy_multibeam_sonar/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788049837.138192468] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788049837.138507468] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy_multibeam_sonar/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788049837.141965968] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/imu (gz.msgs.IMU) -> /model/bluerov2_heavy_multibeam_sonar/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788049837.147178927] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy_multibeam_sonar/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788049837.148009510] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [env-5]: process has finished cleanly [pid 174]
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [ardusub-6]: process started with pid [304]
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[INFO] [mavros_node-7]: process started with pid [305]
+[ardusub-6] Setting SIM_SPEEDUP=1.000000
+[ardusub-6] Starting SITL: JSON
+[ardusub-6] Home: 35.074823 129.084798 alt=0.000000m hdg=270.000000
+[ardusub-6] JSON control interface set to 127.0.0.1:9002
+[ardusub-6] Starting sketch 'ArduSub'
+[ardusub-6] Starting SITL input
+[ardusub-6] Using Irlock at port : 9005
+[ardusub-6] Waiting for connection ....
+[ardusub-6] bind port 5760 for SERIAL0
+[ardusub-6] SERIAL0 on TCP port 5760
+[mavros_node-7] [INFO] [1788049839.372238719] [mavros_node]: Starting mavros_node container
+[mavros_node-7] [INFO] [1788049839.372335553] [mavros_node]: FCU URL: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788049839.372347594] [mavros_node]: GCS URL: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788049839.372352011] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-7] [INFO] [1788049839.372356386] [mavros_node]: Starting mavros router node
+[mavros_node-7] [INFO] [1788049839.425157094] [mavros_router]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788049839.425208011] [mavros_router]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788049839.425219803] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788049839.425224844] [mavros_router]: MAVROS Router started
+[mavros_node-7] [INFO] [1788049839.425382303] [mavros_node]: Starting mavros uas node
+[mavros_node-7] [INFO] [1788049839.587631219] [mavros_router]: Requested to add endpoint: type: 0, url: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788049839.587919719] [mavros_router]: Endpoint link[1000] created
+[ardusub-6] Connection on serial port 5760
+[mavros_node-7] [INFO] [1788049839.591024428] [mavros_router]: link[1000] opened successfully
+[mavros_node-7] [INFO] [1788049839.591190094] [mavros_router]: Requested to add endpoint: type: 1, url: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788049839.591482553] [mavros_router]: Endpoint link[1001] created
+[mavros_node-7] [INFO] [1788049839.592312178] [mavros_router]: link[1001] opened successfully
+[mavros_node-7] [INFO] [1788049839.592341761] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-7] [INFO] [1788049839.592394386] [mavros_router]: Endpoint link[1002] created
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[mavros_node-7] [INFO] [1788049839.597695969] [mavros]: Plugin actuator_control ignored
+[mavros_node-7] [INFO] [1788049839.597988094] [mavros]: Plugin adsb ignored
+[mavros_node-7] [INFO] [1788049839.598012136] [mavros]: Plugin altitude ignored
+[mavros_node-7] [INFO] [1788049839.598019886] [mavros]: Plugin cam_imu_sync ignored
+[mavros_node-7] [INFO] [1788049839.598036928] [mavros]: Plugin camera ignored
+[mavros_node-7] [INFO] [1788049839.598053636] [mavros]: Plugin cellular_status ignored
+[mavros_node-7] [INFO] [1788049839.598131928] [mavros]: UAS Executor started, threads: 4
+[mavros_node-7] [INFO] [1788049839.598165053] [mavros_router]: link[1002] opened successfully
+[mavros_node-7] [INFO] [1788049839.789427719] [mavros]: Plugin command created
+[mavros_node-7] [INFO] [1788049839.789797094] [mavros]: Plugin command initialized
+[mavros_node-7] [INFO] [1788049839.789955053] [mavros]: Plugin companion_process_status ignored
+[mavros_node-7] [INFO] [1788049839.789978636] [mavros]: Plugin debug_value ignored
+[mavros_node-7] [INFO] [1788049839.789985636] [mavros]: Plugin distance_sensor ignored
+[mavros_node-7] [INFO] [1788049839.789991844] [mavros]: Plugin esc_status ignored
+[mavros_node-7] [INFO] [1788049839.789998011] [mavros]: Plugin esc_telemetry ignored
+[mavros_node-7] [INFO] [1788049839.790003011] [mavros]: Plugin fake_gps ignored
+[mavros_node-7] [INFO] [1788049839.790008803] [mavros]: Plugin ftp ignored
+[mavros_node-7] [INFO] [1788049839.790013511] [mavros]: Plugin geofence ignored
+[mavros_node-7] [INFO] [1788049839.790019386] [mavros]: Plugin gimbal_control ignored
+[mavros_node-7] [INFO] [1788049839.813331219] [mavros]: Plugin global_position created
+[mavros_node-7] [INFO] [1788049839.813640844] [mavros]: Plugin global_position initialized
+[mavros_node-7] [INFO] [1788049839.813654886] [mavros]: Plugin gps_input ignored
+[mavros_node-7] [INFO] [1788049839.813660886] [mavros]: Plugin gps_rtk ignored
+[mavros_node-7] [INFO] [1788049839.813666136] [mavros]: Plugin gps_status ignored
+[mavros_node-7] [INFO] [1788049839.813671136] [mavros]: Plugin guided_target ignored
+[mavros_node-7] [INFO] [1788049839.813679344] [mavros]: Plugin hil ignored
+[mavros_node-7] [INFO] [1788049839.813690928] [mavros]: Plugin home_position ignored
+[mavros_node-7] [INFO] [1788049839.822433261] [mavros]: Plugin imu created
+[mavros_node-7] [INFO] [1788049839.823222303] [mavros]: Plugin imu initialized
+[mavros_node-7] [INFO] [1788049839.823250678] [mavros]: Plugin landing_target ignored
+[mavros_node-7] [INFO] [1788049839.829990761] [mavros]: Plugin local_position created
+[mavros_node-7] [INFO] [1788049839.830237219] [mavros]: Plugin local_position initialized
+[mavros_node-7] [INFO] [1788049839.830294261] [mavros]: Plugin log_transfer ignored
+[mavros_node-7] [INFO] [1788049839.830305428] [mavros]: Plugin mag_calibration_status ignored
+[mavros_node-7] [INFO] [1788049839.838436636] [mavros]: Plugin manual_control created
+[mavros_node-7] [INFO] [1788049839.838684011] [mavros]: Plugin manual_control initialized
+[mavros_node-7] [INFO] [1788049839.838718219] [mavros]: Plugin mocap_pose_estimate ignored
+[mavros_node-7] [INFO] [1788049839.838811636] [mavros]: Plugin mount_control ignored
+[mavros_node-7] [INFO] [1788049839.838997553] [mavros]: Plugin nav_controller_output ignored
+[mavros_node-7] [INFO] [1788049839.839069344] [mavros]: Plugin obstacle_distance ignored
+[mavros_node-7] [INFO] [1788049839.839078178] [mavros]: Plugin obstacle_distance_3d ignored
+[mavros_node-7] [INFO] [1788049839.839112678] [mavros]: Plugin odometry ignored
+[mavros_node-7] [INFO] [1788049839.839154428] [mavros]: Plugin onboard_computer_status ignored
+[mavros_node-7] [INFO] [1788049839.839202844] [mavros]: Plugin open_drone_id ignored
+[mavros_node-7] [INFO] [1788049839.839219553] [mavros]: Plugin optical_flow ignored
+[mavros_node-7] [INFO] [1788049839.855752219] [mavros]: Plugin param created
+[mavros_node-7] [INFO] [1788049839.855915969] [mavros]: Plugin param initialized
+[mavros_node-7] [INFO] [1788049839.855931553] [mavros]: Plugin play_tune ignored
+[mavros_node-7] [INFO] [1788049839.855937886] [mavros]: Plugin px4flow ignored
+[mavros_node-7] [INFO] [1788049839.855942928] [mavros]: Plugin rallypoint ignored
+[mavros_node-7] [INFO] [1788049839.855947969] [mavros]: Plugin rangefinder ignored
+[mavros_node-7] [INFO] [1788049839.863337886] [mavros]: Plugin rc_io created
+[mavros_node-7] [INFO] [1788049839.863566303] [mavros]: Plugin rc_io initialized
+[mavros_node-7] [INFO] [1788049839.863577719] [mavros]: Plugin setpoint_accel ignored
+[mavros_node-7] [INFO] [1788049839.863583303] [mavros]: Plugin setpoint_attitude ignored
+[mavros_node-7] [INFO] [1788049839.863588803] [mavros]: Plugin setpoint_position ignored
+[mavros_node-7] [INFO] [1788049839.863593761] [mavros]: Plugin setpoint_raw ignored
+[mavros_node-7] [INFO] [1788049839.863599094] [mavros]: Plugin setpoint_trajectory ignored
+[mavros_node-7] [INFO] [1788049839.863604011] [mavros]: Plugin setpoint_velocity ignored
+[mavros_node-7] [INFO] [1788049839.863609303] [mavros]: Plugin sim_state ignored
+[mavros_node-7] [INFO] [1788049839.884421386] [mavros]: Plugin sys_status created
+[mavros_node-7] [INFO] [1788049839.886151094] [mavros]: Plugin sys_status initialized
+[mavros_node-7] [INFO] [1788049839.886201719] [mavros]: Plugin sys_time ignored
+[mavros_node-7] [INFO] [1788049839.886215803] [mavros]: Plugin tdr_radio ignored
+[mavros_node-7] [INFO] [1788049839.886221136] [mavros]: Plugin terrain ignored
+[mavros_node-7] [INFO] [1788049839.886226636] [mavros]: Plugin trajectory ignored
+[mavros_node-7] [INFO] [1788049839.886248761] [mavros]: Plugin tunnel ignored
+[mavros_node-7] [INFO] [1788049839.886270844] [mavros]: Plugin vfr_hud ignored
+[mavros_node-7] [INFO] [1788049839.886282261] [mavros]: Plugin vibration ignored
+[mavros_node-7] [INFO] [1788049839.886287219] [mavros]: Plugin vision_pose ignored
+[mavros_node-7] [INFO] [1788049839.886292178] [mavros]: Plugin vision_speed ignored
+[mavros_node-7] [INFO] [1788049839.886315469] [mavros]: Plugin waypoint ignored
+[mavros_node-7] [INFO] [1788049839.886334678] [mavros]: Plugin wheel_odometry ignored
+[mavros_node-7] [INFO] [1788049839.886341844] [mavros]: Plugin wind_estimation ignored
+[mavros_node-7] [INFO] [1788049839.888947761] [mavros]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788049839.888967719] [mavros]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788049839.888972344] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788049839.888976969] [mavros]: MAVROS UAS via /uas1 started. MY ID 255.191, TARGET ID 1.1
+[ardusub-6]
+[ardusub-6] JSON received:
+[ardusub-6] 	timestamp
+[ardusub-6] 	imu: gyro
+[ardusub-6] 	imu: accel_body
+[ardusub-6] 	position
+[ardusub-6] 	quaternion
+[ardusub-6] 	velocity
+[ardusub-6] 	no_time_sync
+[ardusub-6]
+[ardusub-6] bind port 5762 for SERIAL1
+[ardusub-6] SERIAL1 on TCP port 5762
+[ardusub-6] bind port 5763 for SERIAL2
+[ardusub-6] SERIAL2 on TCP port 5763
+[mavros_node-7] [INFO] [1788049840.872619720] [mavros_router]: link[1002] detected remote address 255.191
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [WARN] [1788049841.887712637] [mavros.sys]: VER: broadcast request timeout, retries left 4
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [WARN] [1788049842.889359013] [mavros.sys]: VER: broadcast request timeout, retries left 3
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_compute_factory] Auto-selecting best available backend...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [WARN] [1788049843.887743721] [mavros.sys]: VER: unicast request timeout, retries left 2
+[gazebo-1] [sonar_wgpu] [all] GPU pipelines compiled in 1477 ms -> ready.
+[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 1×1×4
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [WARN] [1788049844.886567305] [mavros.sys]: VER: unicast request timeout, retries left 1
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [WARN] [1788049845.889077166] [mavros.sys]: VER: unicast request timeout, retries left 0
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [WARN] [1788049846.889379875] [mavros.sys]: VER: your FCU don't support AUTOPILOT_VERSION, switched to default capabilities
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[gazebo-1] [sonar_wgpu] GPU #1     | 58474.0 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_compute_factory] SUCCESS: Auto-selected WGPU backend (CUDA unavailable)
+[gazebo-1] [INFO] [1788049902.937815763] [multibeam_sonar_node]: Raw data at /SonarRawData_{numbers}.csv every 5 frames
+[gazebo-1] [INFO] [1788049902.937965096] [multibeam_sonar_node]: Beam angles at SonarRawData_beam_angles.csv
+[gazebo-1] [INFO] [1788049902.937976929] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788049903.115704638] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788049903.115767304] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788049903.115774138] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788049903.115779304] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788049903.115783888] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1788049903.115788346] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788049903.115797346] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1788049903.115803263] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1788049903.115808638] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788049903.115815929] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788049903.115820846] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1788049903.115825638] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1788049903.115830096] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788049903.115834763] [multibeam_sonar_node]:
+[gazebo-1] Stack trace (most recent call last) in thread 171:
+[gazebo-1] #17   Object "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1", at 0xffffffffffffffff, in
+[gazebo-1] #16   Source "../sysdeps/unix/sysv/linux/aarch64/clone3.S", line 75, in thread_start [0xffffa2c16adb]
+[gazebo-1] #15   Source "./nptl/pthread_create.c", line 454, in start_thread [0xffffa2bac247]
+[gazebo-1] #14   Object "/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.35", at 0xffffa2e1785f, in
+[gazebo-1] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-sensors-system.so.10.4.0", at 0xffff6d220377, in
+[gazebo-1] #12   Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fececdf, in gz::rendering::v10::Ogre2Scene::PreRender()
+[gazebo-1] #11   Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering.so.10.0.1", at 0xffff6ce704e7, in gz::rendering::v10::BaseScene::PreRender()
+[gazebo-1] #10   Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe017f3, in
+[gazebo-1] #9    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe09333, in
+[gazebo-1] #8    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe017f3, in
+[gazebo-1] #7    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe09333, in
+[gazebo-1] #6    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe017f3, in
+[gazebo-1] #5    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe09333, in
+[gazebo-1] #4    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe4d3bb, in gz::rendering::v10::Ogre2GpuRays::PreRender()
+[gazebo-1] #3    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe55163, in gz::rendering::v10::Ogre2GpuRays::CreateGpuRaysTextures()
+[gazebo-1] #2    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe53107, in gz::rendering::v10::Ogre2GpuRays::CreateSampleTexture()
+[gazebo-1] #1    Object "/opt/ros/lyrical/opt/gz_rendering_vendor/lib/libgz-rendering-ogre2.so.10.0.1", at 0xffff4fe49c0f, in
+[gazebo-1] #0    Source "../sysdeps/aarch64/multiarch/../memcpy.S", line 157, in __memcpy_generic [0xffffa2bc9670]
+[gazebo-1] Segmentation fault (Address not mapped to object [(nil)])
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[gazebo-1] Segmentation fault (core dumped)
+[ERROR] [gazebo-1]: process has died [pid 85, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r --force-version 10'].
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6] No JSON sensor message received, resending servos
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [mavros_node-7]: sending signal 'SIGINT' to process[mavros_node-7]
+[INFO] [ardusub-6]: sending signal 'SIGINT' to process[ardusub-6]
+[INFO] [parameter_bridge-4]: sending signal 'SIGINT' to process[parameter_bridge-4]
+[INFO] [static_transform_publisher-3]: sending signal 'SIGINT' to process[static_transform_publisher-3]
+[mavros_node-7] [INFO] [1788050115.340886222] [rclcpp]: signal_handler(signum=2)
+[parameter_bridge-4] [INFO] [1788050115.343400972] [rclcpp]: signal_handler(signum=2)
+[ERROR] [ardusub-6]: process has died [pid 304, exit code -2, cmd 'ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0'].
+[mavros_node-7] [WARN] [1788050115.344378847] [mavros]: UAS Executor terminated
+[mavros_node-7] Error:   mavconn: tcp0: receive: Connection reset by peer
+[mavros_node-7]          at line 307 in /home/docker/mavros_ws/src/mavros/libmavconn/src/tcp.cpp
+[mavros_node-7] Error:   mavconn: tcp0: shutdown: Transport endpoint is not connected
+[mavros_node-7]          at line 194 in /home/docker/mavros_ws/src/mavros/libmavconn/src/tcp.cpp
+[static_transform_publisher-3] [INFO] [1788050115.344447389] [rclcpp]: signal_handler(signum=2)
+This event loop is already running
+/tmp/run_combined_auto.sh: line 24: exit: "124": numeric argument required

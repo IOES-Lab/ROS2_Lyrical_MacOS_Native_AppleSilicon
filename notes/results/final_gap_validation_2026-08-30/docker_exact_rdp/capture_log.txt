@@ -1,0 +1,3 @@
+/home/docker/exact_rdp_root.xwd: X-Window screen dump image data, version X11, "xwdump", 1140x710x24, 256 colors 256 entries
+/home/docker/exact_rdp_root.png: PNG image data, 1140 x 710, 8-bit/color RGB, non-interlaced
+706a2db44228d5174558c66fb1590e51b4900c3d59f5ebb071bc6bd973c587e4  /home/docker/exact_rdp_root.png

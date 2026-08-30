@@ -1,0 +1,2 @@
+derived_from=/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_sim_demos/share/ros_gz_sim_demos/worlds/dvl.sdf
+control=8x8 camera triggers macOS Sensors::Update main-thread Init

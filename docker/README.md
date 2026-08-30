@@ -1,37 +1,41 @@
 # Docker — ROS 2 Lyrical + Gazebo Jetty + DAVE (arm64, RDP desktop)
 
 ```text
-Status: CURRENT RECIPE BUILT AND RUNTIME-CHECKED — 2026-08-30.
-The full current Dockerfile completed a cache-assisted end-to-end build in 44.86 minutes and
-produced a 23.9 GB Ubuntu 26.04 arm64 image (`af9586fa8045`). ROS 2 Lyrical, Gazebo Jetty,
-DAVE, MAVROS, geographic_info, ArduSub and the pinned official ArduPilot Gazebo plugin all
-passed package/source/artifact checks. In that exact image, baseline BlueROV2, BlueROV2 Heavy
-and BlueROV2 Heavy multibeam each retained 4/4 connected MAVROS samples and completed one
-headless MANUAL force-arm / six-second control / disarm run without a missing-plugin error or
-ArduSub FPE.
+Status: CURRENT RECIPE FRESH-BUILT AND RENDERED-RUNTIME CHECKED — 2026-08-30.
+After official BuildKit cache pruning, the full current Dockerfile completed with `--no-cache`
+in 4015.02 seconds (66.917 minutes), return code 0. The arm64 image is
+`sha256:53744d17f09dd2489d6be3eedbfae19377b9013211f1cfa3c109c70cfc67d955`
+(6,260,137,751 bytes), with Ubuntu 26.04.1, ROS 2 Lyrical and Gazebo Jetty 10.5.0.
+DAVE, multibeam, MAVROS/mavros_msgs, ArduSub, QGC, the official ArduPilot Gazebo plugin
+and all four pinned source revisions passed image checks.
 
-Scope: this was not a fresh `--no-cache` build. The 2026-07-18 image remains the clean-build
-provenance baseline. The exact 2026-08-30 image was exercised headlessly; xrdp service startup and
-QGroundControl's 20-second opt-out/offscreen survival pass, but its RDP login, rendered desktop and
-QGroundControl vehicle connection were not clicked through again. The retained visual QGroundControl
-integration was run separately and still requires `QGC_NO_SYSTEM_GLIB=1`. A later derived-image run
-live-applied the ninth fifth-ROV sonar-world candidate: it rebuilt and configured the sonar, but the
-Docker `llvmpipe` path took 60053 ms for its first probe, began a Gazebo stack trace and never reached
-JSON/MAVROS, PointCloud2 or control. That combined path is a directly observed failure, not an untested gap.
+A real FreeRDP/xrdp login to this fresh image started Xorg :10 and XFCE. The retained
+1280×900 framebuffer shows Gazebo and QGroundControl rendered together; MAVROS reported
+connected:true and MANUAL, while QGC visibly reported Ready/Manual. QGC still requires
+QGC_NO_SYSTEM_GLIB=1. This fresh-image run used FreeRDP SDL. A separate retained replay on
+the earlier exact cache image used Windows App, so those client claims are not conflated.
+
+The earlier exact cache image remains the evidence for three bounded baseline/Heavy/
+Heavy-multibeam headless control loops. The combined fifth-sonar candidate remains
+backend-dependent: software WGPU/llvmpipe exits 139, while forced CPU publishes sonar and
+completes MANUAL arm/control/disarm.
 ```
 
-**Current-recipe evidence (2026-08-30):** `docker build` completed all current stages with
-cache available; it was not invoked with `--no-cache`. The log duration is **44m 51.5s** (44.86
-minutes), `docker image ls` reports **23.9GB**, and the image ID is
-`sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461`. The exact image
-passed platform, ROS/Gazebo package-prefix, pinned source, plugin dependency, three installed
-speedup-file AST and runtime-user checks. One bounded headless control run each for baseline,
-Heavy and Heavy-multibeam retained 4/4 MAVROS connection samples, armed, moved X by
-+1.697915 m / +1.125856 m / +0.818825 m and disarmed. Evidence is under
-[`external_stack_validation_2026-08-29/dockerfile/`](../notes/results/external_stack_validation_2026-08-29/dockerfile/).
-A fresh current-recipe build was not forced because only about 57 GiB remained at the decision
-point while unrelated Docker images and cache occupied about 186 GiB; no user Docker assets were deleted to manufacture
-a clean result.
+**Fresh current-recipe evidence (2026-08-30):** the Dockerfile SHA-256 was
+`595ad3d51c5d0f639eac465be617cf103bf3407e29ed5d7697b7435723ac9532` at Git
+`e05070a`. The build began 11:13:38 KST and ended 12:20:34 KST after 66.917 minutes.
+`docker image inspect` reports 6,260,137,751 bytes, arm64/Linux and final user `root`.
+The verifier confirms ROS 2 Lyrical, Gazebo 10.5.0, DAVE/multibeam/MAVROS package
+prefixes, required binaries/plugins/QGC files and pinned DAVE/geographic_info/ArduPilot/
+ardupilot_gazebo commits. The only build warning recommends JSON-array `CMD` form and did
+not fail the image. A real FreeRDP/xrdp/Xorg/XFCE replay then captured the rendered desktop
+and a Gazebo+QGC vehicle-connected framebuffer. Evidence is under
+[`final_gap_validation_2026-08-30/docker_no_cache_build/`](../notes/results/final_gap_validation_2026-08-30/docker_no_cache_build/).
+
+**Earlier exact-cache evidence:** a cache-assisted build completed in 44.86 minutes and
+produced image `af9586fa8045`; that image passed package/pin checks and bounded baseline,
+Heavy and Heavy-multibeam headless control loops. Its separate Windows App RDP replay is
+retained under [`docker_exact_rdp/`](../notes/results/final_gap_validation_2026-08-30/docker_exact_rdp/).
 
 **Provenance (2026-07-18):** `lyrical.arm64v8.dockerfile` in this folder was clean-built
 (`--no-cache`) end to end on 2026-07-18, including the commit SHA pinning, `.bashrc`
@@ -171,8 +175,8 @@ docker exec -it lyrical-sim bash -lc \
 
 | | Status |
 |---|---|
-| Docker build provenance | **2026-07-18 clean `--no-cache` PASS; 2026-08-30 current recipe cache-assisted end-to-end PASS.** A fresh `--no-cache` build of the current recipe remains open |
-| Current Dockerfile image | **PASS in exact-image headless controls.** Build 44.86 min / 23.9 GB / `af9586fa8045`; baseline, Heavy and Heavy-multibeam each MAVROS 4/4 plus arm/control/disarm. xrdp service startup and QGC opt-out/offscreen 20-second survival also pass; visible login/GUI was not directly tested |
+| Docker build provenance | **2026-07-18 clean baseline PASS; 2026-08-30 current recipe fresh `--no-cache` PASS.** Current run: 66.917 min, return code 0, image `53744d17f09d`, package/pin verification PASS |
+| Current Dockerfile image | **Fresh build and rendered runtime PASS in tested scope.** Fresh image `53744d17f09d` started a real FreeRDP/xrdp/Xorg/XFCE session and rendered Gazebo+QGC with MAVROS connected/Manual; the earlier cache image `af9586fa8045` separately retains three bounded headless vehicle controls and a Windows App rendered replay |
 | Container startup | PASS |
 | xrdp connection, XFCE session (real RDP login, prompt confirmed) | PASS |
 | ROS 2 Lyrical / Gazebo Jetty environment | PASS |

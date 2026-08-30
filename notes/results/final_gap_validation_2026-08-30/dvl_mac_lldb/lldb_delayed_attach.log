@@ -1,0 +1,950 @@
+(lldb) process attach --pid 15292
+Process 15292 stopped
+* thread #1, queue = 'com.apple.main-thread', stop reason = signal SIGSTOP
+    frame #0: 0x000000018544b978 libsystem_kernel.dylib`__sigsuspend + 8
+libsystem_kernel.dylib`__sigsuspend:
+->  0x18544b978 <+8>:  b.lo   0x18544b998               ; <+40>
+    0x18544b97c <+12>: pacibsp
+    0x18544b980 <+16>: stp    x29, x30, [sp, #-0x10]!
+    0x18544b984 <+20>: mov    x29, sp
+Target 0: (zsh) stopped.
+Executable binary set to "/bin/zsh".
+Architecture set to: arm64e-apple-macosx-.
+(lldb) settings set target.process.stop-on-exec false
+(lldb) settings set stop-disassembly-display never
+(lldb) process continue
+Process 15292 resuming
+Process 15292 stopped
+* thread #13, stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+    frame #0: 0x0000000115f539e0 libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 560
+Target 0: (gz-sim-main) stopped.
+(lldb) process status
+Process 15292 stopped
+* thread #13, stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+    frame #0: 0x0000000115f539e0 libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 560
+(lldb) thread list
+Process 15292 stopped
+  thread #2: tid = 0xe4ddf6, 0x00000001854411c8 libsystem_kernel.dylib`__semwait_signal + 8, queue = 'com.apple.main-thread'
+  thread #3: tid = 0xe4de14, 0x000000018543f8b0 libsystem_kernel.dylib`__workq_kernreturn + 8
+  thread #4: tid = 0xe4de15, 0x000000018543f8b0 libsystem_kernel.dylib`__workq_kernreturn + 8
+  thread #5: tid = 0xe4de17, 0x000000018543e7dc libsystem_kernel.dylib`read + 8
+  thread #6: tid = 0xe4de18, 0x0000000185443d04 libsystem_kernel.dylib`kevent + 8, name = 'ZMQbg/Reaper'
+  thread #7: tid = 0xe4de19, 0x0000000185443d04 libsystem_kernel.dylib`kevent + 8, name = 'ZMQbg/IO/0'
+  thread #8: tid = 0xe4de1a, 0x0000000185446498 libsystem_kernel.dylib`poll + 8
+  thread #9: tid = 0xe4de1b, 0x0000000185446498 libsystem_kernel.dylib`poll + 8
+  thread #10: tid = 0xe4de1c, 0x0000000185446498 libsystem_kernel.dylib`poll + 8
+  thread #11: tid = 0xe4de1d, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+  thread #12: tid = 0xe4de1e, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+* thread #13: tid = 0xe4de3a, 0x0000000115f539e0 libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 560, stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+  thread #14: tid = 0xe4de3d, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+  thread #15: tid = 0xe4de3e, 0x000000018547a39c libsystem_pthread.dylib`pthread_mutex_lock + 68
+  thread #16: tid = 0xe4de3f, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+  thread #17: tid = 0xe4de40, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+  thread #18: tid = 0xe4de41, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+  thread #19: tid = 0xe4de42, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+  thread #20: tid = 0xe4de43, 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+(lldb) thread backtrace all
+  thread #2, queue = 'com.apple.main-thread'
+    frame #0: 0x00000001854411c8 libsystem_kernel.dylib`__semwait_signal + 8
+    frame #1: 0x000000018531d6f4 libsystem_c.dylib`nanosleep + 220
+    frame #2: 0x00000001853b1f38 libc++.1.dylib`std::__1::this_thread::sleep_for(std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&) + 84
+    frame #3: 0x0000000101093c74 libgz-sim.10.4.0.dylib`gz::sim::v10::SimulationRunner::Run(unsigned long long) + 3464
+    frame #4: 0x000000010108312c libgz-sim.10.4.0.dylib`gz::sim::v10::ServerPrivate::Run(unsigned long long, std::__1::optional<std::__1::condition_variable*>) + 444
+    frame #5: 0x0000000100598ae4 gz-sim-main`main + 1940
+    frame #6: 0x00000001850deb98 dyld`start + 6076
+  thread #3
+    frame #0: 0x000000018543f8b0 libsystem_kernel.dylib`__workq_kernreturn + 8
+  thread #4
+    frame #0: 0x000000018543f8b0 libsystem_kernel.dylib`__workq_kernreturn + 8
+  thread #5
+    frame #0: 0x000000018543e7dc libsystem_kernel.dylib`read + 8
+    frame #1: 0x0000000103405080 libgz-common.7.1.1.dylib`(anonymous namespace)::SelfPipe::CheckPipe() + 132
+    frame #2: 0x0000000103405320 libgz-common.7.1.1.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void ((anonymous namespace)::SelfPipe::*)(), (anonymous namespace)::SelfPipe*>>(void*) + 76
+    frame #3: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #6, name = 'ZMQbg/Reaper'
+    frame #0: 0x0000000185443d04 libsystem_kernel.dylib`kevent + 8
+    frame #1: 0x0000000103f9bdfc libzmq.5.dylib`zmq::kqueue_t::loop() + 184
+    frame #2: 0x0000000103fbba34 libzmq.5.dylib`thread_routine(void*) + 72
+    frame #3: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #7, name = 'ZMQbg/IO/0'
+    frame #0: 0x0000000185443d04 libsystem_kernel.dylib`kevent + 8
+    frame #1: 0x0000000103f9bdfc libzmq.5.dylib`zmq::kqueue_t::loop() + 184
+    frame #2: 0x0000000103fbba34 libzmq.5.dylib`thread_routine(void*) + 72
+    frame #3: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #8
+    frame #0: 0x0000000185446498 libsystem_kernel.dylib`poll + 8
+    frame #1: 0x0000000103fc4ea8 libzmq.5.dylib`zmq_poll + 368
+    frame #2: 0x000000010184b5f8 libgz-transport.15.0.2.dylib`gz::transport::v15::NodeShared::RunReceptionTask() + 172
+    frame #3: 0x000000010185b19c libgz-transport.15.0.2.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::transport::v15::NodeShared::*)(), gz::transport::v15::NodeShared*>>(void*) + 72
+    frame #4: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #9
+    frame #0: 0x0000000185446498 libsystem_kernel.dylib`poll + 8
+    frame #1: 0x0000000103fc4ea8 libzmq.5.dylib`zmq_poll + 368
+    frame #2: 0x000000010183919c libgz-transport.15.0.2.dylib`gz::transport::v15::pollSockets(std::__1::vector<int, std::__1::allocator<int>> const&, int) + 72
+    frame #3: 0x000000010185b928 libgz-transport.15.0.2.dylib`gz::transport::v15::Discovery<gz::transport::v15::MessagePublisher>::RecvMessages() + 104
+    frame #4: 0x000000010185d144 libgz-transport.15.0.2.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::transport::v15::Discovery<gz::transport::v15::MessagePublisher>::*)(), gz::transport::v15::Discovery<gz::transport::v15::MessagePublisher>*>>(void*) + 72
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #10
+    frame #0: 0x0000000185446498 libsystem_kernel.dylib`poll + 8
+    frame #1: 0x0000000103fc4ea8 libzmq.5.dylib`zmq_poll + 368
+    frame #2: 0x000000010183919c libgz-transport.15.0.2.dylib`gz::transport::v15::pollSockets(std::__1::vector<int, std::__1::allocator<int>> const&, int) + 72
+    frame #3: 0x000000010185d1ec libgz-transport.15.0.2.dylib`gz::transport::v15::Discovery<gz::transport::v15::ServicePublisher>::RecvMessages() + 104
+    frame #4: 0x000000010185ec20 libgz-transport.15.0.2.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::transport::v15::Discovery<gz::transport::v15::ServicePublisher>::*)(), gz::transport::v15::Discovery<gz::transport::v15::ServicePublisher>*>>(void*) + 72
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #11
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0300 libc++.1.dylib`std::__1::condition_variable::__do_timed_wait(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::system_clock, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>>>) + 104
+    frame #3: 0x000000010184d2c8 libgz-transport.15.0.2.dylib`gz::transport::v15::NodeSharedPrivate::PublishThread() + 900
+    frame #4: 0x000000010185ed74 libgz-transport.15.0.2.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::transport::v15::NodeSharedPrivate::*)(), gz::transport::v15::NodeSharedPrivate*>>(void*) + 72
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #12
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0300 libc++.1.dylib`std::__1::condition_variable::__do_timed_wait(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::system_clock, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>>>) + 104
+    frame #3: 0x000000010184d670 libgz-transport.15.0.2.dylib`gz::transport::v15::NodeShared::SrvPublishThread() + 312
+    frame #4: 0x000000010185b19c libgz-transport.15.0.2.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::transport::v15::NodeShared::*)(), gz::transport::v15::NodeShared*>>(void*) + 72
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+* thread #13, stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+  * frame #0: 0x0000000115f539e0 libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 560
+    frame #1: 0x0000000115f545d8 libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::RenderThread() + 176
+    frame #2: 0x0000000115f67c60 libgz-sim-sensors-system.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::sim::v10::systems::SensorsPrivate::*)(), gz::sim::v10::systems::SensorsPrivate*>>(void*) + 72
+    frame #3: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #14
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0268 libc++.1.dylib`std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+    frame #3: 0x0000000100fef230 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 112
+    frame #4: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #15
+    frame #0: 0x000000018547a39c libsystem_pthread.dylib`pthread_mutex_lock + 68
+    frame #1: 0x00000001853b13dc libc++.1.dylib`std::__1::mutex::lock() + 16
+    frame #2: 0x0000000100fef200 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 64
+    frame #3: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #4: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #16
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0268 libc++.1.dylib`std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+    frame #3: 0x0000000100fef230 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 112
+    frame #4: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #17
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0268 libc++.1.dylib`std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+    frame #3: 0x0000000100fef230 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 112
+    frame #4: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #18
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0268 libc++.1.dylib`std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+    frame #3: 0x0000000100fef230 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 112
+    frame #4: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #19
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0268 libc++.1.dylib`std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+    frame #3: 0x0000000100fef230 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 112
+    frame #4: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+  thread #20
+    frame #0: 0x00000001854413cc libsystem_kernel.dylib`__psynch_cvwait + 8
+    frame #1: 0x000000018548009c libsystem_pthread.dylib`_pthread_cond_wait + 984
+    frame #2: 0x00000001853b0268 libc++.1.dylib`std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+    frame #3: 0x0000000100fef230 libgz-sim.10.4.0.dylib`gz::sim::v10::Barrier::Wait() + 112
+    frame #4: 0x00000001010ad350 libgz-sim.10.4.0.dylib`void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, gz::sim::v10::SimulationRunner::ProcessSystemQueue()::$_0>>(void*) + 148
+    frame #5: 0x000000018547fbc8 libsystem_pthread.dylib`_pthread_start + 136
+(lldb) register read
+General Purpose Registers:
+        x0 = 0x0000000000000000
+        x1 = 0x000000016ff1aca8
+        x2 = 0x000000015c3fab80
+        x3 = 0x0000000000000007
+        x4 = 0x000000015c3fabd0
+        x5 = 0x0000000000000002
+        x6 = 0x0000000000000002
+        x7 = 0x000000015c3fabd0
+        x8 = 0x000000016ff1aca8
+        x9 = 0x0000000000000000
+       x10 = 0x0000000000000000
+       x11 = 0x00000000001e3230
+       x12 = 0x000000015c303f40
+       x13 = 0x0000000105ba3220
+       x14 = 0x0000000000000004
+       x15 = 0x0000000000100001
+       x16 = 0x000000011cc6d620  libgz-sim-rendering.10.4.0.dylib`gz::sim::v10::RenderUtil::Scene() const
+       x17 = 0x00000001f446f058
+       x18 = 0x0000000000000000
+       x19 = 0x0000000159786400
+       x20 = 0x0000000159786548
+       x21 = 0x0000000115f75815  "/private/tmp/gz-sim10-20260621-86597-g9yp1h/gz-sim-10.4.0/src/systems/sensors/Sensors.cc"
+       x22 = 0x0000000115f7586e  "Waiting for init"
+       x23 = 0x00000001f3420578  libc++.1.dylib`std::__1::ctype<char>::id
+       x24 = 0x0000000115f7587f  "Initializing render context"
+       x25 = 0x0000000000000000
+       x26 = 0x000000000000000a
+       x27 = 0x0000000000000001
+       x28 = 0xffffffffffffffff
+        fp = 0x000000016ff1ae30
+        lr = 0x0000000115f539b0  libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 512
+        sp = 0x000000016ff1ac80
+        pc = 0x0000000115f539e0  libgz-sim-sensors-system.10.4.0.dylib`gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 560
+      cpsr = 0x80001000
+
+(lldb) image list
+[  0] 8D2B4D18-BB74-3C0F-A64A-44D4631EBF04 0x0000000100570000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main
+[  1] E4E5CD37-5339-3136-B2C5-0C80F0720C26 0x00000001850d8000 /usr/lib/dyld
+[  2] 35CE35CA-0A7F-35FE-9ABB-6DE181490E45 0x00000001006c0000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-av.7.1.1.dylib
+[  3] F9898AEE-BFFC-3116-BF7B-F9956CAF80DA 0x00000001006a0000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-profiler.7.1.1.dylib
+[  4] D3E01625-55A6-3C97-A977-CC5039EA4450 0x0000000100c7c000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libswscale.9.5.102.dylib
+[  5] 4BE5E491-0075-3685-9E05-146C7D9E694F 0x00000001007a0000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libavdevice.62.3.102.dylib
+[  6] 415030DE-5D84-3E7E-AF33-68C288813FE9 0x0000000100674000 /opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/libgz-physics.9.3.0.dylib
+[  7] 81E3C46C-3C82-34E4-A5F8-1674865A4671 0x00000001007c8000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-io.7.1.1.dylib
+[  8] 135917FB-CEED-39B8-95BE-7640BDDCA493 0x00000001007e0000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-testing.7.1.1.dylib
+[  9] 463B08EA-9E4F-336A-8F5A-E4A3FABC5FD7 0x0000000100dfc000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libavutil.60.26.102.dylib
+[ 10] F989F915-6E60-3D27-BBC6-8C7E3316A103 0x0000000101310000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libavformat.62.12.102.dylib
+[ 11] C2E4F8B7-DD76-367D-83F9-14AA1A683C12 0x00000001007fc000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-geospatial.7.1.1.dylib
+[ 12] 09F1E10E-32AC-3140-B1AA-B1609521B7C4 0x00000001006f4000 /opt/homebrew/Cellar/gz-fuel-tools11/11.0.0_28/lib/libgz-fuel_tools.11.0.0.dylib
+[ 13] 8DB9E9E9-F2D7-324B-B499-2A25A3AE5195 0x000000010084c000 /opt/homebrew/Cellar/gz-rendering10/10.0.1_2/lib/libgz-rendering.10.0.1.dylib
+[ 14] 2CAD17BF-8987-357F-8FDF-BF221AF56957 0x0000000100d58000 /opt/homebrew/Cellar/gz-transport15/15.0.2_10/lib/libgz-transport-parameters.15.0.2.dylib
+[ 15] C3946885-4CCB-39D4-AD78-2FE24C1D26D8 0x0000000101eb4000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libavcodec.62.28.102.dylib
+[ 16] 3BECE0B9-0C44-30A2-B50C-3D2CE0C1C6DB 0x0000000101754000 /opt/homebrew/Cellar/gz-gui10/10.0.0_27/lib/libgz-gui.10.0.0.dylib
+[ 17] 2F2BC7EC-4911-32D1-A90A-AC3E532EE8ED 0x000000010081c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_check_op.2601.0.0.dylib
+[ 18] 9B5F687E-5145-3766-A062-B62DFB956EF0 0x00000001008f8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_die_if_null.2601.0.0.dylib
+[ 19] 18BDE9C8-C9A0-3143-9412-39ECE9701CD6 0x000000010065c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_conditions.2601.0.0.dylib
+[ 20] BF1F7034-AD57-3217-832B-1E331E6FED46 0x0000000101654000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-graphics.7.1.1.dylib
+[ 21] 1E1B0DAF-2792-3544-8725-58E4E274BF5A 0x000000010181c000 /opt/homebrew/Cellar/gz-transport15/15.0.2_10/lib/libgz-transport.15.0.2.dylib
+[ 22] 92E7BF07-9222-3CFE-8624-F0420EBB34EE 0x0000000100914000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_examine_stack.2601.0.0.dylib
+[ 23] 28646D55-0315-32C5-9D91-5D0A7A0D6598 0x000000010092c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_format.2601.0.0.dylib
+[ 24] 9BFD2CD1-3DE3-3010-8264-29BAF3CD4B9F 0x00000001006e4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_nullguard.2601.0.0.dylib
+[ 25] 44385616-1C5C-3ABA-824F-E41EA27B4EE6 0x0000000100dac000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_message.2601.0.0.dylib
+[ 26] 563E864C-D269-34DE-84EE-472EC011779C 0x0000000100838000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_structured_proto.2601.0.0.dylib
+[ 27] EBCE5F62-C0BD-3998-B7C8-01AE4350FA68 0x0000000101554000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_log_sink_set.2601.0.0.dylib
+[ 28] 1A872185-EC79-3A47-B39E-2CDFAA736D69 0x0000000100de8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_entry.2601.0.0.dylib
+[ 29] 43922C07-B0D1-3B46-9154-D0060724D6BE 0x0000000100940000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_sink.2601.0.0.dylib
+[ 30] 888ED48B-EE92-3A42-8BFF-C445DE24B8A8 0x0000000100dd4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_proto.2601.0.0.dylib
+[ 31] C904E9E3-F056-3BD3-8DF0-3F0A96E64711 0x0000000101570000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_marshalling.2601.0.0.dylib
+[ 32] D215B641-A30E-3CF7-9209-4E2B87F1DC4D 0x0000000101590000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_internal.2601.0.0.dylib
+[ 33] 42B2E917-2882-319B-83AE-1703C580B165 0x00000001015d8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_reflection.2601.0.0.dylib
+[ 34] 63D943A5-65F4-3301-9B54-9C3DFF7AF27F 0x00000001015b4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_program_name.2601.0.0.dylib
+[ 35] 2E1827A2-E3F5-3D33-B06D-5F609E4482A3 0x0000000101600000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_config.2601.0.0.dylib
+[ 36] FDBE3C6C-63A5-356B-B4B9-2B75DE4E634E 0x00000001009b8000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/libgz-sim-gui.10.4.0.dylib
+[ 37] DC196CBA-3FDD-3628-A232-1B3CD1CAC21D 0x0000000100fac000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_private_handle_accessor.2601.0.0.dylib
+[ 38] 3BA38C92-C353-366A-B1F2-3DD42A0C3584 0x0000000101630000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_commandlineflag_internal.2601.0.0.dylib
+[ 39] C515394A-7BF0-3FDD-B3E5-D1E0270821BB 0x0000000101620000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_flags_commandlineflag.2601.0.0.dylib
+[ 40] 19665B24-D0B4-33BB-9211-FF8ED1F7CB40 0x00000001018e0000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_initialize.2601.0.0.dylib
+[ 41] 5955D3C1-3CED-32BE-9D62-47324B4F8DB3 0x00000001018f8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_globals.2601.0.0.dylib
+[ 42] 186B9B3F-0D1F-3BE3-A532-AD7B8CD91F87 0x0000000101910000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_vlog_config_internal.2601.0.0.dylib
+[ 43] 72BBF456-D6BB-3647-8979-1C0E038357BD 0x000000010192c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_globals.2601.0.0.dylib
+[ 44] 3A37473A-2329-3ED7-94D5-84AC42C90435 0x0000000101640000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_internal_fnmatch.2601.0.0.dylib
+[ 45] 7329B95D-E7EE-3BC4-9830-0DDD73CA6B50 0x0000000101968000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_raw_hash_set.2601.0.0.dylib
+[ 46] F23EB31D-AEF0-3DE5-859A-F4E28E926019 0x0000000101948000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_distributions.2601.0.0.dylib
+[ 47] 20BDF41D-BE16-36E3-A005-10E616B37FBD 0x0000000101988000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_hashtablez_sampler.2601.0.0.dylib
+[ 48] 3989F52A-20CC-30CC-BCCB-97FA240A3EF6 0x00000001019a4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_seed_sequences.2601.0.0.dylib
+[ 49] 0E749073-5726-3F2D-8984-951E9C3DFF80 0x00000001018c8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_randen.2601.0.0.dylib
+[ 50] 30F41F43-948D-36A1-9868-A74C2A69BE7D 0x00000001019d8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_entropy_pool.2601.0.0.dylib
+[ 51] 63E96B01-8781-372E-8CAD-1DDB4743D9E9 0x00000001019bc000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_randen_hwaes.2601.0.0.dylib
+[ 52] 3CEDEFF3-BD9A-3D77-965C-1B82EFF1AA18 0x00000001019f4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_randen_hwaes_impl.2601.0.0.dylib
+[ 53] EEB46493-DF45-3693-B178-1B5BB062056E 0x0000000101a04000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_randen_slow.2601.0.0.dylib
+[ 54] 77803389-0ABA-31C3-A4C9-7D9360FF9C1F 0x0000000101d0c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_seed_gen_exception.2601.0.0.dylib
+[ 55] D31FE1D9-AC9E-306C-8268-AE5BF1874E1E 0x0000000101a14000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_seed_material.2601.0.0.dylib
+[ 56] B8736262-8CAB-3F2A-965B-8607E6A69B97 0x0000000101d38000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_statusor.2601.0.0.dylib
+[ 57] 4CCD5699-BE3D-372C-937A-60E626253225 0x0000000100fb8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_random_internal_platform.2601.0.0.dylib
+[ 58] E5C8DAEF-0B5C-355F-B595-D726A97E20D0 0x0000000101dc4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_cord.2601.0.0.dylib
+[ 59] 34615F30-4315-37D6-8F4B-39F5B7EB66CF 0x0000000101d78000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_status.2601.0.0.dylib
+[ 60] 83CBDA0B-C193-3B29-8EE8-595FC7671254 0x0000000101dec000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_cord_internal.2601.0.0.dylib
+[ 61] 658EAC48-40E5-3A8C-AB9F-3E0E698642A6 0x0000000101d54000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_cordz_info.2601.0.0.dylib
+[ 62] F160F623-CF27-3CCD-A805-7CD461BC0A00 0x0000000101d1c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_cordz_functions.2601.0.0.dylib
+[ 63] 3F7CF090-ECEB-3020-8649-5ACB4AA6F5D9 0x0000000101d9c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_exponential_biased.2601.0.0.dylib
+[ 64] 7C99A5BF-09D7-37F0-A4AB-49A4F33BE5DE 0x0000000101e28000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_cordz_handle.2601.0.0.dylib
+[ 65] BCF74645-DCB6-3689-8DFB-7D66B187F16C 0x0000000101e10000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_crc_cord_state.2601.0.0.dylib
+[ 66] 95139361-49F9-34CE-95CF-79E746B8AA8E 0x0000000101db0000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_crc_cpu_detect.2601.0.0.dylib
+[ 67] 1F6D14D9-E184-3C90-BE77-6377397584F4 0x000000010195c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_leak_check.2601.0.0.dylib
+[ 68] D966B69E-B52B-33BE-82C7-C20DF8064A35 0x0000000101a30000 /opt/homebrew/Cellar/sdformat16/16.0.1_4/lib/libsdformat.16.0.1.dylib
+[ 69] A7E1E43D-BDCD-34D9-AB2B-36AE3F526399 0x0000000101e5c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_crc32c.2601.0.0.dylib
+[ 70] CC6D18BE-B534-3E41-9DEA-E1A3B55281A2 0x0000000101e44000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_strerror.2601.0.0.dylib
+[ 71] 73223937-7F8C-30FF-A93E-834B52906033 0x0000000102eb4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_crc_internal.2601.0.0.dylib
+[ 72] 85353BB4-EEF0-3EEE-94F0-F50B8DFA1324 0x0000000102f20000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_borrowed_fixup_buffer.2601.0.0.dylib
+[ 73] 849E0B00-81FF-3977-969F-99AEA83694EE 0x0000000102ed8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_str_format_internal.2601.0.0.dylib
+[ 74] D185C089-C515-39BC-8E7B-1B307676993E 0x0000000101d2c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_city.2601.0.0.dylib
+[ 75] C8BCC288-8552-3AE4-A4D1-65B7B16DFEC7 0x0000000101e74000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_hash.2601.0.0.dylib
+[ 76] B92767D1-4CF1-3217-89A1-643957E07071 0x0000000102efc000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_synchronization.2601.0.0.dylib
+[ 77] 15193A09-8E29-355E-979A-F3CCFDD94F81 0x0000000101ea4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_debugging_internal.2601.0.0.dylib
+[ 78] D8F06E1A-3AE2-35AB-B9E8-6B9B6F0554A6 0x0000000102f64000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_symbolize.2601.0.0.dylib
+[ 79] 25CAEA37-58C1-327B-BCEE-3832B9CB0BCB 0x0000000101e8c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_stacktrace.2601.0.0.dylib
+[ 80] 01B1DF10-2123-3D07-A64F-51A3C07CAB48 0x0000000102f50000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_decode_rust_punycode.2601.0.0.dylib
+[ 81] 6BCF84BA-8E27-35D7-8B95-C39D97494534 0x0000000102f78000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_demangle_internal.2601.0.0.dylib
+[ 82] 872D0491-363A-328E-A4A7-531D048C9EF5 0x0000000102f8c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_demangle_rust.2601.0.0.dylib
+[ 83] 2160B4E8-50E8-32DE-B4C0-1D237DD1C2D0 0x0000000102fa0000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_utf8_for_code_point.2601.0.0.dylib
+[ 84] 6AC976FA-7D67-32BE-93DB-93A3E5985A4B 0x0000000102fc0000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_graphcycles_internal.2601.0.0.dylib
+[ 85] 0140095D-6E12-3FF8-BB67-502F6C7C0B8E 0x0000000102fd8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_kernel_timeout_internal.2601.0.0.dylib
+[ 86] 4BA025A4-7A65-3A4E-90E9-77CCACC64541 0x0000000102fec000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_tracing_internal.2601.0.0.dylib
+[ 87] 9FAD9D0E-699B-3FB3-9933-4D6365A00602 0x0000000102fac000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_malloc_internal.2601.0.0.dylib
+[ 88] 1B35688D-8867-3DA3-B1C6-C3E0F5E3D427 0x0000000103014000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_time.2601.0.0.dylib
+[ 89] CDC80034-E9A4-35D1-AF65-5A18A49EFABC 0x0000000102ff8000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_civil_time.2601.0.0.dylib
+[ 90] 561252FA-BDB1-3C49-A7A0-B462BEC8D670 0x0000000103030000 /opt/homebrew/Cellar/protobuf/35.1/lib/libutf8_validity.35.1.0.dylib
+[ 91] 33D5D2FD-1B31-3579-9E87-372AB7BDC9FC 0x000000010305c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_time_zone.2601.0.0.dylib
+[ 92] CD2DBAEE-3766-363E-94E0-75DA73751C4D 0x0000000103088000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_strings_internal.2601.0.0.dylib
+[ 93] CCFA84B9-667B-3817-B747-9673B6CA8F85 0x0000000103040000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_int128.2601.0.0.dylib
+[ 94] 8C653D91-757C-3DF4-B194-306508E682A4 0x0000000103098000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_base.2601.0.0.dylib
+[ 95] 34AE706C-EC79-3A33-987E-048048081FA9 0x00000001030b4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_strings.2601.0.0.dylib
+[ 96] EC42E16A-9A9E-35F8-83DA-62856FFE0FC3 0x00000001030e0000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_spinlock_wait.2601.0.0.dylib
+[ 97] 46CB9108-FA4F-32C6-B619-08A48B010D28 0x00000001030f4000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_throw_delegate.2601.0.0.dylib
+[ 98] D8C7B98F-F2FF-3DC9-AD6B-B139196003CE 0x000000010338c000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_raw_logging_internal.2601.0.0.dylib
+[ 99] 6420413F-888B-34A0-8A2D-FF7EB1FBCB82 0x0000000103104000 /opt/homebrew/Cellar/abseil/20260107.1/lib/libabsl_log_severity.2601.0.0.dylib
+[100] E11A981F-D4A4-3608-9E3D-AE9640D293FE 0x0000000103378000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common-events.7.1.1.dylib
+[101] 633F1B92-6DB5-3281-A423-4E375C80F5FE 0x00000001033bc000 /opt/homebrew/Cellar/gz-utils4/4.0.0_6/lib/libgz-utils-log.4.0.0.dylib
+[102] 183F6ED3-182D-30D3-B5F9-CBEF4A2EF781 0x0000000103668000 /opt/homebrew/Cellar/protobuf/35.1/lib/libprotobuf.35.1.0.dylib
+[103] 9FABD9BA-E422-3519-8D73-51CBB54D8840 0x0000000100fc4000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/libgz-sim.10.4.0.dylib
+[104] A516CB44-FD4D-322B-B9BD-FDC74EC76528 0x0000000103484000 /opt/homebrew/Cellar/fmt/12.2.0/lib/libfmt.12.2.0.dylib
+[105] 0D03B2B5-26AA-389E-AA18-5B7F24603BFE 0x00000001033d8000 /opt/homebrew/Cellar/gz-plugin4/4.0.0_6/lib/libgz-plugin.4.0.0.dylib
+[106] C23505CC-ABC9-3EAF-95BC-482A7FD0D1E7 0x0000000103458000 /opt/homebrew/Cellar/gz-utils4/4.0.0_6/lib/libgz-utils.4.0.0.dylib
+[107] 7725B904-A09D-32BA-908A-0DC79FA22EDA 0x0000000103560000 /opt/homebrew/Cellar/tinyxml2/11.0.0/lib/libtinyxml2.11.0.0.dylib
+[108] D1412230-3CDC-345A-8DE6-D50E32F7EB4B 0x0000000103538000 /opt/homebrew/Cellar/gz-plugin4/4.0.0_6/lib/libgz-plugin-loader.4.0.0.dylib
+[109] 10E8891C-C7E0-3CA5-AFE2-0B85944F88C3 0x00000001033fc000 /opt/homebrew/Cellar/gz-common7/7.1.1_2/lib/libgz-common.7.1.1.dylib
+[110] 137186C7-BFC3-32FA-A40B-43070E5DD889 0x0000000103594000 /opt/homebrew/Cellar/gz-math9/9.1.0/lib/libgz-math.9.1.0.dylib
+[111] 19A75B88-E599-31BB-BC95-F0151A111EE2 0x0000000103620000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQuickControls2.framework/Versions/A/QtQuickControls2
+[112] D0B78360-B719-3495-B3B6-D360B10ADB99 0x00000001034c8000 /opt/homebrew/Cellar/spdlog/1.17.0/lib/libspdlog.1.17.0.dylib
+[113] F6B46BF7-8285-38C4-A204-D79FB8586244 0x0000000103114000 /opt/homebrew/Cellar/gz-msgs12/12.0.1_10/lib/libgz-msgs.12.0.1.dylib
+[114] 6373CFAA-6ED3-3CEC-B6E8-96D66F8F67D7 0x0000000103a08000 /opt/homebrew/Cellar/qtbase/6.11.1/lib/QtOpenGL.framework/Versions/A/QtOpenGL
+[115] 1EDBADF8-E572-34E8-B7C5-ED6F511D76CD 0x000000010399c000 /opt/homebrew/Cellar/jsoncpp/1.9.8/lib/libjsoncpp.27.dylib
+[116] B6DA487F-466C-3A9D-80E4-DA11DBB76878 0x0000000103958000 /opt/homebrew/Cellar/libyaml/0.2.5/lib/libyaml-0.2.dylib
+[117] FA9E8C07-1235-31B9-982C-2DDFE9872533 0x00000001039e0000 /opt/homebrew/Cellar/libzip/1.11.4_1/lib/libzip.5.5.dylib
+[118] 068263F7-CF15-3E1C-A305-5DF8F9C51AD5 0x00000001936dd000 /usr/lib/libSystem.B.dylib
+[119] 4242CCFB-F060-3493-B555-C26217B4F080 0x00000001936d7000 /usr/lib/system/libcache.dylib
+[120] 65A3AFCF-9611-35C1-9697-8CF5409F0C83 0x0000000193692000 /usr/lib/system/libcommonCrypto.dylib
+[121] 7720A496-7B7A-33C1-B7F3-9E8B7DEA0622 0x00000001936bd000 /usr/lib/system/libcompiler_rt.dylib
+[122] 459F7A49-1FEF-329E-8FC0-0A5FF6FBD902 0x00000001936b2000 /usr/lib/system/libcopyfile.dylib
+[123] 00D81A3B-8152-35CF-B1AE-7364B4832072 0x00000001851df000 /usr/lib/system/libcorecrypto.dylib
+[124] 63A54CE1-2AB6-3673-82E4-D8489D811475 0x00000001852c6000 /usr/lib/system/libdispatch.dylib
+[125] E4FE35C9-8AEE-3728-89B9-89A64239ED74 0x0000000185486000 /usr/lib/system/libdyld.dylib
+[126] EE1B8708-02B1-385D-B648-E87B4D25391B 0x00000001936cd000 /usr/lib/system/libkeymgr.dylib
+[127] CD255FF9-4E35-347A-B7E9-304517D3A871 0x0000000193675000 /usr/lib/system/libmacho.dylib
+[128] B274436C-379E-3E0F-B8E2-A7AA69E46E73 0x0000000192aa2000 /usr/lib/system/libquarantine.dylib
+[129] E34EF2FA-1C55-3222-B1A2-CEEEC4B02F3D 0x00000001936ca000 /usr/lib/system/libremovefile.dylib
+[130] 0574F75C-FB20-3114-8C16-E17D821FFCBD 0x000000018b47c000 /usr/lib/system/libsystem_asl.dylib
+[131] EFADF6A6-C85B-37E9-9514-8E7A1EBAC882 0x0000000185174000 /usr/lib/system/libsystem_blocks.dylib
+[132] E098CB59-2C56-395C-ADE1-6EF590E61199 0x0000000185310000 /usr/lib/system/libsystem_c.dylib
+[133] 04F3AE1A-0F6D-3F68-84E0-EAFFBC0CE0A5 0x00000001936c1000 /usr/lib/system/libsystem_collections.dylib
+[134] 17DACC61-AB01-3605-B2C8-618E4781B649 0x0000000191a92000 /usr/lib/system/libsystem_configuration.dylib
+[135] 33FB585C-7D34-3F5D-97A0-501C5FAC3F11 0x0000000190828000 /usr/lib/system/libsystem_containermanager.dylib
+[136] 985B59F1-7321-37D0-8182-27B82BD7D1B1 0x00000001931b8000 /usr/lib/system/libsystem_coreservices.dylib
+[137] 62C85958-8310-3625-ADF0-DCD58D08BEB9 0x0000000188f80000 /usr/lib/system/libsystem_darwin.dylib
+[138] 8627B2A8-CE68-3F9A-B3E8-2F4E4E35CF66 0x000000026df09000 /usr/lib/system/libsystem_darwindirectory.dylib
+[139] EE79FBDA-E408-3D4C-A0EE-C56BE107CC06 0x00000001936ce000 /usr/lib/system/libsystem_dnssd.dylib
+[140] B76C1C04-8001-3113-BE6E-FDDEA1118104 0x000000026df0d000 /usr/lib/system/libsystem_eligibility.dylib
+[141] 9AF1C2C7-1C15-3F0E-9C0F-4524BD4EB4CF 0x000000018530d000 /usr/lib/system/libsystem_featureflags.dylib
+[142] 3B2CAC89-F7B9-3111-9EB6-84A87EEBBAD7 0x00000001854be000 /usr/lib/system/libsystem_info.dylib
+[143] 5F5F2F2E-557D-3441-8566-8B2009538753 0x0000000193636000 /usr/lib/system/libsystem_m.dylib
+[144] 3CE1E59C-91C8-3259-93D8-7DED66842979 0x000000018527e000 /usr/lib/system/libsystem_malloc.dylib
+[145] 5C0C1505-266B-3544-B970-BE347DAF2AAF 0x000000018b3e5000 /usr/lib/system/libsystem_networkextension.dylib
+[146] CA2AAD14-C438-30E8-9699-5A947E2DF021 0x00000001893e2000 /usr/lib/system/libsystem_notify.dylib
+[147] CDEA0D5C-056D-308C-8544-C36BA2B389B1 0x0000000191a97000 /usr/lib/system/libsystem_sandbox.dylib
+[148] 6143DE0A-A328-3649-AF7D-8FC8781B86E7 0x000000026df15000 /usr/lib/system/libsystem_sanitizers.dylib
+[149] 63965812-869C-3C3C-A950-FA563CE8EB1E 0x00000001936c6000 /usr/lib/system/libsystem_secinit.dylib
+[150] 1D4FFD44-8926-3746-924E-DEEF5B777588 0x000000018543d000 /usr/lib/system/libsystem_kernel.dylib
+[151] C26E58A4-34A1-3F9C-BDBC-EBC34426633A 0x00000001854b6000 /usr/lib/system/libsystem_platform.dylib
+[152] 022DC315-CF35-38DA-939E-03800B5BEFF2 0x0000000185479000 /usr/lib/system/libsystem_pthread.dylib
+[153] FDBF294D-E745-3E89-B474-DADA17135BEE 0x000000018cfd9000 /usr/lib/system/libsystem_symptoms.dylib
+[154] 9DBBEE92-6C08-39F7-A05E-5054A79D28F6 0x00000001851c3000 /usr/lib/system/libsystem_trace.dylib
+[155] FA046DDB-1518-353B-A9B6-CD622328B746 0x00000001936a0000 /usr/lib/system/libunwind.dylib
+[156] B7303BD5-2EAD-3A97-8419-5A1454C5E513 0x0000000185178000 /usr/lib/system/libxpc.dylib
+[157] E6F30EB4-FACF-3381-AE46-10E556F1FC39 0x0000000185084000 /usr/lib/libobjc.A.dylib
+[158] FF6154A8-CA4B-36B5-A885-442AC72EEC21 0x0000000103ccc000 /opt/homebrew/Cellar/qtbase/6.11.1/lib/QtNetwork.framework/Versions/A/QtNetwork
+[159] C127B55B-24BA-3E92-8699-534FB0E7453A 0x00000001054bc000 /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Python
+[160] BC670272-BF32-38AC-AE3F-F06EDA80BE30 0x000000018541f000 /usr/lib/libc++abi.dylib
+[161] CD13AF03-27E5-387A-8DF1-7016C957167A 0x00000001936aa000 /usr/lib/libRosetta.dylib
+[162] EB94C9FE-91DA-3E9F-9C45-7B476FEAAEAE 0x0000000185392000 /usr/lib/libc++.1.dylib
+[163] 37CEBB20-0448-392C-9F01-F5BD87EB295E 0x00000001854ee000 /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+[164] 30717944-0861-38E4-A24F-D74688370664 0x000000019f87d000 /usr/lib/swift/libswiftObjectiveC.dylib
+[165] F0485287-4A54-3F9F-A658-9FBC91161E9A 0x000000018927e000 /System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+[166] C2CB23F0-65F4-3FF1-9A3D-590C7890827D 0x00000001936df000 /usr/lib/libfakelink.dylib
+[167] 78C5F411-EEE9-3E0D-B0AF-7BD48A0B9513 0x0000000104e8c000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQml.framework/Versions/A/QtQml
+[168] 5362D661-B36E-30F2-986E-F57218A1D828 0x00000001936e2000 /System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+[169] 5E4A5BB2-3440-3D60-945D-63D9B7AB7E9B 0x000000019b102000 /System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+[170] 46554155-2B5F-3713-AC52-195F1A6BEB36 0x00000001062a0000 /opt/homebrew/Cellar/qtbase/6.11.1/lib/QtCore.framework/Versions/A/QtCore
+[171] 384764F2-95D3-31B3-8341-7171B544A60F 0x0000000105bac000 /opt/homebrew/Cellar/qtbase/6.11.1/lib/QtWidgets.framework/Versions/A/QtWidgets
+[172] E081F692-3002-36FD-95AF-74D6AB9F9D31 0x0000000106afc000 /opt/homebrew/Cellar/qtbase/6.11.1/lib/QtGui.framework/Versions/A/QtGui
+[173] ED44F84B-6EB5-32EC-914D-901D456D4076 0x00000001ab282000 /System/Library/Frameworks/NetFS.framework/Versions/A/NetFS
+[174] 2A2BDEAC-C798-3D2B-A03C-1AEDE8881F8E 0x000000019ed76000 /System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages
+[175] BB8BE51D-0D57-31BE-A34E-07AFF4A61F90 0x00000001892ff000 /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+[176] BDAFFBAA-553F-3BDE-814F-615E737B8BF3 0x000000018ecab000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+[177] 5A8AB5D2-79D5-389E-8C2D-27D6C797125A 0x0000000188cb4000 /usr/lib/libicucore.A.dylib
+[178] DFFD8337-DE3A-3B5B-897F-76DA49987B3B 0x00000001931bf000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+[179] 66FBBCA0-DA12-3C8E-A3E7-98DA4ECF4B25 0x00000001040dc000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQuick.framework/Versions/A/QtQuick
+[180] 9F093691-D69B-340A-8011-D9E096780C7E 0x000000018cf54000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+[181] 0B985D17-F2FC-33EC-AC90-5D6DD50496A2 0x000000018e11f000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+[182] 204AB77B-4B37-3D32-A846-953FF69D344A 0x000000019382c000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+[183] D06F10D9-4D68-37B6-A997-8EFFE814B1C3 0x0000000194c43000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+[184] 90FB276F-577F-382E-83D5-57B4B93DA6AA 0x0000000188f8b000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+[185] E6CB2BCD-FC86-357C-8EE2-1035089423D3 0x00000001938c2000 /usr/lib/libapple_nghttp2.dylib
+[186] E1B3EBDF-E94D-3FB8-B02F-A2C0D47AFBEC 0x000000019390b000 /usr/lib/libcompression.dylib
+[187] 2FDBE7D6-C953-384E-B9FD-B8F15C552F0C 0x000000018ecb9000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+[188] 2AB05CCB-9E32-3B66-9E12-51B6FF7A9C40 0x0000000193627000 /usr/lib/libz.1.dylib
+[189] BE05955F-15BF-37AB-AE9D-929DBC6D055F 0x0000000186742000 /System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+[190] 04D1D704-9982-30D1-947D-A127797660B1 0x00000001ad37e000 /System/Library/Frameworks/AVFoundation.framework/Versions/A/AVFoundation
+[191] C0004C43-71A8-34FB-849D-8B859E8B163D 0x000000018cbb5000 /usr/lib/libsqlite3.dylib
+[192] A4FEA26F-0674-37EB-B9A2-826F12AAAA67 0x000000018e08b000 /System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+[193] 50F1DB43-7F91-3279-AAFC-EF48F569C7CF 0x000000019efbc000 /System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport
+[194] F6761511-E2D2-3117-B817-284C7103E49A 0x00000001978fa000 /System/Library/Frameworks/GSS.framework/Versions/A/GSS
+[195] A92E2260-5C74-3061-AD6C-0AD1564D9458 0x0000000195ed7000 /System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+[196] 5D257106-EF74-3F19-8967-E6E531B0696A 0x000000018b400000 /usr/lib/libenergytrace.dylib
+[197] 88437C6A-5EDB-3F27-A397-E2EB522E7A53 0x000000018ceeb000 /System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+[198] 5298D0E2-9DE2-3770-941A-BFF54E1CD22F 0x000000018e0bc000 /usr/lib/libDiagnosticMessagesClient.dylib
+[199] B2FE08CD-552C-3145-A306-FE7211B4AA1F 0x0000000192ac9000 /usr/lib/libbsm.0.dylib
+[200] 87F5AE84-5E3C-3173-AF63-31A8BE50ED98 0x0000000193679000 /usr/lib/system/libkxld.dylib
+[201] 50379C00-5626-3CA9-BF46-432BA61AE3F2 0x00000001888af000 /System/Library/Frameworks/Security.framework/Versions/A/Security
+[202] 7849F974-A2DC-39C4-B22F-A0EC54C4BC4F 0x000000026c936000 /usr/lib/libCoreEntitlements.dylib
+[203] F984E88B-06EA-3EE3-A43B-84D44C0A6136 0x000000022f321000 /System/Library/PrivateFrameworks/AppleKeyStore.framework/Versions/A/AppleKeyStore
+[204] 216433B9-554A-3A9C-B169-F05F6950AFBF 0x000000018b01b000 /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+[205] 772475CA-4C1C-3D99-B9E8-413EFBAFAAE2 0x000000018cb9a000 /System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+[206] 6BF2EB86-C172-31BB-A341-6D41F827D816 0x000000019319f000 /System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+[207] 1AB6A438-2A4B-3D6C-B3E9-28326E32BF0D 0x0000000192ab1000 /usr/lib/libcoretls.dylib
+[208] B921F5F1-3CB0-336C-9A2F-8511C8FAF168 0x0000000194cb9000 /usr/lib/libcoretls_cfhelpers.dylib
+[209] B8987861-EE2F-3C64-B3AB-85931371648B 0x0000000193905000 /usr/lib/libpam.2.dylib
+[210] 95AD8CA2-3727-39AE-BA6B-5BEB50664511 0x000000018b402000 /usr/lib/libMobileGestalt.dylib
+[211] F0C43391-B50C-324C-A5B5-267968205F59 0x0000000194d2d000 /usr/lib/libxar.1.dylib
+[212] 14C544A5-6F35-3632-8987-34E8A62DC6A5 0x000000018e1aa000 /System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+[213] 8613A080-9D67-3E12-AEF0-5227A6D70302 0x000000024a30f000 /System/Library/PrivateFrameworks/MessageSecurity.framework/Versions/A/MessageSecurity
+[214] 9C6B3CD1-09CE-3E19-B3AD-1F03520B90AD 0x0000000185a2d000 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+[215] CD8A32BB-3F05-374F-B150-08E7BD4DAEF5 0x0000000191aa5000 /usr/lib/liblangid.dylib
+[216] 2B5ACA8F-9F09-3780-884F-F48BCEFB5CAD 0x0000000193734000 /usr/lib/libarchive.2.dylib
+[217] B31FEEDD-D02C-3BB6-8E14-CBB4784EC642 0x000000018ed31000 /usr/lib/libxml2.2.dylib
+[218] 9E8127D7-FD36-3FE6-BD8B-A888EAC3BDF8 0x000000018ece7000 /System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+[219] 7448763B-E0BF-3F1A-BB98-A2002CA482D6 0x000000025336a000 /System/Library/PrivateFrameworks/ReflectionInternal.framework/Versions/A/ReflectionInternal
+[220] 40FD2B48-2BE4-3E57-8CD8-AF602778C80A 0x00000001ae3f0000 /usr/lib/swift/libswiftCoreFoundation.dylib
+[221] DCF43205-20B2-31FC-8437-B72D5B1136B2 0x00000001ab759000 /usr/lib/swift/libswiftDarwin.dylib
+[222] 36874342-C176-38F6-9F64-0381B7500188 0x000000018b9de000 /System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+[223] 824AFD0D-2EB0-3C70-86ED-12BE2FC4F097 0x00000001ae44b000 /usr/lib/swift/libswiftIOKit.dylib
+[224] EA3ACABE-0C19-3709-B32E-0FFBA2713C4C 0x0000000254041000 /System/Library/PrivateFrameworks/RuntimeInternal.framework/Versions/A/RuntimeInternal
+[225] 4E2F0109-0344-33C3-B4AD-C11A200E57F1 0x000000019cbfb000 /usr/lib/swift/libswiftDispatch.dylib
+[226] DFB0BA61-4199-304A-9AE1-78172F243747 0x000000026dbd4000 /usr/lib/swift/libswift_Builtin_float.dylib
+[227] 922EA785-FFCA-3B66-9CEA-14104120889A 0x000000026db65000 /usr/lib/swift/libswiftSystem.dylib
+[228] C169398F-E4C2-304D-9339-9F595C1A99EC 0x00000002334ba000 /System/Library/PrivateFrameworks/CollectionsInternal.framework/Versions/A/CollectionsInternal
+[229] 20347D11-39F9-320A-8455-0E76CE4EEDA0 0x000000026ddc9000 /usr/lib/swift/libswift_errno.dylib
+[230] A5A4828D-3357-3D55-800A-7DC0DC978143 0x000000026ddcb000 /usr/lib/swift/libswift_math.dylib
+[231] 20440776-27A0-3DC3-BC21-4B67EA5D345E 0x000000026ddce000 /usr/lib/swift/libswift_signal.dylib
+[232] 6CA2EE3B-6B8D-3B13-B933-FB7F7F942D5D 0x000000026ddcf000 /usr/lib/swift/libswift_stdio.dylib
+[233] BCC13232-8C24-38EF-B23A-B0DD6743FB0E 0x000000026ddd0000 /usr/lib/swift/libswift_time.dylib
+[234] 3AF68747-A111-3B2C-98A8-FF478D3580C4 0x000000019f881000 /usr/lib/swift/libswiftos.dylib
+[235] 677E27EC-8A91-3BC5-A827-56862D07EF63 0x000000026ddd1000 /usr/lib/swift/libswiftsys_time.dylib
+[236] 03F5B6F3-C404-370C-8518-52364C49FB28 0x000000026ddd2000 /usr/lib/swift/libswiftunistd.dylib
+[237] BA9F47D7-0921-303E-A184-DECAA00956D9 0x0000000191aa0000 /System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+[238] 67035343-1F6C-3A66-B6A5-B93316271C1C 0x00000001ae402000 /usr/lib/swift/libswiftXPC.dylib
+[239] 5A83B50A-168B-3ABD-8106-0C6FF0869667 0x000000026dd36000 /usr/lib/swift/libswift_StringProcessing.dylib
+[240] 15F5D0D7-4B7C-3662-8115-861E1DE91826 0x000000026dbd7000 /usr/lib/swift/libswift_Concurrency.dylib
+[241] 55AF78BF-C16F-3536-98B4-9A320D1E21D2 0x0000000198ffd000 /System/Library/Frameworks/Combine.framework/Versions/A/Combine
+[242] A993C792-1449-3B91-AA5E-5BB7BC1B3276 0x00000001ae2db000 /System/Library/PrivateFrameworks/LoggingSupport.framework/Versions/A/LoggingSupport
+[243] AC32223C-B112-31F6-8141-07945E640C09 0x000000019c0bc000 /System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+[244] 6B380C0D-2CE1-3481-AFEE-32E0383E6C05 0x000000018aa92000 /System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+[245] 6E4E7AC7-9B0F-394D-A6A4-61F364E4A6C1 0x000000018eebc000 /System/Library/PrivateFrameworks/UserManagement.framework/Versions/A/UserManagement
+[246] 70E06C9D-41D9-3686-83FF-FB9F4B5C3B38 0x000000018cfc8000 /usr/lib/libdns_services.dylib
+[247] D1977AB5-BA0E-3927-842C-926F3534D00A 0x00000001ad48a000 /usr/lib/libquic.dylib
+[248] 7FBA41C4-1137-36A5-B112-C8194A2E7A32 0x0000000196bdb000 /usr/lib/libusrtcp.dylib
+[249] 1CFBA339-D0F0-3EA7-BC63-4EB59979EFDD 0x000000019e8e8000 /System/Library/PrivateFrameworks/CoreWiFi.framework/Versions/A/CoreWiFi
+[250] 7C27FB35-FBDE-31F9-A2FB-04E323FA6F5D 0x000000018af49000 /usr/lib/libboringssl.dylib
+[251] 099A74B0-D008-31F6-9212-556C692D33D9 0x000000018cfe2000 /System/Library/Frameworks/Network.framework/Versions/A/Network
+[252] 67E227B6-E942-31E3-A220-3080BD75B6EA 0x00000001ebe66000 /System/Library/Frameworks/SwiftData.framework/Versions/A/SwiftData
+[253] 93A84760-9028-3A6F-ACA6-087A0FDD9D9F 0x0000000196c4c000 /usr/lib/swift/libswiftCore.dylib
+[254] 99EB32B5-19F8-3B45-9851-06663C8237F0 0x000000018b01a000 /usr/lib/libnetwork.dylib
+[255] 3617E1F9-FD12-33E3-A4E7-5AF311FEB588 0x000000019389d000 /System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+[256] CEB18E33-41C5-346A-B5A7-9126A4296D92 0x000000026daee000 /usr/lib/swift/libswiftObservation.dylib
+[257] 4FC0C999-44A8-3A80-9CC7-BB630ADECEEF 0x000000026dac2000 /usr/lib/swift/libswiftDistributed.dylib
+[258] 83A73E68-CA05-3002-9F1C-1C46D70CAA31 0x000000026db5b000 /usr/lib/swift/libswiftSynchronization.dylib
+[259] BBD43490-112E-363F-ADEC-90F152334661 0x000000019d4a9000 /System/Library/PrivateFrameworks/Rapport.framework/Versions/A/Rapport
+[260] D41D3126-6743-348C-9152-709F724B774A 0x00000001931ab000 /usr/lib/libbz2.1.0.dylib
+[261] 5AB64C0F-6D4D-3213-86A3-8EC9F17B09A8 0x0000000194c9a000 /usr/lib/liblzma.5.dylib
+[262] E2994B00-FCFA-34C5-99B3-3E5F52A5B3E0 0x000000019d36d000 /System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+[263] 3F232743-4D53-3A12-84E5-A238B88A450E 0x000000026c801000 /usr/lib/libAppleArchive.dylib
+[264] 71E43952-CA91-3DAC-A910-B6FA0C2208F7 0x000000019279d000 /System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+[265] 952A3208-E1C2-37B6-BDF7-B004DFFC9213 0x00000001bef91000 /System/Library/PrivateFrameworks/OSAnalytics.framework/Versions/A/OSAnalytics
+[266] 9C91BAC1-9606-3145-8426-49D7FE8C8EC0 0x00000001ae364000 /System/Library/PrivateFrameworks/MallocStackLogging.framework/Versions/A/MallocStackLogging
+[267] EB0F313E-8AA9-3797-BA65-DDA83FBD67A0 0x0000000194e88000 /System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport
+[268] 7932EAAD-BE06-3EC2-8C81-11B0D292F964 0x00000002426ab000 /System/Library/PrivateFrameworks/IPConfiguration.framework/Versions/A/IPConfiguration
+[269] E2AAA2AE-A752-3319-9BD0-DF71DE1730AE 0x000000026d383000 /usr/lib/libmrc.dylib
+[270] 9981F3EF-247E-3D88-8954-180533E0720D 0x0000000186539000 /System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+[271] 268C8D14-934E-3975-A80D-8DFDC87E6E2A 0x0000000190859000 /System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+[272] 158F00EE-B9D3-36E6-B90A-E5B6582109C5 0x00000001ce213000 /System/Library/PrivateFrameworks/Netrb.framework/Versions/A/Netrb
+[273] 2108EAF5-C51F-3685-BA7E-0D9BF8A83189 0x000000024264e000 /System/Library/PrivateFrameworks/IO80211.framework/Versions/A/IO80211
+[274] DCC9FD64-EA35-369D-9CFF-FF72F02DC336 0x0000000192b3b000 /usr/lib/libgermantok.dylib
+[275] E52A4C67-FC0E-379E-8DFC-15026C167316 0x0000000191bc4000 /System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+[276] 319D6430-D27D-3294-9F3C-7A6630A8F2EA 0x00000001d9196000 /System/Library/PrivateFrameworks/WiFiPeerToPeer.framework/Versions/A/WiFiPeerToPeer
+[277] DD9C5344-184C-366D-8503-AEAC71267AAD 0x00000001cda9e000 /System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication
+[278] 8217824C-90B1-385F-9A8E-2D26BCDD8138 0x000000019cf60000 /System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices
+[279] 46C5CCA6-F3F2-3E28-BFA1-FAA717530B15 0x00000001929ca000 /System/Library/PrivateFrameworks/AssertionServices.framework/Versions/A/AssertionServices
+[280] 900D2073-4104-3E18-B333-C10C9BD64604 0x000000019d391000 /System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication
+[281] EFF394A0-67AA-39A1-9246-496A801BE2DD 0x00000001929d9000 /System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+[282] EF83F6FF-946C-346C-A210-E5B84176FCD3 0x000000018ce06000 /System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+[283] FBD4C78E-78E7-31A8-9931-A3F34996B520 0x000000019ebb0000 /System/Library/PrivateFrameworks/BackBoardServices.framework/Versions/A/BackBoardServices
+[284] C56A0428-C8C5-3D41-AA73-03B46DDD1A50 0x000000019b3ae000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+[285] 82B67457-0F55-36E0-9AFE-A62C0C7C64A5 0x00000001a25ab000 /System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+[286] DDCB4DD2-104D-321D-9776-8713F8B28456 0x000000019ce93000 /System/Library/PrivateFrameworks/FrontBoardServices.framework/Versions/A/FrontBoardServices
+[287] A575D597-404F-3462-A008-D8DF5D841ADA 0x0000000195773000 /System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+[288] 563B81ED-2DB6-3A71-BECB-BF2F29DCD308 0x000000018b494000 /System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+[289] C4A8C092-359E-3182-A0F7-F5F54E9F321C 0x00000001d1dd5000 /System/Library/PrivateFrameworks/InternalSwiftProtobuf.framework/Versions/A/InternalSwiftProtobuf
+[290] F5E6978D-8E7E-3AAB-A099-6572AEFC6024 0x0000000190872000 /System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+[291] 274005DD-76F1-3FEA-921D-B59795A2E9CB 0x0000000187a84000 /System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+[292] 07221A5F-3241-388C-835E-5C7177FA0B23 0x000000018ee1b000 /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+[293] 3302967F-C2D3-3C89-AB7A-A53C14F3E993 0x0000000193903000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+[294] 4BB882B7-E627-3CDC-B306-760E4D01C7F4 0x0000000195775000 /System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+[295] 46F991AE-A5EC-3591-ABB0-C45CA27A4CCC 0x00000002526a8000 /System/Library/PrivateFrameworks/ProDisplayLibrary.framework/Versions/A/ProDisplayLibrary
+[296] A7A9F16D-E242-354A-ABB8-B5A30980F899 0x0000000190c73000 /System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+[297] BAC21D23-2543-31CC-B09E-50AFE4401A79 0x00000001bafbb000 /usr/lib/swift/libswiftMetal.dylib
+[298] 5F11EAAB-A7F2-3FEB-86CA-D49199965174 0x00000001c9f60000 /usr/lib/swift/libswiftOSLog.dylib
+[299] 55BC34A8-77B8-325D-A54B-6C0CCCD0669E 0x0000000190b17000 /System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+[300] D59A8660-07B6-3E40-A9B5-78A86A45B451 0x00000001c035d000 /usr/lib/swift/libswiftQuartzCore.dylib
+[301] D78E4A52-D6E8-3D88-AAF0-C3C8F583A965 0x00000001957bb000 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+[302] 29B4E36D-653F-344C-A7E4-E026F4D943C0 0x00000001c49b8000 /usr/lib/swift/libswiftUniformTypeIdentifiers.dylib
+[303] 59BFC64B-EB05-3143-8B92-4289E054B08A 0x00000001929ad000 /System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+[304] AAAABC95-A0A2-3E2E-995E-64D59B3456A3 0x0000000191a9e000 /System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+[305] FBB7ACD7-34C1-320E-9E3E-97477BDAC088 0x0000000194d3c000 /usr/lib/libutil.dylib
+[306] FE6AFD4D-ED96-3EFD-A16E-43F80CE1CB89 0x00000001912a3000 /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+[307] C50ECB77-B76D-3D94-9B28-DDE5B14F2A6A 0x0000000194cbb000 /System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+[308] 63F0E54D-153E-343A-B824-5AB48B1251B3 0x000000019b0dd000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+[309] 47D29A41-C864-331C-BD59-F607FBA71516 0x00000001b1ca4000 /usr/lib/swift/libswiftsimd.dylib
+[310] 4B74F2BD-3BAE-38C0-986D-F4CA75FE6620 0x0000000194d74000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+[311] 346ECA66-03DD-3709-9D5C-F4CD0A0DC237 0x000000019f2c3000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+[312] C75EA3C8-A72E-3F07-9DAF-0D034CA601ED 0x000000025d5cd000 /System/Library/PrivateFrameworks/SwiftASN1Internal.framework/Versions/A/SwiftASN1Internal
+[313] 5EA4398F-08F0-3AFA-ABA5-542BBCBC3CC2 0x000000018e1b4000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+[314] C32B545C-4E67-304A-8CFD-DA9D0D7A796A 0x0000000185ea5000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+[315] 61D7B1B2-42DF-38CE-BFC9-4CD4509CEBF1 0x0000000197507000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+[316] 0FD09736-661D-391A-B963-598C24716C07 0x000000018c10f000 /System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+[317] 2AC75583-4ED7-3428-B497-EB43D83F4AD2 0x00000001978c4000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+[318] 518F20B6-A84F-3AEC-AFE8-3581355EF297 0x000000018c2c5000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+[319] 62E404A6-B2BC-327B-884C-6E794C1AE079 0x00000001978bb000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+[320] 748D9D81-1030-37E3-B1D1-02D3D3D473E1 0x0000000195dc0000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+[321] B7FC7AD4-62BA-341D-B845-19DC68F924E5 0x0000000239713000 /System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+[322] 27FEF803-5F30-3A4C-AF4F-6EEB7AF85EE9 0x00000001974d9000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+[323] DFF5855F-059E-3530-A01B-E657C09DCA39 0x000000019276a000 /System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+[324] A452E71C-59D0-3469-9C0D-3840804ECF0C 0x00000001b4abf000 /System/Library/PrivateFrameworks/MSUDataAccessor.framework/Versions/A/MSUDataAccessor
+[325] 95EC3610-E01A-3730-9CD5-B6B18C5B0560 0x000000018b4b7000 /System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+[326] DE2D3954-EAD1-34FF-925E-83DABCC62856 0x00000001b02b4000 /usr/lib/libbootpolicy.dylib
+[327] CF30278E-AD94-340B-B992-77904834B9DA 0x00000001952c1000 /System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+[328] A6898320-5A70-327E-BD56-3D4FA016A39C 0x0000000187f5d000 /System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+[329] 20EB683C-8BFE-38BE-A464-4C8953F22F1B 0x000000026cad6000 /usr/lib/libReverseProxyDevice.dylib
+[330] 57F5DA1F-05F4-3FB2-8BC2-0FA451352ABE 0x000000022ed0b000 /System/Library/PrivateFrameworks/AppleDeviceQuerySupport.framework/Versions/A/AppleDeviceQuerySupport
+[331] 1B375BA3-E776-36CA-888B-6B40DAF42C92 0x000000019087c000 /System/Library/Frameworks/Metal.framework/Versions/A/Metal
+[332] B6C581B5-A7F9-3502-AFBB-B8F5AF12A63E 0x00000001c4bbf000 /usr/lib/libpartition2_dynamic.dylib
+[333] 893FDBD1-E98D-3DAD-8E7D-BB732BB4F2B7 0x000000018e998000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+[334] F4B507C4-0FAC-308A-AC29-FB3E64505CD8 0x000000018e5c4000 /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+[335] 54CB640D-AF86-3D4B-BFA9-94FB875EC6D8 0x00000001c1cd2000 /usr/lib/libamsupport.dylib
+[336] 8FBB1813-12B8-3680-9594-4843337A6196 0x00000001950dd000 /usr/lib/libexpat.1.dylib
+[337] C023946F-FEAD-396A-BBD0-98DF6CE19FE0 0x000000019563c000 /System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+[338] 23628469-D939-32EA-80CA-EBCA4A54E84F 0x000000026db0b000 /usr/lib/swift/libswiftRegexBuilder.dylib
+[339] D9C9B5AC-50E1-3CD7-9100-3EFCC160B36B 0x0000000195dab000 /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+[340] BE910E0A-24FE-3D62-A4A0-E9C481F9AE7D 0x0000000195c96000 /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+[341] 69E499BA-AF2B-31A0-B7E7-853542AF44F8 0x00000001bbc28000 /usr/lib/libFDR.dylib
+[342] 0AD961AF-05BD-3F7D-8D71-B593D14F27A2 0x0000000195d52000 /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+[343] AF1AF643-763B-38C0-BA9C-A19CCB1D3BD1 0x0000000195cc1000 /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+[344] B6F1DD2D-70D9-3E08-A9E4-0D817A64979B 0x0000000194dee000 /usr/lib/libate.dylib
+[345] 3980D0FD-EF43-3697-A423-03B710D28ECF 0x0000000195d49000 /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+[346] BE413B25-2BA7-31D6-84A1-3C128E5F4854 0x000000026cec3000 /usr/lib/libhvf.dylib
+[347] C4FD413F-5511-33B4-AB1E-02A61D1E5B53 0x000000023e3e2000 /System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libllvm-flatbuffers.dylib
+[348] 73C5D3E5-59F8-3A12-8392-F9EA5B62D5C0 0x00000001e5954000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+[349] 1263333D-F4D2-3B46-8994-FFB54F1F72E8 0x0000000239714000 /System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+[350] E6235CA0-027F-3C97-8921-B74EBF1FDD2B 0x000000023a353000 /System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libGPUCompilerUtils.dylib
+[351] 3ECD4CAD-0462-3E93-95B4-B15E12E54226 0x00000002397de000 /System/Library/PrivateFrameworks/FramePacing.framework/Versions/A/FramePacing
+[352] 2465E3EB-5B14-3061-99AF-61523A179533 0x00000001e5962000 /System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+[353] 5C21B70D-5EAF-3220-BFB6-A5D94B761588 0x0000000251815000 /System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework/Versions/A/PhotosensitivityProcessing
+[354] 891B9702-E49B-3A91-ACE9-48E8CB200AEB 0x00000001952b5000 /System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+[355] 8EC08B90-BCD2-3B53-82A5-AC5CEECB1EA1 0x00000001a09c0000 /System/Library/PrivateFrameworks/ASEProcessing.framework/Versions/A/ASEProcessing
+[356] 573F3162-CB4E-3D9F-B613-3F1CD668F055 0x00000001e5976000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+[357] 7226A92D-AEC7-30C5-B6AE-13B12D95F933 0x00000001e59b2000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+[358] B113EB02-43AF-3623-A447-1D45A1EC227D 0x00000001e597f000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+[359] 6A4671EC-7675-36B8-967D-483BD07A888E 0x00000001e5973000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+[360] 29627C47-2943-3ADA-913B-4EC155853E55 0x0000000195682000 /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+[361] 121C7234-D3FF-3A55-8C17-994031EF56B4 0x00000001e595c000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+[362] 768377BC-9377-3E6F-B0B8-EE88302CC080 0x000000019310a000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+[363] CAC03BF8-DAA2-3894-A6B5-7CA7C95EF417 0x00000001e5b3e000 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+[364] 34714F6D-F2EC-3E7D-98CA-E633F22FC3E9 0x0000000192f8a000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+[365] 250D6507-261D-38BB-AABD-982657C69ABA 0x000000024e5ac000 /System/Library/PrivateFrameworks/ParsingInternal.framework/Versions/A/ParsingInternal
+[366] FB9ACB91-C500-3DD2-B9AE-A4E9F496F18E 0x00000001919e2000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+[367] FDE788A1-EBC1-3244-B996-DFB3B8B69248 0x00000001e9254000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+[368] 42EA022F-1DC9-32F7-8489-053785A9B6CF 0x00000001e9236000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSBenchmarkLoop.framework/Versions/A/MPSBenchmarkLoop
+[369] DA80DC6C-80E6-381B-816B-EF14056D1E74 0x0000000192d9f000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+[370] 3A611780-A6D6-3EA9-8362-57BA559CDAA0 0x00000001c0752000 /System/Library/PrivateFrameworks/kperf.framework/Versions/A/kperf
+[371] DAF7FCC4-07A5-3386-B8C7-3AD676A7ED4B 0x00000001b304d000 /System/Library/PrivateFrameworks/IOAccelMemoryInfo.framework/Versions/A/IOAccelMemoryInfo
+[372] 4F540B16-F627-3FB1-9A3D-A4B9F68248C0 0x0000000192b53000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+[373] 82086566-C621-3BE8-A7DA-BAA3A5E16A9D 0x0000000192fbc000 /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+[374] C0AD752C-F619-3723-9F63-600BC676DACD 0x00000001ae3cb000 /System/Library/PrivateFrameworks/GPURawCounter.framework/Versions/A/GPURawCounter
+[375] F458E2AA-F3E7-3691-8A6A-90391ECDCF0B 0x000000019754f000 /usr/lib/libresolv.9.dylib
+[376] B27D3B05-B1FB-3728-B61A-FAA07DF2FCFD 0x0000000193719000 /usr/lib/libiconv.2.dylib
+[377] BFA7359B-C78C-34F8-8ADE-0730BFF6A3D0 0x000000019784f000 /usr/lib/libcups.2.dylib
+[378] FF722D18-B0F0-30F6-A45B-F3F3B4D9DFE9 0x0000000195d7d000 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+[379] FB8F974F-7D96-39FA-95E9-279EA48B75CC 0x000000019f7d4000 /System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+[380] 7232BD58-25C8-30BE-BCA5-4B9D6BFABD30 0x00000001978e9000 /System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+[381] 7A3D2F52-3943-3DA5-B5DD-D565B030DB59 0x00000001950f8000 /usr/lib/libheimdal-asn1.dylib
+[382] 2B16CC11-4999-367A-AF5B-EDB29B8CBD8D 0x000000019794c000 /System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+[383] E6D04ED1-CE4D-3269-B278-D4EC9C597497 0x0000000193674000 /usr/lib/libcharset.1.dylib
+[384] 0E06EBA1-452E-3E4A-87DD-CE22C112B440 0x000000018ec7e000 /System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+[385] 23B0CD04-BEED-313D-B74E-8C56C7DD1D9A 0x000000018ec8c000 /System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+[386] 24C6434E-7920-38BF-864D-11D2DCDEFA43 0x0000000195313000 /System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+[387] 15A69D32-B147-395A-8548-E4605DF44060 0x000000026dc93000 /usr/lib/swift/libswift_RegexParser.dylib
+[388] FF2DF894-C9A3-3DD5-97EA-CF4183C5B544 0x0000000245f87000 /System/Library/PrivateFrameworks/IsolatedCoreAudioClient.framework/Versions/A/IsolatedCoreAudioClient
+[389] 9534AE50-6540-3BD3-9B47-0590BA288DAC 0x00000001a7cb7000 /System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities
+[390] E5768139-D0F2-373F-A86D-90291591A81A 0x00000001e5eda000 /System/Library/Frameworks/AVFAudio.framework/Versions/A/AVFAudio
+[391] 125324A0-E591-3F58-8D7E-0F6F1E8A5282 0x00000001974c0000 /usr/lib/libAudioStatistics.dylib
+[392] FA67137D-9735-3DCE-8716-AB20F8CD6E24 0x0000000190aef000 /System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+[393] 559AB6EF-08A4-39CA-9C13-5967A094A402 0x00000001972b7000 /System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+[394] 38BC6FDB-C94A-3DCD-8FFA-C49411B60CE6 0x0000000185d20000 /System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+[395] 9FB89E2E-E907-39CD-811C-17FB6CD4104D 0x00000001a1aca000 /System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+[396] 4CF215C7-A1C4-311E-86E2-843494DF78B5 0x0000000197462000 /System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+[397] 5AD002B4-2EE3-3DD7-B797-56396C5BF761 0x00000001951e2000 /System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+[398] 6D3EC42D-E7FB-3D33-BDAD-41CCCBAE7DB4 0x0000000260091000 /System/Library/PrivateFrameworks/Tightbeam.framework/Versions/A/Tightbeam
+[399] 459E038E-BD64-3332-8C7C-93EADC3615BD 0x00000001c508a000 /System/Library/PrivateFrameworks/AFKUser.framework/Versions/A/AFKUser
+[400] 593ADF35-5790-3C79-B7C8-07D0CAE4987A 0x0000000233f78000 /System/Library/PrivateFrameworks/CoreAudioOrchestration.framework/Versions/A/CoreAudioOrchestration
+[401] E9D53EC2-8C28-3408-899A-83D0CF4362FD 0x00000001d910e000 /System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags
+[402] 8F0C43D4-5F2B-3B33-ACE7-9290F14EDB9D 0x0000000195302000 /System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+[403] B0190EC6-5B85-3780-B698-9782014E1FB3 0x00000001978cd000 /System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+[404] 880EC9AD-372F-3C1A-A407-9DD6E8DFEECC 0x0000000198d65000 /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+[405] A31F3E47-CC8D-3F3E-8141-16B75F89E005 0x000000019776e000 /usr/lib/libSMC.dylib
+[406] A072094C-8AAF-3AD8-A670-1FA5BDE80977 0x00000001978db000 /usr/lib/libperfcheck.dylib
+[407] 667BDA2E-0097-36DF-A7DB-220AD86C264A 0x00000001ad583000 /System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+[408] ACAF3C4F-3F43-3DD0-8E96-60F0B8ED22D2 0x00000001d1b9c000 /System/Library/Frameworks/OSLog.framework/Versions/A/OSLog
+[409] 06B799F0-262D-379C-AA93-3AC828242F75 0x000000022fe9f000 /System/Library/PrivateFrameworks/AudioAnalytics.framework/Versions/A/AudioAnalytics
+[410] 2D6BA2C3-0405-31CF-81FB-CB1F9D4E193B 0x00000001ae396000 /usr/lib/libmis.dylib
+[411] 4BE12115-DFCE-3A5B-AFB1-124BB4149C32 0x0000000195c60000 /usr/lib/libAudioToolboxUtility.dylib
+[412] D1D7BFAC-DFAC-3254-AA5E-5650D401F037 0x000000019530c000 /usr/lib/libspindump.dylib
+[413] C529852B-0789-3C10-9075-97163D514437 0x00000001ae3cf000 /usr/lib/swift/libswiftCoreAudio.dylib
+[414] B409E7FE-28BB-3C8E-82E3-4F61D2699F93 0x0000000197270000 /System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+[415] 9E8D4772-30B6-31E3-8994-54D78AA12585 0x0000000194fdc000 /System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit
+[416] 74BDD3BD-7CF9-3ED7-887B-5D2E48C3B30A 0x000000019d49e000 /System/Library/PrivateFrameworks/CoreTime.framework/Versions/A/CoreTime
+[417] 9ADBA4D5-3E76-3A97-9C58-FD8113793B8A 0x000000019f7d5000 /System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+[418] 76C0BA80-2FF5-37C6-8A09-FAF23A2796F2 0x0000000195db1000 /System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+[419] 014D9EC8-6CFB-30C4-9813-A9D69749966B 0x0000000236f2b000 /System/Library/PrivateFrameworks/CoreUtilsExtras.framework/Versions/A/CoreUtilsExtras
+[420] 124E57F7-C9AC-3445-9EA4-7223D22127FA 0x000000019b3fe000 /System/Library/Frameworks/MediaAccessibility.framework/Versions/A/MediaAccessibility
+[421] 40B8A073-A5E1-30FA-BE0F-03AF3B63F832 0x0000000191627000 /System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+[422] 85AF6E63-02F5-3609-B8B1-084879D949D8 0x000000026c77f000 /usr/lib/libAXSafeCategoryBundle.dylib
+[423] DE58BA54-5AC8-3AD7-946C-EA63A2689BBC 0x00000001e7583000 /System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation
+[424] 536BBEE2-BADA-3D4C-961E-22E7601AECA7 0x00000001b69ed000 /System/Library/PrivateFrameworks/AttributeGraph.framework/Versions/A/AttributeGraph
+[425] 47048027-2BF1-3A6B-8F84-069C256EBFFA 0x0000000192678000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+[426] 8E45A7FD-2924-3416-B47A-35BFA7774D8F 0x0000000192b3e000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+[427] AA4DB3CB-920F-3CC5-B24C-D631E4F82C4C 0x00000001938dc000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+[428] 8D44D224-0119-3704-A303-C3131C65241A 0x00000001939dc000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+[429] 386BDE28-63B6-39CE-8A1C-74C4279011A0 0x00000001a7d73000 /usr/lib/libAccessibility.dylib
+[430] AA033461-F29F-3BD4-97B3-F317DB2C4668 0x0000000187ba5000 /System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+[431] 3371D37B-D0C7-37CA-A369-72E8DB658708 0x0000000186646000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+[432] D3E8AC9C-D7F1-33F4-966E-5F22F4C0B7C8 0x0000000195d44000 /System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+[433] AC912775-8E91-3CDC-A6CE-9E7282FD066F 0x000000019bfc5000 /System/Library/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+[434] 52BC8C3B-9504-3FC8-8A99-9D9619A79C4D 0x0000000195d4c000 /System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+[435] C04633D9-987C-377B-A772-3897CB392A65 0x0000000191bcb000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+[436] 783243DF-D0DE-3426-8671-11F0F72735CA 0x0000000195d24000 /System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+[437] E1853E8A-447F-3C77-B37B-5730B9C3C6F1 0x00000002638d3000 /System/Library/PrivateFrameworks/VideoToolboxParavirtualizationSupport.framework/Versions/A/VideoToolboxParavirtualizationSupport
+[438] 2653CE00-99AE-3AE3-9719-27C942F0C69E 0x00000001d1fa3000 /System/Library/PrivateFrameworks/HIDDisplay.framework/Versions/A/HIDDisplay
+[439] E9D7DB52-29EA-3315-9C47-1F5A8BED43A2 0x0000000195094000 /System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+[440] 2596701E-2637-3D7B-A052-25018382463B 0x000000019d00d000 /System/Library/PrivateFrameworks/GraphicsServices.framework/Versions/A/GraphicsServices
+[441] 940ECF11-B2D7-3503-B905-86AF61C44B03 0x00000001a6f91000 /System/Library/PrivateFrameworks/HID.framework/Versions/A/HID
+[442] 310A32F2-3522-3980-B5A4-D3EBD3E1D95C 0x000000019f7d0000 /System/Library/PrivateFrameworks/CryptoKitCBridging.framework/Versions/A/CryptoKitCBridging
+[443] 87B91B42-B1CE-39E0-BFEE-21E049904C4A 0x000000019282e000 /System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+[444] 3FA6A272-0988-311D-8206-9C6BF6117D6E 0x00000001c871c000 /usr/lib/swift/libswiftCryptoTokenKit.dylib
+[445] 75792109-B6B9-3C3F-BCDD-8A20BA916DB9 0x0000000193496000 /System/Library/Frameworks/UserNotifications.framework/Versions/A/UserNotifications
+[446] 333C72CD-563A-3CD0-B960-91B8A39A95E0 0x00000001d44c8000 /System/Library/Frameworks/CryptoKit.framework/Versions/A/CryptoKit
+[447] 9F6998F4-3252-3D15-9615-5728C342060C 0x00000001939e1000 /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+[448] 450E364F-86A2-30E6-9F02-D15B9805450A 0x000000019d01f000 /System/Library/Frameworks/CryptoTokenKit.framework/Versions/A/CryptoTokenKit
+[449] 1699DC52-A1D1-3B90-A0C0-062890DD38DA 0x000000019d0d8000 /System/Library/Frameworks/LocalAuthentication.framework/Support/SharedUtils.framework/Versions/A/SharedUtils
+[450] 3FCF0978-ABE0-329A-924B-B293262DEFE9 0x0000000197abf000 /System/Library/PrivateFrameworks/CorePhoneNumbers.framework/Versions/A/CorePhoneNumbers
+[451] 1517A395-F1B8-336E-A551-FF12B0F998C2 0x000000019c1ad000 /System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit
+[452] CF34C5F2-2AAE-318C-8548-FB06188EFAA4 0x000000019d083000 /System/Library/Frameworks/LocalAuthentication.framework/Versions/A/LocalAuthentication
+[453] 491F91B7-5A62-3FE6-BB46-47A189BDBA6D 0x0000000186adf000 /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+[454] AFBA596C-877E-32D3-8CEF-88375449AD0E 0x0000000197ac9000 /usr/lib/libTelephonyUtilDynamic.dylib
+[455] 852D0F06-85DC-3BEC-9210-F87296D2906C 0x000000019c0f8000 /System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording
+[456] 7A21E738-85FA-31D2-AF78-64E666A61243 0x000000019c2d4000 /System/Library/PrivateFrameworks/CoreAVCHD.framework/Versions/A/CoreAVCHD
+[457] 27359629-D2BC-324C-A86A-81CE88A2F9F9 0x000000019c2d0000 /System/Library/PrivateFrameworks/Mangrove.framework/Versions/A/Mangrove
+[458] 43289591-7377-3DF3-8F92-35B4D93A0871 0x0000000231801000 /System/Library/PrivateFrameworks/CMPhoto.framework/Versions/A/CMPhoto
+[459] 9C4D070A-49C7-3E2B-A3CE-AA64875B5C70 0x000000018817c000 /System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+[460] CC877537-0B73-3989-A36D-771FFCC0428F 0x000000019c2c3000 /System/Library/PrivateFrameworks/CoreAUC.framework/Versions/A/CoreAUC
+[461] E774580D-F20F-3C1C-A565-3659BF759521 0x000000022f14d000 /System/Library/PrivateFrameworks/AppleJPEGXL.framework/Versions/A/AppleJPEGXL
+[462] B4183D2F-38A2-3D02-89E7-D49078688D0A 0x000000018c73f000 /System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+[463] BF758405-8F21-3089-B2BE-42A1B790AFAF 0x00000001a5bf7000 /System/Library/PrivateFrameworks/Quagga.framework/Versions/A/Quagga
+[464] 49ADEC25-1FD7-3BB6-AFDC-D1F8727D8DCB 0x0000000247445000 /System/Library/PrivateFrameworks/LocalAuthenticationCore.framework/Versions/A/LocalAuthenticationCore
+[465] F6306018-3990-307C-AA95-AD0518292B8C 0x000000023162d000 /System/Library/PrivateFrameworks/CMImaging.framework/Versions/A/CMImaging
+[466] 86736515-2E68-3B28-923A-EDA418DDFDA1 0x000000019629c000 /System/Library/Frameworks/MediaToolbox.framework/Versions/A/MediaToolbox
+[467] 6D1AA443-4D08-3F62-8A51-100A79A00C2E 0x00000001a59df000 /System/Library/PrivateFrameworks/AVFCapture.framework/Versions/A/AVFCapture
+[468] BE9304C6-44A2-31AD-88BC-98F64E8FE3FA 0x0000000197661000 /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/CoreMediaIO
+[469] 57FCF818-5D9D-32A9-9D3A-5FDE9595B3E1 0x000000019ca2f000 /System/Library/Frameworks/CoreTelephony.framework/Versions/A/CoreTelephony
+[470] 672B607D-B7C2-3C63-996E-87CE3944BF96 0x0000000247f3d000 /System/Library/PrivateFrameworks/MLCompilerServices.framework/Versions/A/MLCompilerServices
+[471] 9D4BB283-FE3A-328B-8EF2-E0A6C847B1A0 0x00000001a1941000 /System/Library/PrivateFrameworks/AppleNeuralEngine.framework/Versions/A/AppleNeuralEngine
+[472] DE568E04-C7AD-30C2-A9D5-67825042026C 0x00000001b3010000 /usr/lib/libncurses.5.4.dylib
+[473] 84C0D815-AB13-323E-B6E2-666E81E98439 0x00000001a0817000 /System/Library/PrivateFrameworks/ANEServices.framework/Versions/A/ANEServices
+[474] 6AD9862A-3A76-3E35-A693-1063E17D1A54 0x000000019501e000 /usr/lib/libMatch.1.dylib
+[475] EA8CC835-9CA1-3D92-B93E-A56E42F96FBD 0x0000000247ee1000 /System/Library/PrivateFrameworks/MLCompilerRuntime.framework/Versions/A/MLCompilerRuntime
+[476] 444D2AD8-AD98-3C7A-9829-9B87CFAF96ED 0x000000019cc12000 /System/Library/PrivateFrameworks/AVFCore.framework/Versions/A/AVFCore
+[477] B1D94DE4-25A8-33CB-B0E4-84678DF4BC68 0x0000000231563000 /System/Library/PrivateFrameworks/CMCaptureDevice.framework/Versions/A/CMCaptureDevice
+[478] 912C9E6A-81C3-399B-977D-D98EBBF416C5 0x00000001893f4000 /usr/lib/libsandbox.1.dylib
+[479] 06A85764-DE6F-3690-A61B-6658B4712A2E 0x00000002476fe000 /System/Library/PrivateFrameworks/MIL.framework/Versions/A/MIL
+[480] 1676DEC2-2EAE-31C5-8916-7BF1FE46F1F8 0x0000000232353000 /System/Library/PrivateFrameworks/CinematicFraming.framework/Versions/A/CinematicFraming
+[481] 308D854D-1B4C-3B49-B6A8-C3B5407339B1 0x0000000237ac7000 /System/Library/PrivateFrameworks/DistributedSensing.framework/Versions/A/DistributedSensing
+[482] 034B0C33-BFDF-3300-86BA-DDA4B76D7A1F 0x00000001acfa7000 /System/Library/Frameworks/CoreMotion.framework/Versions/A/CoreMotion
+[483] F5162FDD-43EC-3A55-85B4-3F3B07BF4E44 0x0000000197235000 /System/Library/PrivateFrameworks/LocationSupport.framework/Versions/A/LocationSupport
+[484] 3BC06FEE-E26D-31DF-8DFA-757464452654 0x00000001bd793000 /System/Library/PrivateFrameworks/IOKitten.framework/Versions/A/IOKitten
+[485] CE173C2E-2DCD-3368-B3E9-69174DA74CAE 0x00000001b7ba0000 /System/Library/PrivateFrameworks/MobileBluetooth.framework/Versions/A/MobileBluetooth
+[486] E076D1A6-82DC-3B8F-BCBD-5D8550255008 0x00000001978ae000 /System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth
+[487] D76F1428-02EE-3D37-94FE-EDA9FF6E3DAE 0x000000018ee7c000 /System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport
+[488] 505657C8-8635-39F7-944D-1C645877CB66 0x00000001ae44a000 /usr/lib/swift/libswiftCoreImage.dylib
+[489] 2B9A1795-3FD5-3A14-85DA-BF2C6BC9B63E 0x00000001bbcd1000 /System/Library/PrivateFrameworks/TimeSync.framework/Versions/A/TimeSync
+[490] 5D5E6A8A-EE67-3194-9B3A-FFA777F1B440 0x00000001e6eae000 /System/Library/Frameworks/CoreTransferable.framework/Versions/A/CoreTransferable
+[491] 79C6EEE0-9295-3615-BBFB-5BFE77C21204 0x0000000195102000 /System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+[492] E9D0988F-8979-3980-A724-CDB377D31062 0x0000000195e37000 /System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+[493] 13B6C094-5213-3938-82FC-24401FB58CA5 0x000000019514f000 /System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+[494] EDDB2338-408D-3CD1-AA8D-33BD12D8C2C0 0x0000000191268000 /System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+[495] FB5699DD-2B12-321C-9D84-006E7EE2A793 0x0000000194e7f000 /usr/lib/libIOReport.dylib
+[496] 9E333A53-04E7-3A7E-99DA-2B429B9C49EE 0x000000026cb41000 /usr/lib/libTLE.dylib
+[497] 7A397858-8E69-36A2-98CF-0293881E68F6 0x000000022faaf000 /System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework/Versions/A/AppleMobileFileIntegrity
+[498] F1A75E33-44D7-3C3E-9D97-D184717D61A1 0x00000001e29b0000 /System/Library/PrivateFrameworks/ConfigProfileHelper.framework/Versions/A/ConfigProfileHelper
+[499] E423EF87-3DE2-3B1D-9421-56389ED3A9A7 0x0000000192adb000 /usr/lib/libmecab.dylib
+[500] A483A839-0A4A-32AD-808F-FEFFEC5677D5 0x00000001867d6000 /usr/lib/libCRFSuite.dylib
+[501] E0BF23A2-4941-37C3-BB9C-3F4EB7D3B8CA 0x0000000193894000 /usr/lib/libThaiTokenizer.dylib
+[502] 6849FB85-44C8-321D-BE93-C085480A6CA8 0x00000001961df000 /System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+[503] 576F5E10-DB71-3119-829C-D1BD6BC0416E 0x000000018e9ea000 /System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+[504] 26DD1F0B-6588-31B6-9B6B-2A00F757D221 0x0000000191aa7000 /System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+[505] 9472CAC0-8609-3D86-9702-434135FC4C53 0x0000000192aa5000 /usr/lib/libCheckFix.dylib
+[506] 8B3E8BCF-F6D2-3568-AF2C-159A1C996015 0x000000018e0be000 /System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+[507] 5CC0B616-9533-3035-87C9-5C544EAE3470 0x00000001b1d4d000 /System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+[508] 23B9400C-3DC3-3C74-B071-01A25ADBA53B 0x00000001892be000 /System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+[509] 37012710-C058-3A4F-8542-398E5CFA265B 0x000000018ece3000 /usr/lib/libapp_launch_measurement.dylib
+[510] 36700161-9E6F-31C0-BBD4-143D4E6FA839 0x00000001c085c000 /System/Library/PrivateFrameworks/MobileSystemServices.framework/Versions/A/MobileSystemServices
+[511] 17C048FB-640C-3711-ADF1-00DAC1DFFCE8 0x0000000242f32000 /System/Library/PrivateFrameworks/InstalledContentLibrary.framework/Versions/A/InstalledContentLibrary
+[512] 8CE9103E-5A59-39EB-8239-5814B047C804 0x0000000194d40000 /usr/lib/libxslt.1.dylib
+[513] 86752452-A6EC-3F6A-BC10-F85F15A422B6 0x0000000192a68000 /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+[514] 19E85C6B-B7A1-3F3E-8FB0-7631BBE50473 0x000000019ef34000 /usr/lib/libcurl.4.dylib
+[515] 96B1B021-485D-3BB6-A4D5-172D1456B736 0x000000026d89f000 /usr/lib/libssl.48.dylib
+[516] 776F5BB7-A4A9-36A1-9BE6-3A90D6D2209A 0x000000019ec0c000 /System/Library/Frameworks/LDAP.framework/Versions/A/LDAP
+[517] DF436304-7A6B-3C4C-B12F-966014149E48 0x000000019ec48000 /System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+[518] 20A8363B-A17A-3FD1-BFF8-09E7E1198817 0x000000019756c000 /usr/lib/libsasl2.2.dylib
+[519] BA521D73-187E-3BDB-AC5F-9EEB8729F73F 0x000000018a8e0000 /System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+[520] 57936B02-C7C3-3F09-B4C2-9CC839371091 0x0000000103ae8000 /opt/homebrew/Cellar/xz/5.8.3/lib/liblzma.5.dylib
+[521] 0226A368-AF95-3C55-9029-7315BFA5BDF2 0x00000001033a0000 /Users/gwon-yeseol/ros2_lyrical/install/urdfdom/lib/liburdfdom_sensor.6.0.0.dylib
+[522] 94D67AAF-AA0B-3FBD-90C0-C011328640A7 0x00000001c49c7000 /usr/lib/swift/libswiftAccelerate.dylib
+[523] 94C73B21-FB56-3CD1-876B-E7B7F0C96AD4 0x00000001a5d2a000 /System/Library/PrivateFrameworks/CMCapture.framework/Versions/A/CMCapture
+[524] 9C1D99B3-7115-39D1-B1D7-90DF2F971914 0x0000000103b44000 /Users/gwon-yeseol/ros2_lyrical/install/urdfdom/lib/liburdfdom_world.6.0.0.dylib
+[525] 044AF785-0E77-3F76-A36C-83CD291D181A 0x00000001034b0000 /opt/homebrew/Cellar/console_bridge/1.0.2/lib/libconsole_bridge.1.0.dylib
+[526] E3907F12-E04C-318F-9FFB-4FC599B5CA04 0x0000000103b18000 /Users/gwon-yeseol/ros2_lyrical/install/urdfdom/lib/liburdfdom_model.6.0.0.dylib
+[527] DACB053D-F62B-353F-A767-ED728BEA6A42 0x0000000103bb8000 /opt/homebrew/Cellar/zstd/1.5.7_1/lib/libzstd.1.5.7.dylib
+[528] 987143A3-4E87-30AA-AB95-24B47B1263BF 0x000000026cd75000 /usr/lib/libcrypto.46.dylib
+[529] A304C02B-A733-366E-8EBE-4D48CDAA8EF6 0x0000000103b70000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQmlWorkerScript.framework/Versions/A/QtQmlWorkerScript
+[530] 02B0C350-D54E-3950-A3BE-0A8833C5B988 0x0000000103ee4000 /opt/homebrew/Cellar/libsodium/1.0.22/lib/libsodium.26.dylib
+[531] 21950D5A-12C0-380F-8CA0-9BADE76506AE 0x0000000103c5c000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQmlMeta.framework/Versions/A/QtQmlMeta
+[532] 43EB690D-1071-35E5-A6B2-9A5005643EA0 0x000000010397c000 /opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlidec.1.2.0.dylib
+[533] 64F8285E-B984-3AFC-AB22-0E957659CB4C 0x0000000103f8c000 /opt/homebrew/Cellar/zeromq/4.3.5_2/lib/libzmq.5.dylib
+[534] 9BCD1E53-2CC0-3F12-9B58-A4C619A1CEAD 0x0000000104d78000 /opt/homebrew/Cellar/openssl@3/3.6.3/lib/libssl.3.dylib
+[535] 808E7EA0-06F5-3F24-8638-CD45BD283E80 0x00000001049a4000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQmlModels.framework/Versions/A/QtQmlModels
+[536] 49727AB2-B15D-300C-9552-20B09E560E90 0x0000000109fa0000 /opt/homebrew/Cellar/icu4c@78/78.3/lib/libicudata.78.3.dylib
+[537] D44AF2B7-2539-3107-865F-97E3F9D4C779 0x0000000107530000 /opt/homebrew/Cellar/icu4c@78/78.3/lib/libicuuc.78.3.dylib
+[538] 783457BD-DE5E-3F5D-AC39-E84316558704 0x0000000103ab8000 /opt/homebrew/Cellar/double-conversion/3.4.0/lib/libdouble-conversion.3.4.0.dylib
+[539] C4431360-2960-3E50-B699-3691771ADE27 0x0000000103b94000 /opt/homebrew/Cellar/libb2/0.98.1/lib/libb2.1.dylib
+[540] EA9921FF-C316-3340-8E29-0EAA43D78ABE 0x0000000107364000 /opt/homebrew/Cellar/glib/2.88.2/lib/libglib-2.0.0.dylib
+[541] B3359A2A-FE55-3DD3-9487-066ADE2DDD94 0x0000000103474000 /opt/homebrew/Cellar/glib/2.88.2/lib/libgthread-2.0.0.dylib
+[542] B1707004-B58B-3354-B180-07AB5E016DBF 0x0000000104860000 /opt/homebrew/Cellar/pcre2/10.47_1/lib/libpcre2-16.0.dylib
+[543] 8C574000-36F0-3EB8-AFA7-2502C0B47286 0x0000000104aec000 /opt/homebrew/Cellar/qtdeclarative/6.11.1/lib/QtQuickTemplates2.framework/Versions/A/QtQuickTemplates2
+[544] 0D0C6E1E-4B73-3510-907B-3D0613F290ED 0x0000000191262000 /System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+[545] BDB15996-04FB-3066-8811-2FE6C8AE45CE 0x0000000107810000 /opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.3.dylib
+[546] 2B28CDFD-653C-3CC9-87AA-09B9CA83257A 0x0000000233496000 /System/Library/PrivateFrameworks/CollectionViewCore.framework/Versions/A/CollectionViewCore
+[547] B7C99B52-9B2A-3546-A9CF-0FF5002A4709 0x000000019622e000 /System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+[548] 4DA628CC-68D5-3436-956C-47574DD56413 0x0000000266ea4000 /System/Library/PrivateFrameworks/WritingTools.framework/Versions/A/WritingTools
+[549] FF07035D-7C39-3A79-911D-E2BD8A7CD03F 0x0000000265ee8000 /System/Library/PrivateFrameworks/WindowManagement.framework/Versions/A/WindowManagement
+[550] A9E79767-5AED-36C6-86BE-C429489B3ED4 0x0000000107cbc000 /opt/homebrew/Cellar/icu4c@78/78.3/lib/libicui18n.78.3.dylib
+[551] 47A63321-D44C-39C5-81F8-2C80C770C3A4 0x000000019124d000 /System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+[552] C495086D-9AC4-3AB4-8F36-C2E50AF98E4D 0x000000019ad0b000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+[553] 26786009-C62F-3AD4-B552-8C4D2C3D1CD9 0x0000000261e1e000 /System/Library/PrivateFrameworks/UIIntelligenceSupport.framework/Versions/A/UIIntelligenceSupport
+[554] 7D3E5214-A6FA-36CF-AE3D-D84A1DF8C5ED 0x000000018ec74000 /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+[555] BA26155C-350D-3133-8FF2-82C46AE3E833 0x000000019b083000 /System/Library/Frameworks/Accessibility.framework/Versions/A/Accessibility
+[556] 2D1BD8D3-ACF2-3CDB-98D7-B5FE5552B5BF 0x00000001e7433000 /System/Library/Frameworks/DataDetection.framework/Versions/A/DataDetection
+[557] 356D4210-2B62-39E3-A200-0FD6FE483C5A 0x00000001e7436000 /System/Library/Frameworks/DeveloperToolsSupport.framework/Versions/A/DeveloperToolsSupport
+[558] 453E8AB6-F810-34BE-B1D9-F12070083B7D 0x000000019f95b000 /System/Library/PrivateFrameworks/Espresso.framework/Versions/A/Espresso
+[559] 8DAB4933-6365-3422-8841-0BED0E710EAA 0x000000026dac1000 /usr/lib/swift/libswiftDataDetection.dylib
+[560] 5E0022C0-CEA9-31E8-BDE7-43474922700A 0x00000001ab758000 /usr/lib/swift/libswiftCoreGraphics.dylib
+[561] D5DB6565-6B3D-36A0-BC34-74D2692962AA 0x000000019ba2d000 /usr/lib/swift/libswiftFoundation.dylib
+[562] FB47EC8E-2C44-3713-A5A5-DEC9504E8733 0x00000001ecb64000 /System/Library/Frameworks/Symbols.framework/Versions/A/Symbols
+[563] 83D3BC33-86E5-371F-88D4-BC2550617790 0x00000001a62f1000 /System/Library/PrivateFrameworks/RenderBox.framework/Versions/A/RenderBox
+[564] 18F67FFE-7860-367B-BDB9-D0F48DDF55DE 0x00000001ce24f000 /System/Library/PrivateFrameworks/CoreMaterial.framework/Versions/A/CoreMaterial
+[565] DD856E12-2E22-338E-AB7B-100403DE3D36 0x0000000254138000 /System/Library/PrivateFrameworks/SFSymbols.framework/Versions/A/SFSymbols
+[566] EC7405AD-C6DD-353F-AC21-A1553D22F30D 0x0000000104034000 /opt/homebrew/Cellar/gettext/1.0/lib/libintl.8.dylib
+[567] F7065AC6-C1A4-394E-AE54-C45BDA0C5A17 0x000000019acf8000 /System/Library/PrivateFrameworks/SpeechRecognitionCore.framework/Versions/A/SpeechRecognitionCore
+[568] 7F8CEDA3-E294-3EE4-BC9D-E2E619FBAAED 0x0000000103f40000 /opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlicommon.1.2.0.dylib
+[569] 37021BCA-5FB9-3CC2-81E5-CE48FF1C6A92 0x0000000105a68000 /opt/homebrew/Cellar/pcre2/10.47_1/lib/libpcre2-8.0.dylib
+[570] AB22CE59-433A-32E1-95BE-A0CE698B2BA3 0x0000000104070000 /opt/homebrew/Cellar/libpng/1.6.58/lib/libpng16.16.dylib
+[571] ED80AED6-1CCE-3DE7-854B-C8597E9083C8 0x00000001e243a000 /usr/lib/swift/libswiftSwiftOnoneSupport.dylib
+[572] 896A82D1-CEB1-3303-AF00-B9271EA95B71 0x0000000103c94000 /opt/homebrew/Cellar/md4c/0.5.3/lib/libmd4c.0.5.3.dylib
+[573] A195C931-81E1-314E-A0C6-3C03F934E0AA 0x0000000105afc000 /opt/homebrew/Cellar/freetype/2.14.3/lib/libfreetype.6.dylib
+[574] EB170237-698B-3FE1-A037-E63A7FD8D8B4 0x00000001acfa6000 /System/Library/Frameworks/Carbon.framework/Versions/A/Carbon
+[575] 0FFC1F4D-6874-3F0D-B3AE-995758F5DEB0 0x00000001a3fdc000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CommonPanels.framework/Versions/A/CommonPanels
+[576] E9FD597A-FA20-3B9D-AFBB-4FCA6863DBE4 0x000000019ef1f000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Help.framework/Versions/A/Help
+[577] 94E499FE-11B6-3B85-840A-A51ED59BF7A1 0x00000001a3fe0000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/ImageCapture.framework/Versions/A/ImageCapture
+[578] 2AACE05B-88F5-3BF2-969A-0538AC6166C0 0x0000000107700000 /opt/homebrew/Cellar/qtbase/6.11.1/lib/QtDBus.framework/Versions/A/QtDBus
+[579] 1B365288-8EA1-35F9-9985-E89F721795EF 0x00000001a3fdb000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Ink.framework/Versions/A/Ink
+[580] 5280BB29-1C49-38B4-AC4B-9C798C94A0C7 0x00000001a3fbc000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/OpenScripting.framework/Versions/A/OpenScripting
+[581] B44E5A2C-6553-3B46-9750-1977CF6373E1 0x00000001a3fd8000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SecurityHI.framework/Versions/A/SecurityHI
+[582] 869B6AE6-F82B-3FE7-904D-D1AE97255561 0x00000001048e8000 /opt/homebrew/Cellar/graphite2/1.3.15/lib/libgraphite2.3.3.1.dylib
+[583] 7537DC6D-3280-335E-9259-ED5D308D29EC 0x0000000190f46000 /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+[584] 2EC2B27F-FD89-3916-8207-7C8196EA154D 0x0000000107fc8000 /opt/homebrew/Cellar/harfbuzz/14.2.1/lib/libharfbuzz.0.dylib
+[585] FB8085DC-9746-335C-90D0-429DFE91DD60 0x0000000104938000 /opt/homebrew/Cellar/dbus/1.16.2_1/lib/libdbus-1.3.dylib
+[586] A27E70AE-2DFE-3F3C-A749-E1976734B8FB 0x0000000106a34000 /opt/homebrew/Cellar/libarchive/3.8.8/lib/libarchive.13.dylib
+[587] D86D95A7-7D1B-3D10-B2B7-F4369AD389B9 0x0000000103f6c000 /opt/homebrew/Cellar/unixodbc/2.3.14/lib/libodbcinst.2.dylib
+[588] C3D46D2E-7535-352F-887C-49ECA396FB23 0x000000010490c000 /opt/homebrew/Cellar/lz4/1.10.0/lib/liblz4.1.10.0.dylib
+[589] 46B85CD9-C9A7-3BFD-A6DA-F210A3186FDA 0x00000001074b8000 /opt/homebrew/Cellar/qhull/2020.2/lib/libqhull_r.8.0.2.dylib
+[590] 0C85CDF5-575D-3AA0-92C8-EB0F76D4DC1B 0x0000000109354000 /opt/homebrew/Cellar/freeimage/3.18.0/lib/libfreeimage.3.18.0.dylib
+[591] 4B498124-7B5F-3F7D-A0B7-2FA7AA533664 0x00000001040a4000 /opt/homebrew/Cellar/libdeflate/1.25/lib/libdeflate.0.dylib
+[592] 9B7675A4-3FBE-30A7-8152-DB3AF721E4AC 0x0000000106984000 /opt/homebrew/Cellar/libgeotiff/1.7.4/lib/libgeotiff.5.dylib
+[593] 430BA2A6-C003-3D05-B16E-052E5371B726 0x0000000108184000 /opt/homebrew/Cellar/libtiff/4.7.2/lib/libtiff.6.dylib
+[594] 93075053-F1AE-3589-A962-E01E6D3083EC 0x00000001083c4000 /opt/homebrew/Cellar/libheif/1.23.1/lib/libheif.1.23.1.dylib
+[595] 073FE1D6-C5D2-3CFA-9587-CFE712ECBDBE 0x00000001080fc000 /opt/homebrew/Cellar/liblerc/4.1.1/lib/libLerc.4.dylib
+[596] 754BF69A-4E13-3DE4-AAE1-D2DCF3B1D55B 0x0000000103580000 /opt/homebrew/Cellar/libaec/1.1.7/lib/libaec.0.1.7.dylib
+[597] 72835662-4F1F-33A6-8260-B6DFFE5A06A7 0x000000010820c000 /opt/homebrew/Cellar/jpeg-turbo/3.2.0/lib/libjpeg.8.3.2.dylib
+[598] BEB79D2B-6605-3C53-948A-1FCED35232EB 0x00000001e9269000 /System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph
+[599] 198E555A-61EB-340E-AD3A-2A63F660F272 0x0000000103650000 /opt/homebrew/Cellar/giflib/6.1.3/lib/libgif.7.2.0.dylib
+[600] 431434A1-FC97-379B-AC84-44B284DB3256 0x0000000109938000 /opt/homebrew/Cellar/poppler/26.07.0/lib/libpoppler.162.0.0.dylib
+[601] 60865221-7C6A-3C4D-A7D2-83E28375D382 0x000000010857c000 /opt/homebrew/Cellar/c-blosc/1.21.6/lib/libblosc.1.21.6.dylib
+[602] F975EDD9-7604-3932-B892-09C9966A1579 0x00000001086c4000 /opt/homebrew/Cellar/netcdf/4.10.0/lib/libnetcdf.22.dylib
+[603] 3A167019-960D-3AEC-A919-A858D89FC180 0x0000000109c8c000 /opt/homebrew/Cellar/cfitsio/4.6.4/lib/libcfitsio.4.6.4.dylib
+[604] 125736F7-37E7-3884-8F27-B6E94E711760 0x0000000108280000 /opt/homebrew/Cellar/webp/1.6.0/lib/libwebp.7.2.0.dylib
+[605] AE035870-E812-34DA-A2E6-8D68E7842927 0x0000000108a28000 /opt/homebrew/Cellar/assimp/6.0.5/lib/libassimp.6.0.5.dylib
+[606] CB44CB54-B763-3A8D-AF3C-DB024F125B16 0x00000001082d8000 /opt/homebrew/Cellar/libpq/18.4/lib/libpq.5.dylib
+[607] E4193D91-9682-3486-B1FC-18BFBC55008B 0x0000000108330000 /opt/homebrew/Cellar/openjpeg/2.5.4/lib/libopenjp2.2.5.4.dylib
+[608] 17D05A2E-F2B8-3258-9617-5BAE311913C6 0x00000001069ec000 /opt/homebrew/Cellar/openexr/3.4.13_1/lib/libOpenEXRUtil-3_4.33.3.4.13.dylib
+[609] 228BF3CC-2B12-3AC9-9C3C-581CBAFBF57F 0x0000000108820000 /opt/homebrew/Cellar/imath/3.2.2/lib/libImath-3_2.30.3.2.2.dylib
+[610] BC237483-37B8-3332-8588-B5D4478ACF01 0x00000001e2fca000 /System/Library/PrivateFrameworks/ANECompiler.framework/Versions/A/ANECompiler
+[611] E490D3BF-3207-3D7D-892F-BFE27FCAEE7A 0x0000000108920000 /opt/homebrew/Cellar/openexr/3.4.13_1/lib/libOpenEXR-3_4.33.3.4.13.dylib
+[612] 9EC75AB1-1400-3B07-A3BB-7A8101CE669A 0x0000000103610000 /opt/homebrew/Cellar/jpeg-xl/0.12.0/lib/libjxl_threads.0.12.0.dylib
+[613] B0B9BFA8-B282-30E1-8FCE-149343547EFE 0x0000000108878000 /opt/homebrew/Cellar/openexr/3.4.13_1/lib/libIex-3_4.33.3.4.13.dylib
+[614] BC220BE9-CFCC-34A8-BAA7-BA90CB20E253 0x00000001069b4000 /opt/homebrew/Cellar/libkml/1.3.0_1/lib/libkmlbase.1.3.0.dylib
+[615] A7DDE6AF-EE5F-3572-8441-CAE55A378038 0x000000010e254000 /opt/homebrew/Cellar/jpeg-xl/0.12.0/lib/libjxl.0.12.0.dylib
+[616] E8B6543E-D248-3336-A13E-68C41EF5ED99 0x0000000108628000 /opt/homebrew/Cellar/libkml/1.3.0_1/lib/libkmlengine.1.3.0.dylib
+[617] D0ABAE1A-891E-3122-9708-A2B8AB930156 0x00000001040c0000 /opt/homebrew/Cellar/minizip/1.3.2_1/lib/libminizip.1.dylib
+[618] 2AFF3E1F-93A1-3239-84CD-1F024614C15C 0x0000000108384000 /opt/homebrew/Cellar/uriparser/1.0.2/lib/liburiparser.1.2.2.dylib
+[619] E8C358F8-C92C-319B-BC9D-21408F92E4F7 0x000000010de30000 /opt/homebrew/Cellar/hdf5/2.1.1/lib/libhdf5.320.1.1.dylib
+[620] C031CC19-A9C4-3E3E-A9FC-8FAC7300EAD6 0x000000010da10000 /opt/homebrew/Cellar/libkml/1.3.0_1/lib/libkmldom.1.3.0.dylib
+[621] 521D3800-161A-3453-A4D9-B391D6002113 0x000000010da98000 /opt/homebrew/Cellar/unixodbc/2.3.14/lib/libodbc.2.dylib
+[622] 25215D51-5D14-3960-B97F-A9AE5895E0D8 0x0000000104988000 /opt/homebrew/Cellar/freexl/2.0.0/lib/libfreexl.1.dylib
+[623] 19181FA5-7C7D-3DA9-BD44-65AFEE25BE95 0x000000010dbd8000 /opt/homebrew/Cellar/sqlite/3.53.3/lib/libsqlite3.3.53.3.dylib
+[624] D10F7540-F164-3DE2-BE41-0D8310375E88 0x0000000110024000 /opt/homebrew/Cellar/libspatialite/5.1.0_4/lib/libspatialite.8.dylib
+[625] 8CAF61A6-A3C2-324E-8FF4-3ADE1C3B186D 0x000000010e4a8000 /opt/homebrew/Cellar/libxml2/2.15.3/lib/libxml2.16.dylib
+[626] EB52D156-7377-3268-A6D9-4EB01906FB6B 0x0000000109f48000 /opt/homebrew/Cellar/geos/3.14.1/lib/libgeos_c.1.20.5.dylib
+[627] 6F6948E0-BA0F-34D3-8799-B00231C944A5 0x0000000104e58000 /opt/homebrew/Cellar/json-c/0.19/lib/libjson-c.5.5.0.dylib
+[628] DF6C5BB1-7A3E-38DD-8B7C-E77F430226F6 0x000000010e7a4000 /opt/homebrew/Cellar/xerces-c/3.3.0/lib/libxerces-c-3.3.dylib
+[629] 6B102060-6A6F-3256-B373-411607DB49BA 0x000000010eaa0000 /opt/homebrew/Cellar/apache-arrow/24.0.0_6/lib/libarrow_dataset.2400.0.0.dylib
+[630] 82B98D7E-5BF4-3208-B0DC-BF7AF434B8F9 0x0000000110ac8000 /opt/homebrew/Cellar/proj/9.8.1/lib/libproj.25.9.8.1.dylib
+[631] 6FA72C70-AE78-32E1-9EEC-B1442F3DFC56 0x0000000110710000 /opt/homebrew/Cellar/apache-arrow/24.0.0_6/lib/libarrow_acero.2400.0.0.dylib
+[632] 85B6BFAD-A090-34CF-9AB9-D5DC426C51C2 0x0000000104e74000 /opt/homebrew/Cellar/libtool/2.5.4/lib/libltdl.7.dylib
+[633] F68E20E2-5B82-371D-9D0B-5178F79D4B2F 0x0000000108688000 /opt/homebrew/Cellar/boost/1.90.0_1/lib/libboost_thread.dylib
+[634] 4BE1DC4F-B513-3097-906E-8181FB4B5D4B 0x000000010dd18000 /opt/homebrew/Cellar/boost/1.90.0_1/lib/libboost_serialization.dylib
+[635] DF9B4468-5172-3C2D-9C31-8C73CC8B5F29 0x0000000103ad4000 /opt/homebrew/Cellar/gmp/6.3.0/lib/libgmpxx.4.dylib
+[636] 0CA9354E-CA18-3723-8E0E-10D24DEF18C8 0x000000010db68000 /opt/homebrew/Cellar/mpfr/4.2.2/lib/libmpfr.6.dylib
+[637] 90556AA3-2210-35A5-8BEB-0F6610A44116 0x000000010dd90000 /opt/homebrew/Cellar/gmp/6.3.0/lib/libgmp.10.dylib
+[638] 84755124-3141-3281-90BA-BDCF0E618DDB 0x0000000108660000 /opt/homebrew/Cellar/boost/1.90.0_1/lib/libboost_atomic.dylib
+[639] 7B943682-6791-30DA-9982-72D32812E378 0x0000000111280000 /opt/homebrew/Cellar/apache-arrow/24.0.0_6/lib/libparquet.2400.0.0.dylib
+[640] 6AF6A11F-D283-3D63-9050-9D351D5B7451 0x0000000106ae4000 /opt/homebrew/Cellar/boost/1.90.0_1/lib/libboost_chrono.dylib
+[641] 2F7BAE8D-3349-3401-95FE-E90A1B4192DC 0x0000000103008000 /opt/homebrew/Cellar/boost/1.90.0_1/lib/libboost_date_time.dylib
+[642] 0D44FEF9-8F9E-36FA-8D22-34D5A95A6F07 0x000000010db1c000 /opt/homebrew/Cellar/boost/1.90.0_1/lib/libboost_container.dylib
+[643] B1A23FBD-B0DE-3A5A-8244-438D768F0F16 0x000000010e608000 /opt/homebrew/Cellar/libde265/1.1.1/lib/libde265.0.2.1.dylib
+[644] C880EF4E-36BA-31B4-992C-3A459F2398F2 0x000000010bf78000 /opt/homebrew/Cellar/gdal/3.13.1_3/lib/libgdal.39.3.13.1.dylib
+[645] C9262A37-4290-3A1C-B9FA-793D0404D712 0x0000000103cac000 /opt/homebrew/Cellar/webp/1.6.0/lib/libsharpyuv.0.1.2.dylib
+[646] BBA84C6C-C62B-3F24-9EF5-9D19CAD01145 0x0000000111680000 /opt/homebrew/Cellar/aom/3.14.1/lib/libaom.3.14.1.dylib
+[647] A2793294-7962-3383-8C82-B8C099009C67 0x000000010ed10000 /opt/homebrew/Cellar/sfcgal/2.3.0/lib/libSFCGAL.2.3.0.dylib
+[648] B5BF6DFF-FCB6-389F-8A7A-361261189523 0x00000001108f4000 /opt/homebrew/Cellar/libvmaf/3.2.0/lib/libvmaf.3.dylib
+[649] 4316B579-F992-34BD-B88F-A8C4D5F68C70 0x000000010e668000 /opt/homebrew/Cellar/fontconfig/2.18.1/lib/libfontconfig.1.dylib
+[650] 98A81A9E-1142-3F0D-978F-EA616B0D23C5 0x000000010e6c0000 /opt/homebrew/Cellar/little-cms2/2.19/lib/liblcms2.2.dylib
+[651] BCEB4315-72C1-3B86-BE98-6C1EDEA1ED13 0x0000000110a18000 /opt/homebrew/Cellar/nss/3.125/lib/libnssutil3.dylib
+[652] EAF87667-77A2-3EF2-880F-6E1E72602FFB 0x000000010e728000 /opt/homebrew/Cellar/gpgmepp/2.1.0/lib/libgpgmepp.7.1.0.dylib
+[653] 455861C4-42A5-39B7-AE56-9918124AB1A9 0x0000000112df0000 /opt/homebrew/Cellar/x265/4.2/lib/libx265.216.dylib
+[654] 59188B5F-DC3C-3423-81E0-0378FBDCD0F5 0x0000000110a50000 /opt/homebrew/Cellar/nss/3.125/lib/libsmime3.dylib
+[655] 0D3116EB-4163-3FAB-A2E3-2328E84CAD49 0x000000010816c000 /opt/homebrew/Cellar/nspr/4.39/lib/libplds4.dylib
+[656] 054B394C-9BE7-3F24-B0EC-199B6D50F68B 0x00000001083ac000 /opt/homebrew/Cellar/nspr/4.39/lib/libplc4.dylib
+[657] ED512709-A50B-3393-BF2E-949E56C0D6F3 0x0000000110ee0000 /opt/homebrew/Cellar/nss/3.125/lib/libssl3.dylib
+[658] A5446332-3F64-3F87-AF60-C171EAA7BBB8 0x0000000110a88000 /opt/homebrew/Cellar/nspr/4.39/lib/libnspr4.dylib
+[659] B45B4B67-E34A-3930-B2C4-DCE68EEFE2C8 0x000000010db40000 /opt/homebrew/Cellar/libassuan/3.0.2/lib/libassuan.9.dylib
+[660] 73998634-A2FA-3D69-84C1-45E0A55FCE9E 0x000000010e5ac000 /opt/homebrew/Cellar/hdf5/2.1.1/lib/libhdf5_hl.320.0.2.dylib
+[661] D78E2851-DAEC-3A6C-88C7-085ADACCD860 0x0000000110fa8000 /opt/homebrew/Cellar/nss/3.125/lib/libnss3.dylib
+[662] 8E74F1BF-61DD-3D57-9823-11104560024F 0x00000001086b0000 /opt/homebrew/Cellar/libaec/1.1.7/lib/libsz.2.0.1.dylib
+[663] 14D4AA2A-9A05-3AC0-ACC1-16817EE80637 0x0000000110e80000 /opt/homebrew/Cellar/gpgme/2.1.2/lib/libgpgme.45.dylib
+[664] 8BCFA599-3D63-3938-815E-EE3DE92A38DD 0x0000000110f40000 /opt/homebrew/Cellar/libgpg-error/1.61/lib/libgpg-error.0.dylib
+[665] E625C033-37F0-3DA2-943E-2A026451EFD5 0x0000000108908000 /opt/homebrew/Cellar/krb5/1.22.2/lib/libcom_err.3.0.dylib
+[666] 2D716CBB-4718-3F5A-B2EB-1095A536CACD 0x00000001110d0000 /opt/homebrew/Cellar/krb5/1.22.2/lib/libk5crypto.3.1.dylib
+[667] 0E9B1647-075D-3C1F-8F3A-12F9093FB712 0x000000010de00000 /opt/homebrew/Cellar/krb5/1.22.2/lib/libkrb5support.1.1.dylib
+[668] B8CB3767-3EA1-3989-A5B9-CFEA790BC1F8 0x0000000111120000 /opt/homebrew/Cellar/krb5/1.22.2/lib/libgssapi_krb5.2.2.dylib
+[669] C4871DFD-07BE-3309-BAA6-50D6BE6A36E6 0x000000010daf8000 /opt/homebrew/Cellar/openexr/3.4.13_1/lib/libIlmThread-3_4.33.3.4.13.dylib
+[670] 1E310902-CAD0-31AA-B1ED-CCE461CBB047 0x0000000111b90000 /opt/homebrew/Cellar/openexr/3.4.13_1/lib/libOpenEXRCore-3_4.33.3.4.13.dylib
+[671] E6CE8D40-7CB6-3A91-8FF1-80F8BC487169 0x000000010ecf4000 /opt/homebrew/Cellar/jpeg-xl/0.12.0/lib/libjxl_cms.0.12.0.dylib
+[672] 6536B717-6636-3212-8D4C-960C2E6202EE 0x00000001111bc000 /opt/homebrew/Cellar/openjph/0.30.1/lib/libopenjph.0.30.1.dylib
+[673] AC606EA3-96D5-39D0-A257-BA99D25FA281 0x0000000111d08000 /opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlienc.1.2.0.dylib
+[674] F91DA5CE-851A-38B9-9BB2-D77D7388C151 0x0000000110f74000 /opt/homebrew/Cellar/highway/1.4.0/lib/libhwy.1.4.0.dylib
+[675] E43DBF6D-F0BA-3A1F-9F7D-3383DB3498F0 0x0000000111c64000 /opt/homebrew/Cellar/librttopo/1.1.0/lib/librttopo.1.dylib
+[676] D11CF56C-8B1E-3B70-8F6F-189A710D06DA 0x0000000111acc000 /opt/homebrew/Cellar/krb5/1.22.2/lib/libkrb5.3.3.dylib
+[677] DC0B88BA-95D3-34E9-B6B3-5AD7F194B590 0x0000000112234000 /opt/homebrew/Cellar/apache-arrow/24.0.0_6/lib/libarrow_compute.2400.0.0.dylib
+[678] C03C7D08-4DA0-3419-8757-A97E7B18FEAB 0x0000000111170000 /opt/homebrew/Cellar/aws-sdk-cpp/1.11.825/lib/libaws-cpp-sdk-identity-management.dylib
+[679] 990F5276-EE83-3331-A4AF-A35ECE6BBC6B 0x0000000111e50000 /opt/homebrew/Cellar/thrift/0.23.0/lib/libthrift-0.23.0.dylib
+[680] 987FDC3C-AA25-3422-820E-A23B806CAED6 0x000000010de18000 /opt/homebrew/Cellar/snappy/1.2.2/lib/libsnappy.1.2.2.dylib
+[681] C38F211D-4760-3960-9BE4-38E607EA6830 0x0000000111dac000 /opt/homebrew/Cellar/aws-sdk-cpp/1.11.825/lib/libaws-cpp-sdk-cognito-identity.dylib
+[682] 01717731-F13B-3503-A7B7-DE6105CF3F96 0x0000000111fbc000 /opt/homebrew/Cellar/aws-crt-cpp/0.40.1/lib/libaws-crt-cpp.dylib
+[683] 66A92BF6-C42C-3193-A7F9-5D9E1D608E51 0x0000000111198000 /opt/homebrew/Cellar/aws-c-event-stream/0.7.1/lib/libaws-c-event-stream.1.0.0.dylib
+[684] 2B0CE01B-A53D-3DF3-8C7D-A16A93CE7E10 0x0000000112084000 /opt/homebrew/Cellar/aws-sdk-cpp/1.11.825/lib/libaws-cpp-sdk-sts.dylib
+[685] 3CDB1533-888E-3D77-909F-CE8BFFFFE96F 0x0000000111ef4000 /opt/homebrew/Cellar/aws-c-mqtt/0.16.0/lib/libaws-c-mqtt.1.0.0.dylib
+[686] EAC6A8A9-E034-3BEC-B1A2-843BC333721F 0x0000000111dfc000 /opt/homebrew/Cellar/aws-c-common/0.14.1/lib/libaws-c-common.1.0.0.dylib
+[687] BCE5C9C0-088B-3A6F-8DA2-481640DE4909 0x000000011211c000 /opt/homebrew/Cellar/aws-c-auth/0.10.3/lib/libaws-c-auth.1.0.0.dylib
+[688] 11265E71-22F6-367E-A137-058086C5F6C5 0x0000000111f50000 /opt/homebrew/Cellar/aws-c-s3/0.12.7/lib/libaws-c-s3.1.0.0.dylib
+[689] 32AFE695-0A05-3074-8FC2-60046E822195 0x0000000112164000 /opt/homebrew/Cellar/aws-c-http/0.11.0/lib/libaws-c-http.1.0.0.dylib
+[690] 5FE00C77-FF1C-382F-AEAE-C668FE3EB23D 0x000000011496c000 /opt/homebrew/Cellar/aws-sdk-cpp/1.11.825/lib/libaws-cpp-sdk-core.dylib
+[691] CEFF6CA0-67F0-3676-85A7-62FDF68C8F40 0x000000011120c000 /opt/homebrew/Cellar/aws-c-cal/0.9.14/lib/libaws-c-cal.1.0.0.dylib
+[692] FA2022A7-3380-3666-B045-F33F2BBE93FA 0x00000001121c8000 /opt/homebrew/Cellar/aws-c-io/0.27.2/lib/libaws-c-io.1.0.0.dylib
+[693] A36166D6-D376-3DDD-AFE7-0EC61B87C421 0x000000011122c000 /opt/homebrew/Cellar/aws-c-sdkutils/0.2.7/lib/libaws-c-sdkutils.1.0.0.dylib
+[694] 316EEA21-0053-326D-8BBE-D4F71F7C985C 0x000000010e5ec000 /opt/homebrew/Cellar/aws-c-compression/0.3.2/lib/libaws-c-compression.1.0.0.dylib
+[695] 86B76517-F544-35F1-9A84-EA3B39FA9292 0x0000000111254000 /opt/homebrew/Cellar/aws-checksums/0.2.10/lib/libaws-checksums.1.0.0.dylib
+[696] 33478721-99D9-3EC0-A5EE-8CD1C362C8C1 0x0000000113810000 /opt/homebrew/Cellar/aws-sdk-cpp/1.11.825/lib/libaws-cpp-sdk-s3.dylib
+[697] 1F62FB47-9521-3E7F-AA48-C5E208D25AC4 0x0000000113b34000 /opt/homebrew/Cellar/utf8proc/2.11.3/lib/libutf8proc.3.2.3.dylib
+[698] 351EF200-571A-30DC-A901-5E4CFEAEA079 0x0000000111ce8000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libswresample.6.3.102.dylib
+[699] ACF324A3-62CD-34C0-BA0E-70758C2F0CA6 0x0000000114f44000 /opt/homebrew/Cellar/ffmpeg/8.1.2_1/lib/libavfilter.11.14.102.dylib
+[700] C1A60CB5-2981-3271-A252-00495A1DF84A 0x0000000113ab0000 /opt/homebrew/Cellar/re2/2025-11-05/lib/libre2.11.0.0.dylib
+[701] E052A0F5-1B4A-3969-B0B5-9E477A0529BC 0x0000000114b2c000 /opt/homebrew/Cellar/s2n/1.7.5/lib/libs2n.1.0.0.dylib
+[702] BF1B941B-80E0-3678-8C65-B8743CCD5F71 0x000000011353c000 /opt/homebrew/Cellar/geos/3.14.1/lib/libgeos.3.14.1.dylib
+[703] 87BCA674-677D-3FA7-8707-616A4B595B97 0x0000000114e14000 /opt/homebrew/Cellar/opus/1.6.1/lib/libopus.0.dylib
+[704] DE863AB7-3CF8-38FE-AE37-59A526573730 0x0000000114c54000 /opt/homebrew/Cellar/lame/3.100/lib/libmp3lame.0.dylib
+[705] F9F1EA3D-F827-32B4-BC7A-B880CDA2D185 0x0000000114d18000 /opt/homebrew/Cellar/dav1d/1.5.3/lib/libdav1d.7.dylib
+[706] BA136D60-7E0A-3358-A4B3-C9CB2FD29619 0x0000000115238000 /opt/homebrew/Cellar/libvpx/1.16.0/lib/libvpx.12.dylib
+[707] 0BE38C8B-A748-37B2-9113-7B7B7DD073C0 0x00000001159b8000 /opt/homebrew/Cellar/x264/r3222/lib/libx264.165.dylib
+[708] 6F9DF21F-75FC-33FE-BEE1-8DCFA4E13D63 0x00000001156b4000 /opt/homebrew/Cellar/svt-av1/4.1.0/lib/libSvtAv1Enc.4.1.0.dylib
+[709] CA622FAA-2F27-39D9-AB99-14E29739A189 0x0000000113ba8000 /opt/homebrew/Cellar/apache-arrow/24.0.0_6/lib/libarrow.2400.0.0.dylib
+[710] 00452387-9D4C-397A-A17D-CD14BB6CE9B4 0x000000018944f000 /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+[711] 73B037D1-2D43-374B-A87C-79E26B7AD6B0 0x00000001ebfa1000 /System/Library/Frameworks/SwiftUICore.framework/Versions/A/SwiftUICore
+[712] 1962DFC9-44EF-3DB6-B4FA-B9A43F54D242 0x000000011c798000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-physics-system.10.4.0.dylib
+[713] 0D1C4C97-2345-3808-994C-FC944EF678A7 0x0000000114e70000 /opt/homebrew/Cellar/bullet/3.25/lib/libLinearMath.3.25.dylib
+[714] AE0DE9AB-B5AE-341D-AA75-3EDDAE8A4C90 0x0000000114ccc000 /opt/homebrew/Cellar/dartsim/6.19.3/lib/libdart-collision-bullet.6.19.3.dylib
+[715] C6AAC50F-A6A7-3A40-9639-2789532A17D0 0x0000000114ea0000 /opt/homebrew/Cellar/dartsim/6.19.3/lib/libdart-collision-ode.6.19.3.dylib
+[716] AAA30173-B90C-3611-879E-6F3F8AB8B1B5 0x0000000114ecc000 /opt/homebrew/Cellar/dartsim/6.19.3/lib/libdart-utils-urdf.6.19.3.dylib
+[717] 3497CE1A-DF85-3F71-A45C-9043628C6ED8 0x0000000111104000 /opt/homebrew/Cellar/dartsim/6.19.3/lib/libdart-external-odelcpsolver.6.19.3.dylib
+[718] F1F561F4-7658-3015-983B-0E44EBE7DA03 0x00000001154ec000 /opt/homebrew/Cellar/bullet/3.25/lib/libBulletDynamics.3.25.dylib
+[719] E9388957-8A11-35BA-9300-29DE9EB1EECB 0x0000000111f98000 /opt/homebrew/Cellar/libccd/2.1_1/lib/libccd.2.0.dylib
+[720] CA51532F-DFB6-36A0-90E2-F0EB59E778ED 0x0000000115628000 /opt/homebrew/Cellar/bullet/3.25/lib/libBulletSoftBody.3.25.dylib
+[721] 7A973CC0-1716-3BDA-82CA-9AC24ABD5D62 0x0000000110f90000 /opt/homebrew/Cellar/octomap/1.10.0/lib/liboctomath.1.10.0.dylib
+[722] 99826251-9B5E-34C8-933A-AAF7366B6881 0x000000011c4a8000 /opt/homebrew/Cellar/ode/0.16.6/lib/libode.8.dylib
+[723] 329391F6-C684-3929-992B-18005CBBCD6A 0x0000000114f00000 /opt/homebrew/Cellar/octomap/1.10.0/lib/liboctomap.1.10.0.dylib
+[724] 1A1D7B01-CF16-34CA-8713-080E111560AC 0x0000000115dec000 /opt/homebrew/Cellar/bullet/3.25/lib/libBulletCollision.3.25.dylib
+[725] 3DD3BAFF-EA2F-37F5-A893-9653F91EDC1B 0x000000011c58c000 /opt/homebrew/Cellar/dartsim/6.19.3/lib/libdart-utils.6.19.3.dylib
+[726] EE9288EF-1BED-39B4-9CEB-96F48FC9D9F7 0x000000011dd5c000 /opt/homebrew/Cellar/fcl/0.7.0_2/lib/libfcl.0.7.0.dylib
+[727] 88336C56-1D5B-36F3-A16B-05177232CB54 0x000000011d7f8000 /opt/homebrew/Cellar/dartsim/6.19.3/lib/libdart.6.19.3.dylib
+[728] CCBF034D-3DC2-36DB-B51F-60B81B5E24D1 0x000000011d140000 /opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.9.3.0.dylib
+[729] 7B762B10-4ADA-35C0-B799-428524BCD9AA 0x00000001155b0000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-lidar.10.0.1.dylib
+[730] 83637620-9F0E-32E6-B541-64FD124EDF57 0x0000000115e94000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-boundingbox_camera.10.0.1.dylib
+[731] 6EBB92DB-E2A6-3A54-AE33-BC3045A314E6 0x000000011c6ac000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-gpu_lidar.10.0.1.dylib
+[732] C99D4B60-A9A1-386A-AFF1-AFD589275F00 0x000000011ca88000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-segmentation_camera.10.0.1.dylib
+[733] DB0C8BA3-753D-3D75-ADD0-13E4522A1160 0x000000011c730000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-rgbd_camera.10.0.1.dylib
+[734] 160D5850-1901-3CCE-A019-A4FCFF595647 0x0000000115ed8000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-depth_camera.10.0.1.dylib
+[735] 9950939F-79F5-3F92-AB97-675308C10367 0x000000011cb08000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-wide_angle_camera.10.0.1.dylib
+[736] 20C8D52F-603A-3117-8FBC-C5E8D99B60D8 0x000000011cac8000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-thermal_camera.10.0.1.dylib
+[737] 66863858-4C63-365D-ABD5-BD2F16C0FE5A 0x000000011cb48000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-camera.10.0.1.dylib
+[738] 455ED7B8-231A-3C61-9FA6-1E20C901B33C 0x000000011c6ec000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-rendering.10.0.1.dylib
+[739] C3B80A5C-027B-33C5-8167-84B8AA0C75A5 0x0000000115f2c000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-sensors-system.10.4.0.dylib
+[740] 7501F77A-BE3D-36B7-B74E-E1806F78EACA 0x000000011cbe4000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors.10.0.1.dylib
+[741] 62CD2591-1B45-3652-8175-D513C10A7CE8 0x000000011cc40000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/libgz-sim-rendering.10.4.0.dylib
+[742] 647B7B0F-FB31-30A9-B4F4-AD175880A642 0x000000011cf20000 /opt/homebrew/Cellar/gz-sensors10/10.0.1_16/lib/libgz-sensors-dvl.10.0.1.dylib
+[743] 46C37C66-38AC-3E76-88D3-B5DECEABBF79 0x000000011ce8c000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-dvl-system.10.4.0.dylib
+[744] 84951CF0-6355-3382-B6CD-F27B9E726367 0x000000011cf90000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-buoyancy-system.10.4.0.dylib
+[745] D5ACA898-91CF-34E3-BDC8-0F34E3D19DAB 0x000000011e374000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-scene-broadcaster-system.10.4.0.dylib
+[746] 21984FC1-DFB6-36A5-81D8-0D59943F7BB4 0x000000011d014000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-contact-system.10.4.0.dylib
+[747] 0141D48C-6D35-3C23-B3EC-892E326222AE 0x000000011e714000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.10.4.0.dylib
+[748] A6D50CF9-04F9-31C2-8C51-299B5E29C924 0x000000011d084000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-joint-position-controller-system.10.4.0.dylib
+[749] 1BCB559A-69D4-3E3B-8FBC-6EF0A53762F0 0x000000011e554000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-thruster-system.10.4.0.dylib
+[750] A5383AE0-6F27-3AD1-8886-282EDEF9DB2C 0x000000011e4a8000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-lift-drag-system.10.4.0.dylib
+[751] 75735BC5-4DCF-3FEF-9F8E-B1BAD253797F 0x000000011e668000 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-hydrodynamics-system.10.4.0.dylib

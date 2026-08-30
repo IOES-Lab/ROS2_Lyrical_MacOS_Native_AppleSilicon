@@ -1,0 +1,20 @@
+== PLATFORM ==
+aarch64
+Ubuntu 26.04.1 LTS
+== ROS / GAZEBO ==
+ROS_DISTRO=lyrical
+/opt/ros/lyrical/bin/ros2
+/opt/ros/lyrical/opt/gz_tools_vendor/bin/gz
+10.5.0
+== PACKAGE PREFIXES ==
+/home/docker/dave_ws/install
+/home/docker/dave_ws/install
+/home/docker/mavros_ws/install
+/home/docker/mavros_ws/install
+== PINNED SOURCES ==
+DAVE_COMMIT=6aef91c823af5da073329b84ba617b572965e79e
+GEOGRAPHIC_INFO_COMMIT=24806adc767414eb3a34a58aefeb648ee415b09a
+ARDUPILOT_COMMIT=30257f01185471ab4c1ac544e47d1b4437e44c98
+ARDUPILOT_GAZEBO_COMMIT=082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5
+== REQUIRED ARTIFACTS ==
+IMAGE_VERIFICATION=PASS

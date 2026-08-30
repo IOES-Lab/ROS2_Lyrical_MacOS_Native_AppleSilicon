@@ -1,0 +1,14 @@
+root         1     0  9 02:05 ?        00:00:00 /bin/sh -c uid="$(id -u docker)";     sudo install -d -m 0755 /run/xrdp /run/xrdp/sockdir;     sudo install -d -m 0700 -o docker -g docker "/run/user/$uid";     sudo rm -f /run/xrdp/*.pid /var/run/xrdp/*.pid;     sudo mkdir -p /run/dbus; sudo rm -f /run/dbus/pid;     sudo dbus-daemon --system --fork;     [ -f /usr/sbin/sshd ] && sudo /usr/sbin/sshd;     sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini &     exec sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+root        18     0 20 02:05 ?        00:00:00 bash -lc ps -ef | grep -E "[x]rdp|[s]esman|[d]bus"; ss -ltnp | grep 3389; id docker; grep -E "^(max_bpp|port=|username=)" /etc/xrdp/xrdp.ini | head -20
+message+    38     1  0 02:05 ?        00:00:00 dbus-daemon --system --fork
+uid=1001(docker) gid=1001(docker) groups=1001(docker),20(dialout),27(sudo)
+port=3389
+max_bpp=32
+username=ask
+port=-1
+username=ask
+port=-1
+port=ask5900
+username=na
+port=ask3389
+username=ask

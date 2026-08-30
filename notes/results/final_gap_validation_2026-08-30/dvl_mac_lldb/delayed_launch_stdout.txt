@@ -1,0 +1,125 @@
+(2026-08-30 09:53:11.227) [info] [gz.cc:407] Gazebo Sim Server v10.4.0
+(2026-08-30 09:53:11.288) [info] [ServerPrivate.cc:697] Loading SDF world file[/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_sim_demos/share/ros_gz_sim_demos/worlds/dvl.sdf].
+(2026-08-30 09:53:13.237) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+(2026-08-30 09:53:13.242) [info] [SimulationRunner.cc:347] Serving world controls on [/world/dvl_world/control], [/world/dvl_world/control/state] and [/world/dvl_world/playback/control]
+(2026-08-30 09:53:13.242) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/dvl_world/gui/info]
+(2026-08-30 09:53:13.242) [info] [SimulationRunner.cc:376] World [dvl_world] initialized with [1ms] physics profile.
+(2026-08-30 09:53:13.243) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/dvl_world/generate_world_sdf]
+(2026-08-30 09:53:13.243) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+(2026-08-30 09:53:13.243) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-30 09:53:13.243) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-30 09:53:13.243) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-30 09:53:13.243) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+(2026-08-30 09:53:13.244) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+(2026-08-30 09:53:13.244) [info] [SimulationRunner.cc:865] Found no publishers on /stats, adding root stats topic
+(2026-08-30 09:53:13.245) [info] [SimulationRunner.cc:899] Found no publishers on /clock, adding root clock topic
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:949] Gazebo does not support Ogre material scripts. See https://gazebosim.org/api/sim/8/migrationsdf.html#:~:text=Materials for details.
+(2026-08-30 09:53:13.342) [warning] [SdfEntityCreator.cc:955] Custom material scripts are not supported.
+(2026-08-30 09:53:13.770) [debug] [Physics.cc:994] Loaded [gz::physics::dartsim::Plugin] from library [/opt/homebrew/Cellar/gz-physics9/9.3.0_4/lib/gz-physics-9/engine-plugins/libgz-physics-dartsim-plugin.dylib]
+(2026-08-30 09:53:13.770) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-30 09:53:14.038) [debug] [Sensors.cc:697] Configuring Sensors system
+(2026-08-30 09:53:14.038) [debug] [Sensors.cc:557] SensorsPrivate::Run
+(2026-08-30 09:53:14.038) [debug] [Sensors.cc:532] SensorsPrivate::RenderThread started
+(2026-08-30 09:53:14.038) [debug] [Sensors.cc:337] Waiting for init
+(2026-08-30 09:53:14.038) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Sensors] for entity [1]
+(2026-08-30 09:53:14.104) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::DopplerVelocityLogSystem] for entity [1]
+(2026-08-30 09:53:14.152) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Buoyancy] for entity [1]
+(2026-08-30 09:53:14.206) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-30 09:53:14.253) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Contact] for entity [1]
+(2026-08-30 09:53:14.308) [info] [UserCommands.cc:751] Create service on [/world/dvl_world/create_multiple] (async)
+(2026-08-30 09:53:14.308) [info] [UserCommands.cc:753] Create service on [/world/dvl_world/create_multiple/blocking] (blocking)
+(2026-08-30 09:53:14.308) [info] [UserCommands.cc:751] Remove service on [/world/dvl_world/remove] (async)
+(2026-08-30 09:53:14.308) [info] [UserCommands.cc:753] Remove service on [/world/dvl_world/remove/blocking] (blocking)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:751] Pose service on [/world/dvl_world/set_pose] (async)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:753] Pose service on [/world/dvl_world/set_pose/blocking] (blocking)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:751] Pose service on [/world/dvl_world/set_pose_vector] (async)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:753] Pose service on [/world/dvl_world/set_pose_vector/blocking] (blocking)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:751] Light configuration service on [/world/dvl_world/light_config] (async)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:753] Light configuration service on [/world/dvl_world/light_config/blocking] (blocking)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:751] Physics service on [/world/dvl_world/set_physics] (async)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:753] Physics service on [/world/dvl_world/set_physics/blocking] (blocking)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/dvl_world/set_spherical_coordinates] (async)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/dvl_world/set_spherical_coordinates/blocking] (blocking)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:751] Enable collision service on [/world/dvl_world/enable_collision] (async)
+(2026-08-30 09:53:14.309) [info] [UserCommands.cc:753] Enable collision service on [/world/dvl_world/enable_collision/blocking] (blocking)
+(2026-08-30 09:53:14.310) [info] [UserCommands.cc:751] Disable collision service on [/world/dvl_world/disable_collision] (async)
+(2026-08-30 09:53:14.310) [info] [UserCommands.cc:753] Disable collision service on [/world/dvl_world/disable_collision/blocking] (blocking)
+(2026-08-30 09:53:14.310) [info] [UserCommands.cc:751] Material service on [/world/dvl_world/visual_config] (async)
+(2026-08-30 09:53:14.310) [info] [UserCommands.cc:753] Material service on [/world/dvl_world/visual_config/blocking] (blocking)
+(2026-08-30 09:53:14.310) [info] [UserCommands.cc:751] Material service on [/world/dvl_world/wheel_slip] (async)
+(2026-08-30 09:53:14.310) [info] [UserCommands.cc:753] Material service on [/world/dvl_world/wheel_slip/blocking] (blocking)
+(2026-08-30 09:53:14.310) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-30 09:53:14.358) [info] [JointPositionController.cc:415] JointPositionController subscribing to Double messages on [/model/tethys/joint/horizontal_fins_joint/0/cmd_pos]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:419] [JointPositionController] system parameters:
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:420] p_gain: [0.1]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:421] i_gain: [0.1]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:422] d_gain: [0.01]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:423] i_max: [1]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:424] i_min: [-1]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:425] cmd_max: [1000]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:426] cmd_min: [-1000]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:427] cmd_offset: [0]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:428] Topic: [/model/tethys/joint/horizontal_fins_joint/0/cmd_pos]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:429] initial_position: [0]
+(2026-08-30 09:53:14.358) [debug] [JointPositionController.cc:470] Identified joint [horizontal_fins_joint] as Entity [22]
+(2026-08-30 09:53:14.358) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::JointPositionController] for entity [8]
+(2026-08-30 09:53:14.363) [info] [JointPositionController.cc:415] JointPositionController subscribing to Double messages on [/model/tethys/joint/vertical_fins_joint/0/cmd_pos]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:419] [JointPositionController] system parameters:
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:420] p_gain: [0.1]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:421] i_gain: [0.1]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:422] d_gain: [0.01]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:423] i_max: [1]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:424] i_min: [-1]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:425] cmd_max: [1000]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:426] cmd_min: [-1000]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:427] cmd_offset: [0]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:428] Topic: [/model/tethys/joint/vertical_fins_joint/0/cmd_pos]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:429] initial_position: [0]
+(2026-08-30 09:53:14.363) [debug] [JointPositionController.cc:470] Identified joint [vertical_fins_joint] as Entity [23]
+(2026-08-30 09:53:14.363) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::JointPositionController] for entity [8]
+(2026-08-30 09:53:14.412) [info] [Thruster.cc:407] Thruster listening to commands on [/model/tethys/joint/propeller_joint/cmd_thrust]
+(2026-08-30 09:53:14.412) [info] [Thruster.cc:416] Thruster listening to enable_deadband on [/model/tethys/joint/propeller_joint/enable_deadband]
+(2026-08-30 09:53:14.412) [debug] [Thruster.cc:460] Using PID controller for propeller joint.
+(2026-08-30 09:53:14.412) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Thruster] for entity [8]
+(2026-08-30 09:53:14.460) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::LiftDrag] for entity [8]
+(2026-08-30 09:53:14.465) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::LiftDrag] for entity [8]
+(2026-08-30 09:53:14.513) [warning] [Hydrodynamics.cc:435] Plugin-based added mass has known numerical instabilities. If using the DART physics engine, consider migrating to SDF <fluid_added_mass> for unconditionally stable added mass [http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass]. Other physics engines (Bullet, MuJoCo) only support plugin-based added mass.
+(2026-08-30 09:53:14.513) [debug] [SystemManager.cc:80] Loaded system [gz::sim::systems::Hydrodynamics] for entity [8]
+(2026-08-30 09:53:14.513) [info] [LevelManager.cc:646] Loaded level [default]
+(2026-08-30 09:53:14.513) [debug] [ServerConfig.cc:1042] Loading (3) plugins from file [/Users/gwon-yeseol/.gz/sim/10/server.config]
+(2026-08-30 09:53:14.513) [debug] [SimulationRunner.cc:1919] Additional plugins to load:
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:652] Creating PostUpdate worker threads: 8
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (0)
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (1)
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (2)
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (3)
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (4)
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (5)
+(2026-08-30 09:53:14.515) [debug] [SimulationRunner.cc:663] Creating postupdate worker thread (6)
+(2026-08-30 09:53:14.515) [debug] [DopplerVelocityLogSystem.cc:311] Found custom sensor [tethys::base_link::teledyne_pathfinder_dvl] of 'dvl' type!
+(2026-08-30 09:53:14.524) [info] [SceneBroadcaster.cc:634] Serving scene information on [/world/dvl_world/scene/info]
+(2026-08-30 09:53:14.524) [info] [SceneBroadcaster.cc:643] Serving graph information on [/world/dvl_world/scene/graph]
+(2026-08-30 09:53:14.524) [info] [SceneBroadcaster.cc:654] Serving full state on [/world/dvl_world/state]
+(2026-08-30 09:53:14.524) [info] [SceneBroadcaster.cc:663] Serving full state (async) on [/world/dvl_world/state_async]
+(2026-08-30 09:53:14.525) [info] [SceneBroadcaster.cc:671] Publishing scene information on [/world/dvl_world/scene/info]
+(2026-08-30 09:53:14.525) [info] [SceneBroadcaster.cc:680] Publishing entity deletions on [/world/dvl_world/scene/deletion]
+(2026-08-30 09:53:14.525) [info] [SceneBroadcaster.cc:689] Publishing state changes on [/world/dvl_world/state]
+(2026-08-30 09:53:14.525) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/dvl_world/pose/info]
+(2026-08-30 09:53:14.525) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/dvl_world/dynamic_pose/info]
+(2026-08-30 09:53:14.525) [debug] [Sensors.cc:953] Initialization needed
+(2026-08-30 09:53:14.525) [debug] [Sensors.cc:349] Initializing render context
+Stack trace (most recent call last) in thread 6173077504:
+#7    Object "libsystem_pthread.dylib", at 0x18547fbc7, in _pthread_start + 135
+#6    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x115f67c5f, in void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::sim::v10::systems::SensorsPrivate::*)(), gz::sim::v10::systems::SensorsPrivate*>>(void*) + 71
+#5    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x115f545d7, in gz::sim::v10::systems::SensorsPrivate::RenderThread() + 175
+#4    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x115f539af, in gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 511
+#3    Object "libsystem_platform.dylib", at 0x1854b96a3, in _sigtramp + 55
+#2    Object "gz-sim-main", at 0x1005cfcb7, in backward::SignalHandling::sig_handler(int, __siginfo*, void*) + 19
+#1    Object "gz-sim-main", at 0x1005cfd1b, in backward::SignalHandling::handleSignal(int, __siginfo*, void*) + 71
+#0    Object "gz-sim-main", at 0x1005cfe5f, in backward::StackTraceImpl<backward::system_tag::darwin_tag>::load_from(void*, unsigned long, void*, void*) + 43

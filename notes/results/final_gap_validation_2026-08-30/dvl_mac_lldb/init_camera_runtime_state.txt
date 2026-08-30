@@ -1,0 +1,2 @@
+dvl_topic_seen_at_poll=2
+alive_after_dvl_message=true

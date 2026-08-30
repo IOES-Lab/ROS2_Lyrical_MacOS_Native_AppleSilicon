@@ -1,0 +1,2 @@
+  PID STAT ELAPSED COMMAND
+16634 SN     00:20 /Users/gwon-yeseol/ros2_lyrical/install/rviz2/lib/rviz2/rviz2 -l -s

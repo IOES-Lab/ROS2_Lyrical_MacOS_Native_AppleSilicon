@@ -1,0 +1,84 @@
+{
+  "ros_domain_id": 50,
+  "timeout_per_attempt_s": 120,
+  "expected_image": {
+    "width": 320,
+    "height": 240,
+    "encoding": "bgr8",
+    "data_length": 230400
+  },
+  "rows": [
+    {
+      "transport": "default",
+      "attempt": 1,
+      "classification": "SUCCESS",
+      "topic_first_seen_s": 90.267,
+      "image_received_s": 93.79,
+      "total_elapsed_s": 95.939,
+      "launch_return_code_after_shutdown": 0,
+      "detail": ""
+    },
+    {
+      "transport": "default",
+      "attempt": 2,
+      "classification": "SUCCESS",
+      "topic_first_seen_s": 89.665,
+      "image_received_s": 94.557,
+      "total_elapsed_s": 96.731,
+      "launch_return_code_after_shutdown": 0,
+      "detail": ""
+    },
+    {
+      "transport": "default",
+      "attempt": 3,
+      "classification": "SUCCESS",
+      "topic_first_seen_s": 89.52,
+      "image_received_s": 93.029,
+      "total_elapsed_s": 95.121,
+      "launch_return_code_after_shutdown": 0,
+      "detail": ""
+    },
+    {
+      "transport": "udp",
+      "attempt": 1,
+      "classification": "SUCCESS",
+      "topic_first_seen_s": 89.942,
+      "image_received_s": 93.326,
+      "total_elapsed_s": 95.396,
+      "launch_return_code_after_shutdown": 0,
+      "detail": ""
+    },
+    {
+      "transport": "udp",
+      "attempt": 2,
+      "classification": "SUCCESS",
+      "topic_first_seen_s": 93.095,
+      "image_received_s": 96.645,
+      "total_elapsed_s": 98.731,
+      "launch_return_code_after_shutdown": 0,
+      "detail": ""
+    },
+    {
+      "transport": "udp",
+      "attempt": 3,
+      "classification": "SUCCESS",
+      "topic_first_seen_s": 105.333,
+      "image_received_s": 110.431,
+      "total_elapsed_s": 112.49,
+      "launch_return_code_after_shutdown": 0,
+      "detail": ""
+    }
+  ],
+  "counts": {
+    "default": {
+      "SUCCESS": 3,
+      "TIMEOUT": 0,
+      "LAUNCH_EXITED": 0
+    },
+    "udp": {
+      "SUCCESS": 3,
+      "TIMEOUT": 0,
+      "LAUNCH_EXITED": 0
+    }
+  }
+}

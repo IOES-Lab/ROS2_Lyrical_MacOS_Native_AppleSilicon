@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "ros_domain_id": 49,
+    "probe_timeout_s": 30,
+    "world": "/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/final_gap_validation_2026-08-30/fastdds_recheck/empty_world.sdf",
+    "model": "/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/final_gap_validation_2026-08-30/fastdds_recheck/probe_model.sdf",
+    "fastdds_clean_return_code": 0,
+    "sigkill_return_codes": [
+      -9,
+      -9,
+      -9,
+      -9,
+      -9
+    ]
+  },
+  "rows": [
+    {
+      "phase": "dirty_preclean",
+      "attempt": 1,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.312
+    },
+    {
+      "phase": "dirty_preclean",
+      "attempt": 2,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.17
+    },
+    {
+      "phase": "dirty_preclean",
+      "attempt": 3,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.164
+    },
+    {
+      "phase": "dirty_preclean",
+      "attempt": 4,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.154
+    },
+    {
+      "phase": "dirty_preclean",
+      "attempt": 5,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.165
+    },
+    {
+      "phase": "clean_postclean",
+      "attempt": 1,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.147
+    },
+    {
+      "phase": "clean_postclean",
+      "attempt": 2,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.111
+    },
+    {
+      "phase": "clean_postclean",
+      "attempt": 3,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.095
+    },
+    {
+      "phase": "clean_postclean",
+      "attempt": 4,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.128
+    },
+    {
+      "phase": "clean_postclean",
+      "attempt": 5,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.098
+    },
+    {
+      "phase": "after_sigkill",
+      "attempt": 1,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.121
+    },
+    {
+      "phase": "after_sigkill",
+      "attempt": 2,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.178
+    },
+    {
+      "phase": "after_sigkill",
+      "attempt": 3,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.131
+    },
+    {
+      "phase": "after_sigkill",
+      "attempt": 4,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.091
+    },
+    {
+      "phase": "after_sigkill",
+      "attempt": 5,
+      "transport": "DEFAULT_SHM_UDP",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.107
+    },
+    {
+      "phase": "udp_control",
+      "attempt": 1,
+      "transport": "UDPv4",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.095
+    },
+    {
+      "phase": "udp_control",
+      "attempt": 2,
+      "transport": "UDPv4",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.087
+    },
+    {
+      "phase": "udp_control",
+      "attempt": 3,
+      "transport": "UDPv4",
+      "return_code": 0,
+      "classification": "SUCCESS",
+      "elapsed_s": 8.082
+    }
+  ],
+  "counts": {
+    "after_sigkill": {
+      "SUCCESS": 5,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "clean_postclean": {
+      "SUCCESS": 5,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "dirty_preclean": {
+      "SUCCESS": 5,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "udp_control": {
+      "SUCCESS": 3,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    }
+  }
+}

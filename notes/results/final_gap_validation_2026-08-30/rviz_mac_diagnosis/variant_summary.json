@@ -1,0 +1,52 @@
+[
+  {
+    "variant": "layer_0",
+    "pid": 16729,
+    "alive_after_15s": true,
+    "accessibility": "name=rviz2, visible=true, frontmost=true, windows=0",
+    "coregraphics_has_large_onscreen_layer0": false,
+    "env": {
+      "QT_QPA_PLATFORM": "cocoa",
+      "QT_MAC_WANTS_LAYER": "0"
+    },
+    "args": []
+  },
+  {
+    "variant": "layer_1",
+    "pid": 16737,
+    "alive_after_15s": true,
+    "accessibility": "name=rviz2, visible=true, frontmost=true, windows=0",
+    "coregraphics_has_large_onscreen_layer0": false,
+    "env": {
+      "QT_QPA_PLATFORM": "cocoa",
+      "QT_MAC_WANTS_LAYER": "1"
+    },
+    "args": []
+  },
+  {
+    "variant": "scale_1",
+    "pid": 16779,
+    "alive_after_15s": true,
+    "accessibility": "name=rviz2, visible=true, frontmost=true, windows=0",
+    "coregraphics_has_large_onscreen_layer0": false,
+    "env": {
+      "QT_QPA_PLATFORM": "cocoa",
+      "QT_SCALE_FACTOR": "1",
+      "QT_SCREEN_SCALE_FACTORS": "1"
+    },
+    "args": []
+  },
+  {
+    "variant": "fullscreen",
+    "pid": 16819,
+    "alive_after_15s": true,
+    "accessibility": "name=rviz2, visible=true, frontmost=true, windows=0",
+    "coregraphics_has_large_onscreen_layer0": false,
+    "env": {
+      "QT_QPA_PLATFORM": "cocoa"
+    },
+    "args": [
+      "--fullscreen"
+    ]
+  }
+]

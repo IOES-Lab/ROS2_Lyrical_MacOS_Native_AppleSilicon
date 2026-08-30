@@ -1,0 +1,6 @@
+/opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/libgz-sim-sensors-system.10.4.0.dylib
+/opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-sensors-system.10.4.0.dylib
+/opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-sensors-system.dylib
+/opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/gz-sim-10/plugins/libgz-sim-sensors-system.10.dylib
+/opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/libgz-sim-sensors-system.dylib
+/opt/homebrew/Cellar/gz-sim10/10.4.0_4/lib/libgz-sim-sensors-system.10.dylib

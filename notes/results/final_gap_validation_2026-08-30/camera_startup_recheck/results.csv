@@ -1,0 +1,7 @@
+transport,attempt,classification,topic_first_seen_s,image_received_s,total_elapsed_s,launch_return_code_after_shutdown,detail
+default,1,SUCCESS,90.267,93.79,95.939,0,
+default,2,SUCCESS,89.665,94.557,96.731,0,
+default,3,SUCCESS,89.52,93.029,95.121,0,
+udp,1,SUCCESS,89.942,93.326,95.396,0,
+udp,2,SUCCESS,93.095,96.645,98.731,0,
+udp,3,SUCCESS,105.333,110.431,112.49,0,

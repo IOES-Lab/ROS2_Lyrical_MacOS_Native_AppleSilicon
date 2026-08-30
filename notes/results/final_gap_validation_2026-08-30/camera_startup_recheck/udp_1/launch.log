@@ -1,0 +1,14 @@
+[INFO] [launch]: All log files can be found below /Users/gwon-yeseol/.ros/log/2026-08-30-10-58-11-273648-gwon-yeseol-ui-noteubug.local-24982
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [24984]
+[INFO] [create-2]: process started with pid [24985]
+[create-2] [INFO] [1788055100.743885000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1788055105.751858000] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1788055106.493353000] [ros_gz_sim]: World name was not provided. Using [camera_world] as the default world.
+[create-2] [INFO] [1788055106.622947000] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 24985]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/plugin[@name="gz::sim::systems::ShaderParam"]:<data-string>:L1]: XML Element[plugin], child of element[sdf], not defined in SDF. Copying[plugin] as children of [sdf].
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[gazebo-1] [INFO] [1788055183.247430000] [rclcpp]: signal_handler(signum=2)
+[INFO] [gazebo-1]: process has finished cleanly [pid 24984]

@@ -1,0 +1,48 @@
+--- /Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualizer_app.cpp	2026-07-06 13:04:12
++++ notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualizer_app.cpp	2026-08-30 10:28:26
+@@ -45,6 +45,11 @@
+ #include <QString>  // NOLINT: cpplint cannot handle the include order here
+ #include <QTimer>  // NOLINT: cpplint is unable to handle the include order here
+
++#ifdef __APPLE__
++#include <objc/message.h>
++#include <objc/runtime.h>
++#endif
++
+ #include "rviz_common/interaction/selection_manager.hpp"
+ #include "rviz_common/logging.hpp"
+ #include "rviz_rendering/ogre_logging.hpp"
+@@ -179,6 +184,34 @@
+
+   frame_->show();
+
++#ifdef __APPLE__
++  // Diagnostic candidate: Qt reports the RViz top-level frame as visible, but
++  // CoreGraphics records its NSWindow as ordered out after OGRE creates the
++  // external render view. Force that existing NSWindow to the front from
++  // inside RViz after the event loop starts.
++  QTimer::singleShot(1000, frame_, [this]() {
++    void * view = reinterpret_cast<void *>(frame_->winId());
++    using IdMessage = void * (*)(void *, SEL);
++    using VoidMessage = void (*)(void *, SEL);
++    using BoolMessage = void (*)(void *, SEL, bool);
++    auto send_id = reinterpret_cast<IdMessage>(objc_msgSend);
++    auto send_void = reinterpret_cast<VoidMessage>(objc_msgSend);
++    auto send_bool = reinterpret_cast<BoolMessage>(objc_msgSend);
++    void * ns_window = send_id(view, sel_registerName("window"));
++    void * ns_application = send_id(
++      reinterpret_cast<void *>(objc_getClass("NSApplication")),
++      sel_registerName("sharedApplication"));
++    if (ns_window) {
++      send_void(ns_window, sel_registerName("orderFrontRegardless"));
++      send_void(ns_window, sel_registerName("makeKeyWindow"));
++    }
++    if (ns_application) {
++      send_bool(
++        ns_application, sel_registerName("activateIgnoringOtherApps:"), true);
++    }
++  });
++#endif
++
+   return true;
+ }

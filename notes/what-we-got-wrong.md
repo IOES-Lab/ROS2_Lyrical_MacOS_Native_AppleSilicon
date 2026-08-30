@@ -504,3 +504,27 @@ separate claims. Before marking an executable gap external, identify the authori
 try the supported build or wrapper controls in isolation, then rerun the full chain. Each newly
 unblocked layer can expose the next failure; a successful process start is still not an end-to-end
 PASS.
+
+## 2026-08-30 — 수동 종료한 결합 시험을 최종 실패 상태처럼 요약했다
+
+**Believed:** Heavy-multibeam 결합 실행에서 stack trace와 JSON starvation을 봤으므로 결합
+경로의 실패 판정과 원인 범위가 충분히 닫혔다.
+
+**Actually:** 그 실행은 수동 cleanup으로 끝나 final signal·exit code가 없었고, auto backend와
+CPU backend도 분리하지 않았다. 현재 재실행은 auto WGPU가 software `llvmpipe`를 선택한 뒤
+OGRE2 sample-texture/null-`memcpy` stack과 Gazebo exit 139를 보존했다. 같은 derived candidate를
+forced CPU로 실행하면 513×301 PointCloud2, MAVROS MANUAL arm, 100 control messages, X
++1.348464 m 이동과 disarm이 한 session에서 통과한다. 따라서 결합 결과는 전체 FAIL이 아니라
+**backend-dependent**다.
+
+**Lesson:** crash를 기록할 때는 마지막 exit status까지 보존하고, 자동 선택된 backend를
+명시적 양성 대조와 분리한다. 중간 증상만으로 종료 결과나 다른 backend까지 확대하지 않는다.
+
+## 2026-08-30 — 창 진단기가 splash와 main window를 한 판정으로 합쳤다
+
+RViz 창 검사의 첫 버전은 `onscreen=true`인 splash와 `onscreen=false`인 main window를 합쳐
+"창이 있다"고 읽을 수 있었다. CoreGraphics layer별 window number·size·onscreen 상태와
+Accessibility window count를 분리하자 main 640×508 layer는 계속 offscreen이고 AX window는
+0개였다. plain Qt controls는 같은 환경에서 onscreen이므로 일반 Qt 또는 macOS 창 생성 실패로
+확대할 수 없다. 앞으로 GUI 판정은 process·native window·onscreen framebuffer·실제 내용
+렌더링을 별도 속성으로 기록한다.

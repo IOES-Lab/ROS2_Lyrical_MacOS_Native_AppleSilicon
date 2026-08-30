@@ -1,0 +1,60 @@
+id=56857 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 0;
+    Width = 0;
+    X = 0;
+    Y = 0;
+}
+id=56856 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 1;
+    Width = 1;
+    X = 854;
+    Y = 295;
+}
+id=56851 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 38;
+    Width = 1710;
+    X = 0;
+    Y = 0;
+}
+id=56849 layer=101 alpha=1.0 onscreen=true name= bounds={
+    Height = 287;
+    Width = 400;
+    X = 655;
+    Y = 410;
+}
+id=56858 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 0;
+    Width = 0;
+    X = 0;
+    Y = 0;
+}
+id=56850 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 38;
+    Width = 1710;
+    X = 0;
+    Y = 0;
+}
+id=56854 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 500;
+    Width = 500;
+    X = 0;
+    Y = 607;
+}
+id=56852 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 38;
+    Width = 1710;
+    X = 0;
+    Y = 0;
+}
+id=56848 layer=0 alpha=1.0 onscreen=true name= bounds={
+    Height = 128;
+    Width = 200;
+    X = 535;
+    Y = 283;
+}
+id=56853 layer=0 alpha=1.0 onscreen=false name= bounds={
+    Height = 38;
+    Width = 1710;
+    X = 0;
+    Y = 0;
+}

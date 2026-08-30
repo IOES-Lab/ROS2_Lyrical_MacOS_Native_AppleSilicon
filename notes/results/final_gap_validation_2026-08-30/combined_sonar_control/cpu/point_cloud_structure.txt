@@ -1,0 +1,14 @@
+header:
+  stamp:
+    sec: 20
+    nanosec: 758000000
+  frame_id: bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar
+height: 301
+width: 513
+fields: '<sequence type: sensor_msgs/msg/PointField, length: 5>'
+is_bigendian: false
+point_step: 32
+row_step: 16416
+data: '<sequence type: uint8, length: 4941216>'
+is_dense: false
+---

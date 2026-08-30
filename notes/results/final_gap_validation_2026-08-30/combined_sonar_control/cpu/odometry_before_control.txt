@@ -1,0 +1,30 @@
+header:
+  stamp:
+    sec: 30
+    nanosec: 4000000
+  frame_id: map
+child_frame_id: base_link
+pose:
+  pose:
+    position:
+      x: 0.000193007897823486
+      y: -2.9672081727739663e-16
+      z: -0.08266344391828548
+    orientation:
+      x: 4.441126333877831e-19
+      y: 0.00022275607627558183
+      z: -2.4999838279993e-15
+      w: 0.9999999751898662
+  covariance: '<array type: double[36]>'
+twist:
+  twist:
+    linear:
+      x: 1.3130024491563496e-05
+      y: -2.2206838038312436e-17
+      z: -0.002322267564997835
+    angular:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+  covariance: '<array type: double[36]>'
+---

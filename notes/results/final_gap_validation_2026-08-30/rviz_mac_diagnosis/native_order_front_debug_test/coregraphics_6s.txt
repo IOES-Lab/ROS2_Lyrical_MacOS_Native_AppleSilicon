@@ -1,0 +1,6 @@
+id=56746 layer=101 alpha=1.0 onscreen=false name= bounds={
+    Height = 287;
+    Width = 400;
+    X = 655;
+    Y = 410;
+}

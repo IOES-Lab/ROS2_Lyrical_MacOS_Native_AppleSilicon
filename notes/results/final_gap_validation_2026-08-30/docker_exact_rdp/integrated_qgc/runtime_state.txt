@@ -1,0 +1,11 @@
+== PROCESSES ==
+docker      69    63  1 02:06 ?        00:00:03 /usr/lib/xorg/Xorg :10 -auth .Xauthority -config xrdp/xorg.conf -noreset -nolisten tcp -logfile .xorgxrdp.%s.log
+docker      85    80  0 02:06 ?        00:00:00 xfce4-session
+docker     933   931 90 02:10 ?        00:00:43 /opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main empty.sdf -r
+docker    1217   880  7 02:10 ?        00:00:03 ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0
+docker    1218   880 29 02:10 ?        00:00:12 /home/docker/mavros_ws/install/lib/mavros/mavros_node --ros-args --params-file /home/docker/dave_ws/install/share/dave_robot_models/config/mavros/mavros.yaml --params-file /tmp/launch_params_ddce7e6r
+docker    1365     1 99 02:10 ?        00:00:55 /home/docker/QGC/usr/bin/QGroundControl --logging LinkManagerLog.debug=true --log-output
+== UDP_14550 ==
+/proc/net/udp: 1286: 00000000:38D6 00000000:0000 07 00000000:00000000 00:00000000 00000000  1001        0 174948730 2 00000000336a88c0 0
+== QGC_LINK_LINES ==
+594a9b4b423734e46cd8a12ba249e3784d2008265ebf886b820a3abef7aaba40  /home/docker/exact_rdp_integration/qgc_connected.png

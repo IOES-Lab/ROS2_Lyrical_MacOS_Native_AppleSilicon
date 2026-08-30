@@ -1,0 +1,3 @@
+stack_trace_seen=1
+gz_process_seen=1
+no_json_count=245

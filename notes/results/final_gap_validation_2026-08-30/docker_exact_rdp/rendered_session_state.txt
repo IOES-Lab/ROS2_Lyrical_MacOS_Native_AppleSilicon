@@ -1,0 +1,11 @@
+== SESSION_PROCESSES ==
+docker      69    63  0 02:06 ?        00:00:00 /usr/lib/xorg/Xorg :10 -auth .Xauthority -config xrdp/xorg.conf -noreset -nolisten tcp -logfile .xorgxrdp.%s.log
+docker      81    63  0 02:06 ?        00:00:00 /usr/sbin/xrdp-chansrv
+docker      85    80  0 02:06 ?        00:00:00 xfce4-session
+docker     117    85  2 02:06 ?        00:00:01 xfwm4
+docker     166    85  0 02:06 ?        00:00:00 xfdesktop
+== CAPTURE_TOOLS ==
+/usr/bin/xwd
+/usr/bin/ffmpeg
+== DISPLAY_ACCESS ==
+== ROOT_TREE ==

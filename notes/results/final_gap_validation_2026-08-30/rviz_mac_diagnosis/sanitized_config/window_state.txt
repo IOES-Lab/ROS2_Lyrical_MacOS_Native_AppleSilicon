@@ -1,0 +1,1 @@
+name=rviz2, visible=true, frontmost=true, windows=0

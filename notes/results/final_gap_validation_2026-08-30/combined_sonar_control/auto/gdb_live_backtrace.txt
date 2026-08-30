@@ -1,0 +1,4 @@
+Unable to attach: program terminated with signal SIGSEGV, Segmentation fault.
+The program being debugged is not being run.
+No threads.
+The program is not being run.

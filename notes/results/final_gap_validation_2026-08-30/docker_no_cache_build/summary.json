@@ -1,0 +1,51 @@
+{
+  "date": "2026-08-30",
+  "verdict": "PASS in tested build, package, RDP-rendering, Gazebo and QGC-integration scope",
+  "build": {
+    "dockerfile_sha256": "595ad3d51c5d0f639eac465be617cf103bf3407e29ed5d7697b7435723ac9532",
+    "git_head": "e05070a28dba5231e1fad03ed3484fa254b2711f",
+    "no_cache": true,
+    "builder_cache_pruned_before_build": true,
+    "return_code": 0,
+    "elapsed_seconds": 4015.02,
+    "elapsed_minutes": 66.917,
+    "start": "2026-08-30T11:13:38+09:00",
+    "end": "2026-08-30T12:20:34+09:00"
+  },
+  "image": {
+    "tag": "lyrical-sim:jetty-rdp-no-cache-20260830",
+    "id": "sha256:53744d17f09dd2489d6be3eedbfae19377b9013211f1cfa3c109c70cfc67d955",
+    "size_bytes": 6260137751,
+    "architecture": "arm64",
+    "os": "linux",
+    "user": "root",
+    "ubuntu": "26.04.1 LTS",
+    "ros_distro": "lyrical",
+    "gazebo": "10.5.0"
+  },
+  "pins": {
+    "dave": "6aef91c823af5da073329b84ba617b572965e79e",
+    "geographic_info": "24806adc767414eb3a34a58aefeb648ee415b09a",
+    "ardupilot": "30257f01185471ab4c1ac544e47d1b4437e44c98",
+    "ardupilot_gazebo": "082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5"
+  },
+  "runtime": {
+    "rdp_client": "FreeRDP SDL 3.31.0",
+    "xrdp_login": true,
+    "xorg_display": ":10",
+    "xfce_session": true,
+    "framebuffer_captured": true,
+    "gazebo_rendered": true,
+    "mavros_connected": true,
+    "mavros_mode": "MANUAL",
+    "qgroundcontrol_rendered": true,
+    "qgroundcontrol_ready_manual_visible": true,
+    "qgc_no_system_glib": "1"
+  },
+  "limits": [
+    "Fresh runtime used FreeRDP SDL because Windows App automation was unavailable; the previous exact cache image was separately tested with Windows App.",
+    "Physical HIL, NVIDIA/CUDA and hardware Vulkan/WGPU were not available on this Apple M2 host.",
+    "The build warning recommends JSON-form CMD syntax; it did not fail the build.",
+    "This is software and integration validation, not general physical or scientific accuracy."
+  ]
+}

@@ -1,0 +1,21 @@
+diff --git a/Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualizer_app.cpp b/notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualizer_app.cpp
+index 191a0af..3d4ca5a 100644
+--- a/Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualizer_app.cpp
++++ b/notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualizer_app.cpp
+@@ -178,6 +178,16 @@ bool VisualizerApp::init(int argc, char ** argv)
+   }
+
+   frame_->show();
++  frame_->raise();
++  frame_->activateWindow();
++
++  // Qt 6.11 on macOS can create the native frame before QApplication::exec()
++  // but leave it unmapped. Retry once after the event loop starts.
++  QTimer::singleShot(0, frame_, [this]() {
++    frame_->show();
++    frame_->raise();
++    frame_->activateWindow();
++  });
+
+   return true;
+ }

@@ -1,0 +1,13 @@
+[
+  {
+    "variant": "both_software",
+    "env": {
+      "QT_OPENGL": "software",
+      "LIBGL_ALWAYS_SOFTWARE": "1"
+    },
+    "alive_after_wait": true,
+    "wait_seconds": 15,
+    "coregraphics_has_main_onscreen": false,
+    "coregraphics_windows": "id=56731 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56730 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56729 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56727 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 508;\n    Width = 640;\n    X = 535;\n    Y = 283;\n}\nid=56726 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56725 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56720 layer=101 alpha=1.0 onscreen=true name= bounds={\n    Height = 287;\n    Width = 400;\n    X = 655;\n    Y = 410;\n}\nid=56722 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56728 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 188;\n    Width = 160;\n    X = 775;\n    Y = 443;\n}\nid=56723 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56724 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56721 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 1;\n    Width = 1;\n    X = 854;\n    Y = 295;\n}\n"
+  }
+]

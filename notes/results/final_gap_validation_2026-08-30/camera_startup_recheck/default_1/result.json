@@ -1,0 +1,10 @@
+{
+  "transport": "default",
+  "attempt": 1,
+  "classification": "SUCCESS",
+  "topic_first_seen_s": 90.267,
+  "image_received_s": 93.79,
+  "total_elapsed_s": 95.939,
+  "launch_return_code_after_shutdown": 0,
+  "detail": ""
+}

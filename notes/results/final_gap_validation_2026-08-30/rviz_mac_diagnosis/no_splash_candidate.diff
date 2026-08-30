@@ -1,0 +1,15 @@
+diff --git a/Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualization_frame.cpp b/notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualization_frame.cpp
+index d035337..13193bb 100644
+--- a/Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualization_frame.cpp
++++ b/notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualization_frame.cpp
+@@ -249,7 +249,9 @@ void VisualizationFrame::initialize(
+     app_->setWindowIcon(app_icon);
+   }
+
+-  if (splash_path_ != "") {
++  // Candidate macOS / Qt 6.11 control: skip QSplashScreen, which remained
++  // mapped while the main frame stayed ordered out in the failing build.
++  if (false && splash_path_ != "") {
+     QPixmap splash_image(splash_path_);
+     splash_ = new SplashScreen(splash_image);
+     splash_->show();

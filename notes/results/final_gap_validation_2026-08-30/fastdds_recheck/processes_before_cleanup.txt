@@ -1,0 +1,10 @@
+== DATE ==
+2026-08-30T10:46:18+09:00
+== TARGETED STALE PROJECT PROCESSES ==
+15089 24688 Sun Aug 30 09:50:16 2026           56:02 /bin/zsh -lc source ~/ros2_lyrical/.venv/bin/activate\012source ~/ros2_lyrical/install/setup.zsh\012source ~/ros_gz_ws_lyrical/install/local_setup.zsh >/dev/null 2>&1 || true\012printf '== TOPICS ==\n'; gz topic -l | grep -E 'dvl|world|stats|clock' | head -100 || true\012printf '\n== STATS ==\n'; gz topic -e -t /world/dvl_demo/stats -n 1 2>&1 | head -40 || true\012printf '\n== DVL ==\n'; gz topic -e -t /dvl/velocity -n 1 2>&1 | head -100 || true
+15128 15089 Sun Aug 30 09:50:25 2026           55:53 /opt/homebrew/Cellar/gz-transport15/15.0.2_10/libexec/gz/transport15/gz-transport-topic -e -t /world/dvl_demo/stats -n 1
+15129 15089 Sun Aug 30 09:50:25 2026           55:53 head -40
+25564     1 Tue Aug 11 09:37:36 2026     19-01:08:42 /Users/gwon-yeseol/ros2_lyrical/install/tf2_ros/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args
+== ALL RELEVANT PROCESSES ==
+15089 24688 Sun Aug 30 09:50:16 2026           56:02 /bin/zsh -lc source ~/ros2_lyrical/.venv/bin/activate\012source ~/ros2_lyrical/install/setup.zsh\012source ~/ros_gz_ws_lyrical/install/local_setup.zsh >/dev/null 2>&1 || true\012printf '== TOPICS ==\n'; gz topic -l | grep -E 'dvl|world|stats|clock' | head -100 || true\012printf '\n== STATS ==\n'; gz topic -e -t /world/dvl_demo/stats -n 1 2>&1 | head -40 || true\012printf '\n== DVL ==\n'; gz topic -e -t /dvl/velocity -n 1 2>&1 | head -100 || true
+25564     1 Tue Aug 11 09:37:36 2026     19-01:08:42 /Users/gwon-yeseol/ros2_lyrical/install/tf2_ros/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args

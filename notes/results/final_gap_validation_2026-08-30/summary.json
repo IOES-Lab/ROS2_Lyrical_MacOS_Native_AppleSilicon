@@ -1,0 +1,20 @@
+{
+  "date": "2026-08-30",
+  "scope": "locally executable final gaps plus documented external prerequisites",
+  "results": {
+    "combined_heavy_multibeam": "backend-dependent: software-WGPU FAIL, forced-CPU FUNCTIONAL PASS",
+    "dvl_macos": "stock FAIL diagnosed; hidden standard-camera initializer workaround PASS",
+    "rviz_macos": "open; main Cocoa window remains offscreen after controls and candidate fixes",
+    "fastdds_create": "18/18 current success; historical causal mechanism not reproduced",
+    "underwater_camera_startup": "6/6 exact launch success; old short-window failure superseded",
+    "exact_cache_image_rdp_qgc": "Windows App rendered RDP/QGC PASS",
+    "fresh_no_cache_build_rdp_qgc": "fresh build and FreeRDP rendered RDP/QGC PASS"
+  },
+  "external_only": [
+    "NVIDIA/CUDA or hardware WGPU",
+    "Windows/WSL",
+    "physical ArduSub HIL",
+    "Fuel-account upload/version flow",
+    "physical scientific validation"
+  ]
+}

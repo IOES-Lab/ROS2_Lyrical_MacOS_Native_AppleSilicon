@@ -1,0 +1,36 @@
+diff --git a/Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualizer_app.cpp b/notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualizer_app.cpp
+index 191a0af..6106eb0 100644
+--- a/Users/gwon-yeseol/ros2_lyrical/src/ros2/rviz/rviz_common/src/rviz_common/visualizer_app.cpp
++++ b/notes/results/final_gap_validation_2026-08-30/rviz_mac_diagnosis/deferred_show_overlay/src/rviz/rviz_common/src/rviz_common/visualizer_app.cpp
+@@ -167,6 +167,14 @@ bool VisualizerApp::init(int argc, char ** argv)
+   if (!splash_path.isEmpty()) {
+     frame_->setSplashPath(splash_path);
+   }
++
++  // Map the top-level Cocoa window before OpenGL child-window setup. The
++  // initialize() path processes Qt events, so this gives macOS a chance to
++  // register the main frame before OGRE creates its external NSView.
++  frame_->show();
++  frame_->raise();
++  frame_->activateWindow();
++
+   frame_->initialize(node_, display_config);
+
+   if (!fixed_frame.isEmpty()) {
+@@ -178,6 +186,16 @@ bool VisualizerApp::init(int argc, char ** argv)
+   }
+
+   frame_->show();
++  frame_->raise();
++  frame_->activateWindow();
++
++  // Qt 6.11 on macOS can create the native frame before QApplication::exec()
++  // but leave it unmapped. Retry once after the event loop starts.
++  QTimer::singleShot(0, frame_, [this]() {
++    frame_->show();
++    frame_->raise();
++    frame_->activateWindow();
++  });
+
+   return true;
+ }

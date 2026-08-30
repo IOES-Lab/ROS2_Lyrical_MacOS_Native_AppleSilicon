@@ -1,0 +1,6 @@
+{
+  "rdp_display": ":10",
+  "mavros_connected": true,
+  "qgc_opt_out": "QGC_NO_SYSTEM_GLIB=1",
+  "rendered_framebuffer_captured": true
+}

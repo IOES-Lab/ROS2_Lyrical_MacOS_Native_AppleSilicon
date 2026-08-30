@@ -1,0 +1,10 @@
+{
+  "transport": "udp",
+  "attempt": 2,
+  "classification": "SUCCESS",
+  "topic_first_seen_s": 93.095,
+  "image_received_s": 96.645,
+  "total_elapsed_s": 98.731,
+  "launch_return_code_after_shutdown": 0,
+  "detail": ""
+}

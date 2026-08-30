@@ -1,0 +1,1 @@
+The original QT_LOGGING_RULES verbose stream contained 554387 lines and was pruned after preserving startup, selected Cocoa/OpenGL lines and the final 300 lines.

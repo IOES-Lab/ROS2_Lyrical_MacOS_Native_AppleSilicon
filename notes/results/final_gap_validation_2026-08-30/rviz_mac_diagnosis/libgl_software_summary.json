@@ -1,0 +1,12 @@
+[
+  {
+    "variant": "libgl_software",
+    "env": {
+      "LIBGL_ALWAYS_SOFTWARE": "1"
+    },
+    "alive_after_wait": true,
+    "wait_seconds": 15,
+    "coregraphics_has_main_onscreen": false,
+    "coregraphics_windows": "id=56716 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56715 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 188;\n    Width = 160;\n    X = 775;\n    Y = 443;\n}\nid=56714 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 508;\n    Width = 640;\n    X = 535;\n    Y = 283;\n}\nid=56713 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56712 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56710 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56708 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 1;\n    Width = 1;\n    X = 854;\n    Y = 295;\n}\nid=56707 layer=101 alpha=1.0 onscreen=true name= bounds={\n    Height = 287;\n    Width = 400;\n    X = 655;\n    Y = 410;\n}\nid=56711 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56718 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56717 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56709 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\n"
+  }
+]

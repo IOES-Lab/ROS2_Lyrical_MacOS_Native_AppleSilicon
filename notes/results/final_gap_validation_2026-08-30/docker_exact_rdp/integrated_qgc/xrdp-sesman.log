@@ -1,0 +1,15 @@
+[2026-08-30T02:05:21.687+0000] [INFO ] starting xrdp-sesman with pid 59
+[2026-08-30T02:05:21.693+0000] [INFO ] Sesman now listening on /run/xrdp/sockdir/sesman.socket
+[2026-08-30T02:06:14.205+0000] [INFO ] Socket 12: connection accepted from AF_UNIX
+[2026-08-30T02:06:14.208+0000] [INFO ] Received system login request from xrdp for user: docker IP: ::ffff:172.17.0.1
+[2026-08-30T02:06:14.246+0000] [INFO ] starting xrdp-sesexec with pid 63
+[2026-08-30T02:06:14.358+0000] [INFO ] TerminalServerUsers group tsusers doesn't exist. Access granted for docker
+[2026-08-30T02:06:14.359+0000] [INFO ] Access permitted for user: docker
+[2026-08-30T02:06:14.360+0000] [INFO ] Received sys login status for docker : logged in
+[2026-08-30T02:06:14.362+0000] [INFO ] Received request from xrdp to create a session for user docker
+[2026-08-30T02:06:14.409+0000] [INFO ] Starting X server on display 10: /usr/lib/xorg/Xorg :10 -auth .Xauthority -config xrdp/xorg.conf -noreset -nolisten tcp -logfile .xorgxrdp.%s.log
+[2026-08-30T02:06:15.413+0000] [INFO ] X server :10 is working
+[2026-08-30T02:06:15.415+0000] [INFO ] Starting window manager for display :10
+[2026-08-30T02:06:15.417+0000] [INFO ] Starting the xrdp channel server for display :10
+[2026-08-30T02:06:15.418+0000] [INFO ] Using the default window manager on display 10: /etc/xrdp/startwm.sh
+[2026-08-30T02:06:15.420+0000] [INFO ] Session in progress on display :10. Waiting until the window manager (pid 80) exits to end the session

@@ -1,0 +1,8 @@
+50-    </plugin>
+51-    <plugin
+52-      filename="multibeam_sonar_system"
+53:      name="custom::MultibeamSonarSystem">
+54-    </plugin>
+55-    <plugin
+56-      filename="gz-sim-dvl-system"
+/opt/ros/lyrical/setup.bash: line 8: AMENT_TRACE_SETUP_FILES: unbound variable

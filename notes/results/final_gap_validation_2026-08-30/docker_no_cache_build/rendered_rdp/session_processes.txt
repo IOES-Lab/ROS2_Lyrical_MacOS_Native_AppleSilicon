@@ -1,0 +1,15 @@
+1 sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+31 sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini
+33 xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini
+35 xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+3071 xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+3073 xrdp-sesexec
+3079 /usr/lib/xorg/Xorg :10 -auth .Xauthority -config xrdp/xorg.conf -noreset -nolisten tcp -logfile .xorgxrdp.%s.log
+3091 /usr/sbin/xrdp-chansrv
+3095 xfce4-session
+3436 bash -lc pgrep -af "xrdp|Xorg|xfce4-session" || true; ls -l /tmp/.X11-unix /home/docker/.Xauthority
+-rw------- 1 docker docker 58 Aug 30 03:32 /home/docker/.Xauthority
+
+/tmp/.X11-unix:
+total 0
+srwxrwxrwx 1 docker docker 0 Aug 30 03:32 X10

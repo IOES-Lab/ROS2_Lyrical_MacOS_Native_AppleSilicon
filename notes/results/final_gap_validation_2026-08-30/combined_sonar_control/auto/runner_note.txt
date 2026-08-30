@@ -1,0 +1,1 @@
+The first generated inner script quoted its numeric timeout status, so docker exec returned 2. The inner timeout status was 124 after deliberate post-crash cleanup. The Gazebo child itself reported exit code 139 in launch.log. run_case.sh was corrected before the CPU comparison.

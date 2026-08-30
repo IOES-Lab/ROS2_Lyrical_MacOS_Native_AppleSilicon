@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**열여덟 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**스물한 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -508,10 +508,35 @@ calibration과 장시간/실차 정확도는
 - 직후 Gazebo stack trace가 시작되고 ArduSub는 no-JSON 경고를 105회 출력
 - MAVROS state probe 0 byte, PointCloud2 미수집, arm/control/disarm 단계 미도달
 
-따라서 결합 경로는 더 이상 “미검증”이 아니라 **FAIL/PARTIAL**이다. 수동 cleanup 전에 완전한
-backtrace와 최종 exit status를 보존하지 못했으므로 signal·exit code·root cause는 단정하지
-않는다. 별도 exact-image control PASS와 별도 Mac fifth-sonar PointCloud PASS는 각각의 원래
-범위에서 유지한다. Docker 결합 실패의 원인 분리와 수정 후 한-session 재검증이 남았다.
+이 회차에서는 결합 경로를 **FAIL/PARTIAL**로 판정했다. 다만 수동 cleanup 전에 완전한
+backtrace와 최종 exit status를 보존하지 못했고 backend도 분리하지 않았다. 아래 21차 재실행이
+이 판정을 supersede한다: software WGPU는 exit 139, forced CPU는 output·control PASS이므로 현재
+판정은 backend-dependent다. 별도 exact-image control PASS와 Mac fifth-sonar PointCloud PASS는
+각각의 원래 범위에서 유지한다.
 
 근거:
 [`../results/external_stack_validation_2026-08-29/dockerfile/combined_sonar_control/`](../results/external_stack_validation_2026-08-29/dockerfile/combined_sonar_control/).
+
+
+## 21차 — 2026-08-30 최종 실행 가능 gap 직접 검증
+
+인터넷의 공식 문서와 현재 로컬 실행을 결합해 남은 실행 가능 범위를 다시 분리했다.
+
+- Mac DVL stock crash를 LLDB `EXC_BAD_ACCESS`와 `gz-sim10_10.4.0` source로 null-scene
+  초기화 누락까지 좁히고, hidden 8×8 camera를 둔 official-world control로 four-beam output 복구
+- RViz main window가 Cocoa/OGRE 경로에서 CoreGraphics `onscreen=false`인 것을 plain Qt/OpenGL
+  controls 및 software/show/orderFront 후보와 대조; 영구 fix는 찾지 못해 open 유지
+- Fast DDS dirty/clean/SIGKILL/UDP matrix 18/18; stale SHM은 청소했지만 historical hang 인과는 미확정
+- Underwater Camera exact Quickstart default 3/3·UDP 3/3; 90–110초 startup latency로 과거 short-wait 판정 정정
+- exact Docker image를 Windows App으로 실제 RDP login해 Xorg/XFCE framebuffer와
+  Gazebo+QGroundControl vehicle-connected 화면 직접 확인
+- Heavy-multibeam 결합을 backend별로 재실행: software WGPU/llvmpipe exit 139, forced CPU는
+  513×301 PointCloud2와 MANUAL arm/control/disarm, X +1.348464 m로 PASS
+- current Dockerfile은 official BuildKit cache prune 뒤 fresh `--no-cache`로 66.917분에 완주했고 package/pin 검사를 통과했다. fresh image도 FreeRDP/xrdp로 Xorg/XFCE를 띄워 Gazebo+QGC Ready/Manual과 MAVROS connected/Manual을 실제 framebuffer에서 재확인
+
+따라서 위키의 DVL·Installation/환경·Underwater Camera·ROV/Multibeam 및 전체 현황 페이지는
+이 범위로 맞춘다. fresh run은 FreeRDP이고 이전 exact cache run은 Windows App이므로 client 범위도 분리한다. scientific accuracy, hardware CUDA/WGPU, Windows/WSL, HIL과 upstream 적용은
+이 회차의 PASS 범위가 아니다.
+
+근거:
+[`../results/final_gap_validation_2026-08-30/`](../results/final_gap_validation_2026-08-30/).

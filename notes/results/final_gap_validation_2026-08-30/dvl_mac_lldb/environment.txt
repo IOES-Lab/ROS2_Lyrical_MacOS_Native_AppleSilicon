@@ -1,0 +1,7 @@
+main=/opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main
+world=/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_sim_demos/share/ros_gz_sim_demos/worlds/dvl.sdf
+10.4.0
+ProductName:		macOS
+ProductVersion:		15.7.3
+BuildVersion:		24G419
+Darwin gwon-yeseol-ui-noteubug.local 24.6.0 Darwin Kernel Version 24.6.0: Wed Nov  5 21:33:59 PST 2025; root:xnu-11417.140.69.705.2~1/RELEASE_ARM64_T8112 arm64

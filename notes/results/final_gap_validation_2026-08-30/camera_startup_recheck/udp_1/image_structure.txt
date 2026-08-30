@@ -1,0 +1,12 @@
+header:
+  stamp:
+    sec: 1788055183
+    nanosec: 75431000
+  frame_id: ''
+height: 240
+width: 320
+encoding: bgr8
+is_bigendian: 0
+step: 960
+data: '<sequence type: uint8, length: 230400>'
+---

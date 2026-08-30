@@ -1,0 +1,12 @@
+== QT TOOLS ==
+/opt/homebrew/bin/qmake6
+/opt/homebrew/bin/qmake
+6.11.1
+/opt/homebrew/opt/qt
+== RVIZ BINARY ==
+/Users/gwon-yeseol/ros2_lyrical/install/rviz2/lib/rviz2/rviz2: Mach-O 64-bit executable arm64
+	@rpath/libOgreMain.1.12.10.dylib (compatibility version 1.12.10, current version 1.12.10)
+	@rpath/libOgreOverlay.1.12.10.dylib (compatibility version 1.12.10, current version 1.12.10)
+	/opt/homebrew/opt/qtbase/lib/QtWidgets.framework/Versions/A/QtWidgets (compatibility version 6.0.0, current version 6.11.1)
+	/opt/homebrew/opt/qtbase/lib/QtGui.framework/Versions/A/QtGui (compatibility version 6.0.0, current version 6.11.1)
+	/opt/homebrew/opt/qtbase/lib/QtCore.framework/Versions/A/QtCore (compatibility version 6.0.0, current version 6.11.1)

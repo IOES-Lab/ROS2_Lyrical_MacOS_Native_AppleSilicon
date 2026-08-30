@@ -1,0 +1,12 @@
+[
+  {
+    "variant": "qt_opengl_software",
+    "env": {
+      "QT_OPENGL": "software"
+    },
+    "alive_after_wait": true,
+    "wait_seconds": 15,
+    "coregraphics_has_main_onscreen": false,
+    "coregraphics_windows": "id=56703 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56699 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56698 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56697 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\nid=56695 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 1;\n    Width = 1;\n    X = 854;\n    Y = 295;\n}\nid=56705 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56701 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 508;\n    Width = 640;\n    X = 535;\n    Y = 283;\n}\nid=56704 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56696 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 0;\n    Width = 0;\n    X = 0;\n    Y = 0;\n}\nid=56694 layer=101 alpha=1.0 onscreen=true name= bounds={\n    Height = 287;\n    Width = 400;\n    X = 655;\n    Y = 410;\n}\nid=56702 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 188;\n    Width = 160;\n    X = 775;\n    Y = 443;\n}\nid=56700 layer=0 alpha=1.0 onscreen=false name= bounds={\n    Height = 38;\n    Width = 1710;\n    X = 0;\n    Y = 0;\n}\n"
+  }
+]

@@ -1,0 +1,4 @@
+ 3727 gz-sim-main     /opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main empty.sdf -r
+ 4056 ardusub         ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0
+ 4057 mavros_node     /home/docker/mavros_ws/install/lib/mavros/mavros_node --ros-args --params-file /home/docker/dave_ws/install/share/dave_robot_models/config/mavros/mavros.yaml --params-file /tmp/launch_params_sgg61h6g
+ 4156 QGroundControl  /home/docker/QGC/usr/bin/QGroundControl --logging LinkManagerLog.debug=true --log-output

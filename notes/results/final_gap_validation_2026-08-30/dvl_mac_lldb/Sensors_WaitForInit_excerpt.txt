@@ -1,0 +1,409 @@
+183-  /// \brief Flag to indicate if worker threads are running
+184-  public: std::atomic<bool> running { false };
+185-
+186-  /// \brief Flag to signal if initialization should occur
+187-  public: bool doInit { false };
+188-
+189-  /// \brief Flag to signal if rendering update is needed
+190-  public: std::atomic<bool> updateAvailable { false };
+191-
+192-  /// \brief Flag to signal if a rendering update must be done
+193-  public: std::atomic<bool> forceUpdate { false };
+194-
+195-  /// \brief Thread that rendering will occur in
+196-  public: std::thread renderThread;
+197-
+198-  /// \brief Mutex to protect rendering data
+199-  public: std::mutex renderMutex;
+200-
+201-  /// \brief Mutex to protect renderUtil changes
+202-  public: std::mutex renderUtilMutex;
+203-
+204-  /// \brief Condition variable to signal rendering thread
+205-  ///
+206-  /// This variable is used to block/unblock operations in the rendering
+207-  /// thread.  For a more detailed explanation on the flow refer to the
+208:  /// documentation on RenderThread.
+209-  public: std::condition_variable renderCv;
+210-
+211-  /// \brief Condition variable to signal update time applied
+212-  ///
+213-  /// This variable is used to block/unblock operations in PostUpdate thread
+214-  /// to make sure renderUtil's ECM updates are applied to the scene first
+215-  /// before they are overridden by PostUpdate
+216-  public: std::condition_variable updateTimeCv;
+217-
+218-  /// \brief Connection to events::Stop event, used to stop thread
+219-  public: common::ConnectionPtr stopConn;
+220-
+221-  /// \brief Connection to events::ForceRender event, used to force rendering
+222-  public: common::ConnectionPtr forceRenderConn;
+223-
+224-  /// \brief Update time for the next rendering iteration
+225-  public: std::chrono::steady_clock::duration updateTime;
+226-
+227-  /// \brief Update time applied in the rendering thread
+228-  public: std::chrono::steady_clock::duration updateTimeApplied;
+229-
+230-  /// \brief Update time to be applied in the rendering thread
+231-  public: std::chrono::steady_clock::duration updateTimeToApply;
+232-
+233-  /// \brief Next sensors update time
+234-  public: std::chrono::steady_clock::duration nextUpdateTime;
+235-
+236-  /// \brief Sensors to include in the next rendering iteration
+237-  public: std::set<sensors::SensorId> activeSensors;
+238-
+239-  /// \brief Sensors to be updated next
+240-  public: std::set<sensors::SensorId> sensorsToUpdate;
+241-
+242-  /// \brief Mutex to protect sensorMask
+243-  public: std::mutex sensorsMutex;
+244-
+245-  /// \brief Pointer to the event manager
+246-  public: EventManager *eventManager{nullptr};
+247-
+248-  /// \brief Wait for initialization to happen
+249:  private: void WaitForInit();
+250-
+251-  /// \brief Run one rendering iteration
+252-  private: void RunOnce();
+253-
+254-  /// \brief Top level function for the rendering thread
+255-  ///
+256-  /// This function captures all of the behavior of the rendering thread.
+257-  /// The behavior is captured in two phases: initialization and steady state.
+258-  ///
+259-  /// When the thread is first started, it waits on renderCv until the
+260-  /// prerequisites for initialization are met, and the `doInit` flag is set.
+261-  /// In order for initialization to proceed, rendering sensors must be
+262-  /// available in the EntityComponentManager.
+263-  ///
+264-  /// When doInit is set, and renderCv is notified, initialization
+265-  /// is performed (creating the render context and scene). During
+266-  /// initialization, execution is blocked for the caller of PostUpdate.
+267-  /// When initialization is complete, PostUpdate will be notified via
+268-  /// renderCv and execution will continue.
+269-  ///
+270-  /// Once in steady state, a rendering operation is triggered by setting
+271-  /// updateAvailable to true, and notifying via the renderCv.
+272-  /// The rendering operation is done in `RunOnce`.
+273-  ///
+274-  /// The caller of PostUpdate will not be blocked if there is no
+275-  /// rendering operation currently ongoing. Rendering will occur
+276-  /// asynchronously.
+277-  //
+278-  /// The caller of PostUpdate will be blocked if there is a rendering
+279-  /// operation currently ongoing, until that completes.
+280:  private: void RenderThread();
+281-
+282-  /// \brief Launch the rendering thread
+283-  public: void Run();
+284-
+285-  /// \brief Stop the rendering thread
+286-  public: void Stop();
+287-
+288-  /// \brief Force rendering thread to render
+289-  public: void ForceRender();
+290-
+291-  /// \brief Update battery state of sensors in model
+292-  /// \param[in] _ecm Entity component manager
+293-  public: void UpdateBatteryState(const EntityComponentManager &_ecm);
+294-
+295-  /// \brief Get the next closest sensor update time
+296-  public: std::chrono::steady_clock::duration NextUpdateTime(
+297-      std::set<sensors::SensorId> &_sensorsToUpdate,
+298-      const std::chrono::steady_clock::duration &_currentTime);
+299-
+300-  /// \brief Check if any of the sensors have connections
+301-  public: bool SensorsHaveConnections();
+302-
+303-  /// \brief Returns all sensors that have a pending trigger
+304-  public: std::unordered_set<sensors::SensorId> SensorsWithPendingTrigger();
+305-
+306-  /// \brief Use to optionally set the background color.
+307-  public: std::optional<math::Color> backgroundColor;
+308-
+309-  /// \brief Use to optionally set the ambient light.
+310-  public: std::optional<math::Color> ambientLight;
+311-
+312-  /// \brief A map between model entity ids in the ECM to its battery state
+313-  /// True means has charge, false means drained
+314-  public: std::unordered_map<Entity, bool> modelBatteryState;
+315-
+316-  /// \brief A map between model entity ids in the ECM to whether its battery
+317-  /// state has changed.
+318-  /// True means has charge, false means drained
+319-  public: std::unordered_map<Entity, bool> modelBatteryStateChanged;
+320-
+321-  /// \brief A map of sensor ids to their active state
+322-  public: std::unordered_map<sensors::SensorId, bool> sensorStateChanged;
+323-
+324-  /// \brief Disable sensors if parent model's battery is drained
+325-  /// Affects sensors that are in nested models
+326-  public: bool disableOnDrainedBattery = false;
+327-
+328-  /// \brief Mutex to protect access to sensorStateChanged
+329-  public: std::mutex sensorStateMutex;
+330-};
+331-
+332-//////////////////////////////////////////////////
+333:void SensorsPrivate::WaitForInit()
+334-{
+335-  while (!this->initialized && this->running)
+336-  {
+337-    gzdbg << "Waiting for init" << std::endl;
+338-    std::unique_lock<std::mutex> lock(this->renderMutex);
+339-    // Wait to be ready for initialization or stopped running.
+340-    // We need rendering sensors to be available to initialize.
+341-    this->renderCv.wait(lock, [this]()
+342-    {
+343-      return this->doInit || !this->running;
+344-    });
+345-
+346-    if (this->doInit)
+347-    {
+348-      // Only initialize if there are rendering sensors
+349-      gzdbg << "Initializing render context" << std::endl;
+350-      if (this->backgroundColor)
+351-        this->renderUtil.SetBackgroundColor(*this->backgroundColor);
+352-      if (this->ambientLight)
+353-        this->renderUtil.SetAmbientLight(*this->ambientLight);
+354-#ifndef __APPLE__
+355-
+356-      this->renderUtil.Init();
+357-#else
+358-      // On macOS the render engine must be initialised on the main thread.
+359-      // See Sensors::Update.
+360-#endif
+361-      this->scene = this->renderUtil.Scene();
+362-      this->scene->SetCameraPassCountPerGpuFlush(6u);
+363-
+364-      if (this->giVctParameters.enabled)
+365-      {
+366-        this->giVct = this->scene->CreateGlobalIlluminationVct();
+367-        this->giVct->SetParticipatingVisuals(
+368-            rendering::GlobalIlluminationBase::DYNAMIC_VISUALS |
+369-            rendering::GlobalIlluminationBase::STATIC_VISUALS);
+370-
+371-        this->giVct->SetResolution(this->giVctParameters.resolution);
+372-        this->giVct->SetOctantCount(this->giVctParameters.octantCount);
+373-        this->giVct->SetBounceCount(this->giVctParameters.bounceCount);
+374-        this->giVct->SetAnisotropic(this->giVctParameters.anisotropic);
+375-        this->giVct->SetHighQuality(this->giVctParameters.highQuality);
+376-        this->giVct->SetConserveMemory(this->giVctParameters.conserveMemory);
+377-        this->giVct->SetThinWallCounter(this->giVctParameters.thinWallCounter);
+378-
+379-        this->giVct->SetDebugVisualization(
+380-            rendering::GlobalIlluminationVct::DVM_None);
+381-
+382-        this->scene->SetActiveGlobalIllumination(this->giVct);
+383-      }
+384-
+385-      this->initialized = true;
+386-    }
+387-
+388-    this->updateAvailable = false;
+389-    this->renderCv.notify_one();
+390-  }
+391-  gzdbg << "Rendering Thread initialized" << std::endl;
+392-}
+393-
+394-//////////////////////////////////////////////////
+395-void SensorsPrivate::RunOnce()
+396-{
+397-  {
+398-    std::unique_lock<std::mutex> cvLock(this->renderMutex);
+399-    this->renderCv.wait_for(cvLock, std::chrono::microseconds(1000), [this]()
+400-    {
+401-      return !this->running || this->updateAvailable;
+402-    });
+403-  }
+404-
+405-  if (!this->updateAvailable)
+406-    return;
+407-
+408-  if (!this->running)
+409-    return;
+410-
+411-  if (!this->scene)
+412-    return;
+413-
+414-  GZ_PROFILE("SensorsPrivate::RunOnce");
+415-  {
+416-    GZ_PROFILE("Update");
+417-    std::unique_lock<std::mutex> timeLock(this->renderUtilMutex);
+418-    this->renderUtil.Update();
+419-    this->updateTimeApplied = this->updateTime;
+420-    this->updateTimeCv.notify_one();
+421-  }
+422-
+423-  bool activeSensorsEmpty = true;
+424-  {
+425-    std::unique_lock<std::mutex> lk(this->sensorsMutex);
+426-    activeSensorsEmpty = this->activeSensors.empty();
+427-  }
+428-
+429-  if (!activeSensorsEmpty || this->forceUpdate)
+430-  {
+431-    // disable sensors that are out of battery or re-enable sensors that are
+432-    // being charged
+433-    if (this->disableOnDrainedBattery)
+--
+503-    }
+504-
+505-    {
+506-      GZ_PROFILE("PostRender");
+507-      // Update the scene graph manually to improve performance
+508-      // We only need to do this once per frame It is important to call
+509-      // sensors::RenderingSensor::SetManualSceneUpdate and set it to true
+510-      // so we don't waste cycles doing one scene graph update per sensor
+511-      this->scene->PostRender();
+512-      this->eventManager->Emit<events::PostRender>();
+513-    }
+514-
+515-    std::unique_lock<std::mutex> lk(this->sensorsMutex);
+516-    this->activeSensors.clear();
+517-  }
+518-
+519-  this->forceUpdate = false;
+520-  {
+521-    std::unique_lock<std::mutex> cvLock(this->renderMutex);
+522-    this->updateAvailable = false;
+523-    this->renderCv.notify_one();
+524-  }
+525-}
+526-
+527-//////////////////////////////////////////////////
+528:void SensorsPrivate::RenderThread()
+529-{
+530:  GZ_PROFILE_THREAD_NAME("RenderThread");
+531-
+532:  gzdbg << "SensorsPrivate::RenderThread started" << std::endl;
+533-
+534-  // We have to wait for rendering sensors to be available
+535:  this->WaitForInit();
+536-
+537-  while (this->running)
+538-  {
+539-    this->RunOnce();
+540-  }
+541-
+542-  this->eventManager->Emit<events::RenderTeardown>();
+543-
+544-  // clean up before exiting
+545-  for (const auto id : this->sensorIds)
+546-    this->sensorManager.Remove(id);
+547-
+548-  this->giVct.reset();
+549-  this->scene.reset();
+550-  this->renderUtil.Destroy();
+551:  gzdbg << "SensorsPrivate::RenderThread stopped" << std::endl;
+552-}
+553-
+554-//////////////////////////////////////////////////
+555-void SensorsPrivate::Run()
+556-{
+557-  gzdbg << "SensorsPrivate::Run" << std::endl;
+558-  this->running = true;
+559:  this->renderThread = std::thread(&SensorsPrivate::RenderThread, this);
+560-}
+561-
+562-//////////////////////////////////////////////////
+563-void SensorsPrivate::Stop()
+564-{
+565-  gzdbg << "SensorsPrivate::Stop" << std::endl;
+566-  std::unique_lock<std::mutex> lock(this->renderMutex);
+567-  this->running = false;
+568-
+569-  if (this->stopConn)
+570-  {
+571-    // Clear connection to stop additional incoming events.
+572-    this->stopConn.reset();
+573-  }
+574-
+575-  lock.unlock();
+576-  this->renderCv.notify_all();
+577-
+578-  if (this->renderThread.joinable())
+579-  {
+580-    this->renderThread.join();
+581-  }
+582-}
+583-
+584-//////////////////////////////////////////////////
+585-void SensorsPrivate::ForceRender()
+586-{
+587-  this->forceUpdate = true;
+588-}
+589-
+590-//////////////////////////////////////////////////
+591-void Sensors::RemoveSensor(const Entity &_entity)
+592-{
+593-  auto idIter = this->dataPtr->entityToIdMap.find(_entity);
+594-  if (idIter != this->dataPtr->entityToIdMap.end())
+595-  {
+596-    // Remove from active sensors as well
+597-    // Locking mutex to make sure the vector is not being changed while
+598-    // the rendering thread is iterating over it
+599-    {
+600-      std::unique_lock<std::mutex> lock(this->dataPtr->sensorsMutex);
+601-      this->dataPtr->activeSensors.erase(idIter->second);
+602-      this->dataPtr->sensorsToUpdate.erase(idIter->second);
+603-    }
+604-
+605-    // update cameras list
+606-    for (auto &it : this->dataPtr->cameras)
+607-    {
+608-      if (it.second->Id() == idIter->second)
+609-      {
+610-        this->dataPtr->cameras.erase(it.first);
+611-        break;
+612-      }
+613-    }
+614-
+615-    this->dataPtr->sensorIds.erase(idIter->second);
+616-    this->dataPtr->sensorManager.Remove(idIter->second);
+617-    this->dataPtr->entityToIdMap.erase(idIter);
+618-  }
+619-}
+620-
+621-//////////////////////////////////////////////////
+622-Sensors::Sensors() : System(), dataPtr(std::make_unique<SensorsPrivate>())
+623-{
+624-}
+625-
+626-//////////////////////////////////////////////////
+627-Sensors::~Sensors()
+628-{
+629-  this->dataPtr->Stop();
+630-}
+631-
+632-/// \brief Helper to convert math::Vector3d to uint32_t array
+633-/// \param[in] _valueToSet Array values to set
+634-/// \param[in] _vecValues Vector values to convert
+635-static void convertVector3dToUInt32Array(uint32_t _valueToSet[3],
+636-    const math::Vector3d &_vecValues)
+637-{
+638-  _valueToSet[0] = static_cast<uint32_t>(_vecValues[0]);
+639-  _valueToSet[1] = static_cast<uint32_t>(_vecValues[1]);
+640-  _valueToSet[2] = static_cast<uint32_t>(_vecValues[2]);
+641-}
+642-
+643-/// \brief Helper to parse math::Vector3d as uint32_t array
+644-/// \param[in] _parentElem Parent element to look through
+645-/// \param[in] _childName Child element name to look for
+646-/// \param[in] _valueToSet Array values to set
+647-/// \param[in] _defaultValue Default vector values to use
+648-static void parseVector3dAsUInt32Array(sdf::ElementConstPtr _parentElem,
+649-    const char *_childName, uint32_t _valueToSet[3],
+650-    const math::Vector3d &_defaultValue)
+651-{
+652-  math::Vector3d parsedValues = (_parentElem == nullptr) ? _defaultValue :
+653-      _parentElem->Get<math::Vector3d>(_childName, _defaultValue).first;
+654-
+655-  convertVector3dToUInt32Array(_valueToSet, parsedValues);
+656-}
+657-
+658-/// \brief Helper to set debug visualization mode (DVM)
+659-/// \param[in] _text String text to parse

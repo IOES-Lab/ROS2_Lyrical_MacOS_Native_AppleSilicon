@@ -1,0 +1,217 @@
+[INFO] [1788052741.828018000] [rviz2]: Creating resource group General
+[INFO] [1788052741.828186000] [rviz2]: Creating resource group OgreInternal
+[INFO] [1788052741.828211000] [rviz2]: Creating resource group OgreAutodetect
+[INFO] [1788052741.828441000] [rviz2]: SceneManagerFactory for type 'DefaultSceneManager' registered.
+[INFO] [1788052741.829339000] [rviz2]: Registering ResourceManager for type Material
+[INFO] [1788052741.830859000] [rviz2]: Registering ResourceManager for type Mesh
+[INFO] [1788052741.830910000] [rviz2]: Registering ResourceManager for type Skeleton
+[INFO] [1788052741.830933000] [rviz2]: MovableObjectFactory for type 'ParticleSystem' registered.
+[INFO] [1788052741.830967000] [rviz2]: ArchiveFactory for archive type FileSystem registered.
+[INFO] [1788052741.830986000] [rviz2]: ArchiveFactory for archive type Zip registered.
+[INFO] [1788052741.831006000] [rviz2]: ArchiveFactory for archive type EmbeddedZip registered.
+[INFO] [1788052741.831024000] [rviz2]: DDS codec registering
+[INFO] [1788052741.831042000] [rviz2]: ETC codec registering
+[INFO] [1788052741.831059000] [rviz2]: ASTC codec registering
+[INFO] [1788052741.831076000] [rviz2]: Registering ResourceManager for type HighLevelGpuProgram
+[INFO] [1788052741.831370000] [rviz2]: Registering ResourceManager for type Compositor
+[INFO] [1788052741.833080000] [rviz2]: MovableObjectFactory for type 'Entity' registered.
+[INFO] [1788052741.833131000] [rviz2]: MovableObjectFactory for type 'Light' registered.
+[INFO] [1788052741.833163000] [rviz2]: MovableObjectFactory for type 'BillboardSet' registered.
+[INFO] [1788052741.833228000] [rviz2]: MovableObjectFactory for type 'ManualObject' registered.
+[INFO] [1788052741.833255000] [rviz2]: MovableObjectFactory for type 'BillboardChain' registered.
+[INFO] [1788052741.833275000] [rviz2]: MovableObjectFactory for type 'RibbonTrail' registered.
+[INFO] [1788052741.834648000] [rviz2]: *-*-* OGRE Initialising
+[INFO] [1788052741.834687000] [rviz2]: *-*-* Version 1.12.10 (Rhagorthua)
+[INFO] [1788052741.835132000] [rviz2]: OverlayElementFactory for type Panel registered.
+[INFO] [1788052741.835163000] [rviz2]: OverlayElementFactory for type BorderPanel registered.
+[INFO] [1788052741.835183000] [rviz2]: OverlayElementFactory for type TextArea registered.
+[INFO] [1788052741.835203000] [rviz2]: Registering ResourceManager for type Font
+[INFO] [1788052741.835229000] [rviz2]: Loading library /Users/gwon-yeseol/ros2_lyrical/install/rviz_ogre_vendor/opt/rviz_ogre_vendor/lib/OGRE/RenderSystem_GL.dylib
+[INFO] [1788052741.849839000] [rviz2]: Installing plugin: GL RenderSystem
+[INFO] [1788052741.849914000] [rviz2]: OpenGL Rendering Subsystem created.
+[INFO] [1788052741.901980000] [rviz2]: Plugin successfully installed
+[INFO] [1788052741.902052000] [rviz2]: Loading library /Users/gwon-yeseol/ros2_lyrical/install/rviz_ogre_vendor/opt/rviz_ogre_vendor/lib/OGRE/Codec_STBI.dylib
+[INFO] [1788052741.912630000] [rviz2]: stb_image - v2.23 - public domain image loader
+[INFO] [1788052741.912699000] [rviz2]: Supported formats: jpeg,jpg,png,bmp,psd,tga,gif,pic,ppm,pgm,hdr
+[INFO] [1788052741.912745000] [rviz2]: CPU Identifier & Features
+[INFO] [1788052741.912763000] [rviz2]: -------------------------
+[INFO] [1788052741.912780000] [rviz2]:  *   CPU ID:
+[INFO] [1788052741.912795000] [rviz2]:  *          VFP: no
+[INFO] [1788052741.912809000] [rviz2]:  *         NEON: yes
+[INFO] [1788052741.912823000] [rviz2]: -------------------------
+[INFO] [1788052741.912839000] [rviz2]: ********************************************
+***  Starting Mac OS X OpenGL Subsystem  ***
+********************************************
+[INFO] [1788052741.912856000] [rviz2]: Registering ResourceManager for type Texture
+[INFO] [1788052741.913101000] [rviz2]: RenderSystem::_createRenderWindow "OgreWindow(0)", 1x1 windowed  miscParams: FSAA=4 border=none contentScalingFactor=1.000000 currentGLContext=false left=0 macAPI=cocoa macAPICocoaUseNSView=true parentWindowHandle=0 top=0
+[INFO] [1788052741.913128000] [rviz2]: Creating a Cocoa Compatible Render System
+[INFO] [1788052741.944878000] [rviz2]: Cocoa: Window created 1 x 1 with backing store size 2 x 2 using content scaling factor 2.0
+[INFO] [1788052741.954287000] [rviz2]: GL_VERSION = 2.1.0.0
+[INFO] [1788052741.954348000] [rviz2]: GL_VENDOR = Apple
+[INFO] [1788052741.954366000] [rviz2]: GL_RENDERER = Apple M2
+[INFO] [1788052741.954394000] [rviz2]: GL_EXTENSIONS = GL_ARB_color_buffer_float GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_depth_texture GL_ARB_draw_buffers GL_ARB_draw_elements_base_vertex GL_ARB_draw_instanced GL_ARB_fragment_program GL_ARB_fragment_program_shadow GL_ARB_fragment_shader GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_imaging GL_ARB_instanced_arrays GL_ARB_multisample GL_ARB_multitexture GL_ARB_occlusion_query GL_ARB_pixel_buffer_object GL_ARB_point_parameters GL_ARB_point_sprite GL_ARB_provoking_vertex GL_ARB_seamless_cube_map GL_ARB_shader_objects GL_ARB_shader_texture_lod GL_ARB_shading_language_100 GL_ARB_shadow GL_ARB_shadow_ambient GL_ARB_sync GL_ARB_texture_border_clamp GL_ARB_texture_compression GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map GL_ARB_texture_env_add GL_ARB_texture_env_combine GL_ARB_texture_env_crossbar GL_ARB_texture_env_dot3 GL_ARB_texture_float GL_ARB_texture_mirrored_repeat GL_ARB_texture_non_power_of_two GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_transpose_matrix GL_ARB_vertex_array_bgra GL_ARB_vertex_blend GL_ARB_vertex_buffer_object GL_ARB_vertex_program GL_ARB_vertex_shader GL_ARB_window_pos GL_EXT_abgr GL_EXT_bgra GL_EXT_bindable_uniform GL_EXT_blend_color GL_EXT_blend_equation_separate GL_EXT_blend_func_separate GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_clip_volume_hint GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_draw_buffers2 GL_EXT_draw_range_elements GL_EXT_fog_coord GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_geometry_shader4 GL_EXT_gpu_program_parameters GL_EXT_gpu_shader4 GL_EXT_multi_draw_arrays GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_provoking_vertex GL_EXT_rescale_normal GL_EXT_secondary_color GL_EXT_separate_specular_color GL_EXT_shadow_funcs GL_EXT_stencil_two_side GL_EXT_stencil_wrap GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_s3tc GL_EXT_texture_env_add GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_lod_bias GL_EXT_texture_rectangle GL_EXT_texture_shared_exponent GL_EXT_texture_sRGB GL_EXT_texture_sRGB_decode GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_APPLE_aux_depth_stencil GL_APPLE_client_storage GL_APPLE_element_array GL_APPLE_fence GL_APPLE_float_pixels GL_APPLE_flush_buffer_range GL_APPLE_flush_render GL_APPLE_packed_pixels GL_APPLE_pixel_buffer GL_APPLE_rgb_422 GL_APPLE_row_bytes GL_APPLE_specular_vector GL_APPLE_texture_range GL_APPLE_transform_hint GL_APPLE_vertex_array_object GL_APPLE_vertex_point_size GL_APPLE_vertex_program_evaluators GL_APPLE_ycbcr_422 GL_ATI_separate_stencil GL_ATI_texture_env_combine3 GL_ATI_texture_float GL_IBM_rasterpos_clip GL_NV_blend_square GL_NV_conditional_render GL_NV_depth_clamp GL_NV_fog_distance GL_NV_fragment_program_option GL_NV_fragment_program2 GL_NV_light_max_exponent GL_NV_texgen_reflection GL_NV_texture_barrier GL_NV_vertex_program2_option GL_NV_vertex_program3 GL_SGI_color_matrix GL_SGIS_generate_mipmap GL_SGIS_texture_edge_clamp GL_SGIS_texture_lod
+[INFO] [1788052741.954510000] [rviz2]: ***************************
+[INFO] [1788052741.954526000] [rviz2]: *** GL Renderer Started ***
+[INFO] [1788052741.954538000] [rviz2]: ***************************
+[INFO] [1788052742.014219000] [rviz2]: Registering ResourceManager for type GpuProgram
+[INFO] [1788052742.014330000] [rviz2]: GLSL support detected
+[INFO] [1788052742.014359000] [rviz2]: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
+[INFO] [1788052742.014862000] [rviz2]: FBO PF_UNKNOWN depth/stencil support: D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.015413000] [rviz2]: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.015804000] [rviz2]: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.016148000] [rviz2]: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.016495000] [rviz2]: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.016835000] [rviz2]: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.017171000] [rviz2]: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.017506000] [rviz2]: FBO PF_A8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.017840000] [rviz2]: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.018175000] [rviz2]: FBO PF_FLOAT16_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.018520000] [rviz2]: FBO PF_FLOAT16_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.018855000] [rviz2]: FBO PF_FLOAT32_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.019202000] [rviz2]: FBO PF_FLOAT32_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.019534000] [rviz2]: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.019866000] [rviz2]: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.020200000] [rviz2]: FBO PF_R8G8B8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.020612000] [rviz2]: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.020967000] [rviz2]: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.021434000] [rviz2]: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8
+[INFO] [1788052742.021461000] [rviz2]: [GL] : Valid FBO targets PF_UNKNOWN PF_R5G6B5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_A8B8G8R8 PF_B8G8R8A8 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_R8G8B8A8 PF_SHORT_RGBA PF_R3G3B2 PF_SHORT_RGB
+[INFO] [1788052742.021495000] [rviz2]: Using FSAA from GL_ARB_multisample extension.
+[INFO] [1788052742.021512000] [rviz2]: RenderSystem capabilities
+[INFO] [1788052742.021524000] [rviz2]: -------------------------
+[INFO] [1788052742.021535000] [rviz2]: RenderSystem Name: OpenGL Rendering Subsystem
+[INFO] [1788052742.021547000] [rviz2]: GPU Vendor: unknown
+[INFO] [1788052742.021558000] [rviz2]: Device Name: Apple M2
+[INFO] [1788052742.021571000] [rviz2]: Driver Version: 2.1.0.0
+[INFO] [1788052742.021582000] [rviz2]:  * Fixed function pipeline: yes
+[INFO] [1788052742.021593000] [rviz2]:  * 32-bit index buffers: yes
+[INFO] [1788052742.021604000] [rviz2]:  * Hardware stencil buffer: yes
+[INFO] [1788052742.021615000] [rviz2]:    - Stencil depth: 8
+[INFO] [1788052742.021626000] [rviz2]:    - Two sided stencil support: yes
+[INFO] [1788052742.021637000] [rviz2]:    - Wrap stencil values: yes
+[INFO] [1788052742.021648000] [rviz2]:  * Vertex programs: yes
+[INFO] [1788052742.021659000] [rviz2]:    - Number of floating-point constants: 1024
+[INFO] [1788052742.021670000] [rviz2]:    - Number of integer constants: 0
+[INFO] [1788052742.021680000] [rviz2]:    - Number of boolean constants: 0
+[INFO] [1788052742.021692000] [rviz2]:  * Fragment programs: yes
+[INFO] [1788052742.021703000] [rviz2]:    - Number of floating-point constants: 1024
+[INFO] [1788052742.021714000] [rviz2]:    - Number of integer constants: 0
+[INFO] [1788052742.021724000] [rviz2]:    - Number of boolean constants: 0
+[INFO] [1788052742.021735000] [rviz2]:  * Geometry programs: yes
+[INFO] [1788052742.021745000] [rviz2]:    - Number of floating-point constants: 4096
+[INFO] [1788052742.021756000] [rviz2]:    - Number of integer constants: 0
+[INFO] [1788052742.021766000] [rviz2]:    - Number of boolean constants: 0
+[INFO] [1788052742.021777000] [rviz2]:  * Tessellation Hull programs: no
+[INFO] [1788052742.021787000] [rviz2]:  * Tessellation Domain programs: no
+[INFO] [1788052742.021798000] [rviz2]:  * Compute programs: no
+[INFO] [1788052742.021811000] [rviz2]:  * Supported Shader Profiles: arbfp1 arbvp1 fp30 fp40 glsl glsl100 glsl110 glsl120 vp30 vp40
+[INFO] [1788052742.021823000] [rviz2]:  * Read-back compiled shader: no
+[INFO] [1788052742.021834000] [rviz2]:  * Number of vertex attributes: 16
+[INFO] [1788052742.021845000] [rviz2]:  * Textures
+[INFO] [1788052742.021855000] [rviz2]:    - Number of texture units: 16
+[INFO] [1788052742.021866000] [rviz2]:    - Floating point: yes
+[INFO] [1788052742.021876000] [rviz2]:    - Non-power-of-two: yes
+[INFO] [1788052742.021887000] [rviz2]:    - 1D textures: yes
+[INFO] [1788052742.021898000] [rviz2]:    - 2D array textures: yes
+[INFO] [1788052742.021909000] [rviz2]:    - 3D textures: yes
+[INFO] [1788052742.021920000] [rviz2]:    - Anisotropic filtering: yes
+[INFO] [1788052742.021930000] [rviz2]:  * Texture Compression: yes
+[INFO] [1788052742.021940000] [rviz2]:    - DXT: yes
+[INFO] [1788052742.021951000] [rviz2]:    - VTC: no
+[INFO] [1788052742.021961000] [rviz2]:    - PVRTC: no
+[INFO] [1788052742.021971000] [rviz2]:    - ATC: no
+[INFO] [1788052742.021982000] [rviz2]:    - ETC1: no
+[INFO] [1788052742.021992000] [rviz2]:    - ETC2: no
+[INFO] [1788052742.022002000] [rviz2]:    - BC4/BC5: no
+[INFO] [1788052742.022013000] [rviz2]:    - BC6H/BC7: no
+[INFO] [1788052742.022023000] [rviz2]:    - ASTC: no
+[INFO] [1788052742.022034000] [rviz2]:    - Mipmaps for compressed formats: yes
+[INFO] [1788052742.022044000] [rviz2]:  * Vertex Buffers
+[INFO] [1788052742.022055000] [rviz2]:    - VET_UBYTE4 element type: yes
+[INFO] [1788052742.022066000] [rviz2]:    - Render to Vertex Buffer: no
+[INFO] [1788052742.022076000] [rviz2]:    - Instance Data: yes
+[INFO] [1788052742.022087000] [rviz2]:    - Primitive Restart: no
+[INFO] [1788052742.022103000] [rviz2]:  * Vertex texture fetch: yes
+[INFO] [1788052742.022114000] [rviz2]:    - Max vertex textures: 16
+[INFO] [1788052742.022124000] [rviz2]:    - Vertex textures shared: yes
+[INFO] [1788052742.022135000] [rviz2]:  * Read/Write Buffers: no
+[INFO] [1788052742.022167000] [rviz2]:  * Hardware Occlusion Query: yes
+[INFO] [1788052742.022178000] [rviz2]:  * User clip planes: yes
+[INFO] [1788052742.022188000] [rviz2]:  * Infinite far plane projection: yes
+[INFO] [1788052742.022199000] [rviz2]:  * Depth clamping: no
+[INFO] [1788052742.022209000] [rviz2]:  * Hardware render-to-texture: yes
+[INFO] [1788052742.022220000] [rviz2]:    - Multiple Render Targets: 8
+[INFO] [1788052742.022230000] [rviz2]:    - With different bit depths: yes
+[INFO] [1788052742.022240000] [rviz2]:  * Point Sprites: yes
+[INFO] [1788052742.022251000] [rviz2]:    - Extended parameters: yes
+[INFO] [1788052742.022265000] [rviz2]:    - Max Size: 64
+[INFO] [1788052742.022275000] [rviz2]:  * Wide Lines: yes
+[INFO] [1788052742.022286000] [rviz2]:  * Hardware Gamma: yes
+[INFO] [1788052742.022296000] [rviz2]:  * PBuffer support: yes
+[INFO] [1788052742.022307000] [rviz2]:  * Vertex Array Objects: no
+[INFO] [1788052742.022317000] [rviz2]:  * Separate shader objects: no
+[INFO] [1788052742.022328000] [rviz2]:    - redeclare GLSL interface block: no
+[INFO] [1788052742.022338000] [rviz2]:  * Debugging/ profiling events: no
+[INFO] [1788052742.022349000] [rviz2]:  * Map buffer storage: yes
+[INFO] [1788052742.022362000] [rviz2]: DefaultWorkQueue('Root') initialising on thread main.
+[INFO] [1788052742.022387000] [rviz2]: Particle Renderer Type 'billboard' registered
+[INFO] [1788052742.023485000] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1788052742.023531000] [rviz2]: OpenGl version: 2.1 (GLSL 1.2)
+[INFO] [1788052742.023665000] [rviz2]: Creating resource group rviz_rendering
+[INFO] [1788052742.023689000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.023950000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/textures' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.024373000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/fonts' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.024708000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/fonts/liberation-sans' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.024785000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/models' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.024857000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/materials' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.025193000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/materials/scripts' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.025574000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/materials/glsl120' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.025796000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/materials/glsl120/include' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.025875000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/materials/glsl120/nogp' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.025949000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering/share/rviz_rendering/ogre_media/materials/scripts120' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.036749000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering_tests/share/rviz_rendering_tests/ogre_media_resources/scripts' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.036845000] [rviz2]: Added resource location '/Users/gwon-yeseol/ros2_lyrical/install/rviz_rendering_tests/share/rviz_rendering_tests/ogre_media_resources/meshes' of type 'FileSystem' to resource group 'rviz_rendering'
+[INFO] [1788052742.036876000] [rviz2]: Parsing scripts for resource group General
+[INFO] [1788052742.036894000] [rviz2]: Finished parsing scripts for resource group General
+[INFO] [1788052742.036907000] [rviz2]: Creating resources for group General
+[INFO] [1788052742.036918000] [rviz2]: All done
+[INFO] [1788052742.036930000] [rviz2]: Parsing scripts for resource group OgreAutodetect
+[INFO] [1788052742.036943000] [rviz2]: Finished parsing scripts for resource group OgreAutodetect
+[INFO] [1788052742.036955000] [rviz2]: Creating resources for group OgreAutodetect
+[INFO] [1788052742.036966000] [rviz2]: All done
+[INFO] [1788052742.036977000] [rviz2]: Parsing scripts for resource group OgreInternal
+[INFO] [1788052742.036989000] [rviz2]: Finished parsing scripts for resource group OgreInternal
+[INFO] [1788052742.037009000] [rviz2]: Creating resources for group OgreInternal
+[INFO] [1788052742.037021000] [rviz2]: All done
+[INFO] [1788052742.037032000] [rviz2]: Parsing scripts for resource group rviz_rendering
+[INFO] [1788052742.038934000] [rviz2]: Parsing script glsl120.program
+[WARN] [1788052742.039684000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(13): attach. Use the #include directive instead
+[WARN] [1788052742.039703000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(14): attach. Use the #include directive instead
+[WARN] [1788052742.041507000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(26): attach. Use the #include directive instead
+[WARN] [1788052742.041965000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(39): attach. Use the #include directive instead
+[WARN] [1788052742.042828000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(61): attach. Use the #include directive instead
+[WARN] [1788052742.043527000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(87): attach. Use the #include directive instead
+[WARN] [1788052742.043558000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(100): attach. Use the #include directive instead
+[WARN] [1788052742.044246000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in glsl120.program(136): attach. Use the #include directive instead
+[INFO] [1788052742.045534000] [rviz2]: Parsing script nogp.program
+[WARN] [1788052742.046144000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in nogp.program(24): attach. Use the #include directive instead
+[WARN] [1788052742.047279000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in nogp.program(50): attach. Use the #include directive instead
+[WARN] [1788052742.048261000] [rviz2]: Warning: ScriptCompiler - deprecated symbol in nogp.program(74): attach. Use the #include directive instead
+[INFO] [1788052742.049824000] [rviz2]: Parsing script default_pick_and_depth.material
+[INFO] [1788052742.050263000] [rviz2]: Parsing script indexed_8bit_image.material
+[INFO] [1788052742.050611000] [rviz2]: Parsing script point_cloud_point.material
+[INFO] [1788052742.050996000] [rviz2]: Parsing script point_cloud_tile.material
+[INFO] [1788052742.051289000] [rviz2]: Parsing script point_cloud_flat_square.material
+[INFO] [1788052742.051452000] [rviz2]: Parsing script point_cloud_box.material
+[INFO] [1788052742.051604000] [rviz2]: Parsing script point_cloud_sphere.material
+[INFO] [1788052742.051755000] [rviz2]: Parsing script point_cloud_square.material
+[INFO] [1788052742.051902000] [rviz2]: Parsing script liberation_sans.fontdef
+[INFO] [1788052742.052189000] [rviz2]: Finished parsing scripts for resource group rviz_rendering
+[INFO] [1788052742.052204000] [rviz2]: Creating resources for group rviz_rendering
+[INFO] [1788052742.052241000] [rviz2]: All done
+[INFO] [1788052742.121734000] [rviz2]: RenderSystem::_createRenderWindow "OgreWindow(1)", 168x29 windowed  miscParams: FSAA=4 contentScalingFactor=2.000000 currentGLContext=false externalWindowHandle=5436639088 left=0 macAPI=cocoa macAPICocoaUseNSView=true parentWindowHandle=5436639088 top=0
+[INFO] [1788052742.121791000] [rviz2]: Creating a Cocoa Compatible Render System
+[INFO] [1788052742.122106000] [rviz2]: Mac Cocoa Window: Rendering on an external NSView
+[INFO] [1788052742.122989000] [rviz2]: Cocoa: Window created 168 x 29 with backing store size 336 x 58 using content scaling factor 2.0
+[INFO] [1788052742.123025000] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1788052744.454955000] [rviz2]: Using FSAA from GL_ARB_multisample extension.

@@ -1,0 +1,1 @@
+15807 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main -s -r /Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/final_gap_validation_2026-08-30/dvl_mac_lldb/dvl_with_init_camera.sdf

@@ -1,0 +1,12 @@
+== ACTIVE BEFORE FINAL CLEAN ==
+== FILE COUNT BEFORE ==
+      13
+== OFFICIAL CLEAN ==
+shm.clean:
+6 ports in use
+0 segments in use
+0 zombie ports cleaned
+0 zombie segments cleaned
+CLEAN_RC=0
+== FILE COUNT AFTER ==
+      13

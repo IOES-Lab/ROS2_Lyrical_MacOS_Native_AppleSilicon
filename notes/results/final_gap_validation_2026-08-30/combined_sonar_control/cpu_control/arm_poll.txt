@@ -1,0 +1,5 @@
+poll=1 connected: true armed: false system_status: 3
+poll=2 connected: true armed: false system_status: 3
+poll=3 connected: true armed: false system_status: 3
+poll=4 connected: true armed: false system_status: 3
+poll=5 connected: true armed: true system_status: 4

@@ -1,0 +1,12 @@
+/clock
+/diagnostics
+/model/bluerov2_heavy_multibeam_sonar/imu
+/model/bluerov2_heavy_multibeam_sonar/magnetometer
+/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud
+/model/bluerov2_heavy_multibeam_sonar/odometry
+/model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance
+/model/bluerov2_heavy_multibeam_sonar/pose
+/parameter_events
+/rosout
+/uas1/mavlink_sink
+/uas1/mavlink_source

@@ -1,0 +1,10 @@
+{
+  "backend": "cpu",
+  "armed": true,
+  "manual_control_messages": 100,
+  "odometry_x_before_m": 0.0002636338649882744,
+  "odometry_x_after_m": 1.348727202052459,
+  "odometry_x_delta_m": 1.3484635681874708,
+  "disarmed": true,
+  "pointcloud_513x301": true
+}

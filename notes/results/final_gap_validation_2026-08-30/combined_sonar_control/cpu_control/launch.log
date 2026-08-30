@@ -1,0 +1,424 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-30-00-40-51-584532-83e974f082b4-74
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [85]
+[INFO] [create-2]: process started with pid [86]
+[create-2] [INFO] [1788050451.944899086] [ros_gz_sim]: Requesting list of world names.
+[create-2] [INFO] [1788050458.448883797] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 86]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [static_transform_publisher-3]: process started with pid [174]
+[INFO] [parameter_bridge-4]: process started with pid [175]
+[INFO] [env-5]: process started with pid [176]
+[static_transform_publisher-3] [INFO] [1788050458.612384839] [static_transform_publisher_4YwNe4k5gAHT72YK]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'world' to 'bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar'
+[parameter_bridge-4] [INFO] [1788050458.653359422] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788050458.656794964] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy_multibeam_sonar/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788050458.660320297] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788050458.661138922] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy_multibeam_sonar/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788050458.662711506] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/imu (gz.msgs.IMU) -> /model/bluerov2_heavy_multibeam_sonar/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788050458.665139506] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy_multibeam_sonar/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788050458.665541547] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [env-5]: process has finished cleanly [pid 176]
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [ardusub-6]: process started with pid [313]
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[INFO] [mavros_node-7]: process started with pid [314]
+[ardusub-6] Setting SIM_SPEEDUP=1.000000
+[ardusub-6] Starting SITL: JSON
+[ardusub-6] Home: 35.074823 129.084798 alt=0.000000m hdg=270.000000
+[ardusub-6] JSON control interface set to 127.0.0.1:9002
+[ardusub-6] Starting sketch 'ArduSub'
+[ardusub-6] Starting SITL input
+[ardusub-6] Using Irlock at port : 9005
+[ardusub-6] Waiting for connection ....
+[ardusub-6] bind port 5760 for SERIAL0
+[ardusub-6] SERIAL0 on TCP port 5760
+[mavros_node-7] [INFO] [1788050460.783949173] [mavros_node]: Starting mavros_node container
+[mavros_node-7] [INFO] [1788050460.784034340] [mavros_node]: FCU URL: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788050460.784040798] [mavros_node]: GCS URL: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788050460.784045257] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-7] [INFO] [1788050460.784049048] [mavros_node]: Starting mavros router node
+[mavros_node-7] [INFO] [1788050460.801559632] [mavros_router]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788050460.801601465] [mavros_router]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788050460.801608382] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788050460.801613548] [mavros_router]: MAVROS Router started
+[mavros_node-7] [INFO] [1788050460.801791507] [mavros_node]: Starting mavros uas node
+[mavros_node-7] [INFO] [1788050460.844473423] [mavros_router]: Requested to add endpoint: type: 0, url: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788050460.844781507] [mavros_router]: Endpoint link[1000] created
+[ardusub-6] Connection on serial port 5760
+[mavros_node-7] [INFO] [1788050460.849553715] [mavros_router]: link[1000] opened successfully
+[mavros_node-7] [INFO] [1788050460.849634798] [mavros_router]: Requested to add endpoint: type: 1, url: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788050460.849729298] [mavros_router]: Endpoint link[1001] created
+[mavros_node-7] [INFO] [1788050460.850208465] [mavros_router]: link[1001] opened successfully
+[mavros_node-7] [INFO] [1788050460.850240048] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-7] [INFO] [1788050460.850275548] [mavros_router]: Endpoint link[1002] created
+[mavros_node-7] [INFO] [1788050460.851759882] [mavros_router]: link[1002] opened successfully
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[mavros_node-7] [INFO] [1788050460.854949215] [mavros]: Plugin actuator_control ignored
+[mavros_node-7] [INFO] [1788050460.854996632] [mavros]: Plugin adsb ignored
+[mavros_node-7] [INFO] [1788050460.855004340] [mavros]: Plugin altitude ignored
+[mavros_node-7] [INFO] [1788050460.855010840] [mavros]: Plugin cam_imu_sync ignored
+[mavros_node-7] [INFO] [1788050460.855017298] [mavros]: Plugin camera ignored
+[mavros_node-7] [INFO] [1788050460.855023090] [mavros]: Plugin cellular_status ignored
+[mavros_node-7] [INFO] [1788050460.855614007] [mavros]: UAS Executor started, threads: 4
+[mavros_node-7] [INFO] [1788050460.909159590] [mavros]: Plugin command created
+[mavros_node-7] [INFO] [1788050460.909620215] [mavros]: Plugin command initialized
+[mavros_node-7] [INFO] [1788050460.909650673] [mavros]: Plugin companion_process_status ignored
+[mavros_node-7] [INFO] [1788050460.909657382] [mavros]: Plugin debug_value ignored
+[mavros_node-7] [INFO] [1788050460.909669090] [mavros]: Plugin distance_sensor ignored
+[mavros_node-7] [INFO] [1788050460.909678423] [mavros]: Plugin esc_status ignored
+[mavros_node-7] [INFO] [1788050460.909683715] [mavros]: Plugin esc_telemetry ignored
+[mavros_node-7] [INFO] [1788050460.909688757] [mavros]: Plugin fake_gps ignored
+[mavros_node-7] [INFO] [1788050460.909693715] [mavros]: Plugin ftp ignored
+[mavros_node-7] [INFO] [1788050460.909698507] [mavros]: Plugin geofence ignored
+[mavros_node-7] [INFO] [1788050460.909703257] [mavros]: Plugin gimbal_control ignored
+[mavros_node-7] [INFO] [1788050460.921918423] [mavros]: Plugin global_position created
+[mavros_node-7] [INFO] [1788050460.922244423] [mavros]: Plugin global_position initialized
+[mavros_node-7] [INFO] [1788050460.922260965] [mavros]: Plugin gps_input ignored
+[mavros_node-7] [INFO] [1788050460.922266757] [mavros]: Plugin gps_rtk ignored
+[mavros_node-7] [INFO] [1788050460.922271965] [mavros]: Plugin gps_status ignored
+[mavros_node-7] [INFO] [1788050460.922277132] [mavros]: Plugin guided_target ignored
+[mavros_node-7] [INFO] [1788050460.922282048] [mavros]: Plugin hil ignored
+[mavros_node-7] [INFO] [1788050460.922286840] [mavros]: Plugin home_position ignored
+[mavros_node-7] [INFO] [1788050460.928003882] [mavros]: Plugin imu created
+[mavros_node-7] [INFO] [1788050460.928394965] [mavros]: Plugin imu initialized
+[mavros_node-7] [INFO] [1788050460.928414090] [mavros]: Plugin landing_target ignored
+[mavros_node-7] [INFO] [1788050460.934405882] [mavros]: Plugin local_position created
+[mavros_node-7] [INFO] [1788050460.934597173] [mavros]: Plugin local_position initialized
+[mavros_node-7] [INFO] [1788050460.934609090] [mavros]: Plugin log_transfer ignored
+[mavros_node-7] [INFO] [1788050460.934614715] [mavros]: Plugin mag_calibration_status ignored
+[mavros_node-7] [INFO] [1788050460.939917215] [mavros]: Plugin manual_control created
+[mavros_node-7] [INFO] [1788050460.940058465] [mavros]: Plugin manual_control initialized
+[mavros_node-7] [INFO] [1788050460.940073465] [mavros]: Plugin mocap_pose_estimate ignored
+[mavros_node-7] [INFO] [1788050460.940122923] [mavros]: Plugin mount_control ignored
+[mavros_node-7] [INFO] [1788050460.940133673] [mavros]: Plugin nav_controller_output ignored
+[mavros_node-7] [INFO] [1788050460.940138965] [mavros]: Plugin obstacle_distance ignored
+[mavros_node-7] [INFO] [1788050460.940144048] [mavros]: Plugin obstacle_distance_3d ignored
+[mavros_node-7] [INFO] [1788050460.940149090] [mavros]: Plugin odometry ignored
+[mavros_node-7] [INFO] [1788050460.940154007] [mavros]: Plugin onboard_computer_status ignored
+[mavros_node-7] [INFO] [1788050460.940158757] [mavros]: Plugin open_drone_id ignored
+[mavros_node-7] [INFO] [1788050460.940163423] [mavros]: Plugin optical_flow ignored
+[mavros_node-7] [INFO] [1788050460.952199840] [mavros]: Plugin param created
+[mavros_node-7] [INFO] [1788050460.952362173] [mavros]: Plugin param initialized
+[mavros_node-7] [INFO] [1788050460.952382215] [mavros]: Plugin play_tune ignored
+[mavros_node-7] [INFO] [1788050460.952391298] [mavros]: Plugin px4flow ignored
+[mavros_node-7] [INFO] [1788050460.952396590] [mavros]: Plugin rallypoint ignored
+[mavros_node-7] [INFO] [1788050460.952401548] [mavros]: Plugin rangefinder ignored
+[mavros_node-7] [INFO] [1788050460.958651382] [mavros]: Plugin rc_io created
+[mavros_node-7] [INFO] [1788050460.958926090] [mavros]: Plugin rc_io initialized
+[mavros_node-7] [INFO] [1788050460.958948798] [mavros]: Plugin setpoint_accel ignored
+[mavros_node-7] [INFO] [1788050460.958954840] [mavros]: Plugin setpoint_attitude ignored
+[mavros_node-7] [INFO] [1788050460.958960673] [mavros]: Plugin setpoint_position ignored
+[mavros_node-7] [INFO] [1788050460.958966132] [mavros]: Plugin setpoint_raw ignored
+[mavros_node-7] [INFO] [1788050460.958970965] [mavros]: Plugin setpoint_trajectory ignored
+[mavros_node-7] [INFO] [1788050460.958975965] [mavros]: Plugin setpoint_velocity ignored
+[mavros_node-7] [INFO] [1788050460.958980840] [mavros]: Plugin sim_state ignored
+[mavros_node-7] [INFO] [1788050460.973021715] [mavros]: Plugin sys_status created
+[mavros_node-7] [INFO] [1788050460.973706382] [mavros]: Plugin sys_status initialized
+[mavros_node-7] [INFO] [1788050460.973738048] [mavros]: Plugin sys_time ignored
+[mavros_node-7] [INFO] [1788050460.973744465] [mavros]: Plugin tdr_radio ignored
+[mavros_node-7] [INFO] [1788050460.973749798] [mavros]: Plugin terrain ignored
+[mavros_node-7] [INFO] [1788050460.973755048] [mavros]: Plugin trajectory ignored
+[mavros_node-7] [INFO] [1788050460.973760007] [mavros]: Plugin tunnel ignored
+[mavros_node-7] [INFO] [1788050460.973764923] [mavros]: Plugin vfr_hud ignored
+[mavros_node-7] [INFO] [1788050460.973770215] [mavros]: Plugin vibration ignored
+[mavros_node-7] [INFO] [1788050460.973775298] [mavros]: Plugin vision_pose ignored
+[mavros_node-7] [INFO] [1788050460.973780007] [mavros]: Plugin vision_speed ignored
+[mavros_node-7] [INFO] [1788050460.973784798] [mavros]: Plugin waypoint ignored
+[mavros_node-7] [INFO] [1788050460.973789548] [mavros]: Plugin wheel_odometry ignored
+[mavros_node-7] [INFO] [1788050460.973794465] [mavros]: Plugin wind_estimation ignored
+[mavros_node-7] [INFO] [1788050460.974955173] [mavros]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788050460.974972382] [mavros]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788050460.974976632] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788050460.974981090] [mavros]: MAVROS UAS via /uas1 started. MY ID 255.191, TARGET ID 1.1
+[mavros_node-7] [INFO] [1788050461.965633591] [mavros_router]: link[1002] detected remote address 255.191
+[ardusub-6] No JSON sensor message received, resending servos
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: cpu
+[gazebo-1] [sonar_compute_factory] Creating CPU backend
+[gazebo-1] [INFO] [1788050462.643404966] [multibeam_sonar_node]: Raw data at /SonarRawData_{numbers}.csv every 5 frames
+[gazebo-1] [INFO] [1788050462.643525258] [multibeam_sonar_node]: Beam angles at SonarRawData_beam_angles.csv
+[gazebo-1] [INFO] [1788050462.643532841] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788050462.821952508] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788050462.822009633] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788050462.822027258] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788050462.822043799] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788050462.822061049] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1788050462.822067799] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788050462.822074133] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1788050462.822079008] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1788050462.822083258] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788050462.822087424] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788050462.822091299] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1788050462.822094966] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1788050462.822108383] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788050462.822112466] [multibeam_sonar_node]:
+[mavros_node-7] [WARN] [1788050462.975038091] [mavros.sys]: VER: broadcast request timeout, retries left 4
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6]
+[ardusub-6] JSON received:
+[ardusub-6] 	timestamp
+[ardusub-6] 	imu: gyro
+[ardusub-6] 	imu: accel_body
+[ardusub-6] 	position
+[ardusub-6] 	quaternion
+[ardusub-6] 	velocity
+[ardusub-6] 	no_time_sync
+[ardusub-6]
+[ardusub-6] bind port 5762 for SERIAL1
+[ardusub-6] SERIAL1 on TCP port 5762
+[ardusub-6] bind port 5763 for SERIAL2
+[ardusub-6] SERIAL2 on TCP port 5763
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[ardusub-6] validate_structures:513: Validating structures
+[mavros_node-7] [INFO] [1788050463.532704633] [mavros_router]: link[1000] detected remote address 1.1
+[mavros_node-7] [WARN] [1788050463.533129508] [mavros.cmd]: CMD: Unexpected command 512, result 0
+[mavros_node-7] [INFO] [1788050463.533580425] [mavros]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[mavros_node-7] [INFO] [1788050463.534040300] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000f9e7
+[mavros_node-7] [INFO] [1788050463.534120133] [mavros.sys]: VER: 1.1: Flight software:     040507ff (30257f01)
+[mavros_node-7] [INFO] [1788050463.534127133] [mavros.sys]: VER: 1.1: Middleware software: 00000000 (        )
+[mavros_node-7] [INFO] [1788050463.534130925] [mavros.sys]: VER: 1.1: OS software:         00000000 (        )
+[mavros_node-7] [INFO] [1788050463.534137258] [mavros.sys]: VER: 1.1: Board hardware:      00000000
+[mavros_node-7] [INFO] [1788050463.534143300] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[mavros_node-7] [INFO] [1788050463.534147091] [mavros.sys]: VER: 1.1: UID:                 0000000000000000
+[mavros_node-7] [INFO] [1788050463.866578092] [mavros.sys]: FCU: Calibrating barometer
+[gazebo-1] [INFO] [1788050465.491759176] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 2016.048 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050467.359285802] [mavros.sys]: FCU: Initialising ArduPilot
+[gazebo-1] [INFO] [1788050468.744242177] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3016.025 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050470.858638345] [mavros.sys]: FCU: Barometer 1 calibration complete
+[mavros_node-7] [INFO] [1788050470.858913803] [mavros.sys]: FCU: Barometer 2 calibration complete
+[mavros_node-7] [INFO] [1788050470.871620928] [mavros.sys]: FCU: ArduPilot Ready
+[mavros_node-7] [INFO] [1788050470.871802345] [mavros.sys]: FCU: AHRS: DCM active
+[gazebo-1] [INFO] [1788050472.045151970] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3133.468 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050472.161570762] [mavros.rc]: RC_CHANNELS message detected!
+[mavros_node-7] [INFO] [1788050472.162011179] [mavros.imu]: IMU: Raw IMU message used.
+[mavros_node-7] [WARN] [1788050472.163673762] [mavros.global_position]: GP: No GPS fix
+[mavros_node-7] [INFO] [1788050473.540342054] [mavros.sys]: FCU: ArduSub V4.5.7 (30257f01)
+[mavros_node-7] [INFO] [1788050473.540491846] [mavros.sys]: FCU: 98471d20bcc64149b1f9debbc0e5f436
+[mavros_node-7] [INFO] [1788050473.540686221] [mavros.sys]: FCU: Frame: VECTORED
+[gazebo-1] [INFO] [1788050475.280385680] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3082.836 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050476.580660875] [mavros.param]: PR: parameters list received
+[gazebo-1] [INFO] [1788050478.484005251] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3067.080 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050480.473378085] [mavros.sys]: FCU: EKF3 IMU0 initialised
+[mavros_node-7] [INFO] [1788050480.473591835] [mavros.sys]: FCU: EKF3 IMU1 initialised
+[mavros_node-7] [INFO] [1788050480.478347252] [mavros.sys]: FCU: AHRS: EKF3 active
+[gazebo-1] [INFO] [1788050481.808204086] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3034.176 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050485.036863921] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3094.907 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050487.766023172] [mavros.sys]: FCU: EKF3 IMU1 tilt alignment complete
+[mavros_node-7] [INFO] [1788050487.771244839] [mavros.sys]: FCU: EKF3 IMU0 tilt alignment complete
+[gazebo-1] [INFO] [1788050488.274516881] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3100.320 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050491.629954840] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3220.916 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050494.857700425] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3085.356 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050498.240332760] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3117.518 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050500.210138803] [mavros.sys]: FCU: GPS 1: detected as u-blox at 230400 baud
+[gazebo-1] [INFO] [1788050501.469066595] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3084.564 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050504.783043680] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3174.159 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050507.990819542] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3067.106 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050511.232163877] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3103.536 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050514.552838587] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3054.743 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050517.768711880] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3078.841 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050520.975742673] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3069.372 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050524.220905842] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3110.901 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050527.482527052] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3122.984 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050530.969196095] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3219.792 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050534.198606055] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3092.216 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050537.427130792] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3084.334 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050540.700150377] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3136.480 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050543.889418170] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3057.097 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050547.219176255] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3064.001 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050549.336628048] [mavros.sys]: FCU: EKF3 IMU0 origin set
+[mavros_node-7] [INFO] [1788050550.238662131] [mavros.sys]: FCU: EKF3 IMU1 origin set
+[gazebo-1] [INFO] [1788050550.416110882] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3061.146 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050553.609579550] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3054.820 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050556.850218343] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3097.173 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050560.077139136] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3089.878 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050563.464254721] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3100.698 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050566.713262917] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3082.253 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050569.908297877] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3052.663 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050573.241732128] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3155.298 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050576.566520421] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3185.116 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050581.527910632] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 4432.840 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050585.057694634] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3355.464 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050588.068183052] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 2877.784 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050591.309009345] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3110.563 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050594.510376055] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3065.370 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050597.861105376] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3075.864 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050601.182410210] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3192.221 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050604.404875795] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3089.847 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050607.652456172] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3111.117 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050610.895052715] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3093.760 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050615.219509467] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 4040.342 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050618.607478969] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3238.699 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050622.041273679] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3260.937 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050625.382156764] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3175.669 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050629.261627335] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3708.815 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050632.702365086] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3168.194 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050635.978539504] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3144.092 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050639.187773506] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3064.170 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050642.662963049] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3339.172 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050646.363489884] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3513.281 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788050647.683622718] [mavros.cmd]: CMD: Unexpected command 11, result 0
+[mavros_node-7] [INFO] [1788050650.234676511] [mavros.sys]: FCU: Arming motors
+[gazebo-1] [INFO] [1788050650.482611303] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3804.169 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050653.807681513] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3175.156 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050657.360126000] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3381.042 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050660.932221710] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3437.817 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050664.183881462] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3097.212 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050667.933729339] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3427.898 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050671.516942215] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3441.108 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050674.945814842] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3269.000 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050678.667176469] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3572.055 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050682.375266137] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3542.623 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050686.277270250] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3633.357 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050689.594651001] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3175.321 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050692.915726836] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3185.590 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050696.203354588] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3148.989 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050699.483001339] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3142.929 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050703.376114966] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3617.369 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050707.281604926] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3739.195 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050710.650679053] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3212.912 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050713.936685971] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3140.763 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050717.196566542] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3121.387 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050721.018924002] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3556.648 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050724.750502795] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3560.281 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788050725.275142296] [mavros.sys]: FCU: Disarming motors
+[gazebo-1] [INFO] [1788050728.152843089] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3238.405 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050732.287946466] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3995.489 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050735.676557676] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3188.804 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050739.129521677] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3151.291 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050742.493078179] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3211.894 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050745.882879250] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3231.267 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050749.131378709] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3111.463 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050752.407743461] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3137.546 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050755.799115046] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3121.161 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050759.018146214] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3082.380 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050762.284374257] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3119.549 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050765.854389301] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3432.875 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050769.254803261] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3245.148 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050772.741232262] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3161.407 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050776.664279083] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3792.227 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050779.961446168] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3148.380 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050783.252208336] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3122.500 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050786.511857171] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3097.779 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050790.047958381] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3244.172 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050793.644703258] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3452.732 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050797.291652885] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3471.448 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050800.616435095] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3186.247 [ms]
+[gazebo-1]
+[gazebo-1] [INFO] [1788050803.995215513] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 3239.122 [ms]
+[gazebo-1]
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT) again, ignoring...
+[static_transform_publisher-3] [INFO] [1788050804.604499972] [rclcpp]: signal_handler(signum=2)
+[parameter_bridge-4] [INFO] [1788050804.605791638] [rclcpp]: signal_handler(signum=2)
+[ERROR] [ardusub-6]: process has died [pid 313, exit code -2, cmd 'ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0'].
+[mavros_node-7] Error:   mavconn: tcp0: receive: End of file
+[mavros_node-7]          at line 307 in /home/docker/mavros_ws/src/mavros/libmavconn/src/tcp.cpp
+[mavros_node-7] [INFO] [1788050804.607293222] [rclcpp]: signal_handler(signum=2)
+[mavros_node-7] [WARN] [1788050804.618301097] [mavros]: UAS Executor terminated
+[gazebo-1] [INFO] [1788050804.620826138] [rclcpp]: signal_handler(signum=2)
+[INFO] [static_transform_publisher-3]: process has finished cleanly [pid 174]
+[INFO] [mavros_node-7]: process has finished cleanly [pid 314]
+[ERROR] [parameter_bridge-4]: process has died [pid 175, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/bluerov2_heavy_multibeam_sonar/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance /model/bluerov2_heavy_multibeam_sonar/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V /model/bluerov2_heavy_multibeam_sonar/imu@sensor_msgs/msg/Imu[gz.msgs.IMU /model/bluerov2_heavy_multibeam_sonar/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked --ros-args'].
+[gazebo-1] [INFO] [1788050806.682217750] [multibeam_sonar_node]: cpu Sonar Frame Calc Time 2407.362 [ms]
+[gazebo-1]
+[ERROR] [gazebo-1]: process has died [pid 85, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r --force-version 10'].

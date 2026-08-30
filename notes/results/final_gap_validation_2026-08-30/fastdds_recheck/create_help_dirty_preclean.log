@@ -1,0 +1,60 @@
+create: Usage: create -world [arg] [-file FILE] [-param PARAM] [-topic TOPIC]
+                       [-string STRING] [-name NAME] [-allow_renaming RENAMING] [-x X] [-y Y] [-z Z]
+                       [-R ROLL] [-P PITCH] [-Y YAW]
+
+  Flags from /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_sim/src/create.cpp:
+    -P (Pitch component of initial orientation, in radians.) type: double
+      default: 0
+    -R (Roll component of initial orientation, in radians.) type: double
+      default: 0
+    -Y (Yaw component of initial orientation, in radians.) type: double
+      default: 0
+    -allow_renaming (Rename entity if name already used.) type: bool
+      default: false
+    -file (Load XML from a file.) type: string default: ""
+    -name (Name for spawned entity.) type: string default: ""
+    -param (Load XML from a ROS param.) type: string default: ""
+    -string (Load XML from a string.) type: string default: ""
+    -topic (Load XML from a ROS string publisher.) type: string default: ""
+    -world (World name.) type: string default: ""
+    -x (X component of initial position, in meters.) type: double default: 0
+    -y (Y component of initial position, in meters.) type: double default: 0
+    -z (Z component of initial position, in meters.) type: double default: 0
+
+
+
+  Flags from /private/tmp/gflags-20251206-4744-2v5nqg/gflags-2.3.0/src/gflags.cc:
+    -flagfile (load flags from file) type: string default: ""
+    -fromenv (set flags from the environment [use 'export FLAGS_flag1=value'])
+      type: string default: ""
+    -tryfromenv (set flags from the environment if present) type: string
+      default: ""
+    -undefok (comma-separated list of flag names that it is okay to specify on
+      the command line even if the program does not define a flag with that
+      name.  IMPORTANT: flags in this list that have arguments MUST use the
+      flag=value format) type: string default: ""
+
+  Flags from /private/tmp/gflags-20251206-4744-2v5nqg/gflags-2.3.0/src/gflags_completions.cc:
+    -tab_completion_columns (Number of columns to use in output for tab
+      completion) type: int32 default: 80
+    -tab_completion_word (If non-empty, HandleCommandLineCompletions() will
+      hijack the process and attempt to do bash-style command line flag
+      completion on this value.) type: string default: ""
+
+  Flags from /private/tmp/gflags-20251206-4744-2v5nqg/gflags-2.3.0/src/gflags_reporting.cc:
+    -help (show help on all flags [tip: all flags can have two dashes])
+      type: bool default: false currently: true
+    -helpfull (show help on all flags -- same as -help) type: bool
+      default: false
+    -helpmatch (show help on modules whose name contains the specified substr)
+      type: string default: ""
+    -helpon (show help on the modules named by this flag value) type: string
+      default: ""
+    -helppackage (show help on all modules in the main package) type: bool
+      default: false
+    -helpshort (show help on only the main module for this program) type: bool
+      default: false
+    -helpxml (produce an xml version of help) type: bool default: false
+    -version (show version and build info and exit) type: bool default: false
+[ros2run]: Abort trap: 6
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument

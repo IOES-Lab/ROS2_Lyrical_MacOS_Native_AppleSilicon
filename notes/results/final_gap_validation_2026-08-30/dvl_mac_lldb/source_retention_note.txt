@@ -1,0 +1,1 @@
+Retained exact upstream tag source: Sensors_gz-sim10.cc. Removed duplicate and transient wait-interval experiment copies because neither contributed to the validated diagnosis or workaround.

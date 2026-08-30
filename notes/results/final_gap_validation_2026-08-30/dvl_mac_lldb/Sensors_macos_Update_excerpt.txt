@@ -1,0 +1,436 @@
+319-  public: std::unordered_map<Entity, bool> modelBatteryStateChanged;
+320-
+321-  /// \brief A map of sensor ids to their active state
+322-  public: std::unordered_map<sensors::SensorId, bool> sensorStateChanged;
+323-
+324-  /// \brief Disable sensors if parent model's battery is drained
+325-  /// Affects sensors that are in nested models
+326-  public: bool disableOnDrainedBattery = false;
+327-
+328-  /// \brief Mutex to protect access to sensorStateChanged
+329-  public: std::mutex sensorStateMutex;
+330-};
+331-
+332-//////////////////////////////////////////////////
+333-void SensorsPrivate::WaitForInit()
+334-{
+335-  while (!this->initialized && this->running)
+336-  {
+337-    gzdbg << "Waiting for init" << std::endl;
+338-    std::unique_lock<std::mutex> lock(this->renderMutex);
+339-    // Wait to be ready for initialization or stopped running.
+340-    // We need rendering sensors to be available to initialize.
+341-    this->renderCv.wait(lock, [this]()
+342-    {
+343-      return this->doInit || !this->running;
+344-    });
+345-
+346-    if (this->doInit)
+347-    {
+348-      // Only initialize if there are rendering sensors
+349-      gzdbg << "Initializing render context" << std::endl;
+350-      if (this->backgroundColor)
+351-        this->renderUtil.SetBackgroundColor(*this->backgroundColor);
+352-      if (this->ambientLight)
+353-        this->renderUtil.SetAmbientLight(*this->ambientLight);
+354:#ifndef __APPLE__
+355-
+356:      this->renderUtil.Init();
+357-#else
+358-      // On macOS the render engine must be initialised on the main thread.
+359-      // See Sensors::Update.
+360-#endif
+361-      this->scene = this->renderUtil.Scene();
+362-      this->scene->SetCameraPassCountPerGpuFlush(6u);
+363-
+364-      if (this->giVctParameters.enabled)
+365-      {
+366-        this->giVct = this->scene->CreateGlobalIlluminationVct();
+367-        this->giVct->SetParticipatingVisuals(
+368-            rendering::GlobalIlluminationBase::DYNAMIC_VISUALS |
+369-            rendering::GlobalIlluminationBase::STATIC_VISUALS);
+370-
+371-        this->giVct->SetResolution(this->giVctParameters.resolution);
+372-        this->giVct->SetOctantCount(this->giVctParameters.octantCount);
+373-        this->giVct->SetBounceCount(this->giVctParameters.bounceCount);
+374-        this->giVct->SetAnisotropic(this->giVctParameters.anisotropic);
+375-        this->giVct->SetHighQuality(this->giVctParameters.highQuality);
+376-        this->giVct->SetConserveMemory(this->giVctParameters.conserveMemory);
+377-        this->giVct->SetThinWallCounter(this->giVctParameters.thinWallCounter);
+378-
+379-        this->giVct->SetDebugVisualization(
+380-            rendering::GlobalIlluminationVct::DVM_None);
+381-
+382-        this->scene->SetActiveGlobalIllumination(this->giVct);
+383-      }
+384-
+385-      this->initialized = true;
+386-    }
+387-
+388-    this->updateAvailable = false;
+389-    this->renderCv.notify_one();
+390-  }
+391-  gzdbg << "Rendering Thread initialized" << std::endl;
+392-}
+393-
+394-//////////////////////////////////////////////////
+395-void SensorsPrivate::RunOnce()
+396-{
+397-  {
+398-    std::unique_lock<std::mutex> cvLock(this->renderMutex);
+399-    this->renderCv.wait_for(cvLock, std::chrono::microseconds(1000), [this]()
+400-    {
+401-      return !this->running || this->updateAvailable;
+402-    });
+403-  }
+404-
+405-  if (!this->updateAvailable)
+406-    return;
+407-
+408-  if (!this->running)
+409-    return;
+410-
+411-  if (!this->scene)
+412-    return;
+413-
+414-  GZ_PROFILE("SensorsPrivate::RunOnce");
+415-  {
+416-    GZ_PROFILE("Update");
+417-    std::unique_lock<std::mutex> timeLock(this->renderUtilMutex);
+418-    this->renderUtil.Update();
+419-    this->updateTimeApplied = this->updateTime;
+420-    this->updateTimeCv.notify_one();
+421-  }
+422-
+423-  bool activeSensorsEmpty = true;
+424-  {
+425-    std::unique_lock<std::mutex> lk(this->sensorsMutex);
+426-    activeSensorsEmpty = this->activeSensors.empty();
+427-  }
+428-
+429-  if (!activeSensorsEmpty || this->forceUpdate)
+430-  {
+431-    // disable sensors that are out of battery or re-enable sensors that are
+432-    // being charged
+433-    if (this->disableOnDrainedBattery)
+434-    {
+435-      std::unique_lock<std::mutex> lock2(this->sensorStateMutex);
+436-      for (const auto &sensorIt : this->sensorStateChanged)
+437-      {
+438-        sensors::Sensor *s =
+439-            this->sensorManager.Sensor(sensorIt.first);
+440-        if (s)
+441-        {
+442-          s->SetActive(sensorIt.second);
+443-        }
+444-      }
+445-      this->sensorStateChanged.clear();
+446-    }
+447-
+448-    {
+449-      GZ_PROFILE("PreRender");
+450-      this->eventManager->Emit<events::PreRender>();
+451-      this->scene->SetTime(this->updateTimeApplied);
+452-      // Update the scene graph manually to improve performance
+453-      // We only need to do this once per frame It is important to call
+454-      // sensors::RenderingSensor::SetManualSceneUpdate and set it to true
+455-      // so we don't waste cycles doing one scene graph update per sensor
+456-
+457-      if (!this->giBuilt)
+458-      {
+459-        if (this->giVctParameters.enabled)
+460-        {
+461-          this->giVct->Build();
+462-          this->giVct->SetDebugVisualization(static_cast<
+463-              rendering::GlobalIlluminationVct::DebugVisualizationMode>
+464-              (this->giVctParameters.debugVisMode));
+465-          this->giBuilt = true;
+466-        }
+467-      }
+468-
+469-      this->scene->PreRender();
+470-    }
+471-
+472-    // disable sensors that have no subscribers to prevent doing unnecessary
+473-    // work
+474-    std::unordered_set<sensors::RenderingSensor *> tmpDisabledSensors;
+475-    this->sensorsMutex.lock();
+476-    for (auto id : this->sensorIds)
+--
+768-            giElem->Get<bool>("high_quality",
+769-            this->dataPtr->giVctParameters.highQuality).first;
+770-        this->dataPtr->giVctParameters.anisotropic =
+771-            giElem->Get<bool>("anisotropic",
+772-            this->dataPtr->giVctParameters.anisotropic).first;
+773-        this->dataPtr->giVctParameters.thinWallCounter =
+774-            giElem->Get<float>("thin_wall_counter",
+775-            this->dataPtr->giVctParameters.thinWallCounter).first;
+776-        this->dataPtr->giVctParameters.conserveMemory =
+777-            giElem->Get<bool>("conserve_memory",
+778-            this->dataPtr->giVctParameters.conserveMemory).first;
+779-
+780-        if (giElem->HasElement("debug_vis_mode"))
+781-        {
+782-          const std::string text = giElem->Get<std::string>(
+783-              "debug_vis_mode", "none").first;
+784-          SetDebugVisMode(text, this->dataPtr->giVctParameters.debugVisMode,
+785-              this->dataPtr->giDefaultData.debugVisMode);
+786-        }
+787-      }
+788-      else if (giType == "civct")
+789-      {
+790-        // todo: add CIVCT here. should also check if apiBackend is vulkan
+791-        // can use SetDebugVisMode when parsing DVM
+792-        gzerr << "GI CI VCT is not supported" << std::endl;
+793-      }
+794-      else
+795-      {
+796-        gzerr << "GI method type [" << giType << "] is not supported."
+797-              << std::endl;
+798-      }
+799-    }
+800-  }
+801-
+802-  this->dataPtr->renderUtil.SetEngineName(engineName);
+803:#ifdef __APPLE__
+804-  if (apiBackend.empty())
+805-    apiBackend = "metal";
+806-#endif
+807-  this->dataPtr->renderUtil.SetApiBackend(apiBackend);
+808-  this->dataPtr->renderUtil.SetEnableSensors(true,
+809-      std::bind(&Sensors::CreateSensor, this,
+810-      std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+811-  this->dataPtr->renderUtil.SetRemoveSensorCb(
+812-      std::bind(&Sensors::RemoveSensor, this, std::placeholders::_1));
+813-  this->dataPtr->renderUtil.SetEventManager(&_eventMgr);
+814-
+815-  // parse sensor-specific data
+816-  auto worldEntity = _ecm.EntityByComponents(components::World());
+817-  if (kNullEntity != worldEntity)
+818-  {
+819-    // temperature used by thermal camera
+820-    auto atmosphere = _ecm.Component<components::Atmosphere>(worldEntity);
+821-    if (atmosphere)
+822-    {
+823-      auto atmosphereSdf = atmosphere->Data();
+824-      this->dataPtr->ambientTemperature = atmosphereSdf.Temperature().Kelvin();
+825-      this->dataPtr->ambientTemperatureGradient =
+826-          atmosphereSdf.TemperatureGradient();
+827-    }
+828-
+829-    // Set render engine if specified from command line
+830-    auto renderEngineServerComp =
+831-      _ecm.Component<components::RenderEngineServerPlugin>(worldEntity);
+832-    if (renderEngineServerComp && !renderEngineServerComp->Data().empty())
+833-    {
+834-      this->dataPtr->renderUtil.SetEngineName(renderEngineServerComp->Data());
+835-    }
+836-
+837-    // Set API backend if specified from command line
+838-    auto renderEngineServerApiBackendComp =
+839-      _ecm.Component<components::RenderEngineServerApiBackend>(worldEntity);
+840-    if (renderEngineServerApiBackendComp &&
+841-        !renderEngineServerApiBackendComp->Data().empty())
+842-    {
+843-      this->dataPtr->renderUtil.SetApiBackend(
+844-        renderEngineServerApiBackendComp->Data());
+845-    }
+846-
+847-    // Set headless mode if specified from command line
+848-    auto renderEngineServerHeadlessComp =
+849-      _ecm.Component<components::RenderEngineServerHeadless>(worldEntity);
+850-    if (renderEngineServerHeadlessComp)
+851-    {
+852-      this->dataPtr->renderUtil.SetHeadlessRendering(
+853-        renderEngineServerHeadlessComp->Data());
+854-    }
+855-  }
+856-
+857-  this->dataPtr->eventManager = &_eventMgr;
+858-
+859-  this->dataPtr->stopConn = this->dataPtr->eventManager->Connect<events::Stop>(
+860-      std::bind(&SensorsPrivate::Stop, this->dataPtr.get()));
+861-
+862-  this->dataPtr->forceRenderConn = _eventMgr.Connect<events::ForceRender>(
+863-      std::bind(&SensorsPrivate::ForceRender, this->dataPtr.get()));
+864-
+865-  // Kick off worker thread
+866-  this->dataPtr->Run();
+867-}
+868-
+869-//////////////////////////////////////////////////
+870-void Sensors::Reset(const UpdateInfo &_info, EntityComponentManager &)
+871-{
+872-  GZ_PROFILE("Sensors::Reset");
+873-
+874-  if (this->dataPtr->running && this->dataPtr->initialized)
+875-  {
+876-    gzdbg << "Resetting Sensors\n";
+877-
+878-    {
+879-      std::unique_lock<std::mutex> lock(this->dataPtr->sensorsMutex);
+880-      this->dataPtr->activeSensors.clear();
+881-      this->dataPtr->sensorsToUpdate.clear();
+882-    }
+883-
+884-    for (auto id : this->dataPtr->sensorIds)
+885-    {
+886-      sensors::Sensor *s = this->dataPtr->sensorManager.Sensor(id);
+887-
+888-      if (nullptr == s)
+889-      {
+890-        gzwarn << "Sensor removed before reset: " << id << "\n";
+891-        continue;
+892-      }
+893-
+894-      s->SetNextDataUpdateTime(_info.simTime);
+895-    }
+896-    this->dataPtr->nextUpdateTime =  _info.simTime;
+897-    std::unique_lock<std::mutex> lock2(this->dataPtr->renderUtilMutex);
+898-    this->dataPtr->updateTime =  _info.simTime;
+899-    this->dataPtr->updateTimeToApply =  _info.simTime;
+900-    this->dataPtr->updateTimeApplied =  _info.simTime;
+901-  }
+902-}
+903-
+904-//////////////////////////////////////////////////
+905:void Sensors::Update(const UpdateInfo &_info,
+906-                     EntityComponentManager &_ecm)
+907-{
+908-  GZ_PROFILE("Sensors::Update");
+909-
+910:#ifdef __APPLE__
+911-  // On macOS the render engine must be initialised on the main thread.
+912-  if (!this->dataPtr->initialized &&
+913-      (_ecm.HasComponentType(components::BoundingBoxCamera::typeId) ||
+914-       _ecm.HasComponentType(components::Camera::typeId) ||
+915-       _ecm.HasComponentType(components::DepthCamera::typeId) ||
+916-       _ecm.HasComponentType(components::GpuLidar::typeId) ||
+917-       _ecm.HasComponentType(components::RgbdCamera::typeId) ||
+918-       _ecm.HasComponentType(components::ThermalCamera::typeId) ||
+919-       _ecm.HasComponentType(components::SegmentationCamera::typeId) ||
+920-       _ecm.HasComponentType(components::WideAngleCamera::typeId)))
+921-  {
+922-    std::unique_lock<std::mutex> lock(this->dataPtr->renderMutex);
+923-    gzdbg << "Initialization needed" << std::endl;
+924:    this->dataPtr->renderUtil.Init();
+925-    this->dataPtr->nextUpdateTime = _info.simTime;
+926-  }
+927-#endif
+928-
+929-  if (this->dataPtr->running && this->dataPtr->initialized)
+930-  {
+931-    this->dataPtr->renderUtil.UpdateECM(_info, _ecm);
+932-  }
+933-}
+934-
+935-//////////////////////////////////////////////////
+936-void Sensors::PostUpdate(const UpdateInfo &_info,
+937-                         const EntityComponentManager &_ecm)
+938-{
+939-  GZ_PROFILE("Sensors::PostUpdate");
+940-  {
+941-    if (!this->dataPtr->initialized &&
+942-        (this->dataPtr->forceUpdate ||
+943-         _ecm.HasComponentType(components::BoundingBoxCamera::typeId) ||
+944-         _ecm.HasComponentType(components::Camera::typeId) ||
+945-         _ecm.HasComponentType(components::DepthCamera::typeId) ||
+946-         _ecm.HasComponentType(components::GpuLidar::typeId) ||
+947-         _ecm.HasComponentType(components::RgbdCamera::typeId) ||
+948-         _ecm.HasComponentType(components::ThermalCamera::typeId) ||
+949-         _ecm.HasComponentType(components::SegmentationCamera::typeId) ||
+950-         _ecm.HasComponentType(components::WideAngleCamera::typeId)))
+951-    {
+952-      std::unique_lock<std::mutex> lock(this->dataPtr->renderMutex);
+953-      gzdbg << "Initialization needed" << std::endl;
+954-      this->dataPtr->doInit = true;
+955-      this->dataPtr->renderCv.notify_one();
+956-    }
+957-  }
+958-
+959-  if (this->dataPtr->running && this->dataPtr->initialized)
+960-  {
+961-    {
+962-      GZ_PROFILE("UpdateFromECM");
+963-      // Make sure we do not override the state in renderUtil if there are
+964-      // still ECM changes that still need to be propagated to the scene,
+965-      // i.e. wait until renderUtil.Update(), has taken place in the
+966-      // rendering thread
+967-      std::unique_lock<std::mutex> lock(this->dataPtr->renderUtilMutex);
+968-      this->dataPtr->updateTimeCv.wait(lock, [this]()
+969-      {
+970-        return !this->dataPtr->updateAvailable ||
+971-               (this->dataPtr->updateTimeToApply ==
+972-               this->dataPtr->updateTimeApplied);
+973-      });
+974-
+975-      this->dataPtr->renderUtil.UpdateFromECM(_info, _ecm);
+976-      this->dataPtr->updateTime = _info.simTime;
+977-    }
+978-
+979-    // check connections to render events
+980-    // we will need to perform render updates if there are event subscribers
+981-    // \todo(anyone) This currently forces scene tree updates at the sim update
+982-    // rate which can be too frequent and causes a performance hit.
+983-    // We should look into throttling render updates
+984-    bool hasRenderConnections =
+985-      (this->dataPtr->eventManager->ConnectionCount<events::PreRender>() > 0u ||
+986-      this->dataPtr->eventManager->ConnectionCount<events::Render>() > 0u ||
+987-      this->dataPtr->eventManager->ConnectionCount<events::PostRender>() > 0u);
+988-
+989-    // if nextUpdateTime is max, it probably means there are previously
+990-    // no active sensors or sensors with connections.
+991-    // In this case, check if sensors have connections now. If so, we need to
+992-    // set the nextUpdateTime
+993-    if (this->dataPtr->nextUpdateTime ==
+994-        std::chrono::steady_clock::duration::max() &&
+995-        this->dataPtr->SensorsHaveConnections())
+996-    {
+997-      this->dataPtr->nextUpdateTime = this->dataPtr->NextUpdateTime(
+998-          this->dataPtr->sensorsToUpdate, _info.simTime);
+999-    }
+1000-
+1001-    std::unordered_set<sensors::SensorId> sensorsWithPendingTriggers =
+1002-        this->dataPtr->SensorsWithPendingTrigger();
+1003-
+1004-    // notify the render thread if updates are available
+1005-    if (hasRenderConnections ||
+1006-        this->dataPtr->nextUpdateTime <= _info.simTime ||
+1007-        this->dataPtr->renderUtil.PendingSensors() > 0 ||
+1008-        this->dataPtr->forceUpdate ||
+1009-        !sensorsWithPendingTriggers.empty())
+1010-    {
+1011-      if (this->dataPtr->disableOnDrainedBattery)
+1012-        this->dataPtr->UpdateBatteryState(_ecm);
+1013-
+1014-      {
+1015-        std::unique_lock<std::mutex> cvLock(this->dataPtr->renderMutex);
+1016-        this->dataPtr->renderCv.wait(cvLock, [this] {
+1017-          return !this->dataPtr->running || !this->dataPtr->updateAvailable; });
+1018-      }
+1019-
+1020-      if (!this->dataPtr->running)
+1021-      {
+1022-        return;
+1023-      }
+1024-
+1025-      {
+1026-        std::unique_lock<std::mutex> lockSensors(this->dataPtr->sensorsMutex);
+1027-        this->dataPtr->activeSensors =
+1028-            std::move(this->dataPtr->sensorsToUpdate);
+1029-        // Add all sensors that have pending triggers.
+1030-        this->dataPtr->activeSensors.insert(sensorsWithPendingTriggers.begin(),
+1031-                                            sensorsWithPendingTriggers.end());
+1032-      }
+1033-
+1034-      this->dataPtr->nextUpdateTime = this->dataPtr->NextUpdateTime(
+1035-          this->dataPtr->sensorsToUpdate, _info.simTime);
+1036-
+1037-      // Force scene tree update if there are sensors to be created or
+1038-      // subscribes to the render events. This does not necessary force
+1039-      // sensors to update. Only active sensors will be updated
+1040-      this->dataPtr->forceUpdate =
+1041-          (this->dataPtr->renderUtil.PendingSensors() > 0) ||
+1042-          hasRenderConnections;
+1043-
+1044-      {

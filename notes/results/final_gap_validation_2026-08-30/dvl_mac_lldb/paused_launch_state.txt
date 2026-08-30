@@ -1,0 +1,2 @@
+  PID  PPID STAT COMM     ARGS
+15211 15175 TN+  /bin/zsh /bin/zsh -c kill -STOP $$; exec "$0" "$1" -s -r -v 4 /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main /Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_sim_demos/share/ros_gz_sim_demos/worlds/dvl.sdf

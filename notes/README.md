@@ -20,7 +20,7 @@
 | [`evidence/`](evidence/) | 개별 주장 근거 |
 | [`meeting/`](meeting/) | 랩 미팅 자료 |
 
-## 현재 기준선 — 2026-08-29
+## 현재 기준선 — 2026-08-30
 
 [`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/)은
 기존 감사에서 남은 재현 가능한 결함을 수정한 최초 **8개 후보 패치**의 Mac/Docker 결과다.
@@ -28,6 +28,9 @@
 [`results/open_gap_revalidation_2026-08-29/`](results/open_gap_revalidation_2026-08-29/)에 있다.
 공식 ArduPilot Gazebo plugin·ArduSub·MAVROS·QGroundControl 통합을 닫은 10번째 후보와 Docker
 recipe 근거는 [`results/external_stack_validation_2026-08-29/`](results/external_stack_validation_2026-08-29/)에 있다.
+2026-08-30의 DVL LLDB, RViz, Fast DDS, camera startup, 결합 sonar/control,
+fresh Docker build와 rendered RDP/QGC 근거는
+[`results/final_gap_validation_2026-08-30/`](results/final_gap_validation_2026-08-30/)에 있다.
 상류 DAVE checkout과 사용자 설치 workspace를 수정했다는 뜻은 아니다.
 
 검증된 후보 패치 범위:
@@ -42,21 +45,20 @@ recipe 근거는 [`results/external_stack_validation_2026-08-29/`](results/exter
 - Ocean/Spherical/sonar package plugin-discovery hooks와 Release build 안내
 - `dave_ocean_waves`의 fifth-ROV sonar용 `MultibeamSonarSystem` world 누락
 - 세 BlueROV variant ArduSub의 명시적 speedup, 공식 Gazebo plugin, MAVROS 통합 제어와 baseline QGroundControl 경로
-- 현재 Dockerfile의 cache-assisted end-to-end 빌드(44.86분, 23.9GB)와 exact-image 세 variant full control
+- 현재 Dockerfile의 fresh `--no-cache` 빌드(66.917분, 6,260,137,751 bytes), pin/package 검사, real RDP/XFCE framebuffer와 Gazebo+QGC connected replay; 이전 cache image의 세 variant full control
 
-여전히 열린 범위는 Mac stock Gazebo DVL SIGSEGV, NVIDIA/하드웨어 GPU, RViz Mac 창,
-Fast DDS와 fresh Mac camera의 **과거 실패 trigger** 재현, QGroundControl 기본 AppRun의
-GLib 충돌(검증 recipe는 opt-out 적용), sonar 30 Hz·ROV/Glider calibration 결정, Fuel
-immutable pin/upload, Windows/WSL·실물 gamepad/HIL과 일반 음향·광학·유체역학·장시간 정확도다.
-별도 ninth sonar world 후보를 exact Docker image에 live-apply한 Heavy-multibeam 결합 시험도
-직접 실행했다. 후보 build와 513×301×399 설정까지 갔지만 `llvmpipe` 첫 probe가 60053 ms였고
-Gazebo stack trace 뒤 JSON/MAVROS·PointCloud2·control에 도달하지 못했다. 이 결합 경로의 원인과
-수정은 열려 있다. 현재 recipe의 fresh `--no-cache` build와 exact-image의 실제 RDP
-login/rendering·QGC vehicle connection replay도 남아 있다.
-동일 exact image의 xrdp 서비스 기동과 QGC opt-out/offscreen 20초 생존은 통과했다.
-Docker `ogre2` sonar와 fresh Mac camera는 2026-08-29 현재 재검증에서 각각 출력 1회와 3/3을
-통과했으므로 현재 기능 실패로 쓰지 않는다. 자세한 목록은
-[`next-steps.md`](next-steps.md)에 있다.
+여전히 열린 범위는 Docker hardware WGPU/NVIDIA CUDA, macOS RViz의 영구 창 수정,
+QGroundControl 기본 AppRun의 GLib 충돌(검증 recipe는 opt-out 적용), sonar 30 Hz·ROV/Glider
+calibration 결정, Fuel immutable pin/upload, Windows/WSL·실물 gamepad/HIL과 일반
+음향·광학·유체역학·장시간 정확도다. Mac stock DVL crash는 LLDB와 exact source로
+main-thread renderer 초기화 trigger 누락까지 좁혔고 hidden-camera control이 출력까지
+복구하지만, 배포 world/상류 Gazebo 수정은 아직 없다. Heavy-multibeam 결합 경로는
+software WGPU/llvmpipe에서 exit 139를 재현하고 forced CPU에서 PointCloud2와
+arm/control/disarm을 한 session에서 통과해 backend-dependent로 판정한다. Fast DDS create
+hang은 dirty/clean/SIGKILL/UDP 18/18에서 현재 재현되지 않았고, exact camera Quickstart는
+120초 창에서 default 3/3·UDP 3/3 통과해 이전 짧은 대기 실패를 startup latency로 정정했다.
+이전 exact cache image는 Windows App RDP login/rendering과 QGC vehicle connection을 통과했다.
+current recipe도 fresh `--no-cache`로 66.917분에 완주했고, 별도 FreeRDP/xrdp 세션에서 Xorg/XFCE framebuffer와 Gazebo+QGC connected 화면을 다시 통과했다. 두 클라이언트 실행을 같은 것으로 섞지 않는다.
 
 이전 날짜의 직접 검증 폴더는 삭제하지 않는다. 2026-08-29 패치가 무엇을 바꿨는지
 확인하려면 이전 실패 근거와 현재 결과를 함께 읽어야 한다.
@@ -72,7 +74,7 @@ Docker `ogre2` sonar와 fresh Mac camera는 2026-08-29 현재 재검증에서 �
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
 | [`known-issues.md`](known-issues.md) | 48개 항목(열림·후보 패치 해결·철회 이력 포함), 현재 처리는 문서 맨 위 표 참고 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 101행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 103행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

@@ -1,0 +1,3 @@
+core_pattern=core
+ulimit_core=unlimited
+/home/docker/core 226807808 bytes

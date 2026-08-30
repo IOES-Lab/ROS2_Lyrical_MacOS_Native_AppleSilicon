@@ -1,0 +1,5 @@
+  PID  PPID STAT COMMAND         COMMAND
+    1     0 Ss   sleep           sleep infinity
+  173     1 Z    parameter_bridg [parameter_bridg] <defunct>
+ 1961     1 Sl   python3         /usr/bin/python3 -c from ros2cli.daemon.daemonize import main; main() --name ros2-daemon --ros-domain-id 176 --rmw-implementation rmw_fastrtps_cpp
+ 1988     0 Rs   ps              ps -eo pid,ppid,stat,comm,args

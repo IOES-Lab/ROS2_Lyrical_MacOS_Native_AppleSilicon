@@ -1,0 +1,160 @@
+[2026-08-30T02:05:21.687+0000] [INFO ] starting xrdp with pid 60
+[2026-08-30T02:05:21.690+0000] [INFO ] address [0.0.0.0] port [3389] mode 1
+[2026-08-30T02:05:21.692+0000] [INFO ] listening to port 3389 on 0.0.0.0
+[2026-08-30T02:05:21.693+0000] [INFO ] xrdp_listen_pp done
+[2026-08-30T02:06:05.150+0000] [INFO ] Socket 13: connection accepted from [::ffff:172.17.0.1]:60340
+[2026-08-30T02:06:05.159+0000] [INFO ] Using default X.509 certificate: /etc/xrdp/cert.pem
+[2026-08-30T02:06:05.162+0000] [INFO ] Using default X.509 key file: /etc/xrdp/key.pem
+[2026-08-30T02:06:05.164+0000] [INFO ] Security protocol: configured [SSL|RDP], requested [SSL|HYBRID|HYBRID_EX|RDP], selected [SSL]
+[2026-08-30T02:06:07.774+0000] [INFO ] Connected client computer name: gwon-yeseol-ui-
+[2026-08-30T02:06:07.775+0000] [INFO ] client supports gfx protocol
+[2026-08-30T02:06:07.776+0000] [WARN ] Received [MS-RDPBCGR] TS_UD_HEADER type 0xc006 is unknown (ignored)
+[2026-08-30T02:06:07.777+0000] [WARN ] Received [MS-RDPBCGR] TS_UD_HEADER type 0xc00a is unknown (ignored)
+[2026-08-30T02:06:07.783+0000] [INFO ] xrdp_load_keyboard_layout: Keyboard information sent by the RDP client, keyboard_type:[0x04], keyboard_subtype:[0x00], keylayout:[0x00000000]
+[2026-08-30T02:06:07.785+0000] [INFO ] xrdp_load_keyboard_layout: model [] variant [] layout [us] options []
+[2026-08-30T02:06:07.785+0000] [INFO ] TLS connection established from [::ffff:172.17.0.1]:60340 TLSv1.3 with cipher TLS_AES_256_GCM_SHA384
+[2026-08-30T02:06:07.797+0000] [INFO ] Client supports single-screen resizes by xrdp
+[2026-08-30T02:06:07.801+0000] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+[2026-08-30T02:06:07.802+0000] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+[2026-08-30T02:06:07.803+0000] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+[2026-08-30T02:06:07.804+0000] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+[2026-08-30T02:06:07.812+0000] [WARN ] Cannot find keymap file /etc/xrdp/km-00000000.ini
+[2026-08-30T02:06:07.812+0000] [WARN ] Cannot find keymap file /etc/xrdp/km-00000000.ini
+[2026-08-30T02:06:07.813+0000] [INFO ] Loading keymap file /etc/xrdp/km-00000409.ini
+[2026-08-30T02:06:07.815+0000] [WARN ] local keymap file for 0x00000000 found and doesn't match built in keymap, using local keymap file
+[2026-08-30T02:06:07.816+0000] [INFO ] Login screen monitor height is 1068 pixels over 211 mm (128 DPI)
+[2026-08-30T02:06:07.838+0000] [INFO ] xrdp_egfx_create: error 0 channel_id 1
+[2026-08-30T02:06:07.842+0000] [INFO ] xrdp_mm_egfx_caps_advertise:
+[2026-08-30T02:06:07.842+0000] [INFO ]   version 0x00080004 flags 0x00000002 (index: 0)
+[2026-08-30T02:06:07.843+0000] [INFO ]   version 0x00080105 flags 0x00000002 (index: 1)
+[2026-08-30T02:06:07.843+0000] [INFO ]   version 0x000a0002 flags 0x00000022 (index: 2)
+[2026-08-30T02:06:07.844+0000] [INFO ]   version 0x000a0200 flags 0x00000022 (index: 3)
+[2026-08-30T02:06:07.844+0000] [INFO ]   version 0x000a0301 flags 0x00000020 (index: 4)
+[2026-08-30T02:06:07.845+0000] [INFO ]   version 0x000a0400 flags 0x00000002 (index: 5)
+[2026-08-30T02:06:07.845+0000] [INFO ]   version 0x000a0701 flags 0x00000082 (index: 6)
+[2026-08-30T02:06:07.846+0000] [INFO ]   version 0x000b0101 flags 0x00000082 (index: 7)
+[2026-08-30T02:06:07.846+0000] [INFO ] unknown version 0x000b0101
+[2026-08-30T02:06:07.848+0000] [INFO ]   version 0x000b0300 flags 0x00000082 (index: 8)
+[2026-08-30T02:06:07.848+0000] [INFO ] unknown version 0x000b0300
+[2026-08-30T02:06:07.849+0000] [INFO ]   replying version 0x000a0701 flags 0x00000082
+[2026-08-30T02:06:07.849+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_capsconfirm error 0 best_index 6
+[2026-08-30T02:06:07.850+0000] [INFO ] xrdp_egfx_reset_graphics:
+[2026-08-30T02:06:07.851+0000] [INFO ] xrdp_egfx_reset_graphics: width 1708 height 1068 monitorcount 1
+[2026-08-30T02:06:07.851+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_reset_graphics error 0 monitorCount 0
+[2026-08-30T02:06:07.852+0000] [INFO ] xrdp_mm_egfx_create_surfaces: map surface_id 0 left 0 top 0 width 1708 height 1068
+[2026-08-30T02:06:07.853+0000] [INFO ] xrdp_encoder_create: starting gfx rfx pro codec session
+[2026-08-30T02:06:07.855+0000] [INFO ] xrdp_mm_egfx_invalidate_wm_screen:
+[2026-08-30T02:06:07.856+0000] [INFO ] xrdp_mm_egfx_caps_advertise: egfx created.
+[2026-08-30T02:06:09.480+0000] [WARN ] sanitise_extended_monitor_attributes: physical_width is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_width was: 0
+[2026-08-30T02:06:09.481+0000] [WARN ] sanitise_extended_monitor_attributes: physical_height is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_height was: 0
+[2026-08-30T02:06:09.482+0000] [INFO ] Not allowing resize. Login in progress.
+[2026-08-30T02:06:10.115+0000] [INFO ] Not allowing resize. Login in progress.
+[2026-08-30T02:06:14.201+0000] [WARN ] Ignoring obsolete SCP port value '3350'
+[2026-08-30T02:06:14.205+0000] [INFO ] xrdp_wm_log_msg: sesman connect ok
+[2026-08-30T02:06:14.207+0000] [INFO ] xrdp_wm_log_msg: Performing login request for docker
+[2026-08-30T02:06:14.360+0000] [INFO ] xrdp_wm_log_msg: login was successful - creating session
+[2026-08-30T02:06:15.422+0000] [INFO ] xrdp_wm_log_msg: session is available on display 10 for user docker
+[2026-08-30T02:06:15.423+0000] [INFO ] xrdp_wm_log_msg: Connecting to session
+[2026-08-30T02:06:15.426+0000] [INFO ] loaded module 'libxup.so' ok, interface size 10416, version 4
+[2026-08-30T02:06:15.427+0000] [INFO ] lib_mod_connect: connecting via UNIX socket
+[2026-08-30T02:06:15.428+0000] [INFO ] lib_mod_log_peer: xrdp_pid=61 connected to Xorg_pid=69 Xorg_uid=1001 Xorg_gid=1001 client=[::ffff:172.17.0.1]:60340
+[2026-08-30T02:06:15.429+0000] [INFO ] xrdp_wm_log_msg: Connecting to chansrv
+[2026-08-30T02:06:17.433+0000] [WARN ] sanitise_extended_monitor_attributes: physical_width is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_width was: 0
+[2026-08-30T02:06:17.435+0000] [WARN ] sanitise_extended_monitor_attributes: physical_height is not within valid range. Setting physical_width to 0mm, Setting physical_height to 0mm, physical_height was: 0
+[2026-08-30T02:06:17.436+0000] [INFO ] Received memory_allocation_complete command. width: 1728, height: 1088
+[2026-08-30T02:06:17.440+0000] [INFO ] Received memory_allocation_complete command. width: 1728, height: 1088
+[2026-08-30T02:06:17.441+0000] [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+[2026-08-30T02:06:17.445+0000] [INFO ] Client supports single-screen resizes by xrdp
+[2026-08-30T02:06:17.445+0000] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+[2026-08-30T02:06:17.446+0000] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+[2026-08-30T02:06:17.447+0000] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+[2026-08-30T02:06:17.448+0000] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+[2026-08-30T02:06:17.449+0000] [INFO ] xrdp_mm_up_and_running: Core reset done.
+[2026-08-30T02:06:17.454+0000] [INFO ] xrdp_egfx_create: error 0 channel_id 1
+[2026-08-30T02:06:17.455+0000] [INFO ] xrdp_mm_egfx_caps_advertise:
+[2026-08-30T02:06:17.456+0000] [INFO ]   version 0x00080004 flags 0x00000002 (index: 0)
+[2026-08-30T02:06:17.458+0000] [INFO ]   version 0x00080105 flags 0x00000002 (index: 1)
+[2026-08-30T02:06:17.460+0000] [INFO ]   version 0x000a0002 flags 0x00000022 (index: 2)
+[2026-08-30T02:06:17.461+0000] [INFO ]   version 0x000a0200 flags 0x00000022 (index: 3)
+[2026-08-30T02:06:17.462+0000] [INFO ]   version 0x000a0301 flags 0x00000020 (index: 4)
+[2026-08-30T02:06:17.463+0000] [INFO ]   version 0x000a0400 flags 0x00000002 (index: 5)
+[2026-08-30T02:06:17.465+0000] [INFO ]   version 0x000a0701 flags 0x00000082 (index: 6)
+[2026-08-30T02:06:17.465+0000] [INFO ]   version 0x000b0101 flags 0x00000082 (index: 7)
+[2026-08-30T02:06:17.466+0000] [INFO ] unknown version 0x000b0101
+[2026-08-30T02:06:17.466+0000] [INFO ]   version 0x000b0300 flags 0x00000082 (index: 8)
+[2026-08-30T02:06:17.467+0000] [INFO ] unknown version 0x000b0300
+[2026-08-30T02:06:17.467+0000] [INFO ]   replying version 0x000a0701 flags 0x00000082
+[2026-08-30T02:06:17.468+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_capsconfirm error 0 best_index 6
+[2026-08-30T02:06:17.469+0000] [INFO ] xrdp_egfx_reset_graphics:
+[2026-08-30T02:06:17.469+0000] [INFO ] xrdp_egfx_reset_graphics: (index 0) monitor left 0 top 0 right 1709 bottom 1068 is_primary 1
+[2026-08-30T02:06:17.470+0000] [INFO ] xrdp_egfx_reset_graphics: width 1710 height 1069 monitorcount 1
+[2026-08-30T02:06:17.470+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_reset_graphics error 0 monitorCount 1
+[2026-08-30T02:06:17.472+0000] [INFO ] xrdp_mm_egfx_create_surfaces: map surface_id 0 left 0 top 0 width 1710 height 1069
+[2026-08-30T02:06:17.473+0000] [INFO ] xrdp_encoder_create: starting gfx rfx pro codec session
+[2026-08-30T02:06:17.473+0000] [INFO ] xrdp_mm_egfx_invalidate_wm_screen:
+[2026-08-30T02:06:17.474+0000] [INFO ] xrdp_mm_egfx_caps_advertise: egfx created.
+[2026-08-30T02:06:17.476+0000] [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1710 x h: 1069). It took 39 milliseconds.
+[2026-08-30T02:06:17.479+0000] [INFO ] Received memory_allocation_complete command. width: 1728, height: 1088
+[2026-08-30T02:06:17.480+0000] [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+[2026-08-30T02:06:17.484+0000] [INFO ] Client supports single-screen resizes by xrdp
+[2026-08-30T02:06:17.485+0000] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+[2026-08-30T02:06:17.487+0000] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+[2026-08-30T02:06:17.487+0000] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+[2026-08-30T02:06:17.488+0000] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+[2026-08-30T02:06:17.489+0000] [INFO ] xrdp_mm_up_and_running: Core reset done.
+[2026-08-30T02:06:17.490+0000] [INFO ] xrdp_egfx_create: error 0 channel_id 1
+[2026-08-30T02:06:17.491+0000] [INFO ] xrdp_mm_egfx_caps_advertise:
+[2026-08-30T02:06:17.492+0000] [INFO ]   version 0x00080004 flags 0x00000002 (index: 0)
+[2026-08-30T02:06:17.493+0000] [INFO ]   version 0x00080105 flags 0x00000002 (index: 1)
+[2026-08-30T02:06:17.493+0000] [INFO ]   version 0x000a0002 flags 0x00000022 (index: 2)
+[2026-08-30T02:06:17.495+0000] [INFO ]   version 0x000a0200 flags 0x00000022 (index: 3)
+[2026-08-30T02:06:17.495+0000] [INFO ]   version 0x000a0301 flags 0x00000020 (index: 4)
+[2026-08-30T02:06:17.496+0000] [INFO ]   version 0x000a0400 flags 0x00000002 (index: 5)
+[2026-08-30T02:06:17.497+0000] [INFO ]   version 0x000a0701 flags 0x00000082 (index: 6)
+[2026-08-30T02:06:17.497+0000] [INFO ]   version 0x000b0101 flags 0x00000082 (index: 7)
+[2026-08-30T02:06:17.498+0000] [INFO ] unknown version 0x000b0101
+[2026-08-30T02:06:17.499+0000] [INFO ]   version 0x000b0300 flags 0x00000082 (index: 8)
+[2026-08-30T02:06:17.499+0000] [INFO ] unknown version 0x000b0300
+[2026-08-30T02:06:17.501+0000] [INFO ]   replying version 0x000a0701 flags 0x00000082
+[2026-08-30T02:06:17.501+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_capsconfirm error 0 best_index 6
+[2026-08-30T02:06:17.502+0000] [INFO ] xrdp_egfx_reset_graphics:
+[2026-08-30T02:06:17.502+0000] [INFO ] xrdp_egfx_reset_graphics: (index 0) monitor left 0 top 0 right 1709 bottom 1073 is_primary 1
+[2026-08-30T02:06:17.503+0000] [INFO ] xrdp_egfx_reset_graphics: width 1710 height 1074 monitorcount 1
+[2026-08-30T02:06:17.503+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_reset_graphics error 0 monitorCount 1
+[2026-08-30T02:06:17.504+0000] [INFO ] xrdp_mm_egfx_create_surfaces: map surface_id 0 left 0 top 0 width 1710 height 1074
+[2026-08-30T02:06:17.504+0000] [INFO ] xrdp_encoder_create: starting gfx rfx pro codec session
+[2026-08-30T02:06:17.506+0000] [INFO ] xrdp_mm_egfx_invalidate_wm_screen:
+[2026-08-30T02:06:17.508+0000] [INFO ] xrdp_mm_egfx_caps_advertise: egfx created.
+[2026-08-30T02:06:17.509+0000] [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1710 x h: 1074). It took 32 milliseconds.
+[2026-08-30T02:06:17.513+0000] [INFO ] Received memory_allocation_complete command. width: 1152, height: 768
+[2026-08-30T02:06:17.514+0000] [INFO ] server_monitor_resize_done: Advancing server monitor resized.
+[2026-08-30T02:06:17.517+0000] [INFO ] Client supports single-screen resizes by xrdp
+[2026-08-30T02:06:17.518+0000] [INFO ] xrdp_caps_process_pointer: client supports new(color) cursor
+[2026-08-30T02:06:17.518+0000] [INFO ] xrdp_process_offscreen_bmpcache: support level 0 cache size 0 MB cache entries 0
+[2026-08-30T02:06:17.519+0000] [INFO ] xrdp_caps_process_codecs: NSCodec(CA8D1BB9-000F-154F-589F-AE2D1A87E2D6), codec id [1], properties len [3]
+[2026-08-30T02:06:17.519+0000] [INFO ] Client Capability: LARGE_POINTER_FLAG_96x96 supported
+[2026-08-30T02:06:17.521+0000] [INFO ] xrdp_mm_up_and_running: Core reset done.
+[2026-08-30T02:06:17.522+0000] [INFO ] xrdp_egfx_create: error 0 channel_id 1
+[2026-08-30T02:06:17.523+0000] [INFO ] xrdp_mm_egfx_caps_advertise:
+[2026-08-30T02:06:17.523+0000] [INFO ]   version 0x00080004 flags 0x00000002 (index: 0)
+[2026-08-30T02:06:17.524+0000] [INFO ]   version 0x00080105 flags 0x00000002 (index: 1)
+[2026-08-30T02:06:17.524+0000] [INFO ]   version 0x000a0002 flags 0x00000022 (index: 2)
+[2026-08-30T02:06:17.525+0000] [INFO ]   version 0x000a0200 flags 0x00000022 (index: 3)
+[2026-08-30T02:06:17.525+0000] [INFO ]   version 0x000a0301 flags 0x00000020 (index: 4)
+[2026-08-30T02:06:17.526+0000] [INFO ]   version 0x000a0400 flags 0x00000002 (index: 5)
+[2026-08-30T02:06:17.526+0000] [INFO ]   version 0x000a0701 flags 0x00000082 (index: 6)
+[2026-08-30T02:06:17.528+0000] [INFO ]   version 0x000b0101 flags 0x00000082 (index: 7)
+[2026-08-30T02:06:17.528+0000] [INFO ] unknown version 0x000b0101
+[2026-08-30T02:06:17.529+0000] [INFO ]   version 0x000b0300 flags 0x00000082 (index: 8)
+[2026-08-30T02:06:17.530+0000] [INFO ] unknown version 0x000b0300
+[2026-08-30T02:06:17.530+0000] [INFO ]   replying version 0x000a0701 flags 0x00000082
+[2026-08-30T02:06:17.531+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_capsconfirm error 0 best_index 6
+[2026-08-30T02:06:17.532+0000] [INFO ] xrdp_egfx_reset_graphics:
+[2026-08-30T02:06:17.533+0000] [INFO ] xrdp_egfx_reset_graphics: (index 0) monitor left 0 top 0 right 1139 bottom 709 is_primary 1
+[2026-08-30T02:06:17.534+0000] [INFO ] xrdp_egfx_reset_graphics: width 1140 height 710 monitorcount 1
+[2026-08-30T02:06:17.535+0000] [INFO ] xrdp_mm_egfx_caps_advertise: xrdp_egfx_send_reset_graphics error 0 monitorCount 1
+[2026-08-30T02:06:17.535+0000] [INFO ] xrdp_mm_egfx_create_surfaces: map surface_id 0 left 0 top 0 width 1140 height 710
+[2026-08-30T02:06:17.536+0000] [INFO ] xrdp_encoder_create: starting gfx rfx pro codec session
+[2026-08-30T02:06:17.537+0000] [INFO ] xrdp_mm_egfx_invalidate_wm_screen:
+[2026-08-30T02:06:17.537+0000] [INFO ] xrdp_mm_egfx_caps_advertise: egfx created.
+[2026-08-30T02:06:17.538+0000] [INFO ] dynamic_monitor_process_queue: Clearing completed resize (w: 1140 x h: 710). It took 28 milliseconds.

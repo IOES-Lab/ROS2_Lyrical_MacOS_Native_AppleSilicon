@@ -1,0 +1,7 @@
+image=lyrical-sim:jetty-rdp-external-stack-check
+backend=cpu
+limit_s=360
+container=dave-combined-cpu-13373
+ROS_DOMAIN_ID=183
+GZ_PARTITION=dave_combined_cpu_13373
+sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461
