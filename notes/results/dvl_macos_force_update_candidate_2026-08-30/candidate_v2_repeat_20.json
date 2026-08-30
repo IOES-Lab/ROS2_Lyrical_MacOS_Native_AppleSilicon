@@ -1,0 +1,216 @@
+{
+  "candidate": "v2",
+  "trial_count": 20,
+  "pass_count": 20,
+  "pass_definition": {
+    "topic_ready": 1,
+    "capture_rc": 0,
+    "beam_count": 4,
+    "locked_count": 4,
+    "candidate_loaded": 1,
+    "crash_signature": 0,
+    "server_rc": 0
+  },
+  "trials": [
+    {
+      "trial": 1,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 2,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 3,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 4,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 5,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 6,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 7,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 8,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 9,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 10,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 11,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 12,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 13,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 14,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 15,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 16,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 17,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 18,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 19,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    },
+    {
+      "trial": 20,
+      "ready": 1,
+      "capture_rc": 0,
+      "beam_count": 4,
+      "locked_count": 4,
+      "candidate_loaded": 1,
+      "crash_signature": 0,
+      "server_rc": 0
+    }
+  ]
+}

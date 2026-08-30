@@ -1,0 +1,9 @@
+{
+  "frame_id": "tethys/base_link/teledyne_pathfinder_dvl",
+  "num_good_beams": 4,
+  "beam_ranges_valid": true,
+  "beam_velocities_valid": true,
+  "altitude_m": 22.772867202758789,
+  "velocity_mps": [0.0072594147258489734, 0.0024802828998106616, -9.0732186061757511e-05],
+  "ranges_m": [22.772869110107422, 22.772871017456051, 22.772867202758789, 22.772869110107422]
+}

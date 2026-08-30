@@ -1,8 +1,8 @@
 # What was changed
 
-Sixteen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
-found while directly validating it. **They are not all independent and they are not applied to
-upstream DAVE.** The ten dated 2026-08-29 candidates were generated against the tested local
+Seventeen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
+found while directly validating it. **They are not all independent and they are not applied
+upstream.** The ten dated 2026-08-29 candidates were generated against the tested local
 migration baseline: PR #44 commit `6aef91c` plus the existing migration/runtime fixes already
 documented in this folder. Apply the base port first, then the new candidates.
 
@@ -44,9 +44,21 @@ source guides now describe the exact-DFT path, actual `n_freq` buffer dimensions
 boundary. Docker has no Cargo toolchain, so the modified WGPU implementation was built and run on
 Mac/Metal; Docker sonar validation remains CPU fallback.
 
+
+## 2026-08-30 isolated Gazebo candidate
+
+| Patch | Scope | Validation |
+|---|---|---|
+| [`gz_sim_macos_dvl_force_render_init.diff`](gz_sim_macos_dvl_force_render_init.diff) | Initialize DVL `forceUpdate` rendering on the Apple main thread and prevent the parallel `PostUpdate` handoff from winning the race | Exact `gz-sim10_10.4.0`: stock control exit 139; predicate-only v1 rejected at 9/10; v2 official DVL 20/20, standard camera 3/3, no-render Sensors 3/3, ROS bridge four valid beams |
+
+This patch targets upstream `gz-sim`, not DAVE. It was built and run in an isolated exact-tag tree
+and was not installed into Homebrew or submitted upstream. Full provenance, the rejected candidate,
+repeat summaries and the compatibility-harness limitation are in
+[`../notes/results/dvl_macos_force_update_candidate_2026-08-30/`](../notes/results/dvl_macos_force_update_candidate_2026-08-30/).
+
 ## What remains outside these patches
 
-- stock Gazebo Sensors DVL SIGSEGV on the tested Mac
+- upstream review, merge and installed distribution of the validated Mac Gazebo Sensors DVL candidate
 - historical 2026-08-03 DAVE multibeam `ogre2` crash trigger (not reproduced in the current 2026-08-29 scoped PointCloud run)
 - NVIDIA CUDA / Docker hardware GPU, Windows/WSL and physical HIL
 - default RViz Mac window creation; root cause/fix for the directly reproduced combined Heavy-multibeam sonar-candidate + control Docker failure

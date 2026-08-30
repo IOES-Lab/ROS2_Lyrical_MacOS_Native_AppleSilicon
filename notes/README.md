@@ -31,7 +31,9 @@ recipe 근거는 [`results/external_stack_validation_2026-08-29/`](results/exter
 2026-08-30의 DVL LLDB, RViz, Fast DDS, camera startup, 결합 sonar/control,
 fresh Docker build와 rendered RDP/QGC 근거는
 [`results/final_gap_validation_2026-08-30/`](results/final_gap_validation_2026-08-30/)에 있다.
-상류 DAVE checkout과 사용자 설치 workspace를 수정했다는 뜻은 아니다.
+같은 날 exact Gazebo tag에서 만든 Mac DVL initialization 후보의 baseline·rejected 9/10 후보·20/20 최종 후보·ROS bridge·회귀 근거는
+[`results/dvl_macos_force_update_candidate_2026-08-30/`](results/dvl_macos_force_update_candidate_2026-08-30/)에 있다.
+상류 DAVE/Gazebo checkout과 사용자 설치 workspace를 수정했다는 뜻은 아니다.
 
 검증된 후보 패치 범위:
 
@@ -50,9 +52,9 @@ fresh Docker build와 rendered RDP/QGC 근거는
 여전히 열린 범위는 Docker hardware WGPU/NVIDIA CUDA, macOS RViz의 영구 창 수정,
 QGroundControl 기본 AppRun의 GLib 충돌(검증 recipe는 opt-out 적용), sonar 30 Hz·ROV/Glider
 calibration 결정, Fuel immutable pin/upload, Windows/WSL·실물 gamepad/HIL과 일반
-음향·광학·유체역학·장시간 정확도다. Mac stock DVL crash는 LLDB와 exact source로
-main-thread renderer 초기화 trigger 누락까지 좁혔고 hidden-camera control이 출력까지
-복구하지만, 배포 world/상류 Gazebo 수정은 아직 없다. Heavy-multibeam 결합 경로는
+음향·광학·유체역학·장시간 정확도다. Mac stock DVL crash는 exact-tag 후보에서 hidden camera 없이
+20/20 복구됐고 ROS four-beam bridge와 camera/no-render 회귀도 통과했다. 다만 후보는 격리 빌드일 뿐
+Homebrew/상류 Gazebo에 적용되지 않아 배포 경로는 여전히 PARTIAL이다. Heavy-multibeam 결합 경로는
 software WGPU/llvmpipe에서 exit 139를 재현하고 forced CPU에서 PointCloud2와
 arm/control/disarm을 한 session에서 통과해 backend-dependent로 판정한다. Fast DDS create
 hang은 dirty/clean/SIGKILL/UDP 18/18에서 현재 재현되지 않았고, exact camera Quickstart는

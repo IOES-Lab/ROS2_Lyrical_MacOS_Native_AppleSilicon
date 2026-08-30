@@ -1,0 +1,60 @@
+{
+  "date": "2026-08-30",
+  "verdict": "VALIDATED ISOLATED CANDIDATE; DISTRIBUTED STOCK PATH REMAINS PARTIAL",
+  "source": {
+    "repository": "https://github.com/gazebosim/gz-sim.git",
+    "revision": "cdf3f3c9700fc32938622302e08da1a598e0597e",
+    "tag": "gz-sim10_10.4.0"
+  },
+  "baseline": {
+    "world": "official ros_gz_sim_demos/worlds/dvl.sdf",
+    "hidden_camera": false,
+    "stock_sensors_plugin_exit_code": 139,
+    "crash_frame": "gz::sim::v10::systems::SensorsPrivate::WaitForInit()"
+  },
+  "rejected_candidate_v1": {
+    "change": "Include forceUpdate in the Apple main-thread initialization predicate only",
+    "passes": 9,
+    "trials": 10,
+    "failed_trial": 6,
+    "failure": "same WaitForInit crash; parallel PostUpdate race remained"
+  },
+  "candidate_v2": {
+    "change": [
+      "Include forceUpdate in Apple main-thread initialization",
+      "Track completion of main-thread RenderUtil initialization",
+      "Prevent PostUpdate from handing initialization to the render thread before that completion"
+    ],
+    "patch_sha256": "212b0f426d6964936a15a6c5e07a661e6a8702f52dcfbbb3a47dbd98cf901dab",
+    "tested_library_sha256": "c3bea0d7c82cc88a8d0228fc0de68bf12127c88cc97aae0733e26bd5c0eba44d",
+    "official_stock_world_passes": 20,
+    "official_stock_world_trials": 20,
+    "four_beam_lock_passes": 20,
+    "clean_shutdown_passes": 20,
+    "hidden_camera": false,
+    "camera_regression_passes": 3,
+    "camera_regression_trials": 3,
+    "no_render_regression_passes": 3,
+    "no_render_regression_trials": 3
+  },
+  "ros_bridge": {
+    "topic": "/dvl/velocity",
+    "type": "marine_acoustic_msgs/msg/Dvl",
+    "publisher_count": 1,
+    "num_good_beams": 4,
+    "beam_ranges_valid": true,
+    "beam_velocities_valid": true,
+    "frame_id": "tethys/base_link/teledyne_pathfinder_dvl",
+    "ranges_m": [
+      22.772869110107422,
+      22.77287101745605,
+      22.77286720275879,
+      22.772869110107422
+    ]
+  },
+  "limits": [
+    "The candidate was built and run in an isolated exact-tag tree; it was not installed into Homebrew or submitted upstream.",
+    "The installed Homebrew Gazebo dependency set had stale FFmpeg/x265 ABI references, so the isolated test harness used work-local compatibility libraries.",
+    "This establishes startup, output, bridge content and scoped regressions, not DVL physical accuracy or long-duration stability."
+  ]
+}

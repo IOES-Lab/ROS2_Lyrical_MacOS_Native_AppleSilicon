@@ -1,0 +1,12 @@
+(2026-08-30 14:47:12.426) [info] [SceneBroadcaster.cc:700] Publishing pose messages on [/world/dvl_world/pose/info]
+(2026-08-30 14:47:12.426) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/dvl_world/dynamic_pose/info]
+(2026-08-30 14:47:12.426) [debug] [Sensors.cc:953] Initialization needed
+(2026-08-30 14:47:12.426) [debug] [Sensors.cc:349] Initializing render context
+Stack trace (most recent call last) in thread 6135984128:
+#6    Object "libsystem_pthread.dylib", at 0x18547fbc7, in _pthread_start + 135
+#5    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x118eafc5f, in void* std::__1::__thread_proxy[abi:ne190102]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (gz::sim::v10::systems::SensorsPrivate::*)(), gz::sim::v10::systems::SensorsPrivate*>>(void*) + 71
+#4    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x118e9c5d7, in gz::sim::v10::systems::SensorsPrivate::RenderThread() + 175
+#3    Object "libgz-sim-sensors-system.10.4.0.dyl", at 0x118e9b9af, in gz::sim::v10::systems::SensorsPrivate::WaitForInit() + 511
+#2    Object "libsystem_platform.dylib", at 0x1854b96a3, in _sigtramp + 55
+#1    Object "gz-sim-main", at 0x10293b163, in backward::SignalHandling::sig_handler(int, __siginfo*, void*) + 19
+#0    Object "gz-sim-main", at 0x10293b1bb, in backward::SignalHandling::handleSignal(int, __siginfo*, void*) + 59

@@ -3,7 +3,7 @@
 DAVE 의 공식 문서는 [`dave-ros2.notion.site`](http://dave-ros2.notion.site) 다. GitHub wiki 가
 아니라 노션 사이트이므로, 정정은 PR 이 아니라 페이지를 직접 편집하는 방식이다.
 
-**스물한 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
+**스물두 차례에 걸쳐 반영했다. 이 폴더의 초안들은 그 근거 기록이다.**
 
 ## 1차 — 2026-07-20
 
@@ -540,3 +540,28 @@ backtrace와 최종 exit status를 보존하지 못했고 backend도 분리하�
 
 근거:
 [`../results/final_gap_validation_2026-08-30/`](../results/final_gap_validation_2026-08-30/).
+
+## 22차 — 2026-08-30 Mac stock DVL initialization 후보 직접 검증
+
+21차의 LLDB 진단과 hidden-camera workaround에서 멈추지 않고 exact `gz-sim10_10.4.0`
+source에 두 후보를 만들었다.
+
+- stock plugin control은 같은 격리 실행 환경에서 `WaitForInit()` exit 139 재현
+- `forceUpdate`를 Apple main-thread predicate에만 넣은 v1은 9/10; 동일 crash 1회로 폐기
+- main-thread `RenderUtil::Init()` 완료 전 render-thread handoff도 막은 v2는 hidden camera 없이
+  unmodified official DVL world 20/20, four locks 20/20, clean exit 20/20
+- official standard-camera regression 3/3, Sensors-without-render-sensor regression 3/3
+- official `ros_gz_bridge` 뒤 C++ subscriber가 frame ID, `num_good_beams=4`,
+  range/velocity validity true와 네 range를 직접 수집
+
+따라서 「DVL Plugin」 페이지의 현재 문구는 “Mac은 원인만 진단되고 hidden-camera workaround만
+있다”가 아니라, **격리 후보는 통과했으나 Homebrew/상류에는 아직 적용되지 않았다**로 바꾼다.
+일반 DVL 물리 정확성·장시간·다중장치와 upstream acceptance는 여전히 검증 밖이다.
+
+같은 현재 판정이 다른 문서에서 다시 어긋나지 않도록 live Notion의 「Dave World Models」,
+「Object Models」, 전체 현황 허브, 다음 연구 방향, 날짜별 작업 기록과 Wiki 대조표에도 전파했다.
+허브·타임라인의 보존 diff는 17건, `progress-log.md`는 104행으로 함께 맞췄다. 원본 Wiki
+database는 역사 원본이므로 수정하지 않았다.
+
+근거:
+[`../results/dvl_macos_force_update_candidate_2026-08-30/`](../results/dvl_macos_force_update_candidate_2026-08-30/).

@@ -1,0 +1,48 @@
+diff --git a/src/systems/sensors/Sensors.cc b/src/systems/sensors/Sensors.cc
+index 8760e51..6848657 100644
+--- a/src/systems/sensors/Sensors.cc
++++ b/src/systems/sensors/Sensors.cc
+@@ -186,6 +186,10 @@ class gz::sim::systems::SensorsPrivate
+   /// \brief Flag to signal if initialization should occur
+   public: bool doInit { false };
+
++  /// \brief True once RenderUtil has been initialized on the main thread.
++  /// Used on macOS to prevent the render thread from consuming doInit first.
++  public: bool renderContextInitialized { false };
++
+   /// \brief Flag to signal if rendering update is needed
+   public: std::atomic<bool> updateAvailable { false };
+
+@@ -910,7 +914,9 @@ void Sensors::Update(const UpdateInfo &_info,
+ #ifdef __APPLE__
+   // On macOS the render engine must be initialised on the main thread.
+   if (!this->dataPtr->initialized &&
+-      (_ecm.HasComponentType(components::BoundingBoxCamera::typeId) ||
++      !this->dataPtr->renderContextInitialized &&
++      (this->dataPtr->forceUpdate ||
++       _ecm.HasComponentType(components::BoundingBoxCamera::typeId) ||
+        _ecm.HasComponentType(components::Camera::typeId) ||
+        _ecm.HasComponentType(components::DepthCamera::typeId) ||
+        _ecm.HasComponentType(components::GpuLidar::typeId) ||
+@@ -922,6 +928,7 @@ void Sensors::Update(const UpdateInfo &_info,
+     std::unique_lock<std::mutex> lock(this->dataPtr->renderMutex);
+     gzdbg << "Initialization needed" << std::endl;
+     this->dataPtr->renderUtil.Init();
++    this->dataPtr->renderContextInitialized = true;
+     this->dataPtr->nextUpdateTime = _info.simTime;
+   }
+ #endif
+@@ -950,6 +957,13 @@ void Sensors::PostUpdate(const UpdateInfo &_info,
+          _ecm.HasComponentType(components::WideAngleCamera::typeId)))
+     {
+       std::unique_lock<std::mutex> lock(this->dataPtr->renderMutex);
++#ifdef __APPLE__
++      // ForceRender may be emitted from another system's PostUpdate before
++      // Sensors::Update has initialized RenderUtil on the main thread.
++      // Defer the render-thread handoff until the next main-thread Update.
++      if (!this->dataPtr->renderContextInitialized)
++        return;
++#endif
+       gzdbg << "Initialization needed" << std::endl;
+       this->dataPtr->doInit = true;
+       this->dataPtr->renderCv.notify_one();

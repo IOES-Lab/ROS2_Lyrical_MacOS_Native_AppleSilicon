@@ -1,0 +1,9 @@
+source_repository=https://github.com/gazebosim/gz-sim.git
+source_revision=cdf3f3c9700fc32938622302e08da1a598e0597e
+source_tag=gz-sim10_10.4.0
+candidate_patch_sha256=212b0f426d6964936a15a6c5e07a661e6a8702f52dcfbbb3a47dbd98cf901dab
+tested_sensors_library_sha256=c3bea0d7c82cc88a8d0228fc0de68bf12127c88cc97aae0733e26bd5c0eba44d
+tested_world=ros_gz_sim_demos/worlds/dvl.sdf
+tested_world_modified=false
+hidden_camera_used=false
+upstream_or_homebrew_install_modified=false

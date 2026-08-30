@@ -1,0 +1,5 @@
+ready=1
+num_good_beams=4
+beam_ranges_valid=true
+beam_velocities_valid=true
+candidate_library_loaded=1

@@ -528,3 +528,20 @@ Accessibility window count를 분리하자 main 640×508 layer는 계속 offscre
 0개였다. plain Qt controls는 같은 환경에서 onscreen이므로 일반 Qt 또는 macOS 창 생성 실패로
 확대할 수 없다. 앞으로 GUI 판정은 process·native window·onscreen framebuffer·실제 내용
 렌더링을 별도 속성으로 기록한다.
+
+## 2026-08-30 — 한 번 통과한 DVL 후보를 race 수정으로 부를 뻔했다
+
+**Believed:** Apple main-thread initialization predicate에 `forceUpdate`를 추가한 첫 후보가
+official DVL world에서 한 번 four-beam output과 clean exit를 냈으므로 원인이 닫혔다.
+
+**Actually:** 10회 반복의 6번째에서 같은 `SensorsPrivate::WaitForInit()` crash가 다시 났다.
+DVL과 Sensors의 `PostUpdate`가 병렬이라, DVL이 `ForceRender`를 보낸 뒤 Sensors render thread가
+다음 main-thread `Update`보다 먼저 initialization handoff를 소비할 수 있었다. predicate만
+고치는 것은 필요하지만 충분하지 않았다.
+
+**Caught by** 단발 smoke가 아니라 동일 world·새 partition의 반복과 loaded-library 증거를
+각 trial에 보존한 것이다. 두 번째 후보는 main-thread `RenderUtil::Init()` 완료 상태도 기록하고
+그전 render-thread handoff를 막았으며 20/20을 통과했다. camera 3/3, no-render 3/3과 ROS bridge
+content도 별도 대조했다. 그래도 20/20은 upstream proof가 아니므로 설치·병합·일반 정확성으로
+확대하지 않는다. concurrency 수정은 최소 한 번의 성공이 아니라 실패 후보, 반복, 양성·음성
+회귀와 종료 상태를 함께 보존한다.

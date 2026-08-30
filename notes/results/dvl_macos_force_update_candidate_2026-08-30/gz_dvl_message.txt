@@ -1,0 +1,133 @@
+header {
+  stamp {
+    sec: 3
+  }
+  data {
+    key: "frame_id"
+    value: "tethys::base_link::teledyne_pathfinder_dvl"
+  }
+  data {
+    key: "seq"
+    value: "0"
+  }
+}
+type: DVL_TYPE_PHASED_ARRAY
+target {
+  type: DVL_TARGET_BOTTOM
+  range {
+    mean: 22.772867202758789
+  }
+}
+velocity {
+  reference: DVL_REFERENCE_SHIP
+  mean {
+    x: -0.003996700201246501
+    y: 0.0032265743813062928
+    z: -0.00089976744989680264
+  }
+  covariance: 7.9999999999999946e-06
+  covariance: 1.3322676295501879e-21
+  covariance: 4.440892098500626e-22
+  covariance: 1.3322676295501879e-21
+  covariance: 8.0000000000000013e-06
+  covariance: 4.440892098500626e-22
+  covariance: 4.440892098500626e-22
+  covariance: 4.440892098500626e-22
+  covariance: 1.333333333333334e-06
+}
+beams {
+  id: 1
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: -0.00045262813623173466
+      y: -0.00045262784039870108
+      z: -0.0011087076146747696
+    }
+    covariance: 5.0000032679489679e-07
+    covariance: 4.99999999999893e-07
+    covariance: 1.2247452716318975e-06
+    covariance: 4.9999999999989315e-07
+    covariance: 4.99999673205103e-07
+    covariance: 1.2247444711511494e-06
+    covariance: 1.2247452716318975e-06
+    covariance: 1.2247444711511494e-06
+    covariance: 2.9999999999999997e-06
+  }
+  range {
+    mean: 22.772869110107422
+  }
+  locked: true
+}
+beams {
+  id: 2
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: -0.0010975397517858738
+      y: 0.0010975404691268881
+      z: -0.0026884132428561637
+    }
+    covariance: 4.9999967320510348e-07
+    covariance: -4.9999999999989346e-07
+    covariance: 1.2247444711511498e-06
+    covariance: -4.9999999999989336e-07
+    covariance: 5.00000326794897e-07
+    covariance: -1.2247452716318975e-06
+    covariance: 1.2247444711511498e-06
+    covariance: -1.2247452716318975e-06
+    covariance: 2.9999999999999988e-06
+  }
+  range {
+    mean: 22.772871017456051
+  }
+  locked: true
+}
+beams {
+  id: 3
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: -0.00070827824080153844
+      y: 0.00070827870372511845
+      z: 0.0017349208528432555
+    }
+    covariance: 4.9999967320510348e-07
+    covariance: -4.9999999999989315e-07
+    covariance: -1.22474447115115e-06
+    covariance: -4.9999999999989315e-07
+    covariance: 5.0000032679489637e-07
+    covariance: 1.2247452716318969e-06
+    covariance: -1.22474447115115e-06
+    covariance: 1.2247452716318969e-06
+    covariance: 2.9999999999999997e-06
+  }
+  range {
+    mean: 22.772867202758789
+  }
+  locked: true
+}
+beams {
+  id: 4
+  velocity {
+    reference: DVL_REFERENCE_SHIP
+    mean {
+      x: 0.00026009602819589519
+      y: 0.00026009585819984144
+      z: -0.00063710234500272838
+    }
+    covariance: 5.0000032679489679e-07
+    covariance: 4.9999999999989336e-07
+    covariance: -1.2247452716318973e-06
+    covariance: 4.9999999999989346e-07
+    covariance: 4.9999967320510358e-07
+    covariance: -1.22474447115115e-06
+    covariance: -1.2247452716318973e-06
+    covariance: -1.22474447115115e-06
+    covariance: 2.9999999999999988e-06
+  }
+  range {
+    mean: 22.772869110107422
+  }
+  locked: true
+}

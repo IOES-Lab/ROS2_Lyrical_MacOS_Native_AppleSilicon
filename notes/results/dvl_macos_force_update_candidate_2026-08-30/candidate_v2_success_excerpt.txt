@@ -1,0 +1,20 @@
+(2026-08-30 14:53:35.201) [info] [SceneBroadcaster.cc:711] Publishing dynamic pose messages on [/world/dvl_world/dynamic_pose/info]
+(2026-08-30 14:53:35.201) [debug] [Sensors.cc:929] Initialization needed
+(2026-08-30 14:53:35.202) [info] [RenderEngineManager.cc:514] Loading plugin [gz-rendering-ogre2]
+(2026-08-30 14:53:35.487) [debug] [RenderUtil.cc:2646] Create scene [scene]
+(2026-08-30 14:53:35.496) [debug] [Sensors.cc:967] Initialization needed
+(2026-08-30 14:53:35.496) [debug] [Sensors.cc:353] Initializing render context
+(2026-08-30 14:53:35.496) [debug] [Sensors.cc:395] Rendering Thread initialized
+(2026-08-30 14:53:36.166) [info] [DopplerVelocityLog.cc:694] Loaded [tethys::base_link::teledyne_pathfinder_dvl] DVL sensor.
+(2026-08-30 14:53:36.166) [info] [DopplerVelocityLog.cc:715] Initializing [tethys::base_link::teledyne_pathfinder_dvl] sensor.
+(2026-08-30 14:53:36.166) [info] [DopplerVelocityLog.cc:1095] Adding acoustic beam #1 to [tethys::base_link::teledyne_pathfinder_dvl] sensor. Beam has a 0.0349066 rads (2 degrees) aperture angle, it exhibits a 0.523599 rads (30 degrees) tilt, and it is rotated 0.785398 rads (45 degrees).
+...
+(2026-08-30 14:53:36.167) [info] [DopplerVelocityLog.cc:817] Enabling bottom mode beams' visual aids for [tethys::base_link::teledyne_pathfinder_dvl] sensor.
+(2026-08-30 14:53:36.167) [info] [DopplerVelocityLog.cc:748] Initialized [tethys::base_link::teledyne_pathfinder_dvl] sensor.
+(2026-08-30 14:53:37.235) [warning] [DopplerVelocityLog.cc:2115] Failed to render beam markers for [tethys::base_link::teledyne_pathfinder_dvl] sensor.
+(2026-08-30 14:53:39.172) [warning] [DopplerVelocityLog.cc:2115] Failed to render beam markers for [tethys::base_link::teledyne_pathfinder_dvl] sensor.
+...
+(2026-08-30 14:53:43.228) [warning] [DopplerVelocityLog.cc:2115] Failed to render beam markers for [tethys::base_link::teledyne_pathfinder_dvl] sensor.
+(2026-08-30 14:53:43.274) [debug] [Sensors.cc:555] SensorsPrivate::RenderThread stopped
+(2026-08-30 14:53:43.274) [debug] [sim_main.cc:584] Shutting down gz-sim-server
+(2026-08-30 14:53:43.282) [debug] [SimulationRunner.cc:679] Exiting postupdate worker thread (0)

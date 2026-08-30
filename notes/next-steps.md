@@ -8,6 +8,7 @@
 
 근거: [`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/) ·
 [`results/external_stack_validation_2026-08-29/`](results/external_stack_validation_2026-08-29/) ·
+[`results/dvl_macos_force_update_candidate_2026-08-30/`](results/dvl_macos_force_update_candidate_2026-08-30/) ·
 패치 순서: [`../patches/README.md`](../patches/README.md).
 
 ## 후보 패치로 닫힌 재현 가능 결함
@@ -17,6 +18,7 @@
 - [x] SeaPressure Pa/Pa²·깊이 부호·saturation·noise·rate·frame/topic 계약
 - [x] Spherical invalid-input rejection·명시적 status·paused/no-config·plugin discovery
 - [x] DVL frame ID·water-variable·8개 descriptor far-boundary
+- [x] Mac Gazebo Sensors custom-DVL `forceUpdate` main-thread initialization race — exact-tag candidate 20/20, camera/no-render 3/3
 - [x] USBL `sigma<=0`·paused callback·fractional propagation delay
 - [x] Ocean/Spherical/sonar plugin-discovery hook
 - [x] launch server-only/headless/debug·non-TTY keyboard·object preflight·Release 안내·18/18 world 이름
@@ -32,7 +34,7 @@
 
 ## 아직 열린 환경·외부 스택 항목
 
-- [ ] **Mac stock Gazebo Sensors DVL 영구 수정** — LLDB가 null `scene` dereference를 `SensorsPrivate::WaitForInit()`에 고정했고, exact source에서 Apple main-thread init trigger가 custom DVL을 보지 않는 경로를 확인했다. official world에 hidden 8×8 camera를 추가한 control은 four-beam bottom-lock과 clean exit를 회복한다. 진단·workaround는 닫혔지만 배포 world 또는 upstream Gazebo 수정은 아직 없다.
+- [ ] **Mac DVL candidate의 upstream/Homebrew 적용과 독립 review** — stock control은 계속 exit 139다. predicate-only v1은 9/10이라 폐기했고, main-thread init 완료 전 render-thread handoff를 막는 v2는 unmodified official world 20/20, camera 3/3, no-render 3/3, ROS bridge four-good-beam을 통과했다. 현재 남은 것은 로컬 재현 결함이 아니라 상류 설계 검토·병합·배포 설치다.
 - [ ] **Docker hardware WGPU·NVIDIA CUDA** — 현재 컨테이너는 `/dev/dri`/NVIDIA/Cargo가 없고
   sonar는 CPU fallback이다. explicit-unavailable fallback만 Mac에서 검증했다.
 - [ ] **macOS 기본 RViz 창 영구 수정** — CoreGraphics는 RViz의 640×508 Cocoa/OGRE main window를 `onscreen=false`로 보고한다. 네 plain Qt/OpenGL controls는 모두 onscreen이고 software GL, scale/layer/fullscreen, splash/show/orderFront 후보는 실패했다. RViz–OGRE Cocoa external-NSView integration까지 좁혔지만 visible-window fix는 없다.
