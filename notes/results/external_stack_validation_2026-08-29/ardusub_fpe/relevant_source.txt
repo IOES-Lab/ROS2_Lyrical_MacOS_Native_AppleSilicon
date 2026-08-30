@@ -1,0 +1,69 @@
+  1058	}
+  1059
+  1060	bool AP_Logger_File::io_thread_alive() const
+  1061	{
+  1062	    if (!hal.scheduler->is_system_initialized()) {
+  1063	        // the system has long pauses during initialisation, assume still OK
+  1064	        return true;
+  1065	    }
+  1066	    // if the io thread hasn't had a heartbeat in a while then it is
+  1067	#if CONFIG_HAL_BOARD == HAL_BOARD_ESP32
+  1068	    uint32_t timeout_ms = 10000;
+  1069	#else
+  1070	    uint32_t timeout_ms = 5000;
+  1071	#endif
+  1072	#if CONFIG_HAL_BOARD == HAL_BOARD_SITL && !defined(HAL_BUILD_AP_PERIPH)
+  1073	    // the IO thread is working with hardware - writing to a physical
+  1074	    // disk.  Unfortunately these hardware devices do not obey our
+  1075	    // SITL speedup options, so we allow for it here.
+  1076	    SITL::SIM *sitl = AP::sitl();
+  1077	    if (sitl != nullptr) {
+  1078	        timeout_ms *= sitl->speedup;
+  1079	    }
+  1080	#endif
+  1081	    return (AP_HAL::millis() - _io_timer_heartbeat) < timeout_ms;
+  1082	}
+  1083
+  1084	bool AP_Logger_File::logging_failed() const
+  1085	{
+  1086	    if (!_initialised) {
+  1087	        return true;
+  1088	    }
+   150	    // @Units: ms
+   151	    AP_GROUPINFO("FLOW_DELAY",    36, SIM,  flow_delay, 0),
+   152	    AP_GROUPINFO("ADSB_COUNT",    45, SIM,  adsb_plane_count, -1),
+   153	    AP_GROUPINFO("ADSB_RADIUS",   46, SIM,  adsb_radius_m, 10000),
+   154	    AP_GROUPINFO("ADSB_ALT",      47, SIM,  adsb_altitude_m, 1000),
+   155	    AP_GROUPINFO("PIN_MASK",      50, SIM,  pin_mask, 0),
+   156	    AP_GROUPINFO("ADSB_TX",       51, SIM,  adsb_tx, 0),
+   157	    // @Param: SPEEDUP
+   158	    // @DisplayName: Sim Speedup
+   159	    // @Description: Runs the simulation at multiples of normal speed. Do not use if realtime physics, like RealFlight, is being used
+   160	    // @Range: 1 10
+   161	    // @User: Advanced
+   162	    AP_GROUPINFO("SPEEDUP",       52, SIM,  speedup, -1),
+   163	    // @Param: IMU_POS
+   164	    // @DisplayName: IMU Offsets
+   165	    // @Description: XYZ position of the IMU accelerometer relative to the body frame origin
+   166	    // @Units: m
+   167	    // @Vector3Parameter: 1
+   168	    AP_GROUPINFO("IMU_POS",       53, SIM,  imu_pos_offset, 0),
+    72	    abort();
+    73	}
+    74
+    75	void SITL_State::_usage(void)
+    76	{
+    77	    printf("Options:\n"
+    78	           "\t--help|-h                display this help information\n"
+    79	           "\t--wipe|-w                wipe eeprom\n"
+    80	           "\t--unhide-groups|-u       parameter enumeration ignores AP_PARAM_FLAG_ENABLE\n"
+    81	           "\t--speedup|-s SPEEDUP     set simulation speedup\n"
+    82	           "\t--rate|-r RATE           set SITL framerate\n"
+    83	           "\t--console|-C             use console instead of TCP ports\n"
+    84	           "\t--instance|-I N          set instance of SITL (adds 10*instance to all port numbers)\n"
+    85	           // "\t--param|-P NAME=VALUE    set some param\n"  CURRENTLY BROKEN!
+    86	           "\t--synthetic-clock|-S     set synthetic clock mode\n"
+    87	           "\t--home|-O HOME           set start location (lat,lng,alt,yaw) or location name\n"
+    88	           "\t--model|-M MODEL         set simulation model\n"
+    89	           "\t--config string          set additional simulation config string\n"
+    90	           "\t--fg|-F ADDRESS          set Flight Gear view address, defaults to 127.0.0.1\n"

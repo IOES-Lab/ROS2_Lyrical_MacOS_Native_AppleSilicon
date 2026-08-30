@@ -1,0 +1,1 @@
+a41342b644e0b62bcf5cb2eba15f2050dbbed23cab8b267960494287cd3feac1  patches/bluerov2_ardusub_speedup_fix.diff

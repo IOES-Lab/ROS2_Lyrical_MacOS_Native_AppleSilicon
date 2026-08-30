@@ -1,0 +1,734 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from lyrical.arm64v8.dockerfile
+#1 transferring dockerfile: 32.16kB done
+#1 WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 496)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/arm64v8/ubuntu:26.04
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [ca-source 1/1] FROM docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#6 resolve docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1  1/47] FROM docker.io/arm64v8/ubuntu:26.04@sha256:7f3465684b7f1d5393610fd86e8d568a7cb868bf8d9cf066a93afa79e4b0dc80
+#7 resolve docker.io/arm64v8/ubuntu:26.04@sha256:7f3465684b7f1d5393610fd86e8d568a7cb868bf8d9cf066a93afa79e4b0dc80
+#7 resolve docker.io/arm64v8/ubuntu:26.04@sha256:7f3465684b7f1d5393610fd86e8d568a7cb868bf8d9cf066a93afa79e4b0dc80 0.0s done
+#7 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 156B done
+#5 DONE 0.0s
+
+#8 [stage-1 18/47] COPY patches/bluerov2_ardusub_speedup_fix.diff /tmp/bluerov2_ardusub_speedup_fix.diff
+#8 CACHED
+
+#9 [stage-1 19/47] RUN cd dave &&     git apply /tmp/dave_lyrical_jetty_migration_mac.diff &&     git apply /tmp/bluerov2_ardusub_speedup_fix.diff &&     python3 -m py_compile       models/dave_robot_models/config/bluerov2/robot_config.py       models/dave_robot_models/config/bluerov2_heavy/robot_config.py       models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
+#9 CACHED
+
+#10 [stage-1 13/47] RUN apt update -o APT::Update::Error-Mode=any && apt full-upgrade -y && apt autoremove -y
+#10 CACHED
+
+#11 [stage-1  8/47] RUN test -d /etc/xrdp &&     printf '%s\n'       '#!/bin/bash'       'exec >>/home/docker/xrdp-startwm.log 2>&1'       'export HOME=/home/docker'       'export USER=docker'       'export LOGNAME=docker'       'export XDG_SESSION_TYPE=x11'       'export XDG_CURRENT_DESKTOP=XFCE'       'export XDG_SESSION_DESKTOP=xfce'       'export DESKTOP_SESSION=xfce'       'export XDG_RUNTIME_DIR="/run/user/$(id -u)"'       'unset GNOME_SHELL_SESSION_MODE SESSION_MANAGER DBUS_SESSION_BUS_ADDRESS'       'exec /usr/bin/dbus-run-session -- /usr/bin/startxfce4'       > /etc/xrdp/startwm.sh &&     chmod 0755 /etc/xrdp/startwm.sh
+#11 CACHED
+
+#12 [stage-1 14/47] RUN export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F" '{print $4}') &&     curl -L -o /tmp/ros2-apt-source.deb       "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb" &&     dpkg -i /tmp/ros2-apt-source.deb &&     apt update -o APT::Update::Error-Mode=any &&     apt install -y --no-install-recommends       ros-lyrical-desktop ros-lyrical-ros-gz       python3-rosdep python3-vcstool python3-colcon-common-extensions
+#12 CACHED
+
+#13 [stage-1 22/47] WORKDIR /home/docker/dave_ws
+#13 CACHED
+
+#14 [stage-1 16/47] RUN git clone https://github.com/naitikpahwa18/dave.git dave &&     cd dave && git checkout --detach "6aef91c823af5da073329b84ba617b572965e79e"
+#14 CACHED
+
+#15 [stage-1  2/47] RUN mkdir -p /etc/ssl/certs
+#15 CACHED
+
+#16 [stage-1 10/47] RUN truncate -s0 /tmp/preseed.cfg &&     (echo "tzdata tzdata/Areas select Etc" >> /tmp/preseed.cfg) &&     (echo "tzdata tzdata/Zones/Etc select UTC" >> /tmp/preseed.cfg) &&     debconf-set-selections /tmp/preseed.cfg &&     rm -f /etc/timezone &&     dpkg-reconfigure -f noninteractive tzdata
+#16 CACHED
+
+#17 [stage-1  5/47] RUN grep -rl 'http://ports.ubuntu.com' /etc/apt/ 2>/dev/null | xargs -r sed -i 's|http://ports.ubuntu.com|https://ports.ubuntu.com|g'
+#17 CACHED
+
+#18 [stage-1 21/47] RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+#18 CACHED
+
+#19 [stage-1 15/47] WORKDIR /home/docker/dave_ws/src
+#19 CACHED
+
+#20 [stage-1 20/47] RUN rosdep init || true && rosdep update --rosdistro lyrical &&     rosdep install --rosdistro lyrical -iy --from-paths .       --skip-keys "mavros mavros_msgs"
+#20 CACHED
+
+#21 [stage-1  7/47] RUN useradd -s /bin/bash -m docker && echo "docker:docker" | chpasswd;     usermod -aG sudo docker; echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers;     adduser xrdp ssl-cert;     usermod -aG root xrdp;     echo 'LANG=en_US.UTF-8' >> /etc/default/locale;     echo 'export XDG_CURRENT_DESKTOP=XFCE' > /home/docker/.xsessionrc;     echo 'export XDG_SESSION_DESKTOP=xfce' >> /home/docker/.xsessionrc;     echo 'export DESKTOP_SESSION=xfce' >> /home/docker/.xsessionrc;     echo 'export XDG_SESSION_TYPE=x11' >> /home/docker/.xsessionrc;     sed -i "s/#EnableConsole=false/EnableConsole=true/g" /etc/xrdp/xrdp.ini;     sed -i 's/max_bpp=32/max_bpp=16/g' /etc/xrdp/xrdp.ini;     [ true = 'true' ] &&         sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/g' /etc/ssh/sshd_config ||         sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ||         :;     chown docker:docker /home/docker/.xsessionrc
+#21 CACHED
+
+#22 [stage-1 12/47] RUN locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+#22 CACHED
+
+#23 [stage-1  6/47] RUN DEBIAN_FRONTEND=noninteractive apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt &&     apt-get -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt install -y --no-install-recommends       dbus dbus-x11 xrdp xorgxrdp       xfce4 xfce4-goodies xfce4-terminal xterm       sudo openssl ca-certificates &&     if [ "true" = 'true' ]; then apt-get install -y openssh-server; fi &&     apt-get autoremove --purge &&     apt-get clean &&     rm -f /run/reboot-required*
+#23 CACHED
+
+#24 [stage-1 17/47] COPY patches/dave_lyrical_jetty_migration_mac.diff /tmp/dave_lyrical_jetty_migration_mac.diff
+#24 CACHED
+
+#25 [stage-1 11/47] RUN apt-get update -o APT::Update::Error-Mode=any &&     apt-get -y install --no-install-recommends locales tzdata &&     rm -rf /tmp/*
+#25 CACHED
+
+#26 [stage-1  4/47] RUN test -s /etc/ssl/certs/ca-certificates.crt ||     (echo "FATAL: /etc/ssl/certs/ca-certificates.crt missing or empty after COPY from ca-source - the assumed Alpine CA bundle path was wrong for this curlimages/curl digest. Inspect the image manually (docker run --rm curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 sh -c 'ls -la /etc/ssl/certs/ /etc/ssl/*.pem 2>/dev/null') and fix the COPY --from path above." >&2;      exit 1)
+#26 CACHED
+
+#27 [stage-1  9/47] RUN apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt &&     apt-get install -y --no-install-recommends     xterm vim net-tools     curl wget git build-essential cmake cppcheck     gnupg libeigen3-dev libgles2-mesa-dev     lsb-release pkg-config protobuf-compiler     python3-pip python3-venv     nano xauth htop libtool     x11-apps mesa-utils bison flex automake &&     rm -rf /var/lib/apt/lists/
+#27 CACHED
+
+#28 [stage-1  3/47] COPY --from=ca-source /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+#28 CACHED
+
+#29 [stage-1 23/47] RUN . "/opt/ros/lyrical/setup.sh" &&     colcon build --merge-install --executor sequential --symlink-install       --packages-select dave_interfaces dave_object_models dave_sensor_models dave_robot_models       dave_worlds dave_gz_world_plugins dave_gz_model_plugins dave_gz_sensor_plugins       dave_ros_gz_plugins dave_demos &&     colcon build --merge-install --executor sequential --packages-select wgpu_vendor &&     colcon build --merge-install --executor sequential --packages-select multibeam_sonar multibeam_sonar_system
+#29 CACHED
+
+#30 [stage-1 24/47] RUN apt-get update -o APT::Update::Error-Mode=any &&     apt-get install -y --no-install-recommends       python3-rosinstall-generator python3-osrf-pycommon geographiclib-tools
+#30 1.011 Get:1 http://packages.ros.org/ros2/ubuntu resolute InRelease [4679 B]
+#30 1.216 Get:2 http://packages.ros.org/ros2/ubuntu resolute/main Sources [699 kB]
+#30 1.484 Hit:3 https://ports.ubuntu.com/ubuntu-ports resolute InRelease
+#30 1.689 Get:4 https://ports.ubuntu.com/ubuntu-ports resolute-updates InRelease [137 kB]
+#30 2.270 Get:5 http://packages.ros.org/ros2/ubuntu resolute/main arm64 Packages [636 kB]
+#30 2.418 Get:6 https://ports.ubuntu.com/ubuntu-ports resolute-backports InRelease [137 kB]
+#30 2.761 Get:7 https://ports.ubuntu.com/ubuntu-ports resolute-security InRelease [137 kB]
+#30 3.068 Get:8 https://ports.ubuntu.com/ubuntu-ports resolute-updates/multiverse arm64 Packages [14.3 kB]
+#30 3.075 Get:9 https://ports.ubuntu.com/ubuntu-ports resolute-updates/restricted arm64 Packages [583 kB]
+#30 3.458 Get:10 https://ports.ubuntu.com/ubuntu-ports resolute-updates/main arm64 Packages [689 kB]
+#30 3.647 Get:11 https://ports.ubuntu.com/ubuntu-ports resolute-updates/universe arm64 Packages [309 kB]
+#30 3.697 Get:12 https://ports.ubuntu.com/ubuntu-ports resolute-backports/universe arm64 Packages [3308 B]
+#30 3.697 Get:13 https://ports.ubuntu.com/ubuntu-ports resolute-security/multiverse arm64 Packages [11.2 kB]
+#30 3.698 Get:14 https://ports.ubuntu.com/ubuntu-ports resolute-security/universe arm64 Packages [190 kB]
+#30 3.724 Get:15 https://ports.ubuntu.com/ubuntu-ports resolute-security/main arm64 Packages [534 kB]
+#30 3.823 Get:16 https://ports.ubuntu.com/ubuntu-ports resolute-security/restricted arm64 Packages [572 kB]
+#30 3.939 Fetched 4657 kB in 4s (1279 kB/s)
+#30 3.939 Reading package lists...
+#30 4.752 Reading package lists...
+#30 5.416 Building dependency tree...
+#30 5.610 Reading state information...
+#30 5.661 python3-osrf-pycommon is already the newest version (2.1.7-1).
+#30 5.661 python3-osrf-pycommon set to manually installed.
+#30 5.661 Solving dependencies...
+#30 5.856 Suggested packages:
+#30 5.856   proj-bin geographiclib-doc
+#30 5.900 The following NEW packages will be installed:
+#30 5.900   geographiclib-tools libgeographiclib26 python3-rosinstall-generator
+#30 6.292 0 upgraded, 3 newly installed, 0 to remove and 418 not upgraded.
+#30 6.292 Need to get 537 kB of archives.
+#30 6.292 After this operation, 2084 kB of additional disk space will be used.
+#30 6.292 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 python3-rosinstall-generator all 0.1.23-1 [11.8 kB]
+#30 6.556 Get:2 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 libgeographiclib26 arm64 2.7-1 [297 kB]
+#30 7.555 Get:3 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 geographiclib-tools arm64 2.7-1 [228 kB]
+#30 8.795 Fetched 537 kB in 2s (303 kB/s)
+#30 8.823 Selecting previously unselected package libgeographiclib26:arm64.
+#30 8.823 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160812 files and directories currently installed.)
+#30 9.001 Preparing to unpack .../libgeographiclib26_2.7-1_arm64.deb ...
+#30 9.005 Unpacking libgeographiclib26:arm64 (2.7-1) ...
+#30 9.042 Selecting previously unselected package geographiclib-tools.
+#30 9.049 Preparing to unpack .../geographiclib-tools_2.7-1_arm64.deb ...
+#30 9.051 Unpacking geographiclib-tools (2.7-1) ...
+#30 9.082 Selecting previously unselected package python3-rosinstall-generator.
+#30 9.090 Preparing to unpack .../python3-rosinstall-generator_0.1.23-1_all.deb ...
+#30 9.092 Unpacking python3-rosinstall-generator (0.1.23-1) ...
+#30 9.140 Setting up python3-rosinstall-generator (0.1.23-1) ...
+#30 9.258 Setting up libgeographiclib26:arm64 (2.7-1) ...
+#30 9.262 Setting up geographiclib-tools (2.7-1) ...
+#30 9.266 Processing triggers for man-db (2.13.1-1build1) ...
+#30 9.336 Processing triggers for libc-bin (2.43-2ubuntu2) ...
+#30 DONE 9.6s
+
+#31 [stage-1 25/47] RUN mkdir -p /home/docker/mavros_ws/src
+#31 DONE 0.2s
+
+#32 [stage-1 26/47] WORKDIR /home/docker/mavros_ws
+#32 DONE 0.0s
+
+#33 [stage-1 27/47] RUN . "/opt/ros/lyrical/setup.sh" &&     rosinstall_generator --format repos mavlink | tee /tmp/mavlink.repos &&     rosinstall_generator --format repos --upstream mavros | tee /tmp/mavros.repos &&     vcs import src < /tmp/mavlink.repos &&     vcs import src < /tmp/mavros.repos &&     git clone https://github.com/ros-geographic-info/geographic_info.git src/geographic_info &&     cd src/geographic_info && git checkout --detach "85efafed06acd0d5b94d403c002a227392b9e55d" && cd ../.. &&     rosdep update --rosdistro lyrical &&     rosdep install --rosdistro lyrical --from-paths src --ignore-src -y
+#33 0.448 Using ROS_DISTRO: lyrical
+#33 2.851 repositories:
+#33 2.851   mavlink:
+#33 2.851     type: git
+#33 2.851     url: https://github.com/ros2-gbp/mavlink-gbp-release.git
+#33 2.851     version: release/lyrical/mavlink/2026.8.8-1
+#33 2.851
+#33 3.033 Using ROS_DISTRO: lyrical
+#33 5.377 repositories:
+#33 5.377   mavros:
+#33 5.377     type: git
+#33 5.377     url: https://github.com/mavlink/mavros.git
+#33 5.377     version: 2.15.1
+#33 5.377
+#33 5.494 /usr/bin/vcs:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 5.494   from pkg_resources import load_entry_point
+#33 8.905 === src/mavlink (git) ===
+#33 8.905 Cloning into '.'...
+#33 8.905 Note: switching to 'release/lyrical/mavlink/2026.8.8-1'.
+#33 8.905
+#33 8.905 You are in 'detached HEAD' state. You can look around, make experimental
+#33 8.905 changes and commit them, and you can discard any commits you make in this
+#33 8.905 state without impacting any branches by switching back to a branch.
+#33 8.905
+#33 8.905 If you want to create a new branch to retain commits you create, you may
+#33 8.905 do so (now or later) by using -c with the switch command. Example:
+#33 8.905
+#33 8.905   git switch -c <new-branch-name>
+#33 8.905
+#33 8.905 Or undo this operation with:
+#33 8.905
+#33 8.905   git switch -
+#33 8.905
+#33 8.905 Turn off this advice by setting config variable advice.detachedHead to false
+#33 8.905
+#33 8.905 HEAD is now at 6bc5b002 Rebase from 'upstream'
+#33 9.018 /usr/bin/vcs:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 9.018   from pkg_resources import load_entry_point
+#33 11.63 === src/mavros (git) ===
+#33 11.63 Cloning into '.'...
+#33 11.63 Note: switching to '2.15.1'.
+#33 11.63
+#33 11.63 You are in 'detached HEAD' state. You can look around, make experimental
+#33 11.63 changes and commit them, and you can discard any commits you make in this
+#33 11.63 state without impacting any branches by switching back to a branch.
+#33 11.63
+#33 11.63 If you want to create a new branch to retain commits you create, you may
+#33 11.63 do so (now or later) by using -c with the switch command. Example:
+#33 11.63
+#33 11.63   git switch -c <new-branch-name>
+#33 11.63
+#33 11.63 Or undo this operation with:
+#33 11.63
+#33 11.63   git switch -
+#33 11.63
+#33 11.63 Turn off this advice by setting config variable advice.detachedHead to false
+#33 11.63
+#33 11.63 HEAD is now at 22ae5b7c 2.15.1
+#33 11.66 Cloning into 'src/geographic_info'...
+#33 12.57 HEAD is now at 85efafe [kilted] Update deprecated call to ament_target_dependencies (#58)
+#33 12.65 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 12.65   from pkg_resources import load_entry_point
+#33 12.78 Warning: running 'rosdep update' as root is not recommended.
+#33 12.78   You should run 'sudo rosdep fix-permissions' and invoke 'rosdep update' again without sudo.
+#33 16.43 reading in sources list data from /etc/ros/rosdep/sources.list.d
+#33 16.43 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
+#33 16.43 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
+#33 16.43 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
+#33 16.43 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
+#33 16.43 Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
+#33 16.43 Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
+#33 16.43 Skip distro "ardent" different from requested "lyrical"
+#33 16.43 Skip distro "bouncy" different from requested "lyrical"
+#33 16.43 Skip distro "crystal" different from requested "lyrical"
+#33 16.43 Skip distro "dashing" different from requested "lyrical"
+#33 16.43 Skip distro "eloquent" different from requested "lyrical"
+#33 16.43 Skip distro "foxy" different from requested "lyrical"
+#33 16.43 Skip distro "galactic" different from requested "lyrical"
+#33 16.43 Skip distro "groovy" different from requested "lyrical"
+#33 16.43 Skip distro "humble" different from requested "lyrical"
+#33 16.43 Skip distro "hydro" different from requested "lyrical"
+#33 16.43 Skip distro "indigo" different from requested "lyrical"
+#33 16.43 Skip distro "iron" different from requested "lyrical"
+#33 16.43 Skip distro "jade" different from requested "lyrical"
+#33 16.43 Skip distro "jazzy" different from requested "lyrical"
+#33 16.43 Skip distro "kilted" different from requested "lyrical"
+#33 16.43 Skip distro "kinetic" different from requested "lyrical"
+#33 16.43 Skip distro "lunar" different from requested "lyrical"
+#33 16.43 Add distro "lyrical"
+#33 16.43 Skip distro "melodic" different from requested "lyrical"
+#33 16.43 Skip distro "noetic" different from requested "lyrical"
+#33 16.43 Skip distro "rolling" different from requested "lyrical"
+#33 16.43 updated cache in /root/.ros/rosdep/sources.cache
+#33 16.55 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 16.55   from pkg_resources import load_entry_point
+#33 18.73 Reading package lists...
+#33 19.43 Building dependency tree...
+#33 19.63 Reading state information...
+#33 19.66 Solving dependencies...
+#33 19.91 The following NEW packages will be installed:
+#33 19.91   libasio-dev
+#33 20.73 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 20.73 Need to get 405 kB of archives.
+#33 20.73 After this operation, 5419 kB of additional disk space will be used.
+#33 20.73 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 libasio-dev all 1:1.30.2-1build1 [405 kB]
+#33 22.82 Fetched 405 kB in 2s (215 kB/s)
+#33 22.84 Selecting previously unselected package libasio-dev.
+#33 22.84 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160876 files and directories currently installed.)
+#33 22.95 Preparing to unpack .../libasio-dev_1%3a1.30.2-1build1_all.deb ...
+#33 22.95 Unpacking libasio-dev (1:1.30.2-1build1) ...
+#33 23.07 Setting up libasio-dev (1:1.30.2-1build1) ...
+#33 23.09 Reading package lists...
+#33 23.80 Building dependency tree...
+#33 24.00 Reading state information...
+#33 24.03 Solving dependencies...
+#33 24.26 The following additional packages will be installed:
+#33 24.26   python3-certifi
+#33 24.30 The following NEW packages will be installed:
+#33 24.30   python3-certifi python3-pyproj
+#33 25.15 0 upgraded, 2 newly installed, 0 to remove and 418 not upgraded.
+#33 25.15 Need to get 393 kB of archives.
+#33 25.15 After this operation, 2108 kB of additional disk space will be used.
+#33 25.15 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/main arm64 python3-certifi all 2026.1.4+ds-1 [10.3 kB]
+#33 25.42 Get:2 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 python3-pyproj arm64 3.7.2-2build1 [383 kB]
+#33 27.27 Fetched 393 kB in 2s (199 kB/s)
+#33 27.30 Selecting previously unselected package python3-certifi.
+#33 27.30 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161529 files and directories currently installed.)
+#33 27.37 Preparing to unpack .../python3-certifi_2026.1.4+ds-1_all.deb ...
+#33 27.37 Unpacking python3-certifi (2026.1.4+ds-1) ...
+#33 27.40 Selecting previously unselected package python3-pyproj.
+#33 27.40 Preparing to unpack .../python3-pyproj_3.7.2-2build1_arm64.deb ...
+#33 27.40 Unpacking python3-pyproj (3.7.2-2build1) ...
+#33 27.46 Setting up python3-certifi (2026.1.4+ds-1) ...
+#33 27.56 Setting up python3-pyproj (3.7.2-2build1) ...
+#33 27.71 Reading package lists...
+#33 28.36 Building dependency tree...
+#33 28.54 Reading state information...
+#33 28.57 Solving dependencies...
+#33 28.79 The following NEW packages will be installed:
+#33 28.79   python3-catkin-pkg
+#33 29.16 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 29.16 Need to get 3932 B of archives.
+#33 29.16 After this operation, 26.6 kB of additional disk space will be used.
+#33 29.16 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 python3-catkin-pkg all 1.1.0-101 [3932 B]
+#33 30.15 Fetched 3932 B in 0s (9787 B/s)
+#33 30.17 Selecting previously unselected package python3-catkin-pkg.
+#33 30.17 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161615 files and directories currently installed.)
+#33 30.24 Preparing to unpack .../python3-catkin-pkg_1.1.0-101_all.deb ...
+#33 30.24 Unpacking python3-catkin-pkg (1.1.0-101) ...
+#33 30.28 Setting up python3-catkin-pkg (1.1.0-101) ...
+#33 30.30 Reading package lists...
+#33 30.96 Building dependency tree...
+#33 31.13 Reading state information...
+#33 31.16 Solving dependencies...
+#33 31.41 The following NEW packages will be installed:
+#33 31.41   python3-click
+#33 32.08 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 32.08 Need to get 80.2 kB of archives.
+#33 32.08 After this operation, 383 kB of additional disk space will be used.
+#33 32.08 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/main arm64 python3-click all 8.2.0+0.really.8.1.8-1build1 [80.2 kB]
+#33 33.56 Fetched 80.2 kB in 1s (71.1 kB/s)
+#33 33.58 Selecting previously unselected package python3-click.
+#33 33.58 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161631 files and directories currently installed.)
+#33 33.65 Preparing to unpack .../python3-click_8.2.0+0.really.8.1.8-1build1_all.deb ...
+#33 33.66 Unpacking python3-click (8.2.0+0.really.8.1.8-1build1) ...
+#33 33.81 Setting up python3-click (8.2.0+0.really.8.1.8-1build1) ...
+#33 34.11 Reading package lists...
+#33 34.80 Building dependency tree...
+#33 34.99 Reading state information...
+#33 35.04 Solving dependencies...
+#33 35.28 The following NEW packages will be installed:
+#33 35.28   ros-lyrical-diagnostic-updater
+#33 35.67 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 35.67 Need to get 112 kB of archives.
+#33 35.67 After this operation, 527 kB of additional disk space will be used.
+#33 35.67 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-diagnostic-updater arm64 4.4.7-1resolute.20260812.054140 [112 kB]
+#33 37.13 Fetched 112 kB in 1s (126 kB/s)
+#33 37.15 Selecting previously unselected package ros-lyrical-diagnostic-updater.
+#33 37.15 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161656 files and directories currently installed.)
+#33 37.20 Preparing to unpack .../ros-lyrical-diagnostic-updater_4.4.7-1resolute.20260812.054140_arm64.deb ...
+#33 37.20 Unpacking ros-lyrical-diagnostic-updater (4.4.7-1resolute.20260812.054140) ...
+#33 37.25 Setting up ros-lyrical-diagnostic-updater (4.4.7-1resolute.20260812.054140) ...
+#33 37.28 Reading package lists...
+#33 37.93 Building dependency tree...
+#33 38.10 Reading state information...
+#33 38.13 Solving dependencies...
+#33 38.37 The following NEW packages will be installed:
+#33 38.37   ros-lyrical-eigen-stl-containers
+#33 38.73 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 38.73 Need to get 10.0 kB of archives.
+#33 38.73 After this operation, 68.6 kB of additional disk space will be used.
+#33 38.73 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-eigen-stl-containers arm64 1.1.0-3resolute.20260728.172336 [10.0 kB]
+#33 39.70 Fetched 10.0 kB in 0s (27.4 kB/s)
+#33 39.72 Selecting previously unselected package ros-lyrical-eigen-stl-containers.
+#33 39.72 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161709 files and directories currently installed.)
+#33 39.79 Preparing to unpack .../ros-lyrical-eigen-stl-containers_1.1.0-3resolute.20260728.172336_arm64.deb ...
+#33 39.79 Unpacking ros-lyrical-eigen-stl-containers (1.1.0-3resolute.20260728.172336) ...
+#33 39.83 Setting up ros-lyrical-eigen-stl-containers (1.1.0-3resolute.20260728.172336) ...
+#33 39.85 Reading package lists...
+#33 40.57 Building dependency tree...
+#33 40.76 Reading state information...
+#33 40.79 Solving dependencies...
+#33 41.02 Suggested packages:
+#33 41.02   geographiclib-doc
+#33 41.05 The following NEW packages will be installed:
+#33 41.05   libgeographiclib-dev
+#33 41.71 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 41.71 Need to get 514 kB of archives.
+#33 41.71 After this operation, 2910 kB of additional disk space will be used.
+#33 41.71 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 libgeographiclib-dev arm64 2.7-1 [514 kB]
+#33 43.72 Fetched 514 kB in 2s (316 kB/s)
+#33 43.74 Selecting previously unselected package libgeographiclib-dev.
+#33 43.74 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161740 files and directories currently installed.)
+#33 43.80 Preparing to unpack .../libgeographiclib-dev_2.7-1_arm64.deb ...
+#33 43.80 Unpacking libgeographiclib-dev (2.7-1) ...
+#33 43.87 Setting up libgeographiclib-dev (2.7-1) ...
+#33 43.89 Reading package lists...
+#33 44.60 Building dependency tree...
+#33 44.79 Reading state information...
+#33 44.82 Solving dependencies...
+#33 45.07 The following NEW packages will be installed:
+#33 45.07   google-mock
+#33 45.84 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 45.84 Need to get 5134 B of archives.
+#33 45.84 After this operation, 14.3 kB of additional disk space will be used.
+#33 45.84 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 google-mock arm64 1.17.0-1build1 [5134 B]
+#33 46.87 Fetched 5134 B in 1s (6710 B/s)
+#33 46.92 Selecting previously unselected package google-mock:arm64.
+#33 46.92 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161865 files and directories currently installed.)
+#33 46.99 Preparing to unpack .../google-mock_1.17.0-1build1_arm64.deb ...
+#33 46.99 Unpacking google-mock:arm64 (1.17.0-1build1) ...
+#33 47.02 Setting up google-mock:arm64 (1.17.0-1build1) ...
+#33 47.05 Reading package lists...
+#33 47.77 Building dependency tree...
+#33 47.95 Reading state information...
+#33 47.98 Solving dependencies...
+#33 48.19 The following additional packages will be installed:
+#33 48.19   ros-lyrical-google-benchmark-vendor
+#33 48.21 The following NEW packages will be installed:
+#33 48.21   ros-lyrical-ament-cmake-google-benchmark ros-lyrical-google-benchmark-vendor
+#33 48.59 0 upgraded, 2 newly installed, 0 to remove and 418 not upgraded.
+#33 48.59 Need to get 212 kB of archives.
+#33 48.59 After this operation, 778 kB of additional disk space will be used.
+#33 48.59 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-google-benchmark-vendor arm64 0.7.0-3resolute.20260728.232329 [200 kB]
+#33 49.27 Get:2 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-ament-cmake-google-benchmark arm64 2.8.8-1resolute.20260728.232619 [12.0 kB]
+#33 50.26 Fetched 212 kB in 1s (199 kB/s)
+#33 50.28 Selecting previously unselected package ros-lyrical-google-benchmark-vendor.
+#33 50.28 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161869 files and directories currently installed.)
+#33 50.34 Preparing to unpack .../ros-lyrical-google-benchmark-vendor_0.7.0-3resolute.20260728.232329_arm64.deb ...
+#33 50.35 Unpacking ros-lyrical-google-benchmark-vendor (0.7.0-3resolute.20260728.232329) ...
+#33 50.37 Selecting previously unselected package ros-lyrical-ament-cmake-google-benchmark.
+#33 50.38 Preparing to unpack .../ros-lyrical-ament-cmake-google-benchmark_2.8.8-1resolute.20260728.232619_arm64.deb ...
+#33 50.38 Unpacking ros-lyrical-ament-cmake-google-benchmark (2.8.8-1resolute.20260728.232619) ...
+#33 50.42 Setting up ros-lyrical-google-benchmark-vendor (0.7.0-3resolute.20260728.232329) ...
+#33 50.43 Setting up ros-lyrical-ament-cmake-google-benchmark (2.8.8-1resolute.20260728.232619) ...
+#33 50.43 Processing triggers for libc-bin (2.43-2ubuntu2) ...
+#33 50.72 [1mexecuting command [apt-get install -y libasio-dev][0m
+#33 50.72 [1mexecuting command [apt-get install -y python3-pyproj][0m
+#33 50.72 [1mexecuting command [apt-get install -y python3-catkin-pkg][0m
+#33 50.72 [1mexecuting command [apt-get install -y python3-click][0m
+#33 50.72 [1mexecuting command [apt-get install -y ros-lyrical-diagnostic-updater][0m
+#33 50.72 [1mexecuting command [apt-get install -y ros-lyrical-eigen-stl-containers][0m
+#33 50.72 [1mexecuting command [apt-get install -y libgeographiclib-dev][0m
+#33 50.72 [1mexecuting command [apt-get install -y google-mock][0m
+#33 50.72 [1mexecuting command [apt-get install -y ros-lyrical-ament-cmake-google-benchmark][0m
+#33 50.72 #All required rosdeps installed successfully
+#33 DONE 51.0s
+
+#34 [stage-1 28/47] RUN /home/docker/mavros_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+#34 0.186 Installing GeographicLib geoids egm96-5
+#34 4.764 Installing GeographicLib gravity egm96
+#34 7.938 Installing GeographicLib magnetic emm2015
+#34 DONE 10.6s
+
+#35 [stage-1 29/47] RUN . "/opt/ros/lyrical/setup.sh" &&     MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*
+#35 0.583 Starting >>> geographic_msgs
+#35 66.02 Finished <<< geographic_msgs [1min 5s]
+#35 66.02 Starting >>> mavlink
+#35 66.02 --- stderr: geographic_msgs
+#35 66.02 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 66.02   Compatibility with CMake < 3.10 will be removed from a future version of
+#35 66.02   CMake.
+#35 66.02
+#35 66.02   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#35 66.02   to tell CMake that the project requires at least <min> but has been updated
+#35 66.02   to work with policies introduced by <max> or earlier.
+#35 66.02
+#35 66.02
+#35 66.02 ---
+#35 76.30 --- stderr: mavlink
+#35 76.30 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 76.30   Compatibility with CMake < 3.10 will be removed from a future version of
+#35 76.30   CMake.
+#35 76.30
+#35 76.30   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#35 76.30   to tell CMake that the project requires at least <min> but has been updated
+#35 76.30   to work with policies introduced by <max> or earlier.
+#35 76.30
+#35 76.30
+#35 76.30 CMake Warning (dev) at /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:433 (message):
+#35 76.30   Unable to determine default CMAKE_INSTALL_LIBDIR directory because no
+#35 76.30   target architecture is known.  Please enable at least one language before
+#35 76.30   including GNUInstallDirs.
+#35 76.30 Call Stack (most recent call first):
+#35 76.30   /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:276 (_GNUInstallDirs_LIBDIR_get_default)
+#35 76.30   /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:276 (cmake_language)
+#35 76.30   /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:525 (_GNUInstallDirs_cache_path)
+#35 76.30   CMakeLists.txt:15 (include)
+#35 76.30 This warning is for project developers.  Use -Wno-dev to suppress it.
+#35 76.30
+#35 76.30 ---
+#35 76.30 Finished <<< mavlink [10.3s]
+#35 76.30 Starting >>> geodesy
+#35 77.52 --- stderr: geodesy
+#35 77.52 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 77.52   Compatibility with CMake < 3.10 will be removed from a future version of
+#35 77.52   CMake.
+#35 77.52
+#35 77.52   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#35 77.52   to tell CMake that the project requires at least <min> but has been updated
+#35 77.52   to work with policies introduced by <max> or earlier.
+#35 77.52
+#35 77.52
+#35 77.52 /home/docker/mavros_ws/src/geographic_info/geodesy/src/conv/utm_conversions.cpp:38:10: fatal error: angles/angles.h: No such file or directory
+#35 77.52    38 | #include "angles/angles.h"
+#35 77.52       |          ^~~~~~~~~~~~~~~~~
+#35 77.52 compilation terminated.
+#35 77.52 gmake[2]: *** [CMakeFiles/geoconv.dir/build.make:79: CMakeFiles/geoconv.dir/src/conv/utm_conversions.cpp.o] Error 1
+#35 77.52 gmake[1]: *** [CMakeFiles/Makefile2:157: CMakeFiles/geoconv.dir/all] Error 2
+#35 77.52 gmake: *** [Makefile:146: all] Error 2
+#35 77.52 ---
+#35 77.52 Failed   <<< geodesy [1.22s, exited with code 2]
+#35 77.54
+#35 77.54 Summary: 2 packages finished [1min 17s]
+#35 77.54   1 package failed: geodesy
+#35 77.54   3 packages had stderr output: geodesy geographic_msgs mavlink
+#35 77.54   6 packages not processed
+#35 ERROR: process "/bin/sh -c . \"/opt/ros/${ROS_DISTRO}/setup.sh\" &&     MAKEFLAGS=\"-j1\" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 2
+------
+ > [stage-1 29/47] RUN . "/opt/ros/lyrical/setup.sh" &&     MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*:
+76.30 ---
+76.30 Finished <<< mavlink [10.3s]
+76.30 Starting >>> geodesy
+
+77.52 Failed   <<< geodesy [1.22s, exited with code 2]
+77.54
+77.54 Summary: 2 packages finished [1min 17s]
+77.54   1 package failed: geodesy
+77.54   3 packages had stderr output: geodesy geographic_msgs mavlink
+77.54   6 packages not processed
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 496)
+lyrical.arm64v8.dockerfile:262
+--------------------
+ 261 |     # under Settings > Resources), not something fixable from inside the Dockerfile alone.
+ 262 | >>> RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+ 263 | >>>     MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 && \
+ 264 | >>>     rm -rf /var/lib/apt/lists/*
+ 265 |
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c . \"/opt/ros/${ROS_DISTRO}/setup.sh\" &&     MAKEFLAGS=\"-j1\" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 2
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/hz42snwxp1p8yq296eb91pd0r

@@ -1,0 +1,6 @@
+container=lyrical-current-recipe-runtime3
+heartbeat_connected_after_poll=6
+poll_result=heartbeat
+connected_true_samples=4/4
+container_cleanup=PASS
+CURRENT_IMAGE_RUNTIME=PASS

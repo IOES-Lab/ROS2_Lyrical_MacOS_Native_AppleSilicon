@@ -478,10 +478,29 @@ non-power-of-two 처리와 후속 문서 전파도 끝났다.
 The 2026-08-27 BlueROV2 run correctly showed that `mavros` and `mavros_msgs` were absent from
 that shell's package index, but the current write-up expanded that observation to the container.
 The container actually had `/home/docker/mavros_ws/install`; sourcing it started ArduSub and MAVROS
-and opened their TCP endpoint. The remaining failure is different: the ArduPilot Gazebo system
-plugin is absent, MAVROS stays disconnected, and QGroundControl SIGSEGVs.
+and opened their TCP endpoint. At that intermediate audit point the remaining failure appeared
+different: the ArduPilot Gazebo system plugin was absent, MAVROS stayed disconnected, and
+QGroundControl SIGSEGVed. The later same-day section below supersedes that as the final boundary.
 
 The same sweep found a second scope error: the fifth ROV's declared sonar was called “unexplained”
 after reading only its model and bridge. The selected **world** did not load
 `MultibeamSonarSystem`; adding that system made a 513×301 PointCloud appear. For plugin-driven
 sensors, the audit boundary is model + bridge + world systems + sourced overlays, not any one file.
+
+## 2026-08-29 — an observed missing prerequisite was treated as a final external boundary
+
+**Believed:** after sourcing MAVROS, the remaining BlueROV2 stack was blocked externally because
+`libArduPilotPlugin.so` was absent and QGroundControl crashed.
+
+**Actually:** both observations were real, but neither established that the prerequisite could not
+be supplied locally. The official ArduPilot Gazebo repository builds on the tested arm64/Jetty
+image. QGroundControl's own AppRun has a supported `QGC_NO_SYSTEM_GLIB=1` opt-out that avoids the
+observed default crash. Once the plugin delivered JSON, a new, deeper ArduSub `SIGFPE` appeared;
+GDB and source inspection then exposed the invalid default speedup boundary, and an explicit
+`--speedup 1` candidate allowed the integrated control loop to run.
+
+**Lesson:** “component absent in this image” and “component unavailable to this project” are
+separate claims. Before marking an executable gap external, identify the authoritative provider,
+try the supported build or wrapper controls in isolation, then rerun the full chain. Each newly
+unblocked layer can expose the next failure; a successful process start is still not an end-to-end
+PASS.

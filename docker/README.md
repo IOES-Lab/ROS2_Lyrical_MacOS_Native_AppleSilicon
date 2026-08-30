@@ -1,28 +1,37 @@
 # Docker — ROS 2 Lyrical + Gazebo Jetty + DAVE (arm64, RDP desktop)
 
 ```text
-Status: BASELINE VALIDATED — 2026-07-18 clean (--no-cache) build including a from-source mavros
-stage, build time/size recorded, ROS environment/package checks confirmed. Corrected 2026-07-23:
-current HEAD's Dockerfile contains later changes not re-verified by a full clean build since —
-the 2026-07-22 theme/Firefox/USBL/new_dvl late layers, the 2026-07-23 rosdep --skip-keys mavros
-change, and the latest +177/-152 migration patch. World/performance/stability rows below were
-re-checked 2026-07-22/23 against the lyrical-theme-test container (same Dockerfile lineage, a
-separate running container, not a fresh clean build of current HEAD) — see the main README for
-full detail, this file's table is kept in sync with it.
-Validated (as of the 2026-07-18 baseline build specifically): Build, headless launch, XFCE/xrdp
-login, ROS environment + dave_demos/multibeam_sonar_system/mavros package presence. Validated
-separately: **aggregate Mac + Docker matrix, 18/18 worlds PASS-level (13 smoke, 5
-functional), 0 PARTIAL as of 2026-08-07** — the 3 manipulation worlds were confirmed on Mac only,
-since the headless launch fix has not been applied inside Docker (the last two PARTIAL rows were reclassified when their
-stated grounds failed to reproduce; see notes/progress-log.md). USBL was directly revalidated on Mac and Docker on
-2026-08-27 and is FUNCTIONAL PASS WITH REQUIRED WORKAROUNDS (see table below). Quantitative RTF benchmark (ocean_waves/usbl_tutorial) re-run
-clean 2026-07-27 using the fixed scripts (see table below). 1h clean stability run passed;
-a 2026-07-23 4h re-run finished but used a pre-fix script and had a monitoring gap
-(PRELIMINARY). A genuinely clean 4h re-run completed 2026-07-29 — current script,
-gap-free 2-minute sampling for the full 4h, SURVIVED, RSS 932->1253MiB (12% growth,
-heuristic OK) — see main README Next steps.
-Known limitation: in the tested image, the installed GNOME 50 session requires Wayland while xorgxrdp produces an X11 session; XFCE is used as the validated RDP desktop. dave_multibeam_sonar still segfaults in Docker as shipped (`ogre2`). Under the documented `ogre` + authorised-X-display configuration it runs and publishes PointCloud2, but WGPU cannot obtain an adapter there and falls back to the CPU backend, so **no valid Docker RTF exists for this world** — the figures once quoted here were withdrawn, see [Superseded figures](#superseded-figures).
+Status: CURRENT RECIPE BUILT AND RUNTIME-CHECKED — 2026-08-30.
+The full current Dockerfile completed a cache-assisted end-to-end build in 44.86 minutes and
+produced a 23.9 GB Ubuntu 26.04 arm64 image (`af9586fa8045`). ROS 2 Lyrical, Gazebo Jetty,
+DAVE, MAVROS, geographic_info, ArduSub and the pinned official ArduPilot Gazebo plugin all
+passed package/source/artifact checks. In that exact image, baseline BlueROV2, BlueROV2 Heavy
+and BlueROV2 Heavy multibeam each retained 4/4 connected MAVROS samples and completed one
+headless MANUAL force-arm / six-second control / disarm run without a missing-plugin error or
+ArduSub FPE.
+
+Scope: this was not a fresh `--no-cache` build. The 2026-07-18 image remains the clean-build
+provenance baseline. The exact 2026-08-30 image was exercised headlessly; xrdp service startup and
+QGroundControl's 20-second opt-out/offscreen survival pass, but its RDP login, rendered desktop and
+QGroundControl vehicle connection were not clicked through again. The retained visual QGroundControl
+integration was run separately and still requires `QGC_NO_SYSTEM_GLIB=1`. A later derived-image run
+live-applied the ninth fifth-ROV sonar-world candidate: it rebuilt and configured the sonar, but the
+Docker `llvmpipe` path took 60053 ms for its first probe, began a Gazebo stack trace and never reached
+JSON/MAVROS, PointCloud2 or control. That combined path is a directly observed failure, not an untested gap.
 ```
+
+**Current-recipe evidence (2026-08-30):** `docker build` completed all current stages with
+cache available; it was not invoked with `--no-cache`. The log duration is **44m 51.5s** (44.86
+minutes), `docker image ls` reports **23.9GB**, and the image ID is
+`sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461`. The exact image
+passed platform, ROS/Gazebo package-prefix, pinned source, plugin dependency, three installed
+speedup-file AST and runtime-user checks. One bounded headless control run each for baseline,
+Heavy and Heavy-multibeam retained 4/4 MAVROS connection samples, armed, moved X by
++1.697915 m / +1.125856 m / +0.818825 m and disarmed. Evidence is under
+[`external_stack_validation_2026-08-29/dockerfile/`](../notes/results/external_stack_validation_2026-08-29/dockerfile/).
+A fresh current-recipe build was not forced because only about 57 GiB remained at the decision
+point while unrelated Docker images and cache occupied about 186 GiB; no user Docker assets were deleted to manufacture
+a clean result.
 
 **Provenance (2026-07-18):** `lyrical.arm64v8.dockerfile` in this folder was clean-built
 (`--no-cache`) end to end on 2026-07-18, including the commit SHA pinning, `.bashrc`
@@ -162,19 +171,20 @@ docker exec -it lyrical-sim bash -lc \
 
 | | Status |
 |---|---|
-| Clean (`--no-cache`) Docker build | PASS — as of the 2026-07-18 baseline build; current HEAD has later Dockerfile changes not yet re-verified by a fresh clean build, see Status block above |
+| Docker build provenance | **2026-07-18 clean `--no-cache` PASS; 2026-08-30 current recipe cache-assisted end-to-end PASS.** A fresh `--no-cache` build of the current recipe remains open |
+| Current Dockerfile image | **PASS in exact-image headless controls.** Build 44.86 min / 23.9 GB / `af9586fa8045`; baseline, Heavy and Heavy-multibeam each MAVROS 4/4 plus arm/control/disarm. xrdp service startup and QGC opt-out/offscreen 20-second survival also pass; visible login/GUI was not directly tested |
 | Container startup | PASS |
 | xrdp connection, XFCE session (real RDP login, prompt confirmed) | PASS |
 | ROS 2 Lyrical / Gazebo Jetty environment | PASS |
 | Representative REXROV launch + `ros_gz` bridges | PASS |
 | WGPU/Rust sonar packages (`wgpu_vendor`, `multibeam_sonar`, `multibeam_sonar_system`) build | PASS |
 | ArduSub SITL build | PASS |
-| mavros build (from source; `ros-lyrical-mavros` not yet on apt) | PASS — `mavros`/`mavros_extras`/`mavros_msgs`/`mavros_examples` confirmed via `ros2 pkg list`, MAVLink bridging itself not yet exercised |
+| mavros build and ArduSub bridge | **FUNCTIONAL PASS in exact current image.** Source-built packages resolve; all three BlueROV variants received Gazebo JSON, connected MAVROS 4/4 and completed one headless arm/control/disarm run |
 | RAM/CPU under an active demo workload | MEASURED — short observation window: ~1008MiB (8.44%) / ~1.2–1.5% CPU, steady over 5 samples across ~20s (2026-07-20); idle floor is 62.66MiB. Not a long-duration measurement — see the separate long-duration stability test row |
 | USBL | **FUNCTIONAL PASS WITH REQUIRED WORKAROUNDS (direct Mac+Docker revalidation 2026-08-27).** Common mode returned both tutorial transponder IDs and individual channels returned only the selected ID in both spherical and Cartesian streams. Largest retained positive-sigma static-coordinate axis error: `0.000258 m`. Three independent limitations remain: (1) literal `sigma=0` returns finite data on macOS/libc++ but aborts Docker/libstdc++ on the first ping (exit 134), so the `0.0001` world patch remains required for portability; (2) paused simulations expose endpoints but produce no payload because `spin_some()` is gated on `!paused`; (3) the old Wiki generic sensor launcher also tries to spawn nonexistent `description/usbl/model.sdf`. The verified command is `ros2 launch dave_demos dave_world.launch.py world_name:=usbl_tutorial`. Static routing/geometry only, not general acoustic/travel-time accuracy — see [Known issues](../notes/known-issues.md), [Verified demos](../notes/verified-demos.md), and [direct evidence](../notes/results/usbl_direct_validation_2026-08-27/) |
 | 18-world validation matrix | **18/18 PASS-level, 0 PARTIAL** (2026-08-07) — 13 SMOKE PASS (process-level liveness), 5 FUNCTIONAL PASS (real topic/service/sensor data read back). The last two PARTIAL rows were reclassified when their stated grounds stopped reproducing: `dave_multibeam_sonar` → FUNCTIONAL PASS once it ran under the authorised-X-display configuration and published PointCloud2, and `dave_ocean_waves_sonar_integrated` → SMOKE PASS once its RTF and CPU-climb grounds were both refuted. The `dave_world.launch.py` headless gap that blocked all 3 manipulation worlds is fixed ([`patches/dave_world_launch_headless_fix.diff`](../patches/dave_world_launch_headless_fix.diff)) — **still Mac-only, not applied inside Docker.** See [`notes/verified-demos.md`](../notes/verified-demos.md) and `notes/validation_matrix.csv`. Earlier 16/18 wording in [Superseded figures](#superseded-figures) |
 | Worlds previously documented as `sonar-demo`-branch-only | The separate-branch requirement was investigated and found incorrect for this checkout (2026-07-22) — both worlds only need `multibeam_sonar_system`, already present. **Both are now PASS-level:** `dave_ocean_waves_sonar` SMOKE PASS, `dave_ocean_waves_sonar_integrated` SMOKE PASS (reclassified 2026-08-07). Neither has had its sonar output topics echoed — only `/world/.../stats` — which is why both are SMOKE rather than FUNCTIONAL. See [`notes/verified-demos.md`](../notes/verified-demos.md) |
-| Vehicle/sensor coverage (not every Cartesian combination) | REXROV and Slocum Glider are **FUNCTIONAL**; BlueROV2 and BlueROV2 Heavy are **PARTIAL (4/5)** because their configs bridge a magnetometer the models do not declare. DVL/camera/ocean-current are FUNCTIONAL; SeaPressure publishes but remains numerical PARTIAL; USBL is **FUNCTIONAL PASS WITH REQUIRED WORKAROUNDS** in static tutorial routing/geometry. ArduSub SITL build/launch is a separate result — see main README [Verified demos](../notes/verified-demos.md). |
+| Vehicle/sensor/control coverage (not every Cartesian combination) | REXROV and Slocum Glider state/sensor scopes are **FUNCTIONAL**; BlueROV2 and Heavy sensor scopes remain partial because their configs bridge an undeclared magnetometer. Baseline, Heavy and Heavy-multibeam control loops are FUNCTIONAL in one exact-image run each, and the isolated fifth-sonar candidate is FUNCTIONAL on Mac. The later combined Docker derived-image run is **FAIL/PARTIAL**: after 60053 ms WGPU startup and sonar configuration, Gazebo began a stack trace and JSON/MAVROS, PointCloud2 and control were not reached. DVL/camera/ocean-current are FUNCTIONAL in their stated scopes; SeaPressure and USBL current candidate verdicts are in [Verified demos](../notes/verified-demos.md). |
 | Quantitative performance benchmark | **PASS** for `dave_ocean_waves`/`usbl_tutorial`, clean rerun 2026-07-27: `dave_ocean_waves` RTF 0.170 (Docker) / 0.376 (Mac); `usbl_tutorial` RTF 0.687 (Docker) / 0.646 (Mac). Reported as separate environments per world, not a single "N× faster" claim. **No valid Docker RTF exists for `dave_multibeam_sonar`** — the figures previously quoted here were withdrawn (see [Superseded figures](#superseded-figures)), and the world has not been re-measured under the X-display configuration that makes it run. Mac figures for that world are in [`notes/sonar-performance.md`](../notes/sonar-performance.md). See [`notes/next-steps.md`](../notes/next-steps.md) and `notes/bench_results/` |
 | Long-duration stability | **PASS** (2026-07-29) — a genuinely clean 4-hour run completed: 120 samples at an unbroken 2-minute cadence from elapsed=2min to elapsed=240min with no gaps, `Outcome: SURVIVED full planned duration`, RSS 932 → 1253 MiB (+12%, memory-growth heuristic OK). This is the first 4h run that is simultaneously current-script, uncontaminated and gap-free — it closes the item that had been open since 2026-07-27. Raw data committed at [`notes/stability/4h_clean_2026-07-29/`](../notes/stability/4h_clean_2026-07-29/) and re-verified on the committed copy. Earlier attempts in [Superseded figures](#superseded-figures) |
 

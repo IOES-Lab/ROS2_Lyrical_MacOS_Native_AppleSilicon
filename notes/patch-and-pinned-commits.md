@@ -14,6 +14,8 @@
 | `naitikpahwa18/dave` | `wgpu_integration` | [`6aef91c`](https://github.com/IOES-Lab/dave/pull/44/commits/6aef91c823af5da073329b84ba617b572965e79e) ([PR #44](https://github.com/IOES-Lab/dave/pull/44)) |
 | `IOES-Lab/dave` | `sonar-demo` (참고용, 검증에 미사용) | `8f6314f` |
 | `ArduPilot/ardupilot` | `ArduSub-stable` | `30257f0` |
+| `ArduPilot/ardupilot_gazebo` | detached tested revision | `082a0fe` |
+| `ros-geographic-info/geographic_info` | detached Docker source dependency | `24806adc767414eb3a34a58aefeb648ee415b09a` |
 
 ## 패치
 
@@ -23,10 +25,11 @@
 
 ## 2026-08-29 후보 패치 기준선
 
-새 8개 패치는 raw `6aef91c`에 독립적으로 적용하는 패치가 아니다. `6aef91c` 위에 이 문서의
+새 10개 패치는 raw `6aef91c`에 독립적으로 적용하는 패치가 아니다. `6aef91c` 위에 이 문서의
 기존 Jetty/Lyrical migration과 runtime 수정이 들어간 2026-08-29 테스트 기준선을 대상으로
 생성했다. 순서와 범위는 [`../patches/README.md`](../patches/README.md), 해시와 적용 검사는
-[`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/)에 있다.
+[`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/)과
+[`results/external_stack_validation_2026-08-29/`](results/external_stack_validation_2026-08-29/)에 있다.
 
 상류 checkout과 설치 workspace는 read-only로 유지했다. 따라서 "해결"은 해당 후보 패치를
 적용한 격리 snapshot에서 재현 실패가 사라졌다는 뜻이며, 상류 병합이나 사용자 설치 반영을

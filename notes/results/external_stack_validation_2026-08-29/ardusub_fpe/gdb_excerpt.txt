@@ -1,0 +1,42 @@
+167-[mavros_node-7] [INFO] [1788009047.067941881] [mavros.sys]: VER: 1.1: Board hardware:      00000000
+168-[mavros_node-7] [INFO] [1788009047.067948215] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+169-[mavros_node-7] [INFO] [1788009047.067952173] [mavros.sys]: VER: 1.1: UID:                 0000000000000000
+170-[mavros_node-7] [INFO] [1788009048.435695132] [mavros.sys]: FCU: Barometer 1 calibration complete
+171-[mavros_node-7] [INFO] [1788009048.435854132] [mavros.sys]: FCU: Barometer 2 calibration complete
+172-[ardusub-6]
+173:[ardusub-6] Thread 1 "ardusub" received signal SIGFPE, Arithmetic exception.
+174:[ardusub-6] 0x0000aaaab01bf49c in AP_Logger_File::periodic_1Hz() ()
+175-[mavros_node-7] Error:   mavconn: tcp2: receive: End of file
+176-[mavros_node-7]          at line 283 in /home/docker/mavros_ws/src/mavros/libmavconn/src/tcp.cpp
+177-[ardusub-6]
+178-[ardusub-6] Thread 2 (Thread 0xffff9e18c180 (LWP 81397) "log_io"):
+179-[ardusub-6] #0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+180-[ardusub-6] #1  0x0000ffff9e248480 in __internal_syscall_cancel (a1=a1@entry=0, a2=a2@entry=0, a3=a3@entry=281473334163136, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=115) at ./nptl/cancellation.c:49
+--
+187-[ardusub-6] #8  0x0000aaaab01bc04c in void Functor<void>::method_wrapper<AP_Logger, &AP_Logger::io_thread>(void*) ()
+188-[ardusub-6] #9  0x0000aaaab02761dc in HALSITL::Scheduler::thread_create_trampoline(void*) ()
+189-[ardusub-6] #10 0x0000ffff9e24c288 in start_thread (arg=0xffff9e18c180) at ./nptl/pthread_create.c:454
+190-[ardusub-6] #11 0x0000ffff9e2b68ac [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+191-[ardusub-6]
+192-[ardusub-6] Thread 1 (Thread 0xffff9e79c020 (LWP 81362) "ardusub"):
+193:[ardusub-6] #0  0x0000aaaab01bf49c in AP_Logger_File::periodic_1Hz() ()
+194-[ardusub-6] #1  0x0000aaaab01bc5f8 in AP_Logger_Backend::periodic_tasks() ()
+195-[ardusub-6] #2  0x0000aaaab01b8f1c in AP_Logger::periodic_tasks() ()
+196-[ardusub-6] #3  0x0000aaaab01b1328 in AP_Scheduler::run(unsigned int) ()
+197-[ardusub-6] #4  0x0000aaaab01b1d3c in AP_Scheduler::loop() ()
+198-[ardusub-6] #5  0x0000aaaab01b5eb4 in AP_Vehicle::loop() ()
+199-[ardusub-6] #6  0x0000aaaab0270d24 in HAL_SITL::run(int, char* const*, AP_HAL::HAL::Callbacks*) const ()
+--
+227-[ardusub-6] x26            0x38                56
+228-[ardusub-6] x27            0xfda0da            16621786
+229-[ardusub-6] x28            0xfda0da            16621786
+230-[ardusub-6] x29            0xffffc57e6c40      281473995140160
+231-[ardusub-6] x30            0xaaaab01bf484      187650075784324
+232-[ardusub-6] sp             0xffffc57e6c40      0xffffc57e6c40
+233:[ardusub-6] pc             0xaaaab01bf49c      0xaaaab01bf49c <AP_Logger_File::periodic_1Hz()+124>
+234-[ardusub-6] cpsr           0x40001000          [ EL=0 BTYPE=0 SSBS Z ]
+235-[ardusub-6] fpsr           0x10                [ IXC ]
+236-[ardusub-6] fpcr           0x700               [ IOE DZE OFE Len=0 Stride=0 RMode=0 ]
+237-[ardusub-6] tpidr          0xffff9e79c740      0xffff9e79c740
+238-[ardusub-6] tpidr2         0x0                 0x0
+239-[ardusub-6] pauth_dmask    0x7f000000000000    35747322042253312

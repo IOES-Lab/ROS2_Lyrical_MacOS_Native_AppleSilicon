@@ -1,0 +1,122 @@
+Waiting for at least 1 matching subscription(s)...
+Waiting for at least 1 matching subscription(s)...
+publisher: beginning loop
+publishing #1: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #2: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #3: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #4: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #5: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #6: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #7: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #8: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #9: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #10: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #11: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #12: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #13: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #14: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #15: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #16: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #17: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #18: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #19: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #20: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #21: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #22: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #23: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #24: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #25: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #26: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #27: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #28: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #29: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #30: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #31: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #32: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #33: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #34: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #35: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #36: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #37: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #38: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #39: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #40: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #41: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #42: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #43: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #44: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #45: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #46: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #47: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #48: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #49: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #50: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #51: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #52: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #53: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #54: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #55: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #56: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #57: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #58: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #59: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)
+
+publishing #60: mavros_msgs.msg.ManualControl(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id=''), x=300.0, y=0.0, z=500.0, r=0.0, buttons=0, buttons2=0, enabled_extensions=0, s=0.0, t=0.0, aux1=0.0, aux2=0.0, aux3=0.0, aux4=0.0, aux5=0.0, aux6=0.0)

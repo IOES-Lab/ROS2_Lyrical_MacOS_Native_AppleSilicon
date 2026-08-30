@@ -1,0 +1,16 @@
+qt.multimedia.symbolsresolver: Couldn't load pipewire-0.3 library
+qt.multimedia.symbolsresolver: Couldn't resolve pipewire-0.3 symbols
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+API.QGCApplication: Qt lib localization for "C" is not present
+API.QGCApplication: Error loading source localization for "C"
+API.QGCApplication: Error loading json localization for "C"
+     0.051 Using Qt multimedia with FFmpeg version 7.1.3 LGPL version 2.1 or later - qt.multimedia.ffmpeg - (unknown:0)
+     0.718 Warning: Member enabled of the object QQuickPinchArea overrides a member of the base object. Consider renaming it or adding final or override specifier - qt.qml.propertyCache.append - (unknown:0)
+     1.446 Critical: Error loading text-to-speech plug-in "speechd" - default - (unknown:0)
+     1.446 Warning: No usable QTextToSpeech engine available. - Utilities.AudioOutput - (unknown:0)
+     1.532 Warning: Unable to obtain the client: "org.freedesktop.DBus.Error.ServiceUnknown" "The name org.freedesktop.GeoClue2 was not provided by any .service files" - qt.positioning.geoclue2 - (unknown:0)
+     1.533 Warning: void QGCPositionManager::_positionError(QGeoPositionInfoSource::Error) Positioning error: QGeoPositionInfoSource::AccessError - PositionManager.QGCPositionManager - (QGCPositionManager::_positionError:147)
+     1.587 Warning: Could not open pipeline cache source file '/home/docker/qgc_diagnostics_2026-08-29/xdg/no_system_glib/cache/QGroundControl/QGroundControl Daily/qgc_rhi_pipeline.cache' - default - (unknown:0)

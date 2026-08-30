@@ -1,0 +1,124 @@
+candidate marker and build:
+53:      name="custom::MultibeamSonarSystem">
+Starting >>> dave_worlds
+Finished <<< dave_worlds [0.35s]
+
+Summary: 1 package finished [0.54s]
+
+runtime discriminators:
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[gazebo-1] [sonar_wgpu] GPU #1     | 60053.0 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_compute_factory] SUCCESS: Auto-selected WGPU backend (CUDA unavailable)
+[gazebo-1] [INFO] [1788019162.301317840] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788019162.301350965] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788019162.301357965] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788019162.301366257] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] Stack trace (most recent call last) in thread 297:
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+[ardusub-9] No JSON sensor message received, resending servos
+
+No-JSON line count: 105
+MAVROS state probe bytes: 0

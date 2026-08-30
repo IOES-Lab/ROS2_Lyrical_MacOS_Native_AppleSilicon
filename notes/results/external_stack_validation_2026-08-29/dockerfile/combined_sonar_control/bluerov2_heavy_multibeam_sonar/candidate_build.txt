@@ -1,0 +1,17 @@
+53:      name="custom::MultibeamSonarSystem">
+Starting >>> dave_worlds
+Finished <<< dave_worlds [0.35s]
+
+Summary: 1 package finished [0.54s]
+ M gazebo/dave_gz_model_plugins/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/CMakeLists.txt
+ M gazebo/dave_gz_multibeam_sonar/multibeam_sonar_system/package.xml
+ M gazebo/dave_gz_sensor_plugins/CMakeLists.txt
+ M gazebo/dave_gz_world_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/CMakeLists.txt
+ M gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc
+ M models/dave_robot_models/config/bluerov2/robot_config.py
+ M models/dave_robot_models/config/bluerov2_heavy/robot_config.py
+ M models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
+ M models/dave_worlds/worlds/dave_ocean_waves.world

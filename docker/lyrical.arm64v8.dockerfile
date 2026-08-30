@@ -161,7 +161,14 @@ RUN git clone https://github.com/naitikpahwa18/dave.git dave && \
     cd dave && git checkout --detach "$DAVE_COMMIT"
 
 COPY patches/dave_lyrical_jetty_migration_mac.diff /tmp/dave_lyrical_jetty_migration_mac.diff
-RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
+COPY patches/bluerov2_ardusub_speedup_fix.diff /tmp/bluerov2_ardusub_speedup_fix.diff
+RUN cd dave && \
+    git apply /tmp/dave_lyrical_jetty_migration_mac.diff && \
+    git apply /tmp/bluerov2_ardusub_speedup_fix.diff && \
+    python3 -m py_compile \
+      models/dave_robot_models/config/bluerov2/robot_config.py \
+      models/dave_robot_models/config/bluerov2_heavy/robot_config.py \
+      models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
 
 # Tested 2026-07-18 with `|| true` removed from the install step: confirmed it WAS masking a
 # real dependency-resolution failure, not just a harmless warning. Failure: `ros-lyrical-mavros`
@@ -175,10 +182,13 @@ RUN cd dave && git apply /tmp/dave_lyrical_jetty_migration_mac.diff
 # Fixed 2026-07-23 (caught in review): the blanket `|| true` previously here made the ENTIRE
 # rosdep pass succeed regardless of failure reason, not just the one known mavros gap -- any
 # other real, unrelated dependency-resolution failure would be silently swallowed too. Replaced
-# with `--skip-keys mavros`, which tolerates only the specific known-missing key and still lets
-# the build fail loudly on anything else.
+# with a narrow skip list for `mavros` and `mavros_msgs`, both of which are built in the pinned
+# source workspace below. On 2026-08-29 the Lyrical apt index briefly pointed at a removed
+# `mavros_msgs` archive; leaving that source-built key to apt made an otherwise cached rebuild fail
+# with 404. Unrelated rosdep failures still fail the image build.
 RUN rosdep init || true && rosdep update --rosdistro $ROS_DISTRO && \
-    rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . --skip-keys mavros
+    rosdep install --rosdistro $ROS_DISTRO -iy --from-paths . \
+      --skip-keys "mavros mavros_msgs"
 
 # wgpu_vendor (multibeam sonar's CUDA-free compute backend) is a Rust crate — needs cargo
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -218,6 +228,13 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
 #    after this whole mavros block finishes, not before rosdep needs the index — which is the
 #    ordering already reflected below.
 ENV MAVROS_WS=/home/$USER/mavros_ws
+# The current Lyrical apt index points the geographic_msgs binary package at an expired
+# archive, so build geographic_info from a pinned source revision.  Lyrical split the
+# deprecated ament_target_dependencies macro entirely.  The pinned geographic_info revision
+# still calls that macro, so replace only that target's dependency block with the imported
+# targets exported by the Lyrical packages.  This preserves the pinned source while avoiding
+# the expired geographic_msgs binary archive.
+ARG GEOGRAPHIC_INFO_COMMIT="24806adc767414eb3a34a58aefeb648ee415b09a"
 RUN apt-get update -o APT::Update::Error-Mode=any && \
     apt-get install -y --no-install-recommends \
       python3-rosinstall-generator python3-osrf-pycommon geographiclib-tools
@@ -229,6 +246,11 @@ RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
     rosinstall_generator --format repos --upstream mavros | tee /tmp/mavros.repos && \
     vcs import src < /tmp/mavlink.repos && \
     vcs import src < /tmp/mavros.repos && \
+    git clone https://github.com/ros-geographic-info/geographic_info.git src/geographic_info && \
+    cd src/geographic_info && git checkout --detach "$GEOGRAPHIC_INFO_COMMIT" && \
+    python3 -c 'from pathlib import Path; p=Path("geodesy/CMakeLists.txt"); s=p.read_text(); old="ament_target_dependencies(geoconv \n  ${dependencies}\n)"; new="target_link_libraries(geoconv PUBLIC\n  angles::angles\n  geographic_msgs::geographic_msgs\n  geometry_msgs::geometry_msgs\n  sensor_msgs::sensor_msgs\n  unique_identifier_msgs::unique_identifier_msgs\n)"; assert s.count(old)==1, s.count(old); p.write_text(s.replace(old,new))' && \
+    test "$(grep -Fc 'target_link_libraries(geoconv PUBLIC' geodesy/CMakeLists.txt)" -eq 1 && \
+    cd ../.. && \
     rosdep update --rosdistro $ROS_DISTRO && \
     rosdep install --rosdistro $ROS_DISTRO --from-paths src --ignore-src -y
 RUN $MAVROS_WS/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
@@ -274,6 +296,29 @@ RUN chown -R $USER:$USER /home/$USER/ardupilot /home/$USER/imp_shim && \
     su $USER -c "cd /home/$USER/ardupilot && ./waf configure --board sitl && ./waf sub" && \
     cp /home/$USER/ardupilot/build/sitl/bin/ardusub /usr/local/bin/ardusub
 
+# --- Official ArduPilot Gazebo system plugin (BlueROV JSON sensor bridge) ---
+# The DAVE BlueROV descriptors load libArduPilotPlugin.so, but building ArduSub alone does not
+# provide it. Pin the exact upstream revision built and exercised on this aarch64 Jetty image.
+# GStreamer development headers are CMake requirements of the upstream project even when only
+# ArduPilotPlugin is used at runtime.
+ARG ARDUPILOT_GAZEBO_COMMIT="082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5"
+RUN apt-get update -o APT::Update::Error-Mode=any && \
+    apt-get install -y --no-install-recommends \
+      libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev && \
+    rm -rf /var/lib/apt/lists/*
+RUN git clone https://github.com/ArduPilot/ardupilot_gazebo.git \
+      /home/$USER/ardupilot_gazebo && \
+    cd /home/$USER/ardupilot_gazebo && \
+    git checkout --detach "$ARDUPILOT_GAZEBO_COMMIT" && \
+    . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+    GZ_VERSION=jetty cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
+    cmake --build build --parallel 2 && \
+    test -f build/libArduPilotPlugin.so && \
+    chown -R $USER:$USER /home/$USER/ardupilot_gazebo
+
+ENV GZ_SIM_SYSTEM_PLUGIN_PATH=/home/$USER/ardupilot_gazebo/build
+ENV GZ_SIM_RESOURCE_PATH=/home/$USER/ardupilot_gazebo/models:/home/$USER/ardupilot_gazebo/worlds
+
 # --- QGroundControl, Firefox, environment ---
 RUN usermod -aG dialout $USER && apt -y remove modemmanager || true
 RUN apt-get update -o APT::Update::Error-Mode=any && \
@@ -293,6 +338,11 @@ RUN mkdir -p ~/QGC && wget -O ~/QGC/QGroundControl-aarch64-DailyBuild.AppImage \
     mv ~/QGC/squashfs-root/* ~/QGC/. && rm ~/QGC/QGroundControl-aarch64-DailyBuild.AppImage && \
     mkdir -p /home/$USER/.local/bin && \
     ln -sf /home/$USER/QGC/AppRun /home/$USER/.local/bin/qgroundcontrol
+
+# This DailyBuild AppRun preloads host GLib/GIO by default. In the tested Ubuntu 26.04 aarch64
+# RDP image that path SIGSEGVs immediately; the AppRun's supported opt-out survives clean-start
+# controls and connects to the integrated BlueROV2/ArduSub/MAVROS stack.
+ENV QGC_NO_SYSTEM_GLIB=1
 
 # Firefox — official DAVE Docker theme (docker-jazzy-harmonic style) installs the Mozilla
 # linux64 tarball, which is amd64-only. This image is arm64v8, so pull the ARM64 tarball

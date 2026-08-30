@@ -1,0 +1,10 @@
+Sanitized 2026-08-29 host inventory summary (serial numbers omitted).
+Commands used: system_profiler SPUSBDataType, system_profiler SPBluetoothDataType, ioreg -r -c IOHIDDevice -l.
+
+Unique IOHID Product names:
+- Headset
+- Apple Internal Keyboard / Trackpad
+- BTM
+- Keyboard Backlight
+
+No Xbox, PlayStation, DualShock, DualSense, joystick, gamepad, Pixhawk, Cube, FTDI, CP210 or CH340 product name was present. The only GameController metadata belonged to Apple Internal Keyboard / Trackpad, not an external gamepad.

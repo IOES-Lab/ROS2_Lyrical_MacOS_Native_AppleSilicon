@@ -1,0 +1,17 @@
+dave_lyrical_jetty_migration_mac.diff: PASS
+dave_world_launch_headless_fix.diff: PASS
+vehicle_imu_topic_fix.diff: PASS
+usbl_sigma_fix.diff: PASS
+new_dvl_uri_fix.diff: PASS
+multibeam_wgpu_and_backend_fix.diff: PASS
+underwater_camera_channel_fix.diff: PASS
+seapressure_contract_fix.diff: PASS
+dvl_configuration_and_bridge_fix.diff: PASS
+spherical_validation_fix.diff: PASS
+plugin_discovery_hooks_fix.diff: PASS
+usbl_runtime_fix.diff: PASS
+launch_object_world_build_fix.diff: PASS
+fifth_rov_sonar_world_fix.diff: PASS
+bluerov2_ardusub_speedup_fix.diff: PASS
+PY_COMPILE=3/3
+MODIFIED_PATHS=59

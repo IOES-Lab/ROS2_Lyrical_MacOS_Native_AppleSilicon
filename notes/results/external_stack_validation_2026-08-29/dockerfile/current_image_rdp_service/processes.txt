@@ -1,0 +1,6 @@
+    1 root     sudo            sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+   26 message+ dbus-daemon     dbus-daemon --system --fork
+   30 root     sshd            sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+   31 root     sudo            sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini
+   34 root     xrdp-sesman     xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini
+   35 root     xrdp            xrdp --nodaemon --config /etc/xrdp/xrdp.ini

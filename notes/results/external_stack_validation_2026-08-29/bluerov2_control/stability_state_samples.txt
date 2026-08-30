@@ -1,0 +1,52 @@
+=== sample 1 ===
+header:
+  stamp:
+    sec: 12
+    nanosec: 36000000
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+=== sample 2 ===
+header:
+  stamp:
+    sec: 27
+    nanosec: 40000000
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+=== sample 3 ===
+header:
+  stamp:
+    sec: 42
+    nanosec: 43000000
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+=== sample 4 ===
+header:
+  stamp:
+    sec: 59
+    nanosec: 43000000
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---

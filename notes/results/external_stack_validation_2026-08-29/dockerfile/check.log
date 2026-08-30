@@ -1,0 +1,39 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from lyrical.arm64v8.dockerfile
+#1 transferring dockerfile: 30.91kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/arm64v8/ubuntu:26.04
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#3 ...
+
+#4 [auth] curlimages/curl:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#3 DONE 1.8s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+Check complete, 1 warning has been found!
+
+WARNING: JSONArgsRecommended - https://docs.docker.com/go/dockerfile/rule/json-args-recommended/
+JSON arguments recommended for CMD to prevent unintended behavior related to OS signals
+docker/lyrical.arm64v8.dockerfile:479
+--------------------
+ 478 |     # hadolint ignore=DL3025
+ 479 | >>> CMD uid="$(id -u docker)"; \
+ 480 | >>>     sudo install -d -m 0755 /run/xrdp /run/xrdp/sockdir; \
+ 481 | >>>     sudo install -d -m 0700 -o docker -g docker "/run/user/$uid"; \
+ 482 | >>>     sudo rm -f /run/xrdp/*.pid /var/run/xrdp/*.pid; \
+ 483 | >>>     sudo mkdir -p /run/dbus; sudo rm -f /run/dbus/pid; \
+ 484 | >>>     sudo dbus-daemon --system --fork; \
+ 485 | >>>     [ -f /usr/sbin/sshd ] && sudo /usr/sbin/sshd; \
+ 486 | >>>     sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini & \
+ 487 | >>>     exec sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+ 488 |
+--------------------

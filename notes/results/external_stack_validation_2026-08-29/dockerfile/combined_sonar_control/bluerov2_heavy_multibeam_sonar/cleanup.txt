@@ -1,0 +1,4 @@
+Derived test container id:
+7336719c88b15a240d9d1fb9475a579ada702dc274c2fb59408c806c6b173793
+Post-test docker ps -a match:
+NONE — container removed

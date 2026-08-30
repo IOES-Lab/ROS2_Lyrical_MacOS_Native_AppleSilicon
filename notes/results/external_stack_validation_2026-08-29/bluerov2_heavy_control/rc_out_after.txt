@@ -1,0 +1,7 @@
+header:
+  stamp:
+    sec: 25
+    nanosec: 621000000
+  frame_id: ''
+channels: '<sequence type: uint16, length: 16>'
+---

@@ -1,0 +1,1 @@
+name=lyrical-current-rdp-service-check status=Up 12 seconds image=lyrical-sim:jetty-rdp-external-stack-check

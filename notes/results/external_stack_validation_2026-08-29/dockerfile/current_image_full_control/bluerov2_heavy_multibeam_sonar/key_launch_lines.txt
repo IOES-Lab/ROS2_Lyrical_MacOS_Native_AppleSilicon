@@ -1,0 +1,8 @@
+[ERROR] [keyboard_publisher.py-5]: process has died [pid 252, exit code 1, cmd '/home/docker/dave_ws/install/lib/dave_robot_models/keyboard_publisher.py --ros-args --params-file /tmp/launch_params_ztb6oxbg'].
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[ardusub-9] Setting SIM_SPEEDUP=1.000000
+[ardusub-9] Starting SITL: JSON
+[ardusub-9] JSON received:
+[mavros_node-10] [INFO] [1788017050.348248418] [mavros]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[mavros_node-10] [INFO] [1788017052.702598169] [mavros.sys]: FCU: ArduPilot Ready

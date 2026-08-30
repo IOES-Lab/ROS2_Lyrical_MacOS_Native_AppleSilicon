@@ -1,0 +1,8 @@
+== IMAGE INSPECT ==
+ID=sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461 Created=2026-08-29T15:02:28.700860594Z SizeBytes=6266154355 Architecture=arm64 OS=linux
+== IMAGE LIST ==
+Repository=lyrical-sim Tag=jetty-rdp-external-stack-check ID=af9586fa8045 Size=23.9GB
+== BUILD LOG TIMES ==
+BirthEpoch=1788013376 ModifyEpoch=1788016067 Birth=2026-08-29T23:22:56+0900 Modify=2026-08-30T00:07:47+0900 SizeBytes=3028828
+ElapsedByLogSeconds=2691.549
+ElapsedByLogMinutes=44.86

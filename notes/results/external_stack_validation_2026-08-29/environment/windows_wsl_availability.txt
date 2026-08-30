@@ -1,0 +1,6 @@
+== WINDOWS / WSL COMMANDS ==
+wsl.exe=NOT_FOUND
+powershell.exe=NOT_FOUND
+cmd.exe=NOT_FOUND
+wine=NOT_FOUND
+qemu-system-x86_64=NOT_FOUND

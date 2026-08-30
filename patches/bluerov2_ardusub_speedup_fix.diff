@@ -1,0 +1,39 @@
+diff --git a/models/dave_robot_models/config/bluerov2/robot_config.py b/models/dave_robot_models/config/bluerov2/robot_config.py
+index 8555025..210df5f 100644
+--- a/models/dave_robot_models/config/bluerov2/robot_config.py
++++ b/models/dave_robot_models/config/bluerov2/robot_config.py
+@@ -78,6 +78,8 @@ def launch_setup(context, *args, **kwargs):
+     ardusub_process = ExecuteProcess(
+         cmd=[
+             "ardusub",
++            "--speedup",
++            "1",
+             "-w",
+             "--model",
+             ardusub_model,
+diff --git a/models/dave_robot_models/config/bluerov2_heavy/robot_config.py b/models/dave_robot_models/config/bluerov2_heavy/robot_config.py
+index fc4efff..6a044ba 100644
+--- a/models/dave_robot_models/config/bluerov2_heavy/robot_config.py
++++ b/models/dave_robot_models/config/bluerov2_heavy/robot_config.py
+@@ -144,6 +144,8 @@ def launch_setup(context, *args, **kwargs):
+     ardusub_process = ExecuteProcess(
+         cmd=[
+             "ardusub",
++            "--speedup",
++            "1",
+             "-w",
+             "--model",
+             ardusub_model,
+diff --git a/models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py b/models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
+index 09a1d19..5ef40a3 100644
+--- a/models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
++++ b/models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
+@@ -138,6 +138,8 @@ def launch_setup(context, *args, **kwargs):
+     ardusub_process = ExecuteProcess(
+         cmd=[
+             "ardusub",
++            "--speedup",
++            "1",
+             "-w",
+             "--model",
+             ardusub_model,

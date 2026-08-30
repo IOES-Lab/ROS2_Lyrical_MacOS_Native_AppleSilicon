@@ -251,8 +251,9 @@ topic graph를 양쪽 플랫폼에서 직접 읽었다.
   양쪽 모두 odometry만 발행, IMU·magnetometer·sonar PointCloud2는 120초 동안 미발행
 - Docker standalone WebSocket/keyboard Joy는 실제 non-neutral message로 PASS
 - exact BlueROV2 통합 launch는 당시 shell에서 `mavros_msgs`/`mavros`가 보이지 않아 종료.
-  **2026-08-29 정정:** image 안의 기존 MAVROS overlay를 source하면 ArduSub·MAVROS는 시작하지만,
-  ArduPilot Gazebo plugin 부재·disconnected MAVROS·QGC SIGSEGV로 control loop는 여전히 PARTIAL
+  **2026-08-29 1차 정정:** image 안의 기존 MAVROS overlay를 source하면 ArduSub·MAVROS는 시작했다.
+  그 시점에는 plugin 부재·disconnected MAVROS·QGC SIGSEGV로 PARTIAL이었지만, 같은 날 19차가
+  official plugin·speedup 후보·QGC opt-out으로 baseline control loop를 직접 닫았다
 
 이 회차는 일반 ROV dynamics나 QGC 제어를 입증하지 않는다. thrust command response,
 MAVROS 실제 연결, 반복·장시간 안정성은 후속 범위다. fifth variant sonar root cause는
@@ -447,14 +448,70 @@ Fuel/Windows/HIL 및 일반 과학 정확도는 계속 열린 범위로 남겼�
 - Docker isolated OGRE2 DAVE sonar는 실제 PointCloud를 발행; software WGPU는 CPU fallback
 - fifth ROV sonar silence는 `dave_ocean_waves.world`의 `MultibeamSonarSystem` 누락으로 확정,
   9번째 후보에서 513×301 PointCloud2 발행
-- Docker 기존 MAVROS overlay를 source하면 ArduSub·MAVROS와 TCP endpoint는 시작. 하지만
-  `libArduPilotPlugin.so` 부재, disconnected MAVROS, QGroundControl 반복 SIGSEGV로 통합
-  control loop는 계속 PARTIAL
+- Docker 기존 MAVROS overlay를 source하면 ArduSub·MAVROS와 TCP endpoint는 시작했지만,
+  이 18차 시점에는 `libArduPilotPlugin.so` 부재, disconnected MAVROS, QGroundControl 반복
+  SIGSEGV로 통합 control loop를 PARTIAL로 유지했다. **같은 날 19차 검증이 이 현재 판정을
+  대체한다**
 
 따라서 “MAVROS가 image에 없다”, “fifth sonar 원인 미확정”, “Docker OGRE2 sonar는 현재도
-항상 crash”, “fresh Mac camera는 현재 topic 부재”를 현재 판정으로 쓰지 않는다. 후보 9개는
-순서대로 apply되고 Rust/Python/XML/SDF 검사와 snapshot equality를 통과한다. 상류와 사용자
-설치 workspace에는 적용하지 않았다.
+항상 crash”, “fresh Mac camera는 현재 topic 부재”를 현재 판정으로 쓰지 않는다. 이 시점의
+후보 9개는 순서대로 apply되고 Rust/Python/XML/SDF 검사와 snapshot equality를 통과했다.
+상류와 사용자 설치 workspace에는 적용하지 않았다.
 
 근거:
 [`../results/open_gap_revalidation_2026-08-29/`](../results/open_gap_revalidation_2026-08-29/).
+
+## 19차 — 2026-08-29 BlueROV2 외부 스택 직접 검증
+
+18차의 “plugin 부재·disconnected MAVROS·QGC SIGSEGV”를 종착점으로 두지 않고 필요한 공식
+구성요소와 wrapper 동작을 직접 추적했다.
+
+- official `ArduPilot/ardupilot_gazebo`를 commit `082a0fe`에 고정해 Ubuntu 26.04 arm64,
+  ROS 2 Lyrical, Gazebo Jetty에서 `libArduPilotPlugin.so` 빌드
+- JSON sensor 입력 뒤 ArduSub가 `AP_Logger_File::periodic_1Hz()`에서 `SIGFPE`하는 것을 GDB로
+  재현하고, 세 BlueROV config에 `--speedup 1`을 넣는 10번째 후보 패치 작성
+- baseline BlueROV2에서 MAVROS connected 4/4, MANUAL force-arm, 6초 manual control,
+  X odometry +2.182964 m, disarm 성공
+- BlueROV2 Heavy에서도 별도 1회 bounded run으로 MAVROS connected 4/4, MANUAL force-arm,
+  6초 manual control, X odometry +2.375679 m, disarm 성공
+- current Dockerfile은 cache-assisted end-to-end로 44.86분에 23.9GB image를 생성했고, 그 exact
+  image에서 baseline·Heavy·Heavy-multibeam 모두 MAVROS 4/4와 arm/control/disarm 통과
+- QGroundControl retained DailyBuild는 기본 AppRun exit 139, AppRun이 지원하는
+  `QGC_NO_SYSTEM_GLIB=1` opt-out에서는 45초 clean control과 integrated vehicle 연결 PASS
+- current exact image의 xrdp 서비스 기동과 QGC opt-out/offscreen 20초 생존 PASS; 실제 RDP
+  login·rendered GUI·vehicle connection을 그 image에서 재실행한 것은 아님
+- Docker에는 `/dev/dri`·NVIDIA device request가 없고 llvmpipe software rendering만 존재;
+  Windows/WSL, Fuel credential, 외부 gamepad/HIL 장비도 실제 inventory에 없음
+
+따라서 세 BlueROV variant의 tested Docker control loop는 FUNCTIONAL PASS로 올린다. 19차
+시점에는 Heavy-multibeam control과 sonar 출력이 별도 snapshot이어서 한 결합 결과로 쓰지
+않았다. 이 미실행 범위는 아래 20차에서 직접 실행해 실패 판정으로 닫았다. fresh `--no-cache`,
+exact-image rendered RDP/QGC
+vehicle connection, QGC 기본 경로, hardware GPU·Windows·Fuel upload·physical HIL,
+calibration과 장시간/실차 정확도는
+별도 범위다. 후보 패치와 Docker recipe는 상류 DAVE 및 사용자 설치 workspace에 적용하지 않았다.
+
+근거:
+[`../results/external_stack_validation_2026-08-29/`](../results/external_stack_validation_2026-08-29/).
+
+
+## 20차 — 2026-08-30 Heavy-multibeam sonar+control 결합 Docker 검증
+
+19차에서 별도였던 두 결과를 한 실행에 합쳤다. exact current Docker image의 source tree에
+9번째 fifth-ROV sonar-world 후보를 live-apply하고 `dave_worlds`를 재빌드한 뒤,
+`bluerov2_heavy_multibeam_sonar`와 ArduSub/MAVROS를 함께 시작했다.
+
+- 후보 marker 확인과 `dave_worlds` 재빌드 PASS
+- WGPU가 Docker software adapter `llvmpipe` 선택
+- 첫 1×1×4 probe가 **60053.0 ms** 소요
+- sonar plugin이 513 beams × 301 rays × 399 bins 설정을 출력
+- 직후 Gazebo stack trace가 시작되고 ArduSub는 no-JSON 경고를 105회 출력
+- MAVROS state probe 0 byte, PointCloud2 미수집, arm/control/disarm 단계 미도달
+
+따라서 결합 경로는 더 이상 “미검증”이 아니라 **FAIL/PARTIAL**이다. 수동 cleanup 전에 완전한
+backtrace와 최종 exit status를 보존하지 못했으므로 signal·exit code·root cause는 단정하지
+않는다. 별도 exact-image control PASS와 별도 Mac fifth-sonar PointCloud PASS는 각각의 원래
+범위에서 유지한다. Docker 결합 실패의 원인 분리와 수정 후 한-session 재검증이 남았다.
+
+근거:
+[`../results/external_stack_validation_2026-08-29/dockerfile/combined_sonar_control/`](../results/external_stack_validation_2026-08-29/dockerfile/combined_sonar_control/).

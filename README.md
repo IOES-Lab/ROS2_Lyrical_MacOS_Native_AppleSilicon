@@ -7,13 +7,15 @@ Docker (Ubuntu 26.04).
 
 This is a verification record, not a distribution. It establishes scoped build, launch, topic
 and service behavior. **General numerical, acoustic, optical and hydrodynamic correctness is not
-established.** On 2026-08-29 nine candidate patch groups closed every remaining defect that could
-be reproduced and discriminated in the available Mac and Docker environments. The ninth closes
-the fifth-ROV sonar world-composition omission found in the final open-gap recheck. The upstream DAVE
-checkout and the user's installed workspace remain unchanged; the fixes live in [`patches/`](patches/)
-and are backed by [`notes/results/remaining_defect_fixes_2026-08-29/`](notes/results/remaining_defect_fixes_2026-08-29/)
-and the final [`open-gap revalidation`](notes/results/open_gap_revalidation_2026-08-29/).
-External-stack, hardware and broad scientific-validation boundaries remain open and are listed in
+established.** On 2026-08-29 ten candidate patch groups closed every remaining defect that could be
+reproduced and discriminated in the available Mac and Docker environments. The ninth closes the
+fifth-ROV sonar world-composition omission; the tenth sets an explicit valid ArduSub speedup after
+the official Gazebo plugin exposed an arm64 logger FPE. The upstream DAVE checkout and the user's
+installed workspace remain unchanged; the fixes live in [`patches/`](patches/) and are backed by
+[`notes/results/remaining_defect_fixes_2026-08-29/`](notes/results/remaining_defect_fixes_2026-08-29/),
+the [`open-gap revalidation`](notes/results/open_gap_revalidation_2026-08-29/) and the
+[`external-stack validation`](notes/results/external_stack_validation_2026-08-29/). Hardware,
+external-account and broad scientific-validation boundaries remain open in
 [`notes/next-steps.md`](notes/next-steps.md).
 
 ## Results
@@ -24,7 +26,8 @@ External-stack, hardware and broad scientific-validation boundaries remain open 
 | Direct world-model audit | A candidate patch gives all 18 distributed files unique internal `<world name>` values; Mac/Docker scoped regression checks pass. The earlier 14-name/3-duplicate-group result remains historical evidence, not the patched verdict — [current evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
 | Direct sonar check | The candidate WGPU fix removes the gross 6.4 m planar shift: for a 3.99 m target, five Mac/Metal peaks are 3.988–4.064 m (median 4.013 m, maximum absolute error 0.0736 m). The GPU path now rejects frequency counts above its 4096-bin workgroup-memory limit before GPU initialisation so C++ can fall back to CPU; explicit unavailable CUDA also falls back to CPU and still publishes raw sonar. This is one controlled scene plus a boundary unit test, not general acoustic validation — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
 | Direct DVL check | With the candidate patch, all 8 shipped descriptors publish four-beam Docker messages, frame IDs are populated, range initialization errors are absent, and an actual descriptor reports water-mass target with non-zero environmental velocity. Overall remains PARTIAL because the stock Gazebo Sensors DVL path still SIGSEGVs on the tested Mac — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
-| Direct ROV-model check | Patched Mac REXROV remains 7/7 in the configured state/sensor scope. The fifth `bluerov2_heavy_multibeam_sonar` silence is now root-caused: `dave_ocean_waves.world` omitted `MultibeamSonarSystem`; the ninth isolated candidate adds it and publishes a 513×301 PointCloud2 on Apple-M2 WGPU. Docker integration now starts ArduSub and MAVROS when the existing MAVROS overlay is sourced, but `libArduPilotPlugin.so` is absent, `/mavros/state` stays disconnected and QGroundControl repeatedly SIGSEGVs — [evidence](notes/results/open_gap_revalidation_2026-08-29/) |
+| Direct ROV-model check | Patched Mac REXROV remains 7/7 in the configured state/sensor scope, and the isolated ninth candidate makes the fifth ROV sonar publish 513×301 PointCloud2 on Mac. The exact Docker image separately passed MAVROS 4/4 and bounded arm/control/disarm for baseline, Heavy and Heavy-multibeam, moving X by +1.697915 m, +1.125856 m and +0.818825 m. A later derived-image run combined that sonar-world candidate with Heavy-multibeam control: the candidate rebuilt, WGPU selected `llvmpipe` and the sonar configured 513×301×399, but a Gazebo stack trace began, ArduSub received no JSON, and neither PointCloud2 nor control was reached. The combined Docker path is therefore FAIL/PARTIAL with root cause open; the two separate PASS results remain scoped — [evidence](notes/results/external_stack_validation_2026-08-29/) |
+| Current Docker image recipe | **PASS, cache-assisted end to end (2026-08-30).** The current Dockerfile completed in 44.86 minutes and produced a 23.9 GB arm64 image (`af9586fa8045`). Package/pin checks and all three exact-image headless control loops pass. Exact-image xrdp-service startup and QGC opt-out offscreen survival also pass; this is not a fresh `--no-cache` build or a rendered RDP/QGC interaction — [evidence](notes/results/external_stack_validation_2026-08-29/dockerfile/) |
 | Direct Glider-model check | Docker RDP reran both Wiki launches and all 9 bridge topics. State/sensor 6/6 passes with the local IMU patch; `cmd_thrust` changes propeller velocity. A repeated integrated deadband control delivered **50/50 ROS `true` messages to Gazebo with 0 false**, withdrawing the earlier one-shot asymmetry claim. Calibration, Mac stepping and long dynamics remain open — [evidence](notes/results/full_gap_validation_2026-08-27/06_glider_deadband_integrated/) |
 | Direct Object-model check | Packaged, generic Fuel and copied-source descriptor paths pass. The candidate launch preflight now rejects a missing descriptor instead of printing false success on Mac and Docker. Fuel `/1` remains a client/external reproducibility limitation, not an immutable pin — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
 | Direct USBL check | Candidate plugin changes pass `sigma=0`, paused callbacks, moving-target routing and fractional 1539/1541 m propagation-delay controls on Mac and Docker. Long-duration, multi-transceiver and real-acoustic accuracy remain outside this result — [evidence](notes/results/remaining_defect_fixes_2026-08-29/) |
@@ -78,7 +81,7 @@ Everything is under [`notes/`](notes/) — start from its [index](notes/README.m
 | | |
 |---|---|
 | [`notes/what-we-got-wrong.md`](notes/what-we-got-wrong.md) | **claims that turned out false, and how each was caught.** Read this before trusting any number here |
-| [`patches/`](patches/) | **what was changed** — fifteen patches; the nine 2026-08-29 candidates include validation and dependency order |
+| [`patches/`](patches/) | **what was changed** — sixteen patches; the ten 2026-08-29 candidates include validation and dependency order |
 | [`notes/verified-demos.md`](notes/verified-demos.md) | what each PASS rests on |
 | [`notes/known-issues.md`](notes/known-issues.md) | 48 entries, including open, resolved and withdrawn findings, with cause and workaround |
 | [`notes/progress-log.md`](notes/progress-log.md) | what was done each day, and what later turned out wrong |

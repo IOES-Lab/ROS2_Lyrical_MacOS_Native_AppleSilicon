@@ -1,0 +1,6 @@
+ARDUPILOT_GAZEBO_COMMIT=082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5
+ARDUPILOT_COMMIT=30257f01185471ab4c1ac544e47d1b4437e44c98
+DAVE_ROBOT_MODELS_PREFIX=/home/docker/ardusub_speedup_overlay/install/dave_robot_models
+ROS_DOMAIN_ID=133
+GZ_PARTITION=codex_bluerov2_control_loop_20260829
+GZ_SIM_SYSTEM_PLUGIN_PATH=/home/docker/ardupilot_gazebo_validation/build:/home/docker/dave_ws/install/lib/multibeam_sonar_system/:/home/docker/dave_ws/install/lib/multibeam_sonar/:/home/docker/dave_ws/install/lib/dave_gz_model_plugins/:/home/docker/dave_ws/install/lib/dave_ros_gz_plugins/:/home/docker/dave_ws/install/lib/dave_gz_world_plugins/:/home/docker/dave_ws/install/lib/dave_gz_sensor_plugins/

@@ -1,0 +1,13 @@
+{
+  "variant": "bluerov2_heavy",
+  "mavros_connected_true_samples": 4,
+  "armed_before_control": true,
+  "control_duration_s": 6,
+  "odometry_x_before_m": 0.00015505787939334143,
+  "odometry_x_after_m": 1.1260105736972934,
+  "odometry_x_delta_m": 1.1258555158179,
+  "disarm_success": true,
+  "json_received": true,
+  "ardusub_fpe_count": 0,
+  "plugin_missing_count": 0
+}

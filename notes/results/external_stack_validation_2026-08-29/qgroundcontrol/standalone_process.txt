@@ -1,0 +1,2 @@
+84557 /home/docker/QGC/usr/bin/QGroundControl
+84654 bash -lc runuser -u docker -- env DISPLAY=:10 XAUTHORITY=/home/docker/.Xauthority xfce4-screenshooter -f -s '/home/docker/qgc_no_system_glib_pass_3/qgc_desktop.png'; pgrep -af '/home/docker/QGC/usr/bin/QGroundControl' >'/home/docker/qgc_no_system_glib_pass_3/process.txt'

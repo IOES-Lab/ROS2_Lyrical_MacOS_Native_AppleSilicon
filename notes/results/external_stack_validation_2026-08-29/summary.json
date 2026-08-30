@@ -1,0 +1,194 @@
+{
+  "date": "2026-08-29",
+  "official_ardupilot_gazebo": {
+    "commit": "082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5",
+    "platform": "Ubuntu 26.04 aarch64, ROS 2 Lyrical, Gazebo Jetty",
+    "build": "PASS",
+    "artifact": "libArduPilotPlugin.so",
+    "isolated_build_sha256": "89f146986aa97eac6d3fe49ccc338113f0e51c181379f88bf327a1690ff3a75d",
+    "current_recipe_build_sha256": "93c9e87e83b562fb39c178e9b7d41c0ada5ada3a8046d9227f40a8a8707fca59"
+  },
+  "ardusub": {
+    "commit": "30257f01185471ab4c1ac544e47d1b4437e44c98",
+    "pre_fix_failure": "SIGFPE in AP_Logger_File::periodic_1Hz after JSON sensor connection",
+    "cause_boundary": "SIM_SPEEDUP default -1 reaches unsigned timeout conversion on this aarch64 build",
+    "candidate": "--speedup 1 in three BlueROV robot_config.py files",
+    "patch_apply_check": "PASS",
+    "python_compile": "3/3"
+  },
+  "bluerov2_control_loop": {
+    "plugin_missing_errors": 0,
+    "ardusub_fpe": 0,
+    "mavros_connected_samples": "4/4",
+    "mode": "MANUAL",
+    "armed": true,
+    "manual_control_seconds": 6,
+    "odometry_x_before_m": -3.541471493246632e-06,
+    "odometry_x_after_m": 2.182960927185197,
+    "odometry_x_delta_m": 2.1829644686566905,
+    "odometry_vx_after_mps": 0.7928260903281489,
+    "disarm_response": "success"
+  },
+  "qgroundcontrol": {
+    "artifact": "QGroundControl v5.0.3-1119-gba81fe247 aarch64 DailyBuild",
+    "default_exit": 139,
+    "clean_xdg_software_and_offscreen_also_crashed": true,
+    "workaround": "QGC_NO_SYSTEM_GLIB=1",
+    "workaround_bounded_survival_seconds": 45,
+    "integrated_visual_state": "Ready / 100% / Manual; ArduSub 4.5.7 firmware warning displayed",
+    "integrated_connection": "PASS"
+  },
+  "environment_boundaries": {
+    "docker_gpu": "No /dev/dri or DeviceRequests; llvmpipe, Accelerated: no",
+    "nvidia": "not present",
+    "windows_wsl": "not present on this macOS host",
+    "fuel_upload_credentials": "no local Fuel config/token found",
+    "physical_hil_gamepad": "no matching external control/HIL device found in USB/HID inventory"
+  },
+  "limits": [
+    "The exact current image completed one headless full control loop for baseline, Heavy and Heavy multibeam variants; this is not Windows or physical hardware validation.",
+    "A later derived-image run integrated the ninth sonar-world candidate and failed before JSON/MAVROS, PointCloud2 or control; no exit code or root cause is assigned.",
+    "The current Dockerfile passed a cache-assisted end-to-end build; a fresh --no-cache build was not run.",
+    "The exact image passed xrdp-service startup and QGC offscreen survival, not an RDP login/rendered GUI/vehicle-connection replay.",
+    "Odometry response proves functional simulated control, not controller tuning or real-vehicle accuracy.",
+    "No NVIDIA CUDA, Windows/WSL, physical HIL, Fuel account upload or broad scientific-accuracy claim."
+  ],
+  "bluerov2_heavy_control_loop": {
+    "plugin_missing_errors": 0,
+    "ardusub_fpe": 0,
+    "mavros_connected_samples": "4/4",
+    "mode": "MANUAL",
+    "armed": true,
+    "manual_control_seconds": 6,
+    "odometry_x_before_m": 0.00015795514213409935,
+    "odometry_x_after_m": 2.3758371016091986,
+    "odometry_x_delta_m": 2.3756791464670646,
+    "disarm_response": "success"
+  },
+  "dockerfile_current_recipe": {
+    "build": "PASS (cache-assisted end-to-end)",
+    "fresh_no_cache": false,
+    "elapsed_minutes": 44.86,
+    "image": "lyrical-sim:jetty-rdp-external-stack-check",
+    "image_id": "sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461",
+    "docker_image_ls_size": "23.9GB",
+    "platform": "Ubuntu 26.04 aarch64",
+    "ardupilot_gazebo_commit": "082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5",
+    "current_image_plugin_sha256": "93c9e87e83b562fb39c178e9b7d41c0ada5ada3a8046d9227f40a8a8707fca59",
+    "geographic_info_commit": "24806adc767414eb3a34a58aefeb648ee415b09a",
+    "package_prefix_checks": "PASS",
+    "installed_speedup_python_ast": "3/3",
+    "qgc_env": "QGC_NO_SYSTEM_GLIB=1",
+    "runtime_full_control": {
+      "image": "lyrical-sim:jetty-rdp-external-stack-check",
+      "image_id": "sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461",
+      "scope": "Exact newly built image, one bounded headless arm/control/disarm run per variant",
+      "variants": {
+        "bluerov2": {
+          "variant": "bluerov2",
+          "mavros_connected_true_samples": 4,
+          "armed_before_control": true,
+          "control_duration_s": 6,
+          "odometry_x_before_m": 0.00014932809765407846,
+          "odometry_x_after_m": 1.6980645957834293,
+          "odometry_x_delta_m": 1.6979152676857752,
+          "disarm_success": true,
+          "json_received": true,
+          "ardusub_fpe_count": 0,
+          "plugin_missing_count": 0
+        },
+        "bluerov2_heavy": {
+          "variant": "bluerov2_heavy",
+          "mavros_connected_true_samples": 4,
+          "armed_before_control": true,
+          "control_duration_s": 6,
+          "odometry_x_before_m": 0.00015505787939334143,
+          "odometry_x_after_m": 1.1260105736972934,
+          "odometry_x_delta_m": 1.1258555158179,
+          "disarm_success": true,
+          "json_received": true,
+          "ardusub_fpe_count": 0,
+          "plugin_missing_count": 0
+        },
+        "bluerov2_heavy_multibeam_sonar": {
+          "variant": "bluerov2_heavy_multibeam_sonar",
+          "mavros_connected_true_samples": 4,
+          "armed_before_control": true,
+          "control_duration_s": 6,
+          "odometry_x_before_m": -0.01583431841062987,
+          "odometry_x_after_m": 0.8029910034071878,
+          "odometry_x_delta_m": 0.8188253218178176,
+          "disarm_success": true,
+          "json_received": true,
+          "ardusub_fpe_count": 0,
+          "plugin_missing_count": 0
+        }
+      },
+      "all_connected_samples": "4/4 per variant",
+      "all_armed_before_control": true,
+      "all_disarmed_successfully": true,
+      "all_json_received": true,
+      "total_ardusub_fpe": 0,
+      "total_plugin_missing": 0,
+      "limits": [
+        "The runs were headless and did not repeat RDP or QGroundControl GUI interaction.",
+        "This exact-image control run did not include the ninth sonar-world candidate; a later derived-image integration attempt did and failed before JSON/MAVROS, PointCloud2 or control.",
+        "One run per variant establishes functional simulated control, not calibration, safety, physical accuracy or long-duration stability."
+      ]
+    },
+    "limits": "Current recipe was not rebuilt with --no-cache; exact-image xrdp service and QGC offscreen survival pass, but RDP login/rendered GUI/vehicle connection were not replayed.",
+    "exact_image_nonvisual_gui_smokes": {
+      "xrdp_service": {
+        "result": "SMOKE PASS",
+        "bound_address": "127.0.0.1 ephemeral host port -> 3389/tcp",
+        "processes": [
+          "xrdp",
+          "xrdp-sesman",
+          "dbus-daemon",
+          "sshd"
+        ],
+        "limit": "No RDP login or rendered desktop was observed."
+      },
+      "qgroundcontrol_offscreen": {
+        "result": "PASS: survived the 20-second bound",
+        "exit_code": 124,
+        "environment": [
+          "QGC_NO_SYSTEM_GLIB=1",
+          "QT_QPA_PLATFORM=offscreen",
+          "clean XDG directories"
+        ],
+        "limit": "No visible GUI or vehicle connection was observed; graphics/TTS warnings remained."
+      }
+    }
+  },
+  "combined_fifth_sonar_candidate_and_heavy_multibeam_control": {
+    "date": "2026-08-30",
+    "platform": "Ubuntu 26.04 aarch64 in Docker Desktop on Apple M2",
+    "base_image": "lyrical-sim:jetty-rdp-external-stack-check",
+    "variant": "bluerov2_heavy_multibeam_sonar",
+    "candidate": "patches/fifth_rov_sonar_world_fix.diff live-applied to the exact-image source tree",
+    "candidate_patch_sha256": "92693c5ab099be1b6ef0c5acc5249b6b636eea376545bbcfbd3d4c2c050f69bd",
+    "candidate_apply_and_dave_worlds_rebuild": "PASS",
+    "runtime_verdict": "FAIL TO REACH FUNCTIONAL CHECK",
+    "observations": {
+      "wgpu_adapter": "llvmpipe",
+      "first_probe_dimensions": "1x1x4",
+      "first_probe_elapsed_ms": 60053.0,
+      "sonar_beams": 513,
+      "sonar_rays_per_beam": 301,
+      "sonar_time_bins": 399,
+      "gazebo_stack_trace_started": true,
+      "ardusub_no_json_messages": 105,
+      "mavros_state_probe_bytes": 0,
+      "pointcloud2_captured": false,
+      "arm_control_disarm_reached": false
+    },
+    "cleanup": "PASS: derived test container removed",
+    "limits": [
+      "One bounded derived-image run was performed.",
+      "Manual cleanup occurred before a final process exit status or complete backtrace was retained.",
+      "No signal, exit code, or root cause is assigned by this evidence.",
+      "The separate exact-image control PASS and separate Mac fifth-sonar candidate PASS remain valid in their own scopes."
+    ]
+  }
+}

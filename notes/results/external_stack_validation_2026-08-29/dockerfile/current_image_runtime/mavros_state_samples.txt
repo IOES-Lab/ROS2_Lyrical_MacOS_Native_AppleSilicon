@@ -1,0 +1,52 @@
+=== SAMPLE 1 ===
+header:
+  stamp:
+    sec: 1788016420
+    nanosec: 23797127
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: CMODE(19)
+system_status: 3
+---
+=== SAMPLE 2 ===
+header:
+  stamp:
+    sec: 1788016422
+    nanosec: 689529044
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+=== SAMPLE 3 ===
+header:
+  stamp:
+    sec: 1788016428
+    nanosec: 644334881
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+=== SAMPLE 4 ===
+header:
+  stamp:
+    sec: 1788016432
+    nanosec: 828073674
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---

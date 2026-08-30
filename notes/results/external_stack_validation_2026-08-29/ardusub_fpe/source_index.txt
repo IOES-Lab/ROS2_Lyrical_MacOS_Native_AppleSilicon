@@ -1,0 +1,129 @@
+ARDUPILOT_COMMIT=30257f01185471ab4c1ac544e47d1b4437e44c98
+BINARY=d0cb3c51ecbc78a9be0a623ee09f4ef9b8142615252f189d7bcaad40c0d180fc  /usr/local/bin/ardusub
+BUILT_BINARY=d0cb3c51ecbc78a9be0a623ee09f4ef9b8142615252f189d7bcaad40c0d180fc  build/sitl/bin/ardusub
+== periodic_1Hz ==
+libraries/AP_Logger/AP_Logger_File.cpp:137:void AP_Logger_File::periodic_1Hz()
+== speedup references ==
+libraries/AP_Logger/AP_Logger_File.cpp:1075:    // SITL speedup options, so we allow for it here.
+libraries/AP_Logger/AP_Logger_File.cpp:1078:        timeout_ms *= sitl->speedup;
+libraries/SITL/SIM_RF_MaxsonarSerialLV.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:maxsonarseriallv --speedup=1
+libraries/SITL/SIM_RF_Benewake_TFmini.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:benewake_tfmini --speedup=1
+libraries/SITL/SIM_FETtecOneWireESC.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:fetteconewireesc --speedup=1 --console
+libraries/SITL/SIM_RF_USD1_v1.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:USD1_v1 --speedup=1
+libraries/SITL/SIM_Aircraft.h:58:      set simulation speedup
+libraries/SITL/SIM_Aircraft.h:60:    void set_speedup(float speedup);
+libraries/SITL/SIM_Aircraft.h:61:    float get_speedup() const { return target_speedup; }
+libraries/SITL/SIM_Aircraft.h:235:    float target_speedup;
+libraries/SITL/SIM_Aircraft.h:239:    float achieved_rate_hz;  // achieved speedup rate
+libraries/SITL/SIM_Aircraft.h:246:    float last_speedup = -1.0f;
+libraries/SITL/SIM_Aircraft.h:282:    void setup_frame_time(float rate, float speedup);
+libraries/SITL/SIM_Aircraft.h:288:       into account desired speedup */
+libraries/SITL/SIM_Loweheiser.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --uartF=sim:loweheiser --speedup=1 --console
+libraries/SITL/SIM_Loweheiser.h:60:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --uartF=uart:$DEV:115200 --speedup=1 --console
+libraries/SITL/SIM_RF_LeddarOne.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:leddarone --speedup=1
+libraries/SITL/SIM_Frsky_D.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:frsky-d --speedup=1
+libraries/SITL/SIM_PS_RPLidarA2.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rplidara2 --speedup=1 -l 51.8752066,14.6487840,0,0 --map
+libraries/SITL/SIM_Temperature_TSYS03.h:10:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -f Callisto -A --speedup=1
+libraries/SITL/SIM_JSON.cpp:371:        // match actual frame rate with desired speedup
+libraries/SITL/SIM_RichenPower.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:richenpower --speedup=1 --console
+libraries/SITL/SIM_RF_USD1_v0.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:USD1_v0 --speedup=1
+libraries/SITL/SIM_FlightAxis.cpp:112:    rate_hz = 250 / target_speedup;
+libraries/SITL/SIM_FlightAxis.cpp:450:                    -radians(constrain_float(state.m_yawRate_DEGpSEC, -2000, 2000))) * target_speedup;
+libraries/SITL/SIM_CRSF.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:crsf --speedup=1
+libraries/SITL/SIM_PS_RPLidar.h:20:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rplidara2 --speedup=1 -l 51.8752066,14.6487840,54.15,0 --map
+libraries/SITL/SIM_RF_JRE.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:jre --speedup=1 -L KalaupapaCliffs --map
+libraries/SITL/SIM_RF_Wasp.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:wasp --speedup=1
+libraries/SITL/SIM_RF_NMEA.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:nmea --speedup=1
+libraries/SITL/SIM_EFI_Hirth.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduPlane -A --serial5=sim:hirth --speedup=1
+libraries/SITL/SIM_Temperature_TSYS01.h:6:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduSub -A --speedup=1
+libraries/SITL/SIM_RF_TeraRanger_Serial.h:15:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:teraranger_serial --speedup=1
+libraries/SITL/SIM_PS_RPLidarA1.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rplidara1 --speedup=1 -l 51.8752066,14.6487840,0,0 --map
+libraries/SITL/SIM_RF_LightWareSerial.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:lightwareserial --speedup=1
+libraries/SITL/SIM_RF_MAVLink.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rf_mavlink --speedup=1
+libraries/SITL/SITL.h:241:    AP_Float speedup; // simulation speedup
+libraries/SITL/SIM_PS_LightWare_SF45B.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:sf45b --speedup=1 -l 51.8752066,14.6487840,54.15,0
+libraries/SITL/SIM_RF_LightWareSerialBinary.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:lightwareserial-binary --speedup=1
+libraries/SITL/SIM_EFI_MegaSquirt.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduPlane -A --serial5=sim:megasquirt --speedup=1
+libraries/SITL/SIM_RF_BLping.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduSub -A --serial5=sim:blping --speedup=1 -l 33.810313,-118.393867,0,185
+libraries/SITL/SIM_RF_Benewake_TF02.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:benewake_tf02 --speedup=1
+libraries/SITL/SIM_RF_RDS02UF.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rds02uf --speedup=1
+libraries/SITL/SIM_RF_Lanbao.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:lanbao --speedup=1
+libraries/SITL/examples/JSON/MATLAB/readme.md:35:Using the connection it should be possible to achieve > 1500 fps, at this speed MATLAB code efficiency plays a important factor in the max frame rate. For a 400hz physics time step this gives a maximum speedup of 4 to 5 times, physics time step can be adjusted using the ArduPilot SIM_RATE parameter. For planes and rovers it should be possible to use a much larger physics time step resulting in a larger maximum speed up. Note that large speedups risk the GCS getting left behind.
+libraries/SITL/SIM_Aircraft.cpp:57:    set_speedup(1.0f);
+libraries/SITL/SIM_Aircraft.cpp:249:void Aircraft::setup_frame_time(float new_rate, float new_speedup)
+libraries/SITL/SIM_Aircraft.cpp:252:    target_speedup = new_speedup;
+libraries/SITL/SIM_Aircraft.cpp:267:   into account desired speedup
+libraries/SITL/SIM_Aircraft.cpp:277:    const float target_dt_us = 1.0e6/(rate_hz*target_speedup);
+libraries/SITL/SIM_Aircraft.cpp:304:        ::printf("Rate: target:%.1f achieved:%.1f speedup %.1f/%.1f\n",
+libraries/SITL/SIM_Aircraft.cpp:305:                 rate_hz*target_speedup, achieved_rate_hz,
+libraries/SITL/SIM_Aircraft.cpp:306:                 achieved_rate_hz/rate_hz, target_speedup);
+libraries/SITL/SIM_Aircraft.cpp:449:    // in the first call here, if a speedup option is specified, overwrite it
+libraries/SITL/SIM_Aircraft.cpp:450:    if (is_equal(last_speedup, -1.0f) && !is_equal(get_speedup(), 1.0f)) {
+libraries/SITL/SIM_Aircraft.cpp:451:        sitl->speedup.set(get_speedup());
+libraries/SITL/SIM_Aircraft.cpp:454:    if (!is_equal(last_speedup, float(sitl->speedup)) && sitl->speedup > 0) {
+libraries/SITL/SIM_Aircraft.cpp:455:        set_speedup(sitl->speedup);
+libraries/SITL/SIM_Aircraft.cpp:456:        last_speedup = sitl->speedup;
+libraries/SITL/SIM_Aircraft.cpp:475:// @Field: ASpdU: Achieved simulation speedup value
+libraries/SITL/SIM_Aircraft.cpp:588:  set simulation speedup
+libraries/SITL/SIM_Aircraft.cpp:590:void Aircraft::set_speedup(float speedup)
+libraries/SITL/SIM_Aircraft.cpp:592:    setup_frame_time(rate_hz, speedup);
+libraries/SITL/SIM_RF_GYUS42v2.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:gyus42v2 --speedup=1
+libraries/SITL/SIM_RF_Benewake_TF03.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:benewake_tf03 --speedup=1
+libraries/SITL/SIM_IntelligentEnergy24.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:ie24 --speedup=1 --console
+libraries/SITL/SIM_PS_TeraRangerTower.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:terarangertower --speedup=1 -l 51.8752066,14.6487840,54.15,0
+libraries/SITL/SITL.cpp:162:    AP_GROUPINFO("SPEEDUP",       52, SIM,  speedup, -1),
+== command option ==
+libraries/AP_HAL_SITL/SITL_cmdline.cpp:81:           "\t--speedup|-s SPEEDUP     set simulation speedup\n"
+libraries/SITL/SIM_RF_MaxsonarSerialLV.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:maxsonarseriallv --speedup=1
+libraries/SITL/SIM_RF_Benewake_TFmini.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:benewake_tfmini --speedup=1
+libraries/SITL/SIM_FETtecOneWireESC.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:fetteconewireesc --speedup=1 --console
+libraries/SITL/SIM_RF_USD1_v1.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:USD1_v1 --speedup=1
+libraries/SITL/SIM_Loweheiser.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --uartF=sim:loweheiser --speedup=1 --console
+libraries/SITL/SIM_Loweheiser.h:60:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --uartF=uart:$DEV:115200 --speedup=1 --console
+libraries/SITL/SIM_RF_LeddarOne.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:leddarone --speedup=1
+libraries/SITL/SIM_Frsky_D.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:frsky-d --speedup=1
+libraries/SITL/SIM_PS_RPLidarA2.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rplidara2 --speedup=1 -l 51.8752066,14.6487840,0,0 --map
+libraries/SITL/SIM_Temperature_TSYS03.h:10:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -f Callisto -A --speedup=1
+libraries/SITL/SIM_RichenPower.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:richenpower --speedup=1 --console
+libraries/SITL/SIM_RF_USD1_v0.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:USD1_v0 --speedup=1
+libraries/SITL/SIM_CRSF.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:crsf --speedup=1
+libraries/SITL/SIM_PS_RPLidar.h:20:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rplidara2 --speedup=1 -l 51.8752066,14.6487840,54.15,0 --map
+libraries/SITL/SIM_RF_JRE.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:jre --speedup=1 -L KalaupapaCliffs --map
+libraries/SITL/SIM_RF_Wasp.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:wasp --speedup=1
+libraries/SITL/SIM_RF_NMEA.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:nmea --speedup=1
+libraries/SITL/SIM_EFI_Hirth.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduPlane -A --serial5=sim:hirth --speedup=1
+libraries/SITL/SIM_Temperature_TSYS01.h:6:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduSub -A --speedup=1
+libraries/SITL/SIM_RF_TeraRanger_Serial.h:15:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:teraranger_serial --speedup=1
+libraries/SITL/SIM_PS_RPLidarA1.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rplidara1 --speedup=1 -l 51.8752066,14.6487840,0,0 --map
+libraries/SITL/SIM_RF_LightWareSerial.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:lightwareserial --speedup=1
+libraries/SITL/SIM_RF_MAVLink.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rf_mavlink --speedup=1
+libraries/SITL/SIM_PS_LightWare_SF45B.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:sf45b --speedup=1 -l 51.8752066,14.6487840,54.15,0
+libraries/SITL/SIM_RF_LightWareSerialBinary.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:lightwareserial-binary --speedup=1
+libraries/SITL/SIM_EFI_MegaSquirt.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduPlane -A --serial5=sim:megasquirt --speedup=1
+libraries/SITL/SIM_RF_BLping.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduSub -A --serial5=sim:blping --speedup=1 -l 33.810313,-118.393867,0,185
+libraries/SITL/SIM_RF_Benewake_TF02.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:benewake_tf02 --speedup=1
+libraries/SITL/SIM_RF_RDS02UF.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:rds02uf --speedup=1
+libraries/SITL/SIM_RF_Lanbao.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:lanbao --speedup=1
+libraries/SITL/SIM_RF_GYUS42v2.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:gyus42v2 --speedup=1
+libraries/SITL/SIM_RF_Benewake_TF03.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:benewake_tf03 --speedup=1
+libraries/SITL/SIM_IntelligentEnergy24.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:ie24 --speedup=1 --console
+libraries/SITL/SIM_PS_TeraRangerTower.h:18:./Tools/autotest/sim_vehicle.py --gdb --debug -v ArduCopter -A --serial5=sim:terarangertower --speedup=1 -l 51.8752066,14.6487840,54.15,0
+Tools/scripts/playback_log_fg.py:23:parser.add_argument("--speedup", type=float, default=1.0, help="playback speedup")
+Tools/scripts/build_ci.sh:90:        w="$w --speedup=5 --timeout=14400 --debug --no-clean"
+Tools/scripts/run_coverage.py:165:                            "--speedup=" + str(SPEEDUP),
+Tools/ros2/ardupilot_sitl/src/ardupilot_sitl/launch.py:393:            f"--speedup {speedup} ",
+Tools/ros2/README.md:190:arducopter --synthetic-clock --wipe --model quad --speedup 1 --slave 0 --instance 0 --serial1 uart:./dev/ttyROS1 --defaults $(ros2 pkg prefix ardupilot_sitl)/share/ardupilot_sitl/config/default_params/copter.parm,$(ros2 pkg prefix ardupilot_sitl)/share/ardupilot_sitl/config/default_params/dds_serial.parm --sim-address 127.0.0.1
+Tools/completion/zsh/_sim_vehicle:30:    '(-S --speedup=)'{-S,--speedup=}'[set simulation speedup (1 for wall clock time)]:SPEEDUP:' \
+Tools/completion/zsh/_ap_bin:12:    '(-s --speedup)'{-s,--speedup}'[set simulation speedup]:float' \
+Tools/completion/zsh/_ap_autotest:30:        '--speedup[speedup to run the simulations at]:SPEEDUP:' \
+Tools/completion/bash/_sim_vehicle:31:  opts+=" -S --speedup"
+Tools/completion/bash/_ap_bin:12:    opts+=" --speedup -s"
+Tools/autotest/check_autotest_speedup.py:82:                "--speedup", str(i),
+Tools/autotest/sim_vehicle.py:773:    cmd.extend(["--speedup", str(opts.speedup)])
+Tools/autotest/sim_vehicle.py:1205:group_sim.add_option("-S", "--speedup",
+Tools/autotest/run_mission.py:86:        '--speedup',
+Tools/autotest/pysim/util.py:536:            cmd.extend(['--speedup', str(speedup)])
+Tools/autotest/autotest.py:964:    group_sim.add_option("--speedup",
+Tools/autotest/arducopter.py:4908:        too long.  This is probably a function of --speedup'''
+Tools/autotest/arducopter.py:5212:            too long.  This is probably a function of --speedup'''
+Tools/autotest/arducopter.py:6810:        too long.  This is probably a function of --speedup'''

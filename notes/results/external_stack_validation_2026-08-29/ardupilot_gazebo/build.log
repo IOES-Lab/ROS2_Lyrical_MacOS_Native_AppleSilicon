@@ -1,0 +1,14 @@
+[ 10%] Building CXX object CMakeFiles/ParachutePlugin.dir/src/ParachutePlugin.cc.o
+[ 20%] Building CXX object CMakeFiles/ArduPilotPlugin.dir/src/ArduPilotPlugin.cc.o
+[ 30%] Linking CXX shared library libParachutePlugin.so
+[ 30%] Built target ParachutePlugin
+[ 40%] Building CXX object CMakeFiles/CameraZoomPlugin.dir/src/CameraZoomPlugin.cc.o
+[ 50%] Building CXX object CMakeFiles/ArduPilotPlugin.dir/src/SocketUDP.cc.o
+[ 60%] Building CXX object CMakeFiles/ArduPilotPlugin.dir/src/Util.cc.o
+[ 70%] Linking CXX shared library libArduPilotPlugin.so
+[ 70%] Built target ArduPilotPlugin
+[ 80%] Building CXX object CMakeFiles/GstCameraPlugin.dir/src/GstCameraPlugin.cc.o
+[ 90%] Linking CXX shared library libCameraZoomPlugin.so
+[ 90%] Built target CameraZoomPlugin
+[100%] Linking CXX shared library libGstCameraPlugin.so
+[100%] Built target GstCameraPlugin

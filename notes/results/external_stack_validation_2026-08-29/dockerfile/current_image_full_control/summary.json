@@ -1,0 +1,57 @@
+{
+  "image": "lyrical-sim:jetty-rdp-external-stack-check",
+  "image_id": "sha256:af9586fa8045be539f93d01a04528e0d7fac187938d2ab94027c395e23e4f461",
+  "scope": "Exact newly built image, one bounded headless arm/control/disarm run per variant",
+  "variants": {
+    "bluerov2": {
+      "variant": "bluerov2",
+      "mavros_connected_true_samples": 4,
+      "armed_before_control": true,
+      "control_duration_s": 6,
+      "odometry_x_before_m": 0.00014932809765407846,
+      "odometry_x_after_m": 1.6980645957834293,
+      "odometry_x_delta_m": 1.6979152676857752,
+      "disarm_success": true,
+      "json_received": true,
+      "ardusub_fpe_count": 0,
+      "plugin_missing_count": 0
+    },
+    "bluerov2_heavy": {
+      "variant": "bluerov2_heavy",
+      "mavros_connected_true_samples": 4,
+      "armed_before_control": true,
+      "control_duration_s": 6,
+      "odometry_x_before_m": 0.00015505787939334143,
+      "odometry_x_after_m": 1.1260105736972934,
+      "odometry_x_delta_m": 1.1258555158179,
+      "disarm_success": true,
+      "json_received": true,
+      "ardusub_fpe_count": 0,
+      "plugin_missing_count": 0
+    },
+    "bluerov2_heavy_multibeam_sonar": {
+      "variant": "bluerov2_heavy_multibeam_sonar",
+      "mavros_connected_true_samples": 4,
+      "armed_before_control": true,
+      "control_duration_s": 6,
+      "odometry_x_before_m": -0.01583431841062987,
+      "odometry_x_after_m": 0.8029910034071878,
+      "odometry_x_delta_m": 0.8188253218178176,
+      "disarm_success": true,
+      "json_received": true,
+      "ardusub_fpe_count": 0,
+      "plugin_missing_count": 0
+    }
+  },
+  "all_connected_samples": "4/4 per variant",
+  "all_armed_before_control": true,
+  "all_disarmed_successfully": true,
+  "all_json_received": true,
+  "total_ardusub_fpe": 0,
+  "total_plugin_missing": 0,
+  "limits": [
+    "The runs were headless and did not repeat RDP or QGroundControl GUI interaction.",
+    "The Heavy multibeam control run used the current Dockerfile recipe; the separate ninth sonar-world candidate was not integrated into that image.",
+    "One run per variant establishes functional simulated control, not calibration, safety, physical accuracy or long-duration stability."
+  ]
+}

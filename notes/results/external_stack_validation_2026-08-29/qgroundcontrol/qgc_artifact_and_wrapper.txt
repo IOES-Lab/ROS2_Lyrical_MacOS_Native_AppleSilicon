@@ -1,0 +1,84 @@
+QGC_VERSION:
+qt.multimedia.symbolsresolver: Couldn't load pipewire-0.3 library
+qt.multimedia.symbolsresolver: Couldn't resolve pipewire-0.3 symbols
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+QGroundControl v5.0.3-1119-gba81fe247
+QGC_HASH:
+52b644a95611a992f22f1ca01a80a07789aca59089eb164fc07d82cea3673420  /home/docker/QGC/usr/bin/QGroundControl
+QGC_FILE:
+/home/docker/QGC/usr/bin/QGroundControl: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, for GNU/Linux 3.7.0, BuildID[sha1]=e2c781d9dd01bad721ce1a232f370a0007b3b64c, not stripped
+APP_RUN_GLIB_SECTION:
+unset GIO_MODULE_DIR
+unset GIO_USE_VFS
+
+# Preload system GLib 2.76+ for TTS compatibility.
+# Set QGC_NO_SYSTEM_GLIB=1 to disable.
+_resolve_system_lib() {
+    # Try hardcoded paths first (fast), then ldconfig fallback (NixOS, Guix, etc.)
+    local _lib="$1"
+    for _lp in \
+        "/usr/lib/${MULTIARCH}" \
+        "/usr/lib64" \
+        "/usr/lib"; do
+        if [ -f "${_lp}/${_lib}" ]; then
+            echo "${_lp}/${_lib}"
+            return 0
+        fi
+    done
+    if command -v ldconfig >/dev/null 2>&1; then
+        local _path
+        _path=$(ldconfig -p 2>/dev/null | grep -m1 "${_lib}\b" | sed 's/.* => //')
+        if [ -f "$_path" ]; then
+            echo "$_path"
+            return 0
+        fi
+    fi
+    return 1
+}
+
+if [ -z "$QGC_NO_SYSTEM_GLIB" ]; then
+    SYSTEM_GLIB=""
+    SYSTEM_GIO=""
+    SYSTEM_LIBDIR=""
+    SYSTEM_GLIB=$(_resolve_system_lib "libglib-2.0.so.0") || true
+    if [ -n "$SYSTEM_GLIB" ]; then
+        SYSTEM_LIBDIR="$(dirname "$SYSTEM_GLIB")"
+        SYSTEM_GIO="${SYSTEM_LIBDIR}/libgio-2.0.so.0"
+        if [ ! -f "$SYSTEM_GIO" ]; then
+            SYSTEM_GIO=$(_resolve_system_lib "libgio-2.0.so.0") || true
+        fi
+    fi
+
+    if [ -n "$SYSTEM_GLIB" ]; then
+        if nm -D "$SYSTEM_GLIB" 2>/dev/null | grep -qm1 g_string_free_and_steal; then
+            GLIB_PRELOAD="${SYSTEM_GLIB}"
+            if [ -f "$SYSTEM_GIO" ]; then
+                GLIB_PRELOAD="${GLIB_PRELOAD}:${SYSTEM_GIO}"
+                SYSTEM_LIBMOUNT="${SYSTEM_LIBDIR}/libmount.so.1"
+                if [ -f "$SYSTEM_LIBMOUNT" ]; then
+                    GLIB_PRELOAD="${GLIB_PRELOAD}:${SYSTEM_LIBMOUNT}"
+                fi
+            fi
+            export LD_PRELOAD="${GLIB_PRELOAD}${LD_PRELOAD:+:$LD_PRELOAD}"
+        fi
+    fi
+
+    if [ -n "$SYSTEM_GIO" ] && nm -D "$SYSTEM_GIO" 2>/dev/null | grep -qm1 g_task_set_static_name; then
+        export GIO_MODULE_DIR="${APPDIR}/usr/lib/gio/modules"
+        export GIO_USE_VFS="local"
+    else
+        export GIO_EXTRA_MODULES="${APPDIR}/usr/lib/gio/modules"
+    fi
+else
+    export GIO_EXTRA_MODULES="${APPDIR}/usr/lib/gio/modules"
+fi
+
+# Use system OpenGL to avoid conflicts with bundled libGLESv2
+SYSTEM_EGL=$(_resolve_system_lib "libEGL.so.1") || true
+SYSTEM_GLES=$(_resolve_system_lib "libGLESv2.so.2") || true
+if [ -n "$SYSTEM_EGL" ] && [ -n "$SYSTEM_GLES" ]; then
+    export LD_PRELOAD="${SYSTEM_EGL}:${SYSTEM_GLES}${LD_PRELOAD:+:$LD_PRELOAD}"
+elif [ -n "$SYSTEM_EGL" ]; then

@@ -1,8 +1,8 @@
 # What was changed
 
-Fifteen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
+Sixteen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
 found while directly validating it. **They are not all independent and they are not applied to
-upstream DAVE.** The nine dated 2026-08-29 candidates were generated against the tested local
+upstream DAVE.** The ten dated 2026-08-29 candidates were generated against the tested local
 migration baseline: PR #44 commit `6aef91c` plus the existing migration/runtime fixes already
 documented in this folder. Apply the base port first, then the new candidates.
 
@@ -29,14 +29,17 @@ documented in this folder. Apply the base port first, then the new candidates.
 | [`plugin_discovery_hooks_fix.diff`](plugin_discovery_hooks_fix.diff) | Installed plugin search paths for world/ROS/sonar packages | Clean sourced-overlay discovery checks on Mac/Docker |
 | [`usbl_runtime_fix.diff`](usbl_runtime_fix.diff) | `sigma<=0`, paused callbacks and fractional propagation delay | Mac/Docker zero-noise, moving and 1539/1541 m controls |
 | [`launch_object_world_build_fix.diff`](launch_object_world_build_fix.diff) | Server-only launch, debug args, object preflight, non-TTY logging, Release docs and unique world names | Scoped Mac/Docker launch regressions and 18/18 name audit |
-| [`fifth_rov_sonar_world_fix.diff`](fifth_rov_sonar_world_fix.diff) | Add the custom multibeam system to the ocean world used by the fifth ROV example | Isolated Mac candidate publishes 513×301 PointCloud2 on Apple-M2 WGPU |
+| [`fifth_rov_sonar_world_fix.diff`](fifth_rov_sonar_world_fix.diff) | Add the custom multibeam system to the ocean world used by the fifth ROV example | Isolated Mac candidate publishes 513×301 PointCloud2 on Apple-M2 WGPU. A combined Docker derived-image run applies/rebuilds but fails after 60053 ms `llvmpipe` startup and a Gazebo stack trace, before JSON/MAVROS, PointCloud2 or control |
+| [`bluerov2_ardusub_speedup_fix.diff`](bluerov2_ardusub_speedup_fix.diff) | Pass explicit valid `--speedup 1` in all three BlueROV ArduSub launch configurations | Applies on the exact nine-candidate snapshot; 3/3 Python files compile; the exact current Docker image completes JSON, MAVROS 4/4 and arm/control/disarm for baseline, Heavy and Heavy-multibeam without the reproduced logger FPE |
 
 The first eight candidates are documented in
 [`../notes/results/remaining_defect_fixes_2026-08-29/`](../notes/results/remaining_defect_fixes_2026-08-29/);
-the ninth patch, current hashes and final stack reconstruction are in
+the ninth patch, hashes and nine-patch reconstruction are in
 [`../notes/results/open_gap_revalidation_2026-08-29/`](../notes/results/open_gap_revalidation_2026-08-29/).
-All nine patches pass `git apply --check` in dependency order and collectively reproduce the
-isolated modified snapshot. The WGPU crate also passes its Rust unit test and `cargo check`; its
+The tenth patch, its SHA-256 and its apply/compile/runtime controls are in
+[`../notes/results/external_stack_validation_2026-08-29/`](../notes/results/external_stack_validation_2026-08-29/).
+The first nine still reconstruct the exact isolated modified snapshot; the tenth passes
+`git apply --check` on top of that snapshot and all three edited Python files compile. The WGPU crate also passes its Rust unit test and `cargo check`; its
 source guides now describe the exact-DFT path, actual `n_freq` buffer dimensions and 4096-bin
 boundary. Docker has no Cargo toolchain, so the modified WGPU implementation was built and run on
 Mac/Metal; Docker sonar validation remains CPU fallback.
@@ -46,7 +49,9 @@ Mac/Metal; Docker sonar validation remains CPU fallback.
 - stock Gazebo Sensors DVL SIGSEGV on the tested Mac
 - historical 2026-08-03 DAVE multibeam `ogre2` crash trigger (not reproduced in the current 2026-08-29 scoped PointCloud run)
 - NVIDIA CUDA / Docker hardware GPU, Windows/WSL and physical HIL
-- default RViz Mac window creation and the integrated BlueROV2 ArduPilot-plugin/QGC/disconnected-MAVROS loop
+- default RViz Mac window creation; root cause/fix for the directly reproduced combined Heavy-multibeam sonar-candidate + control Docker failure
+- QGroundControl's retained DailyBuild default AppRun crash without `QGC_NO_SYSTEM_GLIB=1`
+- a fresh `--no-cache` rebuild and exact-image rendered RDP/QGC vehicle-connection replay of the current Dockerfile recipe (cache-assisted full build, headless controls, xrdp service and QGC offscreen smoke pass)
 - Fuel immutable content pin/account upload
 - general acoustic, optical, hydrodynamic and long-duration scientific accuracy
 - upstream submission, repository naming, licensing and research-direction decisions

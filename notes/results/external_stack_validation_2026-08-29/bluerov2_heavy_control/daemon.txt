@@ -1,0 +1,2 @@
+The daemon has been stopped
+The daemon has been started

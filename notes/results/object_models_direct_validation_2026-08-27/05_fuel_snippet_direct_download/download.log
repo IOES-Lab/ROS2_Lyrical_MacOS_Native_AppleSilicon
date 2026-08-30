@@ -6,7 +6,7 @@ Downloading model: [36m
     [96m[1mVersion: [0m[37m1.0[0m
 [39m
 (2026-08-27 15:01:55.951) [info] [FuelClient.cc:682] Downloading model [fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model]
-(2026-08-27 15:01:56.959) [debug] [FuelClient.cc:1968] Downloading from a referral link [https://gz-fuel-resources-production.s3.amazonaws.com/hmoyen/f3d8c76d-9d08-4e6c-8efa-d2512be4fb78/.zips/1.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAS5OHIRKDBY6VUUFF%2F20260827%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260827T060159Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=cb447a221f6720a874b5be8b6a3a600d52cb4fc26ee5710eb993d1ea4bef5f36]
+(2026-08-27 15:01:56.959) [debug] [FuelClient.cc:1968] Downloading from a referral link [https://gz-fuel-resources-production.s3.amazonaws.com/hmoyen/f3d8c76d-9d08-4e6c-8efa-d2512be4fb78/.zips/1.zip?<redacted-expired-signed-query>]
 (2026-08-27 15:01:58.172) [debug] [Zip.cc:180] Created file [/tmp/object_models_teledyne_fuel_cache/fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/meshes/WorkhorseNavigator.dae]
 (2026-08-27 15:01:58.172) [debug] [Zip.cc:180] Created file [/tmp/object_models_teledyne_fuel_cache/fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/meshes/tx-Navigator.png]
 (2026-08-27 15:01:58.173) [debug] [Zip.cc:180] Created file [/tmp/object_models_teledyne_fuel_cache/fuel.gazebosim.org/hmoyen/models/teledyne_whn_uuvsim_bare_model/1/model.config]

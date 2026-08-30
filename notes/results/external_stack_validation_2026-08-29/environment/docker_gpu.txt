@@ -1,0 +1,51 @@
+== ARCH ==
+Linux 67d4b1d39687 6.12.76-linuxkit #1 SMP Sun Mar  8 14:41:59 UTC 2026 aarch64 GNU/Linux
+aarch64
+== DEV DRI ==
+ls: cannot access '/dev/dri': No such file or directory
+== NVIDIA ==
+bash: line 4: nvidia-smi: command not found
+== VULKAN ==
+bash: line 5: vulkaninfo: command not found
+== GL ==
+/usr/bin/glxinfo
+name of display: :10
+display: :10  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: Mesa (0xffffffff)
+    Device: llvmpipe (LLVM 21.1.8, 128 bits) (0xffffffff)
+    Version: 26.0.3
+    Accelerated: no
+    Video memory: 11948MB
+    Unified memory: yes
+    Preferred profile: core (0x1)
+    Max core profile version: 4.5
+    Max compat profile version: 4.5
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.2
+Memory info (GL_ATI_meminfo):
+    VBO free memory - total: 63 MB, largest block: 63 MB
+    VBO free aux. memory - total: 9744 MB, largest block: 9744 MB
+    Texture free memory - total: 63 MB, largest block: 63 MB
+    Texture free aux. memory - total: 9744 MB, largest block: 9744 MB
+    Renderbuffer free memory - total: 63 MB, largest block: 63 MB
+    Renderbuffer free aux. memory - total: 9744 MB, largest block: 9744 MB
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 4294620582 MB
+    Total available memory: 4294632531 MB
+    Currently available dedicated video memory: 63 MB
+OpenGL vendor string: Mesa
+OpenGL renderer string: llvmpipe (LLVM 21.1.8, 128 bits)
+OpenGL core profile version string: 4.5 (Core Profile) Mesa 26.0.3-1ubuntu1
+OpenGL core profile shading language version string: 4.50
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+
+OpenGL version string: 4.5 (Compatibility Profile) Mesa 26.0.3-1ubuntu1
+OpenGL shading language version string: 4.50
+OpenGL context flags: (none)
+OpenGL profile mask: compatibility profile
+
+OpenGL ES profile version string: OpenGL ES 3.2 Mesa 26.0.3-1ubuntu1
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20

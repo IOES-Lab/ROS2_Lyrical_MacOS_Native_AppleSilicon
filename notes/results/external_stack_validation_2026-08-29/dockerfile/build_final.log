@@ -1,0 +1,1226 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from lyrical.arm64v8.dockerfile
+#1 transferring dockerfile: 31.81kB done
+#1 WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 492)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/arm64v8/ubuntu:26.04
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [ca-source 1/1] FROM docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#5 resolve docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 0.0s done
+#5 DONE 0.0s
+
+#6 [stage-1  1/47] FROM docker.io/arm64v8/ubuntu:26.04@sha256:7f3465684b7f1d5393610fd86e8d568a7cb868bf8d9cf066a93afa79e4b0dc80
+#6 resolve docker.io/arm64v8/ubuntu:26.04@sha256:7f3465684b7f1d5393610fd86e8d568a7cb868bf8d9cf066a93afa79e4b0dc80 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 1.90kB done
+#7 DONE 0.0s
+
+#8 [stage-1  7/47] RUN useradd -s /bin/bash -m docker && echo "docker:docker" | chpasswd;     usermod -aG sudo docker; echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers;     adduser xrdp ssl-cert;     usermod -aG root xrdp;     echo 'LANG=en_US.UTF-8' >> /etc/default/locale;     echo 'export XDG_CURRENT_DESKTOP=XFCE' > /home/docker/.xsessionrc;     echo 'export XDG_SESSION_DESKTOP=xfce' >> /home/docker/.xsessionrc;     echo 'export DESKTOP_SESSION=xfce' >> /home/docker/.xsessionrc;     echo 'export XDG_SESSION_TYPE=x11' >> /home/docker/.xsessionrc;     sed -i "s/#EnableConsole=false/EnableConsole=true/g" /etc/xrdp/xrdp.ini;     sed -i 's/max_bpp=32/max_bpp=16/g' /etc/xrdp/xrdp.ini;     [ true = 'true' ] &&         sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/g' /etc/ssh/sshd_config ||         sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ||         :;     chown docker:docker /home/docker/.xsessionrc
+#8 CACHED
+
+#9 [stage-1  8/47] RUN test -d /etc/xrdp &&     printf '%s\n'       '#!/bin/bash'       'exec >>/home/docker/xrdp-startwm.log 2>&1'       'export HOME=/home/docker'       'export USER=docker'       'export LOGNAME=docker'       'export XDG_SESSION_TYPE=x11'       'export XDG_CURRENT_DESKTOP=XFCE'       'export XDG_SESSION_DESKTOP=xfce'       'export DESKTOP_SESSION=xfce'       'export XDG_RUNTIME_DIR="/run/user/$(id -u)"'       'unset GNOME_SHELL_SESSION_MODE SESSION_MANAGER DBUS_SESSION_BUS_ADDRESS'       'exec /usr/bin/dbus-run-session -- /usr/bin/startxfce4'       > /etc/xrdp/startwm.sh &&     chmod 0755 /etc/xrdp/startwm.sh
+#9 CACHED
+
+#10 [stage-1 13/47] RUN apt update -o APT::Update::Error-Mode=any && apt full-upgrade -y && apt autoremove -y
+#10 CACHED
+
+#11 [stage-1 12/47] RUN locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+#11 CACHED
+
+#12 [stage-1 16/47] RUN git clone https://github.com/naitikpahwa18/dave.git dave &&     cd dave && git checkout --detach "6aef91c823af5da073329b84ba617b572965e79e"
+#12 CACHED
+
+#13 [stage-1 15/47] WORKDIR /home/docker/dave_ws/src
+#13 CACHED
+
+#14 [stage-1 11/47] RUN apt-get update -o APT::Update::Error-Mode=any &&     apt-get -y install --no-install-recommends locales tzdata &&     rm -rf /tmp/*
+#14 CACHED
+
+#15 [stage-1  3/47] COPY --from=ca-source /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+#15 CACHED
+
+#16 [stage-1 14/47] RUN export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F" '{print $4}') &&     curl -L -o /tmp/ros2-apt-source.deb       "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb" &&     dpkg -i /tmp/ros2-apt-source.deb &&     apt update -o APT::Update::Error-Mode=any &&     apt install -y --no-install-recommends       ros-lyrical-desktop ros-lyrical-ros-gz       python3-rosdep python3-vcstool python3-colcon-common-extensions
+#16 CACHED
+
+#17 [stage-1  9/47] RUN apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt &&     apt-get install -y --no-install-recommends     xterm vim net-tools     curl wget git build-essential cmake cppcheck     gnupg libeigen3-dev libgles2-mesa-dev     lsb-release pkg-config protobuf-compiler     python3-pip python3-venv     nano xauth htop libtool     x11-apps mesa-utils bison flex automake &&     rm -rf /var/lib/apt/lists/
+#17 CACHED
+
+#18 [stage-1  2/47] RUN mkdir -p /etc/ssl/certs
+#18 CACHED
+
+#19 [stage-1  5/47] RUN grep -rl 'http://ports.ubuntu.com' /etc/apt/ 2>/dev/null | xargs -r sed -i 's|http://ports.ubuntu.com|https://ports.ubuntu.com|g'
+#19 CACHED
+
+#20 [stage-1  4/47] RUN test -s /etc/ssl/certs/ca-certificates.crt ||     (echo "FATAL: /etc/ssl/certs/ca-certificates.crt missing or empty after COPY from ca-source - the assumed Alpine CA bundle path was wrong for this curlimages/curl digest. Inspect the image manually (docker run --rm curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13 sh -c 'ls -la /etc/ssl/certs/ /etc/ssl/*.pem 2>/dev/null') and fix the COPY --from path above." >&2;      exit 1)
+#20 CACHED
+
+#21 [stage-1  6/47] RUN DEBIAN_FRONTEND=noninteractive apt-get update -o APT::Update::Error-Mode=any -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt &&     apt-get -o Acquire::https::CaInfo=/etc/ssl/certs/ca-certificates.crt install -y --no-install-recommends       dbus dbus-x11 xrdp xorgxrdp       xfce4 xfce4-goodies xfce4-terminal xterm       sudo openssl ca-certificates &&     if [ "true" = 'true' ]; then apt-get install -y openssh-server; fi &&     apt-get autoremove --purge &&     apt-get clean &&     rm -f /run/reboot-required*
+#21 CACHED
+
+#22 [stage-1 10/47] RUN truncate -s0 /tmp/preseed.cfg &&     (echo "tzdata tzdata/Areas select Etc" >> /tmp/preseed.cfg) &&     (echo "tzdata tzdata/Zones/Etc select UTC" >> /tmp/preseed.cfg) &&     debconf-set-selections /tmp/preseed.cfg &&     rm -f /etc/timezone &&     dpkg-reconfigure -f noninteractive tzdata
+#22 CACHED
+
+#23 [stage-1 17/47] COPY patches/dave_lyrical_jetty_migration_mac.diff /tmp/dave_lyrical_jetty_migration_mac.diff
+#23 CACHED
+
+#24 [stage-1 18/47] COPY patches/bluerov2_ardusub_speedup_fix.diff /tmp/bluerov2_ardusub_speedup_fix.diff
+#24 DONE 0.0s
+
+#25 [stage-1 19/47] RUN cd dave &&     git apply /tmp/dave_lyrical_jetty_migration_mac.diff &&     git apply /tmp/bluerov2_ardusub_speedup_fix.diff &&     python3 -m py_compile       models/dave_robot_models/config/bluerov2/robot_config.py       models/dave_robot_models/config/bluerov2_heavy/robot_config.py       models/dave_robot_models/config/bluerov2_heavy_multibeam_sonar/robot_config.py
+#25 DONE 0.3s
+
+#26 [stage-1 20/47] RUN rosdep init || true && rosdep update --rosdistro lyrical &&     rosdep install --rosdistro lyrical -iy --from-paths .       --skip-keys "mavros mavros_msgs"
+#26 0.314 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#26 0.314   from pkg_resources import load_entry_point
+#26 0.811 Wrote /etc/ros/rosdep/sources.list.d/20-default.list
+#26 0.811 Recommended: please run
+#26 0.811
+#26 0.811 	rosdep update
+#26 0.811
+#26 0.952 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#26 0.952   from pkg_resources import load_entry_point
+#26 1.062 Warning: running 'rosdep update' as root is not recommended.
+#26 1.062   You should run 'sudo rosdep fix-permissions' and invoke 'rosdep update' again without sudo.
+#26 4.615 reading in sources list data from /etc/ros/rosdep/sources.list.d
+#26 4.615 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
+#26 4.615 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
+#26 4.615 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
+#26 4.615 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
+#26 4.615 Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
+#26 4.615 Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
+#26 4.615 Skip distro "ardent" different from requested "lyrical"
+#26 4.615 Skip distro "bouncy" different from requested "lyrical"
+#26 4.615 Skip distro "crystal" different from requested "lyrical"
+#26 4.615 Skip distro "dashing" different from requested "lyrical"
+#26 4.615 Skip distro "eloquent" different from requested "lyrical"
+#26 4.615 Skip distro "foxy" different from requested "lyrical"
+#26 4.615 Skip distro "galactic" different from requested "lyrical"
+#26 4.615 Skip distro "groovy" different from requested "lyrical"
+#26 4.615 Skip distro "humble" different from requested "lyrical"
+#26 4.615 Skip distro "hydro" different from requested "lyrical"
+#26 4.615 Skip distro "indigo" different from requested "lyrical"
+#26 4.615 Skip distro "iron" different from requested "lyrical"
+#26 4.615 Skip distro "jade" different from requested "lyrical"
+#26 4.615 Skip distro "jazzy" different from requested "lyrical"
+#26 4.615 Skip distro "kilted" different from requested "lyrical"
+#26 4.615 Skip distro "kinetic" different from requested "lyrical"
+#26 4.615 Skip distro "lunar" different from requested "lyrical"
+#26 4.615 Add distro "lyrical"
+#26 4.615 Skip distro "melodic" different from requested "lyrical"
+#26 4.615 Skip distro "noetic" different from requested "lyrical"
+#26 4.615 Skip distro "rolling" different from requested "lyrical"
+#26 4.615 updated cache in /root/.ros/rosdep/sources.cache
+#26 4.738 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#26 4.738   from pkg_resources import load_entry_point
+#26 7.247 Reading package lists...
+#26 7.939 Building dependency tree...
+#26 8.115 Reading state information...
+#26 8.167 Solving dependencies...
+#26 8.442 The following NEW packages will be installed:
+#26 8.442   python3-websockets
+#26 10.21 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#26 10.21 Need to get 97.8 kB of archives.
+#26 10.21 After this operation, 742 kB of additional disk space will be used.
+#26 10.21 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 python3-websockets arm64 15.0.1-1build2 [97.8 kB]
+#26 12.07 Fetched 97.8 kB in 3s (38.3 kB/s)
+#26 12.10 Selecting previously unselected package python3-websockets.
+#26 12.10 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160745 files and directories currently installed.)
+#26 12.76 Preparing to unpack .../python3-websockets_15.0.1-1build2_arm64.deb ...
+#26 12.76 Unpacking python3-websockets (15.0.1-1build2) ...
+#26 12.84 Setting up python3-websockets (15.0.1-1build2) ...
+#26 13.07 [1mexecuting command [apt-get install -y python3-websockets][0m
+#26 13.07 #All required rosdeps installed successfully
+#26 DONE 13.2s
+
+#27 [stage-1 21/47] RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+#27 0.723 info: downloading installer
+#27 1.767 warn: It looks like you have an existing rustup settings file at:
+#27 1.767 warn: /root/.rustup/settings.toml
+#27 1.767 warn: Rustup will install the default toolchain as specified in the settings file,
+#27 1.767 warn: instead of the one inferred from the default host triple.
+#27 1.788 info: profile set to default
+#27 1.788 info: default host triple is aarch64-unknown-linux-gnu
+#27 1.790 info: syncing channel updates for stable-aarch64-unknown-linux-gnu
+#27 2.084 info: latest update on 2026-08-20 for version 1.98.0 (88d9e12ae 2026-08-18)
+#27 2.085 info: downloading 6 components
+#27 17.13 info: default toolchain set to stable-aarch64-unknown-linux-gnu
+#27 17.13
+#27 17.18   stable-aarch64-unknown-linux-gnu installed - rustc 1.98.0 (88d9e12ae 2026-08-18)
+#27 17.18
+#27 17.18
+#27 17.18 Rust is installed now. Great!
+#27 17.18
+#27 17.18 To get started you may need to restart your current shell.
+#27 17.18 This would reload your PATH environment variable to include
+#27 17.18 Cargo's bin directory ($HOME/.cargo/bin).
+#27 17.18
+#27 17.18 To configure your current shell, you need to source
+#27 17.18 the corresponding env file under $HOME/.cargo.
+#27 17.18
+#27 17.18 This is usually done by running one of the following (note the leading DOT):
+#27 17.18 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+#27 17.18 source "$HOME/.cargo/env.fish"  # For fish
+#27 17.18 source "~/.cargo/env.nu"  # For nushell
+#27 17.18 source "$HOME/.cargo/env.tcsh"  # For tcsh
+#27 17.18 . "$HOME/.cargo/env.ps1"        # For pwsh
+#27 17.18 source "$HOME/.cargo/env.xsh"   # For xonsh
+#27 DONE 18.5s
+
+#28 [stage-1 22/47] WORKDIR /home/docker/dave_ws
+#28 DONE 0.4s
+
+#29 [stage-1 23/47] RUN . "/opt/ros/lyrical/setup.sh" &&     colcon build --merge-install --executor sequential --symlink-install       --packages-select dave_interfaces dave_object_models dave_sensor_models dave_robot_models       dave_worlds dave_gz_world_plugins dave_gz_model_plugins dave_gz_sensor_plugins       dave_ros_gz_plugins dave_demos &&     colcon build --merge-install --executor sequential --packages-select wgpu_vendor &&     colcon build --merge-install --executor sequential --packages-select multibeam_sonar multibeam_sonar_system
+#29 0.772 Starting >>> dave_demos
+#29 1.958 Finished <<< dave_demos [1.19s]
+#29 1.958 --- stderr: dave_demos
+#29 1.958 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 1.958   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 1.958   CMake.
+#29 1.958
+#29 1.958   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 1.958   to tell CMake that the project requires at least <min> but has been updated
+#29 1.958   to work with policies introduced by <max> or earlier.
+#29 1.958
+#29 1.958
+#29 1.958 ---
+#29 1.959 Starting >>> dave_interfaces
+#29 31.74 Finished <<< dave_interfaces [29.8s]
+#29 31.74 Starting >>> dave_object_models
+#29 31.74 --- stderr: dave_interfaces
+#29 31.74 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 31.74   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 31.74   CMake.
+#29 31.74
+#29 31.74   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 31.74   to tell CMake that the project requires at least <min> but has been updated
+#29 31.74   to work with policies introduced by <max> or earlier.
+#29 31.74
+#29 31.74
+#29 31.74 ---
+#29 32.81 --- stderr: dave_object_models
+#29 32.81 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 32.81   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 32.81   CMake.
+#29 32.81
+#29 32.81   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 32.81   to tell CMake that the project requires at least <min> but has been updated
+#29 32.81   to work with policies introduced by <max> or earlier.
+#29 32.81
+#29 32.81
+#29 32.81 ---
+#29 32.81 Finished <<< dave_object_models [1.07s]
+#29 32.81 Starting >>> dave_robot_models
+#29 34.07 Finished <<< dave_robot_models [1.26s]
+#29 34.07 --- stderr: dave_robot_models
+#29 34.07 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 34.07   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 34.07   CMake.
+#29 34.07
+#29 34.07   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 34.07   to tell CMake that the project requires at least <min> but has been updated
+#29 34.07   to work with policies introduced by <max> or earlier.
+#29 34.07
+#29 34.07
+#29 34.07 ---
+#29 34.07 Starting >>> dave_sensor_models
+#29 35.36 Finished <<< dave_sensor_models [1.29s]
+#29 35.36 --- stderr: dave_sensor_models
+#29 35.36 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 35.36   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 35.36   CMake.
+#29 35.36
+#29 35.36   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 35.36   to tell CMake that the project requires at least <min> but has been updated
+#29 35.36   to work with policies introduced by <max> or earlier.
+#29 35.36
+#29 35.36
+#29 35.36 ---
+#29 35.36 Starting >>> dave_worlds
+#29 36.48 Finished <<< dave_worlds [1.12s]
+#29 36.48 --- stderr: dave_worlds
+#29 36.48 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 36.48   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 36.48   CMake.
+#29 36.48
+#29 36.48   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 36.48   to tell CMake that the project requires at least <min> but has been updated
+#29 36.48   to work with policies introduced by <max> or earlier.
+#29 36.48
+#29 36.48
+#29 36.48 ---
+#29 36.48 Starting >>> dave_gz_sensor_plugins
+#29 84.69 Finished <<< dave_gz_sensor_plugins [48.2s]
+#29 84.69 Starting >>> dave_gz_world_plugins
+#29 84.69 --- stderr: dave_gz_sensor_plugins
+#29 84.69 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 84.69   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 84.69   CMake.
+#29 84.69
+#29 84.69   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 84.69   to tell CMake that the project requires at least <min> but has been updated
+#29 84.69   to work with policies introduced by <max> or earlier.
+#29 84.69
+#29 84.69
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/sea_pressure_sensor.cc: In member function ‘virtual void dave_gz_sensor_plugins::SubseaPressureSensorPlugin::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/sea_pressure_sensor.cc:248:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 84.69   248 |     rclcpp::spin_some(this->rosNode);
+#29 84.69       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+#29 84.69 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 84.69                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/include/dave_gz_sensor_plugins/sea_pressure_sensor.hh:7,
+#29 84.69                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/sea_pressure_sensor.cc:1:
+#29 84.69 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 84.69   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 84.69       | ^~~~~~~~~
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc: In member function ‘virtual void dave_gz_sensor_plugins::UsblTransceiver::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc:605:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 84.69   605 |     rclcpp::spin_some(this->ros_node_);
+#29 84.69       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+#29 84.69 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 84.69                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransceiver.cc:32:
+#29 84.69 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 84.69   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 84.69       | ^~~~~~~~~
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc: In member function ‘virtual void dave_gz_sensor_plugins::UsblTransponder::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc:385:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 84.69   385 |     rclcpp::spin_some(this->ros_node_);
+#29 84.69       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+#29 84.69 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 84.69                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UsblTransponder.cc:35:
+#29 84.69 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 84.69   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 84.69       | ^~~~~~~~~
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc: In member function ‘virtual void dave_gz_sensor_plugins::UnderwaterCamera::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 84.69 /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc:445:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 84.69   445 |     rclcpp::spin_some(this->ros_node_);
+#29 84.69       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+#29 84.69 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 84.69                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/include/dave_gz_sensor_plugins/UnderwaterCamera.hh:28,
+#29 84.69                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_sensor_plugins/src/UnderwaterCamera.cc:17:
+#29 84.69 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 84.69   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 84.69       | ^~~~~~~~~
+#29 84.69 ---
+#29 99.27 --- stderr: dave_gz_world_plugins
+#29 99.27 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 99.27   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 99.27   CMake.
+#29 99.27
+#29 99.27   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 99.27   to tell CMake that the project requires at least <min> but has been updated
+#29 99.27   to work with policies introduced by <max> or earlier.
+#29 99.27
+#29 99.27
+#29 99.27 CMake Warning (dev) at CMakeLists.txt:14 (find_package):
+#29 99.27   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+#29 99.27   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+#29 99.27   set the policy and suppress this warning.
+#29 99.27
+#29 99.27 This warning is for project developers.  Use -Wno-dev to suppress it.
+#29 99.27
+#29 99.27 /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc: In member function ‘void dave_gz_world_plugins::OceanCurrentWorldPlugin::LoadTidalOscillationDatabase()’:
+#29 99.27 /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc:180:82: warning: ‘std::string ament_index_cpp::get_package_share_directory(const std::string&)’ is deprecated: Use get_package_share_path(...) instead [-Wdeprecated-declarations]
+#29 99.27   180 |       this->dataPtr->tidalFilePath = ament_index_cpp::get_package_share_directory("dave_worlds") +
+#29 99.27       |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+#29 99.27 In file included from /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc:35:
+#29 99.27 /opt/ros/lyrical/include/ament_index_cpp/ament_index_cpp/get_package_share_directory.hpp:35:1: note: declared here
+#29 99.27    35 | get_package_share_directory(const std::string & package_name);
+#29 99.27       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#29 99.27 /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc: In member function ‘void dave_gz_world_plugins::OceanCurrentWorldPlugin::LoadStratifiedCurrentDatabase()’:
+#29 99.27 /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc:427:83: warning: ‘std::string ament_index_cpp::get_package_share_directory(const std::string&)’ is deprecated: Use get_package_share_path(...) instead [-Wdeprecated-declarations]
+#29 99.27   427 |     this->dataPtr->databaseFilePath = ament_index_cpp::get_package_share_directory("dave_worlds") +
+#29 99.27       |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+#29 99.27 /opt/ros/lyrical/include/ament_index_cpp/ament_index_cpp/get_package_share_directory.hpp:35:1: note: declared here
+#29 99.27    35 | get_package_share_directory(const std::string & package_name);
+#29 99.27       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#29 99.27 /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc:433:83: warning: ‘std::string ament_index_cpp::get_package_share_directory(const std::string&)’ is deprecated: Use get_package_share_path(...) instead [-Wdeprecated-declarations]
+#29 99.27   433 |     this->dataPtr->databaseFilePath = ament_index_cpp::get_package_share_directory("dave_worlds") +
+#29 99.27       |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+#29 99.27 /opt/ros/lyrical/include/ament_index_cpp/ament_index_cpp/get_package_share_directory.hpp:35:1: note: declared here
+#29 99.27    35 | get_package_share_directory(const std::string & package_name);
+#29 99.27       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#29 99.27 ---
+#29 99.27 Finished <<< dave_gz_world_plugins [14.6s]
+#29 99.27 Starting >>> dave_ros_gz_plugins
+#29 114.3 --- stderr: dave_ros_gz_plugins
+#29 114.3 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 114.3   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 114.3   CMake.
+#29 114.3
+#29 114.3   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 114.3   to tell CMake that the project requires at least <min> but has been updated
+#29 114.3   to work with policies introduced by <max> or earlier.
+#29 114.3
+#29 114.3
+#29 114.3 CMake Warning (dev) at CMakeLists.txt:16 (find_package):
+#29 114.3   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+#29 114.3   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+#29 114.3   set the policy and suppress this warning.
+#29 114.3
+#29 114.3 This warning is for project developers.  Use -Wno-dev to suppress it.
+#29 114.3
+#29 114.3 /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/DVLBridge.cc: In member function ‘virtual void dave_ros_gz_plugins::DVLBridge::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 114.3 /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/DVLBridge.cc:188:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 114.3   188 |     rclcpp::spin_some(this->ros_node_);
+#29 114.3       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+#29 114.3 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 114.3                  from /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/DVLBridge.cc:21:
+#29 114.3 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 114.3   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 114.3       | ^~~~~~~~~
+#29 114.3 /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc: In member function ‘virtual void dave_ros_gz_plugins::SphericalCoords::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 114.3 /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc:230:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 114.3   230 |     rclcpp::spin_some(this->ros_node_);
+#29 114.3       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+#29 114.3 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 114.3                  from /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/SphericalCoords.cc:22:
+#29 114.3 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 114.3   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 114.3       | ^~~~~~~~~
+#29 114.3 /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/OceanCurrentPlugin.cc: In member function ‘virtual void dave_ros_gz_plugins::OceanCurrentPlugin::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 114.3 /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/OceanCurrentPlugin.cc:592:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 114.3   592 |     rclcpp::spin_some(this->dataPtr->rosNode);
+#29 114.3       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+#29 114.3 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 114.3                  from /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/OceanCurrentPlugin.cc:16:
+#29 114.3 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 114.3   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 114.3       | ^~~~~~~~~
+#29 114.3 ---
+#29 114.3 Finished <<< dave_ros_gz_plugins [15.0s]
+#29 114.3 Starting >>> dave_gz_model_plugins
+#29 128.9 Finished <<< dave_gz_model_plugins [14.7s]
+#29 128.9 --- stderr: dave_gz_model_plugins
+#29 128.9 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#29 128.9   Compatibility with CMake < 3.10 will be removed from a future version of
+#29 128.9   CMake.
+#29 128.9
+#29 128.9   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#29 128.9   to tell CMake that the project requires at least <min> but has been updated
+#29 128.9   to work with policies introduced by <max> or earlier.
+#29 128.9
+#29 128.9
+#29 128.9 CMake Warning (dev) at CMakeLists.txt:7 (find_package):
+#29 128.9   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+#29 128.9   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+#29 128.9   set the policy and suppress this warning.
+#29 128.9
+#29 128.9 This warning is for project developers.  Use -Wno-dev to suppress it.
+#29 128.9
+#29 128.9 /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/src/OceanCurrentModelPlugin.cc: In member function ‘virtual void dave_gz_model_plugins::OceanCurrentModelPlugin::PostUpdate(const gz::sim::v10::UpdateInfo&, const gz::sim::v10::EntityComponentManager&)’:
+#29 128.9 /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/src/OceanCurrentModelPlugin.cc:642:22: warning: ‘void rclcpp::spin_some(const Node::SharedPtr&)’ is deprecated: use SingleThreadedExecutor::spin_some instead [-Wdeprecated-declarations]
+#29 128.9   642 |     rclcpp::spin_some(this->ros_node_);
+#29 128.9       |     ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+#29 128.9 In file included from /opt/ros/lyrical/include/rclcpp/rclcpp/rclcpp.hpp:174,
+#29 128.9                  from /home/docker/dave_ws/install/include/dave_gz_world_plugins/dave_gz_world_plugins/gauss_markov_process.hh:10,
+#29 128.9                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/include/dave_gz_model_plugins/OceanCurrentModelPlugin.hh:4,
+#29 128.9                  from /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/src/OceanCurrentModelPlugin.cc:1:
+#29 128.9 /opt/ros/lyrical/include/rclcpp/rclcpp/executors.hpp:110:1: note: declared here
+#29 128.9   110 | spin_some(const rclcpp::Node::SharedPtr & node_ptr);
+#29 128.9       | ^~~~~~~~~
+#29 128.9 /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/src/OceanCurrentModelPlugin.cc: In member function ‘void dave_gz_model_plugins::OceanCurrentModelPlugin::CalculateOceanCurrent(double)’:
+#29 128.9 /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/src/OceanCurrentModelPlugin.cc:584:79: note: parameter passing for argument of type ‘std::pair<double, double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+#29 128.9   584 |         this->dataPtr->tide.Update((this->dataPtr->time).count(), northCurrent);
+#29 128.9       |                                                                               ^
+#29 128.9 ---
+#29 129.0
+#29 129.0 Summary: 10 packages finished [2min 8s]
+#29 129.0   10 packages had stderr output: dave_demos dave_gz_model_plugins dave_gz_sensor_plugins dave_gz_world_plugins dave_interfaces dave_object_models dave_robot_models dave_ros_gz_plugins dave_sensor_models dave_worlds
+#29 129.4 Starting >>> wgpu_vendor
+#29 201.4 Finished <<< wgpu_vendor [1min 12s]
+#29 201.4 --- stderr: wgpu_vendor
+#29 201.4     Updating crates.io index
+#29 201.4  Downloading crates ...
+#29 201.4   Downloaded arrayvec v0.7.6
+#29 201.4   Downloaded bit-vec v0.6.3
+#29 201.4   Downloaded litrs v1.0.0
+#29 201.4   Downloaded gpu-descriptor v0.3.2
+#29 201.4   Downloaded renderdoc-sys v1.1.0
+#29 201.4   Downloaded cfg-if v1.0.4
+#29 201.4   Downloaded cfg_aliases v0.1.1
+#29 201.4   Downloaded rustc-hash v1.1.0
+#29 201.4   Downloaded hexf-parse v0.2.1
+#29 201.4   Downloaded gpu-descriptor-types v0.2.0
+#29 201.4   Downloaded unicode-xid v0.2.6
+#29 201.4   Downloaded gpu-alloc-types v0.3.0
+#29 201.4   Downloaded profiling v1.0.17
+#29 201.4   Downloaded scopeguard v1.2.0
+#29 201.4   Downloaded bit-set v0.5.3
+#29 201.4   Downloaded equivalent v1.0.2
+#29 201.4   Downloaded document-features v0.2.12
+#29 201.4   Downloaded pollster v0.3.0
+#29 201.4   Downloaded static_assertions v1.1.0
+#29 201.4   Downloaded foldhash v0.1.5
+#29 201.4   Downloaded libloading v0.8.9
+#29 201.4   Downloaded lock_api v0.4.14
+#29 201.4   Downloaded pkg-config v0.3.32
+#29 201.4   Downloaded thiserror v1.0.69
+#29 201.4   Downloaded thiserror-impl v1.0.69
+#29 201.4   Downloaded libloading v0.7.4
+#29 201.4   Downloaded termcolor v1.4.1
+#29 201.4   Downloaded bitflags v2.11.0
+#29 201.4   Downloaded quote v1.0.45
+#29 201.4   Downloaded bytemuck_derive v1.10.2
+#29 201.4   Downloaded gpu-alloc v0.6.0
+#29 201.4   Downloaded raw-window-handle v0.6.2
+#29 201.4   Downloaded spirv v0.3.0+sdk-1.3.268.0
+#29 201.4   Downloaded khronos-egl v6.0.0
+#29 201.4   Downloaded codespan-reporting v0.11.1
+#29 201.4   Downloaded once_cell v1.21.3
+#29 201.4   Downloaded smallvec v1.15.1
+#29 201.4   Downloaded parking_lot_core v0.9.12
+#29 201.4   Downloaded autocfg v1.5.0
+#29 201.4   Downloaded wgpu-types v0.20.0
+#29 201.4   Downloaded unicode-ident v1.0.24
+#29 201.4   Downloaded num-traits v0.2.19
+#29 201.4   Downloaded parking_lot v0.12.5
+#29 201.4   Downloaded log v0.4.29
+#29 201.4   Downloaded bytemuck v1.25.0
+#29 201.4   Downloaded proc-macro2 v1.0.106
+#29 201.4   Downloaded indexmap v2.13.0
+#29 201.4   Downloaded hashbrown v0.15.5
+#29 201.4   Downloaded wgpu v0.20.1
+#29 201.4   Downloaded hashbrown v0.16.1
+#29 201.4   Downloaded glow v0.13.1
+#29 201.4   Downloaded wgpu-core v0.21.1
+#29 201.4   Downloaded unicode-width v0.1.14
+#29 201.4   Downloaded syn v2.0.117
+#29 201.4   Downloaded wgpu-hal v0.21.1
+#29 201.4   Downloaded ash v0.37.3+1.3.251
+#29 201.4   Downloaded naga v0.20.0
+#29 201.4   Downloaded libc v0.2.183
+#29 201.4    Compiling proc-macro2 v1.0.106
+#29 201.4    Compiling quote v1.0.45
+#29 201.4    Compiling unicode-ident v1.0.24
+#29 201.4    Compiling bitflags v2.11.0
+#29 201.4    Compiling cfg_aliases v0.1.1
+#29 201.4    Compiling cfg-if v1.0.4
+#29 201.4    Compiling libc v0.2.183
+#29 201.4    Compiling autocfg v1.5.0
+#29 201.4    Compiling thiserror v1.0.69
+#29 201.4    Compiling parking_lot_core v0.9.12
+#29 201.4    Compiling bit-vec v0.6.3
+#29 201.4    Compiling foldhash v0.1.5
+#29 201.4    Compiling ash v0.37.3+1.3.251
+#29 201.4    Compiling hashbrown v0.16.1
+#29 201.4    Compiling smallvec v1.15.1
+#29 201.4    Compiling khronos-egl v6.0.0
+#29 201.4    Compiling scopeguard v1.2.0
+#29 201.4    Compiling num-traits v0.2.19
+#29 201.4    Compiling termcolor v1.4.1
+#29 201.4    Compiling unicode-width v0.1.14
+#29 201.4    Compiling equivalent v1.0.2
+#29 201.4    Compiling lock_api v0.4.14
+#29 201.4    Compiling hashbrown v0.15.5
+#29 201.4    Compiling codespan-reporting v0.11.1
+#29 201.4    Compiling bit-set v0.5.3
+#29 201.4    Compiling gpu-descriptor-types v0.2.0
+#29 201.4    Compiling syn v2.0.117
+#29 201.4    Compiling indexmap v2.13.0
+#29 201.4    Compiling gpu-alloc-types v0.3.0
+#29 201.4    Compiling spirv v0.3.0+sdk-1.3.268.0
+#29 201.4    Compiling wgpu-hal v0.21.1
+#29 201.4    Compiling libloading v0.8.9
+#29 201.4    Compiling libloading v0.7.4
+#29 201.4    Compiling rustc-hash v1.1.0
+#29 201.4    Compiling hexf-parse v0.2.1
+#29 201.4    Compiling log v0.4.29
+#29 201.4    Compiling unicode-xid v0.2.6
+#29 201.4    Compiling arrayvec v0.7.6
+#29 201.4    Compiling parking_lot v0.12.5
+#29 201.4    Compiling gpu-descriptor v0.3.2
+#29 201.4    Compiling gpu-alloc v0.6.0
+#29 201.4    Compiling wgpu-types v0.20.0
+#29 201.4    Compiling wgpu-core v0.21.1
+#29 201.4    Compiling profiling v1.0.17
+#29 201.4    Compiling renderdoc-sys v1.1.0
+#29 201.4    Compiling glow v0.13.1
+#29 201.4    Compiling litrs v1.0.0
+#29 201.4    Compiling once_cell v1.21.3
+#29 201.4    Compiling raw-window-handle v0.6.2
+#29 201.4    Compiling wgpu v0.20.1
+#29 201.4    Compiling static_assertions v1.1.0
+#29 201.4    Compiling pollster v0.3.0
+#29 201.4    Compiling document-features v0.2.12
+#29 201.4    Compiling thiserror-impl v1.0.69
+#29 201.4    Compiling bytemuck_derive v1.10.2
+#29 201.4    Compiling naga v0.20.0
+#29 201.4    Compiling bytemuck v1.25.0
+#29 201.4    Compiling sonar_wgpu v0.1.0 (/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust)
+#29 201.4     Finished `release` profile [optimized] target(s) in 1m 10s
+#29 201.4 ---
+#29 201.4
+#29 201.4 Summary: 1 package finished [1min 12s]
+#29 201.4   1 package had stderr output: wgpu_vendor
+#29 201.7 Starting >>> multibeam_sonar
+#29 219.7 Finished <<< multibeam_sonar [18.0s]
+#29 219.7 Starting >>> multibeam_sonar_system
+#29 248.4 Finished <<< multibeam_sonar_system [28.7s]
+#29 248.4
+#29 248.4 Summary: 2 packages finished [46.8s]
+#29 DONE 249.3s
+
+#30 [stage-1 24/47] RUN apt-get update -o APT::Update::Error-Mode=any &&     apt-get install -y --no-install-recommends       python3-rosinstall-generator python3-osrf-pycommon geographiclib-tools
+#30 1.032 Get:1 http://packages.ros.org/ros2/ubuntu resolute InRelease [4679 B]
+#30 1.198 Get:2 http://packages.ros.org/ros2/ubuntu resolute/main Sources [699 kB]
+#30 2.372 Get:3 http://packages.ros.org/ros2/ubuntu resolute/main arm64 Packages [636 kB]
+#30 2.426 Hit:4 https://ports.ubuntu.com/ubuntu-ports resolute InRelease
+#30 2.748 Get:5 https://ports.ubuntu.com/ubuntu-ports resolute-updates InRelease [137 kB]
+#30 3.969 Get:6 https://ports.ubuntu.com/ubuntu-ports resolute-backports InRelease [137 kB]
+#30 4.634 Get:7 https://ports.ubuntu.com/ubuntu-ports resolute-security InRelease [137 kB]
+#30 5.115 Get:8 https://ports.ubuntu.com/ubuntu-ports resolute-updates/restricted arm64 Packages [583 kB]
+#30 5.564 Get:9 https://ports.ubuntu.com/ubuntu-ports resolute-updates/multiverse arm64 Packages [14.3 kB]
+#30 5.576 Get:10 https://ports.ubuntu.com/ubuntu-ports resolute-updates/universe arm64 Packages [309 kB]
+#30 5.724 Get:11 https://ports.ubuntu.com/ubuntu-ports resolute-updates/main arm64 Packages [689 kB]
+#30 5.934 Get:12 https://ports.ubuntu.com/ubuntu-ports resolute-backports/universe arm64 Packages [3308 B]
+#30 5.934 Get:13 https://ports.ubuntu.com/ubuntu-ports resolute-security/universe arm64 Packages [190 kB]
+#30 5.993 Get:14 https://ports.ubuntu.com/ubuntu-ports resolute-security/multiverse arm64 Packages [11.2 kB]
+#30 5.997 Get:15 https://ports.ubuntu.com/ubuntu-ports resolute-security/main arm64 Packages [534 kB]
+#30 6.086 Get:16 https://ports.ubuntu.com/ubuntu-ports resolute-security/restricted arm64 Packages [572 kB]
+#30 6.238 Fetched 4657 kB in 6s (846 kB/s)
+#30 6.238 Reading package lists...
+#30 6.979 Reading package lists...
+#30 7.717 Building dependency tree...
+#30 7.917 Reading state information...
+#30 7.969 python3-osrf-pycommon is already the newest version (2.1.7-1).
+#30 7.969 python3-osrf-pycommon set to manually installed.
+#30 7.969 Solving dependencies...
+#30 8.176 Suggested packages:
+#30 8.176   proj-bin geographiclib-doc
+#30 8.214 The following NEW packages will be installed:
+#30 8.215   geographiclib-tools libgeographiclib26 python3-rosinstall-generator
+#30 8.522 0 upgraded, 3 newly installed, 0 to remove and 418 not upgraded.
+#30 8.522 Need to get 537 kB of archives.
+#30 8.522 After this operation, 2084 kB of additional disk space will be used.
+#30 8.522 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 python3-rosinstall-generator all 0.1.23-1 [11.8 kB]
+#30 9.145 Get:2 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 libgeographiclib26 arm64 2.7-1 [297 kB]
+#30 11.36 Get:3 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 geographiclib-tools arm64 2.7-1 [228 kB]
+#30 13.54 Fetched 537 kB in 4s (127 kB/s)
+#30 13.57 Selecting previously unselected package libgeographiclib26:arm64.
+#30 13.57 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160812 files and directories currently installed.)
+#30 14.17 Preparing to unpack .../libgeographiclib26_2.7-1_arm64.deb ...
+#30 14.17 Unpacking libgeographiclib26:arm64 (2.7-1) ...
+#30 14.21 Selecting previously unselected package geographiclib-tools.
+#30 14.22 Preparing to unpack .../geographiclib-tools_2.7-1_arm64.deb ...
+#30 14.22 Unpacking geographiclib-tools (2.7-1) ...
+#30 14.25 Selecting previously unselected package python3-rosinstall-generator.
+#30 14.26 Preparing to unpack .../python3-rosinstall-generator_0.1.23-1_all.deb ...
+#30 14.26 Unpacking python3-rosinstall-generator (0.1.23-1) ...
+#30 14.30 Setting up python3-rosinstall-generator (0.1.23-1) ...
+#30 14.45 Setting up libgeographiclib26:arm64 (2.7-1) ...
+#30 14.45 Setting up geographiclib-tools (2.7-1) ...
+#30 14.46 Processing triggers for man-db (2.13.1-1build1) ...
+#30 14.56 Processing triggers for libc-bin (2.43-2ubuntu2) ...
+#30 DONE 15.5s
+
+#31 [stage-1 25/47] RUN mkdir -p /home/docker/mavros_ws/src
+#31 DONE 0.2s
+
+#32 [stage-1 26/47] WORKDIR /home/docker/mavros_ws
+#32 DONE 0.0s
+
+#33 [stage-1 27/47] RUN . "/opt/ros/lyrical/setup.sh" &&     rosinstall_generator --format repos mavlink | tee /tmp/mavlink.repos &&     rosinstall_generator --format repos --upstream mavros | tee /tmp/mavros.repos &&     vcs import src < /tmp/mavlink.repos &&     vcs import src < /tmp/mavros.repos &&     git clone https://github.com/ros-geographic-info/geographic_info.git src/geographic_info &&     cd src/geographic_info && git checkout --detach "24806adc767414eb3a34a58aefeb648ee415b09a" && cd ../.. &&     rosdep update --rosdistro lyrical &&     rosdep install --rosdistro lyrical --from-paths src --ignore-src -y
+#33 0.681 Using ROS_DISTRO: lyrical
+#33 2.755 repositories:
+#33 2.755   mavlink:
+#33 2.755     type: git
+#33 2.755     url: https://github.com/ros2-gbp/mavlink-gbp-release.git
+#33 2.755     version: release/lyrical/mavlink/2026.8.8-1
+#33 2.755
+#33 2.942 Using ROS_DISTRO: lyrical
+#33 5.089 repositories:
+#33 5.089   mavros:
+#33 5.089     type: git
+#33 5.089     url: https://github.com/mavlink/mavros.git
+#33 5.089     version: 2.15.1
+#33 5.089
+#33 5.209 /usr/bin/vcs:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 5.209   from pkg_resources import load_entry_point
+#33 8.588 === src/mavlink (git) ===
+#33 8.588 Cloning into '.'...
+#33 8.588 Note: switching to 'release/lyrical/mavlink/2026.8.8-1'.
+#33 8.588
+#33 8.588 You are in 'detached HEAD' state. You can look around, make experimental
+#33 8.588 changes and commit them, and you can discard any commits you make in this
+#33 8.588 state without impacting any branches by switching back to a branch.
+#33 8.588
+#33 8.588 If you want to create a new branch to retain commits you create, you may
+#33 8.588 do so (now or later) by using -c with the switch command. Example:
+#33 8.588
+#33 8.588   git switch -c <new-branch-name>
+#33 8.588
+#33 8.588 Or undo this operation with:
+#33 8.588
+#33 8.588   git switch -
+#33 8.588
+#33 8.588 Turn off this advice by setting config variable advice.detachedHead to false
+#33 8.588
+#33 8.588 HEAD is now at 6bc5b002 Rebase from 'upstream'
+#33 8.731 /usr/bin/vcs:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 8.731   from pkg_resources import load_entry_point
+#33 11.29 === src/mavros (git) ===
+#33 11.29 Cloning into '.'...
+#33 11.29 Note: switching to '2.15.1'.
+#33 11.29
+#33 11.29 You are in 'detached HEAD' state. You can look around, make experimental
+#33 11.29 changes and commit them, and you can discard any commits you make in this
+#33 11.29 state without impacting any branches by switching back to a branch.
+#33 11.29
+#33 11.29 If you want to create a new branch to retain commits you create, you may
+#33 11.29 do so (now or later) by using -c with the switch command. Example:
+#33 11.29
+#33 11.29   git switch -c <new-branch-name>
+#33 11.29
+#33 11.29 Or undo this operation with:
+#33 11.29
+#33 11.29   git switch -
+#33 11.29
+#33 11.29 Turn off this advice by setting config variable advice.detachedHead to false
+#33 11.29
+#33 11.29 HEAD is now at 22ae5b7c 2.15.1
+#33 11.32 Cloning into 'src/geographic_info'...
+#33 12.19 HEAD is now at 24806ad bump to 1.0.6 for release
+#33 12.28 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 12.28   from pkg_resources import load_entry_point
+#33 12.44 Warning: running 'rosdep update' as root is not recommended.
+#33 12.44   You should run 'sudo rosdep fix-permissions' and invoke 'rosdep update' again without sudo.
+#33 16.16 reading in sources list data from /etc/ros/rosdep/sources.list.d
+#33 16.16 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
+#33 16.16 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
+#33 16.16 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
+#33 16.16 Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
+#33 16.16 Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
+#33 16.16 Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
+#33 16.16 Skip distro "ardent" different from requested "lyrical"
+#33 16.16 Skip distro "bouncy" different from requested "lyrical"
+#33 16.16 Skip distro "crystal" different from requested "lyrical"
+#33 16.16 Skip distro "dashing" different from requested "lyrical"
+#33 16.16 Skip distro "eloquent" different from requested "lyrical"
+#33 16.16 Skip distro "foxy" different from requested "lyrical"
+#33 16.16 Skip distro "galactic" different from requested "lyrical"
+#33 16.16 Skip distro "groovy" different from requested "lyrical"
+#33 16.16 Skip distro "humble" different from requested "lyrical"
+#33 16.16 Skip distro "hydro" different from requested "lyrical"
+#33 16.16 Skip distro "indigo" different from requested "lyrical"
+#33 16.16 Skip distro "iron" different from requested "lyrical"
+#33 16.16 Skip distro "jade" different from requested "lyrical"
+#33 16.16 Skip distro "jazzy" different from requested "lyrical"
+#33 16.16 Skip distro "kilted" different from requested "lyrical"
+#33 16.16 Skip distro "kinetic" different from requested "lyrical"
+#33 16.16 Skip distro "lunar" different from requested "lyrical"
+#33 16.16 Add distro "lyrical"
+#33 16.16 Skip distro "melodic" different from requested "lyrical"
+#33 16.16 Skip distro "noetic" different from requested "lyrical"
+#33 16.16 Skip distro "rolling" different from requested "lyrical"
+#33 16.16 updated cache in /root/.ros/rosdep/sources.cache
+#33 16.29 /usr/bin/rosdep:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+#33 16.29   from pkg_resources import load_entry_point
+#33 18.49 Reading package lists...
+#33 19.16 Building dependency tree...
+#33 19.35 Reading state information...
+#33 19.41 Solving dependencies...
+#33 19.66 The following NEW packages will be installed:
+#33 19.66   python3-click
+#33 20.63 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 20.63 Need to get 80.2 kB of archives.
+#33 20.63 After this operation, 383 kB of additional disk space will be used.
+#33 20.63 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/main arm64 python3-click all 8.2.0+0.really.8.1.8-1build1 [80.2 kB]
+#33 22.39 Fetched 80.2 kB in 2s (48.7 kB/s)
+#33 22.42 Selecting previously unselected package python3-click.
+#33 22.42 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160876 files and directories currently installed.)
+#33 22.59 Preparing to unpack .../python3-click_8.2.0+0.really.8.1.8-1build1_all.deb ...
+#33 22.59 Unpacking python3-click (8.2.0+0.really.8.1.8-1build1) ...
+#33 22.64 Setting up python3-click (8.2.0+0.really.8.1.8-1build1) ...
+#33 22.83 Reading package lists...
+#33 23.48 Building dependency tree...
+#33 23.66 Reading state information...
+#33 23.68 Solving dependencies...
+#33 23.91 The following NEW packages will be installed:
+#33 23.91   ros-lyrical-diagnostic-updater
+#33 24.23 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 24.23 Need to get 112 kB of archives.
+#33 24.23 After this operation, 527 kB of additional disk space will be used.
+#33 24.23 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-diagnostic-updater arm64 4.4.7-1resolute.20260812.054140 [112 kB]
+#33 25.61 Fetched 112 kB in 1s (153 kB/s)
+#33 25.63 Selecting previously unselected package ros-lyrical-diagnostic-updater.
+#33 25.63 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160901 files and directories currently installed.)
+#33 25.69 Preparing to unpack .../ros-lyrical-diagnostic-updater_4.4.7-1resolute.20260812.054140_arm64.deb ...
+#33 25.69 Unpacking ros-lyrical-diagnostic-updater (4.4.7-1resolute.20260812.054140) ...
+#33 25.74 Setting up ros-lyrical-diagnostic-updater (4.4.7-1resolute.20260812.054140) ...
+#33 25.76 Reading package lists...
+#33 26.41 Building dependency tree...
+#33 26.57 Reading state information...
+#33 26.60 Solving dependencies...
+#33 26.83 The following NEW packages will be installed:
+#33 26.83   ros-lyrical-eigen-stl-containers
+#33 27.15 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 27.15 Need to get 10.0 kB of archives.
+#33 27.15 After this operation, 68.6 kB of additional disk space will be used.
+#33 27.15 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-eigen-stl-containers arm64 1.1.0-3resolute.20260728.172336 [10.0 kB]
+#33 28.15 Fetched 10.0 kB in 0s (31.2 kB/s)
+#33 28.17 Selecting previously unselected package ros-lyrical-eigen-stl-containers.
+#33 28.17 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160954 files and directories currently installed.)
+#33 28.23 Preparing to unpack .../ros-lyrical-eigen-stl-containers_1.1.0-3resolute.20260728.172336_arm64.deb ...
+#33 28.23 Unpacking ros-lyrical-eigen-stl-containers (1.1.0-3resolute.20260728.172336) ...
+#33 28.27 Setting up ros-lyrical-eigen-stl-containers (1.1.0-3resolute.20260728.172336) ...
+#33 28.29 Reading package lists...
+#33 28.98 Building dependency tree...
+#33 29.16 Reading state information...
+#33 29.20 Solving dependencies...
+#33 29.41 Suggested packages:
+#33 29.41   geographiclib-doc
+#33 29.43 The following NEW packages will be installed:
+#33 29.43   libgeographiclib-dev
+#33 30.37 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 30.37 Need to get 514 kB of archives.
+#33 30.37 After this operation, 2910 kB of additional disk space will be used.
+#33 30.37 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 libgeographiclib-dev arm64 2.7-1 [514 kB]
+#33 32.77 Fetched 514 kB in 2s (214 kB/s)
+#33 32.79 Selecting previously unselected package libgeographiclib-dev.
+#33 32.79 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 160985 files and directories currently installed.)
+#33 32.84 Preparing to unpack .../libgeographiclib-dev_2.7-1_arm64.deb ...
+#33 32.84 Unpacking libgeographiclib-dev (2.7-1) ...
+#33 32.90 Setting up libgeographiclib-dev (2.7-1) ...
+#33 32.93 Reading package lists...
+#33 33.58 Building dependency tree...
+#33 33.79 Reading state information...
+#33 33.83 Solving dependencies...
+#33 34.05 The following additional packages will be installed:
+#33 34.05   ros-lyrical-google-benchmark-vendor
+#33 34.07 The following NEW packages will be installed:
+#33 34.07   ros-lyrical-ament-cmake-google-benchmark ros-lyrical-google-benchmark-vendor
+#33 34.43 0 upgraded, 2 newly installed, 0 to remove and 418 not upgraded.
+#33 34.43 Need to get 212 kB of archives.
+#33 34.43 After this operation, 778 kB of additional disk space will be used.
+#33 34.43 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-google-benchmark-vendor arm64 0.7.0-3resolute.20260728.232329 [200 kB]
+#33 35.15 Get:2 http://packages.ros.org/ros2/ubuntu resolute/main arm64 ros-lyrical-ament-cmake-google-benchmark arm64 2.8.8-1resolute.20260728.232619 [12.0 kB]
+#33 36.17 Fetched 212 kB in 1s (190 kB/s)
+#33 36.19 Selecting previously unselected package ros-lyrical-google-benchmark-vendor.
+#33 36.19 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161110 files and directories currently installed.)
+#33 36.24 Preparing to unpack .../ros-lyrical-google-benchmark-vendor_0.7.0-3resolute.20260728.232329_arm64.deb ...
+#33 36.25 Unpacking ros-lyrical-google-benchmark-vendor (0.7.0-3resolute.20260728.232329) ...
+#33 36.27 Selecting previously unselected package ros-lyrical-ament-cmake-google-benchmark.
+#33 36.28 Preparing to unpack .../ros-lyrical-ament-cmake-google-benchmark_2.8.8-1resolute.20260728.232619_arm64.deb ...
+#33 36.28 Unpacking ros-lyrical-ament-cmake-google-benchmark (2.8.8-1resolute.20260728.232619) ...
+#33 36.32 Setting up ros-lyrical-google-benchmark-vendor (0.7.0-3resolute.20260728.232329) ...
+#33 36.32 Setting up ros-lyrical-ament-cmake-google-benchmark (2.8.8-1resolute.20260728.232619) ...
+#33 36.33 Processing triggers for libc-bin (2.43-2ubuntu2) ...
+#33 36.46 Reading package lists...
+#33 37.15 Building dependency tree...
+#33 37.34 Reading state information...
+#33 37.39 Solving dependencies...
+#33 37.65 The following NEW packages will be installed:
+#33 37.66   google-mock
+#33 38.63 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 38.63 Need to get 5134 B of archives.
+#33 38.63 After this operation, 14.3 kB of additional disk space will be used.
+#33 38.63 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 google-mock arm64 1.17.0-1build1 [5134 B]
+#33 39.58 Fetched 5134 B in 1s (5307 B/s)
+#33 39.60 Selecting previously unselected package google-mock:arm64.
+#33 39.60 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161189 files and directories currently installed.)
+#33 39.66 Preparing to unpack .../google-mock_1.17.0-1build1_arm64.deb ...
+#33 39.67 Unpacking google-mock:arm64 (1.17.0-1build1) ...
+#33 39.72 Setting up google-mock:arm64 (1.17.0-1build1) ...
+#33 39.74 Reading package lists...
+#33 40.43 Building dependency tree...
+#33 40.60 Reading state information...
+#33 40.63 Solving dependencies...
+#33 40.84 The following additional packages will be installed:
+#33 40.84   python3-certifi
+#33 40.89 The following NEW packages will be installed:
+#33 40.89   python3-certifi python3-pyproj
+#33 41.86 0 upgraded, 2 newly installed, 0 to remove and 418 not upgraded.
+#33 41.86 Need to get 393 kB of archives.
+#33 41.86 After this operation, 2108 kB of additional disk space will be used.
+#33 41.86 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/main arm64 python3-certifi all 2026.1.4+ds-1 [10.3 kB]
+#33 42.27 Get:2 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 python3-pyproj arm64 3.7.2-2build1 [383 kB]
+#33 44.60 Fetched 393 kB in 3s (144 kB/s)
+#33 44.62 Selecting previously unselected package python3-certifi.
+#33 44.62 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161193 files and directories currently installed.)
+#33 44.68 Preparing to unpack .../python3-certifi_2026.1.4+ds-1_all.deb ...
+#33 44.69 Unpacking python3-certifi (2026.1.4+ds-1) ...
+#33 44.71 Selecting previously unselected package python3-pyproj.
+#33 44.72 Preparing to unpack .../python3-pyproj_3.7.2-2build1_arm64.deb ...
+#33 44.72 Unpacking python3-pyproj (3.7.2-2build1) ...
+#33 44.77 Setting up python3-certifi (2026.1.4+ds-1) ...
+#33 44.88 Setting up python3-pyproj (3.7.2-2build1) ...
+#33 45.03 Reading package lists...
+#33 45.77 Building dependency tree...
+#33 45.94 Reading state information...
+#33 45.97 Solving dependencies...
+#33 46.19 The following NEW packages will be installed:
+#33 46.19   python3-catkin-pkg
+#33 46.51 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 46.51 Need to get 3932 B of archives.
+#33 46.51 After this operation, 26.6 kB of additional disk space will be used.
+#33 46.51 Get:1 http://packages.ros.org/ros2/ubuntu resolute/main arm64 python3-catkin-pkg all 1.1.0-101 [3932 B]
+#33 47.46 Fetched 3932 B in 0s (12.8 kB/s)
+#33 47.50 Selecting previously unselected package python3-catkin-pkg.
+#33 47.50 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161279 files and directories currently installed.)
+#33 47.55 Preparing to unpack .../python3-catkin-pkg_1.1.0-101_all.deb ...
+#33 47.56 Unpacking python3-catkin-pkg (1.1.0-101) ...
+#33 47.59 Setting up python3-catkin-pkg (1.1.0-101) ...
+#33 47.62 Reading package lists...
+#33 48.31 Building dependency tree...
+#33 48.49 Reading state information...
+#33 48.52 Solving dependencies...
+#33 48.77 The following NEW packages will be installed:
+#33 48.77   libasio-dev
+#33 49.75 0 upgraded, 1 newly installed, 0 to remove and 418 not upgraded.
+#33 49.75 Need to get 405 kB of archives.
+#33 49.75 After this operation, 5419 kB of additional disk space will be used.
+#33 49.75 Get:1 https://ports.ubuntu.com/ubuntu-ports resolute/universe arm64 libasio-dev all 1:1.30.2-1build1 [405 kB]
+#33 52.12 Fetched 405 kB in 2s (169 kB/s)
+#33 52.14 Selecting previously unselected package libasio-dev.
+#33 52.14 (Reading database ...
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 161295 files and directories currently installed.)
+#33 52.20 Preparing to unpack .../libasio-dev_1%3a1.30.2-1build1_all.deb ...
+#33 52.20 Unpacking libasio-dev (1:1.30.2-1build1) ...
+#33 52.33 Setting up libasio-dev (1:1.30.2-1build1) ...
+#33 52.50 [1mexecuting command [apt-get install -y python3-click][0m
+#33 52.50 [1mexecuting command [apt-get install -y ros-lyrical-diagnostic-updater][0m
+#33 52.50 [1mexecuting command [apt-get install -y ros-lyrical-eigen-stl-containers][0m
+#33 52.50 [1mexecuting command [apt-get install -y libgeographiclib-dev][0m
+#33 52.50 [1mexecuting command [apt-get install -y ros-lyrical-ament-cmake-google-benchmark][0m
+#33 52.50 [1mexecuting command [apt-get install -y google-mock][0m
+#33 52.50 [1mexecuting command [apt-get install -y python3-pyproj][0m
+#33 52.50 [1mexecuting command [apt-get install -y python3-catkin-pkg][0m
+#33 52.50 [1mexecuting command [apt-get install -y libasio-dev][0m
+#33 52.50 #All required rosdeps installed successfully
+#33 DONE 52.7s
+
+#34 [stage-1 28/47] RUN /home/docker/mavros_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+#34 0.180 Installing GeographicLib geoids egm96-5
+#34 4.776 Installing GeographicLib gravity egm96
+#34 7.853 Installing GeographicLib magnetic emm2015
+#34 DONE 10.7s
+
+#35 [stage-1 29/47] RUN . "/opt/ros/lyrical/setup.sh" &&     MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*
+#35 0.869 Starting >>> geographic_msgs
+#35 65.55 Finished <<< geographic_msgs [1min 5s]
+#35 65.55 --- stderr: geographic_msgs
+#35 65.55 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 65.55   Compatibility with CMake < 3.10 will be removed from a future version of
+#35 65.55   CMake.
+#35 65.55
+#35 65.55   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#35 65.55   to tell CMake that the project requires at least <min> but has been updated
+#35 65.55   to work with policies introduced by <max> or earlier.
+#35 65.55
+#35 65.55
+#35 65.55 ---
+#35 65.55 Starting >>> mavlink
+#35 75.78 --- stderr: mavlink
+#35 75.78 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 75.78   Compatibility with CMake < 3.10 will be removed from a future version of
+#35 75.78   CMake.
+#35 75.78
+#35 75.78   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#35 75.78   to tell CMake that the project requires at least <min> but has been updated
+#35 75.78   to work with policies introduced by <max> or earlier.
+#35 75.78
+#35 75.78
+#35 75.78 CMake Warning (dev) at /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:433 (message):
+#35 75.78   Unable to determine default CMAKE_INSTALL_LIBDIR directory because no
+#35 75.78   target architecture is known.  Please enable at least one language before
+#35 75.78   including GNUInstallDirs.
+#35 75.78 Call Stack (most recent call first):
+#35 75.78   /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:276 (_GNUInstallDirs_LIBDIR_get_default)
+#35 75.78   /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:276 (cmake_language)
+#35 75.78   /usr/share/cmake-4.2/Modules/GNUInstallDirs.cmake:525 (_GNUInstallDirs_cache_path)
+#35 75.78   CMakeLists.txt:15 (include)
+#35 75.78 This warning is for project developers.  Use -Wno-dev to suppress it.
+#35 75.78
+#35 75.78 ---
+#35 75.78 Finished <<< mavlink [10.2s]
+#35 75.78 Starting >>> geodesy
+#35 76.88 --- stderr: geodesy
+#35 76.88 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 76.88   Compatibility with CMake < 3.10 will be removed from a future version of
+#35 76.88   CMake.
+#35 76.88
+#35 76.88   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+#35 76.88   to tell CMake that the project requires at least <min> but has been updated
+#35 76.88   to work with policies introduced by <max> or earlier.
+#35 76.88
+#35 76.88
+#35 76.88 CMake Error at CMakeLists.txt:35 (ament_target_dependencies):
+#35 76.88   Unknown CMake command "ament_target_dependencies".
+#35 76.88
+#35 76.88
+#35 76.88 ---
+#35 76.88 Failed   <<< geodesy [1.10s, exited with code 1]
+#35 76.90
+#35 76.90 Summary: 2 packages finished [1min 16s]
+#35 76.90   1 package failed: geodesy
+#35 76.90   3 packages had stderr output: geodesy geographic_msgs mavlink
+#35 76.90   6 packages not processed
+#35 ERROR: process "/bin/sh -c . \"/opt/ros/${ROS_DISTRO}/setup.sh\" &&     MAKEFLAGS=\"-j1\" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 1
+------
+ > [stage-1 29/47] RUN . "/opt/ros/lyrical/setup.sh" &&     MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*:
+76.88   Unknown CMake command "ament_target_dependencies".
+76.88
+76.88
+76.88 ---
+76.88 Failed   <<< geodesy [1.10s, exited with code 1]
+76.90
+76.90 Summary: 2 packages finished [1min 16s]
+76.90   1 package failed: geodesy
+76.90   3 packages had stderr output: geodesy geographic_msgs mavlink
+76.90   6 packages not processed
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 492)
+lyrical.arm64v8.dockerfile:258
+--------------------
+ 257 |     # under Settings > Resources), not something fixable from inside the Dockerfile alone.
+ 258 | >>> RUN . "/opt/ros/${ROS_DISTRO}/setup.sh" && \
+ 259 | >>>     MAKEFLAGS="-j1" colcon build --merge-install --executor sequential --parallel-workers 1 && \
+ 260 | >>>     rm -rf /var/lib/apt/lists/*
+ 261 |
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c . \"/opt/ros/${ROS_DISTRO}/setup.sh\" &&     MAKEFLAGS=\"-j1\" colcon build --merge-install --executor sequential --parallel-workers 1 &&     rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/7cuh2fqvz254n9ktad210uob3

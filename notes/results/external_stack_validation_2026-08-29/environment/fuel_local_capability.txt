@@ -1,0 +1,48 @@
+== FUEL CONFIG FILE NAMES (secrets redacted) ==
+/Users/gwon-yeseol/.gz/fuel/config.yaml ABSENT
+/Users/gwon-yeseol/.ignition/fuel/config.yaml ABSENT
+== FUEL CLI ==
+/opt/homebrew/bin/gz
+Manage simulation resources.
+
+  gz fuel [action] [options]
+
+Available Actions:
+  configure                Create config.yaml configuration file
+  delete                   Delete resources
+  download                 Download resources
+  edit                     Edit a resource
+  list                     List available resources
+  meta                     Read and write resource metadata
+  upload                   Upload resources
+  update                   Update resources
+
+Available Options:
+  -v [ --verbose ] [arg]   Adjust the level of console output (0~4).
+                           The default verbosity is 1, use -v without
+                           arguments for level 3.
+  -c [--config] arg        Path to a configuration file.
+  -h [--help]              Print this help message.
+
+  --force-version <VERSION>  Use a specific library version.
+
+  --versions               Show the available versions.
+
+ HTTP Headers:
+
+   The following information is in regards to user authentication via
+   the --header command line option.
+
+   Two types of credentials are supported on Gazebo Fuel, Private
+   Token and JSON Web Token(JWT). The Private Token method is preferred.
+   Private tokens can be created through your  user settings on
+   https://app.gazebosim.org. Example usage:
+     1. Private token method:
+         --header 'Private-Token: <token>'
+     2. JWT method:
+         --header 'authorization: Bearer <JWT>'
+
+
+Environment variables:
+  GZ_FUEL_CACHE_PATH      Path to the cache where resources are
+ downloaded to. Defaults to $HOME/.gz/fuel

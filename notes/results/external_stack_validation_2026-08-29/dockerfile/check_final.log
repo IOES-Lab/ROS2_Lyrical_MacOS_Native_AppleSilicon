@@ -1,0 +1,33 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from lyrical.arm64v8.dockerfile
+#1 transferring dockerfile: 31.81kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/curlimages/curl@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/arm64v8/ubuntu:26.04
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+Check complete, 1 warning has been found!
+
+WARNING: JSONArgsRecommended - https://docs.docker.com/go/dockerfile/rule/json-args-recommended/
+JSON arguments recommended for CMD to prevent unintended behavior related to OS signals
+docker/lyrical.arm64v8.dockerfile:492
+--------------------
+ 491 |     # hadolint ignore=DL3025
+ 492 | >>> CMD uid="$(id -u docker)"; \
+ 493 | >>>     sudo install -d -m 0755 /run/xrdp /run/xrdp/sockdir; \
+ 494 | >>>     sudo install -d -m 0700 -o docker -g docker "/run/user/$uid"; \
+ 495 | >>>     sudo rm -f /run/xrdp/*.pid /var/run/xrdp/*.pid; \
+ 496 | >>>     sudo mkdir -p /run/dbus; sudo rm -f /run/dbus/pid; \
+ 497 | >>>     sudo dbus-daemon --system --fork; \
+ 498 | >>>     [ -f /usr/sbin/sshd ] && sudo /usr/sbin/sshd; \
+ 499 | >>>     sudo xrdp-sesman --nodaemon --config /etc/xrdp/sesman.ini & \
+ 500 | >>>     exec sudo xrdp --nodaemon --config /etc/xrdp/xrdp.ini
+ 501 |
+--------------------

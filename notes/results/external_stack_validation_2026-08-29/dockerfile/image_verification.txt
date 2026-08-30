@@ -1,0 +1,66 @@
+== PLATFORM ==
+aarch64
+Ubuntu 26.04
+== ROS / GAZEBO ==
+ROS_DISTRO=lyrical
+/opt/ros/lyrical/bin/ros2
+/opt/ros/lyrical/opt/gz_tools_vendor/bin/gz
+10.4.0
+== PACKAGE PREFIXES ==
+/home/docker/dave_ws/install
+/home/docker/dave_ws/install
+/home/docker/mavros_ws/install
+/home/docker/mavros_ws/install
+/home/docker/mavros_ws/install
+/home/docker/mavros_ws/install
+== ARDUSUB / OFFICIAL GAZEBO PLUGIN ==
+/usr/local/bin/ardusub
+ARDUPILOT_GAZEBO_COMMIT=082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5
+93c9e87e83b562fb39c178e9b7d41c0ada5ada3a8046d9227f40a8a8707fca59  build/libArduPilotPlugin.so
+	linux-vdso.so.1 (0x0000ffff9b905000)
+	libgz-sim.so.10 => /opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10 (0x0000ffff9b620000)
+	libsdformat.so.16 => /opt/ros/lyrical/opt/sdformat_vendor/lib/libsdformat.so.16 (0x0000ffff9b390000)
+	libgz-transport.so.15 => /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15 (0x0000ffff9b300000)
+	libgz-msgs.so.12 => /opt/ros/lyrical/opt/gz_msgs_vendor/lib/libgz-msgs.so.12 (0x0000ffff9b020000)
+	libprotobuf.so.32 => /usr/lib/aarch64-linux-gnu/libprotobuf.so.32 (0x0000ffff9acf0000)
+	libgz-common.so.7 => /opt/ros/lyrical/opt/gz_common_vendor/lib/libgz-common.so.7 (0x0000ffff9ac80000)
+	libgz-math.so.9 => /opt/ros/lyrical/opt/gz_math_vendor/lib/libgz-math.so.9 (0x0000ffff9ac00000)
+	libstdc++.so.6 => /usr/lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000ffff9a960000)
+	libm.so.6 => /usr/lib/aarch64-linux-gnu/libm.so.6 (0x0000ffff9a890000)
+	libgcc_s.so.1 => /usr/lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffff9a850000)
+	libc.so.6 => /usr/lib/aarch64-linux-gnu/libc.so.6 (0x0000ffff9a680000)
+	/lib/ld-linux-aarch64.so.1 (0x0000ffff9b8c0000)
+	libgz-fuel_tools.so.11 => /opt/ros/lyrical/opt/gz_fuel_tools_vendor/lib/libgz-fuel_tools.so.11 (0x0000ffff9a5d0000)
+	libgz-common-graphics.so.7 => /opt/ros/lyrical/opt/gz_common_vendor/lib/libgz-common-graphics.so.7 (0x0000ffff9a4e0000)
+	libgz-transport-parameters.so.15 => /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport-parameters.so.15 (0x0000ffff9a4a0000)
+	libgz-plugin-loader.so.4 => /opt/ros/lyrical/opt/gz_plugin_vendor/lib/libgz-plugin-loader.so.4 (0x0000ffff9a460000)
+	libgz-plugin.so.4 => /opt/ros/lyrical/opt/gz_plugin_vendor/lib/libgz-plugin.so.4 (0x0000ffff9a430000)
+	libgz-common-events.so.7 => /opt/ros/lyrical/opt/gz_common_vendor/lib/libgz-common-events.so.7 (0x0000ffff9a400000)
+	libtinyxml2.so.11 => /usr/lib/aarch64-linux-gnu/libtinyxml2.so.11 (0x0000ffff9a3c0000)
+	libpython3.14.so.1.0 => /usr/lib/aarch64-linux-gnu/libpython3.14.so.1.0 (0x0000ffff99b40000)
+	libgz-utils.so.4 => /opt/ros/lyrical/opt/gz_utils_vendor/lib/libgz-utils.so.4 (0x0000ffff99b10000)
+	liburdfdom_model.so.6 => /opt/ros/lyrical/lib/aarch64-linux-gnu/liburdfdom_model.so.6 (0x0000ffff99ad0000)
+	libzmq.so.5 => /usr/lib/aarch64-linux-gnu/libzmq.so.5 (0x0000ffff99a20000)
+	libuuid.so.1 => /usr/lib/aarch64-linux-gnu/libuuid.so.1 (0x0000ffff999f0000)
+	libz.so.1 => /usr/lib/aarch64-linux-gnu/libz.so.1 (0x0000ffff999b0000)
+	libgz-utils-log.so.4 => /opt/ros/lyrical/opt/gz_utils_vendor/lib/libgz-utils-log.so.4 (0x0000ffff99980000)
+	libspdlog.so.1.15 => /usr/lib/aarch64-linux-gnu/libspdlog.so.1.15 (0x0000ffff998e0000)
+	libjsoncpp.so.26 => /usr/lib/aarch64-linux-gnu/libjsoncpp.so.26 (0x0000ffff99880000)
+	libyaml-0.so.2 => /usr/lib/aarch64-linux-gnu/libyaml-0.so.2 (0x0000ffff99840000)
+== GEOGRAPHIC INFO PIN ==
+GEOGRAPHIC_INFO_COMMIT=24806adc767414eb3a34a58aefeb648ee415b09a
+35:target_link_libraries(geoconv PUBLIC
+== INSTALLED SPEEDUP ARGUMENTS ==
+--- bluerov2 ---
+81:            "--speedup",
+AST=PASS
+--- bluerov2_heavy ---
+147:            "--speedup",
+AST=PASS
+--- bluerov2_heavy_multibeam_sonar ---
+141:            "--speedup",
+AST=PASS
+== QGC WRAPPER ==
+QGC_NO_SYSTEM_GLIB=1
+/home/docker/QGC/AppRun
+IMAGE_VERIFICATION=PASS

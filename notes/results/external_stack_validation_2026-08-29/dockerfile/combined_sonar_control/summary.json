@@ -1,0 +1,30 @@
+{
+  "date": "2026-08-30",
+  "platform": "Ubuntu 26.04 aarch64 in Docker Desktop on Apple M2",
+  "base_image": "lyrical-sim:jetty-rdp-external-stack-check",
+  "variant": "bluerov2_heavy_multibeam_sonar",
+  "candidate": "patches/fifth_rov_sonar_world_fix.diff live-applied to the exact-image source tree",
+  "candidate_patch_sha256": "92693c5ab099be1b6ef0c5acc5249b6b636eea376545bbcfbd3d4c2c050f69bd",
+  "candidate_apply_and_dave_worlds_rebuild": "PASS",
+  "runtime_verdict": "FAIL TO REACH FUNCTIONAL CHECK",
+  "observations": {
+    "wgpu_adapter": "llvmpipe",
+    "first_probe_dimensions": "1x1x4",
+    "first_probe_elapsed_ms": 60053.0,
+    "sonar_beams": 513,
+    "sonar_rays_per_beam": 301,
+    "sonar_time_bins": 399,
+    "gazebo_stack_trace_started": true,
+    "ardusub_no_json_messages": 105,
+    "mavros_state_probe_bytes": 0,
+    "pointcloud2_captured": false,
+    "arm_control_disarm_reached": false
+  },
+  "cleanup": "PASS: derived test container removed",
+  "limits": [
+    "One bounded derived-image run was performed.",
+    "Manual cleanup occurred before a final process exit status or complete backtrace was retained.",
+    "No signal, exit code, or root cause is assigned by this evidence.",
+    "The separate exact-image control PASS and separate Mac fifth-sonar candidate PASS remain valid in their own scopes."
+  ]
+}
