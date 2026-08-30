@@ -1,0 +1,119 @@
+{
+  "date": "2026-08-30",
+  "verdict": "VALIDATED ISOLATED CANDIDATE; not applied upstream or to installed workspaces",
+  "current_baseline": {
+    "minimal_sonar_reproduces_exit_139": true,
+    "selected_adapter_llvmpipe": true,
+    "vehicle_stack_required_for_reproduction": false
+  },
+  "rejected_candidate_v3": {
+    "description": "Backend construction on the render callback thread after an initialized ray frame",
+    "rejected": true,
+    "reason": "Docker llvmpipe still reached the OGRE2/null-memcpy SIGSEGV and emitted neither retained payload."
+  },
+  "accepted_candidate_v5": {
+    "description": "Create/initialize the compute backend on the sonar compute thread only after a GpuRays frame; disable unused ROS parameter endpoints during plugin startup.",
+    "patch_sha256": "5a8fed3ef1af590c3fd6e5b22a8fa39ba13c7849714aa174a887c57c81bc2a6e",
+    "docker_image_id": "sha256:9a419bd753cfb85d5a0d04542aee66d77687a7da5e2a2b6cea601c6a563e23f5",
+    "package_tests": {
+      "tests": 0,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "docker_runs": {
+      "v5_wgpu_run1": {
+        "backend": "wgpu",
+        "backend_ready": true,
+        "point_ok_flag": true,
+        "raw_ok_flag": true,
+        "pointcloud_width": 513,
+        "pointcloud_height": 301,
+        "raw_beam_count": 513,
+        "raw_range_count": 399,
+        "llvmpipe_selected": true,
+        "cpu_selected": false,
+        "target_allocation": true,
+        "runtime_crash_before_bounded_shutdown": false
+      },
+      "v5_wgpu_run2": {
+        "backend": "wgpu",
+        "backend_ready": true,
+        "point_ok_flag": true,
+        "raw_ok_flag": true,
+        "pointcloud_width": 513,
+        "pointcloud_height": 301,
+        "raw_beam_count": 513,
+        "raw_range_count": 399,
+        "llvmpipe_selected": true,
+        "cpu_selected": false,
+        "target_allocation": true,
+        "runtime_crash_before_bounded_shutdown": false
+      },
+      "v5_auto": {
+        "backend": "auto",
+        "backend_ready": true,
+        "point_ok_flag": true,
+        "raw_ok_flag": true,
+        "pointcloud_width": 513,
+        "pointcloud_height": 301,
+        "raw_beam_count": 513,
+        "raw_range_count": 399,
+        "llvmpipe_selected": true,
+        "cpu_selected": false,
+        "target_allocation": true,
+        "runtime_crash_before_bounded_shutdown": false
+      },
+      "v5_cpu": {
+        "backend": "cpu",
+        "backend_ready": true,
+        "point_ok_flag": true,
+        "raw_ok_flag": true,
+        "pointcloud_width": 513,
+        "pointcloud_height": 301,
+        "raw_beam_count": 513,
+        "raw_range_count": 399,
+        "llvmpipe_selected": false,
+        "cpu_selected": true,
+        "target_allocation": false,
+        "runtime_crash_before_bounded_shutdown": false
+      }
+    },
+    "heavy_integration": {
+      "candidate": "defer compute-backend creation until after first GpuRays frame",
+      "backend_ready": true,
+      "pointcloud_513x301": true,
+      "raw_sonar_513x399": true,
+      "mavros_connected": true,
+      "armed": true,
+      "manual_control_messages": 100,
+      "odometry_x_before_m": 0.00012312477847915411,
+      "odometry_x_after_m": 0.1914138312790848,
+      "odometry_x_delta_m": 0.19129070650060565,
+      "disarmed": true,
+      "ogre2_segfault": false
+    },
+    "mac_metal": {
+      "candidate": "defer compute-backend creation to the compute thread after the first GpuRays frame",
+      "platform": "macOS Apple Silicon",
+      "requested_backend": "wgpu",
+      "selected_adapter_apple_m2": true,
+      "backend_ready": true,
+      "pointcloud_513x301": false,
+      "raw_sonar_513x399": false,
+      "plugin_loaded_line": 27,
+      "deferred_backend_create_line": 40,
+      "ogre2_segfault": false,
+      "backend_created_after_plugin_loaded": true,
+      "metal_gpu_frame_observed": true,
+      "candidate_ros_payload_recapture": "not completed: current post-Homebrew-upgrade ROS CLI observer stalled; pre-existing direct Mac payload evidence remains separate"
+    }
+  },
+  "limits": [
+    "The candidate is isolated and is not installed, submitted, reviewed, or merged upstream.",
+    "Docker uses the software Vulkan llvmpipe adapter; no Docker hardware WGPU or NVIDIA CUDA was available.",
+    "The new Mac candidate run confirms Metal compute and no OGRE2 crash, but does not add a new ROS payload capture because the host ROS CLI observer stalled after the Homebrew dependency change.",
+    "Intentional bounded SIGINT termination can report child exit -2; one CPU/combined shutdown also showed parameter_bridge -11 after functional evidence was already captured.",
+    "General acoustic correctness, backend numerical equivalence, long-duration stability, and real-vehicle behavior remain outside this candidate validation."
+  ]
+}

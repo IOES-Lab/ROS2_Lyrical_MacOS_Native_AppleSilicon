@@ -1,0 +1,99 @@
+--- a/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc
++++ b/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc
+@@ -435,14 +435,12 @@
+     gzmsg << "DAVE_SONAR_COMPUTE_BACKEND not set. Using default backend=auto" << std::endl;
+   }
+ 
+-  this->computeBackend = CreateComputeBackend(this->requestedBackend);
+-  if (!this->computeBackend)
+-  {
+-    gzerr << "Unable to initialize requested sonar backend [" << this->requestedBackend << "]."
+-          << std::endl;
+-    return false;
+-  }
+-  gzmsg << "Using sonar compute backend: " << this->computeBackend->Name() << std::endl;
++  // Defer compute-backend creation until after the first GpuRays frame.
++  // On software Vulkan adapters, creating the WGPU device while Ogre2 is still
++  // constructing the GpuRays textures can crash inside CreateSampleTexture().
++  // OnNewFrame is emitted only after Ogre2 has completed that first render.
++  gzmsg << "Deferring sonar compute backend initialization until the first ray frame."
++        << std::endl;
+ 
+   // ROS Initialization
+ 
+@@ -451,7 +449,13 @@
+     rclcpp::init(0, nullptr);
+   }
+ 
+-  this->ros_node_ = std::make_shared<rclcpp::Node>("multibeam_sonar_node");
++  // No runtime ROS parameters are declared by this plugin. Avoid loading the
++  // optional parameter service and event types while Gazebo is still bringing
++  // up its sensor/rendering graph.
++  rclcpp::NodeOptions nodeOptions;
++  nodeOptions.start_parameter_services(false);
++  nodeOptions.start_parameter_event_publisher(false);
++  this->ros_node_ = std::make_shared<rclcpp::Node>("multibeam_sonar_node", nodeOptions);
+   this->ros_executor_ = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
+   this->ros_executor_->add_node(this->ros_node_);
+ 
+@@ -737,38 +741,7 @@
+ 
+   this->constMu = true;
+   this->mu = 1e-3;
+-
+-  SonarComputeInput prototype;
+-  prototype.depthImage = &this->pointCloudImage;
+-  prototype.nBeams = this->nBeams;
+-  prototype.nRays = this->nRays;
+-  prototype.nFreq = this->nFreq;
+-  prototype.raySkips = this->raySkips;
+-  prototype.hFOV = this->hFOV;
+-  prototype.vFOV = this->vFOV;
+-  prototype.maxDistance = this->maxDistance;
+-  prototype.soundSpeed = this->soundSpeed;
+-  prototype.attenuation = this->attenuation;
+-  prototype.sensorGain = this->sensorGain;
+-  prototype.debugFlag = this->debugFlag;
+-  prototype.blazingFlag = this->blazingFlag;
+-  prototype.window = this->window;
+-  prototype.rangeVector = this->rangeVector;
+-  prototype.beamCorrector = this->beamCorrector;
+-  prototype.beamCorrectorSum = this->beamCorrectorSum;
+-  prototype.sourceLevel = this->sourceLevel;
+-  prototype.bandwidth = this->bandwidth;
+-  prototype.sonarFreq = this->sonarFreq;
+-  prototype.elevation_angles.assign(this->elevation_angles, this->elevation_angles + this->nRays);
+-  prototype.seed = this->sonarSeed;
+ 
+-  if (!this->computeBackend->Initialize(prototype))
+-  {
+-    gzerr << "Failed to initialize sonar backend [" << this->computeBackend->Name() << "]."
+-          << std::endl;
+-    return false;
+-  }
+-
+   return true;
+ }
+ 
+@@ -1216,6 +1189,21 @@
+   input.elevation_angles.assign(this->elevation_angles, this->elevation_angles + this->nRays);
+   input.frameIndex = this->frameCounter++;
+   input.seed = this->sonarSeed;
++
++  if (!this->computeBackend)
++  {
++    gzmsg << "Initializing deferred sonar compute backend [" << this->requestedBackend
++          << "] after the first GpuRays frame." << std::endl;
++    this->computeBackend = CreateComputeBackend(this->requestedBackend);
++    if (!this->computeBackend)
++    {
++      RCLCPP_ERROR_STREAM(
++        this->ros_node_->get_logger(),
++        "Unable to initialize requested sonar backend [" << this->requestedBackend << "].");
++      return;
++    }
++    gzmsg << "Using sonar compute backend: " << this->computeBackend->Name() << std::endl;
++  }
+ 
+   SonarComputeOutput backendOutput;
+   if (!this->computeBackend->Compute(input, backendOutput))

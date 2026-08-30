@@ -1,3 +1,4 @@
 # Unified-diff context lines can end in their mandatory single-space prefix.
 # Applied source trees are checked separately before these candidate patches are published.
 patches/*.diff -whitespace
+notes/results/**/*.patch -whitespace

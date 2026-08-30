@@ -1,0 +1,4 @@
+backend=auto
+image=dave-sonar-deferred-compute-test:20260830
+ROS_DOMAIN_ID=108
+GZ_PARTITION=sonar_derived_auto_84508

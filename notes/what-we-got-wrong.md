@@ -545,3 +545,18 @@ DVL과 Sensors의 `PostUpdate`가 병렬이라, DVL이 `ForceRender`를 보낸 �
 content도 별도 대조했다. 그래도 20/20은 upstream proof가 아니므로 설치·병합·일반 정확성으로
 확대하지 않는다. concurrency 수정은 최소 한 번의 성공이 아니라 실패 후보, 반복, 양성·음성
 회귀와 종료 상태를 함께 보존한다.
+
+## 2026-08-30 — 그럴듯한 thread-affinity 설명을 통과 판정보다 먼저 채택할 뻔했다
+
+Docker software-WGPU 소나 crash를 backend 생성 thread 문제로 좁힌 뒤, 생성과 probe를 render
+callback으로 옮긴 v3가 코드 구조상 더 자연스러워 보였다. 그러나 새 컨테이너에서 그대로
+`llvmpipe`를 선택한 뒤 같은 OGRE2 sample-texture/null-`memcpy` SIGSEGV를 냈다. 반대로 backend
+생성을 첫 populated `GpuRays` frame의 기존 compute thread까지 지연한 후보는 fresh Docker에서
+WGPU 2/2·auto·CPU payload와 Heavy sonar+MAVROS control을 통과했고, 같은 library가 Mac Metal
+compute frame도 만들었다.
+
+**Lesson:** thread 이름과 코드 위치가 원인 설명처럼 보여도 재현이 사라지기 전에는 가설이다.
+후보마다 새 프로세스·새 컨테이너, 실제 ROS payload, 종료 상태와 반대 backend 대조를 보존한다.
+또 이전 프로세스가 남아 있으면 discovery와 topic을 오염시키므로 PID inventory와 cleanup을
+시험 전제에 포함한다. 로컬 후보의 반복 PASS도 upstream 반영·installed fix·hardware GPU 또는
+일반 음향 정확성으로 확대하지 않는다.

@@ -565,3 +565,26 @@ database는 역사 원본이므로 수정하지 않았다.
 
 근거:
 [`../results/dvl_macos_force_update_candidate_2026-08-30/`](../results/dvl_macos_force_update_candidate_2026-08-30/).
+
+## 23차 — 2026-08-30 Docker software-WGPU 소나 deferred-backend 후보 검증
+
+21차에서 backend-dependent PARTIAL로 남긴 Heavy-multibeam 경로를 최소 소나와 결합 차량으로
+다시 분리했다. 현재 배포 baseline은 최소 world에서도 Docker `llvmpipe` WGPU를 선택한 뒤
+OGRE2 sample-texture/null-`memcpy` SIGSEGV와 exit 139를 재현한다.
+
+- backend 생성·probe를 render callback으로 옮긴 v3는 같은 crash를 재현해 폐기
+- 첫 populated `GpuRays` frame을 처리하는 기존 compute thread까지 생성을 지연하고, 사용하지
+  않는 ROS parameter service/event endpoint를 끈 v5를 retained isolated candidate로 보존
+- fresh Docker에서 WGPU 2/2, auto 1/1, CPU 1/1 모두 513×301 PointCloud2와 513×399 raw sonar 수집
+- 같은 후보의 Heavy 결합 1회에서 `llvmpipe` WGPU, MAVROS connected/arm, manual-control 100개,
+  X +0.191291 m와 disarm 확인
+- Mac에서는 같은 후보 library가 Apple M2 Metal을 선택해 513×301×399 compute frame을 반복했고
+  crash가 없었지만, host upgrade 뒤 ROS observer가 멈춰 이 실행의 새 payload 증거는 추가하지 않음
+
+따라서 Notion과 현재 GitHub 문서에는 **격리 후보 범위의 FUNCTIONAL PASS**와 **배포/설치
+baseline의 PARTIAL**을 동시에 적는다. 후보는 사용자 설치 workspace·상류 DAVE에 적용되지
+않았고, NVIDIA/hardware GPU, 장시간, shutdown-only bridge crash 및 일반 음향 정확성은 검증
+밖이다. `progress-log.md` 현재 행 수는 105다.
+
+근거:
+[`../results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/`](../results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/).

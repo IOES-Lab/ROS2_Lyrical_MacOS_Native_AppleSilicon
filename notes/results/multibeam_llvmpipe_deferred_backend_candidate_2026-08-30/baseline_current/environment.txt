@@ -1,0 +1,4 @@
+backend=wgpu
+image=lyrical-sim:jetty-rdp-external-stack-check
+ROS_DOMAIN_ID=213
+GZ_PARTITION=sonar_min_wgpu_52343

@@ -1,0 +1,6 @@
+multibeam_prefix=/Users/gwon-yeseol/Documents/Codex/2026-07-15/dave-ros-2-lyrical-validation/work/heavy_sonar_wgpu_fix_2026-08-30/mac_overlay/install/multibeam_sonar_system
+ROS_DOMAIN_ID=177
+GZ_PARTITION=sonar_deferred_mac_20260830
+arm64
+      Chipset Model: Apple M2
+      Metal Support: Metal 3

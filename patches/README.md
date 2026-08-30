@@ -1,6 +1,6 @@
 # What was changed
 
-Seventeen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
+Eighteen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
 found while directly validating it. **They are not all independent and they are not applied
 upstream.** The ten dated 2026-08-29 candidates were generated against the tested local
 migration baseline: PR #44 commit `6aef91c` plus the existing migration/runtime fixes already
@@ -41,29 +41,36 @@ The tenth patch, its SHA-256 and its apply/compile/runtime controls are in
 The first nine still reconstruct the exact isolated modified snapshot; the tenth passes
 `git apply --check` on top of that snapshot and all three edited Python files compile. The WGPU crate also passes its Rust unit test and `cargo check`; its
 source guides now describe the exact-DFT path, actual `n_freq` buffer dimensions and 4096-bin
-boundary. Docker has no Cargo toolchain, so the modified WGPU implementation was built and run on
-Mac/Metal; Docker sonar validation remains CPU fallback.
+boundary. Docker has no Cargo toolchain, so the 2026-08-29 modified WGPU implementation itself was
+built and run on Mac/Metal. The separate 2026-08-30 candidate below subsequently ran software WGPU
+on Docker `llvmpipe`; those two candidate scopes must not be merged.
 
 
-## 2026-08-30 isolated Gazebo candidate
+## 2026-08-30 isolated candidates
 
 | Patch | Scope | Validation |
 |---|---|---|
 | [`gz_sim_macos_dvl_force_render_init.diff`](gz_sim_macos_dvl_force_render_init.diff) | Initialize DVL `forceUpdate` rendering on the Apple main thread and prevent the parallel `PostUpdate` handoff from winning the race | Exact `gz-sim10_10.4.0`: stock control exit 139; predicate-only v1 rejected at 9/10; v2 official DVL 20/20, standard camera 3/3, no-render Sensors 3/3, ROS bridge four valid beams |
+| [`multibeam_defer_backend_until_compute_fix.diff`](multibeam_defer_backend_until_compute_fix.diff) | Defer sonar backend creation and its WGPU probe until the first populated `GpuRays` frame is handled on the existing compute thread; disable unused ROS parameter services and event publisher on the plugin node | Distributed baseline minimal sonar exits 139 on Docker software WGPU; render-callback v3 was rejected after reproducing the crash; retained v5 publishes 513×301 PointCloud2 and 513×399 raw sonar in Docker WGPU 2/2, auto 1/1 and CPU 1/1 controls, then passes one Heavy sonar+MAVROS arm/control/disarm run on `llvmpipe`. The same library selects Apple M2 Metal and computes frames without a crash on Mac, but that run did not add a fresh ROS payload capture |
 
-This patch targets upstream `gz-sim`, not DAVE. It was built and run in an isolated exact-tag tree
+The DVL patch targets upstream `gz-sim`, not DAVE. It was built and run in an isolated exact-tag tree
 and was not installed into Homebrew or submitted upstream. Full provenance, the rejected candidate,
 repeat summaries and the compatibility-harness limitation are in
 [`../notes/results/dvl_macos_force_update_candidate_2026-08-30/`](../notes/results/dvl_macos_force_update_candidate_2026-08-30/).
 
+The multibeam patch targets the tested local DAVE migration snapshot. It is likewise an isolated
+candidate: it has not been applied to the user's installed workspace or submitted upstream. Its
+baseline reproduction, rejected render-callback candidate, Docker backend matrix, Heavy integrated
+control and scoped Mac Metal run are in
+[`../notes/results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/`](../notes/results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/).
+
 ## What remains outside these patches
 
 - upstream review, merge and installed distribution of the validated Mac Gazebo Sensors DVL candidate
-- historical 2026-08-03 DAVE multibeam `ogre2` crash trigger (not reproduced in the current 2026-08-29 scoped PointCloud run)
+- upstream review, installation and independent reproduction of the isolated multibeam deferred-backend candidate
 - NVIDIA CUDA / Docker hardware GPU, Windows/WSL and physical HIL
-- default RViz Mac window creation; root cause/fix for the directly reproduced combined Heavy-multibeam sonar-candidate + control Docker failure
+- default RViz Mac window creation; the shutdown-only `parameter_bridge` SIGSEGV seen after some bounded sonar runs
 - QGroundControl's retained DailyBuild default AppRun crash without `QGC_NO_SYSTEM_GLIB=1`
-- a fresh `--no-cache` rebuild and exact-image rendered RDP/QGC vehicle-connection replay of the current Dockerfile recipe (cache-assisted full build, headless controls, xrdp service and QGC offscreen smoke pass)
 - Fuel immutable content pin/account upload
 - general acoustic, optical, hydrodynamic and long-duration scientific accuracy
 - upstream submission, repository naming, licensing and research-direction decisions

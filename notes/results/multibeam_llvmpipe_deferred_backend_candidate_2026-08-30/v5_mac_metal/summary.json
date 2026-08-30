@@ -1,0 +1,13 @@
+{
+  "candidate": "defer compute-backend creation to the compute thread after the first GpuRays frame",
+  "platform": "macOS Apple Silicon",
+  "requested_backend": "wgpu",
+  "selected_adapter_apple_m2": true,
+  "backend_ready": true,
+  "pointcloud_513x301": false,
+  "raw_sonar_513x399": false,
+  "plugin_loaded_line": 27,
+  "deferred_backend_create_line": 40,
+  "ogre2_segfault": false,
+  "backend_created_after_plugin_loaded": true
+}

@@ -1,0 +1,11 @@
+27:[gazebo-1] [INFO] [1788085127.053363000] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+40:[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: wgpu
+43:[gazebo-1] [sonar_wgpu] [metal] selected adapter: Apple M2
+45:[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+47:[gazebo-1] [sonar_wgpu] GPU #1     |   17.1 ms | 1 beams × 1 rays × 4 freq
+49:[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+51:[gazebo-1] [sonar_wgpu] GPU #50    |   91.5 ms | 513 beams × 31 rays × 399 freq
+52:[gazebo-1] [sonar_wgpu] GPU #100   |  105.1 ms | 513 beams × 31 rays × 399 freq
+53:[gazebo-1] [sonar_wgpu] GPU #150   |  118.1 ms | 513 beams × 31 rays × 399 freq
+54:[gazebo-1] [sonar_wgpu] GPU #200   |  139.8 ms | 513 beams × 31 rays × 399 freq
+55:[gazebo-1] [sonar_wgpu] GPU #250   |   88.4 ms | 513 beams × 31 rays × 399 freq

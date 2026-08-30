@@ -1,0 +1,14 @@
+[gazebo-1] [INFO] [1788084644.053699752] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788084644.053756252] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788084644.053763835] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] GPU #1     |   36.7 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[gazebo-1] [sonar_wgpu] GPU #50    |  859.4 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #100   |  838.3 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #150   | 1452.9 ms | 513 beams × 31 rays × 399 freq
+[ERROR] [ardusub-6]: process has died [pid 316, exit code -2, cmd 'ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0'].
+[ERROR] [static_transform_publisher-3]: process has died [pid 183, exit code -2, cmd '/opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar --ros-args'].
+[ERROR] [parameter_bridge-4]: process has died [pid 184, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/bluerov2_heavy_multibeam_sonar/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance /model/bluerov2_heavy_multibeam_sonar/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V /model/bluerov2_heavy_multibeam_sonar/imu@sensor_msgs/msg/Imu[gz.msgs.IMU /model/bluerov2_heavy_multibeam_sonar/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked --ros-args'].
+[ERROR] [gazebo-1]: process has died [pid 114, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r --force-version 10'].
