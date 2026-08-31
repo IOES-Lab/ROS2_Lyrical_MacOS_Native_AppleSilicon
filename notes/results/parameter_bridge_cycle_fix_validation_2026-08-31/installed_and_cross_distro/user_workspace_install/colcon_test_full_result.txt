@@ -1,0 +1,1440 @@
+build/ros_gz_bridge/Testing/20260831-1100/Test.xml: 18 tests, 0 errors, 6 failures, 0 skipped
+- test_launch_test_ros_subscriber.launch.py
+  <<< failure message
+    -- run_test.py: extra environment variables:
+     - PYTHONDONTWRITEBYTECODE=1
+    -- run_test.py: invoking following command in '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge':
+     - /Users/gwon-yeseol/ros2_lyrical/.venv/bin/python3 -m launch_testing.launch_test /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_ros_subscriber.launch.py gz_msgs_ver:=12.0.1 --junit-xml=/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml --package-name=ros_gz_bridge
+    [INFO] [launch]: All log files can be found below /Users/gwon-yeseol/.ros/log/2026-08-31-20-01-02-618266-gwon-yeseol-ui-noteubug.local-59291
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    test_termination (ros_gz_bridge.ROSSubscriberTest.test_termination) ... [INFO] [test_gz_publisher-1]: process started with pid [59292]
+    [INFO] [test_ros_subscriber-2]: process started with pid [59293]
+    [INFO] [parameter_bridge-3]: process started with pid [59294]
+    [INFO] [python3-4]: process started with pid [59295]
+    [test_ros_subscriber-2] [==========] Running 73 tests from 1 test suite.
+    [test_ros_subscriber-2] [----------] Global test environment set-up.
+    [test_ros_subscriber-2] [----------] 73 tests from ROSSubscriberTest
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.actuators_actuator_msgs_actuators
+    [parameter_bridge-3] [INFO] [1788174084.199596000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/actuators_actuator_msgs_actuators (gz.msgs.Actuators) -> /actuators_actuator_msgs_actuators (actuator_msgs/msg/Actuators)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174086.011107000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/time_builtin_interfaces_time (gz.msgs.Time) -> /time_builtin_interfaces_time (builtin_interfaces/msg/Time)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.actuators_actuator_msgs_actuators (21176 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.time_builtin_interfaces_time
+    [parameter_bridge-3] [INFO] [1788174087.366738000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/vector3d_geometry_msgs_point (gz.msgs.Vector3d) -> /vector3d_geometry_msgs_point (geometry_msgs/msg/Point)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.time_builtin_interfaces_time (1365 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.vector3d_geometry_msgs_point
+    [parameter_bridge-3] [INFO] [1788174088.859856000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pose_geometry_msgs_pose (gz.msgs.Pose) -> /pose_geometry_msgs_pose (geometry_msgs/msg/Pose)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.vector3d_geometry_msgs_point (1514 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_pose
+    [parameter_bridge-3] [INFO] [1788174090.320208000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pose_v_geometry_msgs_posearray (gz.msgs.Pose_V) -> /pose_v_geometry_msgs_posearray (geometry_msgs/msg/PoseArray)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_pose (1474 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_v_geometry_msgs_posearray
+    [parameter_bridge-3] [INFO] [1788174091.810770000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pose_geometry_msgs_posestamped (gz.msgs.Pose) -> /pose_geometry_msgs_posestamped (geometry_msgs/msg/PoseStamped)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_v_geometry_msgs_posearray (1507 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_posestamped
+    [parameter_bridge-3] [INFO] [1788174093.321950000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/posewithcovariance_geometry_msgs_posewithcovariance (gz.msgs.PoseWithCovariance) -> /posewithcovariance_geometry_msgs_posewithcovariance (geometry_msgs/msg/PoseWithCovariance)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_posestamped (1548 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance
+    [parameter_bridge-3] [INFO] [1788174094.827952000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/posewithcovariance_geometry_msgs_posewithcovariancestamped (gz.msgs.PoseWithCovariance) -> /posewithcovariance_geometry_msgs_posewithcovariancestamped (geometry_msgs/msg/PoseWithCovarianceStamped)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance (1498 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped
+    [parameter_bridge-3] [INFO] [1788174096.297954000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/quaternion_geometry_msgs_quaternion (gz.msgs.Quaternion) -> /quaternion_geometry_msgs_quaternion (geometry_msgs/msg/Quaternion)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped (1488 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.quaternion_geometry_msgs_quaternion
+    [parameter_bridge-3] [INFO] [1788174097.775642000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pose_geometry_msgs_transform (gz.msgs.Pose) -> /pose_geometry_msgs_transform (geometry_msgs/msg/Transform)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.quaternion_geometry_msgs_quaternion (1483 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_transform
+    [parameter_bridge-3] [INFO] [1788174099.240185000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pose_geometry_msgs_transformstamped (gz.msgs.Pose) -> /pose_geometry_msgs_transformstamped (geometry_msgs/msg/TransformStamped)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_transform (1476 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_transformstamped
+    [parameter_bridge-3] [INFO] [1788174100.748816000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/twist_geometry_msgs_twist (gz.msgs.Twist) -> /twist_geometry_msgs_twist (geometry_msgs/msg/Twist)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_transformstamped (1517 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twist_geometry_msgs_twist
+    [parameter_bridge-3] [INFO] [1788174102.417222000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/twist_geometry_msgs_twiststamped (gz.msgs.Twist) -> /twist_geometry_msgs_twiststamped (geometry_msgs/msg/TwistStamped)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twist_geometry_msgs_twist (1674 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twist_geometry_msgs_twiststamped
+    [parameter_bridge-3] [INFO] [1788174103.916501000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariance (gz.msgs.TwistWithCovariance) -> /twistwithcovariance_geometry_msgs_twistwithcovariance (geometry_msgs/msg/TwistWithCovariance)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twist_geometry_msgs_twiststamped (1518 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance
+    [parameter_bridge-3] [INFO] [1788174105.791704000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariancestamped (gz.msgs.TwistWithCovariance) -> /twistwithcovariance_geometry_msgs_twistwithcovariancestamped (geometry_msgs/msg/TwistWithCovarianceStamped)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance (2033 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped
+    [parameter_bridge-3] [INFO] [1788174107.494114000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/vector3d_geometry_msgs_vector3 (gz.msgs.Vector3d) -> /vector3d_geometry_msgs_vector3 (geometry_msgs/msg/Vector3)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped (1625 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.vector3d_geometry_msgs_vector3
+    [parameter_bridge-3] [INFO] [1788174109.002913000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/wrench_geometry_msgs_wrench (gz.msgs.Wrench) -> /wrench_geometry_msgs_wrench (geometry_msgs/msg/Wrench)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.vector3d_geometry_msgs_vector3 (1488 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.wrench_geometry_msgs_wrench
+    [parameter_bridge-3] [INFO] [1788174110.478762000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/wrench_geometry_msgs_wrenchstamped (gz.msgs.Wrench) -> /wrench_geometry_msgs_wrenchstamped (geometry_msgs/msg/WrenchStamped)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.wrench_geometry_msgs_wrench (1487 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.wrench_geometry_msgs_wrenchstamped
+    [parameter_bridge-3] [INFO] [1788174111.973731000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/navsat_gps_msgs_gpsfix (gz.msgs.NavSat) -> /navsat_gps_msgs_gpsfix (gps_msgs/msg/GPSFix)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.wrench_geometry_msgs_wrenchstamped (1527 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.navsat_gps_msgs_gpsfix
+    [parameter_bridge-3] [INFO] [1788174113.793436000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/dvlvelocitytracking_marine_acoustic_msgs_dvl (gz.msgs.DVLVelocityTracking) -> /dvlvelocitytracking_marine_acoustic_msgs_dvl (marine_acoustic_msgs/msg/Dvl)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.navsat_gps_msgs_gpsfix (1818 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl
+    [parameter_bridge-3] [INFO] [1788174115.587904000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/odometry_nav_msgs_odometry (gz.msgs.Odometry) -> /odometry_nav_msgs_odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl (1787 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.odometry_nav_msgs_odometry
+    [parameter_bridge-3] [INFO] [1788174117.357305000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/odometrywithcovariance_nav_msgs_odometry (gz.msgs.OdometryWithCovariance) -> /odometrywithcovariance_nav_msgs_odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174117.358471000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/any_rcl_interfaces_parametervalue (gz.msgs.Any) -> /any_rcl_interfaces_parametervalue (rcl_interfaces/msg/ParameterValue)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.odometry_nav_msgs_odometry (1783 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.odometrywithcovariance_nav_msgs_odometry
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.odometrywithcovariance_nav_msgs_odometry (12 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.any_rcl_interfaces_parametervalue
+    [parameter_bridge-3] [INFO] [1788174119.067321000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/airspeed_ros_gz_interfaces_airspeed (gz.msgs.AirSpeed) -> /airspeed_ros_gz_interfaces_airspeed (ros_gz_interfaces/msg/AirSpeed)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.any_rcl_interfaces_parametervalue (1737 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.airspeed_ros_gz_interfaces_airspeed
+    [parameter_bridge-3] [INFO] [1788174120.838586000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/altimeter_ros_gz_interfaces_altimeter (gz.msgs.Altimeter) -> /altimeter_ros_gz_interfaces_altimeter (ros_gz_interfaces/msg/Altimeter)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.airspeed_ros_gz_interfaces_airspeed (1805 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.altimeter_ros_gz_interfaces_altimeter
+    [parameter_bridge-3] [INFO] [1788174122.645205000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/contact_ros_gz_interfaces_contact (gz.msgs.Contact) -> /contact_ros_gz_interfaces_contact (ros_gz_interfaces/msg/Contact)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.altimeter_ros_gz_interfaces_altimeter (1779 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.contact_ros_gz_interfaces_contact
+    [parameter_bridge-3] [INFO] [1788174124.408525000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/contacts_ros_gz_interfaces_contacts (gz.msgs.Contacts) -> /contacts_ros_gz_interfaces_contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.contact_ros_gz_interfaces_contact (1796 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.contacts_ros_gz_interfaces_contacts
+    [parameter_bridge-3] [INFO] [1788174126.203331000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/dataframe_ros_gz_interfaces_dataframe (gz.msgs.Dataframe) -> /dataframe_ros_gz_interfaces_dataframe (ros_gz_interfaces/msg/Dataframe)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.contacts_ros_gz_interfaces_contacts (1780 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.dataframe_ros_gz_interfaces_dataframe
+    [parameter_bridge-3] [INFO] [1788174128.038803000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/entity_ros_gz_interfaces_entity (gz.msgs.Entity) -> /entity_ros_gz_interfaces_entity (ros_gz_interfaces/msg/Entity)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.dataframe_ros_gz_interfaces_dataframe (1862 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.entity_ros_gz_interfaces_entity
+    [parameter_bridge-3] [INFO] [1788174129.872402000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/entityfactory_ros_gz_interfaces_entityfactory (gz.msgs.EntityFactory) -> /entityfactory_ros_gz_interfaces_entityfactory (ros_gz_interfaces/msg/EntityFactory)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.entity_ros_gz_interfaces_entity (1844 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory
+    [parameter_bridge-3] [INFO] [1788174132.111780000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/entitywrench_ros_gz_interfaces_entitywrench (gz.msgs.EntityWrench) -> /entitywrench_ros_gz_interfaces_entitywrench (ros_gz_interfaces/msg/EntityWrench)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory (2215 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench
+    [parameter_bridge-3] [INFO] [1788174134.025072000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/float_v_ros_gz_interfaces_float32array (gz.msgs.Float_V) -> /float_v_ros_gz_interfaces_float32array (ros_gz_interfaces/msg/Float32Array)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench (1958 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.float_v_ros_gz_interfaces_float32array
+    [parameter_bridge-3] [INFO] [1788174135.900857000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/guicamera_ros_gz_interfaces_guicamera (gz.msgs.GUICamera) -> /guicamera_ros_gz_interfaces_guicamera (ros_gz_interfaces/msg/GuiCamera)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.float_v_ros_gz_interfaces_float32array (1916 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.guicamera_ros_gz_interfaces_guicamera
+    [parameter_bridge-3] [INFO] [1788174137.753206000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/jointwrench_ros_gz_interfaces_jointwrench (gz.msgs.JointWrench) -> /jointwrench_ros_gz_interfaces_jointwrench (ros_gz_interfaces/msg/JointWrench)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.guicamera_ros_gz_interfaces_guicamera (1811 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench
+    [parameter_bridge-3] [INFO] [1788174139.561952000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/light_ros_gz_interfaces_light (gz.msgs.Light) -> /light_ros_gz_interfaces_light (ros_gz_interfaces/msg/Light)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench (1816 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.light_ros_gz_interfaces_light
+    [parameter_bridge-3] [INFO] [1788174141.370141000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (gz.msgs.LogPlaybackStatistics) -> /logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (ros_gz_interfaces/msg/LogPlaybackStatistics)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.light_ros_gz_interfaces_light (1823 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics
+    [parameter_bridge-3] [INFO] [1788174143.199818000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/logicalcameraimage_ros_gz_interfaces_logicalcameraimage (gz.msgs.LogicalCameraImage) -> /logicalcameraimage_ros_gz_interfaces_logicalcameraimage (ros_gz_interfaces/msg/LogicalCameraImage)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (1832 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage
+    [parameter_bridge-3] [INFO] [1788174145.029452000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/materialcolor_ros_gz_interfaces_materialcolor (gz.msgs.MaterialColor) -> /materialcolor_ros_gz_interfaces_materialcolor (ros_gz_interfaces/msg/MaterialColor)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage (1852 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor
+    [parameter_bridge-3] [INFO] [1788174146.840428000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/param_ros_gz_interfaces_paramvec (gz.msgs.Param) -> /param_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor (1833 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.param_ros_gz_interfaces_paramvec
+    [parameter_bridge-3] [INFO] [1788174148.681045000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/param_v_ros_gz_interfaces_paramvec (gz.msgs.Param_V) -> /param_v_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174148.682582000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensornoise_ros_gz_interfaces_sensornoise (gz.msgs.SensorNoise) -> /sensornoise_ros_gz_interfaces_sensornoise (ros_gz_interfaces/msg/SensorNoise)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.param_ros_gz_interfaces_paramvec (1844 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.param_v_ros_gz_interfaces_paramvec
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.param_v_ros_gz_interfaces_paramvec (13 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise
+    [parameter_bridge-3] [INFO] [1788174150.492280000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/stringmsg_v_ros_gz_interfaces_stringvec (gz.msgs.StringMsg_V) -> /stringmsg_v_ros_gz_interfaces_stringvec (ros_gz_interfaces/msg/StringVec)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise (1830 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec
+    [parameter_bridge-3] [INFO] [1788174152.320436000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/trackvisual_ros_gz_interfaces_trackvisual (gz.msgs.TrackVisual) -> /trackvisual_ros_gz_interfaces_trackvisual (ros_gz_interfaces/msg/TrackVisual)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec (1845 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual
+    [parameter_bridge-3] [INFO] [1788174154.164222000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/videorecord_ros_gz_interfaces_videorecord (gz.msgs.VideoRecord) -> /videorecord_ros_gz_interfaces_videorecord (ros_gz_interfaces/msg/VideoRecord)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual (1847 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.videorecord_ros_gz_interfaces_videorecord
+    [parameter_bridge-3] [INFO] [1788174155.989476000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/worldstatistics_ros_gz_interfaces_worldstatistics (gz.msgs.WorldStatistics) -> /worldstatistics_ros_gz_interfaces_worldstatistics (ros_gz_interfaces/msg/WorldStatistics)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.videorecord_ros_gz_interfaces_videorecord (1834 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics
+    [parameter_bridge-3] [INFO] [1788174157.867383000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock_rosgraph_msgs_clock (gz.msgs.Clock) -> /clock_rosgraph_msgs_clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics (1903 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.clock_rosgraph_msgs_clock
+    [parameter_bridge-3] [INFO] [1788174159.721073000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/batterystate_sensor_msgs_batterystate (gz.msgs.BatteryState) -> /batterystate_sensor_msgs_batterystate (sensor_msgs/msg/BatteryState)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.clock_rosgraph_msgs_clock (1864 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.batterystate_sensor_msgs_batterystate
+    [parameter_bridge-3] [INFO] [1788174161.535029000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camerainfo_sensor_msgs_camerainfo (gz.msgs.CameraInfo) -> /camerainfo_sensor_msgs_camerainfo (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.batterystate_sensor_msgs_batterystate (1800 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.camerainfo_sensor_msgs_camerainfo
+    [parameter_bridge-3] [INFO] [1788174163.308694000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/fluidpressure_sensor_msgs_fluidpressure (gz.msgs.FluidPressure) -> /fluidpressure_sensor_msgs_fluidpressure (sensor_msgs/msg/FluidPressure)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.camerainfo_sensor_msgs_camerainfo (1773 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.fluidpressure_sensor_msgs_fluidpressure
+    [parameter_bridge-3] [INFO] [1788174165.077055000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/image_sensor_msgs_image (gz.msgs.Image) -> /image_sensor_msgs_image (sensor_msgs/msg/Image)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.fluidpressure_sensor_msgs_fluidpressure (1794 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.image_sensor_msgs_image
+    [parameter_bridge-3] [INFO] [1788174166.838214000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/imu_sensor_msgs_imu (gz.msgs.IMU) -> /imu_sensor_msgs_imu (sensor_msgs/msg/Imu)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.image_sensor_msgs_image (1788 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.imu_sensor_msgs_imu
+    [parameter_bridge-3] [INFO] [1788174168.622007000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model_sensor_msgs_jointstate (gz.msgs.Model) -> /model_sensor_msgs_jointstate (sensor_msgs/msg/JointState)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.imu_sensor_msgs_imu (1804 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.model_sensor_msgs_jointstate
+    [parameter_bridge-3] [INFO] [1788174170.406593000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/joy_sensor_msgs_joy (gz.msgs.Joy) -> /joy_sensor_msgs_joy (sensor_msgs/msg/Joy)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.model_sensor_msgs_jointstate (1782 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.joy_sensor_msgs_joy
+    [parameter_bridge-3] [INFO] [1788174172.207726000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/laserscan_sensor_msgs_laserscan (gz.msgs.LaserScan) -> /laserscan_sensor_msgs_laserscan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.joy_sensor_msgs_joy (1808 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.laserscan_sensor_msgs_laserscan
+    [parameter_bridge-3] [INFO] [1788174173.990752000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/magnetometer_sensor_msgs_magneticfield (gz.msgs.Magnetometer) -> /magnetometer_sensor_msgs_magneticfield (sensor_msgs/msg/MagneticField)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.laserscan_sensor_msgs_laserscan (1807 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.magnetometer_sensor_msgs_magneticfield
+    [parameter_bridge-3] [INFO] [1788174175.789422000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/navsat_sensor_msgs_navsatfix (gz.msgs.NavSat) -> /navsat_sensor_msgs_navsatfix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.magnetometer_sensor_msgs_magneticfield (1797 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.navsat_sensor_msgs_navsatfix
+    [parameter_bridge-3] [INFO] [1788174177.574492000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pointcloudpacked_sensor_msgs_pointcloud2 (gz.msgs.PointCloudPacked) -> /pointcloudpacked_sensor_msgs_pointcloud2 (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.navsat_sensor_msgs_navsatfix (1786 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2
+    [parameter_bridge-3] [INFO] [1788174179.357586000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/laserscan_sensor_msgs_range (gz.msgs.LaserScan) -> /laserscan_sensor_msgs_range (sensor_msgs/msg/Range)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2 (1810 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.laserscan_sensor_msgs_range
+    [parameter_bridge-3] [INFO] [1788174181.166220000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/boolean_std_msgs_bool (gz.msgs.Boolean) -> /boolean_std_msgs_bool (std_msgs/msg/Bool)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.laserscan_sensor_msgs_range (1791 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.boolean_std_msgs_bool
+    [parameter_bridge-3] [INFO] [1788174182.727241000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/color_std_msgs_colorrgba (gz.msgs.Color) -> /color_std_msgs_colorrgba (std_msgs/msg/ColorRGBA)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.boolean_std_msgs_bool (1578 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.color_std_msgs_colorrgba
+    [parameter_bridge-3] [INFO] [1788174184.302837000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/empty_std_msgs_empty (gz.msgs.Empty) -> /empty_std_msgs_empty (std_msgs/msg/Empty)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.color_std_msgs_colorrgba (1575 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.empty_std_msgs_empty
+    [parameter_bridge-3] [INFO] [1788174185.879938000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/float_std_msgs_float32 (gz.msgs.Float) -> /float_std_msgs_float32 (std_msgs/msg/Float32)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.empty_std_msgs_empty (1597 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.float_std_msgs_float32
+    [parameter_bridge-3] [INFO] [1788174187.448152000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/double_std_msgs_float64 (gz.msgs.Double) -> /double_std_msgs_float64 (std_msgs/msg/Float64)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.float_std_msgs_float32 (1582 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.double_std_msgs_float64
+    [parameter_bridge-3] [INFO] [1788174189.017093000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/header_std_msgs_header (gz.msgs.Header) -> /header_std_msgs_header (std_msgs/msg/Header)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.double_std_msgs_float64 (1582 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.header_std_msgs_header
+    [parameter_bridge-3] [INFO] [1788174190.624002000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/int32_std_msgs_int32 (gz.msgs.Int32) -> /int32_std_msgs_int32 (std_msgs/msg/Int32)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.header_std_msgs_header (1987 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.int32_std_msgs_int32
+    [parameter_bridge-3] [INFO] [1788174192.708404000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/stringmsg_std_msgs_string (gz.msgs.StringMsg) -> /stringmsg_std_msgs_string (std_msgs/msg/String)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.int32_std_msgs_int32 (1729 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.stringmsg_std_msgs_string
+    [parameter_bridge-3] [INFO] [1788174194.290415000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/uint32_std_msgs_uint32 (gz.msgs.UInt32) -> /uint32_std_msgs_uint32 (std_msgs/msg/UInt32)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.stringmsg_std_msgs_string (1588 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.uint32_std_msgs_uint32
+    [parameter_bridge-3] [INFO] [1788174195.870420000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/pose_v_tf2_msgs_tfmessage (gz.msgs.Pose_V) -> /pose_v_tf2_msgs_tfmessage (tf2_msgs/msg/TFMessage)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.uint32_std_msgs_uint32 (1631 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_v_tf2_msgs_tfmessage
+    [parameter_bridge-3] [INFO] [1788174197.686542000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/jointtrajectory_trajectory_msgs_jointtrajectory (gz.msgs.JointTrajectory) -> /jointtrajectory_trajectory_msgs_jointtrajectory (trajectory_msgs/msg/JointTrajectory)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_v_tf2_msgs_tfmessage (1786 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory
+    [parameter_bridge-3] [INFO] [1788174199.339329000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/annotatedaxisaligned2dbox_vision_msgs_detection2d (gz.msgs.AnnotatedAxisAligned2DBox) -> /annotatedaxisaligned2dbox_vision_msgs_detection2d (vision_msgs/msg/Detection2D)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory (1662 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d
+    [parameter_bridge-3] [INFO] [1788174200.965724000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (gz.msgs.AnnotatedAxisAligned2DBox_V) -> /annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (vision_msgs/msg/Detection2DArray)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d (1635 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray
+    [parameter_bridge-3] [INFO] [1788174202.591971000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/annotatedoriented3dbox_vision_msgs_detection3d (gz.msgs.AnnotatedOriented3DBox) -> /annotatedoriented3dbox_vision_msgs_detection3d (vision_msgs/msg/Detection3D)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (1628 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d
+    [parameter_bridge-3] [INFO] [1788174204.240214000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/annotatedoriented3dbox_v_vision_msgs_detection3darray (gz.msgs.AnnotatedOriented3DBox_V) -> /annotatedoriented3dbox_v_vision_msgs_detection3darray (vision_msgs/msg/Detection3DArray)] (Lazy 0)
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d (1676 ms)
+    [test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray
+    [test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray (1596 ms)
+    [test_ros_subscriber-2] [----------] 73 tests from ROSSubscriberTest (141848 ms total)
+    [test_ros_subscriber-2]
+    [test_ros_subscriber-2] [----------] Global test environment tear-down
+    [test_ros_subscriber-2] [==========] 73 tests from 1 test suite ran. (141848 ms total)
+    [test_ros_subscriber-2] [  PASSED  ] 73 tests.
+    [test_ros_subscriber-2] libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+    [ERROR] [test_ros_subscriber-2]: process has died [pid 59293, exit code -6, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/test_ros_subscriber --ros-args'].
+    ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 144.342s
+
+    OK
+    [INFO] [python3-4]: sending signal 'SIGINT' to process[python3-4]
+    [INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+    [INFO] [test_gz_publisher-1]: sending signal 'SIGINT' to process[test_gz_publisher-1]
+    [parameter_bridge-3] [INFO] [1788174206.998506000] [rclcpp]: signal_handler(signum=2)
+    [INFO] [python3-4]: process has finished cleanly [pid 59295]
+    [INFO] [test_gz_publisher-1]: process has finished cleanly [pid 59292]
+    [INFO] [parameter_bridge-3]: process has finished cleanly [pid 59294]
+    test_exit_code (ros_gz_bridge.ROSSubscriberTestAfterShutdown.test_exit_code) ... FAIL
+
+    ======================================================================
+    FAIL: test_exit_code (ros_gz_bridge.ROSSubscriberTestAfterShutdown.test_exit_code)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_ros_subscriber.launch.py", line 88, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_ros_subscriber-2 exited with code -6
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml'
+  >>>
+- test_launch_test_gz_subscriber.launch.py
+  <<< failure message
+    -- run_test.py: extra environment variables:
+     - PYTHONDONTWRITEBYTECODE=1
+    -- run_test.py: invoking following command in '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge':
+     - /Users/gwon-yeseol/ros2_lyrical/.venv/bin/python3 -m launch_testing.launch_test /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_gz_subscriber.launch.py gz_msgs_ver:=12.0.1 --junit-xml=/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml --package-name=ros_gz_bridge
+    [INFO] [launch]: All log files can be found below /Users/gwon-yeseol/.ros/log/2026-08-31-20-03-29-242707-gwon-yeseol-ui-noteubug.local-59387
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    test_termination (ros_gz_bridge.GzSubscriberTest.test_termination) ... [INFO] [test_ros_publisher-1]: process started with pid [59392]
+    [INFO] [test_gz_subscriber-2]: process started with pid [59393]
+    [INFO] [parameter_bridge-3]: process started with pid [59394]
+    [INFO] [python3-4]: process started with pid [59395]
+    [test_gz_subscriber-2] [==========] Running 73 tests from 1 test suite.
+    [test_gz_subscriber-2] [----------] Global test environment set-up.
+    [test_gz_subscriber-2] [----------] 73 tests from GzSubscriberTest
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.actuators_actuator_msgs_actuators
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:62: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.actuators_actuator_msgs_actuators (2486 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.time_builtin_interfaces_time
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:74: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.time_builtin_interfaces_time (2445 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.vector3d_geometry_msgs_point
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:86: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.vector3d_geometry_msgs_point (2463 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_pose
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:98: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_pose (2445 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_v_geometry_msgs_posearray
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:110: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_v_geometry_msgs_posearray (2474 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_posestamped
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:122: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_posestamped (2462 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:134: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance (2455 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:146: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped (2468 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.quaternion_geometry_msgs_quaternion
+    [parameter_bridge-3] [INFO] [1788174233.131685000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/actuators_actuator_msgs_actuators (actuator_msgs/msg/Actuators) -> /actuators_actuator_msgs_actuators (gz.msgs.Actuators)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:158: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.quaternion_geometry_msgs_quaternion (2463 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_transform
+    [parameter_bridge-3] [INFO] [1788174234.993606000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/time_builtin_interfaces_time (builtin_interfaces/msg/Time) -> /time_builtin_interfaces_time (gz.msgs.Time)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:170: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_transform (2442 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_transformstamped
+    [parameter_bridge-3] [INFO] [1788174236.502388000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/vector3d_geometry_msgs_point (geometry_msgs/msg/Point) -> /vector3d_geometry_msgs_point (gz.msgs.Vector3d)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174238.011544000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pose_geometry_msgs_pose (geometry_msgs/msg/Pose) -> /pose_geometry_msgs_pose (gz.msgs.Pose)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:182: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_transformstamped (2441 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twist_geometry_msgs_twist
+    [parameter_bridge-3] [INFO] [1788174239.523288000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pose_v_geometry_msgs_posearray (geometry_msgs/msg/PoseArray) -> /pose_v_geometry_msgs_posearray (gz.msgs.Pose_V)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:194: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twist_geometry_msgs_twist (2436 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twist_geometry_msgs_twiststamped
+    [parameter_bridge-3] [INFO] [1788174241.027216000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pose_geometry_msgs_posestamped (geometry_msgs/msg/PoseStamped) -> /pose_geometry_msgs_posestamped (gz.msgs.Pose)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174242.485091000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/posewithcovariance_geometry_msgs_posewithcovariance (geometry_msgs/msg/PoseWithCovariance) -> /posewithcovariance_geometry_msgs_posewithcovariance (gz.msgs.PoseWithCovariance)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:206: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twist_geometry_msgs_twiststamped (2437 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance
+    [parameter_bridge-3] [INFO] [1788174243.962221000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/posewithcovariance_geometry_msgs_posewithcovariancestamped (geometry_msgs/msg/PoseWithCovarianceStamped) -> /posewithcovariance_geometry_msgs_posewithcovariancestamped (gz.msgs.PoseWithCovariance)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174245.411776000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/quaternion_geometry_msgs_quaternion (geometry_msgs/msg/Quaternion) -> /quaternion_geometry_msgs_quaternion (gz.msgs.Quaternion)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:218: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance (2459 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped
+    [parameter_bridge-3] [INFO] [1788174246.864009000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pose_geometry_msgs_transform (geometry_msgs/msg/Transform) -> /pose_geometry_msgs_transform (gz.msgs.Pose)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:230: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped (2420 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.vector3d_geometry_msgs_vector3
+    [parameter_bridge-3] [INFO] [1788174248.366841000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pose_geometry_msgs_transformstamped (geometry_msgs/msg/TransformStamped) -> /pose_geometry_msgs_transformstamped (gz.msgs.Pose)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174249.819447000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/twist_geometry_msgs_twist (geometry_msgs/msg/Twist) -> /twist_geometry_msgs_twist (gz.msgs.Twist)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:242: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.vector3d_geometry_msgs_vector3 (2433 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.wrench_geometry_msgs_wrench
+    [parameter_bridge-3] [INFO] [1788174251.565397000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/twist_geometry_msgs_twiststamped (geometry_msgs/msg/TwistStamped) -> /twist_geometry_msgs_twiststamped (gz.msgs.Twist)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174253.105786000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariance (geometry_msgs/msg/TwistWithCovariance) -> /twistwithcovariance_geometry_msgs_twistwithcovariance (gz.msgs.TwistWithCovariance)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:254: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.wrench_geometry_msgs_wrench (2437 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped
+    [parameter_bridge-3] [INFO] [1788174254.556458000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariancestamped (geometry_msgs/msg/TwistWithCovarianceStamped) -> /twistwithcovariance_geometry_msgs_twistwithcovariancestamped (gz.msgs.TwistWithCovariance)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:266: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped (2455 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.navsat_gps_msgs_gpsfix
+    [parameter_bridge-3] [INFO] [1788174256.016184000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/vector3d_geometry_msgs_vector3 (geometry_msgs/msg/Vector3) -> /vector3d_geometry_msgs_vector3 (gz.msgs.Vector3d)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174257.460275000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/wrench_geometry_msgs_wrench (geometry_msgs/msg/Wrench) -> /wrench_geometry_msgs_wrench (gz.msgs.Wrench)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:278: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.navsat_gps_msgs_gpsfix (2444 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl
+    [parameter_bridge-3] [INFO] [1788174258.904491000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/wrench_geometry_msgs_wrenchstamped (geometry_msgs/msg/WrenchStamped) -> /wrench_geometry_msgs_wrenchstamped (gz.msgs.Wrench)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174260.368844000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/navsat_gps_msgs_gpsfix (gps_msgs/msg/GPSFix) -> /navsat_gps_msgs_gpsfix (gz.msgs.NavSat)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:290: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl (2452 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.odometry_nav_msgs_odometry
+    [parameter_bridge-3] [INFO] [1788174262.098796000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/dvlvelocitytracking_marine_acoustic_msgs_dvl (marine_acoustic_msgs/msg/Dvl) -> /dvlvelocitytracking_marine_acoustic_msgs_dvl (gz.msgs.DVLVelocityTracking)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:302: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.odometry_nav_msgs_odometry (2446 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry
+    [parameter_bridge-3] [INFO] [1788174263.831302000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/odometry_nav_msgs_odometry (nav_msgs/msg/Odometry) -> /odometry_nav_msgs_odometry (gz.msgs.Odometry)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:314: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry (2445 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.any_rcl_interfaces_parametervalue
+    [parameter_bridge-3] [INFO] [1788174265.578279000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/odometrywithcovariance_nav_msgs_odometry (nav_msgs/msg/Odometry) -> /odometrywithcovariance_nav_msgs_odometry (gz.msgs.OdometryWithCovariance)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174265.579899000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/any_rcl_interfaces_parametervalue (rcl_interfaces/msg/ParameterValue) -> /any_rcl_interfaces_parametervalue (gz.msgs.Any)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174267.334700000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/airspeed_ros_gz_interfaces_airspeed (ros_gz_interfaces/msg/AirSpeed) -> /airspeed_ros_gz_interfaces_airspeed (gz.msgs.AirSpeed)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:326: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.any_rcl_interfaces_parametervalue (2424 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.airspeed_ros_gz_interfaces_airspeed
+    [parameter_bridge-3] [INFO] [1788174269.182894000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/altimeter_ros_gz_interfaces_altimeter (ros_gz_interfaces/msg/Altimeter) -> /altimeter_ros_gz_interfaces_altimeter (gz.msgs.Altimeter)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:338: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.airspeed_ros_gz_interfaces_airspeed (2419 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter
+    [parameter_bridge-3] [INFO] [1788174270.922689000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/contact_ros_gz_interfaces_contact (ros_gz_interfaces/msg/Contact) -> /contact_ros_gz_interfaces_contact (gz.msgs.Contact)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:350: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter (2456 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.contact_ros_gz_interfaces_contact
+    [parameter_bridge-3] [INFO] [1788174272.702661000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/contacts_ros_gz_interfaces_contacts (ros_gz_interfaces/msg/Contacts) -> /contacts_ros_gz_interfaces_contacts (gz.msgs.Contacts)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174274.448730000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/dataframe_ros_gz_interfaces_dataframe (ros_gz_interfaces/msg/Dataframe) -> /dataframe_ros_gz_interfaces_dataframe (gz.msgs.Dataframe)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:362: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.contact_ros_gz_interfaces_contact (2448 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts
+    [parameter_bridge-3] [INFO] [1788174276.181599000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/entity_ros_gz_interfaces_entity (ros_gz_interfaces/msg/Entity) -> /entity_ros_gz_interfaces_entity (gz.msgs.Entity)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:374: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts (2452 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe
+    [parameter_bridge-3] [INFO] [1788174277.984162000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/entityfactory_ros_gz_interfaces_entityfactory (ros_gz_interfaces/msg/EntityFactory) -> /entityfactory_ros_gz_interfaces_entityfactory (gz.msgs.EntityFactory)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174279.698732000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/entitywrench_ros_gz_interfaces_entitywrench (ros_gz_interfaces/msg/EntityWrench) -> /entitywrench_ros_gz_interfaces_entitywrench (gz.msgs.EntityWrench)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:386: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe (2441 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.entity_ros_gz_interfaces_entity
+    [parameter_bridge-3] [INFO] [1788174281.526320000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/float_v_ros_gz_interfaces_float32array (ros_gz_interfaces/msg/Float32Array) -> /float_v_ros_gz_interfaces_float32array (gz.msgs.Float_V)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:398: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.entity_ros_gz_interfaces_entity (2438 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory
+    [parameter_bridge-3] [INFO] [1788174283.253675000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/guicamera_ros_gz_interfaces_guicamera (ros_gz_interfaces/msg/GuiCamera) -> /guicamera_ros_gz_interfaces_guicamera (gz.msgs.GUICamera)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:410: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory (2447 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench
+    [parameter_bridge-3] [INFO] [1788174285.053132000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/jointwrench_ros_gz_interfaces_jointwrench (ros_gz_interfaces/msg/JointWrench) -> /jointwrench_ros_gz_interfaces_jointwrench (gz.msgs.JointWrench)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174286.784889000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/light_ros_gz_interfaces_light (ros_gz_interfaces/msg/Light) -> /light_ros_gz_interfaces_light (gz.msgs.Light)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:422: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench (2453 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array
+    [parameter_bridge-3] [INFO] [1788174288.560162000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (ros_gz_interfaces/msg/LogPlaybackStatistics) -> /logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (gz.msgs.LogPlaybackStatistics)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:434: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array (2452 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera
+    [parameter_bridge-3] [INFO] [1788174290.321894000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/logicalcameraimage_ros_gz_interfaces_logicalcameraimage (ros_gz_interfaces/msg/LogicalCameraImage) -> /logicalcameraimage_ros_gz_interfaces_logicalcameraimage (gz.msgs.LogicalCameraImage)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174292.117089000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/materialcolor_ros_gz_interfaces_materialcolor (ros_gz_interfaces/msg/MaterialColor) -> /materialcolor_ros_gz_interfaces_materialcolor (gz.msgs.MaterialColor)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:446: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera (2449 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench
+    [parameter_bridge-3] [INFO] [1788174293.918042000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/param_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec) -> /param_ros_gz_interfaces_paramvec (gz.msgs.Param)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:458: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench (2432 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.light_ros_gz_interfaces_light
+    [parameter_bridge-3] [INFO] [1788174295.641115000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/param_v_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec) -> /param_v_ros_gz_interfaces_paramvec (gz.msgs.Param_V)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174295.643080000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensornoise_ros_gz_interfaces_sensornoise (ros_gz_interfaces/msg/SensorNoise) -> /sensornoise_ros_gz_interfaces_sensornoise (gz.msgs.SensorNoise)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:470: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.light_ros_gz_interfaces_light (2457 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics
+    [parameter_bridge-3] [INFO] [1788174297.446917000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/stringmsg_v_ros_gz_interfaces_stringvec (ros_gz_interfaces/msg/StringVec) -> /stringmsg_v_ros_gz_interfaces_stringvec (gz.msgs.StringMsg_V)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174299.204075000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/trackvisual_ros_gz_interfaces_trackvisual (ros_gz_interfaces/msg/TrackVisual) -> /trackvisual_ros_gz_interfaces_trackvisual (gz.msgs.TrackVisual)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:482: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (2686 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage
+    [parameter_bridge-3] [INFO] [1788174301.003328000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/videorecord_ros_gz_interfaces_videorecord (ros_gz_interfaces/msg/VideoRecord) -> /videorecord_ros_gz_interfaces_videorecord (gz.msgs.VideoRecord)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:494: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage (2824 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor
+    [parameter_bridge-3] [INFO] [1788174302.743420000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/worldstatistics_ros_gz_interfaces_worldstatistics (ros_gz_interfaces/msg/WorldStatistics) -> /worldstatistics_ros_gz_interfaces_worldstatistics (gz.msgs.WorldStatistics)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174304.501002000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/clock_rosgraph_msgs_clock (rosgraph_msgs/msg/Clock) -> /clock_rosgraph_msgs_clock (gz.msgs.Clock)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:506: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor (2827 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.param_ros_gz_interfaces_paramvec
+    [parameter_bridge-3] [INFO] [1788174306.252339000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/batterystate_sensor_msgs_batterystate (sensor_msgs/msg/BatteryState) -> /batterystate_sensor_msgs_batterystate (gz.msgs.BatteryState)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174307.901542000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camerainfo_sensor_msgs_camerainfo (sensor_msgs/msg/CameraInfo) -> /camerainfo_sensor_msgs_camerainfo (gz.msgs.CameraInfo)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:518: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.param_ros_gz_interfaces_paramvec (2833 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec
+    [parameter_bridge-3] [INFO] [1788174309.631284000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/fluidpressure_sensor_msgs_fluidpressure (sensor_msgs/msg/FluidPressure) -> /fluidpressure_sensor_msgs_fluidpressure (gz.msgs.FluidPressure)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:530: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec (2811 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise
+    [parameter_bridge-3] [INFO] [1788174311.650997000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/image_sensor_msgs_image (sensor_msgs/msg/Image) -> /image_sensor_msgs_image (gz.msgs.Image)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174313.431501000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/imu_sensor_msgs_imu (sensor_msgs/msg/Imu) -> /imu_sensor_msgs_imu (gz.msgs.IMU)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:542: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise (2779 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec
+    [parameter_bridge-3] [INFO] [1788174315.083072000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/model_sensor_msgs_jointstate (sensor_msgs/msg/JointState) -> /model_sensor_msgs_jointstate (gz.msgs.Model)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:554: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec (2843 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual
+    [parameter_bridge-3] [INFO] [1788174316.777246000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/joy_sensor_msgs_joy (sensor_msgs/msg/Joy) -> /joy_sensor_msgs_joy (gz.msgs.Joy)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174318.434199000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/laserscan_sensor_msgs_laserscan (sensor_msgs/msg/LaserScan) -> /laserscan_sensor_msgs_laserscan (gz.msgs.LaserScan)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:566: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual (2848 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord
+    [parameter_bridge-3] [INFO] [1788174320.117961000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/magnetometer_sensor_msgs_magneticfield (sensor_msgs/msg/MagneticField) -> /magnetometer_sensor_msgs_magneticfield (gz.msgs.Magnetometer)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174321.821314000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/navsat_sensor_msgs_navsatfix (sensor_msgs/msg/NavSatFix) -> /navsat_sensor_msgs_navsatfix (gz.msgs.NavSat)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:578: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord (2795 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics
+    [parameter_bridge-3] [INFO] [1788174323.467058000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pointcloudpacked_sensor_msgs_pointcloud2 (sensor_msgs/msg/PointCloud2) -> /pointcloudpacked_sensor_msgs_pointcloud2 (gz.msgs.PointCloudPacked)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:590: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics (2821 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.clock_rosgraph_msgs_clock
+    [parameter_bridge-3] [INFO] [1788174325.209494000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/laserscan_sensor_msgs_range (sensor_msgs/msg/Range) -> /laserscan_sensor_msgs_range (gz.msgs.LaserScan)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174326.857704000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/boolean_std_msgs_bool (std_msgs/msg/Bool) -> /boolean_std_msgs_bool (gz.msgs.Boolean)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:602: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.clock_rosgraph_msgs_clock (2807 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.batterystate_sensor_msgs_batterystate
+    [parameter_bridge-3] [INFO] [1788174328.412394000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/color_std_msgs_colorrgba (std_msgs/msg/ColorRGBA) -> /color_std_msgs_colorrgba (gz.msgs.Color)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174329.896741000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/empty_std_msgs_empty (std_msgs/msg/Empty) -> /empty_std_msgs_empty (gz.msgs.Empty)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:614: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.batterystate_sensor_msgs_batterystate (2835 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo
+    [parameter_bridge-3] [INFO] [1788174331.357320000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/float_std_msgs_float32 (std_msgs/msg/Float32) -> /float_std_msgs_float32 (gz.msgs.Float)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174332.862966000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/double_std_msgs_float64 (std_msgs/msg/Float64) -> /double_std_msgs_float64 (gz.msgs.Double)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:626: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo (2804 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure
+    [parameter_bridge-3] [INFO] [1788174334.383875000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/header_std_msgs_header (std_msgs/msg/Header) -> /header_std_msgs_header (gz.msgs.Header)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174335.916724000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/int32_std_msgs_int32 (std_msgs/msg/Int32) -> /int32_std_msgs_int32 (gz.msgs.Int32)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:638: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure (2826 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.image_sensor_msgs_image
+    [parameter_bridge-3] [INFO] [1788174337.374393000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/stringmsg_std_msgs_string (std_msgs/msg/String) -> /stringmsg_std_msgs_string (gz.msgs.StringMsg)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174338.850786000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/uint32_std_msgs_uint32 (std_msgs/msg/UInt32) -> /uint32_std_msgs_uint32 (gz.msgs.UInt32)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:650: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.image_sensor_msgs_image (2827 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.imu_sensor_msgs_imu
+    [parameter_bridge-3] [INFO] [1788174340.375382000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/pose_v_tf2_msgs_tfmessage (tf2_msgs/msg/TFMessage) -> /pose_v_tf2_msgs_tfmessage (gz.msgs.Pose_V)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:662: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.imu_sensor_msgs_imu (2802 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.model_sensor_msgs_jointstate
+    [parameter_bridge-3] [INFO] [1788174342.105396000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/jointtrajectory_trajectory_msgs_jointtrajectory (trajectory_msgs/msg/JointTrajectory) -> /jointtrajectory_trajectory_msgs_jointtrajectory (gz.msgs.JointTrajectory)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174343.710917000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/annotatedaxisaligned2dbox_vision_msgs_detection2d (vision_msgs/msg/Detection2D) -> /annotatedaxisaligned2dbox_vision_msgs_detection2d (gz.msgs.AnnotatedAxisAligned2DBox)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:674: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.model_sensor_msgs_jointstate (2817 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.joy_sensor_msgs_joy
+    [parameter_bridge-3] [INFO] [1788174345.200241000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (vision_msgs/msg/Detection2DArray) -> /annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (gz.msgs.AnnotatedAxisAligned2DBox_V)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174346.744491000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/annotatedoriented3dbox_vision_msgs_detection3d (vision_msgs/msg/Detection3D) -> /annotatedoriented3dbox_vision_msgs_detection3d (gz.msgs.AnnotatedOriented3DBox)] (Lazy 0)
+    [test_gz_subscriber-2] /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/generated/test/gz_subscriber.cpp:686: Failure
+    [test_gz_subscriber-2] Value of: client.callbackExecuted
+    [test_gz_subscriber-2]   Actual: false
+    [test_gz_subscriber-2] Expected: true
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.joy_sensor_msgs_joy (2830 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.laserscan_sensor_msgs_laserscan
+    [parameter_bridge-3] [INFO] [1788174348.278727000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/annotatedoriented3dbox_v_vision_msgs_detection3darray (vision_msgs/msg/Detection3DArray) -> /annotatedoriented3dbox_v_vision_msgs_detection3darray (gz.msgs.AnnotatedOriented3DBox_V)] (Lazy 0)
+    [parameter_bridge-3] [INFO] [1788174349.672666000] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection3D to Gazebo gz.msgs.AnnotatedOriented3DBox (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.672729000] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection2D to Gazebo gz.msgs.AnnotatedAxisAligned2DBox (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.672784000] [ros_gz_bridge]: Passing message from ROS trajectory_msgs/msg/JointTrajectory to Gazebo gz.msgs.JointTrajectory (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.672815000] [ros_gz_bridge]: Passing message from ROS tf2_msgs/msg/TFMessage to Gazebo gz.msgs.Pose_V (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.672832000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/UInt32 to Gazebo gz.msgs.UInt32 (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673069000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Header to Gazebo gz.msgs.Header (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673105000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Float64 to Gazebo gz.msgs.Double (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673121000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Float32 to Gazebo gz.msgs.Float (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673136000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Empty to Gazebo gz.msgs.Empty (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673150000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Bool to Gazebo gz.msgs.Boolean (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673166000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Range to Gazebo gz.msgs.LaserScan (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673187000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/NavSatFix to Gazebo gz.msgs.NavSat (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673209000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/JointState to Gazebo gz.msgs.Model (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673229000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Imu to Gazebo gz.msgs.IMU (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673244000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/FluidPressure to Gazebo gz.msgs.FluidPressure (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673262000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/CameraInfo to Gazebo gz.msgs.CameraInfo (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673276000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/ColorRGBA to Gazebo gz.msgs.Color (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673290000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseStamped to Gazebo gz.msgs.Pose (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673500000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/VideoRecord to Gazebo gz.msgs.VideoRecord (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673536000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/SensorNoise to Gazebo gz.msgs.SensorNoise (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673555000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/MagneticField to Gazebo gz.msgs.Magnetometer (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673578000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/LogicalCameraImage to Gazebo gz.msgs.LogicalCameraImage (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673825000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/ParamVec to Gazebo gz.msgs.Param_V (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673878000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/PointCloud2 to Gazebo gz.msgs.PointCloudPacked (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.673937000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Joy to Gazebo gz.msgs.Joy (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676639000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676685000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/LogPlaybackStatistics to Gazebo gz.msgs.LogPlaybackStatistics (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676712000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Light to Gazebo gz.msgs.Light (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676731000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/WorldStatistics to Gazebo gz.msgs.WorldStatistics (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676854000] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection2DArray to Gazebo gz.msgs.AnnotatedAxisAligned2DBox_V (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676896000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Float32Array to Gazebo gz.msgs.Float_V (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676918000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Entity to Gazebo gz.msgs.Entity (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676944000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/ParamVec to Gazebo gz.msgs.Param (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.676971000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Dataframe to Gazebo gz.msgs.Dataframe (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677167000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/AirSpeed to Gazebo gz.msgs.AirSpeed (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677187000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/JointWrench to Gazebo gz.msgs.JointWrench (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677204000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677237000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Contact to Gazebo gz.msgs.Contact (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677263000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Int32 to Gazebo gz.msgs.Int32 (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677281000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistWithCovariance to Gazebo gz.msgs.TwistWithCovariance (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677296000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Transform to Gazebo gz.msgs.Pose (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677311000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677331000] [ros_gz_bridge]: Passing message from ROS marine_acoustic_msgs/msg/Dvl to Gazebo gz.msgs.DVLVelocityTracking (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677348000] [ros_gz_bridge]: Passing message from ROS rosgraph_msgs/msg/Clock to Gazebo gz.msgs.Clock (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677362000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistStamped to Gazebo gz.msgs.Twist (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677528000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Altimeter to Gazebo gz.msgs.Altimeter (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677548000] [ros_gz_bridge]: Passing message from ROS gps_msgs/msg/GPSFix to Gazebo gz.msgs.NavSat (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677708000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/WrenchStamped to Gazebo gz.msgs.Wrench (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.677732000] [ros_gz_bridge]: Passing message from ROS rcl_interfaces/msg/ParameterValue to Gazebo gz.msgs.Any (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678049000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Contacts to Gazebo gz.msgs.Contacts (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678201000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistWithCovarianceStamped to Gazebo gz.msgs.TwistWithCovariance (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678419000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TransformStamped to Gazebo gz.msgs.Pose (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678440000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Vector3 to Gazebo gz.msgs.Vector3d (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678495000] [ros_gz_bridge]: Passing message from ROS nav_msgs/msg/Odometry to Gazebo gz.msgs.Odometry (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678514000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Quaternion to Gazebo gz.msgs.Quaternion (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678594000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/TrackVisual to Gazebo gz.msgs.TrackVisual (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678615000] [ros_gz_bridge]: Passing message from ROS nav_msgs/msg/Odometry to Gazebo gz.msgs.OdometryWithCovariance (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678633000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/MaterialColor to Gazebo gz.msgs.MaterialColor (showing msg only once per type)
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] [INFO] [1788174349.678653000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/EntityFactory to Gazebo gz.msgs.EntityFactory (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678672000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseWithCovariance to Gazebo gz.msgs.PoseWithCovariance (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678691000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/GuiCamera to Gazebo gz.msgs.GUICamera (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678710000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/EntityWrench to Gazebo gz.msgs.EntityWrench (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678724000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Wrench to Gazebo gz.msgs.Wrench (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678738000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Pose to Gazebo gz.msgs.Pose (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678924000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseWithCovarianceStamped to Gazebo gz.msgs.PoseWithCovariance (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678958000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/BatteryState to Gazebo gz.msgs.BatteryState (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.678992000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseArray to Gazebo gz.msgs.Pose_V (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.679013000] [ros_gz_bridge]: Passing message from ROS actuator_msgs/msg/Actuators to Gazebo gz.msgs.Actuators (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.679861000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/LaserScan to Gazebo gz.msgs.LaserScan (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.679969000] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/StringVec to Gazebo gz.msgs.StringMsg_V (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.679992000] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Point to Gazebo gz.msgs.Vector3d (showing msg only once per type)
+    [parameter_bridge-3] [INFO] [1788174349.680006000] [ros_gz_bridge]: Passing message from ROS builtin_interfaces/msg/Time to Gazebo gz.msgs.Time (showing msg only once per type)
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] [INFO] [1788174349.684163000] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection3DArray to Gazebo gz.msgs.AnnotatedOriented3DBox_V (showing msg only once per type)
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.laserscan_sensor_msgs_laserscan (1936 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.magnetometer_sensor_msgs_magneticfield
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.magnetometer_sensor_msgs_magneticfield (13 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.navsat_sensor_msgs_navsatfix
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.navsat_sensor_msgs_navsatfix (12 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2 (12 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.laserscan_sensor_msgs_range
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.laserscan_sensor_msgs_range (15 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.boolean_std_msgs_bool
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.boolean_std_msgs_bool (12 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.color_std_msgs_colorrgba
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.color_std_msgs_colorrgba (26 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.empty_std_msgs_empty
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.empty_std_msgs_empty (13 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.float_std_msgs_float32
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.float_std_msgs_float32 (30 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.double_std_msgs_float64
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.double_std_msgs_float64 (15 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.header_std_msgs_header
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.header_std_msgs_header (13 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.int32_std_msgs_int32
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.int32_std_msgs_int32 (15 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.stringmsg_std_msgs_string
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.stringmsg_std_msgs_string (14 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.uint32_std_msgs_uint32
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.uint32_std_msgs_uint32 (15 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_v_tf2_msgs_tfmessage
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_v_tf2_msgs_tfmessage (13 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory (15 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d (15 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (10 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d (27 ms)
+    [test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray (15 ms)
+    [test_gz_subscriber-2] [----------] 73 tests from GzSubscriberTest (138560 ms total)
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] [----------] Global test environment tear-down
+    [test_gz_subscriber-2] [==========] 73 tests from 1 test suite ran. (138560 ms total)
+    [test_gz_subscriber-2] [  PASSED  ] 20 tests.
+    [test_gz_subscriber-2] [  FAILED  ] 53 tests, listed below:
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.actuators_actuator_msgs_actuators
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.time_builtin_interfaces_time
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.vector3d_geometry_msgs_point
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_pose
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_v_geometry_msgs_posearray
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_posestamped
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.quaternion_geometry_msgs_quaternion
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_transform
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.pose_geometry_msgs_transformstamped
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twist_geometry_msgs_twist
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twist_geometry_msgs_twiststamped
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.vector3d_geometry_msgs_vector3
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.wrench_geometry_msgs_wrench
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.navsat_gps_msgs_gpsfix
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.odometry_nav_msgs_odometry
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.any_rcl_interfaces_parametervalue
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.airspeed_ros_gz_interfaces_airspeed
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.contact_ros_gz_interfaces_contact
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.entity_ros_gz_interfaces_entity
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.light_ros_gz_interfaces_light
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.param_ros_gz_interfaces_paramvec
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.clock_rosgraph_msgs_clock
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.batterystate_sensor_msgs_batterystate
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.image_sensor_msgs_image
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.imu_sensor_msgs_imu
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.model_sensor_msgs_jointstate
+    [test_gz_subscriber-2] [  FAILED  ] GzSubscriberTest.joy_sensor_msgs_joy
+    [test_gz_subscriber-2]
+    [test_gz_subscriber-2] 53 FAILED TESTS
+    [ERROR] [test_gz_subscriber-2]: process has died [pid 59393, exit code 1, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/test_gz_subscriber --ros-args'].
+    ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 140.721s
+
+    OK
+    [INFO] [python3-4]: sending signal 'SIGINT' to process[python3-4]
+    [INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+    [INFO] [test_ros_publisher-1]: sending signal 'SIGINT' to process[test_ros_publisher-1]
+    [parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+    [parameter_bridge-3] [INFO] [1788174350.002782000] [rclcpp]: signal_handler(signum=2)
+    [test_ros_publisher-1] [INFO] [1788174350.003438000] [rclcpp]: signal_handler(signum=2)
+    [INFO] [python3-4]: process has finished cleanly [pid 59395]
+    [INFO] [test_ros_publisher-1]: process has finished cleanly [pid 59392]
+    [ERROR] [parameter_bridge-3]: process has died [pid 59394, exit code -11, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/parameter_bridge /actuators_actuator_msgs_actuators@actuator_msgs/msg/Actuators]gz.msgs.Actuators /time_builtin_interfaces_time@builtin_interfaces/msg/Time]gz.msgs.Time /vector3d_geometry_msgs_point@geometry_msgs/msg/Point]gz.msgs.Vector3d /pose_geometry_msgs_pose@geometry_msgs/msg/Pose]gz.msgs.Pose /pose_v_geometry_msgs_posearray@geometry_msgs/msg/PoseArray]gz.msgs.Pose_V /pose_geometry_msgs_posestamped@geometry_msgs/msg/PoseStamped]gz.msgs.Pose /posewithcovariance_geometry_msgs_posewithcovariance@geometry_msgs/msg/PoseWithCovariance]gz.msgs.PoseWithCovariance /posewithcovariance_geometry_msgs_posewithcovariancestamped@geometry_msgs/msg/PoseWithCovarianceStamped]gz.msgs.PoseWithCovariance /quaternion_geometry_msgs_quaternion@geometry_msgs/msg/Quaternion]gz.msgs.Quaternion /pose_geometry_msgs_transform@geometry_msgs/msg/Transform]gz.msgs.Pose /pose_geometry_msgs_transformstamped@geometry_msgs/msg/TransformStamped]gz.msgs.Pose /twist_geometry_msgs_twist@geometry_msgs/msg/Twist]gz.msgs.Twist /twist_geometry_msgs_twiststamped@geometry_msgs/msg/TwistStamped]gz.msgs.Twist /twistwithcovariance_geometry_msgs_twistwithcovariance@geometry_msgs/msg/TwistWithCovariance]gz.msgs.TwistWithCovariance /twistwithcovariance_geometry_msgs_twistwithcovariancestamped@geometry_msgs/msg/TwistWithCovarianceStamped]gz.msgs.TwistWithCovariance /vector3d_geometry_msgs_vector3@geometry_msgs/msg/Vector3]gz.msgs.Vector3d /wrench_geometry_msgs_wrench@geometry_msgs/msg/Wrench]gz.msgs.Wrench /wrench_geometry_msgs_wrenchstamped@geometry_msgs/msg/WrenchStamped]gz.msgs.Wrench /navsat_gps_msgs_gpsfix@gps_msgs/msg/GPSFix]gz.msgs.NavSat /dvlvelocitytracking_marine_acoustic_msgs_dvl@marine_acoustic_msgs/msg/Dvl]gz.msgs.DVLVelocityTracking /odometry_nav_msgs_odometry@nav_msgs/msg/Odometry]gz.msgs.Odometry /odometrywithcovariance_nav_msgs_odometry@nav_msgs/msg/Odometry]gz.msgs.OdometryWithCovariance /any_rcl_interfaces_parametervalue@rcl_interfaces/msg/ParameterValue]gz.msgs.Any /airspeed_ros_gz_interfaces_airspeed@ros_gz_interfaces/msg/AirSpeed]gz.msgs.AirSpeed /altimeter_ros_gz_interfaces_altimeter@ros_gz_interfaces/msg/Altimeter]gz.msgs.Altimeter /contact_ros_gz_interfaces_contact@ros_gz_interfaces/msg/Contact]gz.msgs.Contact /contacts_ros_gz_interfaces_contacts@ros_gz_interfaces/msg/Contacts]gz.msgs.Contacts /dataframe_ros_gz_interfaces_dataframe@ros_gz_interfaces/msg/Dataframe]gz.msgs.Dataframe /entity_ros_gz_interfaces_entity@ros_gz_interfaces/msg/Entity]gz.msgs.Entity /entityfactory_ros_gz_interfaces_entityfactory@ros_gz_interfaces/msg/EntityFactory]gz.msgs.EntityFactory /entitywrench_ros_gz_interfaces_entitywrench@ros_gz_interfaces/msg/EntityWrench]gz.msgs.EntityWrench /float_v_ros_gz_interfaces_float32array@ros_gz_interfaces/msg/Float32Array]gz.msgs.Float_V /guicamera_ros_gz_interfaces_guicamera@ros_gz_interfaces/msg/GuiCamera]gz.msgs.GUICamera /jointwrench_ros_gz_interfaces_jointwrench@ros_gz_interfaces/msg/JointWrench]gz.msgs.JointWrench /light_ros_gz_interfaces_light@ros_gz_interfaces/msg/Light]gz.msgs.Light /logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics@ros_gz_interfaces/msg/LogPlaybackStatistics]gz.msgs.LogPlaybackStatistics /logicalcameraimage_ros_gz_interfaces_logicalcameraimage@ros_gz_interfaces/msg/LogicalCameraImage]gz.msgs.LogicalCameraImage /materialcolor_ros_gz_interfaces_materialcolor@ros_gz_interfaces/msg/MaterialColor]gz.msgs.MaterialColor /param_ros_gz_interfaces_paramvec@ros_gz_interfaces/msg/ParamVec]gz.msgs.Param /param_v_ros_gz_interfaces_paramvec@ros_gz_interfaces/msg/ParamVec]gz.msgs.Param_V /sensornoise_ros_gz_interfaces_sensornoise@ros_gz_interfaces/msg/SensorNoise]gz.msgs.SensorNoise /stringmsg_v_ros_gz_interfaces_stringvec@ros_gz_interfaces/msg/StringVec]gz.msgs.StringMsg_V /trackvisual_ros_gz_interfaces_trackvisual@ros_gz_interfaces/msg/TrackVisual]gz.msgs.TrackVisual /videorecord_ros_gz_interfaces_videorecord@ros_gz_interfaces/msg/VideoRecord]gz.msgs.VideoRecord /worldstatistics_ros_gz_interfaces_worldstatistics@ros_gz_interfaces/msg/WorldStatistics]gz.msgs.WorldStatistics /clock_rosgraph_msgs_clock@rosgraph_msgs/msg/Clock]gz.msgs.Clock /batterystate_sensor_msgs_batterystate@sensor_msgs/msg/BatteryState]gz.msgs.BatteryState /camerainfo_sensor_msgs_camerainfo@sensor_msgs/msg/CameraInfo]gz.msgs.CameraInfo /fluidpressure_sensor_msgs_fluidpressure@sensor_msgs/msg/FluidPressure]gz.msgs.FluidPressure /image_sensor_msgs_image@sensor_msgs/msg/Image]gz.msgs.Image /imu_sensor_msgs_imu@sensor_msgs/msg/Imu]gz.msgs.IMU /model_sensor_msgs_jointstate@sensor_msgs/msg/JointState]gz.msgs.Model /joy_sensor_msgs_joy@sensor_msgs/msg/Joy]gz.msgs.Joy /laserscan_sensor_msgs_laserscan@sensor_msgs/msg/LaserScan]gz.msgs.LaserScan /magnetometer_sensor_msgs_magneticfield@sensor_msgs/msg/MagneticField]gz.msgs.Magnetometer /navsat_sensor_msgs_navsatfix@sensor_msgs/msg/NavSatFix]gz.msgs.NavSat /pointcloudpacked_sensor_msgs_pointcloud2@sensor_msgs/msg/PointCloud2]gz.msgs.PointCloudPacked /laserscan_sensor_msgs_range@sensor_msgs/msg/Range]gz.msgs.LaserScan /boolean_std_msgs_bool@std_msgs/msg/Bool]gz.msgs.Boolean /color_std_msgs_colorrgba@std_msgs/msg/ColorRGBA]gz.msgs.Color /empty_std_msgs_empty@std_msgs/msg/Empty]gz.msgs.Empty /float_std_msgs_float32@std_msgs/msg/Float32]gz.msgs.Float /double_std_msgs_float64@std_msgs/msg/Float64]gz.msgs.Double /header_std_msgs_header@std_msgs/msg/Header]gz.msgs.Header /int32_std_msgs_int32@std_msgs/msg/Int32]gz.msgs.Int32 /stringmsg_std_msgs_string@std_msgs/msg/String]gz.msgs.StringMsg /uint32_std_msgs_uint32@std_msgs/msg/UInt32]gz.msgs.UInt32 /pose_v_tf2_msgs_tfmessage@tf2_msgs/msg/TFMessage]gz.msgs.Pose_V /jointtrajectory_trajectory_msgs_jointtrajectory@trajectory_msgs/msg/JointTrajectory]gz.msgs.JointTrajectory /annotatedaxisaligned2dbox_vision_msgs_detection2d@vision_msgs/msg/Detection2D]gz.msgs.AnnotatedAxisAligned2DBox /annotatedaxisaligned2dbox_v_vision_msgs_detection2darray@vision_msgs/msg/Detection2DArray]gz.msgs.AnnotatedAxisAligned2DBox_V /annotatedoriented3dbox_vision_msgs_detection3d@vision_msgs/msg/Detection3D]gz.msgs.AnnotatedOriented3DBox /annotatedoriented3dbox_v_vision_msgs_detection3darray@vision_msgs/msg/Detection3DArray]gz.msgs.AnnotatedOriented3DBox_V --ros-args'].
+    test_exit_code (ros_gz_bridge.GzSubscriberTestAfterShutdown.test_exit_code) ... FAIL
+
+    ======================================================================
+    FAIL: test_exit_code (ros_gz_bridge.GzSubscriberTestAfterShutdown.test_exit_code)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_gz_subscriber.launch.py", line 87, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_gz_subscriber-2 exited with code 1
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml'
+  >>>
+- test_launch_test_gz_server.launch.py
+  <<< failure message
+    -- run_test.py: extra environment variables:
+     - PYTHONDONTWRITEBYTECODE=1
+    -- run_test.py: invoking following command in '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge':
+     - /Users/gwon-yeseol/ros2_lyrical/.venv/bin/python3 -m launch_testing.launch_test /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_gz_server.launch.py --junit-xml=/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml --package-name=ros_gz_bridge
+    [INFO] [launch]: All log files can be found below /Users/gwon-yeseol/.ros/log/2026-08-31-20-05-52-274642-gwon-yeseol-ui-noteubug.local-59460
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    test_termination (ros_gz_bridge.ROSSubscriberTest.test_termination) ... [INFO] [parameter_bridge-1]: process started with pid [59464]
+    [INFO] [test_gz_server-2]: process started with pid [59465]
+    [INFO] [test_ros_client-3]: process started with pid [59466]
+    [INFO] [python3-4]: process started with pid [59467]
+    [test_ros_client-3] [==========] Running 1 test from 1 test suite.
+    [test_ros_client-3] [----------] Global test environment set-up.
+    [test_ros_client-3] [----------] 1 test from ROSClientTest
+    [test_ros_client-3] [ RUN      ] ROSClientTest.WorldControl
+    [parameter_bridge-1] [INFO] [1788174377.291211000] [ros_gz_bridge]: Creating ROS->GZ service bridge [/gz_ros/test/serviceclient/world_control (ros_gz_interfaces/srv/ControlWorld -> /)]
+    [test_ros_client-3] [       OK ] ROSClientTest.WorldControl (26150 ms)
+    [test_ros_client-3] [----------] 1 test from ROSClientTest (26150 ms total)
+    [test_ros_client-3]
+    [test_ros_client-3] [----------] Global test environment tear-down
+    [test_ros_client-3] [==========] 1 test from 1 test suite ran. (26150 ms total)
+    [test_ros_client-3] [  PASSED  ] 1 test.
+    [test_ros_client-3] libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+    [ERROR] [test_ros_client-3]: process has died [pid 59466, exit code -6, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/test_ros_client --ros-args'].
+    ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 28.721s
+
+    OK
+    [INFO] [python3-4]: sending signal 'SIGINT' to process[python3-4]
+    [INFO] [test_gz_server-2]: sending signal 'SIGINT' to process[test_gz_server-2]
+    [INFO] [parameter_bridge-1]: sending signal 'SIGINT' to process[parameter_bridge-1]
+    [parameter_bridge-1] [INFO] [1788174381.033689000] [rclcpp]: signal_handler(signum=2)
+    [INFO] [python3-4]: process has finished cleanly [pid 59467]
+    [INFO] [test_gz_server-2]: process has finished cleanly [pid 59465]
+    [INFO] [parameter_bridge-1]: process has finished cleanly [pid 59464]
+    test_exit_code (ros_gz_bridge.ROSSubscriberTestAfterShutdown.test_exit_code) ... FAIL
+
+    ======================================================================
+    FAIL: test_exit_code (ros_gz_bridge.ROSSubscriberTestAfterShutdown.test_exit_code)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_gz_server.launch.py", line 65, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_ros_client-3 exited with code -6
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.002s
+
+    FAILED (failures=1)
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml'
+  >>>
+- test_launch_test_launch_action.launch.py
+  <<< failure message
+    -- run_test.py: extra environment variables:
+     - PYTHONDONTWRITEBYTECODE=1
+    -- run_test.py: invoking following command in '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge':
+     - /Users/gwon-yeseol/ros2_lyrical/.venv/bin/python3 -m launch_testing.launch_test /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_launch_action.launch.py --junit-xml=/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml --package-name=ros_gz_bridge
+    [INFO] [launch]: All log files can be found below /Users/gwon-yeseol/.ros/log/2026-08-31-20-06-23-253150-gwon-yeseol-ui-noteubug.local-59475
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    test_termination (ros_gz_bridge.LaunchActionTest.test_termination) ... [INFO] [test_gz_publisher-1]: process started with pid [59478]
+    [INFO] [test_gz_server-2]: process started with pid [59479]
+    [INFO] [test_launch_action_subscriber-3]: process started with pid [59480]
+    [INFO] [bridge_node-4]: process started with pid [59481]
+    [INFO] [python3-5]: process started with pid [59482]
+    [test_launch_action_subscriber-3] [==========] Running 4 tests from 1 test suite.
+    [test_launch_action_subscriber-3] [----------] Global test environment set-up.
+    [test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:54: Failure
+    [test_launch_action_subscriber-3] Value of: client.callbackExecuted
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.boolean_std_msgs_bool (25633 ms)
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:66: Failure
+    [test_launch_action_subscriber-3] Value of: client.callbackExecuted
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.imu_sensors_msgs_imu (4191 ms)
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.image_sensor_msgs_image
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:79: Failure
+    [test_launch_action_subscriber-3] Value of: client.callbackExecuted
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:80: Failure
+    [test_launch_action_subscriber-3] Expected: (nullptr) != (client.msg), actual: (nullptr) vs (nullptr)
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.image_sensor_msgs_image (4198 ms)
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.WorldControl
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:92: Failure
+    [test_launch_action_subscriber-3] Value of: client->wait_for_service(5s)
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.WorldControl (8160 ms)
+    [test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest (42183 ms total)
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [----------] Global test environment tear-down
+    [test_launch_action_subscriber-3] [==========] 4 tests from 1 test suite ran. (42183 ms total)
+    [test_launch_action_subscriber-3] [  PASSED  ] 0 tests.
+    [test_launch_action_subscriber-3] [  FAILED  ] 4 tests, listed below:
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.image_sensor_msgs_image
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.WorldControl
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3]  4 FAILED TESTS
+    [test_launch_action_subscriber-3] libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+    [ERROR] [test_launch_action_subscriber-3]: process has died [pid 59480, exit code -6, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/test_launch_action_subscriber --ros-args'].
+    ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 44.894s
+
+    OK
+    [INFO] [python3-5]: sending signal 'SIGINT' to process[python3-5]
+    [INFO] [bridge_node-4]: sending signal 'SIGINT' to process[bridge_node-4]
+    [INFO] [test_gz_server-2]: sending signal 'SIGINT' to process[test_gz_server-2]
+    [INFO] [test_gz_publisher-1]: sending signal 'SIGINT' to process[test_gz_publisher-1]
+    [bridge_node-4] [INFO] [1788174428.366517000] [rclcpp]: signal_handler(signum=2)
+    [INFO] [python3-5]: process has finished cleanly [pid 59482]
+    [INFO] [test_gz_publisher-1]: process has finished cleanly [pid 59478]
+    [bridge_node-4] libc++abi: terminating due to uncaught exception of type rclcpp::exceptions::RCLError: Couldn't initialize rcl timer handle: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at /Users/gwon-yeseol/ros2_lyrical/src/ros2/rcl/rcl/src/rcl/guard_condition.c:62
+    [INFO] [test_gz_server-2]: process has finished cleanly [pid 59479]
+    [ERROR] [bridge_node-4]: process has died [pid 59481, exit code -6, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/bridge_node --ros-args --log-level info --ros-args -r __node:=test_bridge -r __ns:=/ --params-file /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/launch_params_s3hqm78k --params-file /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/launch_params_d4f6aed4'].
+    test_exit_code (ros_gz_bridge.LaunchActionTestAfterShutdown.test_exit_code) ... FAIL
+
+    ======================================================================
+    FAIL: test_exit_code (ros_gz_bridge.LaunchActionTestAfterShutdown.test_exit_code)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_launch_action.launch.py", line 79, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_launch_action_subscriber-3 exited with code -6
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml'
+  >>>
+- test_launch_test_launch_action_classic.launch.py
+  <<< failure message
+    -- run_test.py: extra environment variables:
+     - PYTHONDONTWRITEBYTECODE=1
+    -- run_test.py: invoking following command in '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge':
+     - /Users/gwon-yeseol/ros2_lyrical/.venv/bin/python3 -m launch_testing.launch_test /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_launch_action_classic.launch.py --junit-xml=/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml --package-name=ros_gz_bridge
+    [INFO] [launch]: All log files can be found below /Users/gwon-yeseol/.ros/log/2026-08-31-20-07-10-759658-gwon-yeseol-ui-noteubug.local-59496
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    test_termination (ros_gz_bridge.LaunchActionTest.test_termination) ... [INFO] [test_gz_publisher-1]: process started with pid [59502]
+    [INFO] [test_gz_server-2]: process started with pid [59503]
+    [INFO] [test_launch_action_subscriber-3]: process started with pid [59504]
+    [INFO] [bridge_node-4]: process started with pid [59505]
+    [INFO] [python3-5]: process started with pid [59506]
+    [test_launch_action_subscriber-3] [==========] Running 4 tests from 1 test suite.
+    [test_launch_action_subscriber-3] [----------] Global test environment set-up.
+    [test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:54: Failure
+    [test_launch_action_subscriber-3] Value of: client.callbackExecuted
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.boolean_std_msgs_bool (23366 ms)
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:66: Failure
+    [test_launch_action_subscriber-3] Value of: client.callbackExecuted
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.imu_sensors_msgs_imu (4192 ms)
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.image_sensor_msgs_image
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:79: Failure
+    [test_launch_action_subscriber-3] Value of: client.callbackExecuted
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:80: Failure
+    [test_launch_action_subscriber-3] Expected: (nullptr) != (client.msg), actual: (nullptr) vs (nullptr)
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.image_sensor_msgs_image (4208 ms)
+    [test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.WorldControl
+    [test_launch_action_subscriber-3] /Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp:92: Failure
+    [test_launch_action_subscriber-3] Value of: client->wait_for_service(5s)
+    [test_launch_action_subscriber-3]   Actual: false
+    [test_launch_action_subscriber-3] Expected: true
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.WorldControl (8171 ms)
+    [test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest (39939 ms total)
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3] [----------] Global test environment tear-down
+    [test_launch_action_subscriber-3] [==========] 4 tests from 1 test suite ran. (39939 ms total)
+    [test_launch_action_subscriber-3] [  PASSED  ] 0 tests.
+    [test_launch_action_subscriber-3] [  FAILED  ] 4 tests, listed below:
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.image_sensor_msgs_image
+    [test_launch_action_subscriber-3] [  FAILED  ] LaunchActionSubscriberTest.WorldControl
+    [test_launch_action_subscriber-3]
+    [test_launch_action_subscriber-3]  4 FAILED TESTS
+    [test_launch_action_subscriber-3] libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument
+    [ERROR] [test_launch_action_subscriber-3]: process has died [pid 59504, exit code -6, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/test_launch_action_subscriber --ros-args'].
+    ok
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 42.363s
+
+    OK
+    [INFO] [python3-5]: sending signal 'SIGINT' to process[python3-5]
+    [INFO] [bridge_node-4]: sending signal 'SIGINT' to process[bridge_node-4]
+    [INFO] [test_gz_server-2]: sending signal 'SIGINT' to process[test_gz_server-2]
+    [INFO] [test_gz_publisher-1]: sending signal 'SIGINT' to process[test_gz_publisher-1]
+    [bridge_node-4] [INFO] [1788174473.333397000] [rclcpp]: signal_handler(signum=2)
+    [INFO] [python3-5]: process has finished cleanly [pid 59506]
+    [INFO] [test_gz_publisher-1]: process has finished cleanly [pid 59502]
+    [INFO] [test_gz_server-2]: process has finished cleanly [pid 59503]
+    [bridge_node-4] libc++abi: terminating due to uncaught exception of type rclcpp::exceptions::RCLError: Couldn't initialize rcl timer handle: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at /Users/gwon-yeseol/ros2_lyrical/src/ros2/rcl/rcl/src/rcl/guard_condition.c:62
+    [ERROR] [bridge_node-4]: process has died [pid 59505, exit code -6, cmd '/Users/gwon-yeseol/ros_gz_ws_lyrical/install/ros_gz_bridge/lib/ros_gz_bridge/bridge_node --ros-args --log-level info --ros-args -r __node:=test_bridge -r __ns:=/ --params-file /var/folders/_b/sf2rp19x3xvf7njy501ql4c80000gn/T/launch_params_c_che_ey'].
+    test_exit_code (ros_gz_bridge.LaunchActionTestAfterShutdown.test_exit_code) ... FAIL
+
+    ======================================================================
+    FAIL: test_exit_code (ros_gz_bridge.LaunchActionTestAfterShutdown.test_exit_code)
+    ----------------------------------------------------------------------
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_launch_action_classic.launch.py", line 79, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_launch_action_subscriber-3 exited with code -6
+
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.001s
+
+    FAILED (failures=1)
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml'
+  >>>
+- flake8
+  <<< failure message
+    -- run_test.py: invoking following command in '/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge':
+     - /Users/gwon-yeseol/ros2_lyrical/install/ament_flake8/bin/ament_flake8 --xunit-file /Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros2_lyrical/install/ament_flake8/bin/ament_flake8", line 33, in <module>
+        sys.exit(load_entry_point('ament-flake8', 'console_scripts', 'ament_flake8')())
+                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/Users/gwon-yeseol/ros2_lyrical/install/ament_flake8/bin/ament_flake8", line 25, in importlib_load_entry_point
+        return next(matches).load()
+               ~~~~~~~~~~~~~~~~~~^^
+      File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/metadata/__init__.py", line 179, in load
+        module = import_module(match.group('module'))
+      File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py", line 88, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+      File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+      File "/Users/gwon-yeseol/ros2_lyrical/build/ament_flake8/ament_flake8/main.py", line 25, in <module>
+        import flake8
+    ModuleNotFoundError: No module named 'flake8'
+    -- run_test.py: return code 1
+    -- run_test.py: generate result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml' with failed test
+    -- run_test.py: verify result file '/Users/gwon-yeseol/ros_gz_ws_lyrical/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml'
+  >>>
+build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml: 1 test, 1 error, 0 failures, 0 skipped
+- ros_gz_bridge flake8.xunit.missing_result
+  <<< error message
+    The test did not generate a result file:
+
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros2_lyrical/install/ament_flake8/bin/ament_flake8", line 33, in <module>
+        sys.exit(load_entry_point('ament-flake8', 'console_scripts', 'ament_flake8')())
+                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/Users/gwon-yeseol/ros2_lyrical/install/ament_flake8/bin/ament_flake8", line 25, in importlib_load_entry_point
+        return next(matches).load()
+               ~~~~~~~~~~~~~~~~~~^^
+      File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/metadata/__init__.py", line 179, in load
+        module = import_module(match.group('module'))
+      File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py", line 88, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+      File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+      File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+      File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+      File "/Users/gwon-yeseol/ros2_lyrical/build/ament_flake8/ament_flake8/main.py", line 25, in <module>
+        import flake8
+    ModuleNotFoundError: No module named 'flake8'
+  >>>
+build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml: 2 tests, 0 errors, 1 failure, 0 skipped
+- ros_gz_bridge.ROSSubscriberTestAfterShutdown test_exit_code
+  <<< failure message
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_gz_server.launch.py", line 65, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_ros_client-3 exited with code -6
+  >>>
+build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml: 2 tests, 0 errors, 1 failure, 0 skipped
+- ros_gz_bridge.GzSubscriberTestAfterShutdown test_exit_code
+  <<< failure message
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_gz_subscriber.launch.py", line 87, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_gz_subscriber-2 exited with code 1
+  >>>
+build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml: 2 tests, 0 errors, 1 failure, 0 skipped
+- ros_gz_bridge.LaunchActionTestAfterShutdown test_exit_code
+  <<< failure message
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_launch_action.launch.py", line 79, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_launch_action_subscriber-3 exited with code -6
+  >>>
+build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml: 2 tests, 0 errors, 1 failure, 0 skipped
+- ros_gz_bridge.LaunchActionTestAfterShutdown test_exit_code
+  <<< failure message
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_launch_action_classic.launch.py", line 79, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_launch_action_subscriber-3 exited with code -6
+  >>>
+build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml: 2 tests, 0 errors, 1 failure, 0 skipped
+- ros_gz_bridge.ROSSubscriberTestAfterShutdown test_exit_code
+  <<< failure message
+    Traceback (most recent call last):
+      File "/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/launch/test_ros_subscriber.launch.py", line 88, in test_exit_code
+        launch_testing.asserts.assertExitCodes(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            proc_info,
+            ^^^^^^^^^^
+            [launch_testing.asserts.EXIT_OK],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            process_under_test
+            ^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/Users/gwon-yeseol/ros2_lyrical/build/launch_testing/launch_testing/asserts/assert_exit_codes.py", line 62, in assertExitCodes
+        assert info.returncode in allowable_exit_codes, 'Proc {} exited with code {}'.format(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    AssertionError: Proc test_ros_subscriber-2 exited with code -6
+  >>>
+
+Summary: 377 tests, 1 error, 11 failures, 73 skipped

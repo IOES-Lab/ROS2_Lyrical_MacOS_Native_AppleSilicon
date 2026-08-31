@@ -1,0 +1,855 @@
+{
+  "root": "/Users/gwon-yeseol/ROS2_Lyrical_review_fixes",
+  "errors": [],
+  "warnings": [],
+  "utf8": {
+    "checked": 6322,
+    "errors": []
+  },
+  "json": {
+    "checked": 258,
+    "errors": []
+  },
+  "delimited": {
+    "checked": 100,
+    "errors": [],
+    "files": [
+      {
+        "path": "notes/validation_matrix.csv",
+        "rows": 19,
+        "widths": {
+          "7": 19
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/test_worlds_results.csv",
+        "rows": 38,
+        "widths": {
+          "7": 38
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/benchmarks/bench_results/benchmark_results_docker_2026-07-27.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/benchmarks/bench_results/benchmark_results_mac_2026-07-27.csv",
+        "rows": 4,
+        "widths": {
+          "6": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/benchmarks/bench_results/SUPERSEDED_2026-07-22/benchmark_results_2026-07-22_stale.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/benchmarks/bench_results/SUPERSEDED_2026-07-23_PRE_CLEANUP_FIX/benchmark_results_mac_2026-07-23.csv",
+        "rows": 4,
+        "widths": {
+          "6": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/benchmarks/bench_results/SUPERSEDED_2026-07-23_PRE_CLEANUP_FIX/benchmark_results_docker_2026-07-23.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/stability/1h_clean_verified/dave_ocean_waves-stability.csv",
+        "rows": 60,
+        "widths": {
+          "5": 60
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/stability/4h_clean_2026-07-29/dave_ocean_waves-stability.csv",
+        "rows": 121,
+        "widths": {
+          "5": 121
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/stability/repro1_immediate_kill/dave_ocean_waves-stability.csv",
+        "rows": 2,
+        "widths": {
+          "5": 2
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/stability/4h_original_CONTAMINATED/dave_ocean_waves-stability.csv",
+        "rows": 123,
+        "widths": {
+          "5": 123
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/stability/4h_rerun_2026-07-23_PRE_LEAKFIX_SCRIPT/dave_ocean_waves-stability.csv",
+        "rows": 96,
+        "widths": {
+          "5": 96
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/remeasure_2026-08-05/exp1_range.csv",
+        "rows": 4,
+        "widths": {
+          "5": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/remeasure_2026-08-05/exp4_integrated_cpu.csv",
+        "rows": 31,
+        "widths": {
+          "4": 31
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/rayskips_2026-08-05/exp7_rayskips.csv",
+        "rows": 6,
+        "widths": {
+          "6": 6
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/open_gap_revalidation_2026-08-29/mac_fastdds_5x5.csv",
+        "rows": 11,
+        "widths": {
+          "5": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/open_gap_revalidation_2026-08-29/mac_camera_3runs.csv",
+        "rows": 4,
+        "widths": {
+          "6": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/release_rebuild_2026-08-05/exp1b_release.csv",
+        "rows": 5,
+        "widths": {
+          "7": 5
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/updaterate_2026-08-06/exp11_updaterate_0806_1539.csv",
+        "rows": 5,
+        "widths": {
+          "6": 5
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/updaterate_2026-08-06/exp11_updaterate_0806_1636.csv",
+        "rows": 7,
+        "widths": {
+          "7": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_backend_equivalence_matrix_2026-08-30/summary.csv",
+        "rows": 7,
+        "widths": {
+          "13": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_backend_equivalence_matrix_2026-08-30/run_summary.tsv",
+        "rows": 13,
+        "widths": {
+          "9": 13
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/raycount_2026-08-05/exp1b_raycount.csv",
+        "rows": 5,
+        "widths": {
+          "7": 5
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/gpu_lidar_probe_2026-08-07/docker_ogre2.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/gpu_lidar_probe_2026-08-07/docker_ogre.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/gpu_lidar_probe_2026-08-07/mac_ogre2.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/gpu_lidar_probe_2026-08-07/docker_ogre2_sonar_angles.csv",
+        "rows": 2,
+        "widths": {
+          "8": 2
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/baseline_udp_2026-08-06/exp5_repeat_0806_1339.csv",
+        "rows": 3,
+        "widths": {
+          "6": 3
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/baseline_udp_2026-08-06/exp2_nosonar_0806_1406.csv",
+        "rows": 4,
+        "widths": {
+          "5": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/world_models_audit_2026-08-27/docker_installed_world_inventory.csv",
+        "rows": 19,
+        "widths": {
+          "9": 19
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/world_models_audit_2026-08-27/docker_source_world_inventory.csv",
+        "rows": 19,
+        "widths": {
+          "9": 19
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/world_models_audit_2026-08-27/mac_source_world_inventory.csv",
+        "rows": 19,
+        "widths": {
+          "9": 19
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/vehicles_2026-08-07/exp12_vehicles_0807_1303.csv",
+        "rows": 2,
+        "widths": {
+          "7": 2
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_startup_2026-08-03/rtf_phase_curve.csv",
+        "rows": 15,
+        "widths": {
+          "6": 15
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/manipulation_docker_replay_2026-08-31/summary.tsv",
+        "rows": 4,
+        "widths": {
+          "7": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/range_sweep_2026-08-03/exp1_range.csv",
+        "rows": 4,
+        "widths": {
+          "5": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_macos_force_update_candidate_2026-08-30/candidate_v2_repeat_20.csv",
+        "rows": 21,
+        "widths": {
+          "8": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_macos_force_update_candidate_2026-08-30/camera_regression_3.csv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_macos_force_update_candidate_2026-08-30/no_render_regression_3.csv",
+        "rows": 4,
+        "widths": {
+          "6": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_macos_force_update_candidate_2026-08-30/rejected_v1_repeat_10.csv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/integrated_isolated_2026-08-03/rss_cpu.csv",
+        "rows": 31,
+        "widths": {
+          "4": 31
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_seed_determinism_validation_2026-08-31/init_same_container/summary.tsv",
+        "rows": 4,
+        "widths": {
+          "5": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_seed_determinism_validation_2026-08-31/init_cross_container_cache_invalid_high_domain/summary.tsv",
+        "rows": 3,
+        "widths": {
+          "6": 3
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_seed_determinism_validation_2026-08-31/repeats/summary.tsv",
+        "rows": 4,
+        "widths": {
+          "7": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_seed_determinism_validation_2026-08-31/init_cross_container_cache/summary.tsv",
+        "rows": 3,
+        "widths": {
+          "6": 3
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/gdb_active_oneway_10/gdb_summary.tsv",
+        "rows": 11,
+        "widths": {
+          "3": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/stock_pointcloud_513x301_bridge_first_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "6": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/standalone/summary.tsv",
+        "rows": 41,
+        "widths": {
+          "5": 41
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/stock_pointcloud_bridge_first_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "6": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_oneway_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "7": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_oneway_simulator_first_delay20_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/gdb_active_oneway_tracing_disabled_explicit_10/gdb_summary.tsv",
+        "rows": 11,
+        "widths": {
+          "3": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_sonar_point_only_bridge_first_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_oneway_tracing_disabled_20/summary.tsv",
+        "rows": 21,
+        "widths": {
+          "8": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/stock_camera_bridge_first_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "6": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_oneway_bridge_first_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_oneway_simulator_first_delay5_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/active_oneway_bridge_first_sigterm_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/gdb_active_oneway_tracing_disabled_10/gdb_summary.tsv",
+        "rows": 11,
+        "widths": {
+          "3": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/explicit_cleanup_candidate/group_shutdown_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_shutdown_validation_2026-08-31/explicit_cleanup_candidate/bridge_first_20/summary.tsv",
+        "rows": 21,
+        "widths": {
+          "8": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_direct_validation_2026-08-26/07_moving_platform_docker/series_20/series.csv",
+        "rows": 21,
+        "widths": {
+          "12": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_direct_validation_2026-08-26/06_flat_plane_docker/series_20/series.csv",
+        "rows": 21,
+        "widths": {
+          "12": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_direct_validation_2026-08-26/09_water_mass_docker/series_20/series.csv",
+        "rows": 21,
+        "widths": {
+          "12": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_direct_validation_2026-08-26/10_water_mass_corrected_control/test_assets/water_velocity_environment.csv",
+        "rows": 17,
+        "widths": {
+          "7": 17
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/dvl_direct_validation_2026-08-26/10_water_mass_corrected_control/series_20/series.csv",
+        "rows": 21,
+        "widths": {
+          "12": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/invalid_combined_direction_harness/summary.tsv",
+        "rows": 5,
+        "widths": {
+          "6": 5
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/bridge_first_smoke_3/summary.tsv",
+        "rows": 4,
+        "widths": {
+          "8": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/stock_camera_5/summary.tsv",
+        "rows": 6,
+        "widths": {
+          "6": 6
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/group_shutdown_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "8": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/ros_to_gz_direct_20/summary.tsv",
+        "rows": 21,
+        "widths": {
+          "5": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/invalid_ros2run_group_signal/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "6": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/stock_pointcloud_5/summary.tsv",
+        "rows": 6,
+        "widths": {
+          "6": 6
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/bridge_first_20/summary.tsv",
+        "rows": 21,
+        "widths": {
+          "8": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/installed_and_cross_distro/upstream_submission/duplicate_search_index.tsv",
+        "rows": 8,
+        "widths": {
+          "2": 8
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/installed_and_cross_distro/lyrical_normal_install/repeat_teardown_valid/summary.tsv",
+        "rows": 10,
+        "widths": {
+          "3": 10
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/final_gap_validation_2026-08-30/camera_startup_recheck/results.csv",
+        "rows": 7,
+        "widths": {
+          "8": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/final_gap_validation_2026-08-30/fastdds_recheck/results.csv",
+        "rows": 19,
+        "widths": {
+          "6": 19
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/glider_direct_validation_2026-08-27/01_mac_ocean_headless_not_stepping/topic_probe_summary.csv",
+        "rows": 10,
+        "widths": {
+          "5": 10
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/glider_direct_validation_2026-08-27/docker/02_docker_ocean_patched/topic_probe_summary.csv",
+        "rows": 10,
+        "widths": {
+          "5": 10
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/glider_direct_validation_2026-08-27/docker/01_docker_ocean_as_shipped/topic_probe_summary.csv",
+        "rows": 10,
+        "widths": {
+          "5": 10
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/glider_direct_validation_2026-08-27/docker/03_docker_empty_as_shipped/topic_probe_summary.csv",
+        "rows": 10,
+        "widths": {
+          "5": 10
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_backend_equivalence_matrix_2026-08-30/exact_dft_candidate_v2/summary.csv",
+        "rows": 7,
+        "widths": {
+          "10": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_backend_equivalence_matrix_2026-08-30/exact_dft_candidate_v2/run_summary.tsv",
+        "rows": 7,
+        "widths": {
+          "6": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_backend_equivalence_matrix_2026-08-30/exact_dft_candidate/summary.csv",
+        "rows": 7,
+        "widths": {
+          "10": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_backend_equivalence_matrix_2026-08-30/exact_dft_candidate/run_summary.tsv",
+        "rows": 7,
+        "widths": {
+          "6": 7
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/cpu/center_beam_profile.csv",
+        "rows": 320,
+        "widths": {
+          "2": 320
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/cpu/peak_series_5frames.csv",
+        "rows": 6,
+        "widths": {
+          "10": 6
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_direct_validation_2026-08-25/08_planar_range_validation/wgpu/peak_series_5frames.csv",
+        "rows": 6,
+        "widths": {
+          "10": 6
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/remaining_defect_fixes_2026-08-29/docker/dvl_all_models.tsv",
+        "rows": 9,
+        "widths": {
+          "7": 9
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/remaining_defect_fixes_2026-08-29/mac/multibeam_wgpu_peak_series_5frames.csv",
+        "rows": 6,
+        "widths": {
+          "10": 6
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/fastdds_create_stress_2026-08-31/docker_valid_v3/results.csv",
+        "rows": 161,
+        "widths": {
+          "7": 161
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/full_gap_validation_2026-08-27/03_dvl_all_models_docker/results/verdicts.tsv",
+        "rows": 9,
+        "widths": {
+          "7": 9
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/wgpu_soak_dry_run_2m/resource_samples.tsv",
+        "rows": 4,
+        "widths": {
+          "12": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/wgpu_cold_start_20/summary.tsv",
+        "rows": 21,
+        "widths": {
+          "10": 21
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/wgpu_soak_30m/resource_samples.tsv",
+        "rows": 32,
+        "widths": {
+          "12": 32
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/invalid_wgpu_soak_dry_run_missing_end_env/resource_samples.tsv",
+        "rows": 4,
+        "widths": {
+          "12": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/clean_shutdown_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "9": 11
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/heavy_repeated_3/summary.tsv",
+        "rows": 4,
+        "widths": {
+          "13": 4
+        },
+        "rectangular": true
+      },
+      {
+        "path": "notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/clean_shutdown_process_group_10/summary.tsv",
+        "rows": 11,
+        "widths": {
+          "9": 11
+        },
+        "rectangular": true
+      }
+    ]
+  },
+  "python": {
+    "checked": 69,
+    "errors": []
+  },
+  "shell": {
+    "checked": 409,
+    "errors": []
+  },
+  "markdown": {
+    "files": 124,
+    "links": 839,
+    "local_links": 740,
+    "anchor_links": 3,
+    "errors": []
+  },
+  "git_diff_check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "git_cached_check": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

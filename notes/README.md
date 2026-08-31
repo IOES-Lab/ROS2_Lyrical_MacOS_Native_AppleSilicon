@@ -10,7 +10,7 @@
 
 | 폴더 | 내용 |
 |---|---|
-| [`upstream/`](upstream/) | 상류 보고 초안. 2026-08-29 패치 결과를 반영하기 전에는 그대로 제출하지 않는다 |
+| [`upstream/`](upstream/) | 상류 보고 원본·붙여넣기본. bridge lifecycle은 2026-08-31 [issue #951](https://github.com/gazebosim/ros_gz/issues/951)과 signed [PR #952](https://github.com/gazebosim/ros_gz/pull/952)로 제출됐고, 나머지는 미제출이다 |
 | [`wiki/`](wiki/) | DAVE Notion Wiki 정정 이력과 범위 |
 | [`results/`](results/) | 날짜별 실험 결과와 기계 판독 가능한 요약 |
 | [`experiments/`](experiments/) | 실험 스크립트와 공통 측정 절차 |
@@ -49,8 +49,9 @@ sensor long/multi, camera six-tag, USBL namespace, sonar determinism/cache,
 clean ocean-sonar/manipulation replay, Ocean Current noise/tide controls를 추가했다. Bridge 후보는
 [`results/parameter_bridge_cycle_fix_validation_2026-08-31/`](results/parameter_bridge_cycle_fix_validation_2026-08-31/)에 있고,
 나머지 근거는 같은 날짜의 `results/*_2026-08-31/` 폴더에 있다. 특히 tide는 global topic이 아니라
-documented per-model output으로 판정한다.
-상류 DAVE/Gazebo checkout과 사용자 설치 workspace를 수정했다는 뜻은 아니다.
+documented per-model output으로 판정한다. DAVE와 Gazebo 후보는 여전히 격리본이며 해당
+설치 workspace를 바꾸지 않았다. 예외는 `ros_gz_bridge` ownership 후보로, 이후 실제 사용자
+`ros_gz` workspace에 적용·빌드하고 signed upstream PR #952까지 열었다.
 
 검증된 후보 패치 범위:
 
@@ -80,7 +81,7 @@ teardown baseline은 no-publisher 40/40·stock active 30/30 clean이지만 DAVE-
 bridge-first 20/20 clean, process-group 10/10 rc0, direct ROS→GZ 20/20과 stock active
 camera/PointCloud 5/5 each를 통과했다. 제한된 upstream package suite는 17/18 CTest target이
 통과했고, 유일한 remote-schema `xmllint` timeout도 canonical schema를 로컬로 공급한 exact XML
-검사에서 통과했다. 따라서 로컬 재현 결함은 후보에서 닫혔다. 이어 normal isolated install에서 8/8 topic, 1/1 ControlWorld service, active teardown 10/10을 통과했고 ARM64 Jazzy/Kilted branch-local overlay도 각각 8/8+1/1과 clean bridge exit를 통과했다. Read-only upstream readiness review에서는 focused issue/PR search 8건의 duplicate가 0건이었다. upstream 제출·maintainer review·merge, 사용자 ordinary workspace 적용·Humble runtime·x86_64·exhaustive message/service coverage·hardware GPU는 열려 있다. Fast DDS create
+검사에서 통과했다. 따라서 로컬 재현 결함은 후보에서 닫혔다. 이어 normal isolated install에서 8/8 topic, 1/1 ControlWorld service, active teardown 10/10을 통과했고 official-image ARM64 Humble/Jazzy/Kilted branch-local overlay도 각각 8/8+1/1과 clean bridge exit를 통과했다. Apple-Silicon 위 Jazzy `linux/amd64` Docker 에뮬레이션도 같은 8/8+1/1을 통과했다. ordinary-layout 격리 복제본은 24/24 방향(고유 topic type pair 13개)과 exact-3.0.9 service factory 4/4를 통과했다. 이후 실제 사용자 `ros_gz` workspace에도 후보를 적용해 기존 CMake 편집 2건을 보존한 채 빌드했고, 모든 generated topic mapping 73쌍을 양방향으로 생성해 payload 73/73 each, ordered bridge rc0, 반복 payload 5/5와 lifecycle 11/11을 통과했다. 다만 ordered component는 topic 3/3·service 1/1 assertion 뒤 `bridge_node`가 SIGINT에서 139로 종료돼 별도 macOS teardown 결함으로 남는다. issue [#951](https://github.com/gazebosim/ros_gz/issues/951)과 signed PR [#952](https://github.com/gazebosim/ros_gz/pull/952)이 열려 있다. upstream maintainer merge, native x86_64 hardware, Windows와 hardware GPU는 외부 범위다. Fast DDS create
 hang은 2026-08-31 dirty/20-SIGKILL/clean/UDP stress 160/160에서도 재현되지 않았고, exact camera Quickstart는
 120초 창에서 default 3/3·UDP 3/3 통과해 이전 짧은 대기 실패를 startup latency로 정정했다.
 이전 exact cache image는 Windows App RDP login/rendering과 QGC vehicle connection을 통과했다.
@@ -99,7 +100,7 @@ current recipe도 fresh `--no-cache`로 66.917분에 완주했고, 별도 FreeRD
 | [`what-we-got-wrong.md`](what-we-got-wrong.md) | **틀렸던 주장과 그걸 잡아낸 경위.** 여기 수치를 믿기 전에 읽을 것 |
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
-| [`known-issues.md`](known-issues.md) | 48개 항목(열림·후보 패치 해결·철회 이력 포함), 현재 처리는 문서 맨 위 표 참고 |
+| [`known-issues.md`](known-issues.md) | 49개 항목(열림·후보 패치 해결·철회 이력 포함), 현재 처리는 문서 맨 위 표 참고 |
 | [`progress-log.md`](progress-log.md) | 날짜별 작업 112행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |

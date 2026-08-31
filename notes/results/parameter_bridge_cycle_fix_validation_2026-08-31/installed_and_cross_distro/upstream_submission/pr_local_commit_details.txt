@@ -1,0 +1,13 @@
+commit 08fdb2f87401eed65a524deaae647e9fe72f1bb8
+Author:     yeseorizi <172019512+yeseorizi@users.noreply.github.com>
+AuthorDate: Mon Aug 31 18:55:56 2026 +0900
+Commit:     yeseorizi <172019512+yeseorizi@users.noreply.github.com>
+CommitDate: Mon Aug 31 19:09:43 2026 +0900
+
+    Break the parameter bridge handle ownership cycle
+
+ ros_gz_bridge/src/bridge_handle.cpp           | 15 +++++++++++++--
+ ros_gz_bridge/src/bridge_handle.hpp           |  6 +++++-
+ ros_gz_bridge/src/bridge_handle_gz_to_ros.cpp | 19 +++++++++++--------
+ ros_gz_bridge/src/bridge_handle_ros_to_gz.cpp |  2 +-
+ 4 files changed, 30 insertions(+), 12 deletions(-)

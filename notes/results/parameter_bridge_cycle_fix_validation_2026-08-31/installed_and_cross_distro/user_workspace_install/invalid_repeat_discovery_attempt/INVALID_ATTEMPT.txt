@@ -1,0 +1,1 @@
+INVALID: first run began capture before ROS discovery exposed the per-run topic; excluded.

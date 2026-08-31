@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="4" failures="0" disabled="0" errors="0" time="26.29" timestamp="2026-08-31T20:47:00.228" name="AllTests">
+  <testsuite name="LaunchActionSubscriberTest" tests="4" failures="0" disabled="0" skipped="0" errors="0" time="26.29" timestamp="2026-08-31T20:47:00.228">
+    <testcase name="boolean_std_msgs_bool" file="/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp" line="46" status="run" result="completed" time="20.222" timestamp="2026-08-31T20:47:00.228" classname="LaunchActionSubscriberTest" />
+    <testcase name="imu_sensors_msgs_imu" file="/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp" line="58" status="run" result="completed" time="1.391" timestamp="2026-08-31T20:47:20.450" classname="LaunchActionSubscriberTest" />
+    <testcase name="image_sensor_msgs_image" file="/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp" line="70" status="run" result="completed" time="1.394" timestamp="2026-08-31T20:47:21.842" classname="LaunchActionSubscriberTest" />
+    <testcase name="WorldControl" file="/Users/gwon-yeseol/ros_gz_ws_lyrical/src/ros_gz/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp" line="85" status="run" result="completed" time="3.281" timestamp="2026-08-31T20:47:23.237" classname="LaunchActionSubscriberTest" />
+  </testsuite>
+</testsuites>

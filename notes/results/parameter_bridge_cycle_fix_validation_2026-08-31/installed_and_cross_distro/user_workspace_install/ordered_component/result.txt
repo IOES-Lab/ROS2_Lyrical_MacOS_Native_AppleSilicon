@@ -1,0 +1,5 @@
+component_handles_ready=1
+payload_service_assertions=4/4
+subscriber_process_rc=134
+bridge_node_exit=139
+bridge_node_escalation=NONE

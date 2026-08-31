@@ -1,0 +1,2 @@
+registered_pairs=73
+expected_handles=146

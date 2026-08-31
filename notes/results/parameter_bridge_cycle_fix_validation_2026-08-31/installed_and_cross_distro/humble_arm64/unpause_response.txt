@@ -1,0 +1,4 @@
+requester: making request: ros_gz_interfaces.srv.ControlWorld_Request(world_control=ros_gz_interfaces.msg.WorldControl(pause=False, step=False, multi_step=0, reset=ros_gz_interfaces.msg.WorldReset(all=False, time_only=False, model_only=False), seed=0, run_to_sim_time=builtin_interfaces.msg.Time(sec=0, nanosec=0)))
+
+response:
+ros_gz_interfaces.srv.ControlWorld_Response(success=True)

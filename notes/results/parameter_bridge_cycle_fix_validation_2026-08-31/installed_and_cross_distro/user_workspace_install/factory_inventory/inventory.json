@@ -1,0 +1,372 @@
+{
+  "generated_factory_files": 14,
+  "registered_unique_pairs": 73,
+  "bidirectional_handle_instantiations_planned": 146,
+  "pairs": [
+    {
+      "package": "actuator_msgs",
+      "ros_type": "actuator_msgs/msg/Actuators",
+      "gz_type": "gz.msgs.Actuators"
+    },
+    {
+      "package": "builtin_interfaces",
+      "ros_type": "builtin_interfaces/msg/Time",
+      "gz_type": "gz.msgs.Time"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Point",
+      "gz_type": "gz.msgs.Vector3d"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Pose",
+      "gz_type": "gz.msgs.Pose"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/PoseArray",
+      "gz_type": "gz.msgs.Pose_V"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/PoseStamped",
+      "gz_type": "gz.msgs.Pose"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/PoseWithCovariance",
+      "gz_type": "gz.msgs.PoseWithCovariance"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/PoseWithCovarianceStamped",
+      "gz_type": "gz.msgs.PoseWithCovariance"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Quaternion",
+      "gz_type": "gz.msgs.Quaternion"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Transform",
+      "gz_type": "gz.msgs.Pose"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/TransformStamped",
+      "gz_type": "gz.msgs.Pose"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Twist",
+      "gz_type": "gz.msgs.Twist"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/TwistStamped",
+      "gz_type": "gz.msgs.Twist"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/TwistWithCovariance",
+      "gz_type": "gz.msgs.TwistWithCovariance"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/TwistWithCovarianceStamped",
+      "gz_type": "gz.msgs.TwistWithCovariance"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Vector3",
+      "gz_type": "gz.msgs.Vector3d"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/Wrench",
+      "gz_type": "gz.msgs.Wrench"
+    },
+    {
+      "package": "geometry_msgs",
+      "ros_type": "geometry_msgs/msg/WrenchStamped",
+      "gz_type": "gz.msgs.Wrench"
+    },
+    {
+      "package": "gps_msgs",
+      "ros_type": "gps_msgs/msg/GPSFix",
+      "gz_type": "gz.msgs.NavSat"
+    },
+    {
+      "package": "marine_acoustic_msgs",
+      "ros_type": "marine_acoustic_msgs/msg/Dvl",
+      "gz_type": "gz.msgs.DVLVelocityTracking"
+    },
+    {
+      "package": "nav_msgs",
+      "ros_type": "nav_msgs/msg/Odometry",
+      "gz_type": "gz.msgs.Odometry"
+    },
+    {
+      "package": "nav_msgs",
+      "ros_type": "nav_msgs/msg/Odometry",
+      "gz_type": "gz.msgs.OdometryWithCovariance"
+    },
+    {
+      "package": "rcl_interfaces",
+      "ros_type": "rcl_interfaces/msg/ParameterValue",
+      "gz_type": "gz.msgs.Any"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/AirSpeed",
+      "gz_type": "gz.msgs.AirSpeed"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Altimeter",
+      "gz_type": "gz.msgs.Altimeter"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Contact",
+      "gz_type": "gz.msgs.Contact"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Contacts",
+      "gz_type": "gz.msgs.Contacts"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Dataframe",
+      "gz_type": "gz.msgs.Dataframe"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Entity",
+      "gz_type": "gz.msgs.Entity"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/EntityFactory",
+      "gz_type": "gz.msgs.EntityFactory"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/EntityWrench",
+      "gz_type": "gz.msgs.EntityWrench"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Float32Array",
+      "gz_type": "gz.msgs.Float_V"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/GuiCamera",
+      "gz_type": "gz.msgs.GUICamera"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/JointWrench",
+      "gz_type": "gz.msgs.JointWrench"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/Light",
+      "gz_type": "gz.msgs.Light"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/LogPlaybackStatistics",
+      "gz_type": "gz.msgs.LogPlaybackStatistics"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/LogicalCameraImage",
+      "gz_type": "gz.msgs.LogicalCameraImage"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/MaterialColor",
+      "gz_type": "gz.msgs.MaterialColor"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/ParamVec",
+      "gz_type": "gz.msgs.Param"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/ParamVec",
+      "gz_type": "gz.msgs.Param_V"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/SensorNoise",
+      "gz_type": "gz.msgs.SensorNoise"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/StringVec",
+      "gz_type": "gz.msgs.StringMsg_V"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/TrackVisual",
+      "gz_type": "gz.msgs.TrackVisual"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/VideoRecord",
+      "gz_type": "gz.msgs.VideoRecord"
+    },
+    {
+      "package": "ros_gz_interfaces",
+      "ros_type": "ros_gz_interfaces/msg/WorldStatistics",
+      "gz_type": "gz.msgs.WorldStatistics"
+    },
+    {
+      "package": "rosgraph_msgs",
+      "ros_type": "rosgraph_msgs/msg/Clock",
+      "gz_type": "gz.msgs.Clock"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/BatteryState",
+      "gz_type": "gz.msgs.BatteryState"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/CameraInfo",
+      "gz_type": "gz.msgs.CameraInfo"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/FluidPressure",
+      "gz_type": "gz.msgs.FluidPressure"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/Image",
+      "gz_type": "gz.msgs.Image"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/Imu",
+      "gz_type": "gz.msgs.IMU"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/JointState",
+      "gz_type": "gz.msgs.Model"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/Joy",
+      "gz_type": "gz.msgs.Joy"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/LaserScan",
+      "gz_type": "gz.msgs.LaserScan"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/MagneticField",
+      "gz_type": "gz.msgs.Magnetometer"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/NavSatFix",
+      "gz_type": "gz.msgs.NavSat"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/PointCloud2",
+      "gz_type": "gz.msgs.PointCloudPacked"
+    },
+    {
+      "package": "sensor_msgs",
+      "ros_type": "sensor_msgs/msg/Range",
+      "gz_type": "gz.msgs.LaserScan"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/Bool",
+      "gz_type": "gz.msgs.Boolean"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/ColorRGBA",
+      "gz_type": "gz.msgs.Color"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/Empty",
+      "gz_type": "gz.msgs.Empty"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/Float32",
+      "gz_type": "gz.msgs.Float"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/Float64",
+      "gz_type": "gz.msgs.Double"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/Header",
+      "gz_type": "gz.msgs.Header"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/Int32",
+      "gz_type": "gz.msgs.Int32"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/String",
+      "gz_type": "gz.msgs.StringMsg"
+    },
+    {
+      "package": "std_msgs",
+      "ros_type": "std_msgs/msg/UInt32",
+      "gz_type": "gz.msgs.UInt32"
+    },
+    {
+      "package": "tf2_msgs",
+      "ros_type": "tf2_msgs/msg/TFMessage",
+      "gz_type": "gz.msgs.Pose_V"
+    },
+    {
+      "package": "trajectory_msgs",
+      "ros_type": "trajectory_msgs/msg/JointTrajectory",
+      "gz_type": "gz.msgs.JointTrajectory"
+    },
+    {
+      "package": "vision_msgs",
+      "ros_type": "vision_msgs/msg/Detection2D",
+      "gz_type": "gz.msgs.AnnotatedAxisAligned2DBox"
+    },
+    {
+      "package": "vision_msgs",
+      "ros_type": "vision_msgs/msg/Detection2DArray",
+      "gz_type": "gz.msgs.AnnotatedAxisAligned2DBox_V"
+    },
+    {
+      "package": "vision_msgs",
+      "ros_type": "vision_msgs/msg/Detection3D",
+      "gz_type": "gz.msgs.AnnotatedOriented3DBox"
+    },
+    {
+      "package": "vision_msgs",
+      "ros_type": "vision_msgs/msg/Detection3DArray",
+      "gz_type": "gz.msgs.AnnotatedOriented3DBox_V"
+    }
+  ]
+}

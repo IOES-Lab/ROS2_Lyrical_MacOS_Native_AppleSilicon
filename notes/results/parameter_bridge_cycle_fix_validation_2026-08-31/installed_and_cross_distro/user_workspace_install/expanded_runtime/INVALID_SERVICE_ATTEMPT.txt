@@ -1,0 +1,1 @@
+INVALID: service subsection was blocked before Gazebo startup by the host Homebrew FFmpeg ABI mismatch (gz-sim expects libswscale.9, installed FFmpeg provides libswscale.10). The 24/24 topic result and clean bridge exit precede and are independent of this failure. Service 4/4 remains covered by the isolated ordinary-layout Docker run.

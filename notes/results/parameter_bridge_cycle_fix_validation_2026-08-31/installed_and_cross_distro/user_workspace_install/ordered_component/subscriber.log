@@ -1,0 +1,17 @@
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from LaunchActionSubscriberTest
+[ RUN      ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+[       OK ] LaunchActionSubscriberTest.boolean_std_msgs_bool (20222 ms)
+[ RUN      ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+[       OK ] LaunchActionSubscriberTest.imu_sensors_msgs_imu (1391 ms)
+[ RUN      ] LaunchActionSubscriberTest.image_sensor_msgs_image
+[       OK ] LaunchActionSubscriberTest.image_sensor_msgs_image (1394 ms)
+[ RUN      ] LaunchActionSubscriberTest.WorldControl
+[       OK ] LaunchActionSubscriberTest.WorldControl (3281 ms)
+[----------] 4 tests from LaunchActionSubscriberTest (26290 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test suite ran. (26290 ms total)
+[  PASSED  ] 4 tests.
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: mutex lock failed: Invalid argument

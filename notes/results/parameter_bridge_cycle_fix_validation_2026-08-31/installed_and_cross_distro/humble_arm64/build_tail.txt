@@ -1,0 +1,13 @@
+Starting >>> ros_gz_interfaces
+Finished <<< ros_gz_interfaces [40.4s]
+Starting >>> ros_gz_bridge
+--- stderr: ros_gz_bridge
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp: In member function ‘void ros_gz_bridge::RosGzBridge::spin()’:
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:51:10: warning: ‘expand_names’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   51 |     bool expand_names;
+      |          ^~~~~~~~~~~~
+---
+Finished <<< ros_gz_bridge [8min 24s]
+
+Summary: 2 packages finished [9min 4s]
+  1 package had stderr output: ros_gz_bridge

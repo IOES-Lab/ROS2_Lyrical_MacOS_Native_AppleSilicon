@@ -1,0 +1,2 @@
+name=yeseorizi
+email=kys50728@g.kmou.ac.kr

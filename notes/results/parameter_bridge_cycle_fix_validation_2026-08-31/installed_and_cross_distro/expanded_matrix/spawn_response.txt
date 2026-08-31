@@ -1,0 +1,5 @@
+waiting for service to become available...
+requester: making request: ros_gz_interfaces.srv.SpawnEntity_Request(entity_factory=ros_gz_interfaces.msg.EntityFactory(name='bridge_box', allow_renaming=False, sdf='<sdf version="1.10"><model name="bridge_box"><static>true</static><link name="link"><visual name="visual"><geometry><box><size>1 1 1</size></box></geometry></visual></link></model></sdf>', sdf_filename='', clone_name='', pose=geometry_msgs.msg.Pose(position=geometry_msgs.msg.Point(x=0.0, y=0.0, z=0.5), orientation=geometry_msgs.msg.Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)), relative_to='world'))
+
+response:
+ros_gz_interfaces.srv.SpawnEntity_Response(success=True)

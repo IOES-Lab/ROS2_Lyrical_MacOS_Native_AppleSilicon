@@ -1,0 +1,154 @@
+[==========] Running 73 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 73 tests from GzSubscriberTest
+[ RUN      ] GzSubscriberTest.actuators_actuator_msgs_actuators
+[       OK ] GzSubscriberTest.actuators_actuator_msgs_actuators (33 ms)
+[ RUN      ] GzSubscriberTest.time_builtin_interfaces_time
+[       OK ] GzSubscriberTest.time_builtin_interfaces_time (15 ms)
+[ RUN      ] GzSubscriberTest.vector3d_geometry_msgs_point
+[       OK ] GzSubscriberTest.vector3d_geometry_msgs_point (10 ms)
+[ RUN      ] GzSubscriberTest.pose_geometry_msgs_pose
+[       OK ] GzSubscriberTest.pose_geometry_msgs_pose (15 ms)
+[ RUN      ] GzSubscriberTest.pose_v_geometry_msgs_posearray
+[       OK ] GzSubscriberTest.pose_v_geometry_msgs_posearray (14 ms)
+[ RUN      ] GzSubscriberTest.pose_geometry_msgs_posestamped
+[       OK ] GzSubscriberTest.pose_geometry_msgs_posestamped (14 ms)
+[ RUN      ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance
+[       OK ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance (15 ms)
+[ RUN      ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped
+[       OK ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped (16 ms)
+[ RUN      ] GzSubscriberTest.quaternion_geometry_msgs_quaternion
+[       OK ] GzSubscriberTest.quaternion_geometry_msgs_quaternion (15 ms)
+[ RUN      ] GzSubscriberTest.pose_geometry_msgs_transform
+[       OK ] GzSubscriberTest.pose_geometry_msgs_transform (15 ms)
+[ RUN      ] GzSubscriberTest.pose_geometry_msgs_transformstamped
+[       OK ] GzSubscriberTest.pose_geometry_msgs_transformstamped (14 ms)
+[ RUN      ] GzSubscriberTest.twist_geometry_msgs_twist
+[       OK ] GzSubscriberTest.twist_geometry_msgs_twist (11 ms)
+[ RUN      ] GzSubscriberTest.twist_geometry_msgs_twiststamped
+[       OK ] GzSubscriberTest.twist_geometry_msgs_twiststamped (14 ms)
+[ RUN      ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance
+[       OK ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance (15 ms)
+[ RUN      ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped
+[       OK ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped (12 ms)
+[ RUN      ] GzSubscriberTest.vector3d_geometry_msgs_vector3
+[       OK ] GzSubscriberTest.vector3d_geometry_msgs_vector3 (14 ms)
+[ RUN      ] GzSubscriberTest.wrench_geometry_msgs_wrench
+[       OK ] GzSubscriberTest.wrench_geometry_msgs_wrench (10 ms)
+[ RUN      ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped
+[       OK ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped (15 ms)
+[ RUN      ] GzSubscriberTest.navsat_gps_msgs_gpsfix
+[       OK ] GzSubscriberTest.navsat_gps_msgs_gpsfix (14 ms)
+[ RUN      ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl
+[       OK ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl (11 ms)
+[ RUN      ] GzSubscriberTest.odometry_nav_msgs_odometry
+[       OK ] GzSubscriberTest.odometry_nav_msgs_odometry (15 ms)
+[ RUN      ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry
+[       OK ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry (15 ms)
+[ RUN      ] GzSubscriberTest.any_rcl_interfaces_parametervalue
+[       OK ] GzSubscriberTest.any_rcl_interfaces_parametervalue (15 ms)
+[ RUN      ] GzSubscriberTest.airspeed_ros_gz_interfaces_airspeed
+[       OK ] GzSubscriberTest.airspeed_ros_gz_interfaces_airspeed (12 ms)
+[ RUN      ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter
+[       OK ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter (15 ms)
+[ RUN      ] GzSubscriberTest.contact_ros_gz_interfaces_contact
+[       OK ] GzSubscriberTest.contact_ros_gz_interfaces_contact (15 ms)
+[ RUN      ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts
+[       OK ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts (15 ms)
+[ RUN      ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe
+[       OK ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe (11 ms)
+[ RUN      ] GzSubscriberTest.entity_ros_gz_interfaces_entity
+[       OK ] GzSubscriberTest.entity_ros_gz_interfaces_entity (15 ms)
+[ RUN      ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory
+[       OK ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory (15 ms)
+[ RUN      ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench
+[       OK ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench (15 ms)
+[ RUN      ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array
+[       OK ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array (15 ms)
+[ RUN      ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera
+[       OK ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera (14 ms)
+[ RUN      ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench
+[       OK ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench (14 ms)
+[ RUN      ] GzSubscriberTest.light_ros_gz_interfaces_light
+[       OK ] GzSubscriberTest.light_ros_gz_interfaces_light (11 ms)
+[ RUN      ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics
+[       OK ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (25 ms)
+[ RUN      ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage
+[       OK ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage (15 ms)
+[ RUN      ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor
+[       OK ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor (15 ms)
+[ RUN      ] GzSubscriberTest.param_ros_gz_interfaces_paramvec
+[       OK ] GzSubscriberTest.param_ros_gz_interfaces_paramvec (15 ms)
+[ RUN      ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec
+[       OK ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec (11 ms)
+[ RUN      ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise
+[       OK ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise (14 ms)
+[ RUN      ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec
+[       OK ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec (13 ms)
+[ RUN      ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual
+[       OK ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual (15 ms)
+[ RUN      ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord
+[       OK ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord (15 ms)
+[ RUN      ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics
+[       OK ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics (13 ms)
+[ RUN      ] GzSubscriberTest.clock_rosgraph_msgs_clock
+[       OK ] GzSubscriberTest.clock_rosgraph_msgs_clock (15 ms)
+[ RUN      ] GzSubscriberTest.batterystate_sensor_msgs_batterystate
+[       OK ] GzSubscriberTest.batterystate_sensor_msgs_batterystate (11 ms)
+[ RUN      ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo
+[       OK ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo (15 ms)
+[ RUN      ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure
+[       OK ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure (13 ms)
+[ RUN      ] GzSubscriberTest.image_sensor_msgs_image
+[       OK ] GzSubscriberTest.image_sensor_msgs_image (15 ms)
+[ RUN      ] GzSubscriberTest.imu_sensor_msgs_imu
+[       OK ] GzSubscriberTest.imu_sensor_msgs_imu (13 ms)
+[ RUN      ] GzSubscriberTest.model_sensor_msgs_jointstate
+[       OK ] GzSubscriberTest.model_sensor_msgs_jointstate (15 ms)
+[ RUN      ] GzSubscriberTest.joy_sensor_msgs_joy
+[       OK ] GzSubscriberTest.joy_sensor_msgs_joy (13 ms)
+[ RUN      ] GzSubscriberTest.laserscan_sensor_msgs_laserscan
+[       OK ] GzSubscriberTest.laserscan_sensor_msgs_laserscan (11 ms)
+[ RUN      ] GzSubscriberTest.magnetometer_sensor_msgs_magneticfield
+[       OK ] GzSubscriberTest.magnetometer_sensor_msgs_magneticfield (15 ms)
+[ RUN      ] GzSubscriberTest.navsat_sensor_msgs_navsatfix
+[       OK ] GzSubscriberTest.navsat_sensor_msgs_navsatfix (15 ms)
+[ RUN      ] GzSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2
+[       OK ] GzSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2 (15 ms)
+[ RUN      ] GzSubscriberTest.laserscan_sensor_msgs_range
+[       OK ] GzSubscriberTest.laserscan_sensor_msgs_range (12 ms)
+[ RUN      ] GzSubscriberTest.boolean_std_msgs_bool
+[       OK ] GzSubscriberTest.boolean_std_msgs_bool (24 ms)
+[ RUN      ] GzSubscriberTest.color_std_msgs_colorrgba
+[       OK ] GzSubscriberTest.color_std_msgs_colorrgba (15 ms)
+[ RUN      ] GzSubscriberTest.empty_std_msgs_empty
+[       OK ] GzSubscriberTest.empty_std_msgs_empty (10 ms)
+[ RUN      ] GzSubscriberTest.float_std_msgs_float32
+[       OK ] GzSubscriberTest.float_std_msgs_float32 (13 ms)
+[ RUN      ] GzSubscriberTest.double_std_msgs_float64
+[       OK ] GzSubscriberTest.double_std_msgs_float64 (14 ms)
+[ RUN      ] GzSubscriberTest.header_std_msgs_header
+[       OK ] GzSubscriberTest.header_std_msgs_header (13 ms)
+[ RUN      ] GzSubscriberTest.int32_std_msgs_int32
+[       OK ] GzSubscriberTest.int32_std_msgs_int32 (15 ms)
+[ RUN      ] GzSubscriberTest.stringmsg_std_msgs_string
+[       OK ] GzSubscriberTest.stringmsg_std_msgs_string (11 ms)
+[ RUN      ] GzSubscriberTest.uint32_std_msgs_uint32
+[       OK ] GzSubscriberTest.uint32_std_msgs_uint32 (14 ms)
+[ RUN      ] GzSubscriberTest.pose_v_tf2_msgs_tfmessage
+[       OK ] GzSubscriberTest.pose_v_tf2_msgs_tfmessage (12 ms)
+[ RUN      ] GzSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory
+[       OK ] GzSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory (10 ms)
+[ RUN      ] GzSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d
+[       OK ] GzSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d (11 ms)
+[ RUN      ] GzSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray
+[       OK ] GzSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (15 ms)
+[ RUN      ] GzSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d
+[       OK ] GzSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d (15 ms)
+[ RUN      ] GzSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray
+[       OK ] GzSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray (14 ms)
+[----------] 73 tests from GzSubscriberTest (1073 ms total)
+
+[----------] Global test environment tear-down
+[==========] 73 tests from 1 test suite ran. (1073 ms total)
+[  PASSED  ] 73 tests.

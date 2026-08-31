@@ -1,0 +1,1 @@
+/home/docker/ros_gz_ws_candidate/install/ros_gz_bridge

@@ -1,5 +1,6 @@
 {
   "date": "2026-08-31",
+  "verdict": "ACTUAL-WORKSPACE PARAMETER_BRIDGE PASS; SEPARATE MACOS COMPONENT TEARDOWN OPEN",
   "lyrical_normal_install": {
     "source_commit": "2d17974dd4aec749e22824f74baa22149aaf5b4d",
     "build": "PASS",
@@ -11,8 +12,12 @@
   "cross_distribution": {
     "origin_ros2_exact_patch_apply_check": "PASS",
     "humble": {
-      "scope": "static branch-local adaptation only",
-      "build_runtime": "NOT RUN"
+      "architecture": "arm64",
+      "source_overlay_build": "PASS",
+      "topic_matrix": "8/8",
+      "service_matrix": "1/1",
+      "topic_bridge_exit": 0,
+      "service_bridge_exit": 0
     },
     "jazzy": {
       "architecture": "arm64",
@@ -29,24 +34,66 @@
       "service_matrix": "1/1",
       "topic_bridge_exit": 0,
       "service_bridge_exit": 0
+    },
+    "jazzy_amd64_emulated": {
+      "architecture": "amd64 under Docker Desktop emulation on Apple Silicon",
+      "source_overlay_build": "PASS",
+      "topic_matrix": "8/8",
+      "service_matrix": "1/1",
+      "topic_bridge_exit": 0,
+      "service_bridge_exit": 0
     }
   },
-  "scope": [
-    "Release-branch runtime used equivalent branch-local WeakPtr adaptations because the exact 3.0.9 patch context does not apply textually to Jazzy or Kilted.",
-    "The topic matrix covers String, Float64, Vector3 and Pose GZ-to-ROS plus String, Float64, Vector3 and Twist ROS-to-GZ.",
-    "The service matrix covers ControlWorld pause and unpause.",
-    "This is not exhaustive coverage of all ros_gz message and service conversions.",
-    "Humble was checked statically only; no Humble build or runtime result is claimed.",
-    "The candidate is not merged upstream and is not installed into the user's ordinary DAVE or Homebrew workspaces."
-  ],
-  "upstream_readiness_review": {
-    "mode": "read-only; no issue or pull request created",
-    "repository": "gazebosim/ros_gz",
-    "default_branch": "ros2",
+  "ordinary_layout": {
+    "build": "PASS",
+    "topic_conversions": "24/24",
+    "unique_topic_type_pairs": 13,
+    "service_factories": "4/4",
+    "user_workspace_unchanged_during_isolated_phase": "PASS"
+  },
+  "actual_user_workspace": {
+    "path": "/Users/gwon-yeseol/ros_gz_ws_lyrical",
+    "baseline_commit": "0ea9efc010c7427385c6493c1a8016cdf1ef450b",
+    "candidate_files_match_signed_pr": "4/4",
+    "preexisting_cmake_edits_preserved": [
+      "ros_gz_bridge/CMakeLists.txt",
+      "ros_gz_sim/CMakeLists.txt"
+    ],
+    "build": "PASS",
+    "bounded_topic_directions": "24/24",
+    "generated_mapping_pairs": "73/73",
+    "generated_direction_handles": "146/146",
+    "generated_topic_payloads_each_direction": "73/73",
+    "ordered_bridge_rc": 0,
+    "repeated_payload_runs": "5/5",
+    "lifecycle_runs": "11/11"
+  },
+  "separate_component_teardown": {
+    "ordered_topic_assertions": "3/3",
+    "ordered_service_assertions": "1/1",
+    "test_helper_rc": 134,
+    "bridge_node_rc": 139,
+    "status": "OPEN OUTSIDE PR #952"
+  },
+  "service_boundary": {
+    "isolated_factories": "4/4",
+    "actual_mac_gazebo_world_rerun": "BLOCKED BY UNRELATED HOMEBREW FFMPEG ABI MISMATCH"
+  },
+  "upstream_submission": {
     "focused_issue_pr_searches": 8,
     "duplicate_matches": 0,
-    "project_issue_template": "not found",
-    "project_pull_request_template": "not found",
-    "submission_status": "draft ready; not filed"
-  }
+    "issue": "https://github.com/gazebosim/ros_gz/issues/951",
+    "pull_request": "https://github.com/gazebosim/ros_gz/pull/952",
+    "signed_commit": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500",
+    "dco": "PASS",
+    "mergeable": "MERGEABLE",
+    "review": "REQUIRED"
+  },
+  "scope": [
+    "Release-branch runtime uses equivalent branch-local WeakPtr adaptations where exact 3.0.9 patch context differs.",
+    "All 73 generated topic mappings in this checkout passed payload assertions in both directions; this is exhaustive for this checkout, not for future mappings or upstream CI.",
+    "Jazzy amd64 is Docker Desktop emulation, not native x86_64 hardware.",
+    "Native x86_64 hardware, Windows, hardware GPU paths and maintainer merge remain external.",
+    "The component/test-helper teardown defect remains open and is not attributed to the parameter_bridge ownership candidate."
+  ]
 }

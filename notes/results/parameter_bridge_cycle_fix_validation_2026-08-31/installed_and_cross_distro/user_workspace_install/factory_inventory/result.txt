@@ -1,0 +1,4 @@
+factory_pairs=73/73
+handle_instantiations=146/146
+bridge_exit=0
+escalation=NONE

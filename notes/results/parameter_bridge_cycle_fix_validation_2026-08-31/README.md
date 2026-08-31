@@ -2,15 +2,20 @@
 
 ## Verdict
 
-**VALIDATED ISOLATED CANDIDATE.** The retained patch removes the tested
+**VALIDATED CANDIDATE; UPSTREAM REVIEW OPEN.** The retained patch removes the tested
 shutdown-only `parameter_bridge` SIGSEGV without changing payload delivery in
 the tested GZ→ROS and ROS→GZ paths. A follow-up normal source/install overlay
-and equivalent ARM64 Jazzy/Kilted branch-local builds also pass; the candidate
-is not merged upstream or installed in the user's ordinary workspaces.
+and equivalent official-image ARM64 Humble/Jazzy/Kilted branch-local builds
+also pass. A Jazzy `linux/amd64` Docker-emulation run passes the same bounded
+matrix, and an ordinary-layout isolated clone passes a larger matrix. The
+candidate is now adopted in the user's actual `ros_gz` workspace and open for
+upstream review as [gazebosim/ros_gz#952](https://github.com/gazebosim/ros_gz/pull/952),
+but is not merged upstream.
 
-The candidate was built from exact `ros_gz` tag `3.0.9`, commit
+The original candidate was built from exact `ros_gz` tag `3.0.9`, commit
 `2d17974dd4aec749e22824f74baa22149aaf5b4d`, in a separate Docker overlay.
-The original checkout was not modified.
+The original checkout was not modified in that phase; later actual-workspace
+adoption is documented separately below.
 
 ## Root cause and fix
 
@@ -91,15 +96,49 @@ conversions, one ControlWorld service conversion, and 10/10 active
 bidirectional teardown repetitions.
 
 Equivalent branch-local WeakPtr adaptations were then built in official ARM64
-Jazzy and Kilted ROS images. Each passed the same 8/8 topic matrix and 1/1
-ControlWorld service matrix, with bridge exit code 0 and no escalation. The
-exact 3.0.9 patch does not apply textually to those release branches because
-their context differs; the equivalent adaptations and the failed textual
-apply checks are retained. Humble has static adaptation evidence only, not a
-build or runtime verdict.
+Humble, Jazzy and Kilted ROS images. Each passed an 8/8 topic matrix and 1/1
+ControlWorld service matrix, with bridge exit code 0 and no escalation. Humble
+uses the release's Ignition transport names; Jazzy/Kilted use their release
+interfaces. The exact 3.0.9 patch does not apply textually to those release
+branches because their context differs, so the equivalent adaptations and
+failed textual apply checks are retained.
+
+A separate official Jazzy `linux/amd64` image ran under Docker Desktop's
+Apple-Silicon emulation. Its fresh source build and 8/8 topic plus 1/1 service
+runtime matrix passed with clean bridge exit. This is x86_64 instruction-set
+coverage under emulation, not native x86_64 hardware coverage.
+
+Finally, the exact-3.0.9 candidate was built in an ordinary workspace layout
+inside an isolated clone. That clone passed 24/24 topic-conversion directions
+covering 13 unique type pairs and 4/4 service factories (ControlWorld,
+SpawnEntity, SetEntityPose and DeleteEntity). Before/after git state, target
+hashes and mtimes prove that the user's existing workspace was not modified.
+This is broader bounded coverage, not an exhaustive sweep of every generated
+mapping or sensor-heavy payload.
 
 Evidence:
 [installed_and_cross_distro/](installed_and_cross_distro/).
+
+### Actual-workspace and exhaustive generated-mapping follow-up
+
+The exact four candidate source files were then applied to the user's ordinary
+Lyrical workspace while preserving two pre-existing unrelated CMake edits.
+`ros_gz_bridge` built successfully, and all four files match signed PR commit
+`86910a32efe28624ec489ae5ce5cdcfb5a2ec500` byte for byte.
+
+The actual-workspace run passes the 24/24 bounded matrix and also inventories
+all 73 generated topic mapping pairs in this checkout. All 146 direction
+handles instantiate; generated payload assertions pass 73/73 GZ→ROS and 73/73
+ROS→GZ when assertions start after all endpoints are ready. The ordered
+ROS→GZ bridge exits 0 without escalation, repeated payload runs pass 5/5 and
+lifecycle-only runs pass 11/11.
+
+This follow-up also found a separate boundary: an ordered component run passes
+3/3 topic and 1/1 service assertions, but the macOS test helper aborts and
+`bridge_node` exits 139 on SIGINT. PR #952 is therefore scoped to the reproduced
+`parameter_bridge` owner-cycle failure, not every component/test-helper
+teardown path. Detailed evidence is under
+[`installed_and_cross_distro/user_workspace_install/`](installed_and_cross_distro/user_workspace_install/).
 
 ## Upstream package test suite
 
@@ -141,9 +180,18 @@ tests launch the candidate executable directly.
 
 ## Remaining scope
 
-This validates the ownership and teardown mechanism for the tested message and
-sensor paths. The available upstream package suite passed except for the remote
-schema transport timeout, whose exact XML validation passed offline. A read-only duplicate/template review is complete and found no matching issue or PR. Upstream
-submission, maintainer review, merge, ordinary-workspace installation, Humble runtime,
-x86_64 coverage and exhaustive message/service coverage remain separate
-work. It does not change or validate sonar acoustic correctness.
+This validates the ownership and teardown mechanism for the tested
+`parameter_bridge` message and sensor paths. The original exact-3.0.9 upstream
+package suite passed except for the remote schema transport timeout, whose
+exact XML validation passed offline. A duplicate/template review found no
+matching issue or PR before submission; issue
+[gazebosim/ros_gz#951](https://github.com/gazebosim/ros_gz/issues/951) and PR
+[gazebosim/ros_gz#952](https://github.com/gazebosim/ros_gz/pull/952) are now open.
+
+Official-image ARM64, emulated Jazzy `linux/amd64`, ordinary-layout isolation,
+actual-workspace adoption, the expanded service matrix and every generated
+topic mapping in this checkout are complete. Upstream maintainer review/merge,
+native x86_64 hardware, Windows and hardware-GPU paths remain external. The
+macOS `bridge_node` exit 139 and test-helper mutex teardown are locally
+reproduced separate defects. This patch does not change or validate sonar
+acoustic correctness.

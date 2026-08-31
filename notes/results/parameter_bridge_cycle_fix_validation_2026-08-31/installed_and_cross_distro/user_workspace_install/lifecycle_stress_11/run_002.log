@@ -1,0 +1,3 @@
+[INFO] [1788173324.613516000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/lifecycle_g2r (gz.msgs.StringMsg) -> /lifecycle_g2r (std_msgs/msg/String)] (Lazy 0)
+[INFO] [1788173324.947294000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/lifecycle_r2g (std_msgs/msg/String) -> /lifecycle_r2g (gz.msgs.StringMsg)] (Lazy 0)
+[INFO] [1788173325.081011000] [rclcpp]: signal_handler(signum=2)

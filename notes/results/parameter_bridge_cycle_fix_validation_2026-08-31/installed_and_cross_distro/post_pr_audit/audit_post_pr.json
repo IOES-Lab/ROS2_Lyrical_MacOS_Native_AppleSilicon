@@ -1,0 +1,366 @@
+{
+  "date": "2026-08-31",
+  "verdict": "PASS",
+  "passed": 45,
+  "total": 45,
+  "pr": {
+    "commits": [
+      {
+        "authoredDate": "2026-08-31T09:55:56Z",
+        "authors": [
+          {
+            "email": "172019512+yeseorizi@users.noreply.github.com",
+            "id": "U_kgDOCkDPOA",
+            "login": "yeseorizi",
+            "name": "yeseorizi"
+          }
+        ],
+        "committedDate": "2026-08-31T11:43:50Z",
+        "messageBody": "Signed-off-by: yeseorizi <172019512+yeseorizi@users.noreply.github.com>",
+        "messageHeadline": "Break the parameter bridge handle ownership cycle",
+        "oid": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500"
+      }
+    ],
+    "headRefOid": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500",
+    "mergeable": "MERGEABLE",
+    "number": 952,
+    "reviewDecision": "REVIEW_REQUIRED",
+    "state": "OPEN",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-08-31T11:43:54Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://probot.github.io/apps/dco/",
+        "name": "DCO",
+        "startedAt": "2026-08-31T11:43:54Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-08-31T11:44:30Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://dashboard.mergify.com/event-logs?pullRequestNumber=952&login=gazebosim&repository=ros_gz",
+        "name": "Summary",
+        "startedAt": "2026-08-31T11:44:30Z",
+        "status": "COMPLETED",
+        "workflowName": ""
+      }
+    ],
+    "url": "https://github.com/gazebosim/ros_gz/pull/952"
+  },
+  "checks": [
+    {
+      "name": "candidate_files_match_pr_record",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace_build",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bounded_topic_directions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all_generated_pairs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all_generated_handles",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all_gz_to_ros_payloads",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all_ros_to_gz_payloads",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ordered_bridge_exit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ordered_bridge_no_escalation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "repeated_payload",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "lifecycle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "component_topic_assertions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "component_service_assertions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "component_helper_failure_retained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "component_exit_failure_retained",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace_matches_signed_pr:ros_gz_bridge/src/bridge_handle.cpp",
+      "pass": true,
+      "detail": {
+        "sha256": "7700a3f43c517d4af446692f4f7b7b6699b7b9f066a202987f7f36bfeb9919bf",
+        "bytes": 2169
+      }
+    },
+    {
+      "name": "workspace_matches_signed_pr:ros_gz_bridge/src/bridge_handle.hpp",
+      "pass": true,
+      "detail": {
+        "sha256": "28dcac8c4e0336c08a62749b73fc4e0a528ff2dcba89709fbc5d1d22e7943d3a",
+        "bytes": 3678
+      }
+    },
+    {
+      "name": "workspace_matches_signed_pr:ros_gz_bridge/src/bridge_handle_gz_to_ros.cpp",
+      "pass": true,
+      "detail": {
+        "sha256": "fad25926006c0d015aa557f70a27a6220fb5782cb1a9728588f292865bfdb4f7",
+        "bytes": 2992
+      }
+    },
+    {
+      "name": "workspace_matches_signed_pr:ros_gz_bridge/src/bridge_handle_ros_to_gz.cpp",
+      "pass": true,
+      "detail": {
+        "sha256": "1be33832ef2bf47f8465f70706f7f17998df3deb147c5cd9bff61d0eb65b1474",
+        "bytes": 2232
+      }
+    },
+    {
+      "name": "preexisting_cmake_edits_still_present",
+      "pass": true,
+      "detail": [
+        " M ros_gz_bridge/CMakeLists.txt",
+        " M ros_gz_bridge/src/bridge_handle.cpp",
+        " M ros_gz_bridge/src/bridge_handle.hpp",
+        " M ros_gz_bridge/src/bridge_handle_gz_to_ros.cpp",
+        " M ros_gz_bridge/src/bridge_handle_ros_to_gz.cpp",
+        " M ros_gz_sim/CMakeLists.txt"
+      ]
+    },
+    {
+      "name": "pr_identity",
+      "pass": true,
+      "detail": {
+        "commits": [
+          {
+            "authoredDate": "2026-08-31T09:55:56Z",
+            "authors": [
+              {
+                "email": "172019512+yeseorizi@users.noreply.github.com",
+                "id": "U_kgDOCkDPOA",
+                "login": "yeseorizi",
+                "name": "yeseorizi"
+              }
+            ],
+            "committedDate": "2026-08-31T11:43:50Z",
+            "messageBody": "Signed-off-by: yeseorizi <172019512+yeseorizi@users.noreply.github.com>",
+            "messageHeadline": "Break the parameter bridge handle ownership cycle",
+            "oid": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500"
+          }
+        ],
+        "headRefOid": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500",
+        "mergeable": "MERGEABLE",
+        "number": 952,
+        "reviewDecision": "REVIEW_REQUIRED",
+        "state": "OPEN",
+        "statusCheckRollup": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-08-31T11:43:54Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://probot.github.io/apps/dco/",
+            "name": "DCO",
+            "startedAt": "2026-08-31T11:43:54Z",
+            "status": "COMPLETED",
+            "workflowName": ""
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-08-31T11:44:30Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://dashboard.mergify.com/event-logs?pullRequestNumber=952&login=gazebosim&repository=ros_gz",
+            "name": "Summary",
+            "startedAt": "2026-08-31T11:44:30Z",
+            "status": "COMPLETED",
+            "workflowName": ""
+          }
+        ],
+        "url": "https://github.com/gazebosim/ros_gz/pull/952"
+      }
+    },
+    {
+      "name": "pr_open",
+      "pass": true,
+      "detail": "OPEN"
+    },
+    {
+      "name": "pr_signed_head",
+      "pass": true,
+      "detail": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500"
+    },
+    {
+      "name": "pr_mergeable",
+      "pass": true,
+      "detail": "MERGEABLE"
+    },
+    {
+      "name": "pr_review_pending",
+      "pass": true,
+      "detail": "REVIEW_REQUIRED"
+    },
+    {
+      "name": "dco_success",
+      "pass": true,
+      "detail": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-08-31T11:43:54Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://probot.github.io/apps/dco/",
+          "name": "DCO",
+          "startedAt": "2026-08-31T11:43:54Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-08-31T11:44:30Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://dashboard.mergify.com/event-logs?pullRequestNumber=952&login=gazebosim&repository=ros_gz",
+          "name": "Summary",
+          "startedAt": "2026-08-31T11:44:30Z",
+          "status": "COMPLETED",
+          "workflowName": ""
+        }
+      ]
+    },
+    {
+      "name": "followup_humble_runtime",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "followup_amd64_runtime",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "followup_ordinary_factories",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "followup_actual_payloads",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "followup_pr",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "root_actual_payloads",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "root_pr",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "root_component_scope",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_include:#951",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_include:#952",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_include:73/73",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_include:component",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_exclude:no pull request has been opened",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_exclude:PR not opened",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_exclude:no PR has been opened",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_exclude:static branch-local adaptation only",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "current_docs_exclude:not installed into the user's ordinary",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "known_issue_count",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "progress_row_count",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

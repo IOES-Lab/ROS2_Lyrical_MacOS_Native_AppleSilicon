@@ -1,0 +1,1 @@
+Break the parameter bridge handle ownership cycle

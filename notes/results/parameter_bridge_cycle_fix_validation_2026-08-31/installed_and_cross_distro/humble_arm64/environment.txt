@@ -1,0 +1,7 @@
+ROS_DISTRO=humble
+ARCH=arm64
+SOURCE_COMMIT=da0bfdd62f2a442ff1d021622c72fe29b7aa4508
+Linux 819d8093873d 6.12.76-linuxkit #1 SMP Sun Mar  8 14:41:59 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+TRANSPORT=ign
+SIM=ign gazebo
+MSG_PREFIX=ignition.msgs

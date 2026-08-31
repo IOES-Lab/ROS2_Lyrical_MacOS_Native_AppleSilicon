@@ -1,0 +1,70 @@
+{
+  "date": "2026-08-31",
+  "verdict": "PASS",
+  "method": "Refetched through the authenticated Notion connector after all updates and searched each returned page body for the listed current tokens and stale phrases.",
+  "pages": [
+    {
+      "name": "research",
+      "id": "39cc9419-9898-814b-9d7e-dae921312d6c",
+      "has_pr_952": true,
+      "has_73_73": true,
+      "has_actual_workspace": true,
+      "has_component_scope": true,
+      "stale_no_pr": false,
+      "stale_not_adopted": false
+    },
+    {
+      "name": "multibeam",
+      "id": "2e6c9419-9898-822a-8905-817e53dc6447",
+      "has_pr_952": true,
+      "has_73_73": true,
+      "has_actual_workspace": true,
+      "has_component_scope": true,
+      "stale_no_pr": false,
+      "stale_not_adopted": false
+    },
+    {
+      "name": "comparison",
+      "id": "39cc9419-9898-81ec-9b64-de4237dc22f2",
+      "has_pr_952": true,
+      "has_73_73": true,
+      "has_actual_workspace": true,
+      "has_component_scope": true,
+      "stale_no_pr": false,
+      "stale_not_adopted": false
+    },
+    {
+      "name": "dave_rov",
+      "id": "768c9419-9898-8311-b58a-01a8dc246628",
+      "has_pr_952": true,
+      "has_73_73": true,
+      "has_actual_workspace": true,
+      "has_component_scope": true,
+      "stale_no_pr": false,
+      "stale_not_adopted": false
+    },
+    {
+      "name": "overall",
+      "id": "39cc9419-9898-8112-9656-c6c5e4c44742",
+      "has_pr_952": true,
+      "has_73_73": true,
+      "has_actual_workspace": true,
+      "has_component_scope": true,
+      "stale_no_pr": false,
+      "stale_not_adopted": false,
+      "has_known_issue_count_49": true,
+      "has_progress_count_112": true
+    },
+    {
+      "name": "timeline",
+      "id": "3c2c9419-9898-8105-b0d7-ccff28577e4b",
+      "has_pr_952": true,
+      "has_73_73": true,
+      "has_actual_workspace": true,
+      "has_component_scope": true,
+      "stale_no_pr": false,
+      "stale_not_adopted": false,
+      "has_progress_count_112": true
+    }
+  ]
+}

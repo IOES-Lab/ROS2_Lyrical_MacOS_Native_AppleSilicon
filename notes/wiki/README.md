@@ -667,11 +667,17 @@ Evidence:
 - direct ROS→GZ payload/clean exit **20/20**
 - stock active camera와 PointCloud GZ→ROS **5/5 each**
 
-따라서 Notion의 「Multibeam Sonar Plugin」, 「Dave ROV Models」와 전체 현황에서 teardown을
-현재 로컬 후보의 미해결 결함으로 쓰면 안 된다. **로컬 격리 후보에서는 닫혔고, constrained
-package suite도 17/18 CTest target과 offline exact-XML 검사까지 통과했다. 이후 normal isolated Lyrical install은 8/8 topic·1/1 ControlWorld service·active teardown 10/10, ARM64 Jazzy/Kilted equivalent branch-local build는 각각 8/8+1/1과 clean exit를 통과했다. Read-only readiness review에서는 focused issue/PR search 8건의 duplicate가 0건이었고 project issue/PR template이 없음을 확인했다. upstream 제출·maintainer review·merge, ordinary-workspace 적용·Humble runtime·x86_64·exhaustive conversion coverage는 열려 있다**고 분리한다. `ros2 run` wrapper와
-child에 SIGINT를 동시에 준 잘못된 harness와 CLI timeout이 걸린 중단 harness는 각각
-`INVALID_ATTEMPT`로 보존했으며 판정에서 제외했다.
+따라서 Notion의 「Multibeam Sonar Plugin」, 「Dave ROV Models」와 전체 현황에서 `parameter_bridge` teardown을
+현재 로컬 후보의 미해결 결함으로 쓰면 안 된다. 로컬 격리·cross-distribution 뒤 실제 사용자
+`ros_gz` workspace에도 네 파일을 적용해 기존 CMake 편집 2건을 보존한 채 빌드했다. bounded
+24/24, generated mapping 73쌍의 양방향 payload 73/73 each, ordered bridge rc0, repeat 5/5,
+lifecycle 11/11을 통과했다. 이슈 [#951](https://github.com/gazebosim/ros_gz/issues/951)과
+signed PR [#952](https://github.com/gazebosim/ros_gz/pull/952)이 열려 있고 DCO PASS·mergeable이며
+maintainer review/merge 대기다. 다만 별도 ordered component는 topic 3/3·service 1/1 assertion 뒤
+test helper rc134와 `bridge_node` SIGINT exit139라 **PR #952의 완료 범위에 포함하지 않는다.**
+native x86_64 hardware, Windows, hardware GPU도 외부 범위다. `ros2 run` wrapper와 child에 SIGINT를
+동시에 준 잘못된 harness와 CLI timeout이 걸린 중단 harness는 각각 `INVALID_ATTEMPT`로 보존했으며
+판정에서 제외했다.
 
 이 행 추가 뒤 `progress-log.md`는 112행이다.
 

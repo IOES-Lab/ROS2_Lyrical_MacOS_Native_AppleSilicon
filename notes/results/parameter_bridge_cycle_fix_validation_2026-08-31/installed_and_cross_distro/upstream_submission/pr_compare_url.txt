@@ -1,0 +1,1 @@
+https://github.com/gazebosim/ros_gz/compare/ros2...yeseorizi:ros_gz:fix/bridge-handle-owner-cycle?expand=1

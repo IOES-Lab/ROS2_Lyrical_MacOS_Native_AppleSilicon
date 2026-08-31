@@ -1,0 +1,6 @@
+factory_pairs=73
+bridge_handles=73
+payload_tests_passed=73/73
+subscriber_process_rc=0
+bridge_exit=0
+bridge_escalation=NONE

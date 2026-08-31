@@ -1,6 +1,6 @@
-# Upstream reports — prepared, awaiting submission
+# Upstream reports — one issue and one signed PR filed; the rest awaiting decisions
 
-Eleven GitHub issue drafts and two documentation corrections. **None has been sent.** Draft 6 is a
+Eleven GitHub issue records and two documentation corrections. **The bridge-lifecycle report is [gazebosim/ros_gz#951](https://github.com/gazebosim/ros_gz/issues/951), and its signed fix is open as [PR #952](https://github.com/gazebosim/ros_gz/pull/952); DCO passes and maintainer review/merge is pending. The other ten reports have not been sent.** Draft 6 is a
 historical do-not-file record; drafts 9 and 10 are new sonar reports that deliberately separate a
 range-grid defect from a backend-startup-order candidate. Draft 11 is a separate `gazebosim/ros_gz`
 bridge-lifecycle report. The limits of what was confirmed at
@@ -23,7 +23,7 @@ suggestions below are notes for that person. See [`CLAUDE.md`](../../../CLAUDE.m
 
 ## The eleven drafts
 
-**Issue numbers reflect draft creation order, not filing order.** Recommended first submission
+**Issue numbers reflect draft creation order, not filing order.** Draft 11 has been filed independently against `gazebosim/ros_gz`. For the remaining DAVE reports, the recommended first submission
 is issue 7, then issue 8 after maintainer feedback.  Review drafts 9 and 10 as independent change
 units; neither should be combined with the other.  Within the older six, the first three are
 one-line fixes with measured
@@ -42,7 +42,7 @@ before/after, so they are the easiest for a maintainer to act on. The last two w
 | 8 | [`seapressure-dead-params.md`](seapressure-dead-params.md) | Same plugin: `<noise_sigma>`, `saturation` and `<update_rate>` do not affect their documented output properties in Mac and Docker controls; Gaussian noise is commented out while non-zero `variance` is published. | Docs, or three small additions |
 | 9 | [`multibeam-wgpu-range-grid.md`](multibeam-wgpu-range-grid.md) | The 399-bin WGPU input is zero-padded to 512 but published on the original range vector, shifting synthetic target peaks.  An exact-N discriminator restores localisation in six scenes but is too slow on software `llvmpipe` as a production fix. | Efficient arbitrary-N transform or explicit CPU fallback |
 | 10 | [`multibeam-deferred-backend-startup.md`](multibeam-deferred-backend-startup.md) | Deferring WGPU creation to the existing compute thread gives 20/20 `llvmpipe` cold starts, 3/3 Heavy controls and a bounded 30-minute payload soak. Its historical bridge shutdown `-11` is now separated into draft 11; hardware-GPU validation remains external. | Backend lifecycle; review node-parameter suppression separately |
-| 11 | [`parameter-bridge-handle-cycle.md`](parameter-bridge-handle-cycle.md) | `RosGzBridge` and `BridgeHandle` form a strong owner cycle. The weak-back-reference candidate replaces a 9/10 DAVE-sonar teardown failure with bridge-first 20/20 clean and process-group 10/10 rc0 while preserving payloads. Target is `gazebosim/ros_gz`, not DAVE. | Four small source files; ownership/lifecycle review |
+| 11 | [`parameter-bridge-handle-cycle.md`](parameter-bridge-handle-cycle.md) · [filed #951](https://github.com/gazebosim/ros_gz/issues/951) · [PR #952](https://github.com/gazebosim/ros_gz/pull/952) | `RosGzBridge` and `BridgeHandle` form a strong owner cycle. The signed weak-back-reference PR is installed and exhaustively generated-mapping-tested in the actual user workspace: 73/73 payloads each direction and ordered bridge rc0. Separate `bridge_node`/test-helper teardown remains outside the PR scope. | Four small source files; maintainer ownership/lifecycle review |
 
 **Order for these two:** both are ready, but file 7 first and wait for a response before
 sending 8. They touch the same file, and two simultaneous issues from an unfamiliar account

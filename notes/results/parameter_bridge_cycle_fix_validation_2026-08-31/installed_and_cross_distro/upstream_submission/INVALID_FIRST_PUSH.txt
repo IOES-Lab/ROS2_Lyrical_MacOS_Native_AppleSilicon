@@ -1,0 +1,1 @@
+INVALID_ATTEMPT: GitHub rejected the first push because the commit exposed a protected private email. No remote branch was created. The code diff was unchanged; the commit was re-authored with the account noreply address.

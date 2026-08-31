@@ -1,0 +1,7 @@
+user_workspace_build=PASS
+topic_conversions=24/24
+unique_topic_type_pairs=13
+topic_bridge_exit=0
+topic_bridge_escalation=NONE
+service_factories=NOT_RERUN
+service_blocker=unrelated_homebrew_ffmpeg_abi_mismatch

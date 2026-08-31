@@ -1,11 +1,11 @@
 # Upstream issue draft — break the bridge-handle owner cycle
 
-**Status:** Draft, not yet filed. The candidate is repeatedly validated in a normal Lyrical source/install overlay and equivalent ARM64 Jazzy/Kilted branch-local overlays. A read-only 2026-08-31 review found 0 duplicates across eight focused issue/PR searches and no project issue or PR template; submission, maintainer review, merge, ordinary-workspace adoption and exhaustive CI remain open.
+**Status:** Filed as [`gazebosim/ros_gz#951`](https://github.com/gazebosim/ros_gz/issues/951) on 2026-08-31 by explicit user request; the signed fix is open as [`gazebosim/ros_gz#952`](https://github.com/gazebosim/ros_gz/pull/952). DCO passes and GitHub reports the PR mergeable; maintainer review and merge are pending. The candidate is validated in normal Lyrical, official-image ARM64 Humble/Jazzy/Kilted, Jazzy `linux/amd64` emulation, an ordinary isolated clone and the actual user workspace. The requested `bug` and `ROS 2` labels could not be applied by the external contributor account. Native x86_64 hardware, Windows and the separate macOS component/test-helper teardown remain open.
 
 **Suggested target repo:** [`gazebosim/ros_gz`](https://github.com/gazebosim/ros_gz), default
 branch `ros2`, under `ros_gz_bridge/`.
 
-**Suggested labels:** `bug`, `ros_gz_bridge`, `lifecycle`, `shutdown`
+**Suggested labels:** `bug`, `ROS 2` (both confirmed to exist on 2026-08-31)
 
 ---
 
@@ -56,7 +56,10 @@ Built from exact release tag `3.0.9`, commit
 - active stock camera GZ→ROS: payload and clean shutdown 5/5;
 - active stock PointCloud GZ→ROS: payload and clean shutdown 5/5;
 - normal Lyrical source/install overlay: 8/8 topic conversions, 1/1 ControlWorld service, active bidirectional teardown 10/10;
-- equivalent ARM64 Jazzy and Kilted branch-local builds: 8/8 topics and 1/1 service each, bridge exit 0 without escalation.
+- equivalent official-image ARM64 Humble, Jazzy and Kilted branch-local builds: 8/8 topics and 1/1 service each, bridge exit 0 without escalation;
+- Jazzy `linux/amd64` under Docker Desktop emulation: fresh build, 8/8 topics and 1/1 service, bridge exit 0;
+- ordinary-layout isolated exact-3.0.9 clone: 24/24 conversion directions across 13 unique topic type pairs and all four service factories, with the user's workspace unchanged;
+- actual user `ros_gz` workspace: candidate files match the signed PR 4/4 while two unrelated CMake edits remain preserved; build PASS, 24/24 bounded directions, all 73 generated mapping payload assertions 73/73 each way, ordered bridge rc0, repeat payload 5/5 and lifecycle 11/11.
 
 The candidate executable was verified to load `libros_gz_bridge.so` from the isolated overlay.
 The patch reconstructs the four modified files exactly. Current upstream `ros2` commit `2ee8a5c`
@@ -76,7 +79,7 @@ This is a minimal ownership change, but the retained evidence is not a substitut
 The constrained Lyrical package build completed and 17/18 CTest targets passed. The only failed
 target was `xmllint`, which timed out while downloading the remote ROS package schema; the exact
 unmodified `package.xml` passed against the canonical schema supplied locally, and all compiled,
-launch and source-lint targets passed. Please review whether a weak node back-reference is the preferred ownership model. Humble runtime, x86_64 and exhaustive message/service configurations were not run here and remain appropriate for upstream CI.
+launch and source-lint targets passed. Please review whether a weak node back-reference is the preferred ownership model. ARM64 Humble runtime and Jazzy `linux/amd64` emulation were run successfully; the isolated service matrix covered 4/4 factories; and the actual user workspace passed all 73 generated topic mappings in both directions. Native x86_64 hardware, Windows and the full upstream CI matrix remain appropriate follow-up scope. Separately, an ordered macOS `bridge_node` test passes 3/3 topic and 1/1 service assertions before the test helper aborts and the component exits 139 on SIGINT; PR #952 does not claim that separate component/test-helper path is fixed.
 
 ## Evidence and patch
 
@@ -86,10 +89,17 @@ launch and source-lint targets passed. Please review whether a weak node back-re
   [`../../results/parameter_bridge_shutdown_validation_2026-08-31/`](../../results/parameter_bridge_shutdown_validation_2026-08-31/)
 - Candidate diff:
   [`../../../patches/ros_gz_bridge_handle_cycle_fix.diff`](../../../patches/ros_gz_bridge_handle_cycle_fix.diff)
+- Signed upstream PR (DCO PASS; maintainer review pending):
+  [`gazebosim/ros_gz#952`](https://github.com/gazebosim/ros_gz/pull/952)
+- Fork branch:
+  [`yeseorizi:fix/bridge-handle-owner-cycle`](https://github.com/yeseorizi/ros_gz/tree/fix/bridge-handle-owner-cycle)
+- Upstream compare / PR form:
+  [`ros2...yeseorizi:fix/bridge-handle-owner-cycle`](https://github.com/gazebosim/ros_gz/compare/ros2...yeseorizi:ros_gz:fix/bridge-handle-owner-cycle?expand=1)
 
 ## Environment
 
 - ROS 2 Lyrical, Gazebo Jetty 10.4, ARM64 Docker Desktop on Apple M2
 - Fast DDS over UDPv4 for the retained repetitions
-- isolated normal-install and release-branch overlays; original source and ordinary installed workspace unchanged
-- official ARM64 ROS images for Jazzy and Kilted; Humble adaptation static-only
+- isolated normal-install, ordinary-layout clone and release-branch overlays; the actual user workspace now contains the exact four-file candidate while preserving two unrelated CMake edits
+- official ARM64 ROS images for Humble, Jazzy and Kilted
+- official Jazzy `linux/amd64` image under Docker Desktop emulation on Apple M2

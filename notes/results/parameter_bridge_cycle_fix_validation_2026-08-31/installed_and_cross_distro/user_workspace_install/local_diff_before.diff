@@ -1,0 +1,29 @@
+diff --git a/ros_gz_bridge/CMakeLists.txt b/ros_gz_bridge/CMakeLists.txt
+index b949389..369e811 100644
+--- a/ros_gz_bridge/CMakeLists.txt
++++ b/ros_gz_bridge/CMakeLists.txt
+@@ -12,6 +12,7 @@ endif()
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+ find_package(ament_cmake REQUIRED)
++find_package(tinyxml2 REQUIRED)
+ find_package(rclcpp REQUIRED)
+ find_package(rclcpp_components REQUIRED)
+ find_package(yaml_cpp_vendor REQUIRED)
+diff --git a/ros_gz_sim/CMakeLists.txt b/ros_gz_sim/CMakeLists.txt
+index 8169462..2a49359 100644
+--- a/ros_gz_sim/CMakeLists.txt
++++ b/ros_gz_sim/CMakeLists.txt
+@@ -13,7 +13,12 @@ endif()
+ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+ find_package(CLI11 REQUIRED)
++if(TARGET CLI11::CLI11 AND NOT DEFINED CLI11_INCLUDE_DIRS)
++  get_target_property(CLI11_INCLUDE_DIRS CLI11::CLI11 INTERFACE_INCLUDE_DIRECTORIES)
++endif()
+ find_package(ament_cmake REQUIRED)
++find_package(tinyxml2 REQUIRED)
++find_package(tinyxml2 REQUIRED)
+ find_package(builtin_interfaces REQUIRED)
+ find_package(geometry_msgs REQUIRED)
+ find_package(gz_math_vendor REQUIRED)

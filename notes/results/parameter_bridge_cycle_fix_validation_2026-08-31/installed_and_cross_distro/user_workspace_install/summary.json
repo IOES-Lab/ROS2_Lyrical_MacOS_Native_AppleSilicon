@@ -1,0 +1,52 @@
+{
+  "date": "2026-08-31",
+  "workspace": "/Users/gwon-yeseol/ros_gz_ws_lyrical",
+  "baseline_branch": "ros2",
+  "baseline_commit": "0ea9efc010c7427385c6493c1a8016cdf1ef450b",
+  "upstream_pr": "https://github.com/gazebosim/ros_gz/pull/952",
+  "signed_pr_commit": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500",
+  "candidate_source_files_match_pr": "4/4",
+  "preexisting_edits_preserved": [
+    "ros_gz_bridge/CMakeLists.txt",
+    "ros_gz_sim/CMakeLists.txt"
+  ],
+  "build": {
+    "package": "ros_gz_bridge",
+    "build_type": "RelWithDebInfo",
+    "result": "PASS"
+  },
+  "parameter_bridge": {
+    "bounded_topic_directions": "24/24",
+    "bounded_unique_type_pairs": 13,
+    "generated_factory_pairs_instantiated": "73/73",
+    "generated_direction_handles_instantiated": "146/146",
+    "generated_gz_to_ros_payload_assertions": "73/73",
+    "ordered_generated_ros_to_gz_payload_assertions": "73/73",
+    "ordered_ros_to_gz_subscriber_rc": 0,
+    "ordered_ros_to_gz_bridge_rc": 0,
+    "ordered_ros_to_gz_escalation": "NONE",
+    "repeated_payload_runs": "5/5",
+    "lifecycle_runs": "11/11"
+  },
+  "component_bridge": {
+    "ordered_payload_assertions": "3/3",
+    "ordered_service_assertions": "1/1",
+    "test_helper_rc": 134,
+    "bridge_node_rc": 139,
+    "verdict": "SEPARATE MACOS TEARDOWN FAILURE REMAINS"
+  },
+  "package_test_notes": {
+    "initial_ctest_targets_passed": "12/18",
+    "flake8_dependency_rerun": "PASS",
+    "effective_non_launch_unit_and_lint_targets": "PASS",
+    "stock_launch_targets_remaining_failed": 5,
+    "generated_gz_to_ros_assertions_before_helper_abort": "73/73",
+    "stock_generated_ros_to_gz_startup_race": "20/73 passed before later timeout assertions",
+    "colcon_test_result": "377 tests, 1 error, 11 failures, 73 skipped before the flake8 dependency rerun"
+  },
+  "service_boundary": {
+    "actual_mac_rerun": "BLOCKED_BY_UNRELATED_HOMEBREW_FFMPEG_ABI_MISMATCH",
+    "isolated_ordinary_layout_factories": "4/4"
+  },
+  "verdict": "PARAMETER_BRIDGE CANDIDATE PASS IN BOUNDED ACTUAL-WORKSPACE SCOPE; COMPONENT/TEST-HELPER TEARDOWN REMAINS OPEN"
+}

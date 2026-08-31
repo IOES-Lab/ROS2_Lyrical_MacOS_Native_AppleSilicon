@@ -1,0 +1,4 @@
+213542bdd0ed2e4dc8d850eb99838094804c49c2
+2ee8a5c716d1838de0b7ac817638ad5e9304955e
+yeseorizi <kys50728@g.kmou.ac.kr>
+Break the parameter bridge handle ownership cycle

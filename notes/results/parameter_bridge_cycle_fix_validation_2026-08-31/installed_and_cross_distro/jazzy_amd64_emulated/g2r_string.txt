@@ -1,0 +1,2 @@
+data: jazzy-amd64-g2r
+---

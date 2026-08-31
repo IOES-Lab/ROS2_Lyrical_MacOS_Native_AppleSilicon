@@ -1,0 +1,660 @@
+{
+  "verdict": "PASS",
+  "checks": [
+    {
+      "name": "fastdds_160_processes",
+      "pass": true,
+      "detail": 160
+    },
+    {
+      "name": "fastdds_four_phases_40_each",
+      "pass": true,
+      "detail": {
+        "concurrent_dirty_default": 40,
+        "concurrent_after_20_sigkills": 40,
+        "concurrent_after_clean": 40,
+        "concurrent_udp": 40
+      }
+    },
+    {
+      "name": "fastdds_all_success_rc0",
+      "pass": true,
+      "detail": {
+        "concurrent_dirty_default/SUCCESS": 40,
+        "concurrent_after_20_sigkills/SUCCESS": 40,
+        "concurrent_after_clean/SUCCESS": 40,
+        "concurrent_udp/SUCCESS": 40
+      }
+    },
+    {
+      "name": "fastdds_max_elapsed",
+      "pass": true,
+      "detail": 5.861
+    },
+    {
+      "name": "fastdds_20_fault_logs",
+      "pass": true,
+      "detail": 20
+    },
+    {
+      "name": "bridge_standalone_40_clean",
+      "pass": true,
+      "detail": 40
+    },
+    {
+      "name": "bridge_active_oneway_9_of_10",
+      "pass": true,
+      "detail": 9
+    },
+    {
+      "name": "bridge_stock_controls_30_clean",
+      "pass": true,
+      "detail": {
+        "rows": 30,
+        "payloads": 29
+      }
+    },
+    {
+      "name": "bridge_sonar_point_only_2_of_10",
+      "pass": true,
+      "detail": 2
+    },
+    {
+      "name": "sonar_run_01_three_frames",
+      "pass": true,
+      "detail": {
+        "raw": 3,
+        "point": 3
+      }
+    },
+    {
+      "name": "sonar_run_01_raw_hash_matches_npz",
+      "pass": true,
+      "detail": "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+    },
+    {
+      "name": "sonar_run_01_point_hash_matches_reconstruction",
+      "pass": true,
+      "detail": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+    },
+    {
+      "name": "sonar_run_02_three_frames",
+      "pass": true,
+      "detail": {
+        "raw": 3,
+        "point": 3
+      }
+    },
+    {
+      "name": "sonar_run_02_raw_hash_matches_npz",
+      "pass": true,
+      "detail": "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+    },
+    {
+      "name": "sonar_run_02_point_hash_matches_reconstruction",
+      "pass": true,
+      "detail": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+    },
+    {
+      "name": "sonar_run_03_three_frames",
+      "pass": true,
+      "detail": {
+        "raw": 3,
+        "point": 3
+      }
+    },
+    {
+      "name": "sonar_run_03_raw_hash_matches_npz",
+      "pass": true,
+      "detail": "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+    },
+    {
+      "name": "sonar_run_03_point_hash_matches_reconstruction",
+      "pass": true,
+      "detail": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+    },
+    {
+      "name": "sonar_raw_bitwise_cross_run",
+      "pass": true,
+      "detail": [
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+      ]
+    },
+    {
+      "name": "sonar_point_bitwise_cross_run",
+      "pass": true,
+      "detail": [
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+      ]
+    },
+    {
+      "name": "sonar_peak_4p013377666",
+      "pass": true,
+      "detail": [
+        4.013377666473389
+      ]
+    },
+    {
+      "name": "sonar_cache_cold_warm",
+      "pass": true,
+      "detail": [
+        {
+          "run": "1",
+          "cache_state": "empty",
+          "wall_seconds_to_full_buffers": "101",
+          "pipeline_compile_ms": "1420",
+          "probe_gpu_ms": "94192.4",
+          "ready": "1"
+        },
+        {
+          "run": "2",
+          "cache_state": "reused",
+          "wall_seconds_to_full_buffers": "5",
+          "pipeline_compile_ms": "11",
+          "probe_gpu_ms": "9.3",
+          "ready": "1"
+        }
+      ]
+    },
+    {
+      "name": "ocean_gauss_markov_counts",
+      "pass": true,
+      "detail": {
+        "global": 400,
+        "stratified": 100
+      }
+    },
+    {
+      "name": "ocean_gauss_markov_all_axes_vary",
+      "pass": true,
+      "detail": [
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "name": "ocean_gauss_markov_stdev",
+      "pass": true,
+      "detail": [
+        0.07281413828631625,
+        0.09064687649172609,
+        0.11163948054713332
+      ]
+    },
+    {
+      "name": "ocean_tidal_200_each",
+      "pass": true,
+      "detail": [
+        200,
+        200
+      ]
+    },
+    {
+      "name": "ocean_no_tide_fixed",
+      "pass": true,
+      "detail": [
+        0.005,
+        0.005
+      ]
+    },
+    {
+      "name": "ocean_tide_varies",
+      "pass": true,
+      "detail": {
+        "unique": 200,
+        "range": 0.507468828779422
+      }
+    },
+    {
+      "name": "ocean_tidal_metadata",
+      "pass": true,
+      "detail": {
+        "tideconstituents": true,
+        "m2": [
+          100.0,
+          0.0,
+          3600.0
+        ],
+        "s2": [
+          50.0,
+          45.0,
+          1800.0
+        ],
+        "n2": [
+          25.0,
+          90.0,
+          900.0
+        ],
+        "ebb_direction_deg": 0.0,
+        "flood_direction_deg": 180.0,
+        "world_start_time": [
+          2026,
+          1,
+          1,
+          0,
+          0
+        ],
+        "depth_count": 12
+      }
+    },
+    {
+      "name": "seapressure_seven_targets_met",
+      "pass": true,
+      "detail": {
+        "sp_surface": 1000,
+        "sp_depth10": 1000,
+        "sp_above10": 1000,
+        "sp_saturation": 1000,
+        "sp_noise": 2000,
+        "sp_rate": 200,
+        "sp_custom": 1000
+      }
+    },
+    {
+      "name": "seapressure_noise_2000_unique",
+      "pass": true,
+      "detail": 2000
+    },
+    {
+      "name": "seapressure_noise_sigma_close",
+      "pass": true,
+      "detail": {
+        "mean": 101325.21386134793,
+        "stdev": 119.91425730919269
+      }
+    },
+    {
+      "name": "seapressure_variance",
+      "pass": true,
+      "detail": [
+        15129.0
+      ]
+    },
+    {
+      "name": "seapressure_rate_controls",
+      "pass": true,
+      "detail": {
+        "2hz": 0.5,
+        "5hz": 0.20000000000000284
+      }
+    },
+    {
+      "name": "dvl_nortek_dvl500_300_rate",
+      "pass": true,
+      "detail": {
+        "rate": 8.0,
+        "period": 0.125
+      }
+    },
+    {
+      "name": "dvl_nortek_dvl500_6000_rate",
+      "pass": true,
+      "detail": {
+        "rate": 8.0,
+        "period": 0.125
+      }
+    },
+    {
+      "name": "dvl_nortek_dvl1000_300_rate",
+      "pass": true,
+      "detail": {
+        "rate": 8.0,
+        "period": 0.125
+      }
+    },
+    {
+      "name": "dvl_nortek_dvl1000_4000_rate",
+      "pass": true,
+      "detail": {
+        "rate": 8.0,
+        "period": 0.125
+      }
+    },
+    {
+      "name": "dvl_sonardyne_syrinx600_rate",
+      "pass": true,
+      "detail": {
+        "rate": 8.0,
+        "period": 0.125
+      }
+    },
+    {
+      "name": "dvl_teledyne_explorer1000_rate",
+      "pass": true,
+      "detail": {
+        "rate": 12.0,
+        "period": 0.08299999999999996
+      }
+    },
+    {
+      "name": "dvl_teledyne_explorer4000_rate",
+      "pass": true,
+      "detail": {
+        "rate": 12.0,
+        "period": 0.08299999999999996
+      }
+    },
+    {
+      "name": "dvl_teledyne_whn_rate",
+      "pass": true,
+      "detail": {
+        "rate": 7.0,
+        "period": 0.142
+      }
+    },
+    {
+      "name": "dvl_8_devices_160_messages",
+      "pass": true,
+      "detail": {
+        "nortek_dvl500_300": 20,
+        "nortek_dvl500_6000": 20,
+        "nortek_dvl1000_300": 20,
+        "nortek_dvl1000_4000": 20,
+        "sonardyne_syrinx600": 20,
+        "teledyne_explorer1000": 20,
+        "teledyne_explorer4000": 20,
+        "teledyne_whn": 20
+      }
+    },
+    {
+      "name": "dvl_beams_bottom_frames",
+      "pass": true,
+      "detail": {
+        "all_eight_reached_target": true,
+        "all_four_beams": true,
+        "all_bottom_lock": true,
+        "all_nonempty_frame_ids": true,
+        "eight_distinct_frame_ids": true,
+        "all_rates_match_descriptor": true
+      }
+    },
+    {
+      "name": "dvl_initial_analyzer_marked_corrected",
+      "pass": true,
+      "detail": "The runtime capture completed. Its first verdict incorrectly assumed every descriptor was 8 Hz; this reanalysis reads 8/12/7 Hz directly from the embedded model descriptors."
+    },
+    {
+      "name": "camera_eight_arrays",
+      "pass": true,
+      "detail": [
+        "ucam_atten_b_only",
+        "ucam_atten_base",
+        "ucam_atten_g_only",
+        "ucam_atten_r_only",
+        "ucam_bg_b_only",
+        "ucam_bg_g_only",
+        "ucam_bg_r_only",
+        "ucam_control"
+      ]
+    },
+    {
+      "name": "camera_hashes_match",
+      "pass": true,
+      "detail": {
+        "ucam_atten_b_only": "89407104e683619bdb9af32eadf39fdc5cd03941f7620f4060817d5a66a20bb5",
+        "ucam_atten_base": "07d5178764257006d102a82c8ccdcf31983b73f3a855abe25ccf638dcdfca7cc",
+        "ucam_atten_g_only": "72467ff4f62ce12dc3cd661687799c6090e37c1a18d3dc72f8cd69e59b009a0f",
+        "ucam_atten_r_only": "2e142f659d4a3c59ecf1e33471ecbceed1f2b593147b66e56d6825dbfeb2a7f3",
+        "ucam_bg_b_only": "3b1a2bce3d14a26ae3362a1b27dd4f54b9371e31318d3b1658d244e79e2e0bb6",
+        "ucam_bg_g_only": "41529b445fc6a731c9efc95d75b2c34f4bf8cccf263670e6a52550e4e1374d4b",
+        "ucam_bg_r_only": "d7918c7f1db020e6661f720eb7149f3c9359a01e105374797dedde933165f816",
+        "ucam_control": "1eb9d25f517b80aa54d6c2155ed4eb623220c7576f6f9569ad73a7f0f8adfc6b"
+      }
+    },
+    {
+      "name": "camera_centers_match",
+      "pass": true,
+      "detail": {
+        "ucam_atten_b_only": [
+          4,
+          61,
+          122
+        ],
+        "ucam_atten_base": [
+          4,
+          8,
+          16
+        ],
+        "ucam_atten_g_only": [
+          31,
+          8,
+          122
+        ],
+        "ucam_atten_r_only": [
+          31,
+          61,
+          16
+        ],
+        "ucam_bg_b_only": [
+          176,
+          8,
+          16
+        ],
+        "ucam_bg_g_only": [
+          4,
+          180,
+          16
+        ],
+        "ucam_bg_r_only": [
+          4,
+          8,
+          189
+        ],
+        "ucam_control": [
+          31,
+          61,
+          122
+        ]
+      }
+    },
+    {
+      "name": "camera_analytic_zero_lsb",
+      "pass": true,
+      "detail": {
+        "ucam_atten_base": [
+          0,
+          0,
+          0
+        ],
+        "ucam_atten_r_only": [
+          0,
+          0,
+          0
+        ],
+        "ucam_atten_g_only": [
+          0,
+          0,
+          0
+        ],
+        "ucam_atten_b_only": [
+          0,
+          0,
+          0
+        ],
+        "ucam_bg_r_only": [
+          0,
+          0,
+          0
+        ],
+        "ucam_bg_g_only": [
+          0,
+          0,
+          0
+        ],
+        "ucam_bg_b_only": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "camera_all_distinct",
+      "pass": true,
+      "detail": {
+        "ucam_control": 10,
+        "ucam_atten_base": 10,
+        "ucam_atten_r_only": 10,
+        "ucam_atten_g_only": 10,
+        "ucam_atten_b_only": 10,
+        "ucam_bg_r_only": 10,
+        "ucam_bg_g_only": 10,
+        "ucam_bg_b_only": 10
+      }
+    },
+    {
+      "name": "usbl_phase_isolation",
+      "pass": true,
+      "detail": {
+        "USBL_A_only": {
+          "USBL_A": 20
+        },
+        "both_concurrent": {
+          "USBL_A": 20,
+          "USBL_B": 20
+        },
+        "USBL_B_only": {
+          "USBL_B": 20
+        }
+      }
+    },
+    {
+      "name": "usbl_ids_geometry",
+      "pass": true,
+      "detail": {
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      }
+    },
+    {
+      "name": "ocean_waves_payload_3_and_3",
+      "pass": true,
+      "detail": {
+        "point": 3,
+        "raw": 3
+      }
+    },
+    {
+      "name": "ocean_waves_stats_progress",
+      "pass": true,
+      "detail": {
+        "messages": [
+          {
+            "iterations": 44288,
+            "rtf_field": 0.016211670463818162,
+            "sim_s": 44.288,
+            "real_s": 148.146734943
+          },
+          {
+            "iterations": 44321,
+            "rtf_field": 0.011086131347242555,
+            "sim_s": 44.321,
+            "real_s": 148.323952652,
+            "delta_rtf": 0.18621163870255827
+          },
+          {
+            "iterations": 44353,
+            "rtf_field": 0.01998001998001998,
+            "sim_s": 44.353,
+            "real_s": 148.452873235,
+            "delta_rtf": 0.24821482540150036
+          },
+          {
+            "iterations": 44354,
+            "rtf_field": 0.006186155320057695,
+            "sim_s": 44.354,
+            "real_s": 148.614524527,
+            "delta_rtf": 0.006186155320043747
+          },
+          {
+            "iterations": 44387,
+            "rtf_field": 0.011295914404440478,
+            "sim_s": 44.387,
+            "real_s": 148.77662836,
+            "delta_rtf": 0.2035732245763774
+          }
+        ],
+        "median_rtf_field": 0.011295914404440478,
+        "median_delta_rtf": 0.19489243163946784,
+        "iteration_increase": 99
+      }
+    },
+    {
+      "name": "ocean_waves_no_runtime_stack",
+      "pass": true,
+      "detail": {
+        "bounded_shutdown_rc": "143"
+      }
+    },
+    {
+      "name": "manip_dave_bimanual_example_stats",
+      "pass": true,
+      "detail": {
+        "messages": 5,
+        "iterations": [
+          2558,
+          2659,
+          2759,
+          2846,
+          2914
+        ],
+        "iteration_increase": 356
+      }
+    },
+    {
+      "name": "manip_dave_bimanual_example_no_stack",
+      "pass": true,
+      "detail": "clean"
+    },
+    {
+      "name": "manip_dave_electrical_mating_stats",
+      "pass": true,
+      "detail": {
+        "messages": 5,
+        "iterations": [
+          2631,
+          2730,
+          2830,
+          2928,
+          3020
+        ],
+        "iteration_increase": 389
+      }
+    },
+    {
+      "name": "manip_dave_electrical_mating_no_stack",
+      "pass": true,
+      "detail": "clean"
+    },
+    {
+      "name": "manip_dave_plug_and_socket_stats",
+      "pass": true,
+      "detail": {
+        "messages": 5,
+        "iterations": [
+          2674,
+          2675,
+          2775,
+          2876,
+          2976
+        ],
+        "iteration_increase": 302
+      }
+    },
+    {
+      "name": "manip_dave_plug_and_socket_no_stack",
+      "pass": true,
+      "detail": "clean"
+    }
+  ],
+  "passed": 61,
+  "total": 61
+}

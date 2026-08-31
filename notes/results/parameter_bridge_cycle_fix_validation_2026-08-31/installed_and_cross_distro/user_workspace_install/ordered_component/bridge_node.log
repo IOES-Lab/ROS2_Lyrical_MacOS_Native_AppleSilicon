@@ -1,0 +1,9 @@
+[INFO] [1788176803.661709000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [imu_sensor_msgs_imu (gz.msgs.IMU) -> imu_sensor_msgs_imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[INFO] [1788176805.309304000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [imu_sensor_msgs_imu (sensor_msgs/msg/Imu) -> imu_sensor_msgs_imu (gz.msgs.IMU)] (Lazy 0)
+[INFO] [1788176805.310789000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [image_sensor_msgs_image (gz.msgs.Image) -> image_sensor_msgs_image (sensor_msgs/msg/Image)] (Lazy 0)
+[INFO] [1788176806.949784000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [image_sensor_msgs_image (sensor_msgs/msg/Image) -> image_sensor_msgs_image (gz.msgs.Image)] (Lazy 0)
+[INFO] [1788176806.951135000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [boolean_std_msgs_bool (gz.msgs.Boolean) -> boolean_std_msgs_bool (std_msgs/msg/Bool)] (Lazy 0)
+[INFO] [1788176807.090979000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [boolean_std_msgs_bool (std_msgs/msg/Bool) -> boolean_std_msgs_bool (gz.msgs.Boolean)] (Lazy 0)
+[INFO] [1788176807.091798000] [ros_gz_bridge]: Creating ROS->GZ service bridge [/gz_ros/test/serviceclient/world_control (ros_gz_interfaces/srv/ControlWorld -> gz.msgs.WorldControl/gz.msgs.Boolean)]
+[INFO] [1788176809.568742000] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+[INFO] [1788176847.365077000] [rclcpp]: signal_handler(signum=2)

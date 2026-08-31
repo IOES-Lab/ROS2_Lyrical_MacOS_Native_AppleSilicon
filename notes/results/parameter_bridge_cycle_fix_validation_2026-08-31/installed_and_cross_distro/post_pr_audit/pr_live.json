@@ -1,0 +1,47 @@
+{
+  "commits": [
+    {
+      "authoredDate": "2026-08-31T09:55:56Z",
+      "authors": [
+        {
+          "email": "172019512+yeseorizi@users.noreply.github.com",
+          "id": "U_kgDOCkDPOA",
+          "login": "yeseorizi",
+          "name": "yeseorizi"
+        }
+      ],
+      "committedDate": "2026-08-31T11:43:50Z",
+      "messageBody": "Signed-off-by: yeseorizi <172019512+yeseorizi@users.noreply.github.com>",
+      "messageHeadline": "Break the parameter bridge handle ownership cycle",
+      "oid": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500"
+    }
+  ],
+  "headRefOid": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500",
+  "mergeable": "MERGEABLE",
+  "number": 952,
+  "reviewDecision": "REVIEW_REQUIRED",
+  "state": "OPEN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-08-31T11:43:54Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://probot.github.io/apps/dco/",
+      "name": "DCO",
+      "startedAt": "2026-08-31T11:43:54Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-08-31T11:44:30Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://dashboard.mergify.com/event-logs?pullRequestNumber=952&login=gazebosim&repository=ros_gz",
+      "name": "Summary",
+      "startedAt": "2026-08-31T11:44:30Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ],
+  "url": "https://github.com/gazebosim/ros_gz/pull/952"
+}

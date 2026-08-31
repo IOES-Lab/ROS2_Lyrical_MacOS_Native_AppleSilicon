@@ -6,8 +6,9 @@
 그룹으로 수정·검증했고, 2026-08-30에는 Mac DVL과 Docker software-WGPU sonar startup의
 격리 후보 2개를 추가했다. 2026-08-31에는 teardown focus 뒤 `parameter_bridge` ownership-cycle
 후보, sensor long/multi, USBL namespace, camera six-tag, fixed-seed sonar, Ocean tide/noise와
-Docker world replay를 더했다. 상류 DAVE/Gazebo checkout과 사용자 설치 workspace는 수정하지 않았으므로,
-아래의 `[x]`는 **격리된 후보 패치에서 검증 완료**라는 뜻이지 상류 병합 완료가 아니다.
+Docker world replay를 더했다. 대부분의 DAVE/Gazebo 후보는 여전히 격리본이지만,
+`ros_gz_bridge` ownership 후보는 2026-08-31 실제 사용자 workspace에도 적용·빌드·검증했다.
+아래의 `[x]`는 **명시된 후보 범위에서 검증 완료**라는 뜻이지 상류 병합 완료가 아니다.
 
 근거: [`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/) ·
 [`results/external_stack_validation_2026-08-29/`](results/external_stack_validation_2026-08-29/) ·
@@ -32,7 +33,7 @@ Docker world replay를 더했다. 상류 DAVE/Gazebo checkout과 사용자 설�
 - [x] fifth ROV sonar가 쓰이는 `dave_ocean_waves` world의 `MultibeamSonarSystem` 누락
 - [x] 세 BlueROV ArduSub launch의 invalid default speedup 경계 — 명시적 `--speedup 1`
 - [x] Docker software-WGPU/`llvmpipe` sonar startup crash — deferred-backend candidate runtime scope passes.
-- [x] `parameter_bridge` shutdown-only owner/handle cycle — focused baseline은 DAVE-sonar group shutdown 9/10 exit -11이었고 signal/order/tracing/node-reset 후보는 실패했다. Retained exact-`ros_gz` 3.0.9 후보는 `BridgeHandle` owner back-reference를 `WeakPtr`로 바꿔 bridge-first 20/20 clean, process-group 10/10 rc0, direct ROS→GZ 20/20, stock active camera/PointCloud 5/5 each를 통과했다. Normal isolated Lyrical install도 8/8 topic, 1/1 service, active teardown 10/10을 통과했고 ARM64 Jazzy/Kilted equivalent branch-local builds도 각각 8/8+1/1과 clean bridge exit를 통과했다. Read-only readiness review에서는 focused issue/PR search 8건의 duplicate가 0건이었고 project issue/PR template이 없음을 확인했다.
+- [x] `parameter_bridge` shutdown-only owner/handle cycle — focused baseline은 DAVE-sonar group shutdown 9/10 exit -11이었고 signal/order/tracing/node-reset 후보는 실패했다. WeakPtr 후보는 bridge-first 20/20 clean, process-group 10/10 rc0, direct ROS→GZ 20/20, stock active camera/PointCloud 5/5 each를 통과했다. Normal isolated install과 cross-distribution matrix에 이어 실제 사용자 workspace에서도 빌드, 24/24 bounded directions, generated mapping 73/73 payload each direction, repeat 5/5, lifecycle 11/11과 ordered bridge rc0를 통과했다. Issue [#951](https://github.com/gazebosim/ros_gz/issues/951)과 signed PR [#952](https://github.com/gazebosim/ros_gz/pull/952)이 열려 있다. 다만 ordered component는 3/3 topic·1/1 service assertion 뒤 `bridge_node` exit 139라 별도 결함으로 남는다.
 
 ## 현재 재검증에서 닫힌 failure 판정
 
@@ -55,7 +56,7 @@ Docker world replay를 더했다. 상류 DAVE/Gazebo checkout과 사용자 설�
 - [ ] **Fast DDS 과거 간헐 create hang의 인과 trigger** — 2026-08-31 fresh-Docker stress is 160/160 success across dirty default, 20-SIGKILL injection, official SHM cleanup and UDPv4 phases (40 each; max 5.861 s). The historical host 1/9 cause is still unproven, so only causal diagnosis remains open.
 - [x] **fresh Mac camera 과거 짧은 대기 실패 재판정** — exact Quickstart를 120초 창으로 default 3/3·UDPv4 3/3 반복했고 topic은 89.520–105.333초, image는 93.029–110.431초에 나타났다. 이전 짧은 관측의 topic 부재는 current camera/Fast DDS 결함이 아니라 이 환경의 startup latency였다.
 - [x] **current Docker recipe의 fresh `--no-cache` build와 rendered replay** — official BuildKit cache prune 뒤 current recipe가 66.917분, return code 0으로 완주했고 package/pin/artifact 검사가 통과했다. fresh image의 FreeRDP/xrdp login은 Xorg `:10`·XFCE를 만들었고, framebuffer에서 Gazebo와 QGC Ready/Manual을 확인했으며 MAVROS는 `connected: true`, MANUAL이었다. 이전 exact cache image의 Windows App replay와 fresh FreeRDP replay는 별도 근거로 보존한다.
-- [ ] **Heavy-multibeam deferred-backend·`parameter_bridge` ownership-cycle 후보의 상류·installed 적용과 hardware GPU 대조** — startup/control/soak, fixed-seed determinism and the isolated bridge teardown candidate pass. The constrained `ros_gz_bridge` package suite passed 17/18 CTest targets; the only remote-schema `xmllint` timeout passed when the canonical schema was supplied locally. Upstream merge, ordinary-workspace application, Humble runtime, x86_64, exhaustive message/service coverage and real hardware GPU remain open.
+- [ ] **Heavy-multibeam hardware GPU 대조·bridge 상류 merge·macOS component teardown** — deferred-backend startup/control/soak와 fixed-seed determinism은 후보 범위에서 통과했다. `parameter_bridge`는 actual-workspace 적용과 generated topic 73쌍 양방향 payload까지 끝났고 PR #952가 열렸다. 남은 것은 maintainer review/merge, native x86_64, Windows, 실제 Docker hardware WGPU/NVIDIA CUDA다. 별도로 ordered `bridge_node`는 payload/service 4/4 뒤 SIGINT exit 139, test helper는 mutex abort가 남아 있어 ownership PR의 완료 범위와 분리한다.
 
 ## 과학적·장시간·설계 범위
 
@@ -70,7 +71,7 @@ Docker world replay를 더했다. 상류 DAVE/Gazebo checkout과 사용자 설�
 
 - [ ] 2026-08-29~31 후보 패치를 상류 이슈/PR 단위로 분리하고 API 호환성 검토.
   특히 Spherical의 세 response `success` 필드는 breaking interface change다.
-- [ ] 상류 이슈 초안 11건을 검토한 뒤 제출 여부·명의·순서 결정. 9번은 WGPU range-grid,
+- [ ] 상류 이슈 기록 11건 중 bridge lifecycle은 [gazebosim/ros_gz#951](https://github.com/gazebosim/ros_gz/issues/951), signed fix는 [gazebosim/ros_gz#952](https://github.com/gazebosim/ros_gz/pull/952)로 제출 완료(DCO PASS, review/merge 대기). 나머지 10건은 제출 여부·명의·순서 결정 대기. 9번은 WGPU range-grid,
   10번은 deferred-backend startup, 11번은 `gazebosim/ros_gz` bridge ownership cycle이며 기존
   6번은 historical/do-not-file이다.
 - [ ] `package.xml` 의존성 PR, 저장소 이름 변경, LICENSE 선택.

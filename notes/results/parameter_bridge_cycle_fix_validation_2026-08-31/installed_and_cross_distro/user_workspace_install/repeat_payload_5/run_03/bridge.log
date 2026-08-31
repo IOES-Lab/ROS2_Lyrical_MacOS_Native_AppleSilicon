@@ -1,0 +1,4 @@
+[INFO] [1788173146.902235000] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/stress_g2r_03 (gz.msgs.StringMsg) -> /stress_g2r_03 (std_msgs/msg/String)] (Lazy 0)
+[INFO] [1788173147.233495000] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/stress_r2g_03 (std_msgs/msg/String) -> /stress_r2g_03 (gz.msgs.StringMsg)] (Lazy 0)
+[INFO] [1788173166.104739000] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+[INFO] [1788173170.782138000] [rclcpp]: signal_handler(signum=2)

@@ -1,0 +1,5 @@
+waiting for service to become available...
+requester: making request: ros_gz_interfaces.srv.DeleteEntity_Request(entity=ros_gz_interfaces.msg.Entity(id=0, name='bridge_box', type=2))
+
+response:
+ros_gz_interfaces.srv.DeleteEntity_Response(success=True)

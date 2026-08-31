@@ -1,0 +1,1 @@
+INVALID: capture began before all 24 bridges completed creation; excluded from positive evidence.

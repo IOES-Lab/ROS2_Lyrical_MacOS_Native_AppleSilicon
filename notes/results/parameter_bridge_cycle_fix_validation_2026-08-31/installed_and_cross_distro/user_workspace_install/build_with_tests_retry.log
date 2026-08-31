@@ -1,0 +1,15 @@
+Starting >>> ros_gz_bridge
+--- stderr: ros_gz_bridge
+ld: library 'gtest' not found
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [test_rcl_interfaces] Error 1
+make[1]: *** [CMakeFiles/test_rcl_interfaces.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2
+make: INTERNAL: Exiting with 9 jobserver tokens available; should be 8!
+---
+Failed   <<< ros_gz_bridge [1min 33s, exited with code 2]
+
+Summary: 0 packages finished [1min 34s]
+  1 package failed: ros_gz_bridge
+  1 package had stderr output: ros_gz_bridge

@@ -1,0 +1,3 @@
+payload_runs=5/5
+clean_bridge_exit=5/5
+escalation_none=5/5

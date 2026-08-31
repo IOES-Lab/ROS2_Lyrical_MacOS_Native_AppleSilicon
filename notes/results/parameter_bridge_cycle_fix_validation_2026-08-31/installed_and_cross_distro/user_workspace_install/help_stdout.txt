@@ -1,0 +1,32 @@
+Bridge a collection of ROS2 and Gazebo Transport topics and services.
+
+  parameter_bridge [<topic@ROS2_type@Ign_type> ..]  [<service@ROS2_srv_type[@Ign_req_type@Ign_rep_type]> ..]
+
+Topics: The first @ symbol delimits the topic name from the message types.
+Following the first @ symbol is the ROS message type.
+The ROS message type is followed by an @, [, or ] symbol where
+    @  == a bidirectional bridge,
+    [  == a bridge from Gazebo to ROS,
+    ]  == a bridge from ROS to Gazebo.
+Following the direction symbol is the Gazebo Transport message type.
+
+Services: The first @ symbol delimits the service name from the types.
+Following the first @ symbol is the ROS service type.
+Optionally, you can include the Gazebo request and response type
+separated by the @ symbol.
+It is only supported to expose Gazebo services as ROS services, i.e.
+the ROS service will forward request to the Gazebo service and then forward
+the response back to the ROS client.
+
+A bidirectional bridge example:
+    parameter_bridge /chatter@std_msgs/String@gz.msgs.StringMsg
+
+A bridge from Gazebo to ROS example:
+    parameter_bridge /chatter@std_msgs/String[gz.msgs.StringMsg
+
+A bridge from ROS to Gazebo example:
+    parameter_bridge /chatter@std_msgs/String]gz.msgs.StringMsg
+A service bridge:
+    parameter_bridge /world/default/control@ros_gz_interfaces/srv/ControlWorld
+Or equivalently:
+    parameter_bridge /world/default/control@ros_gz_interfaces/srv/ControlWorld@gz.msgs.WorldControl@gz.msgs.Boolean

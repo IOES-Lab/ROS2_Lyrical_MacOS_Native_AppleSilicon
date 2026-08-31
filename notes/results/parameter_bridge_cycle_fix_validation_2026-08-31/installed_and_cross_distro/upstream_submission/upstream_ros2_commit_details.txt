@@ -1,0 +1,3 @@
+2ee8a5c716d1838de0b7ac817638ad5e9304955e
+2026-08-21
+Fix entity type values in sim tools and docs (#927)

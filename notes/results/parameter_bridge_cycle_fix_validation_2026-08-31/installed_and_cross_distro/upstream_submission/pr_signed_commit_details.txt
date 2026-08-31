@@ -1,0 +1,7 @@
+commit 86910a32efe28624ec489ae5ce5cdcfb5a2ec500
+Author: yeseorizi <172019512+yeseorizi@users.noreply.github.com>
+Commit: yeseorizi <172019512+yeseorizi@users.noreply.github.com>
+
+    Break the parameter bridge handle ownership cycle
+
+    Signed-off-by: yeseorizi <172019512+yeseorizi@users.noreply.github.com>

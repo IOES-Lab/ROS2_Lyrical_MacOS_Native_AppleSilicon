@@ -1,0 +1,6 @@
+ordinary_layout_runtime=PASS
+topic_conversions=24/24
+unique_topic_type_pairs=13
+service_factories=4/4
+topic_exit=0
+service_exit=0

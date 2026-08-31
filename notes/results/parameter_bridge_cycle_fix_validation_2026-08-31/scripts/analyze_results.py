@@ -65,7 +65,10 @@ assert followup_summary["lyrical_normal_install"]["topic_matrix"] == "8/8"
 assert followup_summary["lyrical_normal_install"]["service_matrix"] == "1/1"
 assert followup_summary["cross_distribution"]["jazzy"]["source_overlay_build"] == "PASS"
 assert followup_summary["cross_distribution"]["kilted"]["source_overlay_build"] == "PASS"
-assert followup_summary["cross_distribution"]["humble"]["build_runtime"] == "NOT RUN"
+assert followup_summary["cross_distribution"]["humble"]["source_overlay_build"] == "PASS"
+assert followup_summary["actual_user_workspace"]["generated_topic_payloads_each_direction"] == "73/73"
+assert followup_summary["actual_user_workspace"]["ordered_bridge_rc"] == 0
+assert followup_summary["upstream_submission"]["pull_request"].endswith("/952")
 
 summary = {
     "date": "2026-08-31",
@@ -131,8 +134,47 @@ summary = {
             "service_matrix": "1/1",
             "bridge_exit": 0,
         },
-        "humble": "static branch-local adaptation only; build/runtime not run",
-        "scope": "Small representative matrix, not exhaustive conversion coverage",
+        "humble_arm64": {
+            "equivalent_branch_local_build": "PASS",
+            "topic_matrix": "8/8",
+            "service_matrix": "1/1",
+            "bridge_exit": 0,
+        },
+        "jazzy_amd64_emulated": {
+            "source_overlay_build": "PASS",
+            "topic_matrix": "8/8",
+            "service_matrix": "1/1",
+            "bridge_exit": 0,
+        },
+        "ordinary_layout": {
+            "topic_directions": "24/24",
+            "unique_type_pairs": 13,
+            "service_factories": "4/4",
+        },
+        "actual_user_workspace": {
+            "candidate_files_match_signed_pr": "4/4",
+            "preexisting_cmake_edits_preserved": "2/2",
+            "build": "PASS",
+            "generated_mapping_pairs": "73/73",
+            "generated_payload_assertions_each_direction": "73/73",
+            "ordered_bridge_exit": 0,
+            "repeated_payload_runs": "5/5",
+            "lifecycle_runs": "11/11",
+        },
+        "separate_component_teardown": {
+            "topic_assertions": "3/3",
+            "service_assertions": "1/1",
+            "test_helper_rc": 134,
+            "bridge_node_rc": 139,
+        },
+    },
+    "upstream_submission": {
+        "issue": "https://github.com/gazebosim/ros_gz/issues/951",
+        "pull_request": "https://github.com/gazebosim/ros_gz/pull/952",
+        "signed_commit": "86910a32efe28624ec489ae5ce5cdcfb5a2ec500",
+        "dco": "PASS",
+        "mergeable": "MERGEABLE",
+        "review": "REQUIRED",
     },
     "upstream_package_suite": {
         "constrained_build": "PASS",
@@ -153,8 +195,10 @@ summary = {
         ),
     },
     "scope": [
-        "The candidate passes a normal isolated source/install overlay and equivalent Jazzy/Kilted ARM64 branch-local overlays; it is not merged upstream or installed in the user ordinary workspaces.",
-        "The result validates the tested bridge ownership and shutdown paths, not every ROS/Gazebo message type.",
+        "The candidate is installed and built in the actual user ros_gz workspace while preserving two unrelated CMake edits; it is open as PR #952 but is not merged upstream.",
+        "Every generated topic mapping registered by this checkout passed a payload assertion in both directions; this remains bounded to this checkout and does not replace upstream CI.",
+        "The separate macOS component/test-helper path passes its ordered payload and service assertions before helper rc 134 and bridge_node SIGINT exit 139; PR #952 does not claim to fix it.",
+        "The actual Mac Gazebo service-world rerun is blocked by an unrelated Homebrew FFmpeg ABI mismatch; isolated service factories pass 4/4.",
         "One of 20 bridge-first DAVE runs needed TERM for the remaining simulator launch after the bridge had already exited cleanly; it is not counted as a bridge failure.",
         "Two exploratory harnesses are explicitly marked invalid and excluded from this verdict.",
         "The first BUILD_TESTING attempt used unconstrained parallel compilation and was killed "

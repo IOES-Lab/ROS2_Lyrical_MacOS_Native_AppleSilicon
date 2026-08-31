@@ -1,0 +1,4 @@
+requester: making request: ros_gz_interfaces.srv.SetEntityPose_Request(entity=ros_gz_interfaces.msg.Entity(id=0, name='bridge_box', type=2), pose=geometry_msgs.msg.Pose(position=geometry_msgs.msg.Point(x=2.0, y=0.0, z=0.5), orientation=geometry_msgs.msg.Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)))
+
+response:
+ros_gz_interfaces.srv.SetEntityPose_Response(success=True)
