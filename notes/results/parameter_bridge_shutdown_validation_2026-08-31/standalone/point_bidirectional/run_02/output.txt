@@ -1,0 +1,6 @@
+[INFO] [1788132095.802753422] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [1788132095.806209963] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2) -> /sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked)] (Lazy 0)
+[INFO] [1788132098.515245090] [rclcpp]: signal_handler(signum=2)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788132098.516951590] [rclcpp]: signal_handler(signum=2)
+__RESULT__ rc=0 escalation=none

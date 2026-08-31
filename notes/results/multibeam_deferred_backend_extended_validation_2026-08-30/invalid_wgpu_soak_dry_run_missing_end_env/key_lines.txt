@@ -1,0 +1,9 @@
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] GPU #1     |   11.8 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[gazebo-1] [sonar_wgpu] GPU #50    |  321.9 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #100   |  319.7 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #150   |  345.9 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #200   |  321.8 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #250   |  348.3 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #300   |  704.6 ms | 513 beams × 31 rays × 399 freq

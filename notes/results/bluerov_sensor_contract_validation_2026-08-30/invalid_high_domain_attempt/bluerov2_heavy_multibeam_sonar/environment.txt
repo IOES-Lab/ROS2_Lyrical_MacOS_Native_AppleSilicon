@@ -1,0 +1,5 @@
+variant=bluerov2_heavy_multibeam_sonar
+backend=auto
+image=dave-sonar-deferred-compute-test:20260830
+ROS_DOMAIN_ID=224
+GZ_PARTITION=sensor_audit_bluerov2_heavy_multibeam_sonar_96324

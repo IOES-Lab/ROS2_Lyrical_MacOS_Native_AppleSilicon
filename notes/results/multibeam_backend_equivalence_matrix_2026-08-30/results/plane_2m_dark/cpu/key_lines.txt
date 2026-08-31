@@ -1,0 +1,5 @@
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: cpu
+[gazebo-1] [sonar_compute_factory] Creating CPU backend
+[ERROR] [static_transform_publisher-4]: process has died [pid 49, exit code -2, cmd '/opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args'].
+[ERROR] [parameter_bridge-3]: process has died [pid 47, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args'].
+[ERROR] [gazebo-1]: process has died [pid 45, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/plane_2m_dark.world -s -r --force-version 10'].

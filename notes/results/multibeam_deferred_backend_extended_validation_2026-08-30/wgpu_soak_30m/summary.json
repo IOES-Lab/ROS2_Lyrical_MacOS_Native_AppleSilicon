@@ -1,0 +1,80 @@
+{
+  "duration_target_minutes": 30,
+  "resource_sample_count": 31,
+  "elapsed_s_first": 0,
+  "elapsed_s_last": 1861,
+  "backend_ready": true,
+  "payload": {
+    "point_start_513x301": true,
+    "point_end_513x301": true,
+    "raw_start_513x399": true,
+    "raw_end_513x399": true
+  },
+  "gpu_frames": {
+    "first": 100,
+    "last": 3950,
+    "delta": 3850
+  },
+  "stable_window": {
+    "definition": "elapsed_s >= 300; sample 0/startup excluded",
+    "sample_count": 26,
+    "container_mem_bytes_min": 706425651,
+    "container_mem_bytes_median": 708837375.5,
+    "container_mem_bytes_max": 714604544,
+    "container_mem_slope_bytes_per_hour": 3256554.5038551814,
+    "gz_rss_kib_min": 664988,
+    "gz_rss_kib_median": 666060.0,
+    "gz_rss_kib_max": 667444,
+    "gz_rss_slope_kib_per_hour": 6396.802187904182
+  },
+  "world_stats_samples": [
+    {
+      "file": "world_stats_mid.txt",
+      "messages": 100,
+      "first_iteration": 166289,
+      "last_iteration": 168764,
+      "iteration_delta": 2475,
+      "endpoint_delta_rtf": 0.17635238123972713,
+      "reported_rtf_median": 0.020654257055029546,
+      "reported_rtf_min": 0.0044378411143798915,
+      "reported_rtf_max": 1.0031347962382444
+    },
+    {
+      "file": "world_stats_sample_1.txt",
+      "messages": 50,
+      "first_iteration": 204272,
+      "last_iteration": 205559,
+      "iteration_delta": 1287,
+      "endpoint_delta_rtf": 0.18753902502959627,
+      "reported_rtf_median": 0.022676392736457763,
+      "reported_rtf_min": 0.005016868165664733,
+      "reported_rtf_max": 0.9770004328111918
+    },
+    {
+      "file": "world_stats_sample_2.txt",
+      "messages": 50,
+      "first_iteration": 237470,
+      "last_iteration": 238703,
+      "iteration_delta": 1233,
+      "endpoint_delta_rtf": 0.17873284277431817,
+      "reported_rtf_median": 0.02369868959317515,
+      "reported_rtf_min": 0.005252657197151759,
+      "reported_rtf_max": 0.9619620948456147
+    },
+    {
+      "file": "world_stats_sample_3.txt",
+      "messages": 50,
+      "first_iteration": 270239,
+      "last_iteration": 271493,
+      "iteration_delta": 1254,
+      "endpoint_delta_rtf": 0.1917144475203215,
+      "reported_rtf_median": 0.017248462104694252,
+      "reported_rtf_min": 0.005926155667617053,
+      "reported_rtf_max": 0.2658454523413541
+    }
+  ],
+  "runtime_segfault_or_stack_trace": false,
+  "bridge_shutdown_exit_minus_11": false,
+  "launch_rc": 143,
+  "interpretation": "Memory slopes describe this bounded software-llvmpipe run only; a positive slope is not by itself called a leak."
+}

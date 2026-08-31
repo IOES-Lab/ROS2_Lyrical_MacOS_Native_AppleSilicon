@@ -1,0 +1,15 @@
+Starting >>> wgpu_vendor
+--- stderr: wgpu_vendor
+   Compiling sonar_wgpu v0.1.0 (/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust)
+    Finished `release` profile [optimized] target(s) in 44.37s
+---
+Finished <<< wgpu_vendor [46.2s]
+
+Summary: 1 package finished [46.4s]
+  1 package had stderr output: wgpu_vendor
+Starting >>> multibeam_sonar
+Finished <<< multibeam_sonar [11.3s]
+
+Summary: 1 package finished [11.4s]
+9d2835b6824085e15d0375d0d7faf98bea440a10ac6da0cfb5558579ba9d127e  install/lib/libsonar_wgpu.a
+1f63f0d7752698a2e86ce52aa498e7f8a953a2bcc379baac0aa74cd3f96742c3  install/lib/multibeam_sonar/libmultibeam_sonar.so

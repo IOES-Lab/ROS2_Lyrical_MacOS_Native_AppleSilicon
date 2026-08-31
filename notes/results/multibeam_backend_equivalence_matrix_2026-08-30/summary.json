@@ -1,0 +1,438 @@
+{
+  "case_count": 6,
+  "backends": [
+    "cpu",
+    "wgpu_llvmpipe"
+  ],
+  "details": {
+    "plane_2m_dark": {
+      "expected_range_m": 2.0,
+      "point_shape": [
+        301,
+        513,
+        3
+      ],
+      "raw_shape": [
+        399,
+        513
+      ],
+      "common_finite_points": 154413,
+      "point_xyz_wgpu_minus_cpu": {
+        "count": 463239,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_radial_wgpu_minus_cpu_m": {
+        "count": 154413,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity_wgpu_minus_cpu": {
+        "count": 154413,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame_wgpu_minus_cpu": {
+        "count": 58482,
+        "mae": 138.04449513133875,
+        "rmse": 139.03061836931545,
+        "max_abs": 208.9787139892578
+      },
+      "raw_frame_alignment_limit": "The first observed CPU and WGPU frames are not guaranteed to share the same internal frameIndex; raw-array errors are descriptive, not a same-random-state equivalence proof.",
+      "cpu": {
+        "center_range_median": 2.0000078678131104,
+        "center_error_median": 7.867813110351562e-06,
+        "raw_peak_range_median": 1.9816054105758667,
+        "raw_peak_error_median": -0.0183945894241333,
+        "expected_bin_ranks": [
+          3,
+          3,
+          3
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 1
+      },
+      "wgpu": {
+        "center_range_median": 2.0000078678131104,
+        "center_error_median": 7.867813110351562e-06,
+        "raw_peak_range_median": 2.5836119651794434,
+        "raw_peak_error_median": 0.5836119651794434,
+        "expected_bin_ranks": [
+          29,
+          51,
+          38
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 3
+      }
+    },
+    "plane_4m_dark": {
+      "expected_range_m": 4.0,
+      "point_shape": [
+        301,
+        513,
+        3
+      ],
+      "raw_shape": [
+        399,
+        513
+      ],
+      "common_finite_points": 133343,
+      "point_xyz_wgpu_minus_cpu": {
+        "count": 400029,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_radial_wgpu_minus_cpu_m": {
+        "count": 133343,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity_wgpu_minus_cpu": {
+        "count": 133343,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame_wgpu_minus_cpu": {
+        "count": 69255,
+        "mae": 133.52149711196202,
+        "rmse": 135.70542672534103,
+        "max_abs": 281.35546875
+      },
+      "raw_frame_alignment_limit": "The first observed CPU and WGPU frames are not guaranteed to share the same internal frameIndex; raw-array errors are descriptive, not a same-random-state equivalence proof.",
+      "cpu": {
+        "center_range_median": 4.000016212463379,
+        "center_error_median": 1.621246337890625e-05,
+        "raw_peak_range_median": 3.9882943630218506,
+        "raw_peak_error_median": -0.011705636978149414,
+        "expected_bin_ranks": [
+          1,
+          1,
+          1
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 1
+      },
+      "wgpu": {
+        "center_range_median": 4.000016212463379,
+        "center_error_median": 1.621246337890625e-05,
+        "raw_peak_range_median": 5.1421403884887695,
+        "raw_peak_error_median": 1.1421403884887695,
+        "expected_bin_ranks": [
+          82,
+          76,
+          142
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 3
+      }
+    },
+    "plane_4m_bright": {
+      "expected_range_m": 4.0,
+      "point_shape": [
+        301,
+        513,
+        3
+      ],
+      "raw_shape": [
+        399,
+        513
+      ],
+      "common_finite_points": 133343,
+      "point_xyz_wgpu_minus_cpu": {
+        "count": 400029,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_radial_wgpu_minus_cpu_m": {
+        "count": 133343,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity_wgpu_minus_cpu": {
+        "count": 133343,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame_wgpu_minus_cpu": {
+        "count": 69255,
+        "mae": 133.52149711196202,
+        "rmse": 135.70542672534103,
+        "max_abs": 281.35546875
+      },
+      "raw_frame_alignment_limit": "The first observed CPU and WGPU frames are not guaranteed to share the same internal frameIndex; raw-array errors are descriptive, not a same-random-state equivalence proof.",
+      "cpu": {
+        "center_range_median": 4.000016212463379,
+        "center_error_median": 1.621246337890625e-05,
+        "raw_peak_range_median": 3.9882943630218506,
+        "raw_peak_error_median": -0.011705636978149414,
+        "expected_bin_ranks": [
+          1,
+          1,
+          1
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 1
+      },
+      "wgpu": {
+        "center_range_median": 4.000016212463379,
+        "center_error_median": 1.621246337890625e-05,
+        "raw_peak_range_median": 5.1421403884887695,
+        "raw_peak_error_median": 1.1421403884887695,
+        "expected_bin_ranks": [
+          82,
+          76,
+          142
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 3
+      }
+    },
+    "plane_7m_dark": {
+      "expected_range_m": 7.0,
+      "point_shape": [
+        301,
+        513,
+        3
+      ],
+      "raw_shape": [
+        399,
+        513
+      ],
+      "common_finite_points": 96019,
+      "point_xyz_wgpu_minus_cpu": {
+        "count": 288057,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_radial_wgpu_minus_cpu_m": {
+        "count": 96019,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity_wgpu_minus_cpu": {
+        "count": 96019,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame_wgpu_minus_cpu": {
+        "count": 49248,
+        "mae": 131.08334504244704,
+        "rmse": 133.5917705680564,
+        "max_abs": 279.16190338134766
+      },
+      "raw_frame_alignment_limit": "The first observed CPU and WGPU frames are not guaranteed to share the same internal frameIndex; raw-array errors are descriptive, not a same-random-state equivalence proof.",
+      "cpu": {
+        "center_range_median": 7.000027656555176,
+        "center_error_median": 2.765655517578125e-05,
+        "raw_peak_range_median": 6.998327732086182,
+        "raw_peak_error_median": -0.0016722679138183594,
+        "expected_bin_ranks": [
+          1,
+          1,
+          1
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 1
+      },
+      "wgpu": {
+        "center_range_median": 7.000027656555176,
+        "center_error_median": 2.765655517578125e-05,
+        "raw_peak_range_median": 8.97993278503418,
+        "raw_peak_error_median": 1.9799327850341797,
+        "expected_bin_ranks": [
+          353,
+          113,
+          114
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 3
+      }
+    },
+    "sphere_4m_bright": {
+      "expected_range_m": 4.0,
+      "point_shape": [
+        301,
+        513,
+        3
+      ],
+      "raw_shape": [
+        399,
+        513
+      ],
+      "common_finite_points": 6275,
+      "point_xyz_wgpu_minus_cpu": {
+        "count": 18825,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_radial_wgpu_minus_cpu_m": {
+        "count": 6275,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity_wgpu_minus_cpu": {
+        "count": 6275,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame_wgpu_minus_cpu": {
+        "count": 9747,
+        "mae": 112.88114809613106,
+        "rmse": 115.4965172657326,
+        "max_abs": 222.43489837646484
+      },
+      "raw_frame_alignment_limit": "The first observed CPU and WGPU frames are not guaranteed to share the same internal frameIndex; raw-array errors are descriptive, not a same-random-state equivalence proof.",
+      "cpu": {
+        "center_range_median": 4.001169681549072,
+        "center_error_median": 0.0011696815490722656,
+        "raw_peak_range_median": 3.9882943630218506,
+        "raw_peak_error_median": -0.011705636978149414,
+        "expected_bin_ranks": [
+          1,
+          1,
+          1
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 1
+      },
+      "wgpu": {
+        "center_range_median": 4.001169681549072,
+        "center_error_median": 0.0011696815490722656,
+        "raw_peak_range_median": 5.167223930358887,
+        "raw_peak_error_median": 1.1672239303588867,
+        "expected_bin_ranks": [
+          69,
+          99,
+          130
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 3
+      }
+    },
+    "cylinder_4m_bright": {
+      "expected_range_m": 4.0,
+      "point_shape": [
+        301,
+        513,
+        3
+      ],
+      "raw_shape": [
+        399,
+        513
+      ],
+      "common_finite_points": 15351,
+      "point_xyz_wgpu_minus_cpu": {
+        "count": 46053,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_radial_wgpu_minus_cpu_m": {
+        "count": 15351,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity_wgpu_minus_cpu": {
+        "count": 15351,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame_wgpu_minus_cpu": {
+        "count": 11286,
+        "mae": 112.91753438983623,
+        "rmse": 117.59351610807094,
+        "max_abs": 245.0166778564453
+      },
+      "raw_frame_alignment_limit": "The first observed CPU and WGPU frames are not guaranteed to share the same internal frameIndex; raw-array errors are descriptive, not a same-random-state equivalence proof.",
+      "cpu": {
+        "center_range_median": 4.000785827636719,
+        "center_error_median": 0.00078582763671875,
+        "raw_peak_range_median": 3.9882943630218506,
+        "raw_peak_error_median": -0.011705636978149414,
+        "expected_bin_ranks": [
+          1,
+          1,
+          1
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 1
+      },
+      "wgpu": {
+        "center_range_median": 4.000785827636719,
+        "center_error_median": 0.00078582763671875,
+        "raw_peak_range_median": 5.1421403884887695,
+        "raw_peak_error_median": 1.1421403884887695,
+        "expected_bin_ranks": [
+          127,
+          93,
+          132
+        ],
+        "unique_point_hashes": 1,
+        "unique_raw_hashes": 3
+      }
+    }
+  },
+  "visual_material_control": {
+    "cpu": {
+      "point_xyz": {
+        "count": 400029,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity": {
+        "count": 154413,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame": {
+        "count": 69255,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "interpretation_limit": "Visual diffuse color is not a calibrated acoustic reflectivity coefficient, and observed frames are not frameIndex-aligned."
+    },
+    "wgpu": {
+      "point_xyz": {
+        "count": 400029,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "point_intensity": {
+        "count": 154413,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "raw_first_observed_frame": {
+        "count": 204687,
+        "mae": 0.0,
+        "rmse": 0.0,
+        "max_abs": 0.0
+      },
+      "interpretation_limit": "Visual diffuse color is not a calibrated acoustic reflectivity coefficient, and observed frames are not frameIndex-aligned."
+    }
+  },
+  "scope": "Controlled Gazebo geometry comparison. Point-cloud geometry and raw peak placement are evaluated separately. This is not real-material or general acoustic-accuracy validation."
+}

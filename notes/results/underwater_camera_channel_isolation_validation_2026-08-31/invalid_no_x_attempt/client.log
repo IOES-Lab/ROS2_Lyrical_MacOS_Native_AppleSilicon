@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/docker/camera_channel_isolation_20260831/capture_matrix.py", line 25, in <module>
+    missing=sorted(set(NAMES)-set(node.frames)); raise TimeoutError(f'missing={missing} counts={node.count}')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: missing=['ucam_atten_b_only', 'ucam_atten_base', 'ucam_atten_g_only', 'ucam_atten_r_only', 'ucam_bg_b_only', 'ucam_bg_g_only', 'ucam_bg_r_only', 'ucam_control'] counts={'ucam_control': 0, 'ucam_atten_base': 0, 'ucam_atten_r_only': 0, 'ucam_atten_g_only': 0, 'ucam_atten_b_only': 0, 'ucam_bg_r_only': 0, 'ucam_bg_g_only': 0, 'ucam_bg_b_only': 0}

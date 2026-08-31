@@ -1,0 +1,1 @@
+INVALID HARNESS ATTEMPT: set -u was enabled before sourcing /opt/ros/lyrical/setup.bash; AMENT_TRACE_SETUP_FILES was unset. Excluded.

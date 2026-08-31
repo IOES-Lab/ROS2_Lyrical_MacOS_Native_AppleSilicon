@@ -1,0 +1,155 @@
+{
+  "verdict": "PASS",
+  "counts": {
+    "nortek_dvl500_300": 20,
+    "nortek_dvl500_6000": 20,
+    "nortek_dvl1000_300": 20,
+    "nortek_dvl1000_4000": 20,
+    "sonardyne_syrinx600": 20,
+    "teledyne_explorer1000": 20,
+    "teledyne_explorer4000": 20,
+    "teledyne_whn": 20
+  },
+  "checks": {
+    "all_eight_reached_target": true,
+    "all_four_beams": true,
+    "all_bottom_lock": true,
+    "all_nonempty_frame_ids": true,
+    "eight_distinct_frame_ids": true,
+    "all_rates_match_descriptor": true
+  },
+  "statistics": {
+    "nortek_dvl500_300": {
+      "count": 20,
+      "sim_duration_s": 2.308,
+      "median_period_s": 0.125,
+      "frame_ids": [
+        "nortek_dvl500_300::dvl500_base_link::nortek_dvl500_300"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "nortek_dvl500_6000": {
+      "count": 20,
+      "sim_duration_s": 2.308,
+      "median_period_s": 0.125,
+      "frame_ids": [
+        "nortek_dvl500_6000::dvl500_base_link::nortek_dvl500_6000"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "nortek_dvl1000_300": {
+      "count": 20,
+      "sim_duration_s": 2.308,
+      "median_period_s": 0.125,
+      "frame_ids": [
+        "nortek_dvl1000_300::dvl1000_base_link::nortek_dvl1000_300"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "nortek_dvl1000_4000": {
+      "count": 20,
+      "sim_duration_s": 2.308,
+      "median_period_s": 0.125,
+      "frame_ids": [
+        "nortek_dvl1000_4000::dvl1000_base_link::nortek_dvl1000_4000"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "sonardyne_syrinx600": {
+      "count": 20,
+      "sim_duration_s": 2.308,
+      "median_period_s": 0.125,
+      "frame_ids": [
+        "sonardyne_syrinx600::syrinx600_base_link::sonardyne_syrinx600"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "teledyne_explorer1000": {
+      "count": 20,
+      "sim_duration_s": 1.5770000000000002,
+      "median_period_s": 0.08299999999999996,
+      "frame_ids": [
+        "teledyne_explorer1000::explorer_base_link::teledyne_explorer1000"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "teledyne_explorer4000": {
+      "count": 20,
+      "sim_duration_s": 1.5770000000000002,
+      "median_period_s": 0.08299999999999996,
+      "frame_ids": [
+        "teledyne_explorer4000::explorer4000_base_link::teledyne_explorer4000"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    },
+    "teledyne_whn": {
+      "count": 20,
+      "sim_duration_s": 2.6990000000000003,
+      "median_period_s": 0.142,
+      "frame_ids": [
+        "teledyne_whn::whn_base_link::teledyne_whn_dsl"
+      ],
+      "beam_lengths": [
+        4
+      ],
+      "target_types": [
+        "DVL_TARGET_BOTTOM"
+      ]
+    }
+  },
+  "total_messages": 160,
+  "scope": "Eight distinct DAVE DVL descriptors ran simultaneously against one planar bottom for 20 messages each.",
+  "limitations": [
+    "Synthetic planar bottom only",
+    "single Docker run",
+    "20 messages per device (160 total)",
+    "not physical calibration or water-mass accuracy",
+    "simulator teardown emitted the separately tracked DAVE DVL bridge shutdown stack trace after capture"
+  ],
+  "configured_rates_hz": {
+    "nortek_dvl500_300": 8.0,
+    "nortek_dvl500_6000": 8.0,
+    "nortek_dvl1000_300": 8.0,
+    "nortek_dvl1000_4000": 8.0,
+    "sonardyne_syrinx600": 8.0,
+    "teledyne_explorer1000": 12.0,
+    "teledyne_explorer4000": 12.0,
+    "teledyne_whn": 7.0
+  },
+  "analysis_note": "The runtime capture completed. Its first verdict incorrectly assumed every descriptor was 8 Hz; this reanalysis reads 8/12/7 Hz directly from the embedded model descriptors."
+}

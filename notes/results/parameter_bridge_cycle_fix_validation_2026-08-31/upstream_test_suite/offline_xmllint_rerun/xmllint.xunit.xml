@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="tmp.xmllint"
+  tests="1"
+  errors="0"
+  failures="0"
+  time="0.004"
+>
+  <testcase
+    name="../../tmp/package.xml"
+    classname="tmp.xmllint"/>
+  <system-out>Checked files:
+* ../../tmp/package.xml</system-out>
+</testsuite>

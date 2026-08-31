@@ -1,0 +1,3 @@
+[INFO] [1788153082.132013757] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cycle_ros_to_gz (std_msgs/msg/String) -> /cycle_ros_to_gz (gz.msgs.StringMsg)] (Lazy 0)
+[INFO] [1788153086.894077925] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+[INFO] [1788153087.181062134] [rclcpp]: signal_handler(signum=2)

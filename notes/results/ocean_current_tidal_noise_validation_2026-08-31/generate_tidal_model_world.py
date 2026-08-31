@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+from pathlib import Path
+
+
+root = Path(__file__).resolve().parent / "test_assets"
+root.mkdir(parents=True, exist_ok=True)
+
+
+def probe(name: str, tide: bool, y: float) -> str:
+    return f"""
+    <model name="{name}">
+      <static>true</static>
+      <pose>0 {y} -5 0 0 0</pose>
+      <link name="base_link"/>
+      <plugin filename="OceanCurrentModelPlugin"
+              name="dave_gz_model_plugins::OceanCurrentModelPlugin">
+        <namespace>{name}</namespace>
+        <flow_velocity_topic>ocean_current</flow_velocity_topic>
+        <transient_current>
+          <topic_stratified>hydrodynamics/stratified_current_velocity_topic_database</topic_stratified>
+          <velocity_north><mean>0</mean><mu>0</mu><noiseAmp>0</noiseAmp><noiseFreq>0</noiseFreq></velocity_north>
+          <velocity_east><mean>0</mean><mu>0</mu><noiseAmp>0</noiseAmp><noiseFreq>0</noiseFreq></velocity_east>
+          <velocity_down><mean>0</mean><mu>0</mu><noiseAmp>0</noiseAmp><noiseFreq>0</noiseFreq></velocity_down>
+        </transient_current>
+        <tide_oscillation>{str(tide).lower()}</tide_oscillation>
+      </plugin>
+    </model>"""
+
+
+world = f"""<?xml version="1.0"?>
+<sdf version="1.10">
+  <world name="tidal_model_path">
+    <physics name="fast" type="ignored">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>20</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="OceanCurrentWorldPlugin"
+            name="dave_gz_world_plugins::OceanCurrentWorldPlugin">
+      <namespace>hydrodynamics</namespace>
+      <constant_current>
+        <use_constant_current>false</use_constant_current>
+        <topic>ocean_current</topic>
+        <velocity><mean>1</mean><min>0</min><max>2</max><mu>0</mu><noiseAmp>0</noiseAmp></velocity>
+        <horizontal_angle><mean>0</mean><min>-3.14159</min><max>3.14159</max><mu>0</mu><noiseAmp>0</noiseAmp></horizontal_angle>
+        <vertical_angle><mean>0</mean><min>-1.5</min><max>1.5</max><mu>0</mu><noiseAmp>0</noiseAmp></vertical_angle>
+      </constant_current>
+      <transient_current>
+        <topic_stratified>stratified_current_velocity</topic_stratified>
+        <databasefileName>transientOceanCurrentDatabase.csv</databasefileName>
+      </transient_current>
+      <tidal_oscillation>
+        <harmonic_constituents>
+          <M2><amp>100</amp><phase>0</phase><speed>3600</speed></M2>
+          <S2><amp>50</amp><phase>45</phase><speed>1800</speed></S2>
+          <N2><amp>25</amp><phase>90</phase><speed>900</speed></N2>
+        </harmonic_constituents>
+        <mean_direction><ebb>0</ebb><flood>180</flood></mean_direction>
+        <world_start_time_GMT>
+          <day>1</day><month>1</month><year>2026</year><hour>0</hour><minute>0</minute>
+        </world_start_time_GMT>
+      </tidal_oscillation>
+    </plugin>
+    <plugin filename="OceanCurrentPlugin"
+            name="dave_ros_gz_plugins::OceanCurrentPlugin">
+      <namespace>hydrodynamics</namespace>
+    </plugin>
+    {probe("probe_no_tide", False, -1)}
+    {probe("probe_tide", True, 1)}
+  </world>
+</sdf>
+"""
+
+(root / "tidal_model_path.world").write_text(world)
+print(root / "tidal_model_path.world")

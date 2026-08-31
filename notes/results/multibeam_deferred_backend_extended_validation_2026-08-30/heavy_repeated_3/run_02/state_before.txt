@@ -1,0 +1,12 @@
+header:
+  stamp:
+    sec: 1788096140
+    nanosec: 828954422
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: CMODE(19)
+system_status: 3
+---

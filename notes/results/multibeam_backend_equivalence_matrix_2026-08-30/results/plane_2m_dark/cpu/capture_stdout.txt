@@ -1,0 +1,156 @@
+/usr/lib/python3/dist-packages/numpy/lib/_nanfunctions_impl.py:1863: RuntimeWarning: invalid value encountered in subtract
+  np.subtract(arr, avg, out=arr, casting='unsafe', where=where)
+{"point": {"sample": 1, "stamp_sec": 2, "stamp_nanosec": 608000000, "width": 513, "height": 301, "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar", "data_sha256": "965c0ec37a009a054906ca6fe03fc1663e9363e8346be2f383f7fd8b46532638", "finite_point_count": 154413, "center_xyz_m": [2.0000078678131104, 1.5646280644432409e-06, 3.4598770071170293e-07], "center_range_m": 2.0000078678131104, "center_error_m": 7.867813110351562e-06, "radial_mean_m": 2.6797313690185547, "radial_median_m": 2.3905296325683594, "radial_min_m": 2.0000076293945312, "radial_max_m": 4.835535526275635, "intensity_mean": 0.0, "intensity_std": 0.0, "intensity_min": 0.0, "intensity_max": 0.0}}
+{"point": {"sample": 2, "stamp_sec": 2, "stamp_nanosec": 641000000, "width": 513, "height": 301, "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar", "data_sha256": "965c0ec37a009a054906ca6fe03fc1663e9363e8346be2f383f7fd8b46532638", "finite_point_count": 154413, "center_xyz_m": [2.0000078678131104, 1.5646280644432409e-06, 3.4598770071170293e-07], "center_range_m": 2.0000078678131104, "center_error_m": 7.867813110351562e-06, "radial_mean_m": 2.6797313690185547, "radial_median_m": 2.3905296325683594, "radial_min_m": 2.0000076293945312, "radial_max_m": 4.835535526275635, "intensity_mean": 0.0, "intensity_std": 0.0, "intensity_min": 0.0, "intensity_max": 0.0}}
+{"point": {"sample": 3, "stamp_sec": 2, "stamp_nanosec": 674000000, "width": 513, "height": 301, "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar", "data_sha256": "965c0ec37a009a054906ca6fe03fc1663e9363e8346be2f383f7fd8b46532638", "finite_point_count": 154413, "center_xyz_m": [2.0000078678131104, 1.5646280644432409e-06, 3.4598770071170293e-07], "center_range_m": 2.0000078678131104, "center_error_m": 7.867813110351562e-06, "radial_mean_m": 2.6797313690185547, "radial_median_m": 2.3905296325683594, "radial_min_m": 2.0000076293945312, "radial_max_m": 4.835535526275635, "intensity_mean": 0.0, "intensity_std": 0.0, "intensity_min": 0.0, "intensity_max": 0.0}}
+{"raw": {"sample": 1, "stamp_sec": 1788097253, "stamp_nanosec": 828792797, "beam_count": 513, "range_bin_count": 399, "frame_id": "forward_sonar_optical_link", "data_sha256": "280aa0758be6088699eac48ca64e498dd910133db4d93b1ec2c99dbf70d4a4aa", "peak_range_m": 1.9816054105758667, "peak_error_m": -0.0183945894241333, "peak_value_db": -40.759864807128906, "peak_index": 79, "expected_bin_range_m": 2.0066888332366943, "expected_bin_value_db": -51.48201370239258, "expected_bin_rank": 3, "matrix_mean": -Infinity, "matrix_std": NaN, "matrix_min": -Infinity, "matrix_max": -37.230857849121094}}
+{"raw": {"sample": 2, "stamp_sec": 1788097254, "stamp_nanosec": 405444881, "beam_count": 513, "range_bin_count": 399, "frame_id": "forward_sonar_optical_link", "data_sha256": "280aa0758be6088699eac48ca64e498dd910133db4d93b1ec2c99dbf70d4a4aa", "peak_range_m": 1.9816054105758667, "peak_error_m": -0.0183945894241333, "peak_value_db": -40.759864807128906, "peak_index": 79, "expected_bin_range_m": 2.0066888332366943, "expected_bin_value_db": -51.48201370239258, "expected_bin_rank": 3, "matrix_mean": -Infinity, "matrix_std": NaN, "matrix_min": -Infinity, "matrix_max": -37.230857849121094}}
+{"raw": {"sample": 3, "stamp_sec": 1788097255, "stamp_nanosec": 59397173, "beam_count": 513, "range_bin_count": 399, "frame_id": "forward_sonar_optical_link", "data_sha256": "280aa0758be6088699eac48ca64e498dd910133db4d93b1ec2c99dbf70d4a4aa", "peak_range_m": 1.9816054105758667, "peak_error_m": -0.0183945894241333, "peak_value_db": -40.759864807128906, "peak_index": 79, "expected_bin_range_m": 2.0066888332366943, "expected_bin_value_db": -51.48201370239258, "expected_bin_rank": 3, "matrix_mean": -Infinity, "matrix_std": NaN, "matrix_min": -Infinity, "matrix_max": -37.230857849121094}}
+{
+  "case": "plane_2m_dark",
+  "backend": "cpu",
+  "expected_range_m": 2.0,
+  "sample_count": 3,
+  "point_topic": "/sensor/multibeam_sonar/point_cloud",
+  "raw_topic": "/sensor/multibeam_sonar/sonar_image_raw",
+  "point_frames": [
+    {
+      "sample": 1,
+      "stamp_sec": 2,
+      "stamp_nanosec": 608000000,
+      "width": 513,
+      "height": 301,
+      "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar",
+      "data_sha256": "965c0ec37a009a054906ca6fe03fc1663e9363e8346be2f383f7fd8b46532638",
+      "finite_point_count": 154413,
+      "center_xyz_m": [
+        2.0000078678131104,
+        1.5646280644432409e-06,
+        3.4598770071170293e-07
+      ],
+      "center_range_m": 2.0000078678131104,
+      "center_error_m": 7.867813110351562e-06,
+      "radial_mean_m": 2.6797313690185547,
+      "radial_median_m": 2.3905296325683594,
+      "radial_min_m": 2.0000076293945312,
+      "radial_max_m": 4.835535526275635,
+      "intensity_mean": 0.0,
+      "intensity_std": 0.0,
+      "intensity_min": 0.0,
+      "intensity_max": 0.0
+    },
+    {
+      "sample": 2,
+      "stamp_sec": 2,
+      "stamp_nanosec": 641000000,
+      "width": 513,
+      "height": 301,
+      "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar",
+      "data_sha256": "965c0ec37a009a054906ca6fe03fc1663e9363e8346be2f383f7fd8b46532638",
+      "finite_point_count": 154413,
+      "center_xyz_m": [
+        2.0000078678131104,
+        1.5646280644432409e-06,
+        3.4598770071170293e-07
+      ],
+      "center_range_m": 2.0000078678131104,
+      "center_error_m": 7.867813110351562e-06,
+      "radial_mean_m": 2.6797313690185547,
+      "radial_median_m": 2.3905296325683594,
+      "radial_min_m": 2.0000076293945312,
+      "radial_max_m": 4.835535526275635,
+      "intensity_mean": 0.0,
+      "intensity_std": 0.0,
+      "intensity_min": 0.0,
+      "intensity_max": 0.0
+    },
+    {
+      "sample": 3,
+      "stamp_sec": 2,
+      "stamp_nanosec": 674000000,
+      "width": 513,
+      "height": 301,
+      "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar",
+      "data_sha256": "965c0ec37a009a054906ca6fe03fc1663e9363e8346be2f383f7fd8b46532638",
+      "finite_point_count": 154413,
+      "center_xyz_m": [
+        2.0000078678131104,
+        1.5646280644432409e-06,
+        3.4598770071170293e-07
+      ],
+      "center_range_m": 2.0000078678131104,
+      "center_error_m": 7.867813110351562e-06,
+      "radial_mean_m": 2.6797313690185547,
+      "radial_median_m": 2.3905296325683594,
+      "radial_min_m": 2.0000076293945312,
+      "radial_max_m": 4.835535526275635,
+      "intensity_mean": 0.0,
+      "intensity_std": 0.0,
+      "intensity_min": 0.0,
+      "intensity_max": 0.0
+    }
+  ],
+  "raw_frames": [
+    {
+      "sample": 1,
+      "stamp_sec": 1788097253,
+      "stamp_nanosec": 828792797,
+      "beam_count": 513,
+      "range_bin_count": 399,
+      "frame_id": "forward_sonar_optical_link",
+      "data_sha256": "280aa0758be6088699eac48ca64e498dd910133db4d93b1ec2c99dbf70d4a4aa",
+      "peak_range_m": 1.9816054105758667,
+      "peak_error_m": -0.0183945894241333,
+      "peak_value_db": -40.759864807128906,
+      "peak_index": 79,
+      "expected_bin_range_m": 2.0066888332366943,
+      "expected_bin_value_db": -51.48201370239258,
+      "expected_bin_rank": 3,
+      "matrix_mean": -Infinity,
+      "matrix_std": NaN,
+      "matrix_min": -Infinity,
+      "matrix_max": -37.230857849121094
+    },
+    {
+      "sample": 2,
+      "stamp_sec": 1788097254,
+      "stamp_nanosec": 405444881,
+      "beam_count": 513,
+      "range_bin_count": 399,
+      "frame_id": "forward_sonar_optical_link",
+      "data_sha256": "280aa0758be6088699eac48ca64e498dd910133db4d93b1ec2c99dbf70d4a4aa",
+      "peak_range_m": 1.9816054105758667,
+      "peak_error_m": -0.0183945894241333,
+      "peak_value_db": -40.759864807128906,
+      "peak_index": 79,
+      "expected_bin_range_m": 2.0066888332366943,
+      "expected_bin_value_db": -51.48201370239258,
+      "expected_bin_rank": 3,
+      "matrix_mean": -Infinity,
+      "matrix_std": NaN,
+      "matrix_min": -Infinity,
+      "matrix_max": -37.230857849121094
+    },
+    {
+      "sample": 3,
+      "stamp_sec": 1788097255,
+      "stamp_nanosec": 59397173,
+      "beam_count": 513,
+      "range_bin_count": 399,
+      "frame_id": "forward_sonar_optical_link",
+      "data_sha256": "280aa0758be6088699eac48ca64e498dd910133db4d93b1ec2c99dbf70d4a4aa",
+      "peak_range_m": 1.9816054105758667,
+      "peak_error_m": -0.0183945894241333,
+      "peak_value_db": -40.759864807128906,
+      "peak_index": 79,
+      "expected_bin_range_m": 2.0066888332366943,
+      "expected_bin_value_db": -51.48201370239258,
+      "expected_bin_rank": 3,
+      "matrix_mean": -Infinity,
+      "matrix_std": NaN,
+      "matrix_min": -Infinity,
+      "matrix_max": -37.230857849121094
+    }
+  ],
+  "scope": "Controlled simulated geometry/backend comparison only; not a general acoustic-accuracy or real-material validation."
+}

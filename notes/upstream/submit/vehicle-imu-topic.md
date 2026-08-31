@@ -16,7 +16,11 @@
 Four base vehicle models — `rexrov`, `bluerov2`, `bluerov2_heavy`, `glider_slocum` — were
 runtime-tested before and after the topic patch. A fifth, `bluerov2_heavy_multibeam_sonar`, was
 later launched as shipped on Mac and Docker and remained silent for 120 seconds on both; it was not
-retested after the patch. All five declare
+retested after the patch. A separate 2026-08-30 exact-image Docker audit then reran all three
+BlueROV variants with ArduSub disabled: camera and odometry published, each model's default long
+Gazebo IMU path published `gz.msgs.IMU`, but the configured short ROS IMU and magnetometer topics
+remained silent. This isolates the model/bridge contract from the separately passing autopilot
+control loop. All five declare
 an `imu_sensor` with no `<topic>` element. Gazebo therefore publishes on its default sensor
 path, while each vehicle's `robot_config.py` bridges the short name:
 
@@ -94,6 +98,9 @@ Two possible fixes, and the choice is yours rather than ours:
 - **Message content was not inspected**, only that messages arrive. This does not say the
   IMU data is correct, only that before the fix there was none.
 - **Four vehicles have before/after measurements; the fifth has an as-shipped runtime failure only.** The four base vehicles were measured before and after on a running simulation. `bluerov2_heavy_multibeam_sonar` was later launched on Mac and Docker and produced no IMU samples in either 120-second capture; its `imu_sensor` has the same missing `<topic>`, but the fixed form was not rerun for that fifth variant.
+- **The 2026-08-30 exact-image audit is a before-only contract control.** All three BlueROV image
+  models had camera/odometry and default-path Gazebo IMU data, while the configured short ROS IMU
+  and magnetometer outputs were silent. It does not replace the four-model before/after patch test.
 - **n = 1 per vehicle.** The before/after is the exception: all four measured silent before
   and publishing after.
 - Tested only in `dave_ocean_waves`. Whether behaviour differs by world is untested.
@@ -121,4 +128,5 @@ gz topic -l | grep imu                       # shows the long default path inste
 
 Full write-up and the patch:
 [`notes/results/vehicles_2026-08-07/`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/main/notes/results/vehicles_2026-08-07/),
+[`notes/results/bluerov_sensor_contract_validation_2026-08-30/`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/tree/main/notes/results/bluerov_sensor_contract_validation_2026-08-30/),
 [`patches/vehicle_imu_topic_fix.diff`](https://github.com/IOES-Lab/ROS2_Lyrical_MacOS_Native_AppleSilicon/blob/main/patches/vehicle_imu_topic_fix.diff)

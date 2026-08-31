@@ -1,0 +1,1600 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-30-13-19-52-761392-fa2ac2dedd9a-106
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [112]
+[INFO] [create-2]: process started with pid [113]
+[create-2] [INFO] [1788095993.079454839] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1788096000.391933176] [ros_gz_sim]: Waiting for service [/world/oceans_waves/create] to become available ...
+[create-2] [INFO] [1788096004.509812886] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 113]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [static_transform_publisher-3]: process started with pid [187]
+[INFO] [parameter_bridge-4]: process started with pid [188]
+[INFO] [env-5]: process started with pid [189]
+[static_transform_publisher-3] [INFO] [1788096004.716492137] [static_transform_publisher_Z0PqOtXuRuNd6x6m]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'world' to 'bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar'
+[parameter_bridge-4] [INFO] [1788096004.760310012] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096004.764921512] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy_multibeam_sonar/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096004.770843803] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096004.771240345] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy_multibeam_sonar/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096004.771802845] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/imu (gz.msgs.IMU) -> /model/bluerov2_heavy_multibeam_sonar/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096004.774959845] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy_multibeam_sonar/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096004.776071220] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [env-5]: process has finished cleanly [pid 189]
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [ardusub-6]: process started with pid [320]
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[ardusub-6] Setting SIM_SPEEDUP=1.000000
+[ardusub-6] Starting SITL: JSON
+[ardusub-6] Home: 35.074823 129.084798 alt=0.000000m hdg=270.000000
+[ardusub-6] JSON control interface set to 127.0.0.1:9002
+[ardusub-6] Starting sketch 'ArduSub'
+[ardusub-6] Starting SITL input
+[ardusub-6] Using Irlock at port : 9005
+[INFO] [mavros_node-7]: process started with pid [321]
+[ardusub-6] Waiting for connection ....
+[ardusub-6] bind port 5760 for SERIAL0
+[ardusub-6] SERIAL0 on TCP port 5760
+[mavros_node-7] [INFO] [1788096006.912233513] [mavros_node]: Starting mavros_node container
+[mavros_node-7] [INFO] [1788096006.912306888] [mavros_node]: FCU URL: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788096006.912313679] [mavros_node]: GCS URL: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788096006.912317554] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-7] [INFO] [1788096006.912328763] [mavros_node]: Starting mavros router node
+[mavros_node-7] [INFO] [1788096006.933571929] [mavros_router]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788096006.933622221] [mavros_router]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788096006.933631096] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788096006.933637429] [mavros_router]: MAVROS Router started
+[mavros_node-7] [INFO] [1788096006.933843388] [mavros_node]: Starting mavros uas node
+[mavros_node-7] [INFO] [1788096007.000190096] [mavros_router]: Requested to add endpoint: type: 0, url: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788096007.000825013] [mavros_router]: Endpoint link[1000] created
+[ardusub-6] Connection on serial port 5760
+[mavros_node-7] [INFO] [1788096007.003429304] [mavros_router]: link[1000] opened successfully
+[mavros_node-7] [INFO] [1788096007.003507054] [mavros_router]: Requested to add endpoint: type: 1, url: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788096007.003595554] [mavros_router]: Endpoint link[1001] created
+[mavros_node-7] [INFO] [1788096007.004319596] [mavros_router]: link[1001] opened successfully
+[mavros_node-7] [INFO] [1788096007.004354638] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-7] [INFO] [1788096007.004397388] [mavros_router]: Endpoint link[1002] created
+[mavros_node-7] [INFO] [1788096007.006657471] [mavros_router]: link[1002] opened successfully
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[mavros_node-7] [INFO] [1788096007.010597513] [mavros]: Plugin actuator_control ignored
+[mavros_node-7] [INFO] [1788096007.010679888] [mavros]: Plugin adsb ignored
+[mavros_node-7] [INFO] [1788096007.010690471] [mavros]: Plugin altitude ignored
+[mavros_node-7] [INFO] [1788096007.010711096] [mavros]: Plugin cam_imu_sync ignored
+[mavros_node-7] [INFO] [1788096007.010718846] [mavros]: Plugin camera ignored
+[mavros_node-7] [INFO] [1788096007.010724638] [mavros]: Plugin cellular_status ignored
+[mavros_node-7] [INFO] [1788096007.012222054] [mavros]: UAS Executor started, threads: 4
+[mavros_node-7] [INFO] [1788096007.132008721] [mavros]: Plugin command created
+[mavros_node-7] [INFO] [1788096007.132601846] [mavros]: Plugin command initialized
+[mavros_node-7] [INFO] [1788096007.132651471] [mavros]: Plugin companion_process_status ignored
+[mavros_node-7] [INFO] [1788096007.132674138] [mavros]: Plugin debug_value ignored
+[mavros_node-7] [INFO] [1788096007.132687054] [mavros]: Plugin distance_sensor ignored
+[mavros_node-7] [INFO] [1788096007.132729179] [mavros]: Plugin esc_status ignored
+[mavros_node-7] [INFO] [1788096007.132752679] [mavros]: Plugin esc_telemetry ignored
+[mavros_node-7] [INFO] [1788096007.132771763] [mavros]: Plugin fake_gps ignored
+[mavros_node-7] [INFO] [1788096007.132787346] [mavros]: Plugin ftp ignored
+[mavros_node-7] [INFO] [1788096007.132794888] [mavros]: Plugin geofence ignored
+[mavros_node-7] [INFO] [1788096007.132799846] [mavros]: Plugin gimbal_control ignored
+[mavros_node-7] [INFO] [1788096007.150013554] [mavros]: Plugin global_position created
+[mavros_node-7] [INFO] [1788096007.150566388] [mavros]: Plugin global_position initialized
+[mavros_node-7] [INFO] [1788096007.150592554] [mavros]: Plugin gps_input ignored
+[mavros_node-7] [INFO] [1788096007.150604096] [mavros]: Plugin gps_rtk ignored
+[mavros_node-7] [INFO] [1788096007.150618346] [mavros]: Plugin gps_status ignored
+[mavros_node-7] [INFO] [1788096007.150631429] [mavros]: Plugin guided_target ignored
+[mavros_node-7] [INFO] [1788096007.150637429] [mavros]: Plugin hil ignored
+[mavros_node-7] [INFO] [1788096007.150642804] [mavros]: Plugin home_position ignored
+[mavros_node-7] [INFO] [1788096007.157510929] [mavros]: Plugin imu created
+[mavros_node-7] [INFO] [1788096007.158070346] [mavros]: Plugin imu initialized
+[mavros_node-7] [INFO] [1788096007.158090054] [mavros]: Plugin landing_target ignored
+[mavros_node-7] [INFO] [1788096007.168112846] [mavros]: Plugin local_position created
+[mavros_node-7] [INFO] [1788096007.168410429] [mavros]: Plugin local_position initialized
+[mavros_node-7] [INFO] [1788096007.168429054] [mavros]: Plugin log_transfer ignored
+[mavros_node-7] [INFO] [1788096007.168435804] [mavros]: Plugin mag_calibration_status ignored
+[mavros_node-7] [INFO] [1788096007.175747596] [mavros]: Plugin manual_control created
+[mavros_node-7] [INFO] [1788096007.175919804] [mavros]: Plugin manual_control initialized
+[mavros_node-7] [INFO] [1788096007.175937971] [mavros]: Plugin mocap_pose_estimate ignored
+[mavros_node-7] [INFO] [1788096007.175973179] [mavros]: Plugin mount_control ignored
+[mavros_node-7] [INFO] [1788096007.175980138] [mavros]: Plugin nav_controller_output ignored
+[mavros_node-7] [INFO] [1788096007.175985513] [mavros]: Plugin obstacle_distance ignored
+[mavros_node-7] [INFO] [1788096007.175990971] [mavros]: Plugin obstacle_distance_3d ignored
+[mavros_node-7] [INFO] [1788096007.175996221] [mavros]: Plugin odometry ignored
+[mavros_node-7] [INFO] [1788096007.176001429] [mavros]: Plugin onboard_computer_status ignored
+[mavros_node-7] [INFO] [1788096007.176006471] [mavros]: Plugin open_drone_id ignored
+[mavros_node-7] [INFO] [1788096007.176011263] [mavros]: Plugin optical_flow ignored
+[mavros_node-7] [INFO] [1788096007.188107971] [mavros]: Plugin param created
+[mavros_node-7] [INFO] [1788096007.188307888] [mavros]: Plugin param initialized
+[mavros_node-7] [INFO] [1788096007.188325054] [mavros]: Plugin play_tune ignored
+[mavros_node-7] [INFO] [1788096007.188330846] [mavros]: Plugin px4flow ignored
+[mavros_node-7] [INFO] [1788096007.188336888] [mavros]: Plugin rallypoint ignored
+[mavros_node-7] [INFO] [1788096007.188342096] [mavros]: Plugin rangefinder ignored
+[mavros_node-7] [INFO] [1788096007.194880471] [mavros]: Plugin rc_io created
+[mavros_node-7] [INFO] [1788096007.195111721] [mavros]: Plugin rc_io initialized
+[mavros_node-7] [INFO] [1788096007.195124054] [mavros]: Plugin setpoint_accel ignored
+[mavros_node-7] [INFO] [1788096007.195129846] [mavros]: Plugin setpoint_attitude ignored
+[mavros_node-7] [INFO] [1788096007.195135471] [mavros]: Plugin setpoint_position ignored
+[mavros_node-7] [INFO] [1788096007.195140763] [mavros]: Plugin setpoint_raw ignored
+[mavros_node-7] [INFO] [1788096007.195145721] [mavros]: Plugin setpoint_trajectory ignored
+[mavros_node-7] [INFO] [1788096007.195150596] [mavros]: Plugin setpoint_velocity ignored
+[mavros_node-7] [INFO] [1788096007.195155513] [mavros]: Plugin sim_state ignored
+[mavros_node-7] [INFO] [1788096007.220046638] [mavros]: Plugin sys_status created
+[mavros_node-7] [INFO] [1788096007.221220888] [mavros]: Plugin sys_status initialized
+[mavros_node-7] [INFO] [1788096007.221260763] [mavros]: Plugin sys_time ignored
+[mavros_node-7] [INFO] [1788096007.221277388] [mavros]: Plugin tdr_radio ignored
+[mavros_node-7] [INFO] [1788096007.221296846] [mavros]: Plugin terrain ignored
+[mavros_node-7] [INFO] [1788096007.221306638] [mavros]: Plugin trajectory ignored
+[mavros_node-7] [INFO] [1788096007.221311721] [mavros]: Plugin tunnel ignored
+[mavros_node-7] [INFO] [1788096007.221316679] [mavros]: Plugin vfr_hud ignored
+[mavros_node-7] [INFO] [1788096007.221321388] [mavros]: Plugin vibration ignored
+[mavros_node-7] [INFO] [1788096007.221326221] [mavros]: Plugin vision_pose ignored
+[mavros_node-7] [INFO] [1788096007.221331013] [mavros]: Plugin vision_speed ignored
+[mavros_node-7] [INFO] [1788096007.221335846] [mavros]: Plugin waypoint ignored
+[mavros_node-7] [INFO] [1788096007.221340638] [mavros]: Plugin wheel_odometry ignored
+[mavros_node-7] [INFO] [1788096007.221345471] [mavros]: Plugin wind_estimation ignored
+[mavros_node-7] [INFO] [1788096007.222744763] [mavros]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788096007.222764763] [mavros]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788096007.222783721] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788096007.222789679] [mavros]: MAVROS UAS via /uas1 started. MY ID 255.191, TARGET ID 1.1
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [INFO] [1788096008.202809805] [mavros_router]: link[1002] detected remote address 255.191
+[gazebo-1] [INFO] [1788096008.717779597] [multibeam_sonar_node]: Raw data at /SonarRawData_{numbers}.csv every 5 frames
+[gazebo-1] [INFO] [1788096008.717940888] [multibeam_sonar_node]: Beam angles at SonarRawData_beam_angles.csv
+[gazebo-1] [INFO] [1788096008.717950347] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788096008.779418389] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788096008.779475264] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096008.779480889] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788096008.779484764] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096008.779488264] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1788096008.779492055] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096008.779498055] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1788096008.779502847] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1788096008.779507097] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788096008.779510764] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788096008.779514514] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1788096008.779518097] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1788096008.779521597] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096008.779524972] [multibeam_sonar_node]:
+[mavros_node-7] [WARN] [1788096009.226175222] [mavros.sys]: VER: broadcast request timeout, retries left 4
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6]
+[ardusub-6] JSON received:
+[ardusub-6] 	timestamp
+[ardusub-6] 	imu: gyro
+[ardusub-6] 	imu: accel_body
+[ardusub-6] 	position
+[ardusub-6] 	quaternion
+[ardusub-6] 	velocity
+[ardusub-6] 	no_time_sync
+[ardusub-6]
+[ardusub-6] bind port 5762 for SERIAL1
+[ardusub-6] SERIAL1 on TCP port 5762
+[ardusub-6] bind port 5763 for SERIAL2
+[ardusub-6] SERIAL2 on TCP port 5763
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_compute_factory] Auto-selecting best available backend...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] [all] GPU pipelines compiled in 9 ms -> ready.
+[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 1×1×4
+[gazebo-1] [sonar_wgpu] GPU #1     |    7.7 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_compute_factory] SUCCESS: Auto-selected WGPU backend (CUDA unavailable)
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[ardusub-6] validate_structures:513: Validating structures
+[mavros_node-7] [INFO] [1788096009.373787305] [mavros_router]: link[1000] detected remote address 1.1
+[mavros_node-7] [WARN] [1788096009.375052805] [mavros.cmd]: CMD: Unexpected command 512, result 0
+[mavros_node-7] [INFO] [1788096009.375782472] [mavros]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[mavros_node-7] [INFO] [1788096009.376184055] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000f9e7
+[mavros_node-7] [INFO] [1788096009.376216514] [mavros.sys]: VER: 1.1: Flight software:     040507ff (30257f01)
+[mavros_node-7] [INFO] [1788096009.376222097] [mavros.sys]: VER: 1.1: Middleware software: 00000000 (        )
+[mavros_node-7] [INFO] [1788096009.376226139] [mavros.sys]: VER: 1.1: OS software:         00000000 (        )
+[mavros_node-7] [INFO] [1788096009.376231680] [mavros.sys]: VER: 1.1: Board hardware:      00000000
+[mavros_node-7] [INFO] [1788096009.376237347] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[mavros_node-7] [INFO] [1788096009.376241347] [mavros.sys]: VER: 1.1: UID:                 0000000000000000
+[mavros_node-7] [INFO] [1788096009.376391014] [mavros.sys]: FCU: Initialising ArduPilot
+[gazebo-1] Total WGPU Calculation Wrapper Time: 161.054 ms
+[gazebo-1] [INFO] [1788096009.459406250] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 193.420 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096009.752459666] [mavros.sys]: FCU: Calibrating barometer
+[gazebo-1] Total WGPU Calculation Wrapper Time: 179.098 ms
+[gazebo-1] [INFO] [1788096009.787624791] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 180.516 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 212.071 ms
+[gazebo-1] [INFO] [1788096010.068675541] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 213.621 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 225.175 ms
+[gazebo-1] [INFO] [1788096010.368565500] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 228.045 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 183.451 ms
+[gazebo-1] [INFO] [1788096010.619686083] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 185.749 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 178.586 ms
+[gazebo-1] [INFO] [1788096011.041184917] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 181.289 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 254.538 ms
+[gazebo-1] [INFO] [1788096011.378113584] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 256.388 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 274.858 ms
+[gazebo-1] [INFO] [1788096011.749851917] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 276.948 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 287.592 ms
+[gazebo-1] [INFO] [1788096012.133626001] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 289.503 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 273.469 ms
+[gazebo-1] [INFO] [1788096012.505658168] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 275.384 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 354.215 ms
+[gazebo-1] [INFO] [1788096013.067399751] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 356.210 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.824 ms
+[gazebo-1] [INFO] [1788096013.497729251] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 319.323 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.965 ms
+[gazebo-1] [INFO] [1788096013.888581460] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.947 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 309.227 ms
+[gazebo-1] [INFO] [1788096014.292965335] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 311.116 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 295.594 ms
+[gazebo-1] [INFO] [1788096014.683313794] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 297.575 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.295 ms
+[gazebo-1] [INFO] [1788096015.237445127] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 332.435 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.965 ms
+[gazebo-1] [INFO] [1788096015.637748377] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.887 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 289.608 ms
+[gazebo-1] [INFO] [1788096016.021375378] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 291.528 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.751 ms
+[gazebo-1] [INFO] [1788096016.405810461] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.586 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 300.015 ms
+[gazebo-1] [INFO] [1788096016.805008461] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 301.895 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 377.099 ms
+[gazebo-1] [INFO] [1788096017.394762420] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 379.339 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 428.367 ms
+[gazebo-1] [INFO] [1788096017.928595545] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 430.544 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 383.028 ms
+[gazebo-1] [INFO] [1788096018.415261129] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 386.562 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 364.800 ms
+[gazebo-1] [INFO] [1788096018.880082004] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 367.070 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 322.548 ms
+[gazebo-1] [INFO] [1788096019.305412754] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 324.998 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096019.445960671] [mavros.sys]: FCU: ArduSub V4.5.7 (30257f01)
+[mavros_node-7] [INFO] [1788096019.446275754] [mavros.sys]: FCU: 98471d20bcc64149b1f9debbc0e5f436
+[mavros_node-7] [INFO] [1788096019.446793171] [mavros.sys]: FCU: Frame: VECTORED
+[mavros_node-7] [INFO] [1788096019.665403088] [mavros.sys]: FCU: Barometer 1 calibration complete
+[mavros_node-7] [INFO] [1788096019.665750713] [mavros.sys]: FCU: Barometer 2 calibration complete
+[mavros_node-7] [INFO] [1788096019.878579588] [mavros.sys]: FCU: ArduPilot Ready
+[mavros_node-7] [INFO] [1788096019.878734171] [mavros.sys]: FCU: AHRS: DCM active
+[gazebo-1] Total WGPU Calculation Wrapper Time: 387.014 ms
+[gazebo-1] [INFO] [1788096019.918331588] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 389.221 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 319.333 ms
+[gazebo-1] [INFO] [1788096020.333573005] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.279 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096020.486400630] [mavros.param]: PR: Param INS_GYR_ID (65535/1364): 2752772 different index: 258/1364
+[mavros_node-7] [WARN] [1788096020.486610463] [mavros.param]: PR: Param INS_GYR2_ID (65535/1364): 2752780 different index: 259/1364
+[mavros_node-7] [WARN] [1788096020.486795630] [mavros.param]: PR: Param INS_ACC_ID (65535/1364): 2753028 different index: 261/1364
+[mavros_node-7] [WARN] [1788096020.486887755] [mavros.param]: PR: Param INS_ACC2_ID (65535/1364): 2753036 different index: 262/1364
+[gazebo-1] Total WGPU Calculation Wrapper Time: 303.655 ms
+[gazebo-1] [INFO] [1788096020.742020380] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 305.631 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.707 ms
+[gazebo-1] [INFO] [1788096021.176329922] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.914 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 419.184 ms
+[gazebo-1] [INFO] [1788096021.745185672] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 425.880 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 480.012 ms
+[gazebo-1] [INFO] [1788096022.552485756] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 483.858 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096023.043244423] [mavros.param]: PR: request param #884 timeout, retries left 2, and 480 params still missing
+[mavros_node-7] [INFO] [1788096023.090556839] [mavros.param]: PR: got an unsolicited param value idx=65535, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096023.092358881] [mavros.param]: PR: got an unsolicited param value idx=65535, not resetting retries count 2
+[mavros_node-7] [WARN] [1788096023.102657756] [mavros.param]: PR: Param BARO1_GND_PRESS (65535/1368): 101946.351562 different index: 885/1364
+[mavros_node-7] [WARN] [1788096023.103218464] [mavros.param]: PR: Param BARO_PRIMARY (65535/1364): 0 different index: 888/1364
+[mavros_node-7] [WARN] [1788096023.103601798] [mavros.param]: PR: Param BARO2_GND_PRESS (65535/1368): 102964.906250 different index: 891/1364
+[mavros_node-7] [WARN] [1788096023.153495131] [mavros.param]: PR: Param EK3_ALT_M_NSE (65535/1364): 0.100000 different index: 995/1364
+[gazebo-1] Total WGPU Calculation Wrapper Time: 457.137 ms
+[gazebo-1] [INFO] [1788096023.159507881] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 460.054 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 346.105 ms
+[gazebo-1] [INFO] [1788096023.631420465] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 349.805 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096023.838157256] [mavros.param]: PR: Param SIM_VIB_MOT_MULT (884/1364): 1.000000 different index: 884/1368
+[mavros_node-7] [INFO] [1788096023.839458965] [mavros.param]: PR: got an unsolicited param value idx=884, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096023.839817006] [mavros.param]: PR: Param SIM_VIB_MOT_MULT (884/1364): 1.000000 different index: 884/1368
+[mavros_node-7] [INFO] [1788096023.839886548] [mavros.param]: PR: got an unsolicited param value idx=884, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096023.840085673] [mavros.param]: PR: Param SIM_VIB_MOT_MULT (884/1364): 1.000000 different index: 884/1368
+[mavros_node-7] [INFO] [1788096023.840127673] [mavros.param]: PR: got an unsolicited param value idx=884, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096023.840345006] [mavros.param]: PR: Param BARO1_GND_PRESS (65535/1368): 101946.351562 different index: 885/1368
+[mavros_node-7] [INFO] [1788096023.840369631] [mavros.param]: PR: got an unsolicited param value idx=885, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096023.842967673] [mavros.param]: PR: Param BARO_GND_TEMP (886/1364): 0.000000 different index: 886/1368
+[mavros_node-7] [INFO] [1788096023.843029423] [mavros.param]: PR: got an unsolicited param value idx=886, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 346.677 ms
+[gazebo-1] [INFO] [1788096024.081232548] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 349.300 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 436.207 ms
+[gazebo-1] [INFO] [1788096024.623023840] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 438.966 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096024.750349465] [mavros.param]: PR: Param BARO_ALT_OFFSET (887/1364): 0.000000 different index: 887/1368
+[mavros_node-7] [INFO] [1788096024.750436673] [mavros.param]: PR: got an unsolicited param value idx=887, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096024.750705215] [mavros.param]: PR: Param BARO_PRIMARY (65535/1364): 0 different index: 888/1368
+[mavros_node-7] [INFO] [1788096024.750729590] [mavros.param]: PR: got an unsolicited param value idx=888, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096024.751212590] [mavros.param]: PR: Param BARO_EXT_BUS (889/1364): 1 different index: 889/1368
+[mavros_node-7] [INFO] [1788096024.751239840] [mavros.param]: PR: got an unsolicited param value idx=889, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096024.751512923] [mavros.param]: PR: Param BARO_SPEC_GRAV (890/1364): 1.000000 different index: 890/1368
+[mavros_node-7] [INFO] [1788096024.751533215] [mavros.param]: PR: got an unsolicited param value idx=890, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096024.751776632] [mavros.param]: PR: Param BARO2_GND_PRESS (65535/1368): 102964.906250 different index: 891/1368
+[mavros_node-7] [INFO] [1788096024.751796382] [mavros.param]: PR: got an unsolicited param value idx=891, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 334.352 ms
+[gazebo-1] [INFO] [1788096025.180501174] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 336.260 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096025.588717507] [mavros.param]: PR: Param BARO3_GND_PRESS (892/1364): 0.000000 different index: 892/1368
+[mavros_node-7] [INFO] [1788096025.588807841] [mavros.param]: PR: got an unsolicited param value idx=892, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096025.589001549] [mavros.param]: PR: Param BARO_FLTR_RNG (893/1364): 0 different index: 893/1368
+[mavros_node-7] [INFO] [1788096025.589023841] [mavros.param]: PR: got an unsolicited param value idx=893, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096025.589160091] [mavros.param]: PR: Param BARO_PROBE_EXT (894/1364): 768 different index: 894/1368
+[mavros_node-7] [INFO] [1788096025.589178091] [mavros.param]: PR: got an unsolicited param value idx=894, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096025.589283841] [mavros.param]: PR: Param BARO1_DEVID (895/1364): 65540 different index: 895/1368
+[mavros_node-7] [INFO] [1788096025.589300216] [mavros.param]: PR: got an unsolicited param value idx=895, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096025.589466007] [mavros.param]: PR: Param BARO2_DEVID (896/1364): 65796 different index: 896/1368
+[mavros_node-7] [INFO] [1788096025.589482341] [mavros.param]: PR: got an unsolicited param value idx=896, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 396.560 ms
+[gazebo-1] [INFO] [1788096025.691349132] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 399.368 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.036 ms
+[gazebo-1] [INFO] [1788096026.139295924] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.704 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096026.362656341] [mavros.param]: PR: Param BARO3_DEVID (897/1364): 0 different index: 897/1368
+[mavros_node-7] [INFO] [1788096026.362740758] [mavros.param]: PR: got an unsolicited param value idx=897, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096026.363257924] [mavros.param]: PR: Param BARO1_WCF_ENABLE (898/1364): 0 different index: 898/1368
+[mavros_node-7] [INFO] [1788096026.363288674] [mavros.param]: PR: got an unsolicited param value idx=898, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096026.363453258] [mavros.param]: PR: Param BARO2_WCF_ENABLE (899/1364): 0 different index: 899/1368
+[mavros_node-7] [INFO] [1788096026.363470883] [mavros.param]: PR: got an unsolicited param value idx=899, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096026.363579174] [mavros.param]: PR: Param BARO3_WCF_ENABLE (900/1364): 0 different index: 900/1368
+[mavros_node-7] [INFO] [1788096026.363594216] [mavros.param]: PR: got an unsolicited param value idx=900, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096026.363694133] [mavros.param]: PR: Param GPS_TYPE (901/1364): 1 different index: 901/1368
+[mavros_node-7] [INFO] [1788096026.363709216] [mavros.param]: PR: got an unsolicited param value idx=901, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 332.995 ms
+[gazebo-1] [INFO] [1788096026.572547674] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 334.918 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 295.753 ms
+[gazebo-1] [INFO] [1788096026.968475591] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 297.741 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096027.078302925] [mavros.param]: PR: Param GPS_TYPE2 (902/1364): 0 different index: 902/1368
+[mavros_node-7] [INFO] [1788096027.078364675] [mavros.param]: PR: got an unsolicited param value idx=902, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096027.078500258] [mavros.param]: PR: Param GPS_RATE_MS (915/1364): 200 different index: 915/1368
+[mavros_node-7] [INFO] [1788096027.078518258] [mavros.param]: PR: got an unsolicited param value idx=915, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096027.078670008] [mavros.param]: PR: Param GPS_RATE_MS2 (916/1364): 200 different index: 916/1368
+[mavros_node-7] [INFO] [1788096027.078684800] [mavros.param]: PR: got an unsolicited param value idx=916, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096027.078789091] [mavros.param]: PR: Param GPS_POS1_X (917/1364): 0.000000 different index: 917/1368
+[mavros_node-7] [INFO] [1788096027.078803550] [mavros.param]: PR: got an unsolicited param value idx=917, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096027.079124091] [mavros.param]: PR: Param LEAK2_PIN (939/1364): -1 different index: 939/1368
+[mavros_node-7] [INFO] [1788096027.079220716] [mavros.param]: PR: got an unsolicited param value idx=939, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 287.285 ms
+[gazebo-1] [INFO] [1788096027.456319508] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 289.037 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096027.779200383] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096027.779503258] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096027.779643508] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096027.779760508] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 334.351 ms
+[gazebo-1] [INFO] [1788096027.900948508] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 336.700 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 395.356 ms
+[gazebo-1] [INFO] [1788096028.400424509] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 399.973 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096028.591234175] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096028.596200550] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096028.597126634] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096028.597856592] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096028.598643217] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 391.951 ms
+[gazebo-1] [INFO] [1788096028.957593259] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 396.095 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 345.173 ms
+[mavros_node-7] [INFO] [1788096029.407883467] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096029.408344176] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096029.408807717] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096029.409202384] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[gazebo-1] [INFO] [1788096029.408605384] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 347.557 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096029.409627592] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 3
+[mavros_node-7] [WARN] [1788096030.451157801] [mavros.param]: PR: request param #1106 timeout, retries left 2, and 258 params still missing
+[gazebo-1] Total WGPU Calculation Wrapper Time: 1123.853 ms
+[gazebo-1] [INFO] [1788096030.795040051] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 1128.614 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096030.903598593] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096030.904461135] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096030.904839176] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096030.905395093] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096030.905948426] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[gazebo-1] Total WGPU Calculation Wrapper Time: 362.972 ms
+[gazebo-1] [INFO] [1788096031.284642510] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 366.587 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 417.882 ms
+[gazebo-1] [INFO] [1788096031.837369552] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 420.733 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096031.850681260] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096031.851104010] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096031.851537177] [mavros.param]: PR: got an unsolicited param value idx=1105, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096031.852507094] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 392.711 ms
+[gazebo-1] [sonar_wgpu] GPU #50    |  392.7 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096032.347608260] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 395.297 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096032.696772927] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096032.697848344] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096032.699257177] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096032.700241844] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096032.700415719] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 325.901 ms
+[gazebo-1] [INFO] [1788096032.779183511] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 328.198 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 373.743 ms
+[gazebo-1] [INFO] [1788096033.382103886] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 375.800 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096033.398577886] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096033.399315094] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096033.400454428] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096033.400953136] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096033.401362469] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 424.074 ms
+[gazebo-1] [INFO] [1788096033.908285178] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 426.257 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096034.168808011] [mavros.cmd]: CMD: Unexpected command 11, result 0
+[mavros_node-7] [INFO] [1788096034.308764595] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096034.312099595] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096034.314752803] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096034.315056595] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096034.315168386] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 380.880 ms
+[gazebo-1] [INFO] [1788096034.390010303] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 383.117 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.249 ms
+[gazebo-1] [INFO] [1788096034.815160053] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.915 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096035.034317678] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.035080387] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.035713012] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.036119512] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.036253303] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.041153928] [mavros.rc]: RC_CHANNELS message detected!
+[mavros_node-7] [INFO] [1788096035.042414387] [mavros.imu]: IMU: Raw IMU message used.
+[mavros_node-7] [WARN] [1788096035.046442845] [mavros.global_position]: GP: No GPS fix
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.565 ms
+[gazebo-1] [INFO] [1788096035.256654720] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 333.567 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096035.807711845] [mavros.param]: PR: got an unsolicited param value idx=1106, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.811225054] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.811384345] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096035.811490512] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 339.911 ms
+[gazebo-1] [INFO] [1788096035.816756387] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 342.100 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 341.287 ms
+[gazebo-1] [INFO] [1788096036.269975221] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 343.819 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096036.394039221] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096036.394487512] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096036.396333554] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096036.396485346] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096036.396606179] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096036.402680721] [mavros.sys]: FCU: EKF3 IMU0 initialised
+[mavros_node-7] [INFO] [1788096036.402936637] [mavros.sys]: FCU: EKF3 IMU1 initialised
+[mavros_node-7] [INFO] [1788096036.404014762] [mavros.sys]: FCU: AHRS: EKF3 active
+[gazebo-1] Total WGPU Calculation Wrapper Time: 335.891 ms
+[gazebo-1] [INFO] [1788096036.700860679] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 338.771 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096037.191501013] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.198698804] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.199043804] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.199235929] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.199366263] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 426.883 ms
+[gazebo-1] [INFO] [1788096037.239915513] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 429.819 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 361.130 ms
+[gazebo-1] [INFO] [1788096037.700256513] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 363.803 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096037.854005805] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.854370096] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.855668971] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.856207180] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096037.856542263] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096038.386050222] [mavros.sys]: FCU: Arming motors
+[mavros_node-7] [WARN] [1788096038.386403805] [mavros.sys]: FCU: Backup location parameters are missing or zero
+[mavros_node-7] [WARN] [1788096038.386478430] [mavros.sys]: FCU: Compass performance degraded
+[gazebo-1] Total WGPU Calculation Wrapper Time: 391.720 ms
+[gazebo-1] [INFO] [1788096038.434925597] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 395.389 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096038.853095389] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096038.853366680] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096038.853560097] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096038.853813097] [mavros.param]: PR: got an unsolicited param value idx=1107, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 404.388 ms
+[gazebo-1] [INFO] [1788096038.942930389] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 406.513 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 391.153 ms
+[gazebo-1] [INFO] [1788096039.454319916] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 402.343 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096039.536815000] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096039.537012083] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096039.537278041] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096039.537517500] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096039.537771666] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.760 ms
+[gazebo-1] [INFO] [1788096039.881703916] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.840 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 322.473 ms
+[gazebo-1] [INFO] [1788096040.307053625] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 324.880 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096040.372805917] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.373079708] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.373422667] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.373800042] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.374155708] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.576 ms
+[gazebo-1] [INFO] [1788096040.820499625] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.466 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096040.963319500] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.963532375] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.963662792] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.963753500] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096040.963836000] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.650 ms
+[gazebo-1] [INFO] [1788096041.224171459] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 308.555 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096041.650429251] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096041.656284834] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096041.657682542] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096041.659042626] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096041.659473584] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 388.179 ms
+[gazebo-1] [INFO] [1788096041.719601709] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 390.427 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 345.728 ms
+[gazebo-1] [INFO] [1788096042.169922542] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 348.239 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096042.251752543] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096042.252309626] [mavros.param]: PR: got an unsolicited param value idx=1108, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096042.253170668] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096042.253372209] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 337.883 ms
+[gazebo-1] [INFO] [1788096042.609506584] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 340.233 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096043.029209668] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.029850251] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.030102501] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.030240710] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.030365668] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.446 ms
+[gazebo-1] [INFO] [1788096043.131532668] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.206 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 285.355 ms
+[gazebo-1] [INFO] [1788096043.529194460] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 287.540 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096043.634273835] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.634491877] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.634790377] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.635007835] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096043.635140543] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 325.078 ms
+[gazebo-1] [INFO] [1788096043.967399085] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 327.226 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 327.600 ms
+[gazebo-1] [INFO] [1788096044.398387210] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 329.738 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096044.431245585] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.431472210] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.431816669] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.432280877] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.432410669] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 297.774 ms
+[gazebo-1] [INFO] [1788096044.792046127] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.044 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096044.958033835] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.958259502] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.958407919] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.958651627] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096044.959041252] [mavros.param]: PR: got an unsolicited param value idx=1109, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 319.404 ms
+[gazebo-1] [INFO] [1788096045.308865044] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.237 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096045.752702169] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096045.753730961] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096045.754558586] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096045.754779669] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 408.885 ms
+[gazebo-1] [INFO] [1788096045.831667961] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 412.403 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.246 ms
+[gazebo-1] [INFO] [1788096046.256626003] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.333 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096046.571724461] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096046.572829586] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096046.573113545] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096046.573247670] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096046.573340795] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 349.694 ms
+[gazebo-1] [INFO] [1788096046.707704670] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 352.174 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 411.258 ms
+[gazebo-1] [INFO] [1788096047.274518962] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 416.497 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096047.423285503] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096047.423501003] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096047.423808712] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096047.424012045] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096047.424153378] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096047.465516503] [mavros.sys]: FCU: EKF3 IMU1 tilt alignment complete
+[mavros_node-7] [INFO] [1788096047.480115712] [mavros.sys]: FCU: EKF3 IMU0 tilt alignment complete
+[gazebo-1] Total WGPU Calculation Wrapper Time: 345.317 ms
+[gazebo-1] [INFO] [1788096047.838028879] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 347.554 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096048.253150754] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.256396587] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.256684920] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.256831295] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.256952170] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 380.787 ms
+[gazebo-1] [INFO] [1788096048.319702420] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 383.218 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.096 ms
+[gazebo-1] [INFO] [1788096048.748610546] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 332.013 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096048.835268337] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.835466296] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.835682171] [mavros.param]: PR: got an unsolicited param value idx=1110, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096048.836926837] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.920 ms
+[gazebo-1] [INFO] [1788096049.142579921] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.942 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 361.956 ms
+[gazebo-1] [INFO] [1788096049.607403129] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 364.242 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096049.634771921] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096049.635229463] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096049.635520963] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096049.635963879] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096049.636423921] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 357.187 ms
+[gazebo-1] [INFO] [1788096050.205994838] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 359.774 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096050.344696880] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096050.345028671] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096050.345199630] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096050.345321463] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096050.348536213] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 379.379 ms
+[gazebo-1] [INFO] [1788096050.685640297] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 381.801 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 342.417 ms
+[gazebo-1] [INFO] [1788096051.135386297] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 344.758 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096051.187212630] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096051.187625005] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096051.188629713] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096051.189507047] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096051.190126130] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 394.019 ms
+[gazebo-1] [INFO] [1788096051.651713630] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 396.487 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096052.080622631] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.081156714] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.081351214] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.081477631] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.081570256] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 355.850 ms
+[gazebo-1] [INFO] [1788096052.131287256] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 358.458 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 336.458 ms
+[gazebo-1] [INFO] [1788096052.676481172] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 338.456 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096052.678418714] [mavros.param]: PR: got an unsolicited param value idx=1111, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.679070964] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.679536922] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096052.679844839] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 358.147 ms
+[gazebo-1] [INFO] [1788096053.138142131] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 360.543 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096053.477167340] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096053.478857215] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096053.479058840] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096053.479244798] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096053.479385381] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 287.170 ms
+[gazebo-1] [INFO] [1788096053.545599381] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 289.389 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 322.665 ms
+[gazebo-1] [INFO] [1788096053.979133215] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 325.500 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096054.063208673] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.064208798] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.065284548] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.065599381] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.065815798] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 361.343 ms
+[gazebo-1] [INFO] [1788096054.456605173] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 364.236 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096054.688252632] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.689596340] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.689990507] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.690271715] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096054.690605215] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 310.237 ms
+[gazebo-1] [INFO] [1788096055.008203965] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 312.237 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096055.399128299] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.399649757] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.399874840] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.400042882] [mavros.param]: PR: got an unsolicited param value idx=1112, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 300.323 ms
+[gazebo-1] [INFO] [1788096055.407070507] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.680 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.520 ms
+[gazebo-1] [INFO] [1788096055.814233507] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.569 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096055.958854924] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.960444799] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.960597632] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.960713257] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096055.960870632] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.939 ms
+[gazebo-1] [sonar_wgpu] GPU #100   |  318.9 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096056.235105674] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.436 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096056.627802924] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096056.628348549] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096056.628934716] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096056.631052591] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096056.631584716] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 329.688 ms
+[gazebo-1] [INFO] [1788096056.679278883] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 332.833 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.611 ms
+[gazebo-1] [INFO] [1788096057.239358508] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 327.083 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096057.258685800] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.259103383] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.259415050] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.260331300] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.260774425] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 376.990 ms
+[gazebo-1] [INFO] [1788096057.729273800] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 379.630 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096057.978532967] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.978809175] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.983489758] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.983913508] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096057.984100842] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 331.532 ms
+[gazebo-1] [INFO] [1788096058.182023008] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 333.984 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.383 ms
+[gazebo-1] [INFO] [1788096058.590388009] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.569 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096058.668920509] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096058.669248884] [mavros.param]: PR: got an unsolicited param value idx=1113, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096058.669693550] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096058.669823009] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 343.119 ms
+[gazebo-1] [INFO] [1788096059.036594467] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 345.472 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096059.325121051] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096059.325278259] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096059.325421842] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096059.325539551] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096059.325640051] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.964 ms
+[gazebo-1] [INFO] [1788096059.586420051] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 324.165 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.129 ms
+[gazebo-1] [INFO] [1788096060.008287968] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 319.207 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096060.070862259] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.071450968] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.071802384] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.072105301] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.072419551] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 374.853 ms
+[gazebo-1] [INFO] [1788096060.488428135] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 377.196 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096060.901481468] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.901744135] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.902125260] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.902333760] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096060.902445510] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 378.673 ms
+[gazebo-1] [INFO] [1788096060.967755676] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 381.075 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 333.201 ms
+[gazebo-1] [INFO] [1788096061.402674843] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 335.304 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096061.508009218] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096061.508167468] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096061.508470052] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096061.508818802] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096061.509041343] [mavros.param]: PR: got an unsolicited param value idx=1114, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 357.960 ms
+[gazebo-1] [INFO] [1788096061.970144135] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 359.945 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096062.092489052] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096062.092627010] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096062.092856010] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096062.093187469] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 337.495 ms
+[gazebo-1] [INFO] [1788096062.410056802] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 339.773 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096063.106195886] [mavros.param]: PR: request param #1116 timeout, retries left 2, and 248 params still missing
+[mavros_node-7] [INFO] [1788096063.142541261] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096063.162132469] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096063.162872219] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096063.165656469] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096063.173832636] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 2
+[gazebo-1] Total WGPU Calculation Wrapper Time: 674.058 ms
+[gazebo-1] [INFO] [1788096063.302850344] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 679.946 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 514.954 ms
+[gazebo-1] [INFO] [1788096063.937395595] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 517.363 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096064.185361220] [mavros.param]: PR: request param #1116 timeout, retries left 1, and 248 params still missing
+[mavros_node-7] [INFO] [1788096064.266083595] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.268097511] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.269021178] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.269709261] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.275273386] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[gazebo-1] Total WGPU Calculation Wrapper Time: 394.467 ms
+[gazebo-1] [INFO] [1788096064.486798803] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 398.126 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096064.990346637] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.993605095] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.993868303] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.994067970] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096064.994180178] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[gazebo-1] Total WGPU Calculation Wrapper Time: 375.270 ms
+[gazebo-1] [INFO] [1788096065.084819512] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 377.178 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 344.858 ms
+[gazebo-1] [INFO] [1788096065.550077970] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 349.180 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096065.690051637] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096065.690276887] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096065.690424637] [mavros.param]: PR: got an unsolicited param value idx=1115, not resetting retries count 1
+[mavros_node-7] [INFO] [1788096065.691034179] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 332.061 ms
+[gazebo-1] [INFO] [1788096065.982537554] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 334.360 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096066.422631887] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096066.423157804] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096066.423376637] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096066.423545221] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096066.423703721] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 346.924 ms
+[gazebo-1] [INFO] [1788096066.434004137] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 348.841 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096066.580446387] [mavros.sys]: FCU: GPS 1: detected as u-blox at 230400 baud
+[gazebo-1] Total WGPU Calculation Wrapper Time: 487.905 ms
+[gazebo-1] [INFO] [1788096067.032726179] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 490.364 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096067.211142554] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.211416221] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.211739888] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.212287429] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.212583138] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 332.559 ms
+[gazebo-1] [INFO] [1788096067.609619388] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 334.786 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096067.782275305] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.782913680] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.783769721] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.784025388] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096067.784205555] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 355.459 ms
+[gazebo-1] [INFO] [1788096068.078123596] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 357.666 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.910 ms
+[mavros_node-7] [INFO] [1788096068.512335680] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[gazebo-1] [INFO] [1788096068.512348513] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.899 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096068.513140597] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096068.513776347] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096068.514069847] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096068.514169930] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.010 ms
+[gazebo-1] [INFO] [1788096068.938209847] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 322.985 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096069.039672722] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.039874430] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.040109014] [mavros.param]: PR: got an unsolicited param value idx=1116, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.040715972] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 358.733 ms
+[gazebo-1] [INFO] [1788096069.404063139] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 360.610 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096069.636807833] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.637264958] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.637524375] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.637715458] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096069.637880750] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 380.970 ms
+[gazebo-1] [INFO] [1788096070.026176750] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 383.411 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096070.659596417] [mavros.param]: PR: request param #1118 timeout, retries left 2, and 246 params still missing
+[gazebo-1] Total WGPU Calculation Wrapper Time: 555.438 ms
+[gazebo-1] [INFO] [1788096070.690272542] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 558.124 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096070.798359000] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096070.798736917] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096070.799132542] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096070.799871625] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096070.800490625] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[gazebo-1] Total WGPU Calculation Wrapper Time: 372.827 ms
+[gazebo-1] [INFO] [1788096071.185729417] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 375.545 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 388.728 ms
+[gazebo-1] [INFO] [1788096071.683556417] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 391.203 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096071.688152084] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096071.688904751] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096071.689218376] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096071.689480251] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096071.689810959] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[gazebo-1] Total WGPU Calculation Wrapper Time: 425.156 ms
+[gazebo-1] [INFO] [1788096072.226614626] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 428.792 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096072.380258959] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096072.380662709] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096072.381149626] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096072.381418584] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096072.381776668] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[gazebo-1] Total WGPU Calculation Wrapper Time: 341.571 ms
+[gazebo-1] [INFO] [1788096072.789131251] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 343.871 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096073.044891835] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096073.045197210] [mavros.param]: PR: got an unsolicited param value idx=1117, not resetting retries count 2
+[mavros_node-7] [INFO] [1788096073.045570960] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096073.045666001] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.388 ms
+[gazebo-1] [INFO] [1788096073.206760001] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.471 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.257 ms
+[gazebo-1] [INFO] [1788096073.619395210] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.548 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096073.830931793] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096073.832964002] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096073.833185502] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096073.833389877] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096073.833568793] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.709 ms
+[gazebo-1] [INFO] [1788096074.049433377] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 330.890 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.759 ms
+[gazebo-1] [INFO] [1788096074.479548752] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.020 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096074.550666919] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096074.551123710] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096074.551576710] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096074.552059044] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096074.552150335] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 423.395 ms
+[gazebo-1] [INFO] [1788096075.151953794] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 425.576 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096075.208865961] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096075.209259419] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096075.209404627] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096075.209514336] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096075.209601169] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 418.932 ms
+[gazebo-1] [INFO] [1788096075.688200086] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 421.160 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096076.029005753] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.029400086] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.029598794] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.029698544] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.029784961] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 297.368 ms
+[gazebo-1] [INFO] [1788096076.090396503] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 299.727 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 331.585 ms
+[gazebo-1] [INFO] [1788096076.529070086] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 334.662 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096076.677646711] [mavros.param]: PR: got an unsolicited param value idx=1118, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.678151211] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.678301336] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096076.678432711] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 357.433 ms
+[gazebo-1] [INFO] [1788096076.983938420] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 360.440 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096077.255943253] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096077.257954753] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096077.258610587] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096077.258954045] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096077.259086212] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 354.105 ms
+[gazebo-1] [INFO] [1788096077.543494045] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 356.050 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 343.996 ms
+[gazebo-1] [INFO] [1788096077.982417754] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 347.114 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096078.011143295] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.011362795] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.011770045] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.011898587] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.012006920] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 296.971 ms
+[gazebo-1] [INFO] [1788096078.385260087] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 298.937 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096078.715798004] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.716142212] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.723090712] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.723508754] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096078.723762087] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 326.978 ms
+[gazebo-1] [INFO] [1788096078.810627337] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 329.066 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 305.929 ms
+[gazebo-1] [INFO] [1788096079.213225879] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 307.825 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096079.343624088] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096079.343855213] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096079.344229713] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096079.344628213] [mavros.param]: PR: got an unsolicited param value idx=1119, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.592 ms
+[gazebo-1] [INFO] [1788096079.710452379] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.419 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096080.076680880] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.076981755] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.077186046] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.077643755] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.077908588] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.319 ms
+[gazebo-1] [INFO] [1788096080.127342046] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.444 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.686 ms
+[gazebo-1] [INFO] [1788096080.528647796] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.246 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096080.717723422] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.718119005] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.718310422] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.718427630] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096080.718531255] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.042 ms
+[gazebo-1] [sonar_wgpu] GPU #150   |  311.0 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096080.936942130] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 312.922 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.894 ms
+[gazebo-1] [INFO] [1788096081.337756880] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 308.759 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096081.413902422] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096081.414245255] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096081.414450505] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096081.414627839] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096081.414859505] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 445.493 ms
+[gazebo-1] [INFO] [1788096081.998206797] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 447.518 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096082.219406256] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.221704547] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.222014839] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.225680422] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.226340131] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 319.360 ms
+[gazebo-1] [INFO] [1788096082.430752214] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.995 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.684 ms
+[gazebo-1] [INFO] [1788096082.852875673] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.854 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096082.950850423] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.951120589] [mavros.param]: PR: got an unsolicited param value idx=1120, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.951434339] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096082.951579506] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.973 ms
+[gazebo-1] [INFO] [1788096083.258901798] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.067 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 300.552 ms
+[gazebo-1] [INFO] [1788096083.651967923] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 302.726 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096083.659424465] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096083.659718048] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096083.659959173] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096083.660151923] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096083.660671923] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.386 ms
+[gazebo-1] [INFO] [1788096084.168257965] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.313 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096084.241778632] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096084.242061840] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096084.242405840] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096084.242618090] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096084.242763673] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 393.276 ms
+[gazebo-1] [INFO] [1788096084.671289173] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 397.709 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096085.073533674] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.073944090] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.074173007] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.074314007] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.074442132] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.511 ms
+[gazebo-1] [INFO] [1788096085.094192632] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.688 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.948 ms
+[gazebo-1] [INFO] [1788096085.491741632] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.972 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096085.626223424] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.634259591] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.635549799] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.637159049] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096085.638076382] [mavros.param]: PR: got an unsolicited param value idx=1121, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.754 ms
+[gazebo-1] [INFO] [1788096085.894255132] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.786 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096086.335979799] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096086.336605508] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096086.336788924] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096086.336890258] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 294.462 ms
+[gazebo-1] [INFO] [1788096086.393087674] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 296.288 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 314.290 ms
+[gazebo-1] [INFO] [1788096086.806530883] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 316.187 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096087.026302050] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.026571466] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.026727841] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.026842550] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.026973966] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 358.639 ms
+[gazebo-1] [INFO] [1788096087.281544675] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 361.595 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 413.954 ms
+[gazebo-1] [INFO] [1788096087.797628258] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 416.345 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096087.867524675] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.868414800] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.869163008] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.869378508] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096087.869562383] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096088.147904842] [mavros.sys]: FCU: Disarming motors
+[mavros_node-7] [WARN] [1788096088.148775633] [mavros.param]: PR: Param MOT_THST_HOVER (963/1364): 0.500000 different index: 65535/1368
+[mavros_node-7] [INFO] [1788096088.148843550] [mavros.param]: PR: got an unsolicited param value idx=65535, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 320.238 ms
+[gazebo-1] [INFO] [1788096088.228670758] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 322.505 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096088.482459425] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096088.485668550] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096088.487207009] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096088.487573925] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096088.488317967] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 379.979 ms
+[gazebo-1] [INFO] [1788096088.834654175] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 381.897 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 329.278 ms
+[gazebo-1] [INFO] [1788096089.265393884] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 332.621 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096089.331460176] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096089.332665884] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096089.332886176] [mavros.param]: PR: got an unsolicited param value idx=1122, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096089.333203051] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 294.922 ms
+[gazebo-1] [INFO] [1788096089.658767926] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 296.815 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096090.019861593] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.020274009] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.020445926] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.020896134] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.021089551] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.082 ms
+[gazebo-1] [INFO] [1788096090.071814843] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.153 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.639 ms
+[gazebo-1] [INFO] [1788096090.491974218] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.057 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096090.615239176] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.615461135] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.615726843] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.615984218] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096090.616240051] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.627 ms
+[gazebo-1] [INFO] [1788096091.008783843] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.660 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096091.186385593] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.188364302] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.189465302] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.190306427] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.191559760] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 300.173 ms
+[gazebo-1] [INFO] [1788096091.401921843] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 302.303 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 308.457 ms
+[gazebo-1] [INFO] [1788096091.806308093] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.372 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096091.893425802] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.893734594] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.894164052] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.894598344] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096091.894856469] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 338.515 ms
+[gazebo-1] [INFO] [1788096092.246999427] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 340.718 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 309.808 ms
+[gazebo-1] [INFO] [1788096092.663228552] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 311.919 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096092.675189177] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096092.675486761] [mavros.param]: PR: got an unsolicited param value idx=1123, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096092.676479761] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096092.677151844] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 320.534 ms
+[gazebo-1] [INFO] [1788096093.189392594] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 322.955 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096093.272940636] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096093.273248678] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096093.273514053] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096093.273611469] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096093.273712469] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 407.672 ms
+[gazebo-1] [INFO] [1788096093.701357969] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 410.033 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 327.104 ms
+[gazebo-1] [INFO] [1788096094.135849928] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 329.395 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096094.192931303] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.194216553] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.194752845] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.194917970] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.195051886] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 310.914 ms
+[gazebo-1] [INFO] [1788096094.549231011] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.034 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.545 ms
+[gazebo-1] [INFO] [1788096094.976883178] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 332.722 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096094.983596095] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.983927137] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.984148095] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.984726345] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096094.985004595] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.296 ms
+[gazebo-1] [INFO] [1788096095.538411345] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.489 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096095.555884679] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096095.556165345] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096095.556410429] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096095.556662595] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096095.556934679] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 299.454 ms
+[gazebo-1] [INFO] [1788096095.940500845] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 301.340 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096096.302005096] [mavros.param]: PR: got an unsolicited param value idx=1124, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.305572429] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.305786346] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.305929596] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.216 ms
+[gazebo-1] [INFO] [1788096096.351060179] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.122 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 391.402 ms
+[gazebo-1] [INFO] [1788096096.852930429] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 393.540 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096096.924709888] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.925134263] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.925602429] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.926074054] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096096.926755763] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.225 ms
+[gazebo-1] [INFO] [1788096097.282866179] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 330.430 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096097.538336138] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096097.539941930] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096097.540454888] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096097.540606555] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096097.540694430] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 334.371 ms
+[gazebo-1] [INFO] [1788096097.848956930] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 336.802 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.855 ms
+[gazebo-1] [INFO] [1788096098.258356263] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 307.094 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096098.286299013] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.286541263] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.286752972] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.287215847] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.287665513] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.443 ms
+[gazebo-1] [INFO] [1788096098.690260597] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.557 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096098.938565764] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.938970222] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.940585180] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.940931972] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096098.941236014] [mavros.param]: PR: got an unsolicited param value idx=1125, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 379.776 ms
+[gazebo-1] [INFO] [1788096099.177497055] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 382.103 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 374.916 ms
+[gazebo-1] [INFO] [1788096099.667453666] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 365.494 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096099.774565500] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096099.775142958] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096099.775545083] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096099.775977625] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 329.094 ms
+[gazebo-1] [INFO] [1788096100.249615708] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 331.693 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096100.369794042] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096100.370023417] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096100.370182417] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096100.370284375] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096100.370377875] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.687 ms
+[gazebo-1] [INFO] [1788096100.650009583] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.667 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096101.031452709] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.032295709] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.032415584] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.032557375] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.032666209] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 334.484 ms
+[gazebo-1] [INFO] [1788096101.086275792] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 336.959 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 302.678 ms
+[gazebo-1] [INFO] [1788096101.486642125] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 304.625 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096101.623968417] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.625239209] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.625660084] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.625926459] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096101.626127001] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.867 ms
+[gazebo-1] [INFO] [1788096101.883373167] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 304.157 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096102.299910793] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096102.315402084] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096102.316676168] [mavros.param]: PR: got an unsolicited param value idx=1126, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096102.320485126] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 341.012 ms
+[gazebo-1] [INFO] [1788096102.435989793] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 342.842 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 421.412 ms
+[gazebo-1] [INFO] [1788096102.979351043] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 425.597 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096103.156482460] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096103.157006626] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096103.157224418] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096103.157392751] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096103.157538876] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 451.144 ms
+[gazebo-1] [INFO] [1788096103.600163418] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 457.273 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 361.275 ms
+[gazebo-1] [sonar_wgpu] GPU #200   |  361.3 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096104.077351543] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 363.762 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096104.081149793] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.081451210] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.082108168] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.082552293] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.082805585] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.330 ms
+[gazebo-1] [INFO] [1788096104.499628752] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.928 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096104.705074669] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.705252585] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.705490127] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.705712210] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096104.705818419] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.458 ms
+[gazebo-1] [INFO] [1788096105.019735960] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 308.562 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096105.430306669] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096105.430474044] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096105.430648544] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096105.430768252] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096105.430878002] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 338.201 ms
+[gazebo-1] [INFO] [1788096105.453457961] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 340.137 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 418.954 ms
+[gazebo-1] [INFO] [1788096105.979985003] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 421.339 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096106.153648878] [mavros.param]: PR: got an unsolicited param value idx=1127, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.158438419] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.158691086] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.158810711] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.415 ms
+[gazebo-1] [INFO] [1788096106.408723294] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.193 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 409.015 ms
+[gazebo-1] [INFO] [1788096106.932224128] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 413.211 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096106.938130836] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.938936795] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.939340795] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.939561336] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096106.940571336] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.083 ms
+[gazebo-1] [INFO] [1788096107.500173962] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 334.690 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096107.526275587] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096107.526463128] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096107.526750753] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096107.527166837] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096107.527446920] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.922 ms
+[gazebo-1] [INFO] [1788096107.916567129] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.790 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096108.074417337] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.074647920] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.075096462] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.075176670] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.075694212] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.987 ms
+[gazebo-1] [INFO] [1788096108.311727129] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 301.469 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 366.537 ms
+[gazebo-1] [INFO] [1788096108.782388671] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 368.699 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096108.817325671] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.817525587] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.817661712] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096108.817753337] [mavros.param]: PR: got an unsolicited param value idx=1128, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.611 ms
+[gazebo-1] [INFO] [1788096109.194843796] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.873 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096109.435588338] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096109.435803338] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096109.435999629] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096109.436139754] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096109.436469421] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 353.080 ms
+[gazebo-1] [INFO] [1788096109.807932338] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 355.415 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.126 ms
+[gazebo-1] [INFO] [1788096110.237900130] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 330.322 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096110.253826880] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.254749088] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.254888380] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.254994755] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.255117296] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 302.884 ms
+[gazebo-1] [INFO] [1788096110.639503505] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 304.983 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096110.798349005] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.798592755] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.798746630] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.798867880] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096110.798979630] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 309.833 ms
+[gazebo-1] [INFO] [1788096111.043080213] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 311.893 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 391.816 ms
+[gazebo-1] [INFO] [1788096111.534245255] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 393.796 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096111.563859964] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096111.564114005] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096111.564659297] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096111.565573839] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096111.566124255] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 411.386 ms
+[gazebo-1] [INFO] [1788096112.174616672] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 413.363 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096112.179218339] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.179775881] [mavros.param]: PR: got an unsolicited param value idx=1129, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.180211089] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.180354756] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 308.436 ms
+[gazebo-1] [INFO] [1788096112.583144339] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.415 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096112.844434089] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.855933423] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.856356881] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.856558589] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096112.856707048] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 338.246 ms
+[gazebo-1] [INFO] [1788096113.029996298] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 340.146 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 327.863 ms
+[gazebo-1] [INFO] [1788096113.460809381] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 331.598 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096113.526401465] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096113.526601340] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096113.526838423] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096113.526997631] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096113.527141756] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.851 ms
+[gazebo-1] [INFO] [1788096113.878566965] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.875 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096114.134806923] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096114.135151840] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096114.135368256] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096114.135527840] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096114.135632548] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 343.538 ms
+[gazebo-1] [INFO] [1788096114.435755257] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 345.675 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 444.774 ms
+[gazebo-1] [INFO] [1788096114.982283507] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 447.441 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096115.065536174] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.066022382] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.066784299] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.068007007] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.068529799] [mavros.param]: PR: got an unsolicited param value idx=1130, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.192 ms
+[gazebo-1] [INFO] [1788096115.402968882] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.324 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096115.797666799] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.804399674] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.804595632] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096115.804721424] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.002 ms
+[gazebo-1] [INFO] [1788096115.809979716] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.117 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.635 ms
+[gazebo-1] [INFO] [1788096116.220508007] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 307.242 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096116.400904883] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096116.401287966] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096116.401632716] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096116.402016591] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096116.402396716] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 303.827 ms
+[gazebo-1] [INFO] [1788096116.730751466] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 305.791 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096117.160830175] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.161957300] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.166387050] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.166762966] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.166894591] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 348.321 ms
+[gazebo-1] [INFO] [1788096117.181275383] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 350.474 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 369.874 ms
+[gazebo-1] [INFO] [1788096117.655855967] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 376.235 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096117.859370425] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.861012967] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.861550967] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.861775217] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096117.861992883] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[gazebo-1] Total WGPU Calculation Wrapper Time: 342.643 ms
+[gazebo-1] [INFO] [1788096118.107010758] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 344.893 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.891 ms
+[gazebo-1] [INFO] [1788096118.533009259] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 330.917 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096118.603011592] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096118.603313967] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096118.603709800] [mavros.param]: PR: got an unsolicited param value idx=1131, not resetting retries count 3
+[mavros_node-7] [INFO] [1788096118.603995675] [mavros.param]: PR: got an unsolicited param value idx=1132, not resetting retries count 3
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT) again, ignoring...
+[ERROR] [ardusub-6]: process has died [pid 320, exit code -2, cmd 'ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0'].
+[INFO] [mavros_node-7]: sending signal 'SIGINT' to process[mavros_node-7]
+[ERROR] [parameter_bridge-4]: process has died [pid 188, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/bluerov2_heavy_multibeam_sonar/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance /model/bluerov2_heavy_multibeam_sonar/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V /model/bluerov2_heavy_multibeam_sonar/imu@sensor_msgs/msg/Imu[gz.msgs.IMU /model/bluerov2_heavy_multibeam_sonar/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked --ros-args'].
+[INFO] [static_transform_publisher-3]: sending signal 'SIGINT' to process[static_transform_publisher-3]
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[mavros_node-7] [INFO] [1788096118.755811884] [rclcpp]: signal_handler(signum=2)
+[mavros_node-7] Error:   mavconn: tcp0: receive: End of file
+[mavros_node-7]          at line 307 in /home/docker/mavros_ws/src/mavros/libmavconn/src/tcp.cpp
+[mavros_node-7] [WARN] [1788096118.761771842] [mavros]: UAS Executor terminated
+[parameter_bridge-4] [INFO] [1788096118.756236259] [rclcpp]: signal_handler(signum=2)
+[static_transform_publisher-3] [INFO] [1788096118.758323634] [rclcpp]: signal_handler(signum=2)
+[ERROR] [static_transform_publisher-3]: process has died [pid 187, exit code -2, cmd '/opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar --ros-args'].
+[gazebo-1] [INFO] [1788096118.765470300] [rclcpp]: signal_handler(signum=2)
+[ERROR] [mavros_node-7]: process has died [pid 321, exit code -2, cmd '/home/docker/mavros_ws/install/lib/mavros/mavros_node --ros-args --params-file /home/docker/dave_ws/install/share/dave_robot_models/config/mavros/mavros.yaml --params-file /tmp/launch_params_wp2kqkxh'].
+[gazebo-1] Total WGPU Calculation Wrapper Time: 344.098 ms
+[gazebo-1] [INFO] [1788096119.108909967] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 347.146 [ms]
+[gazebo-1]
+[ERROR] [gazebo-1]: process has died [pid 112, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r --force-version 10'].

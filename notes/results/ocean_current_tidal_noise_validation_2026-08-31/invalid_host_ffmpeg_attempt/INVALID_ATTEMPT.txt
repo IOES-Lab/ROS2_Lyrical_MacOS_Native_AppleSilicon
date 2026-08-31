@@ -1,0 +1,5 @@
+INVALID ATTEMPT
+
+The macOS Gazebo server did not start because the local gz-sim binary was linked
+against a removed Homebrew ffmpeg libswscale.9.dylib. No runtime conclusion is
+drawn from this attempt. The end-to-end tidal test was rerun in Docker.

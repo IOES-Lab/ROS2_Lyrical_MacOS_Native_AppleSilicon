@@ -1,0 +1,4 @@
+26:            "/sensor/camera@sensor_msgs/msg/Image[gz.msgs.Image",  # for the multibeam world
+27:            "/sensor/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",  # for the multibeam world
+28:            "/sensor/depth_camera@sensor_msgs/msg/Image[gz.msgs.Image",  # for the multibeam world
+29:            "/sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked",  # the point cloud bridge, must match the model.sdf

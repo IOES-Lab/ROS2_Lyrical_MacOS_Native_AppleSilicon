@@ -1,0 +1,14 @@
+{
+  "candidate": "defer compute-backend creation until after first GpuRays frame",
+  "backend_ready": true,
+  "pointcloud_513x301": true,
+  "raw_sonar_513x399": true,
+  "mavros_connected": true,
+  "armed": true,
+  "manual_control_messages": 100,
+  "odometry_x_before_m": 0.00013836258406877124,
+  "odometry_x_after_m": 0.6871428981999506,
+  "odometry_x_delta_m": 0.6870045356158818,
+  "disarmed": true,
+  "ogre2_segfault": false
+}

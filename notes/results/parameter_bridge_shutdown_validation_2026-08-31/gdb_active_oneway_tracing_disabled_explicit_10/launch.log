@@ -1,0 +1,48 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-00-07-44-242110-1dbd327dbda6-38
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [42]
+[INFO] [create-2]: process started with pid [43]
+[INFO] [static_transform_publisher-3]: process started with pid [44]
+[create-2] [INFO] [1788134864.823556844] [ros_gz_sim]: Requesting list of world names.
+[static_transform_publisher-3] [INFO] [1788134864.838405427] [static_transform_publisher_h5SWSFDctZSZbYLM]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'world' to 'blueview_p900/blueview_p900_base_link/multibeam_sonar'
+[create-2] [INFO] [1788134867.579726137] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 43]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [INFO] [1788134868.950191971] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788134868.950497304] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788134868.950524054] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788134868.950547429] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788134868.950567179] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1788134868.950578221] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788134868.950597179] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1788134868.950604929] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1788134868.950609054] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788134868.950621888] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788134868.950644054] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1788134868.950660013] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1788134868.950682013] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788134868.950697679] [multibeam_sonar_node]:
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: wgpu
+[gazebo-1] [sonar_compute_factory] Attempting WgpuComputeBackend initialization...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] [all] GPU pipelines compiled in 8 ms -> ready.
+[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 1×1×4
+[gazebo-1] [sonar_wgpu] GPU #1     |    7.8 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_compute_factory] SUCCESS: WgpuComputeBackend initialized!
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[gazebo-1] [sonar_wgpu] GPU #50    |  260.6 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #100   |  269.1 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #150   |  290.3 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #200   |  294.4 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #250   |  302.7 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #300   |  331.3 ms | 513 beams × 31 rays × 399 freq
+[static_transform_publisher-3] [INFO] [1788134992.938068459] [rclcpp]: signal_handler(signum=2)
+[gazebo-1] [INFO] [1788134992.941383875] [rclcpp]: signal_handler(signum=2)
+[INFO] [static_transform_publisher-3]: process has finished cleanly [pid 44]
+[INFO] [gazebo-1]: process has finished cleanly [pid 42]

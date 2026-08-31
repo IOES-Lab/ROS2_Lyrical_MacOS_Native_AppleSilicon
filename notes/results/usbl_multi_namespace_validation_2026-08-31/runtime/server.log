@@ -1,0 +1,9 @@
+0 0 0 0 0 0
+3 4 0.5 0 0 0
+6 8 0.5 0 0 0
+[WARN] [1788145547.768342966] [rcl.logging_rosout]: Publisher already registered for node name: 'usbl_transceiver_node'. If this is due to multiple nodes with the same name then all logs for the logger named 'usbl_transceiver_node' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+100 0 0 0 0 0
+103 4 0.5 0 0 0
+[WARN] [1788145547.772911049] [rcl.logging_rosout]: Publisher already registered for node name: 'usbl_transponder_1_node'. If this is due to multiple nodes with the same name then all logs for the logger named 'usbl_transponder_1_node' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+106 8 0.5 0 0 0
+[WARN] [1788145547.779243007] [rcl.logging_rosout]: Publisher already registered for node name: 'usbl_transponder_2_node'. If this is due to multiple nodes with the same name then all logs for the logger named 'usbl_transponder_2_node' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.

@@ -1,0 +1,1893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20260831-0617-Experimental"
+	Name="a13626442449"
+	Generator="ctest-4.2.3"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="15.2.0"
+	OSName="Linux"
+	Hostname="a13626442449"
+	OSRelease="6.12.76-linuxkit"
+	OSVersion="#1 SMP Sun Mar  8 14:41:59 UTC 2026"
+	OSPlatform="aarch64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="8"
+	ModelID="0"
+	ModelName=""
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="1023"
+	TotalPhysicalMemory="11948"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Aug 31 06:17 UTC</StartDateTime>
+		<StartTestTime>1788157079</StartTestTime>
+		<TestList>
+			<Test>./test_rcl_interfaces</Test>
+			<Test>./test_ros_gz_interfaces</Test>
+			<Test>./test_sensor_msgs</Test>
+			<Test>./test_launch_test_ros_subscriber.launch.py</Test>
+			<Test>./test_launch_test_gz_subscriber.launch.py</Test>
+			<Test>./test_launch_test_gz_server.launch.py</Test>
+			<Test>./test_launch_test_launch_action.launch.py</Test>
+			<Test>./test_launch_test_launch_action_classic.launch.py</Test>
+			<Test>./ros_gz_bridge_bridge_config</Test>
+			<Test>./ros_gz_bridge_gid_filtering</Test>
+			<Test>./copyright</Test>
+			<Test>./cppcheck</Test>
+			<Test>./cpplint</Test>
+			<Test>./flake8</Test>
+			<Test>./lint_cmake</Test>
+			<Test>./pep257</Test>
+			<Test>./uncrustify</Test>
+			<Test>./xmllint</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>test_rcl_interfaces</Name>
+			<Path>.</Path>
+			<FullName>./test_rcl_interfaces</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/test_rcl_interfaces.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_rcl_interfaces" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.1326</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/test_rcl_interfaces.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_rcl_interfaces" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_rcl_interfaces --gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 20 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 10 tests from RosToGzTest
+[ RUN      ] RosToGzTest.NotSet
+[       OK ] RosToGzTest.NotSet (0 ms)
+[ RUN      ] RosToGzTest.Boolean
+[       OK ] RosToGzTest.Boolean (0 ms)
+[ RUN      ] RosToGzTest.Integer
+ParameterValue INTEGER clamped to INT32_MAX
+ParameterValue INTEGER clamped to INT32_MIN
+[       OK ] RosToGzTest.Integer (0 ms)
+[ RUN      ] RosToGzTest.Double
+[       OK ] RosToGzTest.Double (0 ms)
+[ RUN      ] RosToGzTest.String
+[       OK ] RosToGzTest.String (0 ms)
+[ RUN      ] RosToGzTest.ByteArray
+Converting unsupported ParameterValue [BYTE_ARRAY] failed
+[       OK ] RosToGzTest.ByteArray (0 ms)
+[ RUN      ] RosToGzTest.BoolArray
+Converting unsupported ParameterValue [BOOL_ARRAY] failed
+[       OK ] RosToGzTest.BoolArray (0 ms)
+[ RUN      ] RosToGzTest.IntegerArray
+Converting unsupported ParameterValue [INTEGER_ARRAY] failed
+[       OK ] RosToGzTest.IntegerArray (0 ms)
+[ RUN      ] RosToGzTest.DoubleArray
+Converting unsupported ParameterValue [DOUBLE_ARRAY] failed
+[       OK ] RosToGzTest.DoubleArray (0 ms)
+[ RUN      ] RosToGzTest.StringArray
+Converting unsupported ParameterValue [STRING_ARRAY] failed
+[       OK ] RosToGzTest.StringArray (0 ms)
+[----------] 10 tests from RosToGzTest (0 ms total)
+
+[----------] 10 tests from GzToRosTest
+[ RUN      ] GzToRosTest.None
+[       OK ] GzToRosTest.None (0 ms)
+[ RUN      ] GzToRosTest.Double
+[       OK ] GzToRosTest.Double (0 ms)
+[ RUN      ] GzToRosTest.Int32
+[       OK ] GzToRosTest.Int32 (0 ms)
+[ RUN      ] GzToRosTest.String
+[       OK ] GzToRosTest.String (0 ms)
+[ RUN      ] GzToRosTest.Boolean
+[       OK ] GzToRosTest.Boolean (0 ms)
+[ RUN      ] GzToRosTest.Vector3d
+Converting unsupported gz::msgs::Any [VECTOR3D] failed
+[       OK ] GzToRosTest.Vector3d (0 ms)
+[ RUN      ] GzToRosTest.Color
+Converting unsupported gz::msgs::Any [COLOR] failed
+[       OK ] GzToRosTest.Color (0 ms)
+[ RUN      ] GzToRosTest.Pose3d
+Converting unsupported gz::msgs::Any [POSE3D] failed
+[       OK ] GzToRosTest.Pose3d (0 ms)
+[ RUN      ] GzToRosTest.Quaterniond
+Converting unsupported gz::msgs::Any [QUATERNIOND] failed
+[       OK ] GzToRosTest.Quaterniond (0 ms)
+[ RUN      ] GzToRosTest.Time
+[       OK ] GzToRosTest.Time (0 ms)
+[----------] 10 tests from GzToRosTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 20 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 20 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml'
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_rcl_interfaces.gtest.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>gtest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_ros_gz_interfaces</Name>
+			<Path>.</Path>
+			<FullName>./test_ros_gz_interfaces</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/test_ros_gz_interfaces.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_ros_gz_interfaces" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.218483</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/test_ros_gz_interfaces.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_ros_gz_interfaces" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_ros_gz_interfaces --gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 3 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from RosToGzTest
+[ RUN      ] RosToGzTest.FlatParameters
+[       OK ] RosToGzTest.FlatParameters (0 ms)
+[----------] 1 test from RosToGzTest (0 ms total)
+
+[----------] 2 tests from GzToRosTest
+[ RUN      ] GzToRosTest.FlatParameters
+[       OK ] GzToRosTest.FlatParameters (0 ms)
+[ RUN      ] GzToRosTest.ChildParameters
+[       OK ] GzToRosTest.ChildParameters (0 ms)
+[----------] 2 tests from GzToRosTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 3 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml'
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_ros_gz_interfaces.gtest.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>gtest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_sensor_msgs</Name>
+			<Path>.</Path>
+			<FullName>./test_sensor_msgs</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/test_sensor_msgs.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_sensor_msgs" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.153893</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/test_sensor_msgs.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_sensor_msgs" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_sensor_msgs --gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 6 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from JointStateRosToGz
+[ RUN      ] JointStateRosToGz.PositionOnlyDoesNotReadPastVelocityOrEffort
+[       OK ] JointStateRosToGz.PositionOnlyDoesNotReadPastVelocityOrEffort (0 ms)
+[ RUN      ] JointStateRosToGz.NameShorterThanPositionDoesNotOverread
+[       OK ] JointStateRosToGz.NameShorterThanPositionDoesNotOverread (0 ms)
+[----------] 2 tests from JointStateRosToGz (0 ms total)
+
+[----------] 2 tests from LaserScanRosToGz
+[ RUN      ] LaserScanRosToGz.ComputedCountLargerThanRangesArrayIsClamped
+[       OK ] LaserScanRosToGz.ComputedCountLargerThanRangesArrayIsClamped (0 ms)
+[ RUN      ] LaserScanRosToGz.EmptyIntensitiesDoesNotOverread
+[       OK ] LaserScanRosToGz.EmptyIntensitiesDoesNotOverread (0 ms)
+[----------] 2 tests from LaserScanRosToGz (0 ms total)
+
+[----------] 1 test from LaserScanGzToRos
+[ RUN      ] LaserScanGzToRos.CountLargerThanRangesArrayIsClamped
+[       OK ] LaserScanGzToRos.CountLargerThanRangesArrayIsClamped (0 ms)
+[----------] 1 test from LaserScanGzToRos (0 ms total)
+
+[----------] 1 test from CameraInfoGzToRos
+[ RUN      ] CameraInfoGzToRos.IntrinsicsLongerThanRosArrayDoesNotOverflow
+[       OK ] CameraInfoGzToRos.IntrinsicsLongerThanRosArrayDoesNotOverflow (0 ms)
+[----------] 1 test from CameraInfoGzToRos (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 4 test suites ran. (0 ms total)
+[  PASSED  ] 6 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml'
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_sensor_msgs.gtest.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>gtest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_launch_test_ros_subscriber.launch.py</Name>
+			<Path>.</Path>
+			<FullName>./test_launch_test_ros_subscriber.launch.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_ros_subscriber.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_ros_subscriber.launch.py" "gz_msgs_ver:=12.0.1" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>2.30911</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_ros_subscriber.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_ros_subscriber.launch.py" "gz_msgs_ver:=12.0.1" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: extra environment variables:
+ - PYTHONDONTWRITEBYTECODE=1
+-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /usr/bin/python3 -m launch_testing.launch_test /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_ros_subscriber.launch.py gz_msgs_ver:=12.0.1 --junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml --package-name=ros_gz_bridge
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-06-18-00-334094-a13626442449-591
+[INFO] [launch]: Default logging verbosity is set to INFO
+test_termination (ros_gz_bridge.ROSSubscriberTest.test_termination) ... [INFO] [test_gz_publisher-1]: process started with pid [595]
+[INFO] [test_ros_subscriber-2]: process started with pid [596]
+[INFO] [parameter_bridge-3]: process started with pid [597]
+[INFO] [python3-4]: process started with pid [598]
+[test_ros_subscriber-2] [==========] Running 72 tests from 1 test suite.
+[test_ros_subscriber-2] [----------] Global test environment set-up.
+[test_ros_subscriber-2] [----------] 72 tests from ROSSubscriberTest
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.actuators_actuator_msgs_actuators
+[parameter_bridge-3] [INFO] [1788157080.622219925] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/actuators_actuator_msgs_actuators (gz.msgs.Actuators) -&gt; /actuators_actuator_msgs_actuators (actuator_msgs/msg/Actuators)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.630194467] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/time_builtin_interfaces_time (gz.msgs.Time) -&gt; /time_builtin_interfaces_time (builtin_interfaces/msg/Time)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.631198967] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/vector3d_geometry_msgs_point (gz.msgs.Vector3d) -&gt; /vector3d_geometry_msgs_point (geometry_msgs/msg/Point)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.640956342] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pose_geometry_msgs_pose (gz.msgs.Pose) -&gt; /pose_geometry_msgs_pose (geometry_msgs/msg/Pose)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.644482259] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pose_v_geometry_msgs_posearray (gz.msgs.Pose_V) -&gt; /pose_v_geometry_msgs_posearray (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.actuators_actuator_msgs_actuators (175 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.time_builtin_interfaces_time
+[parameter_bridge-3] [INFO] [1788157080.648453384] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pose_geometry_msgs_posestamped (gz.msgs.Pose) -&gt; /pose_geometry_msgs_posestamped (geometry_msgs/msg/PoseStamped)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.650338884] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/posewithcovariance_geometry_msgs_posewithcovariance (gz.msgs.PoseWithCovariance) -&gt; /posewithcovariance_geometry_msgs_posewithcovariance (geometry_msgs/msg/PoseWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.652240550] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/posewithcovariance_geometry_msgs_posewithcovariancestamped (gz.msgs.PoseWithCovariance) -&gt; /posewithcovariance_geometry_msgs_posewithcovariancestamped (geometry_msgs/msg/PoseWithCovarianceStamped)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.652982550] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/quaternion_geometry_msgs_quaternion (gz.msgs.Quaternion) -&gt; /quaternion_geometry_msgs_quaternion (geometry_msgs/msg/Quaternion)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.654708425] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pose_geometry_msgs_transform (gz.msgs.Pose) -&gt; /pose_geometry_msgs_transform (geometry_msgs/msg/Transform)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.655466925] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pose_geometry_msgs_transformstamped (gz.msgs.Pose) -&gt; /pose_geometry_msgs_transformstamped (geometry_msgs/msg/TransformStamped)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.655793259] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/twist_geometry_msgs_twist (gz.msgs.Twist) -&gt; /twist_geometry_msgs_twist (geometry_msgs/msg/Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.656067925] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/twist_geometry_msgs_twiststamped (gz.msgs.Twist) -&gt; /twist_geometry_msgs_twiststamped (geometry_msgs/msg/TwistStamped)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.656325467] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariance (gz.msgs.TwistWithCovariance) -&gt; /twistwithcovariance_geometry_msgs_twistwithcovariance (geometry_msgs/msg/TwistWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.656586134] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariancestamped (gz.msgs.TwistWithCovariance) -&gt; /twistwithcovariance_geometry_msgs_twistwithcovariancestamped (geometry_msgs/msg/TwistWithCovarianceStamped)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.657071800] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/vector3d_geometry_msgs_vector3 (gz.msgs.Vector3d) -&gt; /vector3d_geometry_msgs_vector3 (geometry_msgs/msg/Vector3)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.time_builtin_interfaces_time (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.vector3d_geometry_msgs_point
+[parameter_bridge-3] [INFO] [1788157080.657353550] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/wrench_geometry_msgs_wrench (gz.msgs.Wrench) -&gt; /wrench_geometry_msgs_wrench (geometry_msgs/msg/Wrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.660352009] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/wrench_geometry_msgs_wrenchstamped (gz.msgs.Wrench) -&gt; /wrench_geometry_msgs_wrenchstamped (geometry_msgs/msg/WrenchStamped)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.660696009] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/navsat_gps_msgs_gpsfix (gz.msgs.NavSat) -&gt; /navsat_gps_msgs_gpsfix (gps_msgs/msg/GPSFix)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.666860467] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/dvlvelocitytracking_marine_acoustic_msgs_dvl (gz.msgs.DVLVelocityTracking) -&gt; /dvlvelocitytracking_marine_acoustic_msgs_dvl (marine_acoustic_msgs/msg/Dvl)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.672642175] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/odometry_nav_msgs_odometry (gz.msgs.Odometry) -&gt; /odometry_nav_msgs_odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.678249342] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/odometrywithcovariance_nav_msgs_odometry (gz.msgs.OdometryWithCovariance) -&gt; /odometrywithcovariance_nav_msgs_odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.679572175] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/any_rcl_interfaces_parametervalue (gz.msgs.Any) -&gt; /any_rcl_interfaces_parametervalue (rcl_interfaces/msg/ParameterValue)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.680246967] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/altimeter_ros_gz_interfaces_altimeter (gz.msgs.Altimeter) -&gt; /altimeter_ros_gz_interfaces_altimeter (ros_gz_interfaces/msg/Altimeter)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.vector3d_geometry_msgs_point (25 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_pose
+[parameter_bridge-3] [INFO] [1788157080.693053967] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/contact_ros_gz_interfaces_contact (gz.msgs.Contact) -&gt; /contact_ros_gz_interfaces_contact (ros_gz_interfaces/msg/Contact)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.697765342] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/contacts_ros_gz_interfaces_contacts (gz.msgs.Contacts) -&gt; /contacts_ros_gz_interfaces_contacts (ros_gz_interfaces/msg/Contacts)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.698599050] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/dataframe_ros_gz_interfaces_dataframe (gz.msgs.Dataframe) -&gt; /dataframe_ros_gz_interfaces_dataframe (ros_gz_interfaces/msg/Dataframe)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.699482509] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/entity_ros_gz_interfaces_entity (gz.msgs.Entity) -&gt; /entity_ros_gz_interfaces_entity (ros_gz_interfaces/msg/Entity)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.699815592] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/entityfactory_ros_gz_interfaces_entityfactory (gz.msgs.EntityFactory) -&gt; /entityfactory_ros_gz_interfaces_entityfactory (ros_gz_interfaces/msg/EntityFactory)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.700700717] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/entitywrench_ros_gz_interfaces_entitywrench (gz.msgs.EntityWrench) -&gt; /entitywrench_ros_gz_interfaces_entitywrench (ros_gz_interfaces/msg/EntityWrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.703746009] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/float_v_ros_gz_interfaces_float32array (gz.msgs.Float_V) -&gt; /float_v_ros_gz_interfaces_float32array (ros_gz_interfaces/msg/Float32Array)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.706615592] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/guicamera_ros_gz_interfaces_guicamera (gz.msgs.GUICamera) -&gt; /guicamera_ros_gz_interfaces_guicamera (ros_gz_interfaces/msg/GuiCamera)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.709022967] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/jointwrench_ros_gz_interfaces_jointwrench (gz.msgs.JointWrench) -&gt; /jointwrench_ros_gz_interfaces_jointwrench (ros_gz_interfaces/msg/JointWrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.710334425] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/light_ros_gz_interfaces_light (gz.msgs.Light) -&gt; /light_ros_gz_interfaces_light (ros_gz_interfaces/msg/Light)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_pose (30 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_v_geometry_msgs_posearray
+[parameter_bridge-3] [INFO] [1788157080.715296217] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (gz.msgs.LogPlaybackStatistics) -&gt; /logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (ros_gz_interfaces/msg/LogPlaybackStatistics)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.723207009] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/logicalcameraimage_ros_gz_interfaces_logicalcameraimage (gz.msgs.LogicalCameraImage) -&gt; /logicalcameraimage_ros_gz_interfaces_logicalcameraimage (ros_gz_interfaces/msg/LogicalCameraImage)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.731256759] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/materialcolor_ros_gz_interfaces_materialcolor (gz.msgs.MaterialColor) -&gt; /materialcolor_ros_gz_interfaces_materialcolor (ros_gz_interfaces/msg/MaterialColor)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.732843634] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/param_ros_gz_interfaces_paramvec (gz.msgs.Param) -&gt; /param_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.737035300] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/param_v_ros_gz_interfaces_paramvec (gz.msgs.Param_V) -&gt; /param_v_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_v_geometry_msgs_posearray (24 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_posestamped
+[parameter_bridge-3] [INFO] [1788157080.742842842] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/sensornoise_ros_gz_interfaces_sensornoise (gz.msgs.SensorNoise) -&gt; /sensornoise_ros_gz_interfaces_sensornoise (ros_gz_interfaces/msg/SensorNoise)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.748783592] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/stringmsg_v_ros_gz_interfaces_stringvec (gz.msgs.StringMsg_V) -&gt; /stringmsg_v_ros_gz_interfaces_stringvec (ros_gz_interfaces/msg/StringVec)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.754918800] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/trackvisual_ros_gz_interfaces_trackvisual (gz.msgs.TrackVisual) -&gt; /trackvisual_ros_gz_interfaces_trackvisual (ros_gz_interfaces/msg/TrackVisual)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.757544634] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/videorecord_ros_gz_interfaces_videorecord (gz.msgs.VideoRecord) -&gt; /videorecord_ros_gz_interfaces_videorecord (ros_gz_interfaces/msg/VideoRecord)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.759678342] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/worldstatistics_ros_gz_interfaces_worldstatistics (gz.msgs.WorldStatistics) -&gt; /worldstatistics_ros_gz_interfaces_worldstatistics (ros_gz_interfaces/msg/WorldStatistics)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.763337134] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/clock_rosgraph_msgs_clock (gz.msgs.Clock) -&gt; /clock_rosgraph_msgs_clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_posestamped (27 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance
+[parameter_bridge-3] [INFO] [1788157080.773398384] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/batterystate_sensor_msgs_batterystate (gz.msgs.BatteryState) -&gt; /batterystate_sensor_msgs_batterystate (sensor_msgs/msg/BatteryState)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped
+[parameter_bridge-3] [INFO] [1788157080.791356467] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/camerainfo_sensor_msgs_camerainfo (gz.msgs.CameraInfo) -&gt; /camerainfo_sensor_msgs_camerainfo (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.794147842] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/fluidpressure_sensor_msgs_fluidpressure (gz.msgs.FluidPressure) -&gt; /fluidpressure_sensor_msgs_fluidpressure (sensor_msgs/msg/FluidPressure)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped (14 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.quaternion_geometry_msgs_quaternion
+[parameter_bridge-3] [INFO] [1788157080.797283550] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/image_sensor_msgs_image (gz.msgs.Image) -&gt; /image_sensor_msgs_image (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.801575217] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/imu_sensor_msgs_imu (gz.msgs.IMU) -&gt; /imu_sensor_msgs_imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.803510467] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/model_sensor_msgs_jointstate (gz.msgs.Model) -&gt; /model_sensor_msgs_jointstate (sensor_msgs/msg/JointState)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.804966925] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/joy_sensor_msgs_joy (gz.msgs.Joy) -&gt; /joy_sensor_msgs_joy (sensor_msgs/msg/Joy)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.805983592] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/laserscan_sensor_msgs_laserscan (gz.msgs.LaserScan) -&gt; /laserscan_sensor_msgs_laserscan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.quaternion_geometry_msgs_quaternion (15 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_transform
+[parameter_bridge-3] [INFO] [1788157080.813052884] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/magnetometer_sensor_msgs_magneticfield (gz.msgs.Magnetometer) -&gt; /magnetometer_sensor_msgs_magneticfield (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.813804092] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/navsat_sensor_msgs_navsatfix (gz.msgs.NavSat) -&gt; /navsat_sensor_msgs_navsatfix (sensor_msgs/msg/NavSatFix)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.814557634] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pointcloudpacked_sensor_msgs_pointcloud2 (gz.msgs.PointCloudPacked) -&gt; /pointcloudpacked_sensor_msgs_pointcloud2 (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.817722092] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/laserscan_sensor_msgs_range (gz.msgs.LaserScan) -&gt; /laserscan_sensor_msgs_range (sensor_msgs/msg/Range)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.818742800] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/boolean_std_msgs_bool (gz.msgs.Boolean) -&gt; /boolean_std_msgs_bool (std_msgs/msg/Bool)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_transform (14 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_geometry_msgs_transformstamped
+[parameter_bridge-3] [INFO] [1788157080.825493717] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/color_std_msgs_colorrgba (gz.msgs.Color) -&gt; /color_std_msgs_colorrgba (std_msgs/msg/ColorRGBA)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.827683717] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/empty_std_msgs_empty (gz.msgs.Empty) -&gt; /empty_std_msgs_empty (std_msgs/msg/Empty)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.829464675] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/float_std_msgs_float32 (gz.msgs.Float) -&gt; /float_std_msgs_float32 (std_msgs/msg/Float32)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.830115592] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/double_std_msgs_float64 (gz.msgs.Double) -&gt; /double_std_msgs_float64 (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.830804842] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/header_std_msgs_header (gz.msgs.Header) -&gt; /header_std_msgs_header (std_msgs/msg/Header)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.835671300] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/int32_std_msgs_int32 (gz.msgs.Int32) -&gt; /int32_std_msgs_int32 (std_msgs/msg/Int32)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.836732842] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/stringmsg_std_msgs_string (gz.msgs.StringMsg) -&gt; /stringmsg_std_msgs_string (std_msgs/msg/String)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.840173342] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/uint32_std_msgs_uint32 (gz.msgs.UInt32) -&gt; /uint32_std_msgs_uint32 (std_msgs/msg/UInt32)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_geometry_msgs_transformstamped (16 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twist_geometry_msgs_twist
+[parameter_bridge-3] [INFO] [1788157080.845631675] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/pose_v_tf2_msgs_tfmessage (gz.msgs.Pose_V) -&gt; /pose_v_tf2_msgs_tfmessage (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.862339884] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/jointtrajectory_trajectory_msgs_jointtrajectory (gz.msgs.JointTrajectory) -&gt; /jointtrajectory_trajectory_msgs_jointtrajectory (trajectory_msgs/msg/JointTrajectory)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twist_geometry_msgs_twist (28 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twist_geometry_msgs_twiststamped
+[parameter_bridge-3] [INFO] [1788157080.880820759] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/annotatedaxisaligned2dbox_vision_msgs_detection2d (gz.msgs.AnnotatedAxisAligned2DBox) -&gt; /annotatedaxisaligned2dbox_vision_msgs_detection2d (vision_msgs/msg/Detection2D)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.895129384] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (gz.msgs.AnnotatedAxisAligned2DBox_V) -&gt; /annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (vision_msgs/msg/Detection2DArray)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twist_geometry_msgs_twiststamped (27 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance
+[parameter_bridge-3] [INFO] [1788157080.900195050] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/annotatedoriented3dbox_vision_msgs_detection3d (gz.msgs.AnnotatedOriented3DBox) -&gt; /annotatedoriented3dbox_vision_msgs_detection3d (vision_msgs/msg/Detection3D)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157080.901913425] [ros_gz_bridge]: Creating GZ-&gt;ROS Bridge: [/annotatedoriented3dbox_v_vision_msgs_detection3darray (gz.msgs.AnnotatedOriented3DBox_V) -&gt; /annotatedoriented3dbox_v_vision_msgs_detection3darray (vision_msgs/msg/Detection3DArray)] (Lazy 0)
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance (16 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.vector3d_geometry_msgs_vector3
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.vector3d_geometry_msgs_vector3 (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.wrench_geometry_msgs_wrench
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.wrench_geometry_msgs_wrench (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.wrench_geometry_msgs_wrenchstamped
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.wrench_geometry_msgs_wrenchstamped (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.navsat_gps_msgs_gpsfix
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.navsat_gps_msgs_gpsfix (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.odometry_nav_msgs_odometry
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.odometry_nav_msgs_odometry (14 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.odometrywithcovariance_nav_msgs_odometry
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.odometrywithcovariance_nav_msgs_odometry (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.any_rcl_interfaces_parametervalue
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.any_rcl_interfaces_parametervalue (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.altimeter_ros_gz_interfaces_altimeter
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.altimeter_ros_gz_interfaces_altimeter (18 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.contact_ros_gz_interfaces_contact
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.contact_ros_gz_interfaces_contact (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.contacts_ros_gz_interfaces_contacts
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.contacts_ros_gz_interfaces_contacts (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.dataframe_ros_gz_interfaces_dataframe
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.dataframe_ros_gz_interfaces_dataframe (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.entity_ros_gz_interfaces_entity
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.entity_ros_gz_interfaces_entity (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.float_v_ros_gz_interfaces_float32array
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.float_v_ros_gz_interfaces_float32array (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.guicamera_ros_gz_interfaces_guicamera
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.guicamera_ros_gz_interfaces_guicamera (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.light_ros_gz_interfaces_light
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.light_ros_gz_interfaces_light (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.param_ros_gz_interfaces_paramvec
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.param_ros_gz_interfaces_paramvec (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.param_v_ros_gz_interfaces_paramvec
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.param_v_ros_gz_interfaces_paramvec (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise (24 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec (22 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.videorecord_ros_gz_interfaces_videorecord
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.videorecord_ros_gz_interfaces_videorecord (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics (24 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.clock_rosgraph_msgs_clock
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.clock_rosgraph_msgs_clock (24 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.batterystate_sensor_msgs_batterystate
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.batterystate_sensor_msgs_batterystate (16 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.camerainfo_sensor_msgs_camerainfo
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.camerainfo_sensor_msgs_camerainfo (14 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.fluidpressure_sensor_msgs_fluidpressure
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.fluidpressure_sensor_msgs_fluidpressure (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.image_sensor_msgs_image
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.image_sensor_msgs_image (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.imu_sensor_msgs_imu
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.imu_sensor_msgs_imu (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.model_sensor_msgs_jointstate
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.model_sensor_msgs_jointstate (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.joy_sensor_msgs_joy
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.joy_sensor_msgs_joy (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.laserscan_sensor_msgs_laserscan
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.laserscan_sensor_msgs_laserscan (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.magnetometer_sensor_msgs_magneticfield
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.magnetometer_sensor_msgs_magneticfield (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.navsat_sensor_msgs_navsatfix
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.navsat_sensor_msgs_navsatfix (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2 (14 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.laserscan_sensor_msgs_range
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.laserscan_sensor_msgs_range (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.boolean_std_msgs_bool
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.boolean_std_msgs_bool (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.color_std_msgs_colorrgba
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.color_std_msgs_colorrgba (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.empty_std_msgs_empty
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.empty_std_msgs_empty (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.float_std_msgs_float32
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.float_std_msgs_float32 (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.double_std_msgs_float64
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.double_std_msgs_float64 (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.header_std_msgs_header
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.header_std_msgs_header (11 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.int32_std_msgs_int32
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.int32_std_msgs_int32 (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.stringmsg_std_msgs_string
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.stringmsg_std_msgs_string (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.uint32_std_msgs_uint32
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.uint32_std_msgs_uint32 (23 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.pose_v_tf2_msgs_tfmessage
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.pose_v_tf2_msgs_tfmessage (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d (13 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d (12 ms)
+[test_ros_subscriber-2] [ RUN      ] ROSSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray
+[test_ros_subscriber-2] [       OK ] ROSSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray (12 ms)
+[test_ros_subscriber-2] [----------] 72 tests from ROSSubscriberTest (1246 ms total)
+[test_ros_subscriber-2]
+[test_ros_subscriber-2] [----------] Global test environment tear-down
+[test_ros_subscriber-2] [==========] 72 tests from 1 test suite ran. (1246 ms total)
+[test_ros_subscriber-2] [  PASSED  ] 72 tests.
+[INFO] [test_ros_subscriber-2]: process has finished cleanly [pid 596]
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.471s
+
+OK
+[INFO] [python3-4]: sending signal 'SIGINT' to process[python3-4]
+[INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+[INFO] [test_gz_publisher-1]: sending signal 'SIGINT' to process[test_gz_publisher-1]
+[parameter_bridge-3] [INFO] [1788157081.843408093] [rclcpp]: signal_handler(signum=2)
+[INFO] [python3-4]: process has finished cleanly [pid 598]
+[INFO] [test_gz_publisher-1]: process has finished cleanly [pid 595]
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 597]
+test_exit_code (ros_gz_bridge.ROSSubscriberTestAfterShutdown.test_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_ros_subscriber.launch.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>launch_test</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_launch_test_gz_subscriber.launch.py</Name>
+			<Path>.</Path>
+			<FullName>./test_launch_test_gz_subscriber.launch.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_gz_subscriber.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_gz_subscriber.launch.py" "gz_msgs_ver:=12.0.1" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>1.55701</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_gz_subscriber.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_gz_subscriber.launch.py" "gz_msgs_ver:=12.0.1" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: extra environment variables:
+ - PYTHONDONTWRITEBYTECODE=1
+-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /usr/bin/python3 -m launch_testing.launch_test /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_gz_subscriber.launch.py gz_msgs_ver:=12.0.1 --junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml --package-name=ros_gz_bridge
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-06-18-02-387386-a13626442449-648
+[INFO] [launch]: Default logging verbosity is set to INFO
+test_termination (ros_gz_bridge.GzSubscriberTest.test_termination) ... [INFO] [test_ros_publisher-1]: process started with pid [652]
+[INFO] [test_gz_subscriber-2]: process started with pid [653]
+[INFO] [parameter_bridge-3]: process started with pid [654]
+[INFO] [python3-4]: process started with pid [655]
+[test_gz_subscriber-2] [==========] Running 72 tests from 1 test suite.
+[test_gz_subscriber-2] [----------] Global test environment set-up.
+[test_gz_subscriber-2] [----------] 72 tests from GzSubscriberTest
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.actuators_actuator_msgs_actuators
+[parameter_bridge-3] [INFO] [1788157082.491688718] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/actuators_actuator_msgs_actuators (actuator_msgs/msg/Actuators) -&gt; /actuators_actuator_msgs_actuators (gz.msgs.Actuators)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.494560968] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/time_builtin_interfaces_time (builtin_interfaces/msg/Time) -&gt; /time_builtin_interfaces_time (gz.msgs.Time)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.495239260] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/vector3d_geometry_msgs_point (geometry_msgs/msg/Point) -&gt; /vector3d_geometry_msgs_point (gz.msgs.Vector3d)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.497290718] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pose_geometry_msgs_pose (geometry_msgs/msg/Pose) -&gt; /pose_geometry_msgs_pose (gz.msgs.Pose)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.497972301] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pose_v_geometry_msgs_posearray (geometry_msgs/msg/PoseArray) -&gt; /pose_v_geometry_msgs_posearray (gz.msgs.Pose_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.499353635] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pose_geometry_msgs_posestamped (geometry_msgs/msg/PoseStamped) -&gt; /pose_geometry_msgs_posestamped (gz.msgs.Pose)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.500071760] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/posewithcovariance_geometry_msgs_posewithcovariance (geometry_msgs/msg/PoseWithCovariance) -&gt; /posewithcovariance_geometry_msgs_posewithcovariance (gz.msgs.PoseWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.501103551] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/posewithcovariance_geometry_msgs_posewithcovariancestamped (geometry_msgs/msg/PoseWithCovarianceStamped) -&gt; /posewithcovariance_geometry_msgs_posewithcovariancestamped (gz.msgs.PoseWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.501953468] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/quaternion_geometry_msgs_quaternion (geometry_msgs/msg/Quaternion) -&gt; /quaternion_geometry_msgs_quaternion (gz.msgs.Quaternion)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.502960426] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pose_geometry_msgs_transform (geometry_msgs/msg/Transform) -&gt; /pose_geometry_msgs_transform (gz.msgs.Pose)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.504246051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pose_geometry_msgs_transformstamped (geometry_msgs/msg/TransformStamped) -&gt; /pose_geometry_msgs_transformstamped (gz.msgs.Pose)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.505338426] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/twist_geometry_msgs_twist (geometry_msgs/msg/Twist) -&gt; /twist_geometry_msgs_twist (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.506201426] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/twist_geometry_msgs_twiststamped (geometry_msgs/msg/TwistStamped) -&gt; /twist_geometry_msgs_twiststamped (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.506734676] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariance (geometry_msgs/msg/TwistWithCovariance) -&gt; /twistwithcovariance_geometry_msgs_twistwithcovariance (gz.msgs.TwistWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.507252676] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/twistwithcovariance_geometry_msgs_twistwithcovariancestamped (geometry_msgs/msg/TwistWithCovarianceStamped) -&gt; /twistwithcovariance_geometry_msgs_twistwithcovariancestamped (gz.msgs.TwistWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.507845218] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/vector3d_geometry_msgs_vector3 (geometry_msgs/msg/Vector3) -&gt; /vector3d_geometry_msgs_vector3 (gz.msgs.Vector3d)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.508331760] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/wrench_geometry_msgs_wrench (geometry_msgs/msg/Wrench) -&gt; /wrench_geometry_msgs_wrench (gz.msgs.Wrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.508955801] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/wrench_geometry_msgs_wrenchstamped (geometry_msgs/msg/WrenchStamped) -&gt; /wrench_geometry_msgs_wrenchstamped (gz.msgs.Wrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.509501885] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/navsat_gps_msgs_gpsfix (gps_msgs/msg/GPSFix) -&gt; /navsat_gps_msgs_gpsfix (gz.msgs.NavSat)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.511059343] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/dvlvelocitytracking_marine_acoustic_msgs_dvl (marine_acoustic_msgs/msg/Dvl) -&gt; /dvlvelocitytracking_marine_acoustic_msgs_dvl (gz.msgs.DVLVelocityTracking)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.512952176] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/odometry_nav_msgs_odometry (nav_msgs/msg/Odometry) -&gt; /odometry_nav_msgs_odometry (gz.msgs.Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.514302343] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/odometrywithcovariance_nav_msgs_odometry (nav_msgs/msg/Odometry) -&gt; /odometrywithcovariance_nav_msgs_odometry (gz.msgs.OdometryWithCovariance)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.515031885] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/any_rcl_interfaces_parametervalue (rcl_interfaces/msg/ParameterValue) -&gt; /any_rcl_interfaces_parametervalue (gz.msgs.Any)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.515515510] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/altimeter_ros_gz_interfaces_altimeter (ros_gz_interfaces/msg/Altimeter) -&gt; /altimeter_ros_gz_interfaces_altimeter (gz.msgs.Altimeter)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.517429843] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/contact_ros_gz_interfaces_contact (ros_gz_interfaces/msg/Contact) -&gt; /contact_ros_gz_interfaces_contact (gz.msgs.Contact)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.518106051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/contacts_ros_gz_interfaces_contacts (ros_gz_interfaces/msg/Contacts) -&gt; /contacts_ros_gz_interfaces_contacts (gz.msgs.Contacts)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.518791051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/dataframe_ros_gz_interfaces_dataframe (ros_gz_interfaces/msg/Dataframe) -&gt; /dataframe_ros_gz_interfaces_dataframe (gz.msgs.Dataframe)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.519670593] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/entity_ros_gz_interfaces_entity (ros_gz_interfaces/msg/Entity) -&gt; /entity_ros_gz_interfaces_entity (gz.msgs.Entity)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.520297926] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/entityfactory_ros_gz_interfaces_entityfactory (ros_gz_interfaces/msg/EntityFactory) -&gt; /entityfactory_ros_gz_interfaces_entityfactory (gz.msgs.EntityFactory)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.521315885] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/entitywrench_ros_gz_interfaces_entitywrench (ros_gz_interfaces/msg/EntityWrench) -&gt; /entitywrench_ros_gz_interfaces_entitywrench (gz.msgs.EntityWrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.522542051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/float_v_ros_gz_interfaces_float32array (ros_gz_interfaces/msg/Float32Array) -&gt; /float_v_ros_gz_interfaces_float32array (gz.msgs.Float_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.523180593] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/guicamera_ros_gz_interfaces_guicamera (ros_gz_interfaces/msg/GuiCamera) -&gt; /guicamera_ros_gz_interfaces_guicamera (gz.msgs.GUICamera)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.523946843] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/jointwrench_ros_gz_interfaces_jointwrench (ros_gz_interfaces/msg/JointWrench) -&gt; /jointwrench_ros_gz_interfaces_jointwrench (gz.msgs.JointWrench)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.524433426] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/light_ros_gz_interfaces_light (ros_gz_interfaces/msg/Light) -&gt; /light_ros_gz_interfaces_light (gz.msgs.Light)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.525300551] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (ros_gz_interfaces/msg/LogPlaybackStatistics) -&gt; /logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (gz.msgs.LogPlaybackStatistics)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.526195385] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/logicalcameraimage_ros_gz_interfaces_logicalcameraimage (ros_gz_interfaces/msg/LogicalCameraImage) -&gt; /logicalcameraimage_ros_gz_interfaces_logicalcameraimage (gz.msgs.LogicalCameraImage)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.526920176] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/materialcolor_ros_gz_interfaces_materialcolor (ros_gz_interfaces/msg/MaterialColor) -&gt; /materialcolor_ros_gz_interfaces_materialcolor (gz.msgs.MaterialColor)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.527532551] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/param_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec) -&gt; /param_ros_gz_interfaces_paramvec (gz.msgs.Param)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.528314760] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/param_v_ros_gz_interfaces_paramvec (ros_gz_interfaces/msg/ParamVec) -&gt; /param_v_ros_gz_interfaces_paramvec (gz.msgs.Param_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.528858301] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/sensornoise_ros_gz_interfaces_sensornoise (ros_gz_interfaces/msg/SensorNoise) -&gt; /sensornoise_ros_gz_interfaces_sensornoise (gz.msgs.SensorNoise)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.529630468] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/stringmsg_v_ros_gz_interfaces_stringvec (ros_gz_interfaces/msg/StringVec) -&gt; /stringmsg_v_ros_gz_interfaces_stringvec (gz.msgs.StringMsg_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.530387593] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/trackvisual_ros_gz_interfaces_trackvisual (ros_gz_interfaces/msg/TrackVisual) -&gt; /trackvisual_ros_gz_interfaces_trackvisual (gz.msgs.TrackVisual)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.531039135] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/videorecord_ros_gz_interfaces_videorecord (ros_gz_interfaces/msg/VideoRecord) -&gt; /videorecord_ros_gz_interfaces_videorecord (gz.msgs.VideoRecord)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.531644510] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/worldstatistics_ros_gz_interfaces_worldstatistics (ros_gz_interfaces/msg/WorldStatistics) -&gt; /worldstatistics_ros_gz_interfaces_worldstatistics (gz.msgs.WorldStatistics)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.532443718] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/clock_rosgraph_msgs_clock (rosgraph_msgs/msg/Clock) -&gt; /clock_rosgraph_msgs_clock (gz.msgs.Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.534058051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/batterystate_sensor_msgs_batterystate (sensor_msgs/msg/BatteryState) -&gt; /batterystate_sensor_msgs_batterystate (gz.msgs.BatteryState)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.535766593] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/camerainfo_sensor_msgs_camerainfo (sensor_msgs/msg/CameraInfo) -&gt; /camerainfo_sensor_msgs_camerainfo (gz.msgs.CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.536353968] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/fluidpressure_sensor_msgs_fluidpressure (sensor_msgs/msg/FluidPressure) -&gt; /fluidpressure_sensor_msgs_fluidpressure (gz.msgs.FluidPressure)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.537100135] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/image_sensor_msgs_image (sensor_msgs/msg/Image) -&gt; /image_sensor_msgs_image (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.538427843] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/imu_sensor_msgs_imu (sensor_msgs/msg/Imu) -&gt; /imu_sensor_msgs_imu (gz.msgs.IMU)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.539229426] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/model_sensor_msgs_jointstate (sensor_msgs/msg/JointState) -&gt; /model_sensor_msgs_jointstate (gz.msgs.Model)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.540102010] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/joy_sensor_msgs_joy (sensor_msgs/msg/Joy) -&gt; /joy_sensor_msgs_joy (gz.msgs.Joy)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.540795760] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/laserscan_sensor_msgs_laserscan (sensor_msgs/msg/LaserScan) -&gt; /laserscan_sensor_msgs_laserscan (gz.msgs.LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.541612135] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/magnetometer_sensor_msgs_magneticfield (sensor_msgs/msg/MagneticField) -&gt; /magnetometer_sensor_msgs_magneticfield (gz.msgs.Magnetometer)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.542258718] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/navsat_sensor_msgs_navsatfix (sensor_msgs/msg/NavSatFix) -&gt; /navsat_sensor_msgs_navsatfix (gz.msgs.NavSat)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.542831593] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pointcloudpacked_sensor_msgs_pointcloud2 (sensor_msgs/msg/PointCloud2) -&gt; /pointcloudpacked_sensor_msgs_pointcloud2 (gz.msgs.PointCloudPacked)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.543946010] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/laserscan_sensor_msgs_range (sensor_msgs/msg/Range) -&gt; /laserscan_sensor_msgs_range (gz.msgs.LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.544608051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/boolean_std_msgs_bool (std_msgs/msg/Bool) -&gt; /boolean_std_msgs_bool (gz.msgs.Boolean)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.545534010] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/color_std_msgs_colorrgba (std_msgs/msg/ColorRGBA) -&gt; /color_std_msgs_colorrgba (gz.msgs.Color)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.546214718] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/empty_std_msgs_empty (std_msgs/msg/Empty) -&gt; /empty_std_msgs_empty (gz.msgs.Empty)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.546735010] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/float_std_msgs_float32 (std_msgs/msg/Float32) -&gt; /float_std_msgs_float32 (gz.msgs.Float)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.547601885] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/double_std_msgs_float64 (std_msgs/msg/Float64) -&gt; /double_std_msgs_float64 (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.548150801] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/header_std_msgs_header (std_msgs/msg/Header) -&gt; /header_std_msgs_header (gz.msgs.Header)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.548738593] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/int32_std_msgs_int32 (std_msgs/msg/Int32) -&gt; /int32_std_msgs_int32 (gz.msgs.Int32)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.549399051] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/stringmsg_std_msgs_string (std_msgs/msg/String) -&gt; /stringmsg_std_msgs_string (gz.msgs.StringMsg)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.550276468] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/uint32_std_msgs_uint32 (std_msgs/msg/UInt32) -&gt; /uint32_std_msgs_uint32 (gz.msgs.UInt32)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.550961093] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/pose_v_tf2_msgs_tfmessage (tf2_msgs/msg/TFMessage) -&gt; /pose_v_tf2_msgs_tfmessage (gz.msgs.Pose_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.552756301] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/jointtrajectory_trajectory_msgs_jointtrajectory (trajectory_msgs/msg/JointTrajectory) -&gt; /jointtrajectory_trajectory_msgs_jointtrajectory (gz.msgs.JointTrajectory)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.558196760] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/annotatedaxisaligned2dbox_vision_msgs_detection2d (vision_msgs/msg/Detection2D) -&gt; /annotatedaxisaligned2dbox_vision_msgs_detection2d (gz.msgs.AnnotatedAxisAligned2DBox)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.565936718] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (vision_msgs/msg/Detection2DArray) -&gt; /annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (gz.msgs.AnnotatedAxisAligned2DBox_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.567494260] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/annotatedoriented3dbox_vision_msgs_detection3d (vision_msgs/msg/Detection3D) -&gt; /annotatedoriented3dbox_vision_msgs_detection3d (gz.msgs.AnnotatedOriented3DBox)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.569388843] [ros_gz_bridge]: Creating ROS-&gt;GZ Bridge: [/annotatedoriented3dbox_v_vision_msgs_detection3darray (vision_msgs/msg/Detection3DArray) -&gt; /annotatedoriented3dbox_v_vision_msgs_detection3darray (gz.msgs.AnnotatedOriented3DBox_V)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788157082.571576385] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection2D to Gazebo gz.msgs.AnnotatedAxisAligned2DBox (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571670635] [ros_gz_bridge]: Passing message from ROS trajectory_msgs/msg/JointTrajectory to Gazebo gz.msgs.JointTrajectory (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571697551] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/UInt32 to Gazebo gz.msgs.UInt32 (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571766843] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Int32 to Gazebo gz.msgs.Int32 (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571783551] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Header to Gazebo gz.msgs.Header (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571800426] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Float64 to Gazebo gz.msgs.Double (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571817135] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Float32 to Gazebo gz.msgs.Float (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571832885] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Empty to Gazebo gz.msgs.Empty (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.571921426] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Light to Gazebo gz.msgs.Light (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572129968] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Contacts to Gazebo gz.msgs.Contacts (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572403426] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/MaterialColor to Gazebo gz.msgs.MaterialColor (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572524843] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572550718] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/EntityWrench to Gazebo gz.msgs.EntityWrench (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572578593] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Altimeter to Gazebo gz.msgs.Altimeter (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572661343] [ros_gz_bridge]: Passing message from ROS actuator_msgs/msg/Actuators to Gazebo gz.msgs.Actuators (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572815176] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/ParamVec to Gazebo gz.msgs.Param (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572923010] [ros_gz_bridge]: Passing message from ROS nav_msgs/msg/Odometry to Gazebo gz.msgs.OdometryWithCovariance (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572961801] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TransformStamped to Gazebo gz.msgs.Pose (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.572988760] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/WrenchStamped to Gazebo gz.msgs.Wrench (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573032926] [ros_gz_bridge]: Passing message from ROS marine_acoustic_msgs/msg/Dvl to Gazebo gz.msgs.DVLVelocityTracking (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573056926] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistStamped to Gazebo gz.msgs.Twist (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573177593] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Joy to Gazebo gz.msgs.Joy (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573339343] [ros_gz_bridge]: Passing message from ROS builtin_interfaces/msg/Time to Gazebo gz.msgs.Time (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573368301] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Entity to Gazebo gz.msgs.Entity (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573408635] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Dataframe to Gazebo gz.msgs.Dataframe (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573433593] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/ParamVec to Gazebo gz.msgs.Param_V (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573449010] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Point to Gazebo gz.msgs.Vector3d (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573486468] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/CameraInfo to Gazebo gz.msgs.CameraInfo (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573520343] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseArray to Gazebo gz.msgs.Pose_V (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573541093] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Transform to Gazebo gz.msgs.Pose (showing msg only once per type)
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] [INFO] [1788157082.573636843] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/EntityFactory to Gazebo gz.msgs.EntityFactory (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573697843] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseStamped to Gazebo gz.msgs.Pose (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573790718] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistWithCovarianceStamped to Gazebo gz.msgs.TwistWithCovariance (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573824260] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Wrench to Gazebo gz.msgs.Wrench (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.573967510] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Contact to Gazebo gz.msgs.Contact (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574036343] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseWithCovarianceStamped to Gazebo gz.msgs.PoseWithCovariance (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574057676] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistWithCovariance to Gazebo gz.msgs.TwistWithCovariance (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574077926] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/Bool to Gazebo gz.msgs.Boolean (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574108551] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Vector3 to Gazebo gz.msgs.Vector3d (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574127510] [ros_gz_bridge]: Passing message from ROS nav_msgs/msg/Odometry to Gazebo gz.msgs.Odometry (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574158926] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/WorldStatistics to Gazebo gz.msgs.WorldStatistics (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574174718] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Quaternion to Gazebo gz.msgs.Quaternion (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574196718] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/FluidPressure to Gazebo gz.msgs.FluidPressure (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574245010] [ros_gz_bridge]: Passing message from ROS gps_msgs/msg/GPSFix to Gazebo gz.msgs.NavSat (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574261218] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.actuators_actuator_msgs_actuators (155 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.time_builtin_interfaces_time
+[parameter_bridge-3] [INFO] [1788157082.574396676] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/Float32Array to Gazebo gz.msgs.Float_V (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574540551] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/GuiCamera to Gazebo gz.msgs.GUICamera (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574581176] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/JointWrench to Gazebo gz.msgs.JointWrench (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574637593] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/LogPlaybackStatistics to Gazebo gz.msgs.LogPlaybackStatistics (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574662301] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/PoseWithCovariance to Gazebo gz.msgs.PoseWithCovariance (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574691135] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/SensorNoise to Gazebo gz.msgs.SensorNoise (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574782510] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/StringVec to Gazebo gz.msgs.StringMsg_V (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574811635] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/TrackVisual to Gazebo gz.msgs.TrackVisual (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574865010] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/PointCloud2 to Gazebo gz.msgs.PointCloudPacked (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574938426] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/VideoRecord to Gazebo gz.msgs.VideoRecord (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.574989801] [ros_gz_bridge]: Passing message from ROS rosgraph_msgs/msg/Clock to Gazebo gz.msgs.Clock (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575017676] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Range to Gazebo gz.msgs.LaserScan (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575091343] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/BatteryState to Gazebo gz.msgs.BatteryState (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575126093] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Pose to Gazebo gz.msgs.Pose (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575177343] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575199635] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/Imu to Gazebo gz.msgs.IMU (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575229551] [ros_gz_bridge]: Passing message from ROS tf2_msgs/msg/TFMessage to Gazebo gz.msgs.Pose_V (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575255593] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/JointState to Gazebo gz.msgs.Model (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575278801] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/LaserScan to Gazebo gz.msgs.LaserScan (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575303635] [ros_gz_bridge]: Passing message from ROS ros_gz_interfaces/msg/LogicalCameraImage to Gazebo gz.msgs.LogicalCameraImage (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575321468] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/MagneticField to Gazebo gz.msgs.Magnetometer (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575338343] [ros_gz_bridge]: Passing message from ROS rcl_interfaces/msg/ParameterValue to Gazebo gz.msgs.Any (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575356760] [ros_gz_bridge]: Passing message from ROS sensor_msgs/msg/NavSatFix to Gazebo gz.msgs.NavSat (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575371010] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/ColorRGBA to Gazebo gz.msgs.Color (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575525968] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection3DArray to Gazebo gz.msgs.AnnotatedOriented3DBox_V (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575543968] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection3D to Gazebo gz.msgs.AnnotatedOriented3DBox (showing msg only once per type)
+[parameter_bridge-3] [INFO] [1788157082.575566093] [ros_gz_bridge]: Passing message from ROS vision_msgs/msg/Detection2DArray to Gazebo gz.msgs.AnnotatedAxisAligned2DBox_V (showing msg only once per type)
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.time_builtin_interfaces_time (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.vector3d_geometry_msgs_point
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.vector3d_geometry_msgs_point (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_pose
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_geometry_msgs_pose (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_v_geometry_msgs_posearray
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_v_geometry_msgs_posearray (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_posestamped
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_geometry_msgs_posestamped (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariance (13 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.posewithcovariance_geometry_msgs_posewithcovariancestamped (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.quaternion_geometry_msgs_quaternion
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.quaternion_geometry_msgs_quaternion (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_transform
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_geometry_msgs_transform (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_geometry_msgs_transformstamped
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_geometry_msgs_transformstamped (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twist_geometry_msgs_twist
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.twist_geometry_msgs_twist (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twist_geometry_msgs_twiststamped
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.twist_geometry_msgs_twiststamped (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariance (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.twistwithcovariance_geometry_msgs_twistwithcovariancestamped (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.vector3d_geometry_msgs_vector3
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.vector3d_geometry_msgs_vector3 (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.wrench_geometry_msgs_wrench
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.wrench_geometry_msgs_wrench (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.wrench_geometry_msgs_wrenchstamped (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.navsat_gps_msgs_gpsfix
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.navsat_gps_msgs_gpsfix (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.dvlvelocitytracking_marine_acoustic_msgs_dvl (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.odometry_nav_msgs_odometry
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.odometry_nav_msgs_odometry (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.odometrywithcovariance_nav_msgs_odometry (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.any_rcl_interfaces_parametervalue
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.any_rcl_interfaces_parametervalue (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.altimeter_ros_gz_interfaces_altimeter (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.contact_ros_gz_interfaces_contact
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.contact_ros_gz_interfaces_contact (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.contacts_ros_gz_interfaces_contacts (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.dataframe_ros_gz_interfaces_dataframe (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.entity_ros_gz_interfaces_entity
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.entity_ros_gz_interfaces_entity (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.entityfactory_ros_gz_interfaces_entityfactory (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.entitywrench_ros_gz_interfaces_entitywrench (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.float_v_ros_gz_interfaces_float32array (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.guicamera_ros_gz_interfaces_guicamera (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.jointwrench_ros_gz_interfaces_jointwrench (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.light_ros_gz_interfaces_light
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.light_ros_gz_interfaces_light (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.logicalcameraimage_ros_gz_interfaces_logicalcameraimage (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.materialcolor_ros_gz_interfaces_materialcolor (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.param_ros_gz_interfaces_paramvec
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.param_ros_gz_interfaces_paramvec (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.param_v_ros_gz_interfaces_paramvec (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.sensornoise_ros_gz_interfaces_sensornoise (22 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.stringmsg_v_ros_gz_interfaces_stringvec (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.trackvisual_ros_gz_interfaces_trackvisual (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.videorecord_ros_gz_interfaces_videorecord (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.worldstatistics_ros_gz_interfaces_worldstatistics (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.clock_rosgraph_msgs_clock
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.clock_rosgraph_msgs_clock (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.batterystate_sensor_msgs_batterystate
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.batterystate_sensor_msgs_batterystate (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.camerainfo_sensor_msgs_camerainfo (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.fluidpressure_sensor_msgs_fluidpressure (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.image_sensor_msgs_image
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.image_sensor_msgs_image (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.imu_sensor_msgs_imu
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.imu_sensor_msgs_imu (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.model_sensor_msgs_jointstate
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.model_sensor_msgs_jointstate (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.joy_sensor_msgs_joy
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.joy_sensor_msgs_joy (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.laserscan_sensor_msgs_laserscan
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.laserscan_sensor_msgs_laserscan (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.magnetometer_sensor_msgs_magneticfield
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.magnetometer_sensor_msgs_magneticfield (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.navsat_sensor_msgs_navsatfix
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.navsat_sensor_msgs_navsatfix (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pointcloudpacked_sensor_msgs_pointcloud2 (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.laserscan_sensor_msgs_range
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.laserscan_sensor_msgs_range (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.boolean_std_msgs_bool
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.boolean_std_msgs_bool (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.color_std_msgs_colorrgba
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.color_std_msgs_colorrgba (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.empty_std_msgs_empty
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.empty_std_msgs_empty (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.float_std_msgs_float32
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.float_std_msgs_float32 (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.double_std_msgs_float64
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.double_std_msgs_float64 (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.header_std_msgs_header
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.header_std_msgs_header (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.int32_std_msgs_int32
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.int32_std_msgs_int32 (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.stringmsg_std_msgs_string
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.stringmsg_std_msgs_string (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.uint32_std_msgs_uint32
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.uint32_std_msgs_uint32 (22 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.pose_v_tf2_msgs_tfmessage
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.pose_v_tf2_msgs_tfmessage (12 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.jointtrajectory_trajectory_msgs_jointtrajectory (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedaxisaligned2dbox_vision_msgs_detection2d (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedaxisaligned2dbox_v_vision_msgs_detection2darray (11 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedoriented3dbox_vision_msgs_detection3d (10 ms)
+[test_gz_subscriber-2] [ RUN      ] GzSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray
+[parameter_bridge-3] Must provide one of: sdf, sdf_filname, or clone_name
+[test_gz_subscriber-2] [       OK ] GzSubscriberTest.annotatedoriented3dbox_v_vision_msgs_detection3darray (10 ms)
+[test_gz_subscriber-2] [----------] 72 tests from GzSubscriberTest (988 ms total)
+[test_gz_subscriber-2]
+[test_gz_subscriber-2] [----------] Global test environment tear-down
+[test_gz_subscriber-2] [==========] 72 tests from 1 test suite ran. (988 ms total)
+[test_gz_subscriber-2] [  PASSED  ] 72 tests.
+[INFO] [test_gz_subscriber-2]: process has finished cleanly [pid 653]
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.002s
+
+OK
+[INFO] [python3-4]: sending signal 'SIGINT' to process[python3-4]
+[INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+[INFO] [test_ros_publisher-1]: sending signal 'SIGINT' to process[test_ros_publisher-1]
+[parameter_bridge-3] [INFO] [1788157083.413213802] [rclcpp]: signal_handler(signum=2)
+[test_ros_publisher-1] [INFO] [1788157083.413778968] [rclcpp]: signal_handler(signum=2)
+[INFO] [python3-4]: process has finished cleanly [pid 655]
+[ERROR] [parameter_bridge-3]: process has died [pid 654, exit code -11, cmd '/home/docker/bridge_cycle_ws/install/ros_gz_bridge/lib/ros_gz_bridge/parameter_bridge /actuators_actuator_msgs_actuators@actuator_msgs/msg/Actuators]gz.msgs.Actuators /time_builtin_interfaces_time@builtin_interfaces/msg/Time]gz.msgs.Time /vector3d_geometry_msgs_point@geometry_msgs/msg/Point]gz.msgs.Vector3d /pose_geometry_msgs_pose@geometry_msgs/msg/Pose]gz.msgs.Pose /pose_v_geometry_msgs_posearray@geometry_msgs/msg/PoseArray]gz.msgs.Pose_V /pose_geometry_msgs_posestamped@geometry_msgs/msg/PoseStamped]gz.msgs.Pose /posewithcovariance_geometry_msgs_posewithcovariance@geometry_msgs/msg/PoseWithCovariance]gz.msgs.PoseWithCovariance /posewithcovariance_geometry_msgs_posewithcovariancestamped@geometry_msgs/msg/PoseWithCovarianceStamped]gz.msgs.PoseWithCovariance /quaternion_geometry_msgs_quaternion@geometry_msgs/msg/Quaternion]gz.msgs.Quaternion /pose_geometry_msgs_transform@geometry_msgs/msg/Transform]gz.msgs.Pose /pose_geometry_msgs_transformstamped@geometry_msgs/msg/TransformStamped]gz.msgs.Pose /twist_geometry_msgs_twist@geometry_msgs/msg/Twist]gz.msgs.Twist /twist_geometry_msgs_twiststamped@geometry_msgs/msg/TwistStamped]gz.msgs.Twist /twistwithcovariance_geometry_msgs_twistwithcovariance@geometry_msgs/msg/TwistWithCovariance]gz.msgs.TwistWithCovariance /twistwithcovariance_geometry_msgs_twistwithcovariancestamped@geometry_msgs/msg/TwistWithCovarianceStamped]gz.msgs.TwistWithCovariance /vector3d_geometry_msgs_vector3@geometry_msgs/msg/Vector3]gz.msgs.Vector3d /wrench_geometry_msgs_wrench@geometry_msgs/msg/Wrench]gz.msgs.Wrench /wrench_geometry_msgs_wrenchstamped@geometry_msgs/msg/WrenchStamped]gz.msgs.Wrench /navsat_gps_msgs_gpsfix@gps_msgs/msg/GPSFix]gz.msgs.NavSat /dvlvelocitytracking_marine_acoustic_msgs_dvl@marine_acoustic_msgs/msg/Dvl]gz.msgs.DVLVelocityTracking /odometry_nav_msgs_odometry@nav_msgs/msg/Odometry]gz.msgs.Odometry /odometrywithcovariance_nav_msgs_odometry@nav_msgs/msg/Odometry]gz.msgs.OdometryWithCovariance /any_rcl_interfaces_parametervalue@rcl_interfaces/msg/ParameterValue]gz.msgs.Any /altimeter_ros_gz_interfaces_altimeter@ros_gz_interfaces/msg/Altimeter]gz.msgs.Altimeter /contact_ros_gz_interfaces_contact@ros_gz_interfaces/msg/Contact]gz.msgs.Contact /contacts_ros_gz_interfaces_contacts@ros_gz_interfaces/msg/Contacts]gz.msgs.Contacts /dataframe_ros_gz_interfaces_dataframe@ros_gz_interfaces/msg/Dataframe]gz.msgs.Dataframe /entity_ros_gz_interfaces_entity@ros_gz_interfaces/msg/Entity]gz.msgs.Entity /entityfactory_ros_gz_interfaces_entityfactory@ros_gz_interfaces/msg/EntityFactory]gz.msgs.EntityFactory /entitywrench_ros_gz_interfaces_entitywrench@ros_gz_interfaces/msg/EntityWrench]gz.msgs.EntityWrench /float_v_ros_gz_interfaces_float32array@ros_gz_interfaces/msg/Float32Array]gz.msgs.Float_V /guicamera_ros_gz_interfaces_guicamera@ros_gz_interfaces/msg/GuiCamera]gz.msgs.GUICamera /jointwrench_ros_gz_interfaces_jointwrench@ros_gz_interfaces/msg/JointWrench]gz.msgs.JointWrench /light_ros_gz_interfaces_light@ros_gz_interfaces/msg/Light]gz.msgs.Light /logplaybackstatistics_ros_gz_interfaces_logplaybackstatistics@ros_gz_interfaces/msg/LogPlaybackStatistics]gz.msgs.LogPlaybackStatistics /logicalcameraimage_ros_gz_interfaces_logicalcameraimage@ros_gz_interfaces/msg/LogicalCameraImage]gz.msgs.LogicalCameraImage /materialcolor_ros_gz_interfaces_materialcolor@ros_gz_interfaces/msg/MaterialColor]gz.msgs.MaterialColor /param_ros_gz_interfaces_paramvec@ros_gz_interfaces/msg/ParamVec]gz.msgs.Param /param_v_ros_gz_interfaces_paramvec@ros_gz_interfaces/msg/ParamVec]gz.msgs.Param_V /sensornoise_ros_gz_interfaces_sensornoise@ros_gz_interfaces/msg/SensorNoise]gz.msgs.SensorNoise /stringmsg_v_ros_gz_interfaces_stringvec@ros_gz_interfaces/msg/StringVec]gz.msgs.StringMsg_V /trackvisual_ros_gz_interfaces_trackvisual@ros_gz_interfaces/msg/TrackVisual]gz.msgs.TrackVisual /videorecord_ros_gz_interfaces_videorecord@ros_gz_interfaces/msg/VideoRecord]gz.msgs.VideoRecord /worldstatistics_ros_gz_interfaces_worldstatistics@ros_gz_interfaces/msg/WorldStatistics]gz.msgs.WorldStatistics /clock_rosgraph_msgs_clock@rosgraph_msgs/msg/Clock]gz.msgs.Clock /batterystate_sensor_msgs_batterystate@sensor_msgs/msg/BatteryState]gz.msgs.BatteryState /camerainfo_sensor_msgs_camerainfo@sensor_msgs/msg/CameraInfo]gz.msgs.CameraInfo /fluidpressure_sensor_msgs_fluidpressure@sensor_msgs/msg/FluidPressure]gz.msgs.FluidPressure /image_sensor_msgs_image@sensor_msgs/msg/Image]gz.msgs.Image /imu_sensor_msgs_imu@sensor_msgs/msg/Imu]gz.msgs.IMU /model_sensor_msgs_jointstate@sensor_msgs/msg/JointState]gz.msgs.Model /joy_sensor_msgs_joy@sensor_msgs/msg/Joy]gz.msgs.Joy /laserscan_sensor_msgs_laserscan@sensor_msgs/msg/LaserScan]gz.msgs.LaserScan /magnetometer_sensor_msgs_magneticfield@sensor_msgs/msg/MagneticField]gz.msgs.Magnetometer /navsat_sensor_msgs_navsatfix@sensor_msgs/msg/NavSatFix]gz.msgs.NavSat /pointcloudpacked_sensor_msgs_pointcloud2@sensor_msgs/msg/PointCloud2]gz.msgs.PointCloudPacked /laserscan_sensor_msgs_range@sensor_msgs/msg/Range]gz.msgs.LaserScan /boolean_std_msgs_bool@std_msgs/msg/Bool]gz.msgs.Boolean /color_std_msgs_colorrgba@std_msgs/msg/ColorRGBA]gz.msgs.Color /empty_std_msgs_empty@std_msgs/msg/Empty]gz.msgs.Empty /float_std_msgs_float32@std_msgs/msg/Float32]gz.msgs.Float /double_std_msgs_float64@std_msgs/msg/Float64]gz.msgs.Double /header_std_msgs_header@std_msgs/msg/Header]gz.msgs.Header /int32_std_msgs_int32@std_msgs/msg/Int32]gz.msgs.Int32 /stringmsg_std_msgs_string@std_msgs/msg/String]gz.msgs.StringMsg /uint32_std_msgs_uint32@std_msgs/msg/UInt32]gz.msgs.UInt32 /pose_v_tf2_msgs_tfmessage@tf2_msgs/msg/TFMessage]gz.msgs.Pose_V /jointtrajectory_trajectory_msgs_jointtrajectory@trajectory_msgs/msg/JointTrajectory]gz.msgs.JointTrajectory /annotatedaxisaligned2dbox_vision_msgs_detection2d@vision_msgs/msg/Detection2D]gz.msgs.AnnotatedAxisAligned2DBox /annotatedaxisaligned2dbox_v_vision_msgs_detection2darray@vision_msgs/msg/Detection2DArray]gz.msgs.AnnotatedAxisAligned2DBox_V /annotatedoriented3dbox_vision_msgs_detection3d@vision_msgs/msg/Detection3D]gz.msgs.AnnotatedOriented3DBox /annotatedoriented3dbox_v_vision_msgs_detection3darray@vision_msgs/msg/Detection3DArray]gz.msgs.AnnotatedOriented3DBox_V --ros-args'].
+[INFO] [test_ros_publisher-1]: process has finished cleanly [pid 652]
+test_exit_code (ros_gz_bridge.GzSubscriberTestAfterShutdown.test_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_subscriber.launch.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>launch_test</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_launch_test_gz_server.launch.py</Name>
+			<Path>.</Path>
+			<FullName>./test_launch_test_gz_server.launch.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_gz_server.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_gz_server.launch.py" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>1.75057</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_gz_server.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_gz_server.launch.py" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: extra environment variables:
+ - PYTHONDONTWRITEBYTECODE=1
+-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /usr/bin/python3 -m launch_testing.launch_test /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_gz_server.launch.py --junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml --package-name=ros_gz_bridge
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-06-18-03-884581-a13626442449-705
+[INFO] [launch]: Default logging verbosity is set to INFO
+test_termination (ros_gz_bridge.ROSSubscriberTest.test_termination) ... [INFO] [parameter_bridge-1]: process started with pid [709]
+[INFO] [test_gz_server-2]: process started with pid [710]
+[INFO] [test_ros_client-3]: process started with pid [711]
+[INFO] [python3-4]: process started with pid [712]
+[test_ros_client-3] [==========] Running 1 test from 1 test suite.
+[test_ros_client-3] [----------] Global test environment set-up.
+[test_ros_client-3] [----------] 1 test from ROSClientTest
+[test_ros_client-3] [ RUN      ] ROSClientTest.WorldControl
+[parameter_bridge-1] [INFO] [1788157083.978189385] [ros_gz_bridge]: Creating ROS-&gt;GZ service bridge [/gz_ros/test/serviceclient/world_control (ros_gz_interfaces/srv/ControlWorld -&gt; /)]
+[test_ros_client-3] [       OK ] ROSClientTest.WorldControl (1140 ms)
+[test_ros_client-3] [----------] 1 test from ROSClientTest (1140 ms total)
+[test_ros_client-3]
+[test_ros_client-3] [----------] Global test environment tear-down
+[test_ros_client-3] [==========] 1 test from 1 test suite ran. (1140 ms total)
+[test_ros_client-3] [  PASSED  ] 1 test.
+[INFO] [test_ros_client-3]: process has finished cleanly [pid 711]
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.264s
+
+OK
+[INFO] [python3-4]: sending signal 'SIGINT' to process[python3-4]
+[INFO] [test_gz_server-2]: sending signal 'SIGINT' to process[test_gz_server-2]
+[INFO] [parameter_bridge-1]: sending signal 'SIGINT' to process[parameter_bridge-1]
+[parameter_bridge-1] [INFO] [1788157085.176065011] [rclcpp]: signal_handler(signum=2)
+[INFO] [python3-4]: process has finished cleanly [pid 712]
+[INFO] [test_gz_server-2]: process has finished cleanly [pid 710]
+[INFO] [parameter_bridge-1]: process has finished cleanly [pid 709]
+test_exit_code (ros_gz_bridge.ROSSubscriberTestAfterShutdown.test_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_gz_server.launch.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>launch_test</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_launch_test_launch_action.launch.py</Name>
+			<Path>.</Path>
+			<FullName>./test_launch_test_launch_action.launch.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_launch_action.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_launch_action.launch.py" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>2.96071</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_launch_action.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_launch_action.launch.py" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: extra environment variables:
+ - PYTHONDONTWRITEBYTECODE=1
+-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /usr/bin/python3 -m launch_testing.launch_test /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_launch_action.launch.py --junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml --package-name=ros_gz_bridge
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-06-18-05-632543-a13626442449-762
+[INFO] [launch]: Default logging verbosity is set to INFO
+test_termination (ros_gz_bridge.LaunchActionTest.test_termination) ... [INFO] [test_gz_publisher-1]: process started with pid [766]
+[INFO] [test_gz_server-2]: process started with pid [767]
+[INFO] [test_launch_action_subscriber-3]: process started with pid [768]
+[INFO] [bridge_node-4]: process started with pid [769]
+[INFO] [python3-5]: process started with pid [770]
+[test_launch_action_subscriber-3] [==========] Running 4 tests from 1 test suite.
+[test_launch_action_subscriber-3] [----------] Global test environment set-up.
+[test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+[bridge_node-4] [INFO] [1788157086.835754262] [test_bridge]: Creating GZ-&gt;ROS Bridge: [/boolean_std_msgs_bool (gz.msgs.Boolean) -&gt; /boolean_std_msgs_bool (std_msgs/msg/Bool)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157086.847597928] [test_bridge]: Creating GZ-&gt;ROS Bridge: [/imu_sensor_msgs_imu (gz.msgs.IMU) -&gt; /imu_sensor_msgs_imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157086.855988178] [test_bridge]: Creating GZ-&gt;ROS Bridge: [/image_sensor_msgs_image (gz.msgs.Image) -&gt; /image_sensor_msgs_image (sensor_msgs/msg/Image)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157086.857632595] [test_bridge]: Creating ROS-&gt;GZ service bridge [/gz_ros/test/serviceclient/world_control (ros_gz_interfaces/srv/ControlWorld -&gt; gz.msgs.WorldControl/gz.msgs.Boolean)]
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.boolean_std_msgs_bool (1093 ms)
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.imu_sensors_msgs_imu (12 ms)
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.image_sensor_msgs_image
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.image_sensor_msgs_image (11 ms)
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.WorldControl
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.WorldControl (1108 ms)
+[test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest (2225 ms total)
+[test_launch_action_subscriber-3]
+[test_launch_action_subscriber-3] [----------] Global test environment tear-down
+[test_launch_action_subscriber-3] [==========] 4 tests from 1 test suite ran. (2225 ms total)
+[test_launch_action_subscriber-3] [  PASSED  ] 4 tests.
+[INFO] [test_launch_action_subscriber-3]: process has finished cleanly [pid 768]
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.373s
+
+OK
+[INFO] [python3-5]: sending signal 'SIGINT' to process[python3-5]
+[INFO] [bridge_node-4]: sending signal 'SIGINT' to process[bridge_node-4]
+[INFO] [test_gz_server-2]: sending signal 'SIGINT' to process[test_gz_server-2]
+[INFO] [test_gz_publisher-1]: sending signal 'SIGINT' to process[test_gz_publisher-1]
+[bridge_node-4] [INFO] [1788157088.126546596] [rclcpp]: signal_handler(signum=2)
+[INFO] [python3-5]: process has finished cleanly [pid 770]
+[INFO] [test_gz_publisher-1]: process has finished cleanly [pid 766]
+[INFO] [test_gz_server-2]: process has finished cleanly [pid 767]
+[INFO] [bridge_node-4]: process has finished cleanly [pid 769]
+test_exit_code (ros_gz_bridge.LaunchActionTestAfterShutdown.test_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action.launch.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>launch_test</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>test_launch_test_launch_action_classic.launch.py</Name>
+			<Path>.</Path>
+			<FullName>./test_launch_test_launch_action_classic.launch.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_launch_action_classic.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_launch_action_classic.launch.py" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>2.88764</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/launch_test/test_launch_test_launch_action_classic.launch.py.txt" "--env" "PYTHONDONTWRITEBYTECODE=1" "--command" "/usr/bin/python3" "-m" "launch_testing.launch_test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_launch_action_classic.launch.py" "--junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml" "--package-name=ros_gz_bridge"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: extra environment variables:
+ - PYTHONDONTWRITEBYTECODE=1
+-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /usr/bin/python3 -m launch_testing.launch_test /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/launch/test_launch_action_classic.launch.py --junit-xml=/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml --package-name=ros_gz_bridge
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-06-18-08-598423-a13626442449-827
+[INFO] [launch]: Default logging verbosity is set to INFO
+test_termination (ros_gz_bridge.LaunchActionTest.test_termination) ... [INFO] [test_gz_publisher-1]: process started with pid [831]
+[INFO] [test_gz_server-2]: process started with pid [832]
+[INFO] [test_launch_action_subscriber-3]: process started with pid [833]
+[INFO] [bridge_node-4]: process started with pid [834]
+[INFO] [python3-5]: process started with pid [835]
+[test_launch_action_subscriber-3] [==========] Running 4 tests from 1 test suite.
+[test_launch_action_subscriber-3] [----------] Global test environment set-up.
+[test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.boolean_std_msgs_bool
+[bridge_node-4] [INFO] [1788157089.784276180] [test_bridge]: Creating GZ-&gt;ROS Bridge: [imu_sensor_msgs_imu (gz.msgs.IMU) -&gt; imu_sensor_msgs_imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157089.798903013] [test_bridge]: Creating ROS-&gt;GZ Bridge: [imu_sensor_msgs_imu (sensor_msgs/msg/Imu) -&gt; imu_sensor_msgs_imu (gz.msgs.IMU)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157089.800084096] [test_bridge]: Creating GZ-&gt;ROS Bridge: [image_sensor_msgs_image (gz.msgs.Image) -&gt; image_sensor_msgs_image (sensor_msgs/msg/Image)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157089.801727971] [test_bridge]: Creating ROS-&gt;GZ Bridge: [image_sensor_msgs_image (sensor_msgs/msg/Image) -&gt; image_sensor_msgs_image (gz.msgs.Image)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157089.802589638] [test_bridge]: Creating GZ-&gt;ROS Bridge: [boolean_std_msgs_bool (gz.msgs.Boolean) -&gt; boolean_std_msgs_bool (std_msgs/msg/Bool)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157089.803479305] [test_bridge]: Creating ROS-&gt;GZ Bridge: [boolean_std_msgs_bool (std_msgs/msg/Bool) -&gt; boolean_std_msgs_bool (gz.msgs.Boolean)] (Lazy 0)
+[bridge_node-4] [INFO] [1788157089.804031555] [test_bridge]: Creating ROS-&gt;GZ service bridge [/gz_ros/test/serviceclient/world_control (ros_gz_interfaces/srv/ControlWorld -&gt; gz.msgs.WorldControl/gz.msgs.Boolean)]
+[bridge_node-4] [INFO] [1788157089.806532888] [test_bridge]: Passing message from ROS sensor_msgs/msg/Image to Gazebo gz.msgs.Image (showing msg only once per type)
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.boolean_std_msgs_bool (1087 ms)
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.imu_sensors_msgs_imu
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.imu_sensors_msgs_imu (14 ms)
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.image_sensor_msgs_image
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.image_sensor_msgs_image (13 ms)
+[test_launch_action_subscriber-3] [ RUN      ] LaunchActionSubscriberTest.WorldControl
+[test_launch_action_subscriber-3] [       OK ] LaunchActionSubscriberTest.WorldControl (1110 ms)
+[test_launch_action_subscriber-3] [----------] 4 tests from LaunchActionSubscriberTest (2225 ms total)
+[test_launch_action_subscriber-3]
+[test_launch_action_subscriber-3] [----------] Global test environment tear-down
+[test_launch_action_subscriber-3] [==========] 4 tests from 1 test suite ran. (2225 ms total)
+[test_launch_action_subscriber-3] [  PASSED  ] 4 tests.
+[INFO] [test_launch_action_subscriber-3]: process has finished cleanly [pid 833]
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.378s
+
+OK
+[INFO] [python3-5]: sending signal 'SIGINT' to process[python3-5]
+[INFO] [bridge_node-4]: sending signal 'SIGINT' to process[bridge_node-4]
+[INFO] [test_gz_server-2]: sending signal 'SIGINT' to process[test_gz_server-2]
+[INFO] [test_gz_publisher-1]: sending signal 'SIGINT' to process[test_gz_publisher-1]
+[bridge_node-4] [INFO] [1788157091.074532847] [rclcpp]: signal_handler(signum=2)
+[INFO] [python3-5]: process has finished cleanly [pid 835]
+[INFO] [bridge_node-4]: process has finished cleanly [pid 834]
+[INFO] [test_gz_publisher-1]: process has finished cleanly [pid 831]
+[INFO] [test_gz_server-2]: process has finished cleanly [pid 832]
+test_exit_code (ros_gz_bridge.LaunchActionTestAfterShutdown.test_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/test_launch_test_launch_action_classic.launch.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>launch_test</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>ros_gz_bridge_bridge_config</Name>
+			<Path>.</Path>
+			<FullName>./ros_gz_bridge_bridge_config</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/ros_gz_bridge_bridge_config.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ros_gz_bridge_bridge_config" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.131405</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/ros_gz_bridge_bridge_config.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ros_gz_bridge_bridge_config" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /home/docker/bridge_cycle_ws/build/ros_gz_bridge/ros_gz_bridge_bridge_config --gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 15 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 12 tests from BridgeConfig
+[ RUN      ] BridgeConfig.Minimum
+[       OK ] BridgeConfig.Minimum (0 ms)
+[ RUN      ] BridgeConfig.FullGz
+[       OK ] BridgeConfig.FullGz (0 ms)
+[ RUN      ] BridgeConfig.QoSFullGz
+[       OK ] BridgeConfig.QoSFullGz (0 ms)
+[ RUN      ] BridgeConfig.FrameIdGz
+[       OK ] BridgeConfig.FrameIdGz (0 ms)
+[ RUN      ] BridgeConfig.InvalidSetTwoRos
+[       OK ] BridgeConfig.InvalidSetTwoRos (0 ms)
+[ RUN      ] BridgeConfig.InvalidSetTwoGz
+[       OK ] BridgeConfig.InvalidSetTwoGz (0 ms)
+[ RUN      ] BridgeConfig.InvalidSetTypes
+[       OK ] BridgeConfig.InvalidSetTypes (0 ms)
+[ RUN      ] BridgeConfig.ParseDirection
+[       OK ] BridgeConfig.ParseDirection (0 ms)
+[ RUN      ] BridgeConfig.InvalidFileDoesntExist
+[       OK ] BridgeConfig.InvalidFileDoesntExist (0 ms)
+[ RUN      ] BridgeConfig.InvalidTopLevel
+[       OK ] BridgeConfig.InvalidTopLevel (0 ms)
+[ RUN      ] BridgeConfig.InvalidQoS
+[       OK ] BridgeConfig.InvalidQoS (0 ms)
+[ RUN      ] BridgeConfig.EmptyYAML
+[       OK ] BridgeConfig.EmptyYAML (0 ms)
+[----------] 12 tests from BridgeConfig (3 ms total)
+
+[----------] 3 tests from BridgeHandleIsLazy
+[ RUN      ] BridgeHandleIsLazy.NulloptFallsBackToDefault
+[       OK ] BridgeHandleIsLazy.NulloptFallsBackToDefault (0 ms)
+[ RUN      ] BridgeHandleIsLazy.ExplicitTrueIsRespected
+[       OK ] BridgeHandleIsLazy.ExplicitTrueIsRespected (0 ms)
+[ RUN      ] BridgeHandleIsLazy.ExplicitFalseIsRespected
+[       OK ] BridgeHandleIsLazy.ExplicitFalseIsRespected (0 ms)
+[----------] 3 tests from BridgeHandleIsLazy (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 15 tests from 2 test suites ran. (3 ms total)
+[  PASSED  ] 15 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml'
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_bridge_config.gtest.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>gtest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>ros_gz_bridge_gid_filtering</Name>
+			<Path>.</Path>
+			<FullName>./ros_gz_bridge_gid_filtering</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/ros_gz_bridge_gid_filtering.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ros_gz_bridge_gid_filtering" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.682586</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cmake_gtest/ros_gz_bridge_gid_filtering.txt" "--command" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ros_gz_bridge_gid_filtering" "--gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/build/ros_gz_bridge':
+ - /home/docker/bridge_cycle_ws/build/ros_gz_bridge/ros_gz_bridge_gid_filtering --gtest_output=xml:/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from GidFilteringTest
+[ RUN      ] GidFilteringTest.CollectsOwnPublisherGids
+[       OK ] GidFilteringTest.CollectsOwnPublisherGids (121 ms)
+[ RUN      ] GidFilteringTest.DoesNotCollectExternalPublisherGids
+[       OK ] GidFilteringTest.DoesNotCollectExternalPublisherGids (115 ms)
+[ RUN      ] GidFilteringTest.FiltersOwnMessagesAllowsExternal
+[       OK ] GidFilteringTest.FiltersOwnMessagesAllowsExternal (239 ms)
+[----------] 3 tests from GidFilteringTest (477 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (477 ms total)
+[  PASSED  ] 3 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml'
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/ros_gz_bridge_gid_filtering.gtest.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>gtest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>copyright</Name>
+			<Path>.</Path>
+			<FullName>./copyright</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/copyright.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_copyright/copyright.txt" "--command" "/opt/ros/lyrical/bin/ament_copyright" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/copyright.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.202355</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/copyright.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_copyright/copyright.txt" "--command" "/opt/ros/lyrical/bin/ament_copyright" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/copyright.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_copyright --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/copyright.xunit.xml
+No problems found, checked 82 files
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/copyright.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>copyright</Label>
+				<Label>linter</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>cppcheck</Name>
+			<Path>.</Path>
+			<FullName>./cppcheck</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cppcheck.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cppcheck/cppcheck.txt" "--command" "/opt/ros/lyrical/bin/ament_cppcheck" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cppcheck.xunit.xml" "--include_dirs" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/include" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/include" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.163376</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cppcheck.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cppcheck/cppcheck.txt" "--command" "/opt/ros/lyrical/bin/ament_cppcheck" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cppcheck.xunit.xml" "--include_dirs" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/include" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/include" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers" "/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_cppcheck --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cppcheck.xunit.xml --include_dirs /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src /home/docker/bridge_cycle_ws/src/ros_gz_bridge/ /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src
+cppcheck 2.19.0 has known performance issues and therefore will not be used, set the AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS environment variable to override this.
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cppcheck.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>cppcheck</Label>
+				<Label>linter</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>cpplint</Name>
+			<Path>.</Path>
+			<FullName>./cpplint</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cpplint.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cpplint/cpplint.txt" "--command" "/opt/ros/lyrical/bin/ament_cpplint" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cpplint.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>2.44362</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cpplint.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_cpplint/cpplint.txt" "--command" "/opt/ros/lyrical/bin/ament_cpplint" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cpplint.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_cpplint --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cpplint.xunit.xml
+DEBUG: Using '--root=/home/docker/bridge_cycle_ws/src/ros_gz_bridge/include' argument
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/bridge_config.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/actuator_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/builtin_interfaces.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/geometry_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/gps_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/marine_acoustic_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/nav_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/rcl_interfaces.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/ros_gz_interfaces.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/rosgraph_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/sensor_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/std_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/tf2_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/trajectory_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert/vision_msgs.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/convert_decl.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/include/ros_gz_bridge/ros_gz_bridge.hpp
+DEBUG: Using '--root=/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src' argument
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_config.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle_gz_to_ros.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle_gz_to_ros.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle_gz_to_ros_parameters.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle_ros_to_gz.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_handle_ros_to_gz.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/bridge_types.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/actuator_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/builtin_interfaces.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/geometry_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/gps_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/marine_acoustic_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/nav_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/ros_gz_interfaces.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/ros_gz_interfaces_TEST.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rosgraph_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/sensor_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/sensor_msgs_TEST.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/std_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/tf2_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/trajectory_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/utils.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/utils.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/vision_msgs.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/factory.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/factory_interface.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/factory_interface.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/get_factory.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/get_mappings.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/parameter_bridge.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/ros_gz_bridge.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/service_factories/ros_gz_interfaces.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/service_factories/ros_gz_interfaces.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/service_factory.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/service_factory_interface.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/service_factory_interface.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/static_bridge.cpp
+DEBUG: Using '--root=/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test' argument
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/serverclient/gz_server.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/serverclient/ros_client.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers/launch_action_subscriber.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers/ros_subscriber.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers/ros_subscriber.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/subscribers/ros_subscriber/ros_gz_interfaces_subscriber.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/test_gid_filtering.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/utils/gz_test_msg.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/utils/gz_test_msg.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/utils/ros_test_msg.cpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/utils/ros_test_msg.hpp
+Done processing /home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/utils/test_utils.hpp
+DEBUG: No problems found
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/cpplint.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>cpplint</Label>
+				<Label>linter</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>flake8</Name>
+			<Path>.</Path>
+			<FullName>./flake8</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_flake8/flake8.txt" "--command" "/opt/ros/lyrical/bin/ament_flake8" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.607983</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_flake8/flake8.txt" "--command" "/opt/ros/lyrical/bin/ament_flake8" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_flake8 --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml
+
+10 files checked
+No problems found
+
+Checked files:
+
+* ./test/launch/test_launch_action.launch.py
+* ./test/launch/test_gz_server.launch.py
+* ./test/launch/test_ros_subscriber.launch.py
+* ./test/launch/test_gz_subscriber.launch.py
+* ./test/launch/test_launch_action_classic.launch.py
+* ./ros_gz_bridge/__init__.py
+* ./ros_gz_bridge/mappings.py
+* ./ros_gz_bridge/actions/ros_gz_bridge.py
+* ./ros_gz_bridge/actions/__init__.py
+* ./launch/ros_gz_bridge.launch.py
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/flake8.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>flake8</Label>
+				<Label>linter</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>lint_cmake</Name>
+			<Path>.</Path>
+			<FullName>./lint_cmake</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/lint_cmake.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_lint_cmake/lint_cmake.txt" "--command" "/opt/ros/lyrical/bin/ament_lint_cmake" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/lint_cmake.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.145883</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/lint_cmake.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_lint_cmake/lint_cmake.txt" "--command" "/opt/ros/lyrical/bin/ament_lint_cmake" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/lint_cmake.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_lint_cmake --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/lint_cmake.xunit.xml
+
+No problems found
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/lint_cmake.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>lint_cmake</Label>
+				<Label>linter</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>pep257</Name>
+			<Path>.</Path>
+			<FullName>./pep257</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/pep257.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_pep257/pep257.txt" "--command" "/opt/ros/lyrical/bin/ament_pep257" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/pep257.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.224681</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/pep257.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_pep257/pep257.txt" "--command" "/opt/ros/lyrical/bin/ament_pep257" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/pep257.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_pep257 --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/pep257.xunit.xml
+checking ./launch/ros_gz_bridge.launch.py
+checking ./ros_gz_bridge/__init__.py
+checking ./ros_gz_bridge/actions/__init__.py
+checking ./ros_gz_bridge/actions/ros_gz_bridge.py
+checking ./ros_gz_bridge/mappings.py
+checking ./test/launch/test_gz_server.launch.py
+checking ./test/launch/test_gz_subscriber.launch.py
+checking ./test/launch/test_launch_action.launch.py
+checking ./test/launch/test_launch_action_classic.launch.py
+checking ./test/launch/test_ros_subscriber.launch.py
+No problems found
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/pep257.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>linter</Label>
+				<Label>pep257</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>uncrustify</Name>
+			<Path>.</Path>
+			<FullName>./uncrustify</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/uncrustify.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_uncrustify/uncrustify.txt" "--command" "/opt/ros/lyrical/bin/ament_uncrustify" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/uncrustify.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.597099</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/uncrustify.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_uncrustify/uncrustify.txt" "--command" "/opt/ros/lyrical/bin/ament_uncrustify" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/uncrustify.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_uncrustify --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/uncrustify.xunit.xml
+No code style divergence in file 'include/ros_gz_bridge/bridge_config.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/actuator_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/builtin_interfaces.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/geometry_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/gps_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/marine_acoustic_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/nav_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/rcl_interfaces.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/ros_gz_interfaces.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/rosgraph_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/sensor_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/std_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/tf2_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/trajectory_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert/vision_msgs.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/convert_decl.hpp'
+
+No code style divergence in file 'include/ros_gz_bridge/ros_gz_bridge.hpp'
+
+No code style divergence in file 'src/bridge_config.cpp'
+
+No code style divergence in file 'src/bridge_handle.cpp'
+
+No code style divergence in file 'src/bridge_handle.hpp'
+
+No code style divergence in file 'src/bridge_handle_gz_to_ros.cpp'
+
+No code style divergence in file 'src/bridge_handle_gz_to_ros.hpp'
+
+No code style divergence in file 'src/bridge_handle_gz_to_ros_parameters.hpp'
+
+No code style divergence in file 'src/bridge_handle_ros_to_gz.cpp'
+
+No code style divergence in file 'src/bridge_handle_ros_to_gz.hpp'
+
+No code style divergence in file 'src/bridge_types.cpp'
+
+No code style divergence in file 'src/convert/actuator_msgs.cpp'
+
+No code style divergence in file 'src/convert/builtin_interfaces.cpp'
+
+No code style divergence in file 'src/convert/geometry_msgs.cpp'
+
+No code style divergence in file 'src/convert/gps_msgs.cpp'
+
+No code style divergence in file 'src/convert/marine_acoustic_msgs.cpp'
+
+No code style divergence in file 'src/convert/nav_msgs.cpp'
+
+No code style divergence in file 'src/convert/rcl_interfaces.cpp'
+
+No code style divergence in file 'src/convert/rcl_interfaces_TEST.cpp'
+
+No code style divergence in file 'src/convert/ros_gz_interfaces.cpp'
+
+No code style divergence in file 'src/convert/ros_gz_interfaces_TEST.cpp'
+
+No code style divergence in file 'src/convert/rosgraph_msgs.cpp'
+
+No code style divergence in file 'src/convert/sensor_msgs.cpp'
+
+No code style divergence in file 'src/convert/sensor_msgs_TEST.cpp'
+
+No code style divergence in file 'src/convert/std_msgs.cpp'
+
+No code style divergence in file 'src/convert/tf2_msgs.cpp'
+
+No code style divergence in file 'src/convert/trajectory_msgs.cpp'
+
+No code style divergence in file 'src/convert/utils.cpp'
+
+No code style divergence in file 'src/convert/utils.hpp'
+
+No code style divergence in file 'src/convert/vision_msgs.cpp'
+
+No code style divergence in file 'src/factory.hpp'
+
+No code style divergence in file 'src/factory_interface.cpp'
+
+No code style divergence in file 'src/factory_interface.hpp'
+
+No code style divergence in file 'src/get_factory.hpp'
+
+No code style divergence in file 'src/get_mappings.hpp'
+
+No code style divergence in file 'src/parameter_bridge.cpp'
+
+No code style divergence in file 'src/ros_gz_bridge.cpp'
+
+No code style divergence in file 'src/service_factories/ros_gz_interfaces.cpp'
+
+No code style divergence in file 'src/service_factories/ros_gz_interfaces.hpp'
+
+No code style divergence in file 'src/service_factory.hpp'
+
+No code style divergence in file 'src/service_factory_interface.cpp'
+
+No code style divergence in file 'src/service_factory_interface.hpp'
+
+No code style divergence in file 'src/static_bridge.cpp'
+
+No code style divergence in file 'test/bridge_config.cpp'
+
+No code style divergence in file 'test/serverclient/gz_server.cpp'
+
+No code style divergence in file 'test/serverclient/ros_client.cpp'
+
+No code style divergence in file 'test/subscribers/launch_action_subscriber.cpp'
+
+No code style divergence in file 'test/subscribers/ros_subscriber.cpp'
+
+No code style divergence in file 'test/subscribers/ros_subscriber.hpp'
+
+No code style divergence in file 'test/subscribers/ros_subscriber/ros_gz_interfaces_subscriber.cpp'
+
+No code style divergence in file 'test/test_gid_filtering.cpp'
+
+No code style divergence in file 'test/utils/gz_test_msg.cpp'
+
+No code style divergence in file 'test/utils/gz_test_msg.hpp'
+
+No code style divergence in file 'test/utils/ros_test_msg.cpp'
+
+No code style divergence in file 'test/utils/ros_test_msg.hpp'
+
+No code style divergence in file 'test/utils/test_utils.hpp'
+
+No problems found
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/uncrustify.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>linter</Label>
+				<Label>uncrustify</Label>
+			</Labels>
+		</Test>
+		<Test Status="failed">
+			<Name>xmllint</Name>
+			<Path>.</Path>
+			<FullName>./xmllint</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/xmllint.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_xmllint/xmllint.txt" "--command" "/opt/ros/lyrical/bin/ament_xmllint" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/xmllint.xunit.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Timeout</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>0</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>60.0329</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/xmllint.xunit.xml" "--package-name" "ros_gz_bridge" "--output-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/ament_xmllint/xmllint.txt" "--command" "/opt/ros/lyrical/bin/ament_xmllint" "--xunit-file" "/home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/xmllint.xunit.xml"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/docker/bridge_cycle_ws/src/ros_gz_bridge':
+ - /opt/ros/lyrical/bin/ament_xmllint --xunit-file /home/docker/bridge_cycle_ws/build/ros_gz_bridge/test_results/ros_gz_bridge/xmllint.xunit.xml
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>linter</Label>
+				<Label>xmllint</Label>
+			</Labels>
+		</Test>
+		<EndDateTime>Aug 31 06:19 UTC</EndDateTime>
+		<EndTestTime>1788157156</EndTestTime>
+		<ElapsedMinutes>1</ElapsedMinutes>
+	</Testing>
+</Site>

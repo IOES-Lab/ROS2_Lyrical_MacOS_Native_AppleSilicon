@@ -1,0 +1,144 @@
+{
+  "image": "dave-sonar-fixed-frame-exact-dft:20260831",
+  "validation_only_change": "input.frameIndex fixed to 0; default sonarSeed remains 12345",
+  "independent_fresh_container_runs": 3,
+  "captured_frames_per_run": 3,
+  "all_raw_hashes": [
+    "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+  ],
+  "all_point_hashes": [
+    "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+  ],
+  "cross_run_first_raw_arrays_exactly_equal": true,
+  "runs": [
+    {
+      "run": "run_01",
+      "raw_hashes": [
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+      ],
+      "point_hashes": [
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+      ],
+      "raw_peak_ranges": [
+        4.013377666473389,
+        4.013377666473389,
+        4.013377666473389
+      ],
+      "raw_peak_errors": [
+        0.013377666473388672,
+        0.013377666473388672,
+        0.013377666473388672
+      ],
+      "expected_ranks": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "run": "run_02",
+      "raw_hashes": [
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+      ],
+      "point_hashes": [
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+      ],
+      "raw_peak_ranges": [
+        4.013377666473389,
+        4.013377666473389,
+        4.013377666473389
+      ],
+      "raw_peak_errors": [
+        0.013377666473388672,
+        0.013377666473388672,
+        0.013377666473388672
+      ],
+      "expected_ranks": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "run": "run_03",
+      "raw_hashes": [
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc",
+        "d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc"
+      ],
+      "point_hashes": [
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+        "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9"
+      ],
+      "raw_peak_ranges": [
+        4.013377666473389,
+        4.013377666473389,
+        4.013377666473389
+      ],
+      "raw_peak_errors": [
+        0.013377666473388672,
+        0.013377666473388672,
+        0.013377666473388672
+      ],
+      "expected_ranks": [
+        3,
+        3,
+        3
+      ]
+    }
+  ],
+  "interpretation": "The WGPU exact-DFT path is bitwise repeatable for this controlled scene when seed and frameIndex are fixed. This does not imply CPU/WGPU raw-array equivalence because their phase/noise algorithms differ.",
+  "initialization_same_container": [
+    {
+      "run": "1",
+      "wall_seconds_to_full_buffers": "92",
+      "pipeline_compile_ms": "1542",
+      "probe_gpu_ms": "84826.8",
+      "ready": "1"
+    },
+    {
+      "run": "2",
+      "wall_seconds_to_full_buffers": "5",
+      "pipeline_compile_ms": "11",
+      "probe_gpu_ms": "8.0",
+      "ready": "1"
+    },
+    {
+      "run": "3",
+      "wall_seconds_to_full_buffers": "5",
+      "pipeline_compile_ms": "8",
+      "probe_gpu_ms": "7.5",
+      "ready": "1"
+    }
+  ],
+  "initialization_cross_fresh_containers_shared_cache": [
+    {
+      "run": "1",
+      "cache_state": "empty",
+      "wall_seconds_to_full_buffers": "101",
+      "pipeline_compile_ms": "1420",
+      "probe_gpu_ms": "94192.4",
+      "ready": "1"
+    },
+    {
+      "run": "2",
+      "cache_state": "reused",
+      "wall_seconds_to_full_buffers": "5",
+      "pipeline_compile_ms": "11",
+      "probe_gpu_ms": "9.3",
+      "ready": "1"
+    }
+  ],
+  "cache_size_before_removal": "2.7M\t/Users/gwon-yeseol/ROS2_Lyrical_review_fixes/notes/results/multibeam_seed_determinism_validation_2026-08-31/init_cross_container_cache/mesa_cache_work",
+  "initialization_conclusion": "The exact-N llvmpipe cold delay is cache-sensitive: a fresh empty cache took 101 s with a 94.192 s first probe; a second fresh container reusing the same 3.0 MiB XDG/Mesa cache took 5 s with a 9.3 ms probe. Pipeline creation itself was 1420 ms cold and 11 ms warm.",
+  "invalid_attempt": "The first cross-container cache harness used ROS domain IDs 236/237, which Fast DDS rejected; it is retained and excluded."
+}

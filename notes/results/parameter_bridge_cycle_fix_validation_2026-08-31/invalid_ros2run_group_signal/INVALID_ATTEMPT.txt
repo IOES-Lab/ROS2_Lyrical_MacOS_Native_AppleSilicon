@@ -1,0 +1,7 @@
+INVALID ATTEMPT — excluded from the verdict.
+
+The harness launched `ros2 run` under `setsid` and then signalled the whole
+process group. That delivered SIGINT both to the ros2run wrapper and to its
+parameter_bridge child; failing logs contain two signal-handler records. The
+result therefore measures double signal delivery, not normal bridge shutdown.
+It was replaced by direct-executable one-process tests.

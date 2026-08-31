@@ -1,0 +1,2 @@
+[INFO] [1788161125.588791462] [ros_gz_bridge]: Creating ROS->GZ service bridge [/world/bridge_matrix/control (ros_gz_interfaces/srv/ControlWorld -> /)]
+[INFO] [1788161127.508872297] [rclcpp]: signal_handler(SIGINT/SIGTERM)

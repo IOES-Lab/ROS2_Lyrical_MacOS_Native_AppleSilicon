@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="ros_gz_bridge.pep257"
+  tests="10"
+  errors="0"
+  failures="0"
+  time="0.035"
+  skipped="0"
+>
+  <testcase
+    name="./launch/ros_gz_bridge.launch.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./ros_gz_bridge/__init__.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./ros_gz_bridge/actions/__init__.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./ros_gz_bridge/actions/ros_gz_bridge.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./ros_gz_bridge/mappings.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./test/launch/test_gz_server.launch.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./test/launch/test_gz_subscriber.launch.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./test/launch/test_launch_action.launch.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./test/launch/test_launch_action_classic.launch.py"
+    classname="ros_gz_bridge.pep257"/>
+  <testcase
+    name="./test/launch/test_ros_subscriber.launch.py"
+    classname="ros_gz_bridge.pep257"/>
+  <system-out>Checked files:
+* ./launch/ros_gz_bridge.launch.py
+* ./ros_gz_bridge/__init__.py
+* ./ros_gz_bridge/actions/__init__.py
+* ./ros_gz_bridge/actions/ros_gz_bridge.py
+* ./ros_gz_bridge/mappings.py
+* ./test/launch/test_gz_server.launch.py
+* ./test/launch/test_gz_subscriber.launch.py
+* ./test/launch/test_launch_action.launch.py
+* ./test/launch/test_launch_action_classic.launch.py
+* ./test/launch/test_ros_subscriber.launch.py</system-out>
+</testsuite>

@@ -1,0 +1,1 @@
+PASS: patches/ros_gz_bridge_handle_cycle_fix.diff applies to gazebosim/ros_gz origin/ros2 at 2ee8a5c716d1838de0b7ac817638ad5e9304955e on 2026-08-31.

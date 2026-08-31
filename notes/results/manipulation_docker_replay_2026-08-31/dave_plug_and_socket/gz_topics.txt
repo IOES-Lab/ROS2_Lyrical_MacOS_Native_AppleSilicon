@@ -1,0 +1,12 @@
+/clock
+/gazebo/resource_paths
+/stats
+/world/dave_plug_and_socket/clock
+/world/dave_plug_and_socket/dynamic_pose/info
+/world/dave_plug_and_socket/light_config
+/world/dave_plug_and_socket/material_color
+/world/dave_plug_and_socket/pose/info
+/world/dave_plug_and_socket/scene/deletion
+/world/dave_plug_and_socket/scene/info
+/world/dave_plug_and_socket/state
+/world/dave_plug_and_socket/stats

@@ -1,0 +1,1 @@
+PREFIX=/ws/install/ros_gz_bridge

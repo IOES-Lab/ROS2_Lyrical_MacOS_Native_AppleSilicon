@@ -1,0 +1,19 @@
+Starting >>> ros_gz_interfaces
+Finished <<< ros_gz_interfaces [49.8s]
+Starting >>> ros_gz_bridge
+--- stderr: ros_gz_bridge
+In file included from /ws/src/ros_gz/ros_gz_bridge/src/service_factories/ros_gz_interfaces.cpp:29:
+/ws/src/ros_gz/ros_gz_bridge/include/ros_gz_bridge/convert/ros_gz_interfaces.hpp:44:10: fatal error: ros_gz_interfaces/msg/air_speed.hpp: No such file or directory
+   44 | #include <ros_gz_interfaces/msg/air_speed.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/ros_gz_bridge.dir/build.make:257: CMakeFiles/ros_gz_bridge.dir/src/service_factories/ros_gz_interfaces.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:228: CMakeFiles/ros_gz_bridge.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
+---
+Failed   <<< ros_gz_bridge [1.35s, exited with code 2]
+
+Summary: 1 package finished [51.3s]
+  1 package failed: ros_gz_bridge
+  1 package had stderr output: ros_gz_bridge

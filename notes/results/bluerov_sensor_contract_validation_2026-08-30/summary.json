@@ -1,0 +1,28 @@
+{
+  "verdict": "PARTIAL distributed sensor contract",
+  "runtime_image": "dave-sonar-deferred-compute-test:20260830",
+  "runtime_image_id": "sha256:9a419bd753cfb85d5a0d04542aee66d77687a7da5e2a2b6cea601c6a563e23f5",
+  "variants": [
+    "bluerov2",
+    "bluerov2_heavy",
+    "bluerov2_heavy_multibeam_sonar"
+  ],
+  "all_variants": {
+    "odometry_message": true,
+    "camera_message_with_manual_bridge": true,
+    "configured_short_name_imu_message": false,
+    "configured_magnetometer_message": false,
+    "default_gazebo_imu_message": true,
+    "runtime_segfault": false
+  },
+  "heavy_multibeam_sonar_payload": false,
+  "heavy_multibeam_sonar_scope": "The installed image world omitted MultibeamSonarSystem; separate candidate evidence validates the patched world-system scope.",
+  "invalid_attempt_excluded": "ROS domain IDs above the Fast DDS transport-port limit were retained separately and excluded from the verdict.",
+  "limitations": [
+    "ArduSub and MAVROS control were disabled for this sensor-contract audit.",
+    "Sensor calibration and real-vehicle accuracy were not tested.",
+    "Runtime verdicts use the image inventory, not the differently patched host overlay source."
+  ],
+  "detail_summary": "runtime_summary.json",
+  "scope_comparison": "source/scope_comparison.json"
+}

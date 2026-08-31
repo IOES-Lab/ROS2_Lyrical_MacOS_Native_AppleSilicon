@@ -1,0 +1,28 @@
+{
+  "tideconstituents": true,
+  "m2": [
+    100.0,
+    0.0,
+    3600.0
+  ],
+  "s2": [
+    50.0,
+    45.0,
+    1800.0
+  ],
+  "n2": [
+    25.0,
+    90.0,
+    900.0
+  ],
+  "ebb_direction_deg": 0.0,
+  "flood_direction_deg": 180.0,
+  "world_start_time": [
+    2026,
+    1,
+    1,
+    0,
+    0
+  ],
+  "depth_count": 12
+}

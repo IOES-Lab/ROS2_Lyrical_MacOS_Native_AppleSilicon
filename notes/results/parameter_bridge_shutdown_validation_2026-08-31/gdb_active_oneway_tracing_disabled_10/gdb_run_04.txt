@@ -1,0 +1,703 @@
+warning: Error disabling address space randomization: Operation not permitted
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/aarch64-linux-gnu/libthread_db.so.1".
+[New Thread 0xffffb324e660 (LWP 308)]
+[New Thread 0xffffb2a3e660 (LWP 309)]
+[New Thread 0xffffb222e660 (LWP 310)]
+[New Thread 0xffffb1a1e660 (LWP 311)]
+[New Thread 0xffffb120e660 (LWP 312)]
+[New Thread 0xffffb09fe660 (LWP 313)]
+[New Thread 0xffffb01ee660 (LWP 314)]
+[New Thread 0xffffaf9de660 (LWP 315)]
+[New Thread 0xffffaf1ce660 (LWP 316)]
+[New Thread 0xffffae9be660 (LWP 317)]
+[New Thread 0xffffae14e660 (LWP 318)]
+[New Thread 0xffffad93e660 (LWP 319)]
+[New Thread 0xffffacdce660 (LWP 320)]
+[New Thread 0xffff9fffe660 (LWP 321)]
+[New Thread 0xffff9f7ee660 (LWP 322)]
+[New Thread 0xffff9efde660 (LWP 323)]
+[New Thread 0xffff9e7ce660 (LWP 324)]
+[New Thread 0xffff9dfbe660 (LWP 325)]
+[New Thread 0xffff9d7ae660 (LWP 326)]
+[INFO] [1788134643.638216464] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [1788134652.509509218] [rclcpp]: signal_handler(signum=2)
+[Thread 0xffffb324e660 (LWP 308) exited]
+
+Thread 4 "dds.ev.0" received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0xffffb222e660 (LWP 310)]
+0x0000ffffb41d4ed4 in ?? ()
+
+Thread 20 (Thread 0xffff9d7ae660 (LWP 326) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651020884752, a2=a2@entry=393, a3=a3@entry=0, a4=a4@entry=281473323817872, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffff9d7ae660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xaaaae8710b10, expected=0, op=393, abstime=0xffff9d7adb90, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae8710b10, expected=0, clockid=0, abstime=0xffff9d7adb90, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae8710b10, expected=expected@entry=0, clockid=clockid@entry=0, abstime=abstime@entry=0xffff9d7adb90, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b820 [PAC] in __pthread_cond_wait_common (cond=0xaaaae8710af0, mutex=0xaaaae8710aa8, clockid=<optimized out>, abstime=0xffff9d7adb90) at ./nptl/pthread_cond_wait.c:421
+        signals = 0
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffff9d7adaa0, __canceltype = -1652888956, __prev = 0x0}
+        cbuffer = {wseq = 34, cond = 0xaaaae8710af0, mutex = 0xaaaae8710aa8, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 34
+        g = 0
+        seq = 17
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_timedwait64 (cond=0xaaaae8710af0, mutex=0xaaaae8710aa8, abstime=0xffff9d7adb90) at ./nptl/pthread_cond_wait.c:478
+        flags = <optimized out>
+        clockid = <optimized out>
+#7  0x0000ffffb61a5df0 [PAC] in gz::transport::v15::NodeShared::SrvPublishThread() () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#8  0x0000ffffb66e7860 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#9  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffff9d7ae660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffff9d7ae660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330512, 281473925330503, 281473736925536, 281473323820640, 281473741160448, 281473744261152, 281473315373056, 281473323818768, 11132668170875233516, 0, 11132668171229431520, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#10 0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 19 (Thread 0xffff9dfbe660 (LWP 325) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651020884624, a2=a2@entry=393, a3=a3@entry=0, a4=a4@entry=281473332272352, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffff9dfbe660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xaaaae8710a90, expected=0, op=393, abstime=0xffff9dfbdce0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae8710a90, expected=0, clockid=0, abstime=0xffff9dfbdce0, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae8710a90, expected=expected@entry=0, clockid=clockid@entry=0, abstime=abstime@entry=0xffff9dfbdce0, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b820 [PAC] in __pthread_cond_wait_common (cond=0xaaaae8710a70, mutex=0xaaaae8710a28, clockid=<optimized out>, abstime=0xffff9dfbdce0) at ./nptl/pthread_cond_wait.c:421
+        signals = 0
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffff9dfbdc10, __canceltype = 117, __prev = 0x0}
+        cbuffer = {wseq = 34, cond = 0xaaaae8710a70, mutex = 0xaaaae8710a28, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 34
+        g = 0
+        seq = 17
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_timedwait64 (cond=0xaaaae8710a70, mutex=0xaaaae8710a28, abstime=0xffff9dfbdce0) at ./nptl/pthread_cond_wait.c:478
+        flags = <optimized out>
+        clockid = <optimized out>
+#7  0x0000ffffb61a5660 [PAC] in ?? () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#8  0x0000ffffb66e7860 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#9  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffff9dfbe660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffff9dfbe660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330512, 281473925330503, 281473736925536, 281473332274784, 281473741160448, 281473744261152, 281473323827200, 281473332272912, 11132668170875233516, 0, 11132668171237754592, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#10 0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 18 (Thread 0xffff9e7ce660 (LWP 324) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=73) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffff9e7ce660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=73) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb64db7a0 [PAC] in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:41
+        timeout_ts = {tv_sec = 0, tv_nsec = 17829667}
+        timeout_ts_p = <optimized out>
+#4  0x0000ffffb53576f4 [PAC] in zmq_poll () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#5  0x0000ffffb6178790 [PAC] in gz::transport::v15::pollSockets(std::vector<int, std::allocator<int> > const&, int) () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#6  0x0000ffffb61b0328 [PAC] in ?? () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#7  0x0000ffffb66e7860 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#8  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffff9e7ce660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffff9e7ce660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330512, 281473925330503, 281473736925536, 281473340728928, 281473741160448, 281473744261152, 281473332281344, 281473340727056, 11132668170875233516, 0, 11132668171279632096, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#9  0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 17 (Thread 0xffff9efde660 (LWP 323) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=73) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffff9efde660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=73) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb64db7a0 [PAC] in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:41
+        timeout_ts = {tv_sec = 0, tv_nsec = 65109750}
+        timeout_ts_p = <optimized out>
+#4  0x0000ffffb53576f4 [PAC] in zmq_poll () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#5  0x0000ffffb6178790 [PAC] in gz::transport::v15::pollSockets(std::vector<int, std::allocator<int> > const&, int) () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#6  0x0000ffffb61af97c [PAC] in ?? () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#7  0x0000ffffb66e7860 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#8  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffff9efde660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffff9efde660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330512, 281473925330503, 281473736925536, 281473349183072, 281473741160448, 281473744261152, 281473340735488, 281473349181200, 11132668170875233516, 0, 11132668171287955168, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#9  0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 16 (Thread 0xffff9f7ee660 (LWP 322) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=73) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffff9f7ee660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=0, nr=nr@entry=73) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb64db7a0 [PAC] in __GI___poll (fds=<optimized out>, nfds=<optimized out>, timeout=<optimized out>) at ../sysdeps/unix/sysv/linux/poll.c:41
+        timeout_ts = {tv_sec = 0, tv_nsec = 174497375}
+        timeout_ts_p = <optimized out>
+#4  0x0000ffffb53576f4 [PAC] in zmq_poll () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#5  0x0000ffffb619ba0c [PAC] in gz::transport::v15::NodeShared::RunReceptionTask() () from /opt/ros/lyrical/opt/gz_transport_vendor/lib/libgz-transport.so.15
+No symbol table info available.
+#6  0x0000ffffb66e7860 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#7  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffff9f7ee660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffff9f7ee660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330512, 281473925330503, 187651020924136, 281473357637216, 281473741160448, 281473744261152, 281473349189632, 281473357635344, 11132668170875233516, 0, 11132668171262723808, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#8  0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 15 (Thread 0xffff9fffe660 (LWP 321) "ZMQbg/IO/0"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:54
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=a6@entry=8, nr=nr@entry=22) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffff9fffe660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=a6@entry=8, nr=nr@entry=22) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb64e6dc4 [PAC] in __GI_epoll_pwait (epfd=<optimized out>, events=<optimized out>, maxevents=<optimized out>, timeout=<optimized out>, set=<optimized out>) at ../sysdeps/unix/sysv/linux/epoll_pwait.c:40
+No locals.
+#4  0x0000ffffb53150d0 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#5  0x0000ffffb5347c2c [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#6  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffff9fffe660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffff9fffe660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330096, 281473925330087, 2, 281473366091360, 281473741160448, 281473744261152, 281473357643776, 281473366089488, 11132668170875233516, 0, 11132668171271046880, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#7  0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 14 (Thread 0xffffacdce660 (LWP 320) "ZMQbg/Reaper"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:54
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=a6@entry=8, nr=nr@entry=22) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffacdce660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=a6@entry=8, nr=nr@entry=22) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb64e6dc4 [PAC] in __GI_epoll_pwait (epfd=<optimized out>, events=<optimized out>, maxevents=<optimized out>, timeout=<optimized out>, set=<optimized out>) at ../sysdeps/unix/sysv/linux/epoll_pwait.c:40
+No locals.
+#4  0x0000ffffb53150d0 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#5  0x0000ffffb5347c2c [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libzmq.so.5
+No symbol table info available.
+#6  0x0000ffffb647c248 [PAC] in start_thread (arg=0xffffacdce660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffffacdce660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925330096, 281473925330087, 187651020898960, 281473581901408, 281473741160448, 281473744261152, 281473573453824, 281473581899536, 11132668170875233516, 0, 11132668170983933664, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#7  0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 13 (Thread 0xffffad93e660 (LWP 319) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=281473433209104, a2=a2@entry=393, a3=a3@entry=10, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffad93e660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xffffa4000910, expected=10, op=393, abstime=0x0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xffffa4000910, expected=10, clockid=0, abstime=0x0, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xffffa4000910, expected=expected@entry=10, clockid=clockid@entry=0, abstime=abstime@entry=0x0, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b628 [PAC] in __pthread_cond_wait_common (cond=0xffffa40008f0, mutex=0xffffa40008c0, clockid=0, abstime=0x0) at ./nptl/pthread_cond_wait.c:421
+        signals = 10
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffffad93d9b0, __canceltype = -1276055364, __prev = 0x0}
+        cbuffer = {wseq = 24, cond = 0xffffa40008f0, mutex = 0xffffa40008c0, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 24
+        g = 0
+        seq = 12
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_wait (cond=0xffffa40008f0, mutex=0xffffa40008c0) at ./nptl/pthread_cond_wait.c:453
+No locals.
+#7  0x0000ffffb3ea0cb8 [PAC] in ?? ()
+No symbol table info available.
+#8  0x0057ffffb3ea0cb8 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 12 (Thread 0xffffae14e660 (LWP 318) "dds.udp.7002"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=<optimized out>, nr=<optimized out>) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffae14e660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=<optimized out>, nr=<optimized out>) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb427a6b0 [PAC] in ?? ()
+No symbol table info available.
+#4  0x0079ffffb427a6b0 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 11 (Thread 0xffffae9be660 (LWP 317) "dds.tls.replies"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651018850216, a2=a2@entry=393, a3=a3@entry=2, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffae9be660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xaaaae851ffa8, expected=2, op=393, abstime=0x0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae851ffa8, expected=2, clockid=0, abstime=0x0, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae851ffa8, expected=expected@entry=2, clockid=clockid@entry=0, abstime=abstime@entry=0x0, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b628 [PAC] in __pthread_cond_wait_common (cond=0xaaaae851ff88, mutex=0xaaaae851ff58, clockid=0, abstime=0x0) at ./nptl/pthread_cond_wait.c:421
+        signals = 2
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffffae9bda10, __canceltype = -1235550208, __prev = 0x0}
+        cbuffer = {wseq = 8, cond = 0xaaaae851ff88, mutex = 0xaaaae851ff58, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 8
+        g = 0
+        seq = 4
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_wait (cond=0xaaaae851ff88, mutex=0xaaaae851ff58) at ./nptl/pthread_cond_wait.c:453
+No locals.
+#7  0x0000ffffb3ea4424 [PAC] in ?? ()
+No symbol table info available.
+#8  0x0055ffffb3ea4424 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 10 (Thread 0xffffaf1ce660 (LWP 316) "dds.asyn.0.1"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651016049528, a2=a2@entry=393, a3=a3@entry=2, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffaf1ce660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xaaaae8274378, expected=2, op=393, abstime=0x0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae8274378, expected=2, clockid=0, abstime=0x0, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae8274378, expected=expected@entry=2, clockid=clockid@entry=0, abstime=abstime@entry=0x0, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b628 [PAC] in __pthread_cond_wait_common (cond=0xaaaae8274358, mutex=0xaaaae8213e00, clockid=0, abstime=0x0) at ./nptl/pthread_cond_wait.c:421
+        signals = 2
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffffaf1cdbb0, __canceltype = -1273295696, __prev = 0x0}
+        cbuffer = {wseq = 8, cond = 0xaaaae8274358, mutex = 0xaaaae8213e00, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 8
+        g = 0
+        seq = 4
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_wait (cond=0xaaaae8274358, mutex=0xaaaae8213e00) at ./nptl/pthread_cond_wait.c:453
+No locals.
+#7  0x0000ffffb41d4b44 [PAC] in ?? ()
+No symbol table info available.
+#8  0x0074ffffb41d4b44 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 9 (Thread 0xffffaf9de660 (LWP 315) "dds.tls.request"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651015936024, a2=a2@entry=393, a3=a3@entry=0, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffaf9de660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xaaaae8258818, expected=0, op=393, abstime=0x0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae8258818, expected=0, clockid=0, abstime=0x0, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae8258818, expected=expected@entry=0, clockid=clockid@entry=0, abstime=abstime@entry=0x0, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b628 [PAC] in __pthread_cond_wait_common (cond=0xaaaae82587f8, mutex=0xaaaae82587c8, clockid=0, abstime=0x0) at ./nptl/pthread_cond_wait.c:421
+        signals = 0
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffffaf9dda90, __canceltype = 0, __prev = 0x0}
+        cbuffer = {wseq = 0, cond = 0xaaaae82587f8, mutex = 0xaaaae82587c8, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 0
+        g = 0
+        seq = 0
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_wait (cond=0xaaaae82587f8, mutex=0xaaaae82587c8) at ./nptl/pthread_cond_wait.c:453
+No locals.
+#7  0x0000ffffb3ea1fb4 [PAC] in ?? ()
+No symbol table info available.
+#8  0x0058ffffb3ea1fb4 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 8 (Thread 0xffffb01ee660 (LWP 314) "dds.asyn.0.0"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651016045864, a2=a2@entry=393, a3=a3@entry=0, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffb01ee660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=0, futex_word=0xaaaae8273528, expected=0, op=393, abstime=0x0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae8273528, expected=0, clockid=0, abstime=0x0, private=0, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = 393
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae8273528, expected=expected@entry=0, clockid=clockid@entry=0, abstime=abstime@entry=0x0, private=private@entry=0) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb647b628 [PAC] in __pthread_cond_wait_common (cond=0xaaaae8273508, mutex=0xaaaae8213c60, clockid=0, abstime=0x0) at ./nptl/pthread_cond_wait.c:421
+        signals = 0
+        g1_start = <optimized out>
+        buffer = {__routine = 0xffffb647b420 <__condvar_cleanup_waiting>, __arg = 0xffffb01edbb0, __canceltype = -1340151960, __prev = 0x0}
+        cbuffer = {wseq = 4, cond = 0xaaaae8273508, mutex = 0xaaaae8213c60, private = 0}
+        err = <optimized out>
+        result = 0
+        wseq = 4
+        g = 0
+        seq = 2
+        flags = <optimized out>
+        private = 0
+#6  ___pthread_cond_wait (cond=0xaaaae8273508, mutex=0xaaaae8213c60) at ./nptl/pthread_cond_wait.c:453
+No locals.
+#7  0x0000ffffb41d4b44 [PAC] in ?? ()
+No symbol table info available.
+#8  0x0010ffffb41d4b44 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 7 (Thread 0xffffb09fe660 (LWP 313) "dds.udp.55165"):
+#0  0x0000ffffb427a6b0 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 6 (Thread 0xffffb120e660 (LWP 312) "dds.udp.55150"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=<optimized out>, nr=<optimized out>) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffb120e660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=<optimized out>, nr=<optimized out>) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb427a6b0 [PAC] in ?? ()
+No symbol table info available.
+#4  0x006affffb427a6b0 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 5 (Thread 0xffffb1a1e660 (LWP 311) "dds.udp.55164"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=<optimized out>, nr=<optimized out>) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffb1a1e660
+        ch = <optimized out>
+#2  0x0000ffffb6478490 [PAC] in __syscall_cancel (a1=<optimized out>, a2=<optimized out>, a3=<optimized out>, a4=<optimized out>, a5=<optimized out>, a6=<optimized out>, nr=<optimized out>) at ./nptl/cancellation.c:75
+        r = <optimized out>
+#3  0x0000ffffb427a6b0 [PAC] in ?? ()
+No symbol table info available.
+#4  0x0009ffffb427a6b0 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 4 (Thread 0xffffb222e660 (LWP 310) "dds.ev.0"):
+#0  0x0000ffffb41d4ed4 in ?? ()
+No symbol table info available.
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Thread 3 (Thread 0xffffb2a3e660 (LWP 309) "parameter_bridg"):
+#0  __syscall_cancel_arch () at ../sysdeps/unix/sysv/linux/aarch64/syscall_cancel.S:50
+No locals.
+#1  0x0000ffffb6478440 in __internal_syscall_cancel (a1=a1@entry=187651015591808, a2=<optimized out>, a3=a3@entry=0, a4=a4@entry=0, a5=a5@entry=0, a6=a6@entry=4294967295, nr=nr@entry=98) at ./nptl/cancellation.c:49
+        result = <optimized out>
+        pd = 0xffffb2a3e660
+        ch = <optimized out>
+#2  0x0000ffffb64788b4 [PAC] in __futex_abstimed_wait_common64 (private=<optimized out>, futex_word=0xaaaae8204780, expected=0, op=<optimized out>, abstime=0x0, cancel=true) at ./nptl/futex-internal.c:57
+        _sys_result = <optimized out>
+        _x5tmp = <optimized out>
+        _x4tmp = <optimized out>
+        _x3tmp = <optimized out>
+        _x2tmp = <optimized out>
+        _x1tmp = <optimized out>
+        _x0tmp = <optimized out>
+        _x0 = <optimized out>
+        _x1 = <optimized out>
+        _x2 = <optimized out>
+        _x3 = <optimized out>
+        _x4 = <optimized out>
+        _x5 = <optimized out>
+        _x8 = <optimized out>
+#3  __futex_abstimed_wait_common (futex_word=0xaaaae8204780, expected=0, clockid=0, abstime=0x0, private=<optimized out>, cancel=true) at ./nptl/futex-internal.c:87
+        err = <optimized out>
+        clockbit = 256
+        op = <optimized out>
+#4  __GI___futex_abstimed_wait_cancelable64 (futex_word=futex_word@entry=0xaaaae8204780, expected=expected@entry=0, clockid=clockid@entry=0, abstime=abstime@entry=0x0, private=<optimized out>) at ./nptl/futex-internal.c:139
+No locals.
+#5  0x0000ffffb64858cc [PAC] in do_futex_wait (sem=sem@entry=0xaaaae8204780, abstime=0x0, clockid=0) at ./nptl/sem_waitcommon.c:111
+        err = <optimized out>
+#6  0x0000ffffb6485988 in __new_sem_wait_slow64 (sem=0xaaaae8204780, abstime=0x0, clockid=0) at ./nptl/sem_waitcommon.c:183
+        _buffer = {__routine = 0xffffb6485880 <__sem_wait_cleanup>, __arg = 0xaaaae8204780, __canceltype = 359247616, __prev = 0x0}
+        err = <optimized out>
+        d = 0
+#7  0x0000ffffb6abb424 [PAC] in rclcpp::SignalHandler::wait_for_signal() () from /opt/ros/lyrical/lib/librclcpp.so
+No symbol table info available.
+#8  0x0000ffffb6abc90c [PAC] in rclcpp::SignalHandler::deferred_signal_handler() () from /opt/ros/lyrical/lib/librclcpp.so
+No symbol table info available.
+#9  0x0000ffffb66e7860 [PAC] in ?? () from /usr/lib/aarch64-linux-gnu/libstdc++.so.6
+No symbol table info available.
+#10 0x0000ffffb647c248 [PAC] in start_thread (arg=0xffffb2a3e660) at ./nptl/pthread_create.c:454
+        ret = <optimized out>
+        pd = 0xffffb2a3e660
+        out = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {32, 8388608, 0, 281473925332496, 281473925332487, 187651015591800, 281473678829152, 281473741160448, 281473744261152, 281473670381568, 281473678827280, 11132668170875233516, 0, 11132668170814654176, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = 0
+        prevstate = <optimized out>
+#11 0x0000ffffb64e686c [PAC] in thread_start () at ../sysdeps/unix/sysv/linux/aarch64/clone.S:76
+No locals.
+
+Thread 1 (Thread 0xffffb68a5020 (LWP 306) "parameter_bridg"):
+#0  _dl_close_worker (map=<optimized out>, map@entry=0xaaaae81ab060, force=force@entry=false) at ./elf/dl-close.c:734
+        not_pending = not_pending
+        pending = pending
+        rerun = rerun
+        dl_close_state = pending
+        nsid = 0
+        ns = <optimized out>
+        any_tls = <optimized out>
+        nloaded = <optimized out>
+        maps = <optimized out>
+        idx = <optimized out>
+        __PRETTY_FUNCTION__ = "_dl_close_worker"
+        done_index = <optimized out>
+        unload_any = <optimized out>
+        scope_mem_left = <optimized out>
+        unload_global = <optimized out>
+        first_loaded = <optimized out>
+        r = 0xffffb7efcbe0 <_r_debug>
+        tls_free_start = <optimized out>
+        tls_free_end = <optimized out>
+#1  0x0000ffffb7ebe284 [PAC] in _dl_close (_map=0xaaaae81ab060) at ./elf/dl-close.c:793
+        map = 0xaaaae81ab060
+#2  0x0000ffffb7ebd22c [PAC] in __GI__dl_catch_exception (exception=exception@entry=0xffffc1554898, operate=<optimized out>, args=0xaaaae81ab060) at ./elf/dl-catch.c:241
+        errcode = 65535
+        c = {exception = 0xffffc1554898, errcode = 0xffffc155470c, env = {{__jmpbuf = {281473925335255, 281473925335264, 281473925335256, 281473767682048, 0, 0, 2, 281473767686144, 281473767626240, 281473767686144, 281473925334720, 11132668170869705036, 281473739401192, 11132668170488389008, 0, 0, 0, 0, 0, 0, 0, 0}, __mask_was_saved = -1209084416, __saved_mask = {__val = {281473767682048, 0, 0, 2, 0, 2, 281473767647904, 281473925335152, 281473739364136, 281473739879712, 281473739401192, 281473739565728, 21392096993261456, 2160, 16888497365890960, 187651015364176}}}}}
+        old = 0x0
+#3  0x0000ffffb7ebd350 [PAC] in _dl_catch_error (objname=objname@entry=0xffffc15548d8, errstring=errstring@entry=0xffffc15548e0, mallocedp=mallocedp@entry=0xffffc15548d7, operate=<optimized out>, args=<optimized out>) at ./elf/dl-catch.c:260
+        exception = {objname = 0xffffb5a60b58 "\200", errstring = 0xffffffff00000000 <error: Cannot access memory at address 0xffffffff00000000>, message_buffer = 0x0}
+        errorcode = <optimized out>
+#4  0x0000ffffb6477878 [PAC] in _dlerror_run (operate=<optimized out>, args=<optimized out>) at ./dlfcn/dlerror.c:138
+        result = <optimized out>
+        objname = 0xaaaae8217d60 "\320\242\037\350\252\252"
+        errstring = 0xaaaae81fbcc0 "\320\242\037\350\252\252"
+        malloced = false
+        errcode = <optimized out>
+#5  0x0000ffffb6477558 [PAC] in __dlclose (handle=<optimized out>) at ./dlfcn/dlclose.c:31
+No locals.
+#6  0x0000ffffb5a45098 [PAC] in ?? () from /opt/ros/lyrical/lib/libtracetools.so
+No symbol table info available.
+#7  0x0000ffffb7ebcda8 [PAC] in _dl_call_fini (closure_map=closure_map@entry=0xffffb7eed600) at ./elf/dl-call_fini.c:43
+        array = <optimized out>
+        sz = <optimized out>
+        map = 0xffffb7eed600
+        fini_array = <optimized out>
+        fini = <optimized out>
+#8  0x0000ffffb7ec0b78 [PAC] in _dl_fini () at ./elf/dl-fini.c:120
+        l = 0xffffb7eed600
+        i = <optimized out>
+        proxy_link_map = <optimized out>
+        nmaps = <optimized out>
+        maps = <optimized out>
+        l = <optimized out>
+        nloaded = <optimized out>
+        ns = 0
+        do_audit = 0
+        __PRETTY_FUNCTION__ = "_dl_fini"
+#9  0x0000ffffb642b30c [PAC] in __run_exit_handlers (status=0, listp=0xffffb65b0588 <__exit_funcs>, run_list_atexit=run_list_atexit@entry=true, run_dtors=run_dtors@entry=true) at ./stdlib/exit.c:118
+        atfct = <optimized out>
+        onfct = <optimized out>
+        cxafct = 0xffffb7ec0900 <_dl_fini>
+        arg = <optimized out>
+        f = <optimized out>
+        new_exitfn_called = 1534
+        cur = 0xaaaae81f99e0
+        restart = <optimized out>
+#10 0x0000ffffb642b400 [PAC] in __GI_exit (status=<optimized out>) at ./stdlib/exit.c:148
+No locals.
+#11 0x0000ffffb6412f20 [PAC] in __libc_start_call_main (main=main@entry=0xaaaac4e72cc4 <main>, argc=argc@entry=2, argv=argv@entry=0xffffc1555038) at ../sysdeps/nptl/libc_start_call_main.h:83
+        result = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {281473925337144, 187650424765048, 2, 281473925337168, 281473767685272, 187650424646852, 0, 281473767686144, 187650424765048, 0, 281473925337024, 11132668170875598216, 281473925336992, 11132668170488387040, 0, 0, 0, 0, 0, 0, 0, 0}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x73ffffb64130d8, 0xffffc1555038}, data = {prev = 0x0, cleanup = 0x0, canceltype = -1237241640}}}
+        not_first_call = <optimized out>
+#12 0x0000ffffb641305c [PAC] in __libc_start_main_impl (main=0xaaaac4e72cc4 <main>, argc=2, argv=0xffffc1555038, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=<optimized out>) at ../csu/libc-start.c:360
+No locals.
+#13 0x0000aaaac4e744b0 [PAC] in _start ()
+No symbol table info available.

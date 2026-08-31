@@ -1,0 +1,1 @@
+Invalid dry run for soak verdict: the end-capture shell omitted ROS_DOMAIN_ID/GZ_PARTITION and the memory converter omitted docker exec -i. Startup and resource-growth logs remain historical harness evidence only.

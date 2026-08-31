@@ -1,0 +1,12 @@
+header:
+  stamp:
+    sec: 52
+    nanosec: 400000000
+  frame_id: bluerov2/camera_link/underwater_camera
+height: 480
+width: 640
+encoding: rgb8
+is_bigendian: 0
+step: 1920
+data: '<sequence type: uint8, length: 921600>'
+---

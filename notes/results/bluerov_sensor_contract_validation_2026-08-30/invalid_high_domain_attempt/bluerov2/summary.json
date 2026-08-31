@@ -1,0 +1,13 @@
+{
+  "variant": "bluerov2",
+  "ros_message_received": {
+    "imu": false,
+    "magnetometer": false,
+    "camera": false,
+    "odometry": false
+  },
+  "default_path_gz_imu_received": false,
+  "sonar_point_513x301": false,
+  "sonar_raw_513x399": false,
+  "runtime_segfault": false
+}

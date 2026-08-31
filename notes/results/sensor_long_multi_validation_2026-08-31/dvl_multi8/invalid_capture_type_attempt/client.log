@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/tmp/capture_dvl_multi8.py", line 18, in <module>
+    while time.monotonic()<deadline and not all(len(v)>=target for v in n.rows.values()): rclpy.spin_once(n,timeout_sec=0.1)
+                                                                                          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/__init__.py", line 303, in spin_once
+    executor.spin_once(timeout_sec=timeout_sec)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 1020, in spin_once
+    self._spin_once_impl(timeout_sec)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 1012, in _spin_once_impl
+    raise exception
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/task.py", line 343, in _execute_coroutine_step
+    result = coro.send(None)
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 670, in handler
+    await call_coroutine()
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 551, in _execute
+    await await_or_execute(sub.callback, *msg_tuple)
+  File "/opt/ros/lyrical/lib/python3.14/site-packages/rclpy/executors.py", line 139, in await_or_execute
+    return callback(*args)
+  File "/tmp/capture_dvl_multi8.py", line 13, in <lambda>
+    for n in names: self.create_subscription(DVL,f'/dvl/{n}',lambda m,n=n:self.cb(n,m),10)
+                                                                          ~~~~~~~^^^^^
+  File "/tmp/capture_dvl_multi8.py", line 16, in cb
+    self.rows[n].append({'stamp':m.header.stamp.sec+m.header.stamp.nanosec/1e9,'frame_id':m.header.frame_id,'beams':len(m.beams),'target_type':int(m.target.type)})
+                                                                                                                                               ~~~^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'DVL_TARGET_BOTTOM'

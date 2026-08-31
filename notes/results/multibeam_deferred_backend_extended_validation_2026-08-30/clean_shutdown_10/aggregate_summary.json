@@ -1,0 +1,15 @@
+{
+  "runs": 10,
+  "backend_ready_count": 10,
+  "point_ok_count": 10,
+  "raw_ok_count": 10,
+  "bridge_exit_minus_11_count": 0,
+  "gazebo_sigint_count": 0,
+  "segfault_count": 0,
+  "launch_rc_counts": {
+    "143": 10
+  },
+  "escalation_counts": {
+    "TERM": 10
+  }
+}

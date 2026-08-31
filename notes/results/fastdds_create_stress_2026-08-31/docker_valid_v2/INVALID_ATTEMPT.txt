@@ -1,0 +1,6 @@
+# Invalid Docker harness attempt v2
+
+This run is excluded. The Gazebo server used the isolated `GZ_PARTITION`, but
+the readiness probe did not, so the harness could not observe the already
+running create service. No stress phase ran. The v3 run corrects the readiness
+probe environment.

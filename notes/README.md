@@ -20,7 +20,7 @@
 | [`evidence/`](evidence/) | 개별 주장 근거 |
 | [`meeting/`](meeting/) | 랩 미팅 자료 |
 
-## 현재 기준선 — 2026-08-30
+## 현재 기준선 — 2026-08-31
 
 [`results/remaining_defect_fixes_2026-08-29/`](results/remaining_defect_fixes_2026-08-29/)은
 기존 감사에서 남은 재현 가능한 결함을 수정한 최초 **8개 후보 패치**의 Mac/Docker 결과다.
@@ -36,6 +36,20 @@ fresh Docker build와 rendered RDP/QGC 근거는
 Docker software-WGPU/OGRE2 sonar crash의 최소 재현, 폐기 후보, WGPU 2회·auto·CPU 회귀와
 Heavy+ArduSub/MAVROS 결합 통과 근거는
 [`results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/`](results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/)에 있다.
+그 후보의 20회 cold start, Heavy 3회 반복, process-group 종료 10회와 bounded 30분 soak는
+[`results/multibeam_deferred_backend_extended_validation_2026-08-30/`](results/multibeam_deferred_backend_extended_validation_2026-08-30/)에 있다.
+CPU·배포 WGPU·정확히 relink한 exact-N 후보의 6개 장면 수치 대조는
+[`results/multibeam_backend_equivalence_matrix_2026-08-30/`](results/multibeam_backend_equivalence_matrix_2026-08-30/),
+integrated ocean-waves world의 직접 payload·stats·resource snapshot은
+[`results/integrated_sonar_payload_validation_2026-08-30/`](results/integrated_sonar_payload_validation_2026-08-30/),
+세 BlueROV image/source sensor contract 분리는
+[`results/bluerov_sensor_contract_validation_2026-08-30/`](results/bluerov_sensor_contract_validation_2026-08-30/)에 있다.
+2026-08-31에는 Fast DDS 160-create stress, focused bridge teardown와 ownership-cycle 후보,
+sensor long/multi, camera six-tag, USBL namespace, sonar determinism/cache,
+clean ocean-sonar/manipulation replay, Ocean Current noise/tide controls를 추가했다. Bridge 후보는
+[`results/parameter_bridge_cycle_fix_validation_2026-08-31/`](results/parameter_bridge_cycle_fix_validation_2026-08-31/)에 있고,
+나머지 근거는 같은 날짜의 `results/*_2026-08-31/` 폴더에 있다. 특히 tide는 global topic이 아니라
+documented per-model output으로 판정한다.
 상류 DAVE/Gazebo checkout과 사용자 설치 workspace를 수정했다는 뜻은 아니다.
 
 검증된 후보 패치 범위:
@@ -50,6 +64,7 @@ Heavy+ArduSub/MAVROS 결합 통과 근거는
 - Ocean/Spherical/sonar package plugin-discovery hooks와 Release build 안내
 - `dave_ocean_waves`의 fifth-ROV sonar용 `MultibeamSonarSystem` world 누락
 - 세 BlueROV variant ArduSub의 명시적 speedup, 공식 Gazebo plugin, MAVROS 통합 제어와 baseline QGroundControl 경로
+- `ros_gz_bridge` handle→owner strong-reference cycle와 DAVE-sonar shutdown-only exit -11
 - 현재 Dockerfile의 fresh `--no-cache` 빌드(66.917분, 6,260,137,751 bytes), pin/package 검사, real RDP/XFCE framebuffer와 Gazebo+QGC connected replay; 이전 cache image의 세 variant full control
 
 여전히 열린 범위는 Docker hardware WGPU/NVIDIA CUDA, macOS RViz의 영구 창 수정,
@@ -59,9 +74,14 @@ calibration 결정, Fuel immutable pin/upload, Windows/WSL·실물 gamepad/HIL�
 20/20 복구됐고 ROS four-beam bridge와 camera/no-render 회귀도 통과했다. 다만 후보는 격리 빌드일 뿐
 Homebrew/상류 Gazebo에 적용되지 않아 배포 경로는 여전히 PARTIAL이다. Heavy-multibeam의
 distributed software-WGPU/llvmpipe 경로는 exit 139를 재현하지만, 격리 startup-order 후보는
-WGPU 2/2·auto·CPU payload와 한 Heavy arm/control/disarm session을 통과했다. 따라서 로컬
-재현 결함은 후보에서 닫혔고 배포·review·hardware GPU 범위는 열려 있다. Fast DDS create
-hang은 dirty/clean/SIGKILL/UDP 18/18에서 현재 재현되지 않았고, exact camera Quickstart는
+fresh WGPU cold start 20/20, Heavy arm/control/disarm 3/3과 bounded 1,861초 soak를 통과했다.
+teardown baseline은 no-publisher 40/40·stock active 30/30 clean이지만 DAVE-sonar active one-way
+9/10과 PointCloud-only 2/10이 SIGSEGV였다. Exact-`ros_gz` 3.0.9 ownership-cycle 후보는
+bridge-first 20/20 clean, process-group 10/10 rc0, direct ROS→GZ 20/20과 stock active
+camera/PointCloud 5/5 each를 통과했다. 제한된 upstream package suite는 17/18 CTest target이
+통과했고, 유일한 remote-schema `xmllint` timeout도 canonical schema를 로컬로 공급한 exact XML
+검사에서 통과했다. 따라서 로컬 재현 결함은 후보에서 닫혔다. 이어 normal isolated install에서 8/8 topic, 1/1 ControlWorld service, active teardown 10/10을 통과했고 ARM64 Jazzy/Kilted branch-local overlay도 각각 8/8+1/1과 clean bridge exit를 통과했다. Read-only upstream readiness review에서는 focused issue/PR search 8건의 duplicate가 0건이었다. upstream 제출·maintainer review·merge, 사용자 ordinary workspace 적용·Humble runtime·x86_64·exhaustive message/service coverage·hardware GPU는 열려 있다. Fast DDS create
+hang은 2026-08-31 dirty/20-SIGKILL/clean/UDP stress 160/160에서도 재현되지 않았고, exact camera Quickstart는
 120초 창에서 default 3/3·UDP 3/3 통과해 이전 짧은 대기 실패를 startup latency로 정정했다.
 이전 exact cache image는 Windows App RDP login/rendering과 QGC vehicle connection을 통과했다.
 current recipe도 fresh `--no-cache`로 66.917분에 완주했고, 별도 FreeRDP/xrdp 세션에서 Xorg/XFCE framebuffer와 Gazebo+QGC connected 화면을 다시 통과했다. 두 클라이언트 실행을 같은 것으로 섞지 않는다.
@@ -80,7 +100,7 @@ current recipe도 fresh `--no-cache`로 66.917분에 완주했고, 별도 FreeRD
 | [`validation_matrix.csv`](validation_matrix.csv) | 검증 항목 전체 표. **무엇이 PASS 이고 무엇이 안 해본 것인지**의 기준 |
 | [`verified-demos.md`](verified-demos.md) | 각 판정이 무엇에 근거하는지 |
 | [`known-issues.md`](known-issues.md) | 48개 항목(열림·후보 패치 해결·철회 이력 포함), 현재 처리는 문서 맨 위 표 참고 |
-| [`progress-log.md`](progress-log.md) | 날짜별 작업 105행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
+| [`progress-log.md`](progress-log.md) | 날짜별 작업 112행. 무엇이 나중에 뒤집혔는지가 Notes 열에 있다 |
 | [`sonar-performance.md`](sonar-performance.md) | 소나 측정값과 이전 수치를 대체한 경위 |
 | [`patch-and-pinned-commits.md`](patch-and-pinned-commits.md) | 고정 커밋과 이식 패치의 현재 상태 |
 | [`next-steps.md`](next-steps.md) | 아직 열려 있는 항목 |

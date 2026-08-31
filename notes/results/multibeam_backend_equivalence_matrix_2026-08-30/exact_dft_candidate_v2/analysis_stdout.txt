@@ -1,0 +1,193 @@
+{
+  "candidate": "existing patches/multibeam_wgpu_and_backend_fix.diff exact N-point DFT, rebuilt wgpu_vendor archive and relinked with deferred-backend candidate",
+  "case_count": 6,
+  "details": {
+    "plane_2m_dark": {
+      "expected_range_m": 2.0,
+      "cpu_peak_range_median": 1.9816054105758667,
+      "old_wgpu_peak_range_median": 2.5836119651794434,
+      "exact_dft_wgpu_peak_range_median": 2.0066888332366943,
+      "cpu_peak_error_median": -0.0183945894241333,
+      "old_wgpu_peak_error_median": 0.5836119651794434,
+      "exact_dft_wgpu_peak_error_median": 0.006688833236694336,
+      "cpu_expected_bin_ranks": [
+        3,
+        3,
+        3
+      ],
+      "old_wgpu_expected_bin_ranks": [
+        29,
+        51,
+        38
+      ],
+      "exact_dft_wgpu_expected_bin_ranks": [
+        1,
+        2,
+        4
+      ],
+      "raw_exact_dft_first_frame_minus_cpu": {
+        "count": 58482,
+        "mae": 134.75049381327386,
+        "rmse": 135.1429084342043,
+        "max_abs": 192.83098220825195
+      },
+      "exact_dft_unique_raw_hashes": 3
+    },
+    "plane_4m_dark": {
+      "expected_range_m": 4.0,
+      "cpu_peak_range_median": 3.9882943630218506,
+      "old_wgpu_peak_range_median": 5.1421403884887695,
+      "exact_dft_wgpu_peak_range_median": 4.038461208343506,
+      "cpu_peak_error_median": -0.011705636978149414,
+      "old_wgpu_peak_error_median": 1.1421403884887695,
+      "exact_dft_wgpu_peak_error_median": 0.03846120834350586,
+      "cpu_expected_bin_ranks": [
+        1,
+        1,
+        1
+      ],
+      "old_wgpu_expected_bin_ranks": [
+        82,
+        76,
+        142
+      ],
+      "exact_dft_wgpu_expected_bin_ranks": [
+        3,
+        5,
+        2
+      ],
+      "raw_exact_dft_first_frame_minus_cpu": {
+        "count": 69255,
+        "mae": 132.9245946404942,
+        "rmse": 133.8293629164284,
+        "max_abs": 249.85449600219727
+      },
+      "exact_dft_unique_raw_hashes": 3
+    },
+    "plane_4m_bright": {
+      "expected_range_m": 4.0,
+      "cpu_peak_range_median": 3.9882943630218506,
+      "old_wgpu_peak_range_median": 5.1421403884887695,
+      "exact_dft_wgpu_peak_range_median": 4.013377666473389,
+      "cpu_peak_error_median": -0.011705636978149414,
+      "old_wgpu_peak_error_median": 1.1421403884887695,
+      "exact_dft_wgpu_peak_error_median": 0.013377666473388672,
+      "cpu_expected_bin_ranks": [
+        1,
+        1,
+        1
+      ],
+      "old_wgpu_expected_bin_ranks": [
+        82,
+        76,
+        142
+      ],
+      "exact_dft_wgpu_expected_bin_ranks": [
+        4,
+        5,
+        3
+      ],
+      "raw_exact_dft_first_frame_minus_cpu": {
+        "count": 69255,
+        "mae": 133.23344671891172,
+        "rmse": 134.14869743296327,
+        "max_abs": 254.3770866394043
+      },
+      "exact_dft_unique_raw_hashes": 3
+    },
+    "plane_7m_dark": {
+      "expected_range_m": 7.0,
+      "cpu_peak_range_median": 6.998327732086182,
+      "old_wgpu_peak_range_median": 8.97993278503418,
+      "exact_dft_wgpu_peak_range_median": 6.998327732086182,
+      "cpu_peak_error_median": -0.0016722679138183594,
+      "old_wgpu_peak_error_median": 1.9799327850341797,
+      "exact_dft_wgpu_peak_error_median": -0.0016722679138183594,
+      "cpu_expected_bin_ranks": [
+        1,
+        1,
+        1
+      ],
+      "old_wgpu_expected_bin_ranks": [
+        353,
+        113,
+        114
+      ],
+      "exact_dft_wgpu_expected_bin_ranks": [
+        1,
+        1,
+        3
+      ],
+      "raw_exact_dft_first_frame_minus_cpu": {
+        "count": 49248,
+        "mae": 140.95635065441087,
+        "rmse": 141.56586161836717,
+        "max_abs": 250.36506462097168
+      },
+      "exact_dft_unique_raw_hashes": 3
+    },
+    "sphere_4m_bright": {
+      "expected_range_m": 4.0,
+      "cpu_peak_range_median": 3.9882943630218506,
+      "old_wgpu_peak_range_median": 5.167223930358887,
+      "exact_dft_wgpu_peak_range_median": 4.013377666473389,
+      "cpu_peak_error_median": -0.011705636978149414,
+      "old_wgpu_peak_error_median": 1.1672239303588867,
+      "exact_dft_wgpu_peak_error_median": 0.013377666473388672,
+      "cpu_expected_bin_ranks": [
+        1,
+        1,
+        1
+      ],
+      "old_wgpu_expected_bin_ranks": [
+        69,
+        99,
+        130
+      ],
+      "exact_dft_wgpu_expected_bin_ranks": [
+        3,
+        10,
+        6
+      ],
+      "raw_exact_dft_first_frame_minus_cpu": {
+        "count": 9747,
+        "mae": 137.55599865268118,
+        "rmse": 138.71891931504837,
+        "max_abs": 233.7678451538086
+      },
+      "exact_dft_unique_raw_hashes": 3
+    },
+    "cylinder_4m_bright": {
+      "expected_range_m": 4.0,
+      "cpu_peak_range_median": 3.9882943630218506,
+      "old_wgpu_peak_range_median": 5.1421403884887695,
+      "exact_dft_wgpu_peak_range_median": 4.038461208343506,
+      "cpu_peak_error_median": -0.011705636978149414,
+      "old_wgpu_peak_error_median": 1.1421403884887695,
+      "exact_dft_wgpu_peak_error_median": 0.03846120834350586,
+      "cpu_expected_bin_ranks": [
+        1,
+        1,
+        1
+      ],
+      "old_wgpu_expected_bin_ranks": [
+        127,
+        93,
+        132
+      ],
+      "exact_dft_wgpu_expected_bin_ranks": [
+        5,
+        1,
+        3
+      ],
+      "raw_exact_dft_first_frame_minus_cpu": {
+        "count": 11286,
+        "mae": 136.92783095350666,
+        "rmse": 139.2305329661629,
+        "max_abs": 250.007568359375
+      },
+      "exact_dft_unique_raw_hashes": 3
+    }
+  },
+  "scope": "Docker software-WGPU llvmpipe controlled scenes. Peak placement and CPU/WGPU arrays are compared, but stochastic frames are not seed/frameIndex aligned and this is not general acoustic accuracy."
+}

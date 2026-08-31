@@ -1,0 +1,22 @@
+{
+  "host_overlay_source_root": "/Users/gwon-yeseol/dave_ws_lyrical/src/dave",
+  "host_overlay_model_sha256": {
+    "bluerov2": "2c01f3057e5996a201d173747ab30e67fba1658e0b93ee5dec5179bd7860a50b",
+    "bluerov2_heavy": "26584e3f1be80f1b4b458c93d58bc46814f6a8090f72b30d94b4d319d460a805",
+    "bluerov2_heavy_multibeam_sonar": "ebe2464bd21f2022a0501dc2c507fcc6736ac24e054796a625f8882968e0dac5"
+  },
+  "runtime_image": "dave-sonar-deferred-compute-test:20260830",
+  "runtime_image_id": "sha256:9a419bd753cfb85d5a0d04542aee66d77687a7da5e2a2b6cea601c6a563e23f5",
+  "runtime_image_model_sha256": {
+    "bluerov2": "ed60765af26b9925f9f25789f9b05c4572ddfa32c83a1327def9a103da2e99fd",
+    "bluerov2_heavy": "51c329ab6fea60df2acb3316757917f0571964e0da12a9444320d4e1582e97ad",
+    "bluerov2_heavy_multibeam_sonar": "ebe2464bd21f2022a0501dc2c507fcc6736ac24e054796a625f8882968e0dac5"
+  },
+  "same_model_bytes": {
+    "bluerov2": false,
+    "bluerov2_heavy": false,
+    "bluerov2_heavy_multibeam_sonar": true
+  },
+  "runtime_image_world_has_multibeam_system": false,
+  "scope": "Runtime verdicts use the image inventory, not the differently patched host overlay source."
+}

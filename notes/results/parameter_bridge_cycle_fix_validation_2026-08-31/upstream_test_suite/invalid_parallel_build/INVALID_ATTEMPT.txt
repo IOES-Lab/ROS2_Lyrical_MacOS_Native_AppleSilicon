@@ -1,0 +1,1 @@
+INVALID FOR FUNCTIONAL VERDICT: BUILD_TESTING=ON was started with unconstrained parallel compilation in a Docker container limited to 11.67 GiB. Multiple generated ros_gz_bridge test translation units each consumed several GiB and the kernel killed cc1plus. This is a harness/resource failure, not a candidate source/test failure. The retained valid rerun uses one compile worker.

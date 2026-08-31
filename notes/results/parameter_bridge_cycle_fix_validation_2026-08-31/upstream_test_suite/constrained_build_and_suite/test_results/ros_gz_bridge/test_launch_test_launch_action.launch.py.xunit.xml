@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="ros_gz_bridge.test_launch_action.launch" tests="2" failures="0" errors="0" time="2.373"><testsuite name="ros_gz_bridge.test_launch_action.launch.launch_tests" tests="2" failures="0" errors="0" skipped="0" time="2.373"><testcase classname="ros_gz_bridge.LaunchActionTest" name="test_termination" time="2.373" /><testcase classname="ros_gz_bridge.LaunchActionTestAfterShutdown" name="test_exit_code" time="0.0" /></testsuite></testsuites>

@@ -1,0 +1,53 @@
+{
+  "date": "2026-08-31",
+  "repository": "gazebosim/ros_gz",
+  "default_branch": "ros2",
+  "review_mode": "read-only; no issue or pull request was created",
+  "duplicate_searches": [
+    {
+      "artifact": "search_1.json",
+      "query": "parameter_bridge SIGSEGV",
+      "match_count": 0
+    },
+    {
+      "artifact": "search_2.json",
+      "query": "shutdown segfault",
+      "match_count": 0
+    },
+    {
+      "artifact": "search_3.json",
+      "query": "BridgeHandle",
+      "match_count": 0
+    },
+    {
+      "artifact": "search_4.json",
+      "query": "middleware teardown",
+      "match_count": 0
+    },
+    {
+      "artifact": "issues_parameter_shutdown.json",
+      "query": "issues: parameter shutdown",
+      "match_count": 0
+    },
+    {
+      "artifact": "issues_bridgehandle.json",
+      "query": "issues: BridgeHandle",
+      "match_count": 0
+    },
+    {
+      "artifact": "prs_parameter_shutdown.json",
+      "query": "pull requests: parameter shutdown",
+      "match_count": 0
+    },
+    {
+      "artifact": "prs_bridgehandle.json",
+      "query": "pull requests: BridgeHandle",
+      "match_count": 0
+    }
+  ],
+  "total_matches": 0,
+  "issue_template_count": 0,
+  "pull_request_template_present": false,
+  "contribution_policy": "Apache-2.0 contribution-license notice; no project-specific issue form or PR template was found",
+  "conclusion": "No duplicate was found in the searched current issues or pull requests. The prepared draft remains ready for maintainer review, but submission and merge are external actions and were not performed."
+}

@@ -1,0 +1,6 @@
+[INFO] [1788160281.966891669] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/cross_g2r_string (gz.msgs.StringMsg) -> /cross_g2r_string (std_msgs/msg/String)] (Lazy 0)
+[INFO] [1788160281.968939044] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/cross_g2r_vector (gz.msgs.Vector3d) -> /cross_g2r_vector (geometry_msgs/msg/Vector3)] (Lazy 0)
+[INFO] [1788160281.970599378] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cross_r2g_string (std_msgs/msg/String) -> /cross_r2g_string (gz.msgs.StringMsg)] (Lazy 0)
+[INFO] [1788160281.971394461] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cross_r2g_vector (geometry_msgs/msg/Vector3) -> /cross_r2g_vector (gz.msgs.Vector3d)] (Lazy 0)
+[INFO] [1788160290.759701423] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+[INFO] [1788160292.806739133] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Vector3 to Gazebo gz.msgs.Vector3d (showing msg only once per type)

@@ -1,0 +1,7 @@
+[INFO] [1788152627.712874421] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cycle_ros_to_gz (std_msgs/msg/String) -> /cycle_ros_to_gz (gz.msgs.StringMsg)] (Lazy 0)
+[INFO] [1788152627.731394921] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/cycle_gz_to_ros (gz.msgs.StringMsg) -> /cycle_gz_to_ros (std_msgs/msg/String)] (Lazy 0)
+[INFO] [1788152632.237546215] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+[INFO] [1788152634.658996008] [rclcpp]: signal_handler(signum=2)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788152634.661800883] [rclcpp]: signal_handler(signum=2)
+[ros2run]: Segmentation fault

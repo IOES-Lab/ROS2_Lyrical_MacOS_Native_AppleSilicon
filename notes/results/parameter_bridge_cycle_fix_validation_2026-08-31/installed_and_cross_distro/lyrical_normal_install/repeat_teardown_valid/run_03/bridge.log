@@ -1,0 +1,5 @@
+[INFO] [1788159356.348143463] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/repeat_g2r (gz.msgs.StringMsg) -> /repeat_g2r (std_msgs/msg/String)] (Lazy 0)
+[INFO] [1788159356.349173380] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/repeat_r2g (std_msgs/msg/String) -> /repeat_r2g (gz.msgs.StringMsg)] (Lazy 0)
+[INFO] [1788159361.302958966] [ros_gz_bridge]: Passing message from ROS std_msgs/msg/String to Gazebo gz.msgs.StringMsg (showing msg only once per type)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788159361.570818257] [rclcpp]: signal_handler(signum=2)

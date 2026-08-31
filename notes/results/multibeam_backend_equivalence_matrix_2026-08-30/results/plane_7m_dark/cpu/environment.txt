@@ -1,0 +1,6 @@
+case=plane_7m_dark
+backend=cpu
+expected_range_m=7.0
+image=dave-sonar-equivalence-matrix:20260830
+ROS_DOMAIN_ID=207
+GZ_PARTITION=sonar_matrix_plane_7m_dark_cpu_92457

@@ -1,0 +1,11 @@
+run	backend_ready	point	raw	simulator_exit	delay_s	bridge_result	launch_rc
+1	1	1	1	exited	5	clean	0
+2	1	1	1	exited	5	segfault	0
+3	1	1	1	exited	5	clean	0
+4	1	1	1	exited	5	clean	0
+5	1	1	1	exited	5	clean	0
+6	1	1	1	exited	5	segfault	0
+7	1	1	1	exited	5	clean	0
+8	1	1	1	exited	5	clean	0
+9	1	1	1	exited	5	clean	0
+10	1	1	1	exited	5	clean	0

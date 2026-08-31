@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/capture_dvl_multi8_v2.py", line 20, in <module>
+    if not all(v>=target for v in counts.values()): raise RuntimeError(counts)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: {'nortek_dvl500_300': 33, 'nortek_dvl500_6000': 33, 'nortek_dvl1000_300': 33, 'nortek_dvl1000_4000': 33, 'sonardyne_syrinx600': 33, 'teledyne_explorer1000': 48, 'teledyne_explorer4000': 48, 'teledyne_whn': 28}

@@ -1,0 +1,6 @@
+error: patch failed: ros_gz_bridge/src/bridge_handle.cpp:34
+error: ros_gz_bridge/src/bridge_handle.cpp: patch does not apply
+error: patch failed: ros_gz_bridge/src/bridge_handle_gz_to_ros.cpp:25
+error: ros_gz_bridge/src/bridge_handle_gz_to_ros.cpp: patch does not apply
+error: patch failed: ros_gz_bridge/src/bridge_handle_ros_to_gz.cpp:61
+error: ros_gz_bridge/src/bridge_handle_ros_to_gz.cpp: patch does not apply

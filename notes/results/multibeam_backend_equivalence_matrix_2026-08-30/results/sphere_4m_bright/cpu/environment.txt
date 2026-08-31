@@ -1,0 +1,6 @@
+case=sphere_4m_bright
+backend=cpu
+expected_range_m=4.0
+image=dave-sonar-equivalence-matrix:20260830
+ROS_DOMAIN_ID=209
+GZ_PARTITION=sonar_matrix_sphere_4m_bright_cpu_92549

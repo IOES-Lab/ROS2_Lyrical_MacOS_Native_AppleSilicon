@@ -1,0 +1,77 @@
+{
+  "verdict": "PASS",
+  "graph": {
+    "USBL_A": {
+      "location_publishers": 1,
+      "ping_subscribers": 2
+    },
+    "USBL_B": {
+      "location_publishers": 1,
+      "ping_subscribers": 2
+    }
+  },
+  "phases": {
+    "USBL_A_only": {
+      "USBL_A": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      },
+      "USBL_B": {
+        "count": 0,
+        "ids": [],
+        "max_axis_error_m": null
+      }
+    },
+    "USBL_B_only": {
+      "USBL_A": {
+        "count": 0,
+        "ids": [],
+        "max_axis_error_m": null
+      },
+      "USBL_B": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      }
+    },
+    "both_concurrent": {
+      "USBL_A": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      },
+      "USBL_B": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      }
+    }
+  },
+  "checks": {
+    "graph_complete": true,
+    "a_only_has_a": true,
+    "b_only_has_b": true,
+    "both_have_data": true,
+    "all_ids_1_2": true,
+    "geometry_exact": true
+  },
+  "scope": "Two transceivers and four transponders in two namespaces with reused device IDs; isolated and concurrent common interrogation.",
+  "limitations": [
+    "One Docker run.",
+    "Static synthetic geometry.",
+    "Bounded message counts, not long-duration or physical acoustic accuracy."
+  ]
+}

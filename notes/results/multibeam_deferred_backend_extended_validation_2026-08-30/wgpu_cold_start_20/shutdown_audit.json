@@ -1,0 +1,42 @@
+{
+  "parameter_bridge_exit_minus_11": [
+    "run_03",
+    "run_04",
+    "run_05",
+    "run_07",
+    "run_08",
+    "run_09",
+    "run_10",
+    "run_13",
+    "run_15",
+    "run_16",
+    "run_17",
+    "run_18",
+    "run_19",
+    "run_20"
+  ],
+  "gazebo_process_died": [
+    "run_01",
+    "run_02",
+    "run_03",
+    "run_04",
+    "run_05",
+    "run_06",
+    "run_07",
+    "run_08",
+    "run_09",
+    "run_10",
+    "run_11",
+    "run_12",
+    "run_13",
+    "run_14",
+    "run_15",
+    "run_16",
+    "run_17",
+    "run_18",
+    "run_19",
+    "run_20"
+  ],
+  "segfault": [],
+  "shutdown_escalation": []
+}

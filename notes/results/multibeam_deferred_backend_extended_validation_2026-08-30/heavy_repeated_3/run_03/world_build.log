@@ -1,0 +1,16 @@
+Starting >>> dave_worlds
+Finished <<< dave_worlds [0.63s]
+--- stderr: dave_worlds
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+---
+
+Summary: 1 package finished [0.81s]
+  1 package had stderr output: dave_worlds

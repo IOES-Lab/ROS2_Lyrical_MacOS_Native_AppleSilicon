@@ -1,0 +1,1 @@
+26:            "/sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked",  # the point cloud bridge, must match the model.sdf

@@ -1,0 +1,21 @@
+--- /tmp/parameter_bridge.cpp.before	2026-08-31 01:26:54.157060012 +0000
++++ /home/docker/bridge_candidate_ws/src/parameter_bridge_cleanup_candidate/src/parameter_bridge.cpp	2026-08-31 01:26:54.201060012 +0000
+@@ -22,7 +22,6 @@
+ #include <rclcpp/rclcpp.hpp>
+ #include <ros_gz_bridge/ros_gz_bridge.hpp>
+ 
+-#include "bridge_handle.hpp"
+ 
+ //////////////////////////////////////////////////
+ void usage()
+@@ -172,5 +171,10 @@
+   // ROS 2 spinner
+   rclcpp::spin(bridge_node);
+ 
++  // Validation candidate: destroy bridge handles and their DDS entities before
++  // process-wide shared-library finalizers run.
++  bridge_node.reset();
++  rclcpp::shutdown();
++
+   return 0;
+ }

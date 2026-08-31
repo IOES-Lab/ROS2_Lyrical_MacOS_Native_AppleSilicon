@@ -1,0 +1,5 @@
+shm.clean:
+0 ports in use
+0 segments in use
+0 zombie ports cleaned
+20 zombie segments cleaned

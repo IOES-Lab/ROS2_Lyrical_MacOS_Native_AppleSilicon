@@ -1,0 +1,723 @@
+{
+  "verdict": "PASS",
+  "graph": {
+    "USBL_A": {
+      "location_publishers": 1,
+      "ping_subscribers": 2
+    },
+    "USBL_B": {
+      "location_publishers": 1,
+      "ping_subscribers": 2
+    }
+  },
+  "phases": {
+    "USBL_A_only": {
+      "USBL_A": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      },
+      "USBL_B": {
+        "count": 0,
+        "ids": [],
+        "max_axis_error_m": null
+      }
+    },
+    "USBL_B_only": {
+      "USBL_A": {
+        "count": 0,
+        "ids": [],
+        "max_axis_error_m": null
+      },
+      "USBL_B": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      }
+    },
+    "both_concurrent": {
+      "USBL_A": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      },
+      "USBL_B": {
+        "count": 20,
+        "ids": [
+          1,
+          2
+        ],
+        "max_axis_error_m": 5.551115123125783e-17
+      }
+    }
+  },
+  "checks": {
+    "graph_complete": true,
+    "a_only_has_a": true,
+    "b_only_has_b": true,
+    "both_have_data": true,
+    "all_ids_1_2": true,
+    "geometry_exact": true
+  },
+  "raw": {
+    "USBL_A": [
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.630251,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.63081,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.7389975,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.747809,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.8569853,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.865134,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.9765105,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145551.9770474,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.0860555,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.089917,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.1977315,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.2056532,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.3147373,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.317659,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.4304392,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.4310575,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.5400422,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.5429811,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.6529055,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_A_only",
+        "wall_time": 1788145552.6553447,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.7459517,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.748318,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.857949,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.8643148,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.9742353,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.976855,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.086411,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.0886948,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.1971202,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.2034736,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.3137596,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.31651,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.4438157,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.4488244,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.5588818,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.5606437,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.6722631,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.673236,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.7843714,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.7852664,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      }
+    ],
+    "USBL_B": [
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145553.685011,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145553.6882176,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145553.7987714,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145553.7992415,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145553.9106343,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145553.9115033,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.0235343,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.0241425,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.132781,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.1359324,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.2463803,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.2478878,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.3640394,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.3647602,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.4778233,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.4831657,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.5953944,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.599072,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.7096908,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "USBL_B_only",
+        "wall_time": 1788145554.7104526,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.746276,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.7484105,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.8585799,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.8639028,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.9743793,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145555.9754183,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.0867515,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.0889938,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.1978655,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.2009587,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.3213007,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.3271015,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.4440072,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.4489458,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.559089,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.5607321,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.6724007,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.6733484,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.7845566,
+        "id": 1,
+        "x": 3.0,
+        "y": 4.0,
+        "z": 0.49999999999999994
+      },
+      {
+        "phase": "both_concurrent",
+        "wall_time": 1788145556.7853596,
+        "id": 2,
+        "x": 6.0,
+        "y": 8.0,
+        "z": 0.5
+      }
+    ]
+  },
+  "scope": "Two transceivers and four transponders in two namespaces with reused device IDs; isolated and concurrent common interrogation.",
+  "limitations": [
+    "One Docker run.",
+    "Static synthetic geometry.",
+    "Bounded message counts, not long-duration or physical acoustic accuracy."
+  ]
+}

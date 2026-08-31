@@ -1,0 +1,4 @@
+run	backend_ready	point	raw	launch_rc	launch_escalation	bridge_early_result	bridge_exit_minus11
+1	1	1	1	0	none	clean	0
+2	1	1	1	0	none	clean	0
+3	1	1	1	0	none	clean	0

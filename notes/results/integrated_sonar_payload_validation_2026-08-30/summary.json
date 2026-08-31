@@ -1,0 +1,26 @@
+{
+  "verdict": "FUNCTIONAL PASS in isolated candidate/output scope",
+  "distributed_or_installed_scope": "not changed by this run",
+  "backend": "WGPU on Vulkan llvmpipe with deferred-backend and exact-N candidates",
+  "pointcloud_frames_513x301": 3,
+  "raw_frames_513x399": 3,
+  "world_stats_captured": true,
+  "sampled_world_iteration": 77902,
+  "sampled_world_rtf": 0.022677557851073712,
+  "runtime_segfault": false,
+  "bounded_launch_return_code": 143,
+  "resource_snapshot": {
+    "container_cpu_percent": 696.01,
+    "container_memory_gib": 1.639,
+    "container_pids": 134,
+    "gazebo_cpu_percent": 393.0,
+    "gazebo_rss_kib": 1734652,
+    "scope": "single end snapshot, not a steady-state mean"
+  },
+  "limitations": [
+    "The unchanged distributed installation was not modified by this run.",
+    "Raw-sonar numerical correctness in the integrated scene was not established.",
+    "The bounded harness terminated the launch after the required captures."
+  ],
+  "detail_summary": "docker_wgpu_exact_dft_v2/summary.json"
+}

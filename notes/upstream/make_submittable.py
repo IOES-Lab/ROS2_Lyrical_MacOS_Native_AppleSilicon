@@ -2,7 +2,7 @@
 """make_submittable.py — 초안을 GitHub 이슈에 그대로 붙일 수 있는 형태로 변환한다.
 
 왜 스크립트인가:
-  초안이 6건이고 각각 링크가 여러 개다. 손으로 고치면 하나쯤 빠뜨리고,
+  초안이 여러 건이고 각각 링크가 여러 개다. 손으로 고치면 하나쯤 빠뜨리고,
   빠뜨린 링크는 이슈에서 깨진 채로 남는다. 변환 규칙을 한 곳에 둔다.
 
 무엇을 바꾸나:
@@ -42,6 +42,9 @@ DRAFTS = [
     "docker-sonar-crash-issue-draft.md",
     "seapressure-unit-issue-draft.md",
     "seapressure-dead-params-issue-draft.md",
+    "multibeam-wgpu-range-grid-issue-draft.md",
+    "multibeam-deferred-backend-startup-issue-draft.md",
+    "parameter-bridge-handle-cycle-issue-draft.md",
 ]
 
 warnings: list[str] = []

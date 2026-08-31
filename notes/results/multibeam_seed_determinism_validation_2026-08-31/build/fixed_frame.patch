@@ -1,0 +1,11 @@
+--- /tmp/MultibeamSonarSensor.cc.before	2026-08-31 00:18:24.605460001 +0000
++++ /home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc	2026-08-31 00:18:24.631460001 +0000
+@@ -1187,7 +1187,7 @@
+   input.bandwidth = this->bandwidth;
+   input.sonarFreq = this->sonarFreq;
+   input.elevation_angles.assign(this->elevation_angles, this->elevation_angles + this->nRays);
+-  input.frameIndex = this->frameCounter++;
++  input.frameIndex = 0;  // validation-only fixed random frame
+   input.seed = this->sonarSeed;
+ 
+   if (!this->computeBackend)

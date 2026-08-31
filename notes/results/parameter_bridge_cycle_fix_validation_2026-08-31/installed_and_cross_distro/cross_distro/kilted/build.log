@@ -1,0 +1,26 @@
+Starting >>> ros_gz_interfaces
+Finished <<< ros_gz_interfaces [48.5s]
+Starting >>> ros_gz_bridge
+--- stderr: ros_gz_bridge
+In file included from /usr/include/c++/13/mutex:43,
+                 from /opt/ros/kilted/opt/gz_transport_vendor/include/gz/transport14/gz/transport/Node.hh:23,
+                 from /ws/src/ros_gz/ros_gz_bridge/include/ros_gz_bridge/ros_gz_bridge.hpp:23,
+                 from /ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:15:
+In constructor ‘constexpr std::chrono::duration<_Rep, _Period>::duration(const _Rep2&) [with _Rep2 = int; <template-parameter-2-2> = void; _Rep = long int; _Period = std::ratio<1, 1000>]’,
+    inlined from ‘ros_gz_bridge::RosGzBridge::RosGzBridge(const rclcpp::NodeOptions&)’ at /ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:115:45:
+/usr/include/c++/13/bits/chrono.h:574:17: warning: ‘heartbeat’ may be used uninitialized [-Wmaybe-uninitialized]
+  574 |           : __r(static_cast<rep>(__rep)) { }
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp: In constructor ‘ros_gz_bridge::RosGzBridge::RosGzBridge(const rclcpp::NodeOptions&)’:
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:113:7: note: ‘heartbeat’ was declared here
+  113 |   int heartbeat;
+      |       ^~~~~~~~~
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp: In member function ‘void ros_gz_bridge::RosGzBridge::spin()’:
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:125:10: warning: ‘expand_names’ may be used uninitialized [-Wmaybe-uninitialized]
+  125 |     bool expand_names;
+      |          ^~~~~~~~~~~~
+---
+Finished <<< ros_gz_bridge [6min 16s]
+
+Summary: 2 packages finished [7min 5s]
+  1 package had stderr output: ros_gz_bridge

@@ -1,0 +1,144 @@
+header:
+  stamp:
+    sec: 1788096146
+    nanosec: 778347174
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096138
+    nanosec: 788877671
+  frame_id: ''
+connected: false
+armed: false
+guided: false
+manual_input: false
+mode: ''
+system_status: 0
+---
+header:
+  stamp:
+    sec: 1788096146
+    nanosec: 778562716
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096146
+    nanosec: 778562716
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096153
+    nanosec: 646120094
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096153
+    nanosec: 646120094
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096160
+    nanosec: 989648917
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096160
+    nanosec: 989648917
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096167
+    nanosec: 865663253
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096167
+    nanosec: 865663253
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096167
+    nanosec: 865663253
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---
+header:
+  stamp:
+    sec: 1788096174
+    nanosec: 792546882
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---

@@ -1,0 +1,14 @@
+header:
+  stamp:
+    sec: 8
+    nanosec: 0
+  frame_id: model_with_lidar/link/gpu_lidar
+height: 16
+width: 640
+fields: '<sequence type: sensor_msgs/msg/PointField, length: 5>'
+is_bigendian: false
+point_step: 18
+row_step: 11520
+data: '<sequence type: uint8, length: 184320>'
+is_dense: false
+---

@@ -1,0 +1,4 @@
+world	sdf_world	stats_messages	iteration_increase	launch_alive	stack_trace	launch_rc
+dave_bimanual_example	dave_bimanual_example	5	356	1	0	0
+dave_electrical_mating	dave_electrical_mating	5	389	1	0	0
+dave_plug_and_socket	dave_plug_and_socket	5	302	1	0	0

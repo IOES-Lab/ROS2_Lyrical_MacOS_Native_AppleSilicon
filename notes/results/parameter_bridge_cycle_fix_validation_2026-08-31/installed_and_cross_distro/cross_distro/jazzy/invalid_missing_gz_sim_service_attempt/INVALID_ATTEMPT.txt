@@ -1,0 +1,7 @@
+INVALID SERVICE-HARNESS PORTION OF runtime_v4.
+The topic matrix completed 8/8 and parameter_bridge exited cleanly (rc 0,
+no escalation). The subsequent ControlWorld setup was invalid because the
+official ros:jazzy-ros-base image plus ros-jazzy-ros-gz-bridge dependencies did
+not install the gz-sim command. The container was stopped while service
+discovery waited. Service validation is rerun after explicitly installing
+ros-jazzy-ros-gz-sim.

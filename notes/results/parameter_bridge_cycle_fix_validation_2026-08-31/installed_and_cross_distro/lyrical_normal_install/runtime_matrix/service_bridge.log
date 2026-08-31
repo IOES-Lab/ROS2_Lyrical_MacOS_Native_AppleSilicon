@@ -1,0 +1,3 @@
+[INFO] [1788159283.911431055] [ros_gz_bridge]: Creating ROS->GZ service bridge [/world/bridge_matrix/control (ros_gz_interfaces/srv/ControlWorld -> /)]
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788159286.406457250] [rclcpp]: signal_handler(signum=2)

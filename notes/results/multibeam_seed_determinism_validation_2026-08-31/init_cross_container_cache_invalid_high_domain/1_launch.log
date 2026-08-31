@@ -1,0 +1,16 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-00-34-56-343676-7d4ca3a2c1dd-37
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [45]
+[INFO] [create-2]: process started with pid [46]
+[INFO] [parameter_bridge-3]: process started with pid [47]
+[INFO] [static_transform_publisher-4]: process started with pid [48]
+[static_transform_publisher-4] [37;1m2026-08-31 00:34:56.705 [31;1m[[37;1mRTPS[31;1m Error] [37mCalculated port number is too high. Probably the domainId is over 232 or portBase is too high.[34;1m -> Function [36mgetMulticastPort[m
+[create-2] [37;1m2026-08-31 00:34:56.710 [31;1m[[37;1mRTPS[31;1m Error] [37mCalculated port number is too high. Probably the domainId is over 232 or portBase is too high.[34;1m -> Function [36mgetMulticastPort[m
+[create-2] Calculated port number is too high. Probably the domainId is over 232 or portBase is too high.
+[ERROR] [static_transform_publisher-4]: process has died [pid 48, exit code 1, cmd '/opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id blueview_p900/blueview_p900_base_link/multibeam_sonar --ros-args'].
+[ERROR] [create-2]: process has died [pid 46, exit code 1, cmd '/opt/ros/lyrical/lib/ros_gz_sim/create -name blueview_p900 -file /home/docker/dave_ws/install/share/dave_sensor_models/description/blueview_p900/model.sdf -x 4 -y 0 -z 2 -R 0 -P 0 -Y 3.14159265 --ros-args --params-file /tmp/launch_params_piru8u2p'].
+[INFO] [launch.user]: Sensor Model Uploaded
+[parameter_bridge-3] [37;1m2026-08-31 00:34:56.744 [31;1m[[37;1mRTPS[31;1m Error] [37mCalculated port number is too high. Probably the domainId is over 232 or portBase is too high.[34;1m -> Function [36mgetMulticastPort[m
+[parameter_bridge-3] Calculated port number is too high. Probably the domainId is over 232 or portBase is too high.
+[ERROR] [parameter_bridge-3]: process has died [pid 47, exit code 1, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args'].
+[INFO] [gazebo-1]: process has finished cleanly [pid 45]

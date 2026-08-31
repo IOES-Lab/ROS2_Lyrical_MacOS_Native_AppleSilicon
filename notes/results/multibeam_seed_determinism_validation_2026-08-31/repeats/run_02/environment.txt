@@ -1,0 +1,6 @@
+case=plane_4m_bright
+backend=wgpu
+expected_range_m=4.0
+image=dave-sonar-fixed-frame-exact-dft:20260831
+ROS_DOMAIN_ID=183
+GZ_PARTITION=sonar_matrix_plane_4m_bright_wgpu_15723

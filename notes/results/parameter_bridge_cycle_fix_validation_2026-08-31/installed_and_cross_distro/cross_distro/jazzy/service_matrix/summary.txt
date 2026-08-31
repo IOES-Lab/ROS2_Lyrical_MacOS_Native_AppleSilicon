@@ -1,0 +1,3 @@
+service_matrix=1/1
+service_bridge_exit=0
+gz_server_exit=0

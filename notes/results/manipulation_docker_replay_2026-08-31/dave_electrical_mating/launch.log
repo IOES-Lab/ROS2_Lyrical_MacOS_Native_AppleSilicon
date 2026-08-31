@@ -1,0 +1,7 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-02-00-39-864830-d1ae6b99cfe2-301
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [316]
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="m_to_f_plug"]/link[@name="m_to_f_plug"]/collision[@name="m_to_f_plug_collision"]/surface/friction/ode/mu1:/root/.gz/fuel/fuel.gazebosim.org/hmoyen/models/m to f plug/1/model.sdf:L34]: XML Element[mu1], child of element[ode], not defined in SDF. Copying[mu1] as children of [ode].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="electrical_panel"]/link[@name="panel_link"]/inertial[@name="panel_inertial"][@name="panel_inertial"]:/root/.gz/fuel/fuel.gazebosim.org/hmoyen/models/electrical panel bare model/1/model.sdf:L5]: XML Attribute[name] in element[inertial] not defined in SDF.
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="electrical_panel"]/link[@name="panel_link"]/inertial[@name="panel_inertial"]/mass[@value="500"]:/root/.gz/fuel/fuel.gazebosim.org/hmoyen/models/electrical panel bare model/1/model.sdf:L15]: XML Attribute[value] in element[mass] not defined in SDF.
+[INFO] [gazebo-1]: process has finished cleanly [pid 316]

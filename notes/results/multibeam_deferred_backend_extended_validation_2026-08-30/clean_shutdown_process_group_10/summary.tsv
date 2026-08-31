@@ -1,0 +1,11 @@
+run	backend_ready	point_ok	raw_ok	launch_rc	escalation	bridge_exit_minus_11	gazebo_sigint	segfault
+run_01	1	1	1	0	none	1	0	0
+run_02	1	1	1	0	none	0	0	0
+run_03	1	1	1	0	none	1	0	0
+run_04	1	1	1	0	none	1	0	0
+run_05	1	1	1	0	none	0	0	0
+run_06	1	1	1	0	none	1	0	0
+run_07	1	1	1	0	none	1	0	0
+run_08	1	1	1	0	none	0	0	0
+run_09	1	1	1	0	none	1	0	0
+run_10	1	1	1	0	none	1	0	0

@@ -1,0 +1,6 @@
+case=sphere_4m_bright
+backend=wgpu
+expected_range_m=4.0
+image=dave-sonar-equivalence-matrix:20260830
+ROS_DOMAIN_ID=197
+GZ_PARTITION=sonar_matrix_sphere_4m_bright_wgpu_92597

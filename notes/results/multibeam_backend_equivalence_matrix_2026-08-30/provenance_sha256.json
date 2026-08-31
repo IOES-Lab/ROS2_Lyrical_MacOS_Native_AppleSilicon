@@ -1,0 +1,12 @@
+{
+  "clean_source_revision": "6aef91c823af5da073329b84ba617b572965e79e",
+  "patches": {
+    "patches/multibeam_wgpu_and_backend_fix.diff": "b4d0c0e6a042d4e5370b265fb3d51d1d53679c82f6bc5d7766c74e2ada271465",
+    "patches/multibeam_defer_backend_until_compute_fix.diff": "5a8fed3ef1af590c3fd6e5b22a8fa39ba13c7849714aa174a887c57c81bc2a6e"
+  },
+  "runtime_images": {
+    "deferred_backend_candidate": "sha256:9a419bd753cfb85d5a0d04542aee66d77687a7da5e2a2b6cea601c6a563e23f5",
+    "exact_dft_v2_relinked": "sha256:981004fb7c9102484a1435b1a526e2f221a55f567118099a891912fa224369e2"
+  },
+  "verification_scope": "Patch digests were recomputed from repository files. Both patches dry-ran and applied individually and together to a clean git archive of the recorded source revision. Runtime image IDs were compared with retained per-run and inspect files."
+}

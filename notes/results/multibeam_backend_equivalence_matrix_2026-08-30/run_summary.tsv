@@ -1,0 +1,13 @@
+case	backend	start_utc	end_utc	seconds	ready	capture_rc	launch_rc	segfault
+plane_2m_dark	cpu	2026-08-30T13:40:39Z	2026-08-30T13:40:58Z	19	1	0	124	0
+plane_2m_dark	wgpu	2026-08-30T13:40:58Z	2026-08-30T13:41:18Z	20	1	0	124	0
+plane_4m_dark	cpu	2026-08-30T13:41:18Z	2026-08-30T13:41:37Z	19	1	0	124	0
+plane_4m_dark	wgpu	2026-08-30T13:41:37Z	2026-08-30T13:41:57Z	20	1	0	124	0
+plane_4m_bright	cpu	2026-08-30T13:41:57Z	2026-08-30T13:42:17Z	20	1	0	124	0
+plane_4m_bright	wgpu	2026-08-30T13:42:17Z	2026-08-30T13:42:35Z	18	1	0	124	0
+plane_7m_dark	cpu	2026-08-30T13:42:35Z	2026-08-30T13:42:53Z	18	1	0	124	0
+plane_7m_dark	wgpu	2026-08-30T13:42:53Z	2026-08-30T13:43:12Z	19	1	0	124	0
+sphere_4m_bright	cpu	2026-08-30T13:43:12Z	2026-08-30T13:43:31Z	19	1	0	124	0
+sphere_4m_bright	wgpu	2026-08-30T13:43:31Z	2026-08-30T13:43:50Z	19	1	0	124	0
+cylinder_4m_bright	cpu	2026-08-30T13:43:50Z	2026-08-30T13:44:07Z	17	1	0	124	0
+cylinder_4m_bright	wgpu	2026-08-30T13:44:07Z	2026-08-30T13:44:26Z	19	1	0	124	0

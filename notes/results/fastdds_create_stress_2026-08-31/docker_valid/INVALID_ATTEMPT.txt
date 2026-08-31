@@ -1,0 +1,6 @@
+# Invalid Docker harness attempt
+
+This run is excluded. The first 8-way batch reached at least one 40-second
+timeout, then the harness raised a Python `TypeError` while combining mixed
+`str` and `bytes` timeout output. No summary was produced. The v2 run fixes
+only that evidence-capture bug and is the valid Docker stress run.

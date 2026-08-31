@@ -8,7 +8,9 @@ claims that those environments passed.
 
 **Required:** a Linux host with an NVIDIA GPU and driver, NVIDIA Container Toolkit, and enough
 storage to rebuild the current image / sonar packages. The present Mac has no CUDA device and
-Docker Desktop exposes neither NVIDIA nor `/dev/dri` hardware.
+Docker Desktop exposes neither NVIDIA nor `/dev/dri` hardware.  Docker's current Desktop GPU
+documentation limits GPU support to **Windows with the WSL2 backend**, so a successful software
+Vulkan run on this Mac is not a hidden hardware-GPU result.
 
 1. Confirm host and container visibility with NVIDIA's official sample:
 
@@ -24,8 +26,15 @@ Docker Desktop exposes neither NVIDIA nor `/dev/dri` hardware.
 4. Run the Heavy-multibeam sonar + ArduSub/MAVROS control integration with explicit CUDA and
    explicit hardware WGPU. Do not infer either result from software `llvmpipe`.
 
+**Pass criteria:** preserve adapter/device evidence; capture PointCloud2 and raw sonar at the
+expected dimensions; complete at least 20 cold starts, a 30-minute progressing soak and ten
+process-group SIGINT shutdowns without a runtime crash; and compare controlled-scene peak error
+against CPU.  Report teardown-only bridge failures separately from runtime sonar failures.
+
 Official prerequisite and sample workload:
-<https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html>
+<https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html>.
+Docker Desktop GPU platform scope:
+<https://docs.docker.com/desktop/features/gpu/>.
 
 ## Windows / WSL
 
@@ -37,7 +46,12 @@ client, but that is not a Windows ROS/Gazebo runtime.
 3. Re-run the 18-world matrix, then the selected sensor contract tests. Keep Windows-native and
    WSL results separate.
 4. For WSL GPU tests, first pass the NVIDIA container sample above; a successful `docker run`
-   without `nvidia-smi` is not GPU evidence.
+   without `nvidia-smi` is not GPU evidence.  Keep Windows-native, WSL and Windows-Docker results
+   in separate evidence directories.
+
+**Pass criteria:** all 18 world rows retain their declared dimensions and verdict scope; selected
+sensor contracts match their message definitions; and any GPU claim names the adapter rather than
+inferring acceleration from container startup alone.
 
 Official ROS 2 Lyrical platform entry:
 <https://docs.ros.org/en/lyrical/Installation/Alternatives/Latest-Development-Setup.html>
@@ -55,6 +69,10 @@ who can handle arming and failsafes. No physical controller is attached here.
    timestamp, IMU, pose, velocity and actuator exchange in both directions.
 4. Repeat the bounded arm/control/disarm test and compare with SITL; do not call this physical
    vehicle validation without real actuators and water trials.
+
+**Pass criteria:** bidirectional timestamped JSON exchange, reproducible arm/control/disarm,
+recorded failsafe behavior and no physical actuator motion in the safe-bench phase.  Water trials
+are a later, separately authorised experiment.
 
 Official method:
 <https://ardupilot.org/dev/docs/sim-on-hardware.html> and
@@ -78,6 +96,10 @@ account or upload to a remote service.
    respects the requested version. If not, vendor the files or pin an independently verified
    content hash instead of calling a URL immutable.
 5. Delete the disposable private resource after the test if project policy requires it.
+
+**Pass criteria:** an authenticated private upload, two explicitly versioned downloads whose file
+hashes match the intended versions, and a progressing spawn from the isolated cache.  A public
+download or a local filesystem spawn does not exercise the account/upload contract.
 
 Official Fuel CLI documentation:
 <https://gazebosim.org/libs/fuel_tools/> and

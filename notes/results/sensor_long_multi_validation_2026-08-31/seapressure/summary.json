@@ -1,0 +1,168 @@
+{
+  "verdict": "PASS",
+  "targets": {
+    "sp_surface": 1000,
+    "sp_depth10": 1000,
+    "sp_above10": 1000,
+    "sp_saturation": 1000,
+    "sp_noise": 2000,
+    "sp_rate": 200,
+    "sp_custom": 1000
+  },
+  "counts": {
+    "sp_surface": 1000,
+    "sp_depth10": 1000,
+    "sp_above10": 1000,
+    "sp_saturation": 1000,
+    "sp_noise": 2000,
+    "sp_rate": 200,
+    "sp_custom": 1000
+  },
+  "checks": {
+    "all_targets_met": true,
+    "seven_devices_simultaneous": true,
+    "noise_mean_within_15pa": true,
+    "noise_stdev_within_10pct": true,
+    "noise_variance_exact": true,
+    "noise_all_unique": true,
+    "rate_2hz": true,
+    "surface_10hz": true,
+    "surface_exact": true,
+    "depth_exact": true,
+    "saturation_exact": true
+  },
+  "statistics": {
+    "sp_surface": {
+      "count": 1000,
+      "sim_duration_s": 99.89999999999999,
+      "median_period_s": 0.10000000000000142,
+      "min_period_s": 0.09999999999999432,
+      "max_period_s": 0.10000000000000853,
+      "pressure_mean_pa": 101325.0,
+      "pressure_stdev_pa": 0.0,
+      "pressure_min_pa": 101325.0,
+      "pressure_max_pa": 101325.0,
+      "unique_pressures": 1,
+      "variance_values": [
+        0.0
+      ],
+      "frame_ids": [
+        "surface_frame"
+      ]
+    },
+    "sp_depth10": {
+      "count": 1000,
+      "sim_duration_s": 99.89999999999999,
+      "median_period_s": 0.10000000000000142,
+      "min_period_s": 0.09999999999999432,
+      "max_period_s": 0.10000000000000853,
+      "pressure_mean_pa": 199388.80000000002,
+      "pressure_stdev_pa": 0.0,
+      "pressure_min_pa": 199388.80000000002,
+      "pressure_max_pa": 199388.80000000002,
+      "unique_pressures": 1,
+      "variance_values": [
+        0.0
+      ],
+      "frame_ids": [
+        "depth_frame"
+      ]
+    },
+    "sp_above10": {
+      "count": 1000,
+      "sim_duration_s": 99.89999999999999,
+      "median_period_s": 0.10000000000000142,
+      "min_period_s": 0.09999999999999432,
+      "max_period_s": 0.10000000000000853,
+      "pressure_mean_pa": 101325.0,
+      "pressure_stdev_pa": 0.0,
+      "pressure_min_pa": 101325.0,
+      "pressure_max_pa": 101325.0,
+      "unique_pressures": 1,
+      "variance_values": [
+        0.0
+      ],
+      "frame_ids": [
+        "above_frame"
+      ]
+    },
+    "sp_saturation": {
+      "count": 1000,
+      "sim_duration_s": 99.89999999999999,
+      "median_period_s": 0.10000000000000142,
+      "min_period_s": 0.09999999999999432,
+      "max_period_s": 0.10000000000000853,
+      "pressure_mean_pa": 150000.0,
+      "pressure_stdev_pa": 0.0,
+      "pressure_min_pa": 150000.0,
+      "pressure_max_pa": 150000.0,
+      "unique_pressures": 1,
+      "variance_values": [
+        0.0
+      ],
+      "frame_ids": [
+        "saturation_frame"
+      ]
+    },
+    "sp_noise": {
+      "count": 2000,
+      "sim_duration_s": 99.94999999999999,
+      "median_period_s": 0.04999999999999716,
+      "min_period_s": 0.04999999999999716,
+      "max_period_s": 0.05000000000001137,
+      "pressure_mean_pa": 101325.21386134793,
+      "pressure_stdev_pa": 119.91425730919269,
+      "pressure_min_pa": 100856.711733112,
+      "pressure_max_pa": 101731.66098880791,
+      "unique_pressures": 2000,
+      "variance_values": [
+        15129.0
+      ],
+      "frame_ids": [
+        "noise_frame"
+      ]
+    },
+    "sp_rate": {
+      "count": 200,
+      "sim_duration_s": 99.5,
+      "median_period_s": 0.5,
+      "min_period_s": 0.49999999999999645,
+      "max_period_s": 0.5000000000000018,
+      "pressure_mean_pa": 101325.0,
+      "pressure_stdev_pa": 0.0,
+      "pressure_min_pa": 101325.0,
+      "pressure_max_pa": 101325.0,
+      "unique_pressures": 1,
+      "variance_values": [
+        0.0
+      ],
+      "frame_ids": [
+        "rate_frame"
+      ]
+    },
+    "sp_custom": {
+      "count": 1000,
+      "sim_duration_s": 199.79999999999998,
+      "median_period_s": 0.20000000000000284,
+      "min_period_s": 0.19999999999998863,
+      "max_period_s": 0.20000000000001705,
+      "pressure_mean_pa": 201000.0,
+      "pressure_stdev_pa": 0.0,
+      "pressure_min_pa": 201000.0,
+      "pressure_max_pa": 201000.0,
+      "unique_pressures": 1,
+      "variance_values": [
+        0.0
+      ],
+      "frame_ids": [
+        "custom_frame"
+      ]
+    }
+  },
+  "scope": "Seven simultaneous candidate SeaPressure devices; the run covered up to about 200 simulated seconds (100 seconds for the 10/20 Hz paths and 200 seconds for the custom 5 Hz path), including 2000 noise frames.",
+  "limitations": [
+    "Single Docker run",
+    "synthetic plugin oracle, not physical pressure calibration",
+    "up to about 200 simulated seconds, not mission-duration endurance"
+  ]
+}

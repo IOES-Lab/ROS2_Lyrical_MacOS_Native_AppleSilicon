@@ -560,3 +560,85 @@ compute frame도 만들었다.
 또 이전 프로세스가 남아 있으면 discovery와 topic을 오염시키므로 PID inventory와 cleanup을
 시험 전제에 포함한다. 로컬 후보의 반복 PASS도 upstream 반영·installed fix·hardware GPU 또는
 일반 음향 정확성으로 확대하지 않는다.
+
+## 2026-08-30 — source patch와 unit test PASS를 runtime binary 교체로 오인할 뻔했다
+
+첫 exact-N Docker 후보는 source diff 적용과 Rust unit test를 통과했고 sonar package도 다시
+빌드됐다. 그러나 `wgpu_vendor` archive를 재빌드·source하지 않아 최종 shared library가 이전
+archive와 link됐고, runtime raw peak는 결함 있는 배포 WGPU와 같았다. source tree가 맞는 것과
+실행 binary가 그 source를 포함하는 것은 다른 속성이다.
+
+이 시도는 성공으로 고쳐 쓰지 않고 rejected provenance control로 보존했다. 두 번째 후보에서는
+vendor archive SHA-256과 최종 sonar SO SHA-256을 모두 기록하고 clean relink한 뒤에야 여섯 장면
+결과를 판정했다. 앞으로 native/vendor 경계가 있는 patch는 source diff·unit test·archive hash·
+final binary hash·discriminating runtime output을 각각 확인한다.
+
+## 2026-08-30 — background PID에 보낸 SIGINT를 Ctrl-C 종료 시험으로 해석할 뻔했다
+
+첫 shutdown harness는 background shell PID에 SIGINT를 보냈고 10/10에서 TERM escalation이
+필요했다. 그 결과는 launch tree의 실제 Ctrl-C semantics를 측정하지 않는다. 새 process-group
+harness는 launch와 자식을 같은 group으로 두고 SIGINT를 전달해 10/10 escalation 없이 launch
+rc 0을 얻었다. 그때에야 payload 뒤 `parameter_bridge` shutdown exit -11이 7/10임을 분리해
+볼 수 있었다.
+
+종료 시험은 신호 이름만 같다고 동등하지 않다. signal recipient, process group, escalation,
+각 child exit와 runtime-before-shutdown evidence를 함께 보존하고, 잘못된 harness는 삭제하지
+않되 현재 판정에서 제외한다.
+
+## 2026-08-30 — 유효하지 않은 ROS domain과 timeout 문구를 sensor message처럼 셌다
+
+BlueROV sensor-contract harness의 첫 domain 범위는 일부가 Fast DDS 허용 범위를 넘었고, 첫
+analyzer는 timeout/daemon text가 들어 있는 non-empty 파일을 message success로 볼 수 있었다.
+두 오류 모두 sensor 자체가 아니라 측정기 결함이다. 잘못된 run을 별도 `INVALID_ATTEMPT` 폴더로
+옮기고 domain을 80–119로 제한했으며, PASS는 IMU·image·odometry 등 message-specific field
+signature가 있을 때만 인정하도록 바꿨다.
+
+파일이 존재하거나 출력이 비어 있지 않다는 것은 원하는 message의 증거가 아니다. 실행 전 입력
+domain을 validate하고, analyzer는 측정 대상의 구별력 있는 구조를 assert해야 한다.
+
+## 2026-08-31 — global Ocean Current topic을 tidal oracle로 썼다
+
+첫 tidal control은 extreme constituents를 넣고도 global `/ocean_current`가 변하지 않는다는 이유로
+feature가 dead라고 읽었다. Source path를 끝까지 따라가자 WorldPlugin은 constituent metadata를
+`StratifiedCurrentDatabase`로 보내고, `OceanCurrentModelPlugin`이 model별로 tidal oscillation을
+적용한다. 따라서 global topic 불변은 예상 동작이었다. Per-model 양성·음성 대조에서 no-tide
+200개는 fixed였고 tide 200개는 모두 달랐다. 데이터가 맞아도 관측 지점이 주장 대상과 다르면
+oracle이 아니다.
+
+## 2026-08-31 — DVL multi-device analyzer가 모든 descriptor를 8 Hz라고 가정했다
+
+첫 analyzer는 descriptor별 update rate를 읽지 않고 공통 8 Hz를 기대했다. 실제 fixture에는
+8/12/7 Hz가 섞여 있었으므로 센서 결함이 아니라 측정기 가정 오류였다. Analyzer를 descriptor
+source에서 rate를 읽도록 고친 뒤 8개 sensor, 20 messages each, 총 160개가 모두 자기 rate와
+일치했다. Matrix 검증은 행마다 다른 계약을 공통 상수로 평탄화하지 않는다.
+
+## 2026-08-31 — 깨진 host 런타임을 기능 실패 표본에 넣을 뻔했다
+
+Ocean tidal host attempt는 Homebrew FFmpeg ABI의 `libswscale.9.dylib` 누락으로 Gazebo가 world
+startup 전에 종료했다. 이 실행은 plugin verdict가 아니므로 `INVALID_ATTEMPT`로 분리하고,
+정상 plugin path를 가진 fresh Docker 대조만 현재 판정에 사용했다. Harness/environment failure는
+대상 기능의 FAIL 수에 더하지 않는다.
+
+## 2026-08-31 — `ros2 run` wrapper와 child에 같은 SIGINT를 두 번 보냈다
+
+첫 양방향 bridge 회귀 harness는 `ros2 run ...`을 새 process group에 두고 group 전체에 SIGINT를
+보냈다. Wrapper와 실제 `parameter_bridge` child가 모두 신호를 받았고, 실패 로그에는 두 개의
+signal-handler record가 남았다. 이 2/10 결과는 정상 bridge shutdown이 아니라 측정기가 만든
+double-delivery라 `INVALID_ATTEMPT`로 제외했다.
+
+유효한 대조는 candidate executable을 직접 실행해 정확히 그 PID 하나에 SIGINT를 보낸다. 그
+방식에서 ROS→GZ payload와 clean exit는 20/20이었고, DAVE GZ→ROS bridge-first 20/20 및 launch
+process-group 10/10도 별도로 통과했다. Process tree를 포함하는 종료 시험에서는 signal 이름만
+기록할 것이 아니라 wrapper, child, PID와 process-group 수신자를 모두 기록해야 한다.
+
+## 2026-08-31 — 명시적 `reset()`으로 strong-reference cycle이 사라진다고 가정했다
+
+초기 종료 후보는 `spin()` 뒤 local node pointer를 `reset()`하고 `rclcpp::shutdown()` 순서를
+바꿨지만 반복에서 계속 실패했다. Source ownership을 끝까지 그리자 `RosGzBridge`가 handle
+vector를 소유하고 각 `BridgeHandle`이 다시 owner node의 `SharedPtr`를 보유해 cycle을 만들고
+있었다. Local pointer 하나를 reset해도 node, publisher와 Fast DDS endpoint는 파괴되지 않았다.
+
+Retained 후보는 handle의 back-reference만 `WeakPtr`로 바꿔 cycle 자체를 끊는다. Baseline
+DAVE-sonar group shutdown은 9/10 exit -11이었지만 후보는 bridge-first 20/20 clean,
+process-group 10/10 rc0이었다. Shutdown defect는 호출 순서만 바꾸기 전에 object ownership graph와
+destructor 도달 여부를 먼저 확인한다.

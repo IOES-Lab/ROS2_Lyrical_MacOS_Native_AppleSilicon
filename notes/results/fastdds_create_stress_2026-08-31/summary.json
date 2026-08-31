@@ -1,0 +1,66 @@
+{
+  "verdict": "STRESS PASS in the tested fresh-Docker scope",
+  "valid_run": "docker_valid_v3",
+  "total_create_processes": 160,
+  "all_success": true,
+  "counts": {
+    "concurrent_after_20_sigkills": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_after_clean": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_dirty_default": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_udp": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    }
+  },
+  "maximum_elapsed_s": 5.861,
+  "fault_injection": {
+    "sigkill_count": 20,
+    "return_codes": [
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9
+    ]
+  },
+  "scope": [
+    "5 rounds x 8 concurrent create processes in each of four phases",
+    "default transport before fault injection",
+    "default transport after 20 forced SIGKILL terminations",
+    "default transport after fastdds shm clean",
+    "UDPv4-only transport"
+  ],
+  "limitations": [
+    "One fresh Docker container and one aarch64 host were used.",
+    "The historical host-side 1/9 failure was not reproduced, so its cause remains unproven.",
+    "The host replay in this directory is invalid because Gazebo did not start after a Homebrew FFmpeg ABI change."
+  ]
+}

@@ -1,0 +1,4 @@
+image=dave-sonar-equivalence-exact-dft-v2:20260830
+backend=wgpu
+ROS_DOMAIN_ID=202
+GZ_PARTITION=integrated_sonar_wgpu_95892

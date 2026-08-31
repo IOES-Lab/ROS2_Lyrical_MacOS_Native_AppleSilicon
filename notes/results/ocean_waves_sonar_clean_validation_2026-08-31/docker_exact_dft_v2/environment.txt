@@ -1,0 +1,6 @@
+image=dave-sonar-equivalence-exact-dft-v2:20260830
+backend=wgpu
+world=dave_ocean_waves_sonar
+sdf_world=oceans_waves
+ROS_DOMAIN_ID=195
+GZ_PARTITION=integrated_sonar_wgpu_22685

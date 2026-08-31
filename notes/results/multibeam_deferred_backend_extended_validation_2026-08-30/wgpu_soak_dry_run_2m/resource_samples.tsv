@@ -1,0 +1,4 @@
+sample	wall_utc	elapsed_s	container_cpu_pct	container_mem_bytes	container_pids	gz_pid	gz_rss_kib	gz_vsz_kib	gz_cpu_pct	gpu_frame	gpu_ms
+0	2026-08-30T14:37:58Z	0	101.13	43159388	6	56	3344	4428	0.0	NA	NA
+1	2026-08-30T14:38:59Z	61	634.94	712821964	136	101	667708	5820480	534	100	338.3
+2	2026-08-30T14:40:01Z	123	682.17	712821964	136	101	667708	5820480	546	250	374.1

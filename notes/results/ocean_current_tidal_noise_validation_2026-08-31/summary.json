@@ -1,0 +1,63 @@
+{
+  "verdict": "FUNCTIONAL PASS (bounded synthetic controls)",
+  "gauss_markov_noise": {
+    "verdict": "PASS",
+    "global_samples": 400,
+    "stratified_samples": 100,
+    "unique_values_xyz": [
+      400,
+      400,
+      400
+    ],
+    "stdev_xyz": [
+      0.07281413828631625,
+      0.09064687649172609,
+      0.11163948054713332
+    ],
+    "all_axes_vary": true
+  },
+  "tidal_oscillation": {
+    "verdict": "PASS on the documented per-model path",
+    "database_metadata_received": {
+      "tideconstituents": true,
+      "m2": [
+        100.0,
+        0.0,
+        3600.0
+      ],
+      "s2": [
+        50.0,
+        45.0,
+        1800.0
+      ],
+      "n2": [
+        25.0,
+        90.0,
+        900.0
+      ],
+      "ebb_direction_deg": 0.0,
+      "flood_direction_deg": 180.0,
+      "world_start_time": [
+        2026,
+        1,
+        1,
+        0,
+        0
+      ],
+      "depth_count": 12
+    },
+    "no_tide_samples": 200,
+    "tide_samples": 200,
+    "no_tide_x_range": 0.0,
+    "tide_x_range": 0.507468828779422,
+    "tide_x_unique_12dp": 200,
+    "tide_vs_control_equal": false
+  },
+  "withdrawn_interpretation": "The initial comparison looked only at the global and stratified WorldPlugin outputs. Those remain unchanged by design because tide is applied downstream by OceanCurrentModelPlugin per model; that comparison cannot diagnose the tidal feature.",
+  "limitations": [
+    "Synthetic Docker controls with deliberately extreme harmonic constituents.",
+    "Functional data-path validation, not tidal-constituent or real-ocean accuracy.",
+    "The Gauss-Markov run validates variation and bounded liveness, not a full stochastic-process goodness-of-fit test.",
+    "The tidal run compares one static depth, one no-tide control and one tide-enabled model for 200 messages each."
+  ]
+}

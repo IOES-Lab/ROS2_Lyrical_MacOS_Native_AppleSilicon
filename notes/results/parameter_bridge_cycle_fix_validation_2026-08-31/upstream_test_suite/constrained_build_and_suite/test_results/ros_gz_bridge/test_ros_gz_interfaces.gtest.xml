@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="3" failures="0" disabled="0" errors="0" time="0." timestamp="2026-08-31T06:17:59.589" name="AllTests">
+  <testsuite name="RosToGzTest" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-08-31T06:17:59.589">
+    <testcase name="FlatParameters" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/ros_gz_interfaces_TEST.cpp" line="50" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.589" classname="ros_gz_bridge.RosToGzTest" />
+  </testsuite>
+  <testsuite name="GzToRosTest" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-08-31T06:17:59.590">
+    <testcase name="FlatParameters" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/ros_gz_interfaces_TEST.cpp" line="113" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.590" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="ChildParameters" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/ros_gz_interfaces_TEST.cpp" line="168" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.590" classname="ros_gz_bridge.GzToRosTest" />
+  </testsuite>
+</testsuites>

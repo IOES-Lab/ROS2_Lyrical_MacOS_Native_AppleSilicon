@@ -1,0 +1,50 @@
+warning: Error disabling address space randomization: Operation not permitted
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/aarch64-linux-gnu/libthread_db.so.1".
+[New Thread 0xffffaf2de660 (LWP 378)]
+[New Thread 0xffffaeace660 (LWP 379)]
+[New Thread 0xffffae2be660 (LWP 380)]
+[New Thread 0xffffadaae660 (LWP 381)]
+[New Thread 0xffffad29e660 (LWP 382)]
+[New Thread 0xffffaca8e660 (LWP 383)]
+[New Thread 0xffffac1de660 (LWP 384)]
+[New Thread 0xffffab9ce660 (LWP 385)]
+[New Thread 0xffffab1be660 (LWP 386)]
+[New Thread 0xffffaa9ae660 (LWP 387)]
+[New Thread 0xffffaa13e660 (LWP 388)]
+[New Thread 0xffffa992e660 (LWP 389)]
+[New Thread 0xffffa8dbe660 (LWP 390)]
+[New Thread 0xffff9bffe660 (LWP 391)]
+[New Thread 0xffff9b7ee660 (LWP 392)]
+[New Thread 0xffff9afde660 (LWP 393)]
+[New Thread 0xffff9a7ce660 (LWP 394)]
+[New Thread 0xffff99fbe660 (LWP 395)]
+[INFO] [1788134668.262978503] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[New Thread 0xffff997ae660 (LWP 396)]
+[INFO] [1788134677.067861299] [rclcpp]: signal_handler(signum=2)
+[Thread 0xffffaf2de660 (LWP 378) exited]
+[Thread 0xffffb2989020 (LWP 376) exited]
+[New LWP 376]
+[Thread 0xffffaeace660 (LWP 379) exited]
+[Thread 0xffffae2be660 (LWP 380) exited]
+[Thread 0xffffadaae660 (LWP 381) exited]
+[Thread 0xffffad29e660 (LWP 382) exited]
+[Thread 0xffffac1de660 (LWP 384) exited]
+[Thread 0xffffab9ce660 (LWP 385) exited]
+[Thread 0xffffab1be660 (LWP 386) exited]
+[Thread 0xffffaa9ae660 (LWP 387) exited]
+[Thread 0xffffaa13e660 (LWP 388) exited]
+[Thread 0xffffa992e660 (LWP 389) exited]
+[Thread 0xffffa8dbe660 (LWP 390) exited]
+[Thread 0xffff9bffe660 (LWP 391) exited]
+[Thread 0xffff9b7ee660 (LWP 392) exited]
+[Thread 0xffff9afde660 (LWP 393) exited]
+[Thread 0xffff9a7ce660 (LWP 394) exited]
+[Thread 0xffff99fbe660 (LWP 395) exited]
+[Thread 0xffff997ae660 (LWP 396) exited]
+
+Thread 7 received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0xffffaca8e660 (LWP 383)]
+
+Thread 21 (LWP 376):
+Unable to fetch general registers: No such process.

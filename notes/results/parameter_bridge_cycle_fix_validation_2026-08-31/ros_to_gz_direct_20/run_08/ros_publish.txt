@@ -1,0 +1,2 @@
+publisher: beginning loop
+publishing #1: std_msgs.msg.String(data='from_ros')

@@ -1,0 +1,1 @@
+INVALID HARNESS ATTEMPT: the dependency-complete rerun inherited a CMake cache from the prior binary-interface attempt, so ros_gz_bridge still resolved /opt/ros/jazzy. Rerun uses a fresh /ws2.

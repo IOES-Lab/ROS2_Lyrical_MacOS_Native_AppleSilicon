@@ -1,0 +1,28 @@
+Starting >>> ros_gz_bridge
+--- stderr: ros_gz_bridge
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+c++: fatal error: Killed signal terminated program cc1plus
+compilation terminated.
+gmake[2]: *** [CMakeFiles/test_ros_publisher.dir/build.make:137: CMakeFiles/test_ros_publisher.dir/generated/test/ros_publisher.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:528: CMakeFiles/test_ros_publisher.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+c++: fatal error: Killed signal terminated program cc1plus
+compilation terminated.
+gmake[2]: *** [CMakeFiles/test_ros_subscriber.dir/build.make:179: CMakeFiles/test_ros_subscriber.dir/generated/test/geometry_msgs_subscriber.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:656: CMakeFiles/test_ros_subscriber.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
+---
+Failed   <<< ros_gz_bridge [22min 52s, exited with code 2]
+
+Summary: 0 packages finished [22min 52s]
+  1 package failed: ros_gz_bridge
+  1 package had stderr output: ros_gz_bridge

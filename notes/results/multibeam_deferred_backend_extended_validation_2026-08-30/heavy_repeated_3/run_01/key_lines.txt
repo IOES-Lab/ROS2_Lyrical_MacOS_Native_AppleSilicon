@@ -1,0 +1,16 @@
+[gazebo-1] [INFO] [1788096008.779480889] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788096008.779507097] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788096008.779510764] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] GPU #1     |    7.7 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[gazebo-1] [sonar_wgpu] GPU #50    |  392.7 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #100   |  318.9 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #150   |  311.0 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [sonar_wgpu] GPU #200   |  361.3 ms | 513 beams × 31 rays × 399 freq
+[ERROR] [ardusub-6]: process has died [pid 320, exit code -2, cmd 'ardusub --speedup 1 -w --model JSON:127.0.0.1 --defaults /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm -IO --home 35.074823,129.084798,0.0,270.0'].
+[ERROR] [parameter_bridge-4]: process has died [pid 188, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock /model/bluerov2_heavy_multibeam_sonar/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance /model/bluerov2_heavy_multibeam_sonar/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V /model/bluerov2_heavy_multibeam_sonar/imu@sensor_msgs/msg/Imu[gz.msgs.IMU /model/bluerov2_heavy_multibeam_sonar/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked --ros-args'].
+[ERROR] [static_transform_publisher-3]: process has died [pid 187, exit code -2, cmd '/opt/ros/lyrical/lib/tf2_ros/static_transform_publisher --frame-id world --child-frame-id bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar --ros-args'].
+[ERROR] [mavros_node-7]: process has died [pid 321, exit code -2, cmd '/home/docker/mavros_ws/install/lib/mavros/mavros_node --ros-args --params-file /home/docker/dave_ws/install/share/dave_robot_models/config/mavros/mavros.yaml --params-file /tmp/launch_params_wp2kqkxh'].
+[ERROR] [gazebo-1]: process has died [pid 112, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/dave_ocean_waves.world -s -r --force-version 10'].

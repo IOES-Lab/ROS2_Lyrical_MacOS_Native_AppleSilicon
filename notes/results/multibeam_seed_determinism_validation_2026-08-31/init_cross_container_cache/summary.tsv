@@ -1,0 +1,3 @@
+run	cache_state	wall_seconds_to_full_buffers	pipeline_compile_ms	probe_gpu_ms	ready
+1	empty	101	1420	94192.4	1
+2	reused	5	11	9.3	1

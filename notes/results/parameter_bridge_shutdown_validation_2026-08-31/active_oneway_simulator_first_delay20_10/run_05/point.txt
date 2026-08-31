@@ -1,0 +1,14 @@
+header:
+  stamp:
+    sec: 1
+    nanosec: 816000000
+  frame_id: blueview_p900/blueview_p900_base_link/multibeam_sonar
+height: 301
+width: 513
+fields: '<sequence type: sensor_msgs/msg/PointField, length: 5>'
+is_bigendian: false
+point_step: 32
+row_step: 16416
+data: '<sequence type: uint8, length: 4941216>'
+is_dense: false
+---

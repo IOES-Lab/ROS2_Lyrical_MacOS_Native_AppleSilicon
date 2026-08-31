@@ -1,0 +1,13 @@
+bluerov2
+  {'name': 'imu_sensor', 'type': 'imu', 'explicit_topic': '/model/bluerov2/imu'}
+  {'name': 'underwater_camera', 'type': 'camera', 'explicit_topic': '/model/bluerov2/camera'}
+ magnetometer declared: False pressure declared: False
+bluerov2_heavy
+  {'name': 'imu_sensor', 'type': 'imu', 'explicit_topic': '/model/bluerov2_heavy/imu'}
+  {'name': 'underwater_camera', 'type': 'camera', 'explicit_topic': '/model/bluerov2_heavy/camera'}
+ magnetometer declared: False pressure declared: False
+bluerov2_heavy_multibeam_sonar
+  {'name': 'imu_sensor', 'type': 'imu', 'explicit_topic': None}
+  {'name': 'underwater_camera', 'type': 'camera', 'explicit_topic': '/model/bluerov2_heavy_multibeam_sonar/camera'}
+  {'name': 'multibeam_sonar', 'type': 'multibeam_sonar', 'explicit_topic': '/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar'}
+ magnetometer declared: False pressure declared: False

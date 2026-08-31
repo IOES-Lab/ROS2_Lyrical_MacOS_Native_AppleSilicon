@@ -1,0 +1,3 @@
+[INFO] [1788137497.293776965] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/lidar/points (gz.msgs.PointCloudPacked) -> /lidar/points (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788137501.552063342] [rclcpp]: signal_handler(signum=2)

@@ -1,0 +1,75 @@
+{
+  "database": {
+    "tideconstituents": true,
+    "m2": [
+      100.0,
+      0.0,
+      3600.0
+    ],
+    "s2": [
+      50.0,
+      45.0,
+      1800.0
+    ],
+    "n2": [
+      25.0,
+      90.0,
+      900.0
+    ],
+    "ebb_direction_deg": 0.0,
+    "flood_direction_deg": 180.0,
+    "world_start_time": [
+      2026,
+      1,
+      1,
+      0,
+      0
+    ],
+    "depth_count": 12
+  },
+  "no_tide": {
+    "count": 200,
+    "x": {
+      "min": 0.005,
+      "max": 0.005,
+      "range": 0.0,
+      "unique_12dp": 1
+    },
+    "y": {
+      "min": 0.04,
+      "max": 0.04,
+      "range": 0.0,
+      "unique_12dp": 1
+    },
+    "z": {
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0,
+      "unique_12dp": 1
+    },
+    "all_finite": true
+  },
+  "tide": {
+    "count": 200,
+    "x": {
+      "min": 0.11652218283271829,
+      "max": 0.6239910116121403,
+      "range": 0.507468828779422,
+      "unique_12dp": 200
+    },
+    "y": {
+      "min": -7.641685950675265e-17,
+      "max": 0.0,
+      "range": 7.641685950675265e-17,
+      "unique_12dp": 1
+    },
+    "z": {
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0,
+      "unique_12dp": 1
+    },
+    "all_finite": true
+  },
+  "paired_equal_12dp": false
+}

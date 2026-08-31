@@ -1,0 +1,3 @@
+[INFO] [1788153181.419266886] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera (gz.msgs.Image) -> /camera (sensor_msgs/msg/Image)] (Lazy 0)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788153185.620800930] [rclcpp]: signal_handler(signum=2)

@@ -1,0 +1,49 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-30-23-39-32-035566-84ec8027a516-39
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [43]
+[INFO] [create-2]: process started with pid [44]
+[INFO] [parameter_bridge-3]: process started with pid [45]
+[INFO] [static_transform_publisher-4]: process started with pid [47]
+[create-2] [INFO] [1788133172.468711336] [ros_gz_sim]: Requesting list of world names.
+[static_transform_publisher-4] [INFO] [1788133172.474051711] [static_transform_publisher_BX62TkilrHOkGzS5]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-4] from 'world' to 'blueview_p900/blueview_p900_base_link/multibeam_sonar'
+[parameter_bridge-3] [INFO] [1788133172.488931753] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788133172.499011961] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788133172.500339170] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788133172.501050003] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[create-2] [INFO] [1788133175.084711338] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 44]
+[INFO] [launch.user]: Sensor Model Uploaded
+[gazebo-1] [INFO] [1788133176.241136421] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788133176.241387421] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788133176.241414213] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788133176.241432046] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788133176.241448755] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1788133176.241481421] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788133176.241506588] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1788133176.241528005] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1788133176.241550588] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788133176.241571880] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788133176.241583713] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1788133176.241588338] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1788133176.241606338] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788133176.241624005] [multibeam_sonar_node]:
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: wgpu
+[gazebo-1] [sonar_compute_factory] Attempting WgpuComputeBackend initialization...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] [all] GPU pipelines compiled in 8 ms -> ready.
+[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 1×1×4
+[gazebo-1] [sonar_wgpu] GPU #1     |    8.1 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_compute_factory] SUCCESS: WgpuComputeBackend initialized!
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[parameter_bridge-3] [INFO] [1788133190.101674636] [rclcpp]: signal_handler(signum=2)
+[static_transform_publisher-4] [INFO] [1788133190.104152136] [rclcpp]: signal_handler(signum=2)
+[gazebo-1] [INFO] [1788133190.108663803] [rclcpp]: signal_handler(signum=2)
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 45]
+[INFO] [static_transform_publisher-4]: process has finished cleanly [pid 47]
+[INFO] [gazebo-1]: process has finished cleanly [pid 43]

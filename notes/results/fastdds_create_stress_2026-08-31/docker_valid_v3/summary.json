@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "ros_domain_id": 47,
+    "concurrency": 8,
+    "rounds_per_phase": 5,
+    "per_process_timeout_s": 40,
+    "execution_environment": "fresh Docker container",
+    "world": "/evidence/empty_world.sdf",
+    "model": "/evidence/probe_model.sdf",
+    "gz_partition": "fastdds_create_stress_20260831",
+    "sigkill_return_codes": [
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9
+    ],
+    "fastdds_clean_return_code": 0
+  },
+  "total_runs": 160,
+  "counts": {
+    "concurrent_after_20_sigkills": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_after_clean": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_dirty_default": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_udp": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    }
+  },
+  "all_success": true,
+  "maximum_elapsed_s": 5.861
+}

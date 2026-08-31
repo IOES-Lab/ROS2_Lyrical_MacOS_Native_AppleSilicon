@@ -1,0 +1,15 @@
+{
+  "backend_ready": true,
+  "pointcloud_frames_513x301": 3,
+  "raw_frames_513x399": 3,
+  "world_stats_captured": true,
+  "segfault_during_runtime": false,
+  "sampled_world_iteration": 77902,
+  "sampled_world_rtf": 0.022677557851073712,
+  "end_container_cpu_percent": 696.01,
+  "end_container_memory_gib": 1.639,
+  "end_container_pids": 134,
+  "end_gazebo_cpu_percent": 393.0,
+  "end_gazebo_rss_kib": 1734652,
+  "resource_scope": "single end snapshot, not a steady-state mean"
+}

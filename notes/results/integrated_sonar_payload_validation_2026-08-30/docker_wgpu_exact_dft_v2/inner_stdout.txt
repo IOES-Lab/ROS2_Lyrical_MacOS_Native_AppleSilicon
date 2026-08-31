@@ -1,0 +1,1 @@
+Terminated                 gz topic -e -t /sensor/multibeam_sonar/sonar_image -n 1 > /tmp/gz_raw_sample.txt 2>&1

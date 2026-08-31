@@ -1,0 +1,19 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-30-14-26-06-276341-1215983698f2-43
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [51]
+[INFO] [create-2]: process started with pid [52]
+[create-2] [INFO] [1788099966.599517761] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1788099973.919755376] [ros_gz_sim]: Waiting for service [/world/oceans_waves/create] to become available ...
+[create-2] [INFO] [1788099978.773762336] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 52]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [parameter_bridge-3]: process started with pid [130]
+[INFO] [env-4]: process started with pid [131]
+[parameter_bridge-3] [INFO] [1788099978.967212586] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788099978.968603545] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788099978.972937503] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788099978.973220128] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788099978.973692086] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/imu (gz.msgs.IMU) -> /model/bluerov2_heavy/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1788099978.975822253] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[env-4] Service call timed out
+[INFO] [env-4]: process has finished cleanly [pid 131]

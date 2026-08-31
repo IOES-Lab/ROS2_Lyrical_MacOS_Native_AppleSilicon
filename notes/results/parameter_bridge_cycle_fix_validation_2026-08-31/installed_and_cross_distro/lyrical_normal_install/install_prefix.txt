@@ -1,0 +1,2 @@
+ROS_DISTRO=lyrical
+PREFIX=/home/docker/bridge_normal_ws/install/ros_gz_bridge

@@ -1,0 +1,17 @@
+{
+  "plane_expected_m": [
+    2.0,
+    4.0,
+    7.0
+  ],
+  "wgpu_peak_m": [
+    2.5836119651794434,
+    5.1421403884887695,
+    8.97993278503418
+  ],
+  "linear_fit_slope": 1.2792641614612779,
+  "linear_fit_intercept_m": 0.025083679901928817,
+  "padded_to_real_ratio_512_over_399": 1.2832080200501252,
+  "slope_minus_ratio": -0.003943858588847382,
+  "hypothesis": "The WGPU shader zero-pads n_freq=399 to padded_n=512, writes the first 399 padded-FFT bins directly, and the publisher labels them with the 399-bin range vector. The measured scale is consistent with 512/399, but this is a source-informed inference until a remapping candidate is tested."
+}

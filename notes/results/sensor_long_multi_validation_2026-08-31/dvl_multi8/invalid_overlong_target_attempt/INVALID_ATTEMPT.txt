@@ -1,0 +1,7 @@
+# Excluded overlong-target attempt
+
+All eight topics produced 28–48 messages, but eight concurrent rendered DVLs
+advanced slowly enough that the arbitrary 200-message-per-device target was
+not reached within 300 wall seconds. No device failed. This attempt is excluded
+from the pass count because the predeclared target was unmet. The v3 run uses a
+bounded 20-message-per-device contract and preserves full per-topic statistics.

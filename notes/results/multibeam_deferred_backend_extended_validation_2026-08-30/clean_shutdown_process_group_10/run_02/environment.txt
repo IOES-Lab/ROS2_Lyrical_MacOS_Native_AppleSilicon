@@ -1,0 +1,4 @@
+backend=wgpu
+image=dave-sonar-deferred-compute-test:20260830
+ROS_DOMAIN_ID=107
+GZ_PARTITION=sonar_derived_wgpu_95307

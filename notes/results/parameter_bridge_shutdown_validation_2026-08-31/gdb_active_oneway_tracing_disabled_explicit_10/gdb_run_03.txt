@@ -1,0 +1,47 @@
+warning: Error disabling address space randomization: Operation not permitted
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/aarch64-linux-gnu/libthread_db.so.1".
+ROS 2 tracing disabled
+[New Thread 0xffff8fade660 (LWP 277)]
+[New Thread 0xffff8f2ce660 (LWP 278)]
+[New Thread 0xffff8eabe660 (LWP 279)]
+[New Thread 0xffff8e2ae660 (LWP 280)]
+[New Thread 0xffff8da9e660 (LWP 281)]
+[New Thread 0xffff8d28e660 (LWP 282)]
+[New Thread 0xffff8ca7e660 (LWP 283)]
+[New Thread 0xffff87ffe660 (LWP 284)]
+[New Thread 0xffff877ee660 (LWP 285)]
+[New Thread 0xffff86fde660 (LWP 286)]
+[New Thread 0xffff867ce660 (LWP 287)]
+[New Thread 0xffff85fbe660 (LWP 288)]
+[New Thread 0xffff8562e660 (LWP 289)]
+[New Thread 0xffff84e1e660 (LWP 290)]
+[New Thread 0xffff7fffe660 (LWP 291)]
+[New Thread 0xffff7f7ee660 (LWP 292)]
+[New Thread 0xffff7efde660 (LWP 293)]
+[New Thread 0xffff7e7ce660 (LWP 294)]
+[New Thread 0xffff7dfbe660 (LWP 295)]
+[INFO] [1788134895.594680886] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [1788134904.467518043] [rclcpp]: signal_handler(signum=2)
+[Thread 0xffff8fade660 (LWP 277) exited]
+Cannot find user-level thread for LWP 282: generic error
+
+Thread 20 (Thread 0xffff7dfbe660 (LWP 295) "parameter_bridg"):
+Selected thread is running.
+[Thread 0xffff7dfbe660 (LWP 295) exited]
+[Thread 0xffff7e7ce660 (LWP 294) exited]
+[Thread 0xffff7efde660 (LWP 293) exited]
+[Thread 0xffff7f7ee660 (LWP 292) exited]
+[Thread 0xffff7fffe660 (LWP 291) exited]
+[Thread 0xffff84e1e660 (LWP 290) exited]
+[Thread 0xffff8562e660 (LWP 289) exited]
+[Thread 0xffff85fbe660 (LWP 288) exited]
+[Thread 0xffff867ce660 (LWP 287) exited]
+[Thread 0xffff86fde660 (LWP 286) exited]
+[Thread 0xffff877ee660 (LWP 285) exited]
+[Thread 0xffff87ffe660 (LWP 284) exited]
+[Thread 0xffff8ca7e660 (LWP 283) exited]
+[Thread 0xffff8da9e660 (LWP 281) exited]
+[Thread 0xffff8eabe660 (LWP 279) exited]
+[Thread 0xffff8f2ce660 (LWP 278) exited]
+[Thread 0xffff9318b020 (LWP 275) exited]

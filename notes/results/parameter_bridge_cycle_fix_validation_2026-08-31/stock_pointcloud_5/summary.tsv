@@ -1,0 +1,6 @@
+case	run	payload	bridge_rc	bridge_segfault	gz_rc
+pointcloud	1	1	0	0	0
+pointcloud	2	1	0	0	0
+pointcloud	3	1	0	0	0
+pointcloud	4	1	0	0	0
+pointcloud	5	1	0	0	0

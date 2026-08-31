@@ -1,0 +1,1 @@
+Equivalent WeakPtr adaptation generated from the branch-local source; the exact ros2/3.0.9 patch did not apply textually because branch context differs.

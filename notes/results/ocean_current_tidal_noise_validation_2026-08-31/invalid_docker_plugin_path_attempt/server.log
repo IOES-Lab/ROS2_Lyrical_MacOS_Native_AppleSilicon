@@ -1,0 +1,4 @@
+(2026-08-31 03:21:25.232) [error] [SystemLoader.cc:150] Failed to load system plugin [OceanCurrentWorldPlugin] : Could not find shared library.
+(2026-08-31 03:21:25.236) [error] [SystemLoader.cc:150] Failed to load system plugin [OceanCurrentPlugin] : Could not find shared library.
+[WARN] [1788146485.404424761] [rcl.logging_rosout]: Publisher already registered for node name: 'OceanCurrentModelPlugin'. If this is due to multiple nodes with the same name then all logs for the logger named 'OceanCurrentModelPlugin' will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[INFO] [1788146673.700488626] [rclcpp]: signal_handler(signum=2)

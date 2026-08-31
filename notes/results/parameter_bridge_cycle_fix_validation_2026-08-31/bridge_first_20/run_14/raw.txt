@@ -1,0 +1,18 @@
+header:
+  stamp:
+    sec: 1788152263
+    nanosec: 274264378
+  frame_id: forward_sonar_optical_link
+ping_info:
+  frequency: 900000.0
+  sound_speed: 1500.0
+  tx_beamwidths: '<sequence type: float, length: 513>'
+  rx_beamwidths: '<sequence type: float, length: 513>'
+beam_directions: '<sequence type: geometry_msgs/msg/Vector3, length: 513>'
+ranges: '<sequence type: float, length: 399>'
+image:
+  is_bigendian: false
+  dtype: 8
+  beam_count: 513
+  data: '<sequence type: uint8, length: 818748>'
+---

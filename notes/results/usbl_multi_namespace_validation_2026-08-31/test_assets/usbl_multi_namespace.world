@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<sdf version="1.10"><world name="usbl_multi_namespace">
+  <physics name="1ms" type="ignored"><max_step_size>0.001</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+  <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+  <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+  <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+  <model name="tx_a"><static>true</static><pose>0 0 0 0 0 0</pose><link name="link"/>
+    <plugin filename="UsblTransceiver" name="dave_gz_sensor_plugins::UsblTransceiver">
+      <namespace>USBL_A</namespace><transceiver_device>transceiver</transceiver_device><transponder_device>transponder</transponder_device>
+      <transponder_ID>1,2</transponder_ID><transceiver_ID>168</transceiver_ID><enable_ping_scheduler>false</enable_ping_scheduler>
+      <interrogation_mode>common</interrogation_mode><ping_frequency>0.5</ping_frequency>
+      <transponder_attached_object>tx_a_tp1,tx_a_tp2</transponder_attached_object><sound_speed>1540</sound_speed>
+    </plugin></model>
+  <model name="tx_a_tp1"><static>true</static><pose>3 4 0.5 0 0 0</pose><link name="link"/>
+    <plugin filename="UsblTransponder" name="dave_gz_sensor_plugins::UsblTransponder">
+      <namespace>USBL_A</namespace><transponder_device>transponder</transponder_device><transponder_ID>1</transponder_ID>
+      <transceiver_device>transceiver</transceiver_device><transceiver_ID>168</transceiver_ID><transceiver_model>tx_a</transceiver_model>
+      <sound_speed>1540</sound_speed><mu>0</mu><sigma>0</sigma>
+    </plugin></model>
+  <model name="tx_a_tp2"><static>true</static><pose>6 8 0.5 0 0 0</pose><link name="link"/>
+    <plugin filename="UsblTransponder" name="dave_gz_sensor_plugins::UsblTransponder">
+      <namespace>USBL_A</namespace><transponder_device>transponder</transponder_device><transponder_ID>2</transponder_ID>
+      <transceiver_device>transceiver</transceiver_device><transceiver_ID>168</transceiver_ID><transceiver_model>tx_a</transceiver_model>
+      <sound_speed>1540</sound_speed><mu>0</mu><sigma>0</sigma>
+    </plugin></model>
+  <model name="tx_b"><static>true</static><pose>100 0 0 0 0 0</pose><link name="link"/>
+    <plugin filename="UsblTransceiver" name="dave_gz_sensor_plugins::UsblTransceiver">
+      <namespace>USBL_B</namespace><transceiver_device>transceiver</transceiver_device><transponder_device>transponder</transponder_device>
+      <transponder_ID>1,2</transponder_ID><transceiver_ID>168</transceiver_ID><enable_ping_scheduler>false</enable_ping_scheduler>
+      <interrogation_mode>common</interrogation_mode><ping_frequency>0.5</ping_frequency>
+      <transponder_attached_object>tx_b_tp1,tx_b_tp2</transponder_attached_object><sound_speed>1540</sound_speed>
+    </plugin></model>
+  <model name="tx_b_tp1"><static>true</static><pose>103 4 0.5 0 0 0</pose><link name="link"/>
+    <plugin filename="UsblTransponder" name="dave_gz_sensor_plugins::UsblTransponder">
+      <namespace>USBL_B</namespace><transponder_device>transponder</transponder_device><transponder_ID>1</transponder_ID>
+      <transceiver_device>transceiver</transceiver_device><transceiver_ID>168</transceiver_ID><transceiver_model>tx_b</transceiver_model>
+      <sound_speed>1540</sound_speed><mu>0</mu><sigma>0</sigma>
+    </plugin></model>
+  <model name="tx_b_tp2"><static>true</static><pose>106 8 0.5 0 0 0</pose><link name="link"/>
+    <plugin filename="UsblTransponder" name="dave_gz_sensor_plugins::UsblTransponder">
+      <namespace>USBL_B</namespace><transponder_device>transponder</transponder_device><transponder_ID>2</transponder_ID>
+      <transceiver_device>transceiver</transceiver_device><transceiver_ID>168</transceiver_ID><transceiver_model>tx_b</transceiver_model>
+      <sound_speed>1540</sound_speed><mu>0</mu><sigma>0</sigma>
+    </plugin></model>
+</world></sdf>

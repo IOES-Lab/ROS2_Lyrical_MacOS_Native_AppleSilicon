@@ -1,0 +1,80 @@
+concurrent_dirty_default 1 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_dirty_default 2 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_dirty_default 3 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_dirty_default 4 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_dirty_default 5 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_20_sigkills 1 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_20_sigkills 2 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_20_sigkills 3 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_20_sigkills 4 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_20_sigkills 5 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_clean 1 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_clean 2 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_clean 3 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_clean 4 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_after_clean 5 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_udp 1 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_udp 2 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_udp 3 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_udp 4 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+concurrent_udp 5 {'SUCCESS': 8, 'NONZERO': 0, 'TIMEOUT': 0}
+{
+  "metadata": {
+    "ros_domain_id": 47,
+    "concurrency": 8,
+    "rounds_per_phase": 5,
+    "per_process_timeout_s": 40,
+    "execution_environment": "fresh Docker container",
+    "world": "/evidence/empty_world.sdf",
+    "model": "/evidence/probe_model.sdf",
+    "gz_partition": "fastdds_create_stress_20260831",
+    "sigkill_return_codes": [
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9,
+      -9
+    ],
+    "fastdds_clean_return_code": 0
+  },
+  "total_runs": 160,
+  "counts": {
+    "concurrent_after_20_sigkills": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_after_clean": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_dirty_default": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    },
+    "concurrent_udp": {
+      "SUCCESS": 40,
+      "NONZERO": 0,
+      "TIMEOUT": 0
+    }
+  },
+  "all_success": true,
+  "maximum_elapsed_s": 5.861
+}

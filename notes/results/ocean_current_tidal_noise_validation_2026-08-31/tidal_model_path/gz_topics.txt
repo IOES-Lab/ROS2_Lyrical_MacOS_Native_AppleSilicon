@@ -1,0 +1,15 @@
+/clock
+/gazebo/resource_paths
+/hydrodynamics/stratified_current_velocity
+/model/probe_no_tide/ocean_current
+/model/probe_tide/ocean_current
+/stats
+/world/tidal_model_path/clock
+/world/tidal_model_path/dynamic_pose/info
+/world/tidal_model_path/light_config
+/world/tidal_model_path/material_color
+/world/tidal_model_path/pose/info
+/world/tidal_model_path/scene/deletion
+/world/tidal_model_path/scene/info
+/world/tidal_model_path/state
+/world/tidal_model_path/stats

@@ -1,0 +1,7 @@
+INVALID ATTEMPT
+
+The first Docker attempt inherited a GZ_SIM_SYSTEM_PLUGIN_PATH that named
+package subdirectories while libOceanCurrentWorldPlugin.so and
+libOceanCurrentPlugin.so were installed in the common install/lib directory.
+Both world plugins failed to load. No tidal conclusion is drawn from this
+attempt. The valid rerun explicitly prepended install/lib.

@@ -1,0 +1,5 @@
+dyld[27126]: Library not loaded: /opt/homebrew/opt/ffmpeg/lib/libswscale.9.dylib
+  Referenced from: <8D2B4D18-BB74-3C0F-A64A-44D4631EBF04> /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main
+  Reason: tried: '/opt/homebrew/opt/ffmpeg/lib/libswscale.9.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/ffmpeg/lib/libswscale.9.dylib' (no such file), '/opt/homebrew/opt/ffmpeg/lib/libswscale.9.dylib' (no such file), '/opt/homebrew/Cellar/ffmpeg/9.0.1_1/lib/libswscale.9.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/Cellar/ffmpeg/9.0.1_1/lib/libswscale.9.dylib' (no such file), '/opt/homebrew/Cellar/ffmpeg/9.0.1_1/lib/libswscale.9.dylib' (no such file)
+Error: Version mismatch. Your configuration file version is
+            [10.4.0] but /opt/homebrew/Cellar/gz-sim10/10.4.0_4/libexec/gz/sim10/gz-sim-main version is [].

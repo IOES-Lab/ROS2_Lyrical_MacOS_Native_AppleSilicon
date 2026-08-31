@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="15" failures="0" disabled="0" errors="0" time="0.003" timestamp="2026-08-31T06:18:11.341" name="AllTests">
+  <testsuite name="BridgeConfig" tests="12" failures="0" disabled="0" skipped="0" errors="0" time="0.003" timestamp="2026-08-31T06:18:11.341">
+    <testcase name="Minimum" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="71" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.341" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="FullGz" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="141" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.342" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="QoSFullGz" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="187" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.343" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="FrameIdGz" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="227" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.343" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="InvalidSetTwoRos" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="249" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="InvalidSetTwoGz" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="263" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="InvalidSetTypes" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="277" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="ParseDirection" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="291" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="InvalidFileDoesntExist" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="360" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="InvalidTopLevel" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="369" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="InvalidQoS" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="378" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.344" classname="ros_gz_bridge.BridgeConfig" />
+    <testcase name="EmptyYAML" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="387" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.345" classname="ros_gz_bridge.BridgeConfig" />
+  </testsuite>
+  <testsuite name="BridgeHandleIsLazy" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-08-31T06:18:11.345">
+    <testcase name="NulloptFallsBackToDefault" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="399" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.345" classname="ros_gz_bridge.BridgeHandleIsLazy" />
+    <testcase name="ExplicitTrueIsRespected" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="406" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.345" classname="ros_gz_bridge.BridgeHandleIsLazy" />
+    <testcase name="ExplicitFalseIsRespected" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/bridge_config.cpp" line="412" status="run" result="completed" time="0." timestamp="2026-08-31T06:18:11.345" classname="ros_gz_bridge.BridgeHandleIsLazy" />
+  </testsuite>
+</testsuites>

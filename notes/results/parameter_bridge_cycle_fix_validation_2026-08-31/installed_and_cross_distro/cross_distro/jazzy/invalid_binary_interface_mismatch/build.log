@@ -1,0 +1,40 @@
+Starting >>> ros_gz_bridge
+[0.245s] WARNING:colcon.colcon_core.shell:The following packages are in the workspace but haven't been built:
+- ros_gz_interfaces
+They are being used from the following locations instead:
+- /opt/ros/jazzy
+To suppress this warning ignore these packages in the workspace:
+--packages-ignore ros_gz_interfaces
+--- stderr: ros_gz_bridge
+In file included from /ws/src/ros_gz/ros_gz_bridge/src/service_factories/ros_gz_interfaces.cpp:29:
+/ws/src/ros_gz/ros_gz_bridge/include/ros_gz_bridge/convert/ros_gz_interfaces.hpp:44:10: fatal error: ros_gz_interfaces/msg/air_speed.hpp: No such file or directory
+   44 | #include <ros_gz_interfaces/msg/air_speed.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/ros_gz_bridge.dir/build.make:257: CMakeFiles/ros_gz_bridge.dir/src/service_factories/ros_gz_interfaces.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from /usr/include/c++/13/mutex:43,
+                 from /opt/ros/jazzy/opt/gz_transport_vendor/include/gz/transport13/gz/transport/Node.hh:23,
+                 from /ws/src/ros_gz/ros_gz_bridge/include/ros_gz_bridge/ros_gz_bridge.hpp:23,
+                 from /ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:15:
+In constructor ‘constexpr std::chrono::duration<_Rep, _Period>::duration(const _Rep2&) [with _Rep2 = int; <template-parameter-2-2> = void; _Rep = long int; _Period = std::ratio<1, 1000>]’,
+    inlined from ‘ros_gz_bridge::RosGzBridge::RosGzBridge(const rclcpp::NodeOptions&)’ at /ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:115:45:
+/usr/include/c++/13/bits/chrono.h:574:17: warning: ‘heartbeat’ may be used uninitialized [-Wmaybe-uninitialized]
+  574 |           : __r(static_cast<rep>(__rep)) { }
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp: In constructor ‘ros_gz_bridge::RosGzBridge::RosGzBridge(const rclcpp::NodeOptions&)’:
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:113:7: note: ‘heartbeat’ was declared here
+  113 |   int heartbeat;
+      |       ^~~~~~~~~
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp: In member function ‘void ros_gz_bridge::RosGzBridge::spin()’:
+/ws/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:125:10: warning: ‘expand_names’ may be used uninitialized [-Wmaybe-uninitialized]
+  125 |     bool expand_names;
+      |          ^~~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/Makefile2:228: CMakeFiles/ros_gz_bridge.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
+---
+Failed   <<< ros_gz_bridge [20.3s, exited with code 2]
+
+Summary: 0 packages finished [20.5s]
+  1 package failed: ros_gz_bridge
+  1 package had stderr output: ros_gz_bridge

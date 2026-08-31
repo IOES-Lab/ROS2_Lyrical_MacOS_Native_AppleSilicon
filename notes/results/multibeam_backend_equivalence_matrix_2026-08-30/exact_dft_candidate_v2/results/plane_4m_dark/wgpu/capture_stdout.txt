@@ -1,0 +1,154 @@
+{"point": {"sample": 1, "stamp_sec": 34, "stamp_nanosec": 750000000, "width": 513, "height": 301, "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar", "data_sha256": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9", "finite_point_count": 133343, "center_xyz_m": [4.000016212463379, 3.1292565836338326e-06, 6.919754582668247e-07], "center_range_m": 4.000016212463379, "center_error_m": 1.621246337890625e-05, "radial_mean_m": Infinity, "radial_median_m": 4.781059741973877, "radial_min_m": 4.000015735626221, "radial_max_m": Infinity, "intensity_mean": 0.0, "intensity_std": 0.0, "intensity_min": 0.0, "intensity_max": 0.0}}
+{"point": {"sample": 2, "stamp_sec": 34, "stamp_nanosec": 783000000, "width": 513, "height": 301, "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar", "data_sha256": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9", "finite_point_count": 133343, "center_xyz_m": [4.000016212463379, 3.1292565836338326e-06, 6.919754582668247e-07], "center_range_m": 4.000016212463379, "center_error_m": 1.621246337890625e-05, "radial_mean_m": Infinity, "radial_median_m": 4.781059741973877, "radial_min_m": 4.000015735626221, "radial_max_m": Infinity, "intensity_mean": 0.0, "intensity_std": 0.0, "intensity_min": 0.0, "intensity_max": 0.0}}
+{"point": {"sample": 3, "stamp_sec": 34, "stamp_nanosec": 816000000, "width": 513, "height": 301, "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar", "data_sha256": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9", "finite_point_count": 133343, "center_xyz_m": [4.000016212463379, 3.1292565836338326e-06, 6.919754582668247e-07], "center_range_m": 4.000016212463379, "center_error_m": 1.621246337890625e-05, "radial_mean_m": Infinity, "radial_median_m": 4.781059741973877, "radial_min_m": 4.000015735626221, "radial_max_m": Infinity, "intensity_mean": 0.0, "intensity_std": 0.0, "intensity_min": 0.0, "intensity_max": 0.0}}
+{"raw": {"sample": 1, "stamp_sec": 1788098445, "stamp_nanosec": 579649252, "beam_count": 513, "range_bin_count": 399, "frame_id": "forward_sonar_optical_link", "data_sha256": "9c896b7936033c389cc99424be68bd1520ca26c6e7036aece22aaefe89ca5ba4", "peak_range_m": 4.013377666473389, "peak_error_m": 0.013377666473388672, "peak_value_db": 79.90530395507812, "peak_index": 160, "expected_bin_range_m": 3.9882943630218506, "expected_bin_value_db": 74.71389770507812, "expected_bin_rank": 3, "matrix_mean": 27.67349624633789, "matrix_std": 12.858776092529297, "matrix_min": -33.932559967041016, "matrix_max": 88.25362396240234}}
+{"raw": {"sample": 2, "stamp_sec": 1788098446, "stamp_nanosec": 513440585, "beam_count": 513, "range_bin_count": 399, "frame_id": "forward_sonar_optical_link", "data_sha256": "6c87e4f5c42c78701c53efa3d20b7cdcc1cbfea1712c05d239a039cc5fa7227d", "peak_range_m": 4.063545227050781, "peak_error_m": 0.06354522705078125, "peak_value_db": 83.3253402709961, "peak_index": 162, "expected_bin_range_m": 3.9882943630218506, "expected_bin_value_db": 71.30159759521484, "expected_bin_rank": 5, "matrix_mean": 27.173330307006836, "matrix_std": 14.132025718688965, "matrix_min": -63.35261535644531, "matrix_max": 90.76659393310547}}
+{"raw": {"sample": 3, "stamp_sec": 1788098447, "stamp_nanosec": 312059836, "beam_count": 513, "range_bin_count": 399, "frame_id": "forward_sonar_optical_link", "data_sha256": "fae8ffaf897c5d35a19dc8a94cc6be18b71fd8beaf81b3fab443ff7f40d313e3", "peak_range_m": 4.038461208343506, "peak_error_m": 0.03846120834350586, "peak_value_db": 77.30484008789062, "peak_index": 161, "expected_bin_range_m": 3.9882943630218506, "expected_bin_value_db": 76.50193786621094, "expected_bin_rank": 2, "matrix_mean": 27.825773239135742, "matrix_std": 12.90328598022461, "matrix_min": -40.29851531982422, "matrix_max": 86.24213409423828}}
+{
+  "case": "plane_4m_dark",
+  "backend": "wgpu",
+  "expected_range_m": 4.0,
+  "sample_count": 3,
+  "point_topic": "/sensor/multibeam_sonar/point_cloud",
+  "raw_topic": "/sensor/multibeam_sonar/sonar_image_raw",
+  "point_frames": [
+    {
+      "sample": 1,
+      "stamp_sec": 34,
+      "stamp_nanosec": 750000000,
+      "width": 513,
+      "height": 301,
+      "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar",
+      "data_sha256": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+      "finite_point_count": 133343,
+      "center_xyz_m": [
+        4.000016212463379,
+        3.1292565836338326e-06,
+        6.919754582668247e-07
+      ],
+      "center_range_m": 4.000016212463379,
+      "center_error_m": 1.621246337890625e-05,
+      "radial_mean_m": Infinity,
+      "radial_median_m": 4.781059741973877,
+      "radial_min_m": 4.000015735626221,
+      "radial_max_m": Infinity,
+      "intensity_mean": 0.0,
+      "intensity_std": 0.0,
+      "intensity_min": 0.0,
+      "intensity_max": 0.0
+    },
+    {
+      "sample": 2,
+      "stamp_sec": 34,
+      "stamp_nanosec": 783000000,
+      "width": 513,
+      "height": 301,
+      "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar",
+      "data_sha256": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+      "finite_point_count": 133343,
+      "center_xyz_m": [
+        4.000016212463379,
+        3.1292565836338326e-06,
+        6.919754582668247e-07
+      ],
+      "center_range_m": 4.000016212463379,
+      "center_error_m": 1.621246337890625e-05,
+      "radial_mean_m": Infinity,
+      "radial_median_m": 4.781059741973877,
+      "radial_min_m": 4.000015735626221,
+      "radial_max_m": Infinity,
+      "intensity_mean": 0.0,
+      "intensity_std": 0.0,
+      "intensity_min": 0.0,
+      "intensity_max": 0.0
+    },
+    {
+      "sample": 3,
+      "stamp_sec": 34,
+      "stamp_nanosec": 816000000,
+      "width": 513,
+      "height": 301,
+      "frame_id": "blueview_p900/blueview_p900_base_link/multibeam_sonar",
+      "data_sha256": "25db2f6c8904408c0cb97975b4bef8204e1b5295b968aab4ef2ea4f8560cfed9",
+      "finite_point_count": 133343,
+      "center_xyz_m": [
+        4.000016212463379,
+        3.1292565836338326e-06,
+        6.919754582668247e-07
+      ],
+      "center_range_m": 4.000016212463379,
+      "center_error_m": 1.621246337890625e-05,
+      "radial_mean_m": Infinity,
+      "radial_median_m": 4.781059741973877,
+      "radial_min_m": 4.000015735626221,
+      "radial_max_m": Infinity,
+      "intensity_mean": 0.0,
+      "intensity_std": 0.0,
+      "intensity_min": 0.0,
+      "intensity_max": 0.0
+    }
+  ],
+  "raw_frames": [
+    {
+      "sample": 1,
+      "stamp_sec": 1788098445,
+      "stamp_nanosec": 579649252,
+      "beam_count": 513,
+      "range_bin_count": 399,
+      "frame_id": "forward_sonar_optical_link",
+      "data_sha256": "9c896b7936033c389cc99424be68bd1520ca26c6e7036aece22aaefe89ca5ba4",
+      "peak_range_m": 4.013377666473389,
+      "peak_error_m": 0.013377666473388672,
+      "peak_value_db": 79.90530395507812,
+      "peak_index": 160,
+      "expected_bin_range_m": 3.9882943630218506,
+      "expected_bin_value_db": 74.71389770507812,
+      "expected_bin_rank": 3,
+      "matrix_mean": 27.67349624633789,
+      "matrix_std": 12.858776092529297,
+      "matrix_min": -33.932559967041016,
+      "matrix_max": 88.25362396240234
+    },
+    {
+      "sample": 2,
+      "stamp_sec": 1788098446,
+      "stamp_nanosec": 513440585,
+      "beam_count": 513,
+      "range_bin_count": 399,
+      "frame_id": "forward_sonar_optical_link",
+      "data_sha256": "6c87e4f5c42c78701c53efa3d20b7cdcc1cbfea1712c05d239a039cc5fa7227d",
+      "peak_range_m": 4.063545227050781,
+      "peak_error_m": 0.06354522705078125,
+      "peak_value_db": 83.3253402709961,
+      "peak_index": 162,
+      "expected_bin_range_m": 3.9882943630218506,
+      "expected_bin_value_db": 71.30159759521484,
+      "expected_bin_rank": 5,
+      "matrix_mean": 27.173330307006836,
+      "matrix_std": 14.132025718688965,
+      "matrix_min": -63.35261535644531,
+      "matrix_max": 90.76659393310547
+    },
+    {
+      "sample": 3,
+      "stamp_sec": 1788098447,
+      "stamp_nanosec": 312059836,
+      "beam_count": 513,
+      "range_bin_count": 399,
+      "frame_id": "forward_sonar_optical_link",
+      "data_sha256": "fae8ffaf897c5d35a19dc8a94cc6be18b71fd8beaf81b3fab443ff7f40d313e3",
+      "peak_range_m": 4.038461208343506,
+      "peak_error_m": 0.03846120834350586,
+      "peak_value_db": 77.30484008789062,
+      "peak_index": 161,
+      "expected_bin_range_m": 3.9882943630218506,
+      "expected_bin_value_db": 76.50193786621094,
+      "expected_bin_rank": 2,
+      "matrix_mean": 27.825773239135742,
+      "matrix_std": 12.90328598022461,
+      "matrix_min": -40.29851531982422,
+      "matrix_max": 86.24213409423828
+    }
+  ],
+  "scope": "Controlled simulated geometry/backend comparison only; not a general acoustic-accuracy or real-material validation."
+}

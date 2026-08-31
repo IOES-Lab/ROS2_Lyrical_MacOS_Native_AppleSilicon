@@ -1,0 +1,3 @@
+ROS_DISTRO=jazzy
+Linux 76b4a24edba2 6.12.76-linuxkit #1 SMP Sun Mar  8 14:41:59 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+arm64

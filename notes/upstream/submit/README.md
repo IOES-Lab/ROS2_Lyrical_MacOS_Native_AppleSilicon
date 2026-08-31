@@ -1,11 +1,14 @@
 # Upstream reports — prepared, awaiting submission
 
-Eight GitHub issues and two documentation corrections. **None has been sent.** Each is ready to
-review before submission, and the limits of what was confirmed at runtime are stated inside the
-report itself — issue 8 has cross-platform runtime evidence for `noise_sigma`, `saturation` and
-`update_rate`, plus source evidence for the un-applied Gaussian noise, and distinguishes them.
+Eleven GitHub issue drafts and two documentation corrections. **None has been sent.** Draft 6 is a
+historical do-not-file record; drafts 9 and 10 are new sonar reports that deliberately separate a
+range-grid defect from a backend-startup-order candidate. Draft 11 is a separate `gazebosim/ros_gz`
+bridge-lifecycle report. The limits of what was confirmed at
+runtime are stated inside each report — issue 8 has cross-platform runtime evidence for
+`noise_sigma`, `saturation` and `update_rate`, plus source evidence for the un-applied Gaussian
+noise, and distinguishes them.
 
-**File one or two at a time rather than all eight at once.** Eight simultaneous issues from an
+**File one or two at a time rather than all ten at once.** Multiple simultaneous issues from an
 unfamiliar account reads as a dump; start with issue 7 and let its reception say how much
 appetite there is for the rest.
 
@@ -18,17 +21,18 @@ suggestions below are notes for that person. See [`CLAUDE.md`](../../../CLAUDE.m
 
 **Target repository:** `IOES-Lab/dave`, default branch **`ros2`** (not `main`).
 
-## The eight issues
+## The eleven drafts
 
 **Issue numbers reflect draft creation order, not filing order.** Recommended first submission
-is issue 7, then issue 8 after maintainer feedback. Within the older six, the first three are
+is issue 7, then issue 8 after maintainer feedback.  Review drafts 9 and 10 as independent change
+units; neither should be combined with the other.  Within the older six, the first three are
 one-line fixes with measured
 before/after, so they are the easiest for a maintainer to act on. The last two were added on
 2026-08-21 after the pressure sensor was checked against a running simulation.
 
 | # | File | What it reports | Fix size |
 |---|---|---|---|
-| 1 | [`vehicle-imu-topic.md`](vehicle-imu-topic.md) | Four base models omit `<topic>` on `imu_sensor`, so the bridged topic exists and stays silent — measured before/after. The fifth `bluerov2_heavy_multibeam_sonar` variant was later launched as shipped on Mac and Docker and stayed silent for 120 s on both, but its fixed form was not rerun. | One line per model |
+| 1 | [`vehicle-imu-topic.md`](vehicle-imu-topic.md) | Four base models omit `<topic>` on `imu_sensor`, so the bridged topic exists and stays silent — measured before/after. A later exact-image audit also kept all three BlueROV short ROS IMU/magnetometer paths silent while camera, odometry and each default long Gazebo IMU path published. The fifth fixed form was not rerun. | One line per model |
 | 2 | [`build-type.md`](build-type.md) | The documented build sets no `CMAKE_BUILD_TYPE`, so nothing is compiled with `-O`. `Release` doubles RTF. | One flag |
 | 3 | [`updaterate.md`](updaterate.md) | `blueview_p900` asks for 30 Hz, which the sensor cannot reach and the hardware does not do. 2 Hz removes 75% of the sonar's cost. | One number |
 | 4 | [`usbl.md`](usbl.md) | `UsblTransponder` aborts the Gazebo **server** on `<sigma>0.0</sigma>`, which the shipped demo world sets. | Input validation |
@@ -36,6 +40,9 @@ before/after, so they are the easiest for a maintainer to act on. The last two w
 | 6 | [`docker-sonar-crash.md`](docker-sonar-crash.md) | **HISTORICAL DRAFT — do not file as-is.** The 2026-08-03 crash was real, but a 2026-08-29 isolated OGRE2 DAVE-sonar run published PointCloud; a new reproducer/version delta is required. | Reproducer first |
 | 7 | [`seapressure-unit.md`](seapressure-unit.md) | `SubseaPressureSensorPlugin` puts kPa into `sensor_msgs/FluidPressure`, which is defined in Pascals. Cross-platform controlled values were `101.325` at the surface and `199.3888` at `|z|=10 m`. | One multiplication |
 | 8 | [`seapressure-dead-params.md`](seapressure-dead-params.md) | Same plugin: `<noise_sigma>`, `saturation` and `<update_rate>` do not affect their documented output properties in Mac and Docker controls; Gaussian noise is commented out while non-zero `variance` is published. | Docs, or three small additions |
+| 9 | [`multibeam-wgpu-range-grid.md`](multibeam-wgpu-range-grid.md) | The 399-bin WGPU input is zero-padded to 512 but published on the original range vector, shifting synthetic target peaks.  An exact-N discriminator restores localisation in six scenes but is too slow on software `llvmpipe` as a production fix. | Efficient arbitrary-N transform or explicit CPU fallback |
+| 10 | [`multibeam-deferred-backend-startup.md`](multibeam-deferred-backend-startup.md) | Deferring WGPU creation to the existing compute thread gives 20/20 `llvmpipe` cold starts, 3/3 Heavy controls and a bounded 30-minute payload soak. Its historical bridge shutdown `-11` is now separated into draft 11; hardware-GPU validation remains external. | Backend lifecycle; review node-parameter suppression separately |
+| 11 | [`parameter-bridge-handle-cycle.md`](parameter-bridge-handle-cycle.md) | `RosGzBridge` and `BridgeHandle` form a strong owner cycle. The weak-back-reference candidate replaces a 9/10 DAVE-sonar teardown failure with bridge-first 20/20 clean and process-group 10/10 rc0 while preserving payloads. Target is `gazebosim/ros_gz`, not DAVE. | Four small source files; ownership/lifecycle review |
 
 **Order for these two:** both are ready, but file 7 first and wait for a response before
 sending 8. They touch the same file, and two simultaneous issues from an unfamiliar account

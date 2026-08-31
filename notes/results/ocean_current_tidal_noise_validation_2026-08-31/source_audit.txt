@@ -1,0 +1,21 @@
+# Source audit for the binaries exercised in the Docker validation
+
+41af8164005d5f72666ab2dc7e0c5ef6945bf35181df645c56d5101978b82b43  /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/OceanCurrentWorldPlugin.cc
+b543d66d50392b4dd9aa0919fca78e7c3afcec7fdb1e99cbaea3911f25589e21  /home/docker/dave_ws/src/dave/gazebo/dave_ros_gz_plugins/src/OceanCurrentPlugin.cc
+bcf5be70874813772b1d8371185f468dc8012a0c6912f0e415874b2b8d5afa51  /home/docker/dave_ws/src/dave/gazebo/dave_gz_model_plugins/src/OceanCurrentModelPlugin.cc
+2ea786307fdb809424b57d5cfaecdd907ebc02f5615e7616634f2289838c0101  /home/docker/dave_ws/src/dave/gazebo/dave_gz_world_plugins/src/tidal_oscillation.cc
+07cc8aa5295f2df1579b909654dc98d26591cdce80ba0de2d62b928fe3308484  /home/docker/dave_ws/src/dave/dave_interfaces/msg/StratifiedCurrentDatabase.msg
+
+Observed route in the candidate source:
+
+- OceanCurrentWorldPlugin parses the tidal database or harmonic constituents.
+- OceanCurrentPlugin.cc:663-699 copies M2/S2/N2, directions and start time into
+  dave_interfaces/msg/StratifiedCurrentDatabase and publishes the message.
+- OceanCurrentModelPlugin.cc:199 subscribes to that database.
+- OceanCurrentModelPlugin.cc:376-378 enables tide per model from tide_oscillation.
+- OceanCurrentModelPlugin.cc:387 UpdateDatabase stores the metadata.
+- OceanCurrentModelPlugin.cc:582-584 calls TidalOscillation::Initiate and ::Update.
+
+Therefore the global /ocean_current payload is not the tidal-output oracle. The
+documented tidal behavior is model-specific and appears on
+/model/<namespace>/ocean_current.

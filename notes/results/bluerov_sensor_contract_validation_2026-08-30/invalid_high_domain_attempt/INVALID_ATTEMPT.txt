@@ -1,0 +1,1 @@
+Invalid harness attempt: ROS_DOMAIN_ID 220..239 can exceed the Fast DDS port limit. Logs are retained for audit only; they are not runtime verdict evidence.

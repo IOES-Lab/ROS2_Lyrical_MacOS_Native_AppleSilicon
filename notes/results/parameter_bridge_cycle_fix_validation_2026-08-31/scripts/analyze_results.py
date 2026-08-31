@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+import csv
+import json
+import subprocess
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def rows(relative):
+    with (ROOT / relative).open(newline="") as stream:
+        return list(csv.DictReader(stream, delimiter="\t"))
+
+
+bridge_first = rows("bridge_first_20/summary.tsv")
+group = rows("group_shutdown_10/summary.tsv")
+ros_to_gz = rows("ros_to_gz_direct_20/summary.tsv")
+camera = rows("stock_camera_5/summary.tsv")
+point = rows("stock_pointcloud_5/summary.tsv")
+
+suite = ROOT / "upstream_test_suite/constrained_build_and_suite"
+offline_xml = ROOT / "upstream_test_suite/offline_xmllint_rerun"
+
+assert len(bridge_first) == 20
+assert all(r["backend_ready"] == r["point"] == r["raw"] == "1" for r in bridge_first)
+assert all(r["bridge_early_result"] == "clean" for r in bridge_first)
+assert all(r["bridge_exit_minus11"] == "0" for r in bridge_first)
+
+assert len(group) == 10
+assert all(r["backend_ready"] == r["point"] == r["raw"] == "1" for r in group)
+assert all(r["launch_rc"] == "0" and r["bridge_exit_minus11"] == "0" for r in group)
+
+assert len(ros_to_gz) == 20
+assert all(r["payload"] == "1" and r["bridge_rc"] == "0" for r in ros_to_gz)
+assert all(r["segfault"] == "0" and r["escalation"] == "none" for r in ros_to_gz)
+
+for values in (camera, point):
+    assert len(values) == 5
+    assert all(r["payload"] == "1" and r["bridge_rc"] == "0" for r in values)
+    assert all(r["bridge_segfault"] == "0" and r["gz_rc"] == "0" for r in values)
+
+assert (suite / "build_tests_rc.txt").read_text().strip() == "0"
+assert (suite / "test_rc.txt").read_text().strip() == "0"
+assert (suite / "test_result_rc.txt").read_text().strip() == "1"
+test_log = (suite / "test.log").read_text()
+test_result = (suite / "test_result.log").read_text()
+assert "17/18 Test #17: uncrustify" in test_log
+assert "18/18 Test #18: xmllint" in test_log
+assert "94% tests passed, 1 tests failed out of 18" in test_log
+assert "386 tests, 1 error, 1 failure, 72 skipped" in test_result
+assert "xmllint.xunit.missing_result" in test_result
+assert (offline_xml / "direct_xmllint_rc.txt").read_text().strip() == "0"
+assert (offline_xml / "ament_xmllint_offline_rc.txt").read_text().strip() == "0"
+assert "No problems found" in (offline_xml / "ament_xmllint_offline.log").read_text()
+
+followup = ROOT / "installed_and_cross_distro"
+subprocess.run(
+    ["python3", str(followup / "scripts/analyze_followup.py")],
+    check=True,
+    stdout=subprocess.DEVNULL,
+)
+followup_summary = json.loads((followup / "summary.json").read_text())
+assert followup_summary["lyrical_normal_install"]["topic_matrix"] == "8/8"
+assert followup_summary["lyrical_normal_install"]["service_matrix"] == "1/1"
+assert followup_summary["cross_distribution"]["jazzy"]["source_overlay_build"] == "PASS"
+assert followup_summary["cross_distribution"]["kilted"]["source_overlay_build"] == "PASS"
+assert followup_summary["cross_distribution"]["humble"]["build_runtime"] == "NOT RUN"
+
+summary = {
+    "date": "2026-08-31",
+    "verdict": "VALIDATED INSTALLABLE CANDIDATE",
+    "candidate": {
+        "mechanism": (
+            "Replace BridgeHandle's strong rclcpp::Node back-reference with a weak reference, "
+            "breaking the RosGzBridge node -> handle vector -> node ownership cycle."
+        ),
+        "source_repository": "ros_gz release tag 3.0.9",
+        "source_commit": "2d17974dd4aec749e22824f74baa22149aaf5b4d",
+        "patch": "../../../../patches/ros_gz_bridge_handle_cycle_fix.diff",
+        "image_id": "sha256:18ee5adc882b666e084e301426169dbadd0f9813f2261bc37946d780f155eda0",
+    },
+    "baseline": {
+        "dave_sonar_group_shutdown": "9/10 parameter_bridge exit -11",
+        "dave_sonar_pointcloud_only_bridge_first": "2/10 parameter_bridge exit -11",
+        "no_publisher_controls": "40/40 clean",
+        "stock_active_controls": "30/30 clean",
+    },
+    "candidate_results": {
+        "dave_sonar_bridge_first": {
+            "runs": 20,
+            "pointcloud_payload": 20,
+            "raw_sonar_payload": 20,
+            "bridge_clean_exit": 20,
+            "bridge_exit_minus11": 0,
+            "whole_launch_clean_exit": sum(r["launch_rc"] == "0" for r in bridge_first),
+            "whole_launch_term_escalation": sum(r["launch_escalation"] == "TERM" for r in bridge_first),
+        },
+        "dave_sonar_process_group_shutdown": {
+            "runs": 10,
+            "pointcloud_payload": 10,
+            "raw_sonar_payload": 10,
+            "whole_launch_clean_exit": 10,
+            "bridge_exit_minus11": 0,
+        },
+        "direct_ros_to_gz": {
+            "runs": 20,
+            "payload": 20,
+            "clean_exit": 20,
+            "segfault": 0,
+        },
+        "stock_active_camera": {"runs": 5, "payload": 5, "clean_exit": 5},
+        "stock_active_pointcloud": {"runs": 5, "payload": 5, "clean_exit": 5},
+    },
+    "installed_and_cross_distribution_followup": {
+        "lyrical_normal_install": {
+            "build": "PASS",
+            "topic_matrix": "8/8",
+            "service_matrix": "1/1",
+            "active_bidirectional_teardown": "10/10",
+        },
+        "jazzy_arm64": {
+            "equivalent_branch_local_build": "PASS",
+            "topic_matrix": "8/8",
+            "service_matrix": "1/1",
+            "bridge_exit": 0,
+        },
+        "kilted_arm64": {
+            "equivalent_branch_local_build": "PASS",
+            "topic_matrix": "8/8",
+            "service_matrix": "1/1",
+            "bridge_exit": 0,
+        },
+        "humble": "static branch-local adaptation only; build/runtime not run",
+        "scope": "Small representative matrix, not exhaustive conversion coverage",
+    },
+    "upstream_package_suite": {
+        "constrained_build": "PASS",
+        "ctest_targets_passed": 17,
+        "ctest_targets_total": 18,
+        "reported_test_cases": 386,
+        "reported_skipped": 72,
+        "only_ctest_failure": (
+            "xmllint timed out while downloading the remote ROS package schema and did not "
+            "generate its xUnit result"
+        ),
+        "offline_exact_package_xml_schema_validation": "PASS",
+        "offline_ament_xmllint_with_local_schema": "PASS",
+        "interpretation": (
+            "All compiled tests, launch tests and source linters other than the remote-schema "
+            "transport step passed. The exact package.xml validates against the canonical ROS "
+            "schema when supplied locally."
+        ),
+    },
+    "scope": [
+        "The candidate passes a normal isolated source/install overlay and equivalent Jazzy/Kilted ARM64 branch-local overlays; it is not merged upstream or installed in the user ordinary workspaces.",
+        "The result validates the tested bridge ownership and shutdown paths, not every ROS/Gazebo message type.",
+        "One of 20 bridge-first DAVE runs needed TERM for the remaining simulator launch after the bridge had already exited cleanly; it is not counted as a bridge failure.",
+        "Two exploratory harnesses are explicitly marked invalid and excluded from this verdict.",
+        "The first BUILD_TESTING attempt used unconstrained parallel compilation and was killed "
+        "by the 11.67 GiB container limit; the retained two-worker build completed successfully.",
+    ],
+}
+
+(ROOT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+print(json.dumps(summary, indent=2))

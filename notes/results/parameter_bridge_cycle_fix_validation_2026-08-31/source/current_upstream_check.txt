@@ -1,0 +1,10 @@
+Remote: https://github.com/gazebosim/ros_gz.git
+Default branch at check time: ros2
+Checked commit: 2ee8a5c716d1838de0b7ac817638ad5e9304955e
+Commit date: 2026-08-21T21:23:57+08:00
+
+Current upstream ros2 still contains both sides of the strong cycle:
+- ros_gz_bridge/include/ros_gz_bridge/ros_gz_bridge.hpp: vector<shared_ptr<BridgeHandle>> handles_
+- ros_gz_bridge/src/bridge_handle.hpp: rclcpp::Node::SharedPtr ros_node_
+
+The retained exact-3.0.9 patch also passes `git apply --check` on this current upstream commit.

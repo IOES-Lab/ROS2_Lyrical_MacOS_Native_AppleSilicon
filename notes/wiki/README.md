@@ -588,3 +588,93 @@ baseline의 PARTIAL**을 동시에 적는다. 후보는 사용자 설치 workspa
 
 근거:
 [`../results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/`](../results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/).
+
+## 24차 — 2026-08-30 소나 반복·수치 matrix·통합 payload·BlueROV contract 확장
+
+23차의 단발 후보 범위를 다시 넓히되 startup, raw-sonar 수치, world payload, 차량 sensor
+contract를 하나의 PASS로 합치지 않았다.
+
+- deferred-backend 후보는 fresh Docker software-WGPU cold start 20/20과
+  Heavy+ArduSub/MAVROS 3/3을 통과했다. Heavy X 이동은 0.624–0.687 m, 중앙값 0.667 m였다.
+- bounded 1,861초 soak에서 시작·종료 PointCloud2 513×301과 raw sonar 513×399를 모두 보존했고,
+  WGPU frame은 3,850 증가했으며 runtime stack trace/exit 139는 없었다. 작은 양의 memory slope는
+  한 bounded run의 관측값일 뿐 leak으로 판정하지 않는다.
+- process-group SIGINT에서는 launch가 10/10 escalation 없이 clean exit했지만
+  `parameter_bridge`가 종료 중 7/10 exit -11을 냈다. background shell PID에 SIGINT를 보낸
+  첫 harness는 TERM 10/10이 필요해 Ctrl-C 근거에서 제외했다.
+- 2/4/7 m plane과 4 m sphere/cylinder의 여섯 Docker 장면에서 CPU와 배포 WGPU PointCloud
+  finite XYZ/intensity는 정확히 같았다. 배포 WGPU raw peak는 +0.584 m, 약 +1.14–1.17 m,
+  +1.980 m 이동했다. Rust archive를 실제 재빌드하고 sonar를 clean relink한 exact-N 후보는
+  18/18 peak를 0.0736 m 안으로 되돌렸지만 fresh `llvmpipe` probe가 88.2–115.3초여서
+  production performance fix로 부르지 않는다.
+- integrated ocean-waves sonar world는 같은 격리 후보에서 PointCloud/raw 3/3과 진행하는
+  world stats를 직접 냈다. 이 결과는 candidate/output FUNCTIONAL PASS이지 installed/upstream
+  또는 복합 장면 acoustic accuracy PASS가 아니다.
+- exact Docker image의 세 BlueROV 모델 contract를 autopilot과 분리해 읽자 camera·odometry와
+  default Gazebo IMU는 나오지만 bridged IMU·magnetometer는 조용했고 fifth variant sonar도
+  installed world에서 조용했다. local source/world 후보 결과와 exact-image sensor 범위를
+  섞어 5/5라고 쓰지 않는다.
+
+따라서 「Multibeam Sonar Plugin」, 「Dave ROV Models」, 전체 현황과 다음 연구 방향은
+**startup candidate runtime PASS**, **distributed raw WGPU·bridge teardown·sensor contract·배포
+PARTIAL**, **exact-N correctness discriminator의 performance 한계**를 따로 표시해야 한다.
+이 24차 정정 직후 `progress-log.md`는 107행이었다.
+
+근거:
+[`../results/multibeam_deferred_backend_extended_validation_2026-08-30/`](../results/multibeam_deferred_backend_extended_validation_2026-08-30/) ·
+[`../results/multibeam_backend_equivalence_matrix_2026-08-30/`](../results/multibeam_backend_equivalence_matrix_2026-08-30/) ·
+[`../results/integrated_sonar_payload_validation_2026-08-30/`](../results/integrated_sonar_payload_validation_2026-08-30/) ·
+[`../results/bluerov_sensor_contract_validation_2026-08-30/`](../results/bluerov_sensor_contract_validation_2026-08-30/).
+
+## 25차 — 2026-08-31 장치 matrix·결정론·teardown·Ocean tide 범위 갱신
+
+문서 페이지의 Quickstart 성공과 아직 남은 일반 정확도 사이를 더 세분화했다.
+
+- DVL: 8 simultaneous descriptors, 20 messages each(총 160), four beams/bottom lock/distinct frame/rate PASS.
+- USBL: two transceivers/four transponders, A/B namespace isolation and concurrent interrogation PASS.
+- Underwater Camera: all six attenuation/background tags individually isolated; analytic centre values 0 LSB error.
+- SeaPressure: seven devices, about 200 simulated seconds, 2,000 noisy frames and rate/statistics controls PASS.
+- Multibeam: fixed seed/frame gives byte-identical raw/point arrays across three fresh containers; empty-cache software probe remains 94.192–101 s. CPU/WGPU full raw equality is not used as an oracle because their phase/noise algorithms differ.
+- Bridge teardown: no-publisher 40/40 and stock active 30/30 clean, DAVE-sonar active one-way 9/10 SIGSEGV and PointCloud-only 2/10. The old generic 7/10 statement is withdrawn.
+- Ocean Current: 400-sample Gauss–Markov variation and documented per-model tidal path pass. The initial unchanged-global-topic interpretation was the wrong oracle, not a tidal defect.
+- `dave_ocean_waves_sonar` now has clean single-instance candidate/output evidence; all three manipulation worlds have Docker world-progress smoke evidence.
+
+These updates do not claim upstream installation, hardware GPU, physical acoustic/optical/hydrodynamic
+accuracy or mission endurance. After the four new dated rows, `progress-log.md` has 111 rows.
+
+Evidence:
+[`../results/fastdds_create_stress_2026-08-31/`](../results/fastdds_create_stress_2026-08-31/) ·
+[`../results/parameter_bridge_shutdown_validation_2026-08-31/`](../results/parameter_bridge_shutdown_validation_2026-08-31/) ·
+[`../results/sensor_long_multi_validation_2026-08-31/`](../results/sensor_long_multi_validation_2026-08-31/) ·
+[`../results/usbl_multi_namespace_validation_2026-08-31/`](../results/usbl_multi_namespace_validation_2026-08-31/) ·
+[`../results/underwater_camera_channel_isolation_validation_2026-08-31/`](../results/underwater_camera_channel_isolation_validation_2026-08-31/) ·
+[`../results/multibeam_seed_determinism_validation_2026-08-31/`](../results/multibeam_seed_determinism_validation_2026-08-31/) ·
+[`../results/ocean_current_tidal_noise_validation_2026-08-31/`](../results/ocean_current_tidal_noise_validation_2026-08-31/) ·
+[`../results/ocean_waves_sonar_clean_validation_2026-08-31/`](../results/ocean_waves_sonar_clean_validation_2026-08-31/) ·
+[`../results/manipulation_docker_replay_2026-08-31/`](../results/manipulation_docker_replay_2026-08-31/).
+
+## 26차 — 2026-08-31 `parameter_bridge` ownership-cycle 후보
+
+25차에서 현재 실패로 남긴 DAVE-sonar active-endpoint teardown을 source ownership까지 따라갔다.
+`RosGzBridge`는 `shared_ptr<BridgeHandle>` vector를 소유하고, 각 handle은 다시 owner node의
+`SharedPtr`를 보유해 strong-reference cycle을 만들었다. `spin()` 뒤 local pointer를 reset하는
+후보가 실패한 이유도 cycle 때문에 node와 middleware endpoint가 파괴되지 않았기 때문이다.
+
+- retained exact-`ros_gz` 3.0.9 후보는 handle back-reference만 `WeakPtr`로 교체
+- baseline DAVE-sonar process-group shutdown: `parameter_bridge` exit -11 **9/10**
+- candidate DAVE bridge-first: PointCloud/raw **20/20**, bridge clean **20/20**, exit -11 **0/20**
+- candidate DAVE process-group: PointCloud/raw **10/10**, launch rc0 **10/10**, exit -11 **0/10**
+- direct ROS→GZ payload/clean exit **20/20**
+- stock active camera와 PointCloud GZ→ROS **5/5 each**
+
+따라서 Notion의 「Multibeam Sonar Plugin」, 「Dave ROV Models」와 전체 현황에서 teardown을
+현재 로컬 후보의 미해결 결함으로 쓰면 안 된다. **로컬 격리 후보에서는 닫혔고, constrained
+package suite도 17/18 CTest target과 offline exact-XML 검사까지 통과했다. 이후 normal isolated Lyrical install은 8/8 topic·1/1 ControlWorld service·active teardown 10/10, ARM64 Jazzy/Kilted equivalent branch-local build는 각각 8/8+1/1과 clean exit를 통과했다. Read-only readiness review에서는 focused issue/PR search 8건의 duplicate가 0건이었고 project issue/PR template이 없음을 확인했다. upstream 제출·maintainer review·merge, ordinary-workspace 적용·Humble runtime·x86_64·exhaustive conversion coverage는 열려 있다**고 분리한다. `ros2 run` wrapper와
+child에 SIGINT를 동시에 준 잘못된 harness와 CLI timeout이 걸린 중단 harness는 각각
+`INVALID_ATTEMPT`로 보존했으며 판정에서 제외했다.
+
+이 행 추가 뒤 `progress-log.md`는 112행이다.
+
+근거:
+[`../results/parameter_bridge_cycle_fix_validation_2026-08-31/`](../results/parameter_bridge_cycle_fix_validation_2026-08-31/) ·
+[`../../patches/ros_gz_bridge_handle_cycle_fix.diff`](../../patches/ros_gz_bridge_handle_cycle_fix.diff).

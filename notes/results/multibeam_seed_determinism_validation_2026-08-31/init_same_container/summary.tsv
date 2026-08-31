@@ -1,0 +1,4 @@
+run	wall_seconds_to_full_buffers	pipeline_compile_ms	probe_gpu_ms	ready
+1	92	1542	84826.8	1
+2	5	11	8.0	1
+3	5	8	7.5	1

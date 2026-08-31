@@ -1,0 +1,197 @@
+{
+  "verdict": "PASS",
+  "channel_order": "BGR",
+  "frame_counts_at_capture": {
+    "ucam_control": 10,
+    "ucam_atten_base": 10,
+    "ucam_atten_r_only": 10,
+    "ucam_atten_g_only": 10,
+    "ucam_atten_b_only": 10,
+    "ucam_bg_r_only": 10,
+    "ucam_bg_g_only": 10,
+    "ucam_bg_b_only": 10
+  },
+  "center_bgr": {
+    "ucam_control": [
+      31,
+      61,
+      122
+    ],
+    "ucam_atten_base": [
+      4,
+      8,
+      16
+    ],
+    "ucam_atten_r_only": [
+      31,
+      61,
+      16
+    ],
+    "ucam_atten_g_only": [
+      31,
+      8,
+      122
+    ],
+    "ucam_atten_b_only": [
+      4,
+      61,
+      122
+    ],
+    "ucam_bg_r_only": [
+      4,
+      8,
+      189
+    ],
+    "ucam_bg_g_only": [
+      4,
+      180,
+      16
+    ],
+    "ucam_bg_b_only": [
+      176,
+      8,
+      16
+    ]
+  },
+  "mean_bgr": {
+    "ucam_control": [
+      31.0,
+      61.0,
+      122.0
+    ],
+    "ucam_atten_base": [
+      3.142734375,
+      6.657669270833333,
+      13.7816796875
+    ],
+    "ucam_atten_r_only": [
+      31.0,
+      61.0,
+      13.7816796875
+    ],
+    "ucam_atten_g_only": [
+      31.0,
+      6.657669270833333,
+      122.0
+    ],
+    "ucam_atten_b_only": [
+      3.142734375,
+      61.0,
+      122.0
+    ],
+    "ucam_bg_r_only": [
+      3.142734375,
+      6.657669270833333,
+      190.36454427083333
+    ],
+    "ucam_bg_g_only": [
+      3.142734375,
+      183.2434765625,
+      13.7816796875
+    ],
+    "ucam_bg_b_only": [
+      179.72548177083334,
+      6.657669270833333,
+      13.7816796875
+    ]
+  },
+  "sha256_raw_bytes": {
+    "ucam_control": "1eb9d25f517b80aa54d6c2155ed4eb623220c7576f6f9569ad73a7f0f8adfc6b",
+    "ucam_atten_base": "07d5178764257006d102a82c8ccdcf31983b73f3a855abe25ccf638dcdfca7cc",
+    "ucam_atten_r_only": "2e142f659d4a3c59ecf1e33471ecbceed1f2b593147b66e56d6825dbfeb2a7f3",
+    "ucam_atten_g_only": "72467ff4f62ce12dc3cd661687799c6090e37c1a18d3dc72f8cd69e59b009a0f",
+    "ucam_atten_b_only": "89407104e683619bdb9af32eadf39fdc5cd03941f7620f4060817d5a66a20bb5",
+    "ucam_bg_r_only": "d7918c7f1db020e6661f720eb7149f3c9359a01e105374797dedde933165f816",
+    "ucam_bg_g_only": "41529b445fc6a731c9efc95d75b2c34f4bf8cccf263670e6a52550e4e1374d4b",
+    "ucam_bg_b_only": "3b1a2bce3d14a26ae3362a1b27dd4f54b9371e31318d3b1658d244e79e2e0bb6"
+  },
+  "expected_center_bgr": {
+    "ucam_atten_base": [
+      4,
+      8,
+      16
+    ],
+    "ucam_atten_r_only": [
+      31,
+      61,
+      16
+    ],
+    "ucam_atten_g_only": [
+      31,
+      8,
+      122
+    ],
+    "ucam_atten_b_only": [
+      4,
+      61,
+      122
+    ],
+    "ucam_bg_r_only": [
+      4,
+      8,
+      189
+    ],
+    "ucam_bg_g_only": [
+      4,
+      180,
+      16
+    ],
+    "ucam_bg_b_only": [
+      176,
+      8,
+      16
+    ]
+  },
+  "center_error_lsb": {
+    "ucam_atten_base": [
+      0,
+      0,
+      0
+    ],
+    "ucam_atten_r_only": [
+      0,
+      0,
+      0
+    ],
+    "ucam_atten_g_only": [
+      0,
+      0,
+      0
+    ],
+    "ucam_atten_b_only": [
+      0,
+      0,
+      0
+    ],
+    "ucam_bg_r_only": [
+      0,
+      0,
+      0
+    ],
+    "ucam_bg_g_only": [
+      0,
+      0,
+      0
+    ],
+    "ucam_bg_b_only": [
+      0,
+      0,
+      0
+    ]
+  },
+  "checks": {
+    "atten_r_changes_only_red": true,
+    "atten_g_changes_only_green": true,
+    "atten_b_changes_only_blue": true,
+    "background_r_changes_only_red_vs_base": true,
+    "background_g_changes_only_green_vs_base": true,
+    "background_b_changes_only_blue_vs_base": true,
+    "all_frames_distinct": true,
+    "analytic_center_within_one_lsb": true
+  },
+  "limitations": [
+    "One synthetic planar scene.",
+    "One Docker llvmpipe run.",
+    "Validates implemented per-channel transform and tag mapping, not general underwater optical accuracy."
+  ]
+}

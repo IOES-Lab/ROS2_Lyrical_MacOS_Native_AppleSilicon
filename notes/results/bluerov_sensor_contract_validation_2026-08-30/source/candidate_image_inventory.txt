@@ -1,0 +1,75 @@
+=== bluerov2 source ===
+ed60765af26b9925f9f25789f9b05c4572ddfa32c83a1327def9a103da2e99fd  /home/docker/dave_ws/src/dave/models/dave_robot_models/description/bluerov2/model.sdf
+42:      <sensor name="imu_sensor" type="imu">
+65:      <sensor name="underwater_camera" type="camera">
+70:        <topic>/model/bluerov2/camera</topic>
+=== bluerov2 installed ===
+ed60765af26b9925f9f25789f9b05c4572ddfa32c83a1327def9a103da2e99fd  /home/docker/dave_ws/install/share/dave_robot_models/description/bluerov2/model.sdf
+42:      <sensor name="imu_sensor" type="imu">
+65:      <sensor name="underwater_camera" type="camera">
+70:        <topic>/model/bluerov2/camera</topic>
+=== bluerov2_heavy source ===
+51c329ab6fea60df2acb3316757917f0571964e0da12a9444320d4e1582e97ad  /home/docker/dave_ws/src/dave/models/dave_robot_models/description/bluerov2_heavy/model.sdf
+42:      <sensor name="imu_sensor" type="imu">
+65:      <sensor name="underwater_camera" type="camera">
+69:        <topic>/model/bluerov2_heavy/camera</topic>
+=== bluerov2_heavy installed ===
+51c329ab6fea60df2acb3316757917f0571964e0da12a9444320d4e1582e97ad  /home/docker/dave_ws/install/share/dave_robot_models/description/bluerov2_heavy/model.sdf
+42:      <sensor name="imu_sensor" type="imu">
+65:      <sensor name="underwater_camera" type="camera">
+69:        <topic>/model/bluerov2_heavy/camera</topic>
+=== bluerov2_heavy_multibeam_sonar source ===
+ebe2464bd21f2022a0501dc2c507fcc6736ac24e054796a625f8882968e0dac5  /home/docker/dave_ws/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf
+3:  <model name="bluerov2_heavy_multibeam_sonar">
+42:      <sensor name="imu_sensor" type="imu">
+65:      <sensor name="underwater_camera" type="camera">
+69:        <topic>/model/bluerov2_heavy_multibeam_sonar/camera</topic>
+141:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+144:        <topic>/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar</topic>
+146:        <gz:multibeam_sonar>
+184:        </gz:multibeam_sonar>
+473:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+485:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+497:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+510:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+523:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+535:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+548:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+561:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+594:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster1_joint/cmd_thrust</cmd_topic>
+603:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster2_joint/cmd_thrust</cmd_topic>
+612:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster3_joint/cmd_thrust</cmd_topic>
+621:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster4_joint/cmd_thrust</cmd_topic>
+630:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster5_joint/cmd_thrust</cmd_topic>
+639:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster6_joint/cmd_thrust</cmd_topic>
+648:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster7_joint/cmd_thrust</cmd_topic>
+657:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster8_joint/cmd_thrust</cmd_topic>
+=== bluerov2_heavy_multibeam_sonar installed ===
+ebe2464bd21f2022a0501dc2c507fcc6736ac24e054796a625f8882968e0dac5  /home/docker/dave_ws/install/share/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf
+3:  <model name="bluerov2_heavy_multibeam_sonar">
+42:      <sensor name="imu_sensor" type="imu">
+65:      <sensor name="underwater_camera" type="camera">
+69:        <topic>/model/bluerov2_heavy_multibeam_sonar/camera</topic>
+141:      <sensor name="multibeam_sonar" type="custom" gz:type="multibeam_sonar">
+144:        <topic>/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar</topic>
+146:        <gz:multibeam_sonar>
+184:        </gz:multibeam_sonar>
+473:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+485:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+497:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+510:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+523:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+535:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+548:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+561:      <namespace>bluerov2_heavy_multibeam_sonar</namespace>
+594:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster1_joint/cmd_thrust</cmd_topic>
+603:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster2_joint/cmd_thrust</cmd_topic>
+612:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster3_joint/cmd_thrust</cmd_topic>
+621:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster4_joint/cmd_thrust</cmd_topic>
+630:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster5_joint/cmd_thrust</cmd_topic>
+639:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster6_joint/cmd_thrust</cmd_topic>
+648:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster7_joint/cmd_thrust</cmd_topic>
+657:        <cmd_topic>/model/bluerov2_heavy_multibeam_sonar/joint/thruster8_joint/cmd_thrust</cmd_topic>
+=== world systems ===
+48:      name="gz::sim::systems::Sensors">
+49:      <render_engine>ogre2</render_engine>

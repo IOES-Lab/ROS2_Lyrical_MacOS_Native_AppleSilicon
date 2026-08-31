@@ -1,0 +1,7 @@
+{
+  "backend_ready": true,
+  "pointcloud_frames_513x301": 3,
+  "raw_frames_513x399": 3,
+  "world_stats_captured": true,
+  "segfault_during_runtime": false
+}

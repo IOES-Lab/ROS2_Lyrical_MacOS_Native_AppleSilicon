@@ -1,0 +1,64 @@
+header {
+  stamp {
+    sec: 53
+    nsec: 839000000
+  }
+  data {
+    key: "frame_id"
+    value: "bluerov2_heavy::base_link::imu_sensor"
+  }
+  data {
+    key: "seq"
+    value: "44233"
+  }
+}
+entity_name: "bluerov2_heavy::base_link::imu_sensor"
+orientation {
+  x: -1.8997135531410027e-19
+  y: 1.6343968627056854e-06
+  z: -6.6575890587824182e-10
+  w: 0.9999999999986644
+}
+orientation_covariance {
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+}
+angular_velocity {
+  x: 4.5386897528562914e-19
+  y: -1.4139951330364574e-05
+  z: 5.759859350719599e-09
+}
+angular_velocity_covariance {
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+}
+linear_acceleration {
+  x: 3.2193368315008465e-05
+  y: -0.0040153371889213828
+  z: -9.857302939761885
+}
+linear_acceleration_covariance {
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+}

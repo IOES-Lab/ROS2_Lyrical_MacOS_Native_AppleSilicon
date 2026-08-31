@@ -1,0 +1,2 @@
+error: patch failed: ros_gz_bridge/src/bridge_handle.cpp:34
+error: ros_gz_bridge/src/bridge_handle.cpp: patch does not apply

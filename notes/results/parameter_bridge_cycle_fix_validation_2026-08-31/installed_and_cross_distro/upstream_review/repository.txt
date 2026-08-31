@@ -1,0 +1,4 @@
+repository=gazebosim/ros_gz
+default_branch=ros2
+authenticated_account=yeseorizi
+action=read-only duplicate and contribution-policy review; no issue or pull request created

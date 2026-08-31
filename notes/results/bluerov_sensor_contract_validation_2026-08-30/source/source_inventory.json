@@ -1,0 +1,90 @@
+{
+  "source_root": "/Users/gwon-yeseol/dave_ws_lyrical/src/dave",
+  "scope": "Host overlay source after earlier IMU candidate patch; not the Docker runtime image",
+  "variants": [
+    {
+      "variant": "bluerov2",
+      "model_sdf": "/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2/model.sdf",
+      "model_sha256": "2c01f3057e5996a201d173747ab30e67fba1658e0b93ee5dec5179bd7860a50b",
+      "declared_sensors": [
+        {
+          "name": "imu_sensor",
+          "type": "imu",
+          "explicit_topic": "/model/bluerov2/imu"
+        },
+        {
+          "name": "underwater_camera",
+          "type": "camera",
+          "explicit_topic": "/model/bluerov2/camera"
+        }
+      ],
+      "configured_bridge_source_lines": [
+        "f'/model/{namespace}/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry'",
+        "f'/model/{namespace}/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance'",
+        "f'/model/{namespace}/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V'",
+        "f'/model/{namespace}/imu@sensor_msgs/msg/Imu[gz.msgs.IMU'",
+        "f'/model/{namespace}/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer'"
+      ],
+      "declares_magnetometer_sensor": false,
+      "declares_pressure_sensor": false
+    },
+    {
+      "variant": "bluerov2_heavy",
+      "model_sdf": "/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy/model.sdf",
+      "model_sha256": "26584e3f1be80f1b4b458c93d58bc46814f6a8090f72b30d94b4d319d460a805",
+      "declared_sensors": [
+        {
+          "name": "imu_sensor",
+          "type": "imu",
+          "explicit_topic": "/model/bluerov2_heavy/imu"
+        },
+        {
+          "name": "underwater_camera",
+          "type": "camera",
+          "explicit_topic": "/model/bluerov2_heavy/camera"
+        }
+      ],
+      "configured_bridge_source_lines": [
+        "f'/model/{namespace}/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry'",
+        "f'/model/{namespace}/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance'",
+        "f'/model/{namespace}/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V'",
+        "f'/model/{namespace}/imu@sensor_msgs/msg/Imu[gz.msgs.IMU'",
+        "f'/model/{namespace}/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer'"
+      ],
+      "declares_magnetometer_sensor": false,
+      "declares_pressure_sensor": false
+    },
+    {
+      "variant": "bluerov2_heavy_multibeam_sonar",
+      "model_sdf": "/Users/gwon-yeseol/dave_ws_lyrical/src/dave/models/dave_robot_models/description/bluerov2_heavy_multibeam_sonar/model.sdf",
+      "model_sha256": "ebe2464bd21f2022a0501dc2c507fcc6736ac24e054796a625f8882968e0dac5",
+      "declared_sensors": [
+        {
+          "name": "imu_sensor",
+          "type": "imu",
+          "explicit_topic": null
+        },
+        {
+          "name": "underwater_camera",
+          "type": "camera",
+          "explicit_topic": "/model/bluerov2_heavy_multibeam_sonar/camera"
+        },
+        {
+          "name": "multibeam_sonar",
+          "type": "multibeam_sonar",
+          "explicit_topic": "/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar"
+        }
+      ],
+      "configured_bridge_source_lines": [
+        "f'/model/{namespace}/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry'",
+        "f'/model/{namespace}/odometry_with_covariance@nav_msgs/msg/Odometry[gz.msgs.OdometryWithCovariance'",
+        "f'/model/{namespace}/pose@geometry_msgs/msg/PoseArray[gz.msgs.Pose_V'",
+        "f'/model/{namespace}/imu@sensor_msgs/msg/Imu[gz.msgs.IMU'",
+        "f'/model/{namespace}/magnetometer@sensor_msgs/msg/MagneticField[gz.msgs.Magnetometer'",
+        "f'/model/{namespace}/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked'"
+      ],
+      "declares_magnetometer_sensor": false,
+      "declares_pressure_sensor": false
+    }
+  ]
+}

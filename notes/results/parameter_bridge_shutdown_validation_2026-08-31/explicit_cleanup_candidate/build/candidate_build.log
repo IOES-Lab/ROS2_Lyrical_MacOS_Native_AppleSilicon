@@ -1,0 +1,13 @@
+Starting >>> parameter_bridge_cleanup_candidate
+--- stderr: parameter_bridge_cleanup_candidate
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CATKIN_INSTALL_INTO_PREFIX_ROOT
+
+
+---
+Finished <<< parameter_bridge_cleanup_candidate [7.58s]
+
+Summary: 1 package finished [7.72s]
+  1 package had stderr output: parameter_bridge_cleanup_candidate

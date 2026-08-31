@@ -1,0 +1,5 @@
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: wgpu
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] GPU #1     | 119336.6 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[ERROR] [gazebo-1]: process has died [pid 45, exit code -2, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim /home/docker/dave_ws/install/share/dave_worlds/worlds/plane_4m_bright.world -s -r --force-version 10'].

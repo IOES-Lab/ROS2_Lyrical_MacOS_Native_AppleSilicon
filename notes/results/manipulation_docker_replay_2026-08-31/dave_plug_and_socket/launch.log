@@ -1,0 +1,5 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-31-02-00-49-887677-d1ae6b99cfe2-386
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [401]
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="m_to_f_plug"]/link[@name="m_to_f_plug"]/collision[@name="m_to_f_plug_collision"]/surface/friction/ode/mu1:/root/.gz/fuel/fuel.gazebosim.org/hmoyen/models/m to f plug/1/model.sdf:L34]: XML Element[mu1], child of element[ode], not defined in SDF. Copying[mu1] as children of [ode].
+[INFO] [gazebo-1]: process has finished cleanly [pid 401]

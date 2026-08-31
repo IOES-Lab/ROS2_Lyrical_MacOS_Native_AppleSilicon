@@ -1,0 +1,4 @@
+run	seconds	ready	capture_rc	launch_rc	first_raw_hash	unique_raw_hashes
+1	143	1	0	124	d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc	1
+2	118	1	0	124	d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc	1
+3	146	1	0	124	d76402e9366b4eff50d0c1b1683ea931a0ea4edf6bfe76150afe39d3e7c161fc	1

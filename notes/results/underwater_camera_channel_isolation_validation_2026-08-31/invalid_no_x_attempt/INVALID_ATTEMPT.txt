@@ -1,0 +1,3 @@
+INVALID ATTEMPT — excluded from the verdict.
+
+The first server launch omitted DISPLAY/XAUTHORITY while using the OGRE renderer. Gazebo logged "Unable to open display" and none of the eight topics published. The attempt is retained only as an execution record.

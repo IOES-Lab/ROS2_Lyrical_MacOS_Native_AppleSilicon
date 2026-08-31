@@ -1,0 +1,6 @@
+# Invalid capture attempt
+
+The simulator produced DVL callbacks, but the test client incorrectly cast the
+string enum value `DVL_TARGET_BOTTOM` with `int()`. The client raised before
+collecting the matrix, so this attempt is excluded. The v2 run stores the enum
+as a string and is the valid result.

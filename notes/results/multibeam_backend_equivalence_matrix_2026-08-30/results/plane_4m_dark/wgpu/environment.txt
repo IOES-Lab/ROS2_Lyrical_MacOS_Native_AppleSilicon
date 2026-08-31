@@ -1,0 +1,6 @@
+case=plane_4m_dark
+backend=wgpu
+expected_range_m=4.0
+image=dave-sonar-equivalence-matrix:20260830
+ROS_DOMAIN_ID=195
+GZ_PARTITION=sonar_matrix_plane_4m_dark_wgpu_92295

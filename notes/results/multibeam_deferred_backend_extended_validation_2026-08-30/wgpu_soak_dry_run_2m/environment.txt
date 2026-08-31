@@ -1,0 +1,4 @@
+image=dave-sonar-deferred-compute-test:20260830
+ROS_DOMAIN_ID=163
+GZ_PARTITION=sonar_soak_97363
+minutes=2

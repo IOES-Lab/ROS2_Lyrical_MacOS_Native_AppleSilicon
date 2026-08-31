@@ -1,0 +1,972 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-08-30-13-24-20-715582-d466cfca4e82-106
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [112]
+[INFO] [create-2]: process started with pid [113]
+[create-2] [INFO] [1788096261.041246005] [ros_gz_sim]: Requesting list of world names.
+[create-2] [WARN] [1788096268.332706550] [ros_gz_sim]: Waiting for service [/world/oceans_waves/create] to become available ...
+[create-2] [INFO] [1788096269.436804509] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-2]: process has finished cleanly [pid 113]
+[INFO] [launch.user]: Robot Model Uploaded
+[INFO] [static_transform_publisher-3]: process started with pid [181]
+[INFO] [parameter_bridge-4]: process started with pid [182]
+[INFO] [env-5]: process started with pid [183]
+[static_transform_publisher-3] [INFO] [1788096269.616377217] [static_transform_publisher_xrS142hdDBIdF885]: Spinning until stopped - publishing transform
+[static_transform_publisher-3] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-3] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-3] from 'world' to 'bluerov2_heavy_multibeam_sonar/sonar_link/multibeam_sonar'
+[parameter_bridge-4] [INFO] [1788096269.661758301] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096269.663677217] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry (gz.msgs.Odometry) -> /model/bluerov2_heavy_multibeam_sonar/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096269.667738342] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (gz.msgs.OdometryWithCovariance) -> /model/bluerov2_heavy_multibeam_sonar/odometry_with_covariance (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096269.668112342] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/pose (gz.msgs.Pose_V) -> /model/bluerov2_heavy_multibeam_sonar/pose (geometry_msgs/msg/PoseArray)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096269.668723384] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/imu (gz.msgs.IMU) -> /model/bluerov2_heavy_multibeam_sonar/imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096269.672778134] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/magnetometer (gz.msgs.Magnetometer) -> /model/bluerov2_heavy_multibeam_sonar/magnetometer (sensor_msgs/msg/MagneticField)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1788096269.673493926] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /model/bluerov2_heavy_multibeam_sonar/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[INFO] [env-5]: process has finished cleanly [pid 183]
+[INFO] [launch.user]: Gazebo IMU topic detected, launching ArduSub
+[INFO] [ardusub-6]: process started with pid [314]
+[INFO] [launch.user]: ArduSub started, launching MAVROS
+[ardusub-6] Setting SIM_SPEEDUP=1.000000
+[ardusub-6] Starting SITL: JSON
+[ardusub-6] Home: 35.074823 129.084798 alt=0.000000m hdg=270.000000
+[ardusub-6] JSON control interface set to 127.0.0.1:9002
+[ardusub-6] Starting sketch 'ArduSub'
+[ardusub-6] Starting SITL input
+[ardusub-6] Using Irlock at port : 9005
+[ardusub-6] Waiting for connection ....
+[ardusub-6] bind port 5760 for SERIAL0
+[ardusub-6] SERIAL0 on TCP port 5760
+[INFO] [mavros_node-7]: process started with pid [315]
+[mavros_node-7] [INFO] [1788096271.847514010] [mavros_node]: Starting mavros_node container
+[mavros_node-7] [INFO] [1788096271.847762093] [mavros_node]: FCU URL: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788096271.847778052] [mavros_node]: GCS URL: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788096271.847787968] [mavros_node]: UAS Prefix: /uas1
+[mavros_node-7] [INFO] [1788096271.847864885] [mavros_node]: Starting mavros router node
+[mavros_node-7] [INFO] [1788096271.867602843] [mavros_router]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788096271.867646927] [mavros_router]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788096271.867659593] [mavros_router]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788096271.867667552] [mavros_router]: MAVROS Router started
+[mavros_node-7] [INFO] [1788096271.867876802] [mavros_node]: Starting mavros uas node
+[mavros_node-7] [INFO] [1788096271.931997302] [mavros_router]: Requested to add endpoint: type: 0, url: tcp://127.0.0.1:5760
+[mavros_node-7] [INFO] [1788096271.932351427] [mavros_router]: Endpoint link[1000] created
+[ardusub-6] Connection on serial port 5760
+[mavros_node-7] [INFO] [1788096271.935013552] [mavros_router]: link[1000] opened successfully
+[mavros_node-7] [INFO] [1788096271.935069718] [mavros_router]: Requested to add endpoint: type: 1, url: udp://@localhost:14550
+[mavros_node-7] [INFO] [1788096271.935136968] [mavros_router]: Endpoint link[1001] created
+[mavros_node-7] [INFO] [1788096271.936502093] [mavros_router]: link[1001] opened successfully
+[mavros_node-7] [INFO] [1788096271.936540843] [mavros_router]: Requested to add endpoint: type: 2, url: /uas1
+[mavros_node-7] [INFO] [1788096271.936671552] [mavros_router]: Endpoint link[1002] created
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[mavros_node-7] [INFO] [1788096271.941446052] [mavros_router]: link[1002] opened successfully
+[mavros_node-7] [INFO] [1788096271.941880552] [mavros]: Plugin actuator_control ignored
+[mavros_node-7] [INFO] [1788096271.941929260] [mavros]: Plugin adsb ignored
+[mavros_node-7] [INFO] [1788096271.941937843] [mavros]: Plugin altitude ignored
+[mavros_node-7] [INFO] [1788096271.941951885] [mavros]: Plugin cam_imu_sync ignored
+[mavros_node-7] [INFO] [1788096271.941960468] [mavros]: Plugin camera ignored
+[mavros_node-7] [INFO] [1788096271.941966635] [mavros]: Plugin cellular_status ignored
+[mavros_node-7] [INFO] [1788096271.952221343] [mavros]: UAS Executor started, threads: 4
+[mavros_node-7] [INFO] [1788096272.002156343] [mavros]: Plugin command created
+[mavros_node-7] [INFO] [1788096272.002604260] [mavros]: Plugin command initialized
+[mavros_node-7] [INFO] [1788096272.002628885] [mavros]: Plugin companion_process_status ignored
+[mavros_node-7] [INFO] [1788096272.002643968] [mavros]: Plugin debug_value ignored
+[mavros_node-7] [INFO] [1788096272.002661802] [mavros]: Plugin distance_sensor ignored
+[mavros_node-7] [INFO] [1788096272.002679218] [mavros]: Plugin esc_status ignored
+[mavros_node-7] [INFO] [1788096272.002695510] [mavros]: Plugin esc_telemetry ignored
+[mavros_node-7] [INFO] [1788096272.002705552] [mavros]: Plugin fake_gps ignored
+[mavros_node-7] [INFO] [1788096272.002721843] [mavros]: Plugin ftp ignored
+[mavros_node-7] [INFO] [1788096272.002730593] [mavros]: Plugin geofence ignored
+[mavros_node-7] [INFO] [1788096272.002735468] [mavros]: Plugin gimbal_control ignored
+[mavros_node-7] [INFO] [1788096272.015552218] [mavros]: Plugin global_position created
+[mavros_node-7] [INFO] [1788096272.015935677] [mavros]: Plugin global_position initialized
+[mavros_node-7] [INFO] [1788096272.015961135] [mavros]: Plugin gps_input ignored
+[mavros_node-7] [INFO] [1788096272.015967593] [mavros]: Plugin gps_rtk ignored
+[mavros_node-7] [INFO] [1788096272.015973093] [mavros]: Plugin gps_status ignored
+[mavros_node-7] [INFO] [1788096272.015978093] [mavros]: Plugin guided_target ignored
+[mavros_node-7] [INFO] [1788096272.015983052] [mavros]: Plugin hil ignored
+[mavros_node-7] [INFO] [1788096272.015987927] [mavros]: Plugin home_position ignored
+[mavros_node-7] [INFO] [1788096272.024564844] [mavros]: Plugin imu created
+[mavros_node-7] [INFO] [1788096272.025123385] [mavros]: Plugin imu initialized
+[mavros_node-7] [INFO] [1788096272.025151552] [mavros]: Plugin landing_target ignored
+[mavros_node-7] [INFO] [1788096272.031665094] [mavros]: Plugin local_position created
+[mavros_node-7] [INFO] [1788096272.031919885] [mavros]: Plugin local_position initialized
+[mavros_node-7] [INFO] [1788096272.031943469] [mavros]: Plugin log_transfer ignored
+[mavros_node-7] [INFO] [1788096272.031950344] [mavros]: Plugin mag_calibration_status ignored
+[mavros_node-7] [INFO] [1788096272.037720885] [mavros]: Plugin manual_control created
+[mavros_node-7] [INFO] [1788096272.037891135] [mavros]: Plugin manual_control initialized
+[mavros_node-7] [INFO] [1788096272.037905385] [mavros]: Plugin mocap_pose_estimate ignored
+[mavros_node-7] [INFO] [1788096272.037969094] [mavros]: Plugin mount_control ignored
+[mavros_node-7] [INFO] [1788096272.037980719] [mavros]: Plugin nav_controller_output ignored
+[mavros_node-7] [INFO] [1788096272.037986094] [mavros]: Plugin obstacle_distance ignored
+[mavros_node-7] [INFO] [1788096272.037991385] [mavros]: Plugin obstacle_distance_3d ignored
+[mavros_node-7] [INFO] [1788096272.037996885] [mavros]: Plugin odometry ignored
+[mavros_node-7] [INFO] [1788096272.038002010] [mavros]: Plugin onboard_computer_status ignored
+[mavros_node-7] [INFO] [1788096272.038007052] [mavros]: Plugin open_drone_id ignored
+[mavros_node-7] [INFO] [1788096272.038011969] [mavros]: Plugin optical_flow ignored
+[mavros_node-7] [INFO] [1788096272.047338677] [mavros]: Plugin param created
+[mavros_node-7] [INFO] [1788096272.047499052] [mavros]: Plugin param initialized
+[mavros_node-7] [INFO] [1788096272.047511885] [mavros]: Plugin play_tune ignored
+[mavros_node-7] [INFO] [1788096272.047517594] [mavros]: Plugin px4flow ignored
+[mavros_node-7] [INFO] [1788096272.047523094] [mavros]: Plugin rallypoint ignored
+[mavros_node-7] [INFO] [1788096272.047528302] [mavros]: Plugin rangefinder ignored
+[mavros_node-7] [INFO] [1788096272.055123927] [mavros]: Plugin rc_io created
+[mavros_node-7] [INFO] [1788096272.055394927] [mavros]: Plugin rc_io initialized
+[mavros_node-7] [INFO] [1788096272.055409260] [mavros]: Plugin setpoint_accel ignored
+[mavros_node-7] [INFO] [1788096272.055414885] [mavros]: Plugin setpoint_attitude ignored
+[mavros_node-7] [INFO] [1788096272.055421177] [mavros]: Plugin setpoint_position ignored
+[mavros_node-7] [INFO] [1788096272.055426635] [mavros]: Plugin setpoint_raw ignored
+[mavros_node-7] [INFO] [1788096272.055431969] [mavros]: Plugin setpoint_trajectory ignored
+[mavros_node-7] [INFO] [1788096272.055437052] [mavros]: Plugin setpoint_velocity ignored
+[mavros_node-7] [INFO] [1788096272.055442260] [mavros]: Plugin sim_state ignored
+[mavros_node-7] [INFO] [1788096272.074331344] [mavros]: Plugin sys_status created
+[mavros_node-7] [INFO] [1788096272.075079260] [mavros]: Plugin sys_status initialized
+[mavros_node-7] [INFO] [1788096272.075108385] [mavros]: Plugin sys_time ignored
+[mavros_node-7] [INFO] [1788096272.075120427] [mavros]: Plugin tdr_radio ignored
+[mavros_node-7] [INFO] [1788096272.075127135] [mavros]: Plugin terrain ignored
+[mavros_node-7] [INFO] [1788096272.075132635] [mavros]: Plugin trajectory ignored
+[mavros_node-7] [INFO] [1788096272.075137719] [mavros]: Plugin tunnel ignored
+[mavros_node-7] [INFO] [1788096272.075142760] [mavros]: Plugin vfr_hud ignored
+[mavros_node-7] [INFO] [1788096272.075147760] [mavros]: Plugin vibration ignored
+[mavros_node-7] [INFO] [1788096272.075152969] [mavros]: Plugin vision_pose ignored
+[mavros_node-7] [INFO] [1788096272.075157885] [mavros]: Plugin vision_speed ignored
+[mavros_node-7] [INFO] [1788096272.075162635] [mavros]: Plugin waypoint ignored
+[mavros_node-7] [INFO] [1788096272.075186844] [mavros]: Plugin wheel_odometry ignored
+[mavros_node-7] [INFO] [1788096272.075193010] [mavros]: Plugin wind_estimation ignored
+[mavros_node-7] [INFO] [1788096272.076623844] [mavros]: Built-in SIMD instructions: ARM NEON
+[mavros_node-7] [INFO] [1788096272.076650885] [mavros]: Built-in MAVLink package version: 2026.8.8
+[mavros_node-7] [INFO] [1788096272.076664760] [mavros]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser marsh paparazzi standard stemstudios storm32 uAvionix ualberta
+[mavros_node-7] [INFO] [1788096272.076670052] [mavros]: MAVROS UAS via /uas1 started. MY ID 255.191, TARGET ID 1.1
+[ardusub-6] No JSON sensor message received, resending servos
+[mavros_node-7] [INFO] [1788096273.061439886] [mavros_router]: link[1002] detected remote address 255.191
+[gazebo-1] [INFO] [1788096273.653914178] [multibeam_sonar_node]: Raw data at /SonarRawData_{numbers}.csv every 5 frames
+[gazebo-1] [INFO] [1788096273.654086178] [multibeam_sonar_node]: Beam angles at SonarRawData_beam_angles.csv
+[gazebo-1] [INFO] [1788096273.654097136] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788096273.712120844] [multibeam_sonar_node]:
+[gazebo-1] [INFO] [1788096273.712193844] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096273.712200844] [multibeam_sonar_node]: ============   SONAR PLUGIN LOADED   =============
+[gazebo-1] [INFO] [1788096273.712204719] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096273.712208344] [multibeam_sonar_node]: ============       RAY VERSION       =============
+[gazebo-1] [INFO] [1788096273.712211928] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096273.712218053] [multibeam_sonar_node]: Maximum view range  [m] = 10
+[gazebo-1] [INFO] [1788096273.712222219] [multibeam_sonar_node]: Distance resolution [m] = 0.0501672
+[gazebo-1] [INFO] [1788096273.712226178] [multibeam_sonar_node]: # of Beams = 513
+[gazebo-1] [INFO] [1788096273.712229886] [multibeam_sonar_node]: # of Rays / Beam (Elevation, Azimuth) = (301, 1)
+[gazebo-1] [INFO] [1788096273.712233428] [multibeam_sonar_node]: Calculation skips (Elevation) = 10
+[gazebo-1] [INFO] [1788096273.712236969] [multibeam_sonar_node]: # of Time data / Beam = 399
+[gazebo-1] [INFO] [1788096273.712240636] [multibeam_sonar_node]: ==================================================
+[gazebo-1] [INFO] [1788096273.712243969] [multibeam_sonar_node]:
+[mavros_node-7] [WARN] [1788096274.079080469] [mavros.sys]: VER: broadcast request timeout, retries left 4
+[ardusub-6] No JSON sensor message received, resending servos
+[ardusub-6]
+[ardusub-6] JSON received:
+[ardusub-6] 	timestamp
+[ardusub-6] 	imu: gyro
+[ardusub-6] 	imu: accel_body
+[ardusub-6] 	position
+[ardusub-6] 	quaternion
+[ardusub-6] 	velocity
+[ardusub-6] 	no_time_sync
+[ardusub-6]
+[ardusub-6] bind port 5762 for SERIAL1
+[ardusub-6] SERIAL1 on TCP port 5762
+[ardusub-6] bind port 5763 for SERIAL2
+[ardusub-6] SERIAL2 on TCP port 5763
+[gazebo-1] [sonar_compute_factory] CreateComputeBackend called with: auto
+[gazebo-1] [sonar_compute_factory] Auto-selecting best available backend...
+[gazebo-1] [sonar_wgpu] Trying backend set: vulkan
+[gazebo-1] [sonar_wgpu] Trying backend set: all
+[gazebo-1] [sonar_wgpu] [all] selected adapter: llvmpipe (LLVM 21.1.8, 128 bits)
+[gazebo-1] [sonar_wgpu] [all] GPU pipelines compiled in 8 ms -> ready.
+[gazebo-1] [sonar_wgpu] GPU device acquired -> running on GPU.
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 1×1×4
+[gazebo-1] [sonar_wgpu] GPU #1     |    7.5 ms | 1 beams × 1 rays × 4 freq
+[gazebo-1] [sonar_compute_factory] SUCCESS: Auto-selected WGPU backend (CUDA unavailable)
+[gazebo-1] [sonar_wgpu] Persistent GPU buffers allocated for 513×301×399
+[ardusub-6] Loaded defaults from /home/docker/dave_ws/install/share/dave_robot_models/config/bluerov2/ardusub.parm
+[ardusub-6] validate_structures:513: Validating structures
+[mavros_node-7] [INFO] [1788096274.369887553] [mavros_router]: link[1000] detected remote address 1.1
+[mavros_node-7] [WARN] [1788096274.371561011] [mavros.cmd]: CMD: Unexpected command 512, result 0
+[mavros_node-7] [INFO] [1788096274.372063761] [mavros]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[mavros_node-7] [INFO] [1788096274.372553011] [mavros.sys]: VER: 1.1: Capabilities         0x000000000000f9e7
+[mavros_node-7] [INFO] [1788096274.372578386] [mavros.sys]: VER: 1.1: Flight software:     040507ff (30257f01)
+[mavros_node-7] [INFO] [1788096274.372583386] [mavros.sys]: VER: 1.1: Middleware software: 00000000 (        )
+[mavros_node-7] [INFO] [1788096274.372587595] [mavros.sys]: VER: 1.1: OS software:         00000000 (        )
+[mavros_node-7] [INFO] [1788096274.372594178] [mavros.sys]: VER: 1.1: Board hardware:      00000000
+[mavros_node-7] [INFO] [1788096274.372600678] [mavros.sys]: VER: 1.1: VID/PID:             0000:0000
+[mavros_node-7] [INFO] [1788096274.372604553] [mavros.sys]: VER: 1.1: UID:                 0000000000000000
+[mavros_node-7] [INFO] [1788096274.372770845] [mavros.sys]: FCU: Initialising ArduPilot
+[gazebo-1] Total WGPU Calculation Wrapper Time: 176.993 ms
+[gazebo-1] [INFO] [1788096274.471802511] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 221.011 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096274.729740595] [mavros.sys]: FCU: Calibrating barometer
+[gazebo-1] Total WGPU Calculation Wrapper Time: 231.835 ms
+[gazebo-1] [INFO] [1788096274.875219262] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 233.392 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 358.829 ms
+[gazebo-1] [INFO] [1788096275.319491095] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 361.104 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 372.273 ms
+[gazebo-1] [INFO] [1788096275.807886429] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 374.912 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 373.500 ms
+[gazebo-1] [INFO] [1788096276.302357637] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 376.112 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.958 ms
+[gazebo-1] [INFO] [1788096276.839290679] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.061 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 296.584 ms
+[gazebo-1] [INFO] [1788096277.235082388] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 298.440 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 280.749 ms
+[gazebo-1] [INFO] [1788096277.611430429] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 282.672 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.795 ms
+[gazebo-1] [INFO] [1788096278.016323471] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 308.699 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.358 ms
+[gazebo-1] [INFO] [1788096278.439452138] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.542 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 336.887 ms
+[gazebo-1] [INFO] [1788096278.984807555] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 339.101 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 314.779 ms
+[gazebo-1] [INFO] [1788096279.394659847] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 317.373 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 323.524 ms
+[gazebo-1] [INFO] [1788096279.807278583] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.122 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 310.185 ms
+[gazebo-1] [INFO] [1788096280.216488208] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 312.198 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 279.298 ms
+[gazebo-1] [INFO] [1788096280.587983708] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 281.467 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 297.532 ms
+[gazebo-1] [INFO] [1788096281.088692250] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 299.324 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 295.489 ms
+[gazebo-1] [INFO] [1788096281.486548209] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 297.517 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 289.707 ms
+[gazebo-1] [INFO] [1788096281.865158751] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 291.723 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.732 ms
+[gazebo-1] [INFO] [1788096282.247469167] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.785 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 408.255 ms
+[gazebo-1] [INFO] [1788096282.762669209] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 411.106 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 410.540 ms
+[gazebo-1] [INFO] [1788096283.469200376] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 414.340 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 416.944 ms
+[gazebo-1] [INFO] [1788096283.992429168] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 419.721 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096284.419010335] [mavros.sys]: FCU: ArduSub V4.5.7 (30257f01)
+[mavros_node-7] [INFO] [1788096284.420413585] [mavros.sys]: FCU: 98471d20bcc64149b1f9debbc0e5f436
+[mavros_node-7] [INFO] [1788096284.420679002] [mavros.sys]: FCU: Frame: VECTORED
+[gazebo-1] Total WGPU Calculation Wrapper Time: 394.951 ms
+[gazebo-1] [INFO] [1788096284.493807543] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 397.760 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 386.302 ms
+[gazebo-1] [INFO] [1788096285.010639960] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 389.253 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 466.315 ms
+[gazebo-1] [INFO] [1788096285.591283502] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 468.569 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096285.905587627] [mavros.sys]: FCU: Barometer 1 calibration complete
+[mavros_node-7] [INFO] [1788096285.905799294] [mavros.sys]: FCU: Barometer 2 calibration complete
+[mavros_node-7] [WARN] [1788096285.992992628] [mavros.param]: PR: Param INS_GYR_ID (65535/1364): 2752772 different index: 258/1364
+[mavros_node-7] [WARN] [1788096285.993183211] [mavros.param]: PR: Param INS_GYR2_ID (65535/1364): 2752780 different index: 259/1364
+[mavros_node-7] [WARN] [1788096286.004753628] [mavros.param]: PR: Param INS_ACC_ID (65535/1364): 2753028 different index: 261/1364
+[mavros_node-7] [WARN] [1788096286.005033169] [mavros.param]: PR: Param INS_ACC2_ID (65535/1364): 2753036 different index: 262/1364
+[mavros_node-7] [INFO] [1788096286.059553003] [mavros.sys]: FCU: ArduPilot Ready
+[mavros_node-7] [INFO] [1788096286.059724419] [mavros.sys]: FCU: AHRS: DCM active
+[gazebo-1] Total WGPU Calculation Wrapper Time: 359.293 ms
+[gazebo-1] [INFO] [1788096286.214724211] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 361.520 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 422.790 ms
+[gazebo-1] [INFO] [1788096286.762287295] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 426.733 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 401.061 ms
+[gazebo-1] [INFO] [1788096287.286560003] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 404.087 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 358.242 ms
+[gazebo-1] [INFO] [1788096287.757005795] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 360.677 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.176 ms
+[gazebo-1] [INFO] [1788096288.163205462] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.378 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096288.363556045] [mavros.param]: PR: Param BARO_PRIMARY (65535/1364): 0 different index: 888/1364
+[mavros_node-7] [WARN] [1788096288.375316795] [mavros.param]: PR: Param EK3_ALT_M_NSE (65535/1364): 0.100000 different index: 995/1364
+[gazebo-1] Total WGPU Calculation Wrapper Time: 309.950 ms
+[gazebo-1] [INFO] [1788096288.678314504] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 311.885 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 280.867 ms
+[gazebo-1] [INFO] [1788096289.056326296] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 282.746 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096289.125339796] [mavros.param]: PR: Param SERVO9_FUNCTION (65535/1364): 181 different index: 1167/1364
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.946 ms
+[gazebo-1] [INFO] [1788096289.462088587] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 307.098 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096289.849206296] [mavros.rc]: RC_CHANNELS message detected!
+[mavros_node-7] [INFO] [1788096289.852917004] [mavros.imu]: IMU: Raw IMU message used.
+[mavros_node-7] [WARN] [1788096289.856629963] [mavros.global_position]: GP: No GPS fix
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.939 ms
+[gazebo-1] [INFO] [1788096289.895133463] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 333.331 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 395.794 ms
+[gazebo-1] [INFO] [1788096290.394966755] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 397.965 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.973 ms
+[gazebo-1] [INFO] [1788096290.965478963] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.288 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 377.288 ms
+[gazebo-1] [INFO] [1788096291.451852172] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 380.253 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 315.421 ms
+[gazebo-1] [INFO] [1788096291.864778839] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 317.454 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 293.156 ms
+[gazebo-1] [INFO] [1788096292.255324797] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 295.163 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 291.389 ms
+[gazebo-1] [INFO] [1788096292.643166881] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 293.318 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 287.432 ms
+[gazebo-1] [INFO] [1788096293.135645131] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 289.186 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 299.194 ms
+[gazebo-1] [INFO] [1788096293.536640423] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 301.742 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 369.252 ms
+[gazebo-1] [INFO] [1788096294.022678548] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 371.610 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 368.607 ms
+[gazebo-1] [INFO] [1788096294.504836923] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 370.893 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 439.789 ms
+[gazebo-1] [INFO] [1788096295.070147799] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 444.107 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.224 ms
+[gazebo-1] [INFO] [1788096295.620428132] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.168 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 296.268 ms
+[gazebo-1] [INFO] [1788096296.020865674] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 298.173 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 323.349 ms
+[gazebo-1] [INFO] [1788096296.449786799] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 325.567 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.877 ms
+[gazebo-1] [sonar_wgpu] GPU #50    |  288.9 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096296.842699549] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 291.143 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.552 ms
+[gazebo-1] [INFO] [1788096297.237688300] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.797 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 380.142 ms
+[gazebo-1] [INFO] [1788096297.890178800] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 382.318 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 347.001 ms
+[gazebo-1] [INFO] [1788096298.354046258] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 349.617 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 295.613 ms
+[gazebo-1] [INFO] [1788096298.755674634] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 297.847 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 286.625 ms
+[gazebo-1] [INFO] [1788096299.155214592] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 288.705 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 297.434 ms
+[gazebo-1] [INFO] [1788096299.553660801] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 299.484 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 378.948 ms
+[gazebo-1] [INFO] [1788096300.168352801] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 382.581 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 422.758 ms
+[gazebo-1] [INFO] [1788096300.713871260] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 425.742 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096300.723317260] [mavros.sys]: FCU: EKF3 IMU0 initialised
+[mavros_node-7] [INFO] [1788096300.725798385] [mavros.sys]: FCU: EKF3 IMU1 initialised
+[mavros_node-7] [INFO] [1788096300.731645885] [mavros.sys]: FCU: AHRS: EKF3 active
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.258 ms
+[gazebo-1] [INFO] [1788096301.153890093] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.824 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 289.554 ms
+[gazebo-1] [INFO] [1788096301.552646218] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 291.707 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.030 ms
+[gazebo-1] [INFO] [1788096301.980266135] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.237 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 367.368 ms
+[gazebo-1] [INFO] [1788096302.570958927] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 370.602 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096302.936671219] [mavros.cmd]: CMD: Unexpected command 11, result 0
+[gazebo-1] Total WGPU Calculation Wrapper Time: 543.655 ms
+[gazebo-1] [INFO] [1788096303.309167552] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 546.627 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 361.614 ms
+[gazebo-1] [INFO] [1788096303.792485594] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 365.037 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 327.624 ms
+[gazebo-1] [INFO] [1788096304.233321553] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 329.718 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.703 ms
+[gazebo-1] [INFO] [1788096304.641950511] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.915 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 308.638 ms
+[gazebo-1] [INFO] [1788096305.154220470] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.661 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 327.057 ms
+[gazebo-1] [INFO] [1788096305.582107220] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 329.074 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 398.977 ms
+[gazebo-1] [INFO] [1788096306.090444429] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 401.237 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 367.770 ms
+[gazebo-1] [INFO] [1788096306.582005054] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 371.055 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.080 ms
+[gazebo-1] [INFO] [1788096306.998973304] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.125 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.855 ms
+[gazebo-1] [INFO] [1788096307.507114929] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.786 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.472 ms
+[gazebo-1] [INFO] [1788096307.925165680] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.504 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 297.072 ms
+[gazebo-1] [INFO] [1788096308.321046138] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 299.025 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096308.698007680] [mavros.sys]: FCU: Arming motors
+[mavros_node-7] [WARN] [1788096308.698455305] [mavros.sys]: FCU: Backup location parameters are missing or zero
+[mavros_node-7] [WARN] [1788096308.698602138] [mavros.sys]: FCU: Compass performance degraded
+[gazebo-1] Total WGPU Calculation Wrapper Time: 319.843 ms
+[gazebo-1] [INFO] [1788096308.743712638] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.989 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 341.617 ms
+[gazebo-1] [INFO] [1788096309.187539305] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 343.868 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 407.241 ms
+[gazebo-1] [INFO] [1788096309.834050833] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 410.119 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.024 ms
+[gazebo-1] [INFO] [1788096310.262227000] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.741 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 289.811 ms
+[gazebo-1] [INFO] [1788096310.649183958] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 291.786 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.848 ms
+[gazebo-1] [INFO] [1788096311.059964167] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 304.155 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.326 ms
+[gazebo-1] [INFO] [1788096311.469893125] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.268 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096311.926105834] [mavros.sys]: FCU: EKF3 IMU1 tilt alignment complete
+[mavros_node-7] [INFO] [1788096311.949053626] [mavros.sys]: FCU: EKF3 IMU0 tilt alignment complete
+[gazebo-1] Total WGPU Calculation Wrapper Time: 320.582 ms
+[gazebo-1] [INFO] [1788096312.004299459] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 322.703 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 299.071 ms
+[gazebo-1] [INFO] [1788096312.401041417] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 301.905 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 296.353 ms
+[gazebo-1] [INFO] [1788096312.789994584] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 298.383 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.892 ms
+[gazebo-1] [INFO] [1788096313.195106376] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.818 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 377.233 ms
+[gazebo-1] [INFO] [1788096313.671570085] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 379.381 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 337.842 ms
+[gazebo-1] [INFO] [1788096314.217481752] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 340.094 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.803 ms
+[gazebo-1] [INFO] [1788096314.622209835] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.702 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 341.516 ms
+[gazebo-1] [INFO] [1788096315.080467377] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 345.137 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 302.117 ms
+[gazebo-1] [INFO] [1788096315.484602502] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 304.032 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.625 ms
+[gazebo-1] [INFO] [1788096315.865279169] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.720 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 359.147 ms
+[gazebo-1] [INFO] [1788096316.437134169] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 361.261 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 368.441 ms
+[gazebo-1] [INFO] [1788096316.905011295] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 370.711 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.287 ms
+[gazebo-1] [INFO] [1788096317.319667545] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.281 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 353.334 ms
+[gazebo-1] [INFO] [1788096317.786327045] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 355.908 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 323.989 ms
+[gazebo-1] [INFO] [1788096318.212881004] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.270 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 319.730 ms
+[gazebo-1] [INFO] [1788096318.737645670] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.613 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 500.524 ms
+[gazebo-1] [INFO] [1788096319.348424754] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 503.570 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 329.205 ms
+[gazebo-1] [INFO] [1788096319.788823046] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 331.740 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 303.366 ms
+[gazebo-1] [sonar_wgpu] GPU #100   |  303.4 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096320.189135713] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 305.443 [ms]
+[gazebo-1]
+[mavros_node-7] [WARN] [1788096320.370463505] [mavros.global_position]: GP: No GPS fix
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.882 ms
+[gazebo-1] [INFO] [1788096320.590500880] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.785 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 325.700 ms
+[gazebo-1] [INFO] [1788096321.157754838] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 327.982 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.234 ms
+[gazebo-1] [INFO] [1788096321.556970463] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.427 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.795 ms
+[gazebo-1] [INFO] [1788096321.981214089] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 331.454 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 377.510 ms
+[gazebo-1] [INFO] [1788096322.463533131] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 380.085 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 360.592 ms
+[gazebo-1] [INFO] [1788096322.930660089] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 362.984 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 344.788 ms
+[gazebo-1] [INFO] [1788096323.487003131] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 346.988 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 336.856 ms
+[gazebo-1] [INFO] [1788096323.924058381] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 338.980 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 314.548 ms
+[gazebo-1] [INFO] [1788096324.337288798] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 316.524 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 309.400 ms
+[gazebo-1] [INFO] [1788096324.742545757] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 311.295 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 378.924 ms
+[gazebo-1] [INFO] [1788096325.234374632] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 381.992 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 349.124 ms
+[gazebo-1] [INFO] [1788096325.837616507] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 351.979 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 331.912 ms
+[gazebo-1] [INFO] [1788096326.280459549] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 335.465 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.714 ms
+[gazebo-1] [INFO] [1788096326.698513758] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.444 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 294.090 ms
+[gazebo-1] [INFO] [1788096327.090411424] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 296.310 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 345.374 ms
+[gazebo-1] [INFO] [1788096327.540156883] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 347.293 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 333.751 ms
+[gazebo-1] [INFO] [1788096328.125058883] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 336.252 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.040 ms
+[gazebo-1] [INFO] [1788096328.542936133] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.550 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.004 ms
+[gazebo-1] [INFO] [1788096328.949963384] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.030 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 293.651 ms
+[gazebo-1] [INFO] [1788096329.346500967] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 295.562 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096329.471033801] [mavros.sys]: FCU: GPS 1: detected as u-blox at 230400 baud
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.474 ms
+[gazebo-1] [INFO] [1788096329.749973634] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.432 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 326.495 ms
+[gazebo-1] [INFO] [1788096330.315371926] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 328.508 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 323.134 ms
+[gazebo-1] [INFO] [1788096330.738267760] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 325.360 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.364 ms
+[gazebo-1] [INFO] [1788096331.163503843] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.273 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 418.566 ms
+[gazebo-1] [INFO] [1788096331.691467968] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 421.151 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 382.537 ms
+[gazebo-1] [INFO] [1788096332.226061594] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 385.071 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 332.225 ms
+[gazebo-1] [INFO] [1788096332.796660552] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 334.245 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.273 ms
+[gazebo-1] [INFO] [1788096333.225486594] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 319.616 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 289.132 ms
+[gazebo-1] [INFO] [1788096333.610779094] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 291.146 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.462 ms
+[gazebo-1] [INFO] [1788096334.022192803] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 316.462 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 363.479 ms
+[gazebo-1] [INFO] [1788096334.500609761] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 365.754 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 393.368 ms
+[gazebo-1] [INFO] [1788096335.189001345] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 396.358 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 344.753 ms
+[gazebo-1] [INFO] [1788096335.646295887] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 347.476 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.028 ms
+[gazebo-1] [INFO] [1788096336.072512595] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.703 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.437 ms
+[gazebo-1] [INFO] [1788096336.470311596] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.449 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.479 ms
+[gazebo-1] [INFO] [1788096336.864214762] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.412 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 377.295 ms
+[gazebo-1] [INFO] [1788096337.448279388] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 379.362 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.963 ms
+[gazebo-1] [INFO] [1788096337.871199180] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.262 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 308.604 ms
+[gazebo-1] [INFO] [1788096338.279502430] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.486 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 309.350 ms
+[gazebo-1] [INFO] [1788096338.684624430] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 311.303 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 313.216 ms
+[gazebo-1] [INFO] [1788096339.100049347] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 315.482 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 367.804 ms
+[gazebo-1] [INFO] [1788096339.707736389] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 370.679 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 331.667 ms
+[gazebo-1] [INFO] [1788096340.149603125] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 333.844 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.126 ms
+[gazebo-1] [INFO] [1788096340.563763625] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.106 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 293.442 ms
+[gazebo-1] [INFO] [1788096340.953684417] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 295.662 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 282.857 ms
+[gazebo-1] [INFO] [1788096341.330499500] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 284.903 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 320.828 ms
+[gazebo-1] [INFO] [1788096341.861737917] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 322.756 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 310.735 ms
+[gazebo-1] [INFO] [1788096342.272997751] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 312.842 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 320.056 ms
+[gazebo-1] [INFO] [1788096342.689193334] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 322.048 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 357.055 ms
+[gazebo-1] [sonar_wgpu] GPU #150   |  357.1 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096343.148334543] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 360.097 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 369.367 ms
+[gazebo-1] [INFO] [1788096343.618628085] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 371.865 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.803 ms
+[gazebo-1] [INFO] [1788096344.147797877] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.704 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.195 ms
+[gazebo-1] [INFO] [1788096344.571431460] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.353 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.772 ms
+[gazebo-1] [INFO] [1788096344.984831585] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.941 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 294.704 ms
+[gazebo-1] [INFO] [1788096345.371127669] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 296.772 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 308.712 ms
+[gazebo-1] [INFO] [1788096345.774294794] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.654 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 314.199 ms
+[gazebo-1] [INFO] [1788096346.302918003] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 316.460 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 325.773 ms
+[gazebo-1] [INFO] [1788096346.745950420] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 328.159 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 288.338 ms
+[gazebo-1] [INFO] [1788096347.131075128] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.570 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 418.744 ms
+[gazebo-1] [INFO] [1788096347.649945045] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 420.849 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 370.658 ms
+[gazebo-1] [INFO] [1788096348.159006295] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 374.978 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.418 ms
+[gazebo-1] [INFO] [1788096348.691346170] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.406 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.833 ms
+[gazebo-1] [INFO] [1788096349.094283087] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.723 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 303.285 ms
+[gazebo-1] [INFO] [1788096349.500897546] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 305.301 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 314.498 ms
+[gazebo-1] [INFO] [1788096349.912473213] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 316.584 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 330.962 ms
+[gazebo-1] [INFO] [1788096350.346623880] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 333.220 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 300.169 ms
+[gazebo-1] [INFO] [1788096350.856188171] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 302.116 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 299.156 ms
+[gazebo-1] [INFO] [1788096351.251378838] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 301.131 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 297.035 ms
+[gazebo-1] [INFO] [1788096351.642709130] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 299.357 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 291.715 ms
+[gazebo-1] [INFO] [1788096352.028857630] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 293.665 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 355.862 ms
+[gazebo-1] [INFO] [1788096352.487993381] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 358.109 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 435.150 ms
+[gazebo-1] [INFO] [1788096353.166376589] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 437.860 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 294.823 ms
+[gazebo-1] [INFO] [1788096353.565851339] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 297.020 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.851 ms
+[gazebo-1] [INFO] [1788096353.979732423] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 319.023 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 306.496 ms
+[gazebo-1] [INFO] [1788096354.384709090] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 308.508 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.020 ms
+[gazebo-1] [INFO] [1788096354.820975132] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 327.236 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 453.715 ms
+[gazebo-1] [INFO] [1788096355.523376049] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 456.460 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 312.522 ms
+[gazebo-1] [INFO] [1788096355.940784382] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.748 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 296.218 ms
+[gazebo-1] [INFO] [1788096356.336281924] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 298.146 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 310.492 ms
+[gazebo-1] [INFO] [1788096356.748717924] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 312.462 [ms]
+[gazebo-1]
+[mavros_node-7] [INFO] [1788096356.775964091] [mavros.sys]: FCU: Disarming motors
+[mavros_node-7] [WARN] [1788096356.777850174] [mavros.param]: PR: Param MOT_THST_HOVER (963/1364): 0.500000 different index: 65535/1368
+[gazebo-1] Total WGPU Calculation Wrapper Time: 360.123 ms
+[gazebo-1] [INFO] [1788096357.219216758] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 364.058 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 392.809 ms
+[gazebo-1] [INFO] [1788096357.855394383] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 396.497 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 318.973 ms
+[gazebo-1] [INFO] [1788096358.274978675] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 320.933 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 301.917 ms
+[gazebo-1] [INFO] [1788096358.676222509] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 303.872 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 295.832 ms
+[gazebo-1] [INFO] [1788096359.072836009] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 297.979 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 285.269 ms
+[gazebo-1] [INFO] [1788096359.463045384] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 287.215 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 381.986 ms
+[gazebo-1] [INFO] [1788096360.066732343] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 385.178 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 343.449 ms
+[gazebo-1] [INFO] [1788096360.527446343] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 345.902 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.168 ms
+[gazebo-1] [INFO] [1788096360.941665510] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 319.294 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 348.031 ms
+[gazebo-1] [INFO] [1788096361.425504135] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 350.528 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 427.835 ms
+[gazebo-1] [INFO] [1788096361.958556010] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 431.180 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 359.727 ms
+[gazebo-1] [INFO] [1788096362.553565385] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 365.331 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 547.712 ms
+[gazebo-1] [INFO] [1788096363.275226469] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 553.664 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 336.726 ms
+[gazebo-1] [INFO] [1788096363.720927969] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 339.228 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.919 ms
+[gazebo-1] [INFO] [1788096364.186259219] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 327.261 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 350.090 ms
+[gazebo-1] [INFO] [1788096364.634172220] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 352.684 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 399.297 ms
+[gazebo-1] [INFO] [1788096365.293475428] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 405.046 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.823 ms
+[gazebo-1] [INFO] [1788096365.712297804] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.996 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 324.356 ms
+[gazebo-1] [INFO] [1788096366.140906470] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.634 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 290.646 ms
+[gazebo-1] [sonar_wgpu] GPU #200   |  290.6 ms | 513 beams × 31 rays × 399 freq
+[gazebo-1] [INFO] [1788096366.524121346] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 292.649 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.327 ms
+[gazebo-1] [INFO] [1788096366.945161262] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.552 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 367.055 ms
+[gazebo-1] [INFO] [1788096367.522781054] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 369.526 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.243 ms
+[gazebo-1] [INFO] [1788096367.956728763] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 330.575 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 314.765 ms
+[gazebo-1] [INFO] [1788096368.374496513] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 317.022 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 310.235 ms
+[gazebo-1] [INFO] [1788096368.778233013] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 312.157 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 352.225 ms
+[gazebo-1] [INFO] [1788096369.233401972] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 354.524 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 298.818 ms
+[gazebo-1] [INFO] [1788096369.734221597] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 300.684 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.366 ms
+[gazebo-1] [INFO] [1788096370.148240666] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 313.821 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 381.034 ms
+[gazebo-1] [INFO] [1788096370.636338917] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 383.529 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 307.616 ms
+[gazebo-1] [INFO] [1788096371.049511875] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 309.916 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 300.103 ms
+[gazebo-1] [INFO] [1788096371.451317042] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 302.264 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 323.921 ms
+[gazebo-1] [INFO] [1788096371.982431626] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 326.005 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 325.101 ms
+[gazebo-1] [INFO] [1788096372.404976626] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 327.026 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 294.944 ms
+[gazebo-1] [INFO] [1788096372.795423876] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 296.887 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 289.033 ms
+[gazebo-1] [INFO] [1788096373.181256334] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 290.913 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 395.426 ms
+[gazebo-1] [INFO] [1788096373.677758668] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 397.718 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 331.050 ms
+[gazebo-1] [INFO] [1788096374.253891418] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 333.205 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 317.204 ms
+[gazebo-1] [INFO] [1788096374.672780460] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 319.431 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 372.044 ms
+[gazebo-1] [INFO] [1788096375.159553877] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 374.820 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 326.905 ms
+[gazebo-1] [INFO] [1788096375.590595252] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 329.420 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 321.084 ms
+[gazebo-1] [INFO] [1788096376.013933502] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 323.489 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 376.360 ms
+[gazebo-1] [INFO] [1788096376.629845878] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 379.252 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 325.723 ms
+[gazebo-1] [INFO] [1788096377.059581795] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 328.035 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 328.140 ms
+[gazebo-1] [INFO] [1788096377.488789045] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 330.729 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 395.801 ms
+[gazebo-1] [INFO] [1788096377.986330628] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 398.465 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 308.887 ms
+[gazebo-1] [INFO] [1788096378.390531254] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 310.903 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 506.648 ms
+[gazebo-1] [INFO] [1788096379.235509421] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 518.032 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 379.683 ms
+[gazebo-1] [INFO] [1788096379.722485129] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 381.983 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 340.399 ms
+[gazebo-1] [INFO] [1788096380.167264713] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 343.154 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 364.166 ms
+[gazebo-1] [INFO] [1788096380.631732713] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 366.289 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 319.401 ms
+[gazebo-1] [INFO] [1788096381.052808422] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 321.731 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 281.047 ms
+[gazebo-1] [INFO] [1788096381.542517838] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 282.954 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 338.764 ms
+[gazebo-1] [INFO] [1788096381.975352880] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 340.594 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 1101.076 ms
+[gazebo-1] [INFO] [1788096383.182167798] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 1106.950 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 382.915 ms
+[gazebo-1] [INFO] [1788096383.702428506] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 392.413 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 374.237 ms
+[gazebo-1] [INFO] [1788096384.195811923] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 376.353 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 316.167 ms
+[gazebo-1] [INFO] [1788096384.742321048] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 318.266 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 304.352 ms
+[gazebo-1] [INFO] [1788096385.146324174] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 306.247 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 341.703 ms
+[gazebo-1] [INFO] [1788096385.587241215] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 343.636 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 416.527 ms
+[gazebo-1] [INFO] [1788096386.134439174] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 418.707 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 329.136 ms
+[gazebo-1] [INFO] [1788096386.576508966] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 331.366 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 322.090 ms
+[gazebo-1] [INFO] [1788096387.121125508] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 325.106 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 296.937 ms
+[gazebo-1] [INFO] [1788096387.520235091] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 298.880 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 311.886 ms
+[gazebo-1] [INFO] [1788096387.925441966] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 314.109 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 303.001 ms
+[gazebo-1] [INFO] [1788096388.330219800] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 304.872 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 364.670 ms
+[gazebo-1] [INFO] [1788096388.796308634] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 367.116 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 290.558 ms
+[gazebo-1] [INFO] [1788096389.325288009] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 292.901 [ms]
+[gazebo-1]
+[gazebo-1] Total WGPU Calculation Wrapper Time: 347.712 ms
+[gazebo-1] [INFO] [1788096389.773190717] [multibeam_sonar_node]: wgpu Sonar Frame Calc Time 350.048 [ms]
+[gazebo-1]
+This event loop is already running

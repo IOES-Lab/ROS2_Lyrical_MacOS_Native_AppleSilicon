@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<sdf version="1.10"><world name="baseline">
+  <physics name="fast" type="ignored"><max_step_size>0.01</max_step_size><real_time_factor>100</real_time_factor></physics>
+  <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+  <plugin filename="OceanCurrentWorldPlugin" name="dave_gz_world_plugins::OceanCurrentWorldPlugin">
+    <namespace>hydrodynamics</namespace>
+    <constant_current><use_constant_current>true</use_constant_current><topic>ocean_current</topic>
+      <velocity><mean>1</mean><min>0</min><max>2</max><mu>0.0</mu><noiseAmp>0.0</noiseAmp></velocity>
+      <horizontal_angle><mean>0</mean><min>-3.141592653589793</min><max>3.141592653589793</max><mu>0.0</mu><noiseAmp>0.0</noiseAmp></horizontal_angle>
+      <vertical_angle><mean>0</mean><min>-1.5</min><max>1.5</max><mu>0.0</mu><noiseAmp>0.0</noiseAmp></vertical_angle>
+    </constant_current>
+    <transient_current><topic_stratified>stratified_current_velocity</topic_stratified><databasefileName>transientOceanCurrentDatabase.csv</databasefileName></transient_current>
+  </plugin>
+  <plugin filename="OceanCurrentPlugin" name="dave_ros_gz_plugins::OceanCurrentPlugin"><namespace>hydrodynamics</namespace></plugin>
+</world></sdf>

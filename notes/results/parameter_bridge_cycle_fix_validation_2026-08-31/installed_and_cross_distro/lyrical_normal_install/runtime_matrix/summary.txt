@@ -1,0 +1,3 @@
+topic=8/8
+service=1/1
+installed_prefix=/home/docker/bridge_normal_ws/install/ros_gz_bridge

@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS within the bounded synthetic scope",
+  "seapressure": {
+    "verdict": "PASS",
+    "simultaneous_devices": 7,
+    "maximum_sim_duration_s": 199.79999999999998,
+    "noise_frames": 2000,
+    "checks": {
+      "all_targets_met": true,
+      "seven_devices_simultaneous": true,
+      "noise_mean_within_15pa": true,
+      "noise_stdev_within_10pct": true,
+      "noise_variance_exact": true,
+      "noise_all_unique": true,
+      "rate_2hz": true,
+      "surface_10hz": true,
+      "surface_exact": true,
+      "depth_exact": true,
+      "saturation_exact": true
+    }
+  },
+  "dvl": {
+    "verdict": "PASS",
+    "simultaneous_devices": 8,
+    "total_messages": 160,
+    "checks": {
+      "all_eight_reached_target": true,
+      "all_four_beams": true,
+      "all_bottom_lock": true,
+      "all_nonempty_frame_ids": true,
+      "eight_distinct_frame_ids": true,
+      "all_rates_match_descriptor": true
+    }
+  },
+  "limitations": [
+    "Single Docker run per sensor family.",
+    "Synthetic oracles; no physical calibration.",
+    "Bounded duration/message counts, not mission endurance.",
+    "The DVL simulator teardown defect is tracked separately and occurred after successful capture."
+  ]
+}

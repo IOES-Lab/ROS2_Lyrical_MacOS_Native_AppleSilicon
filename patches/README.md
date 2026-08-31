@@ -1,6 +1,6 @@
 # What was changed
 
-Eighteen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
+Nineteen retained patches describe the tested ROS 2 Lyrical / Gazebo Jetty port and the defects
 found while directly validating it. **They are not all independent and they are not applied
 upstream.** The ten dated 2026-08-29 candidates were generated against the tested local
 migration baseline: PR #44 commit `6aef91c` plus the existing migration/runtime fixes already
@@ -51,7 +51,7 @@ on Docker `llvmpipe`; those two candidate scopes must not be merged.
 | Patch | Scope | Validation |
 |---|---|---|
 | [`gz_sim_macos_dvl_force_render_init.diff`](gz_sim_macos_dvl_force_render_init.diff) | Initialize DVL `forceUpdate` rendering on the Apple main thread and prevent the parallel `PostUpdate` handoff from winning the race | Exact `gz-sim10_10.4.0`: stock control exit 139; predicate-only v1 rejected at 9/10; v2 official DVL 20/20, standard camera 3/3, no-render Sensors 3/3, ROS bridge four valid beams |
-| [`multibeam_defer_backend_until_compute_fix.diff`](multibeam_defer_backend_until_compute_fix.diff) | Defer sonar backend creation and its WGPU probe until the first populated `GpuRays` frame is handled on the existing compute thread; disable unused ROS parameter services and event publisher on the plugin node | Distributed baseline minimal sonar exits 139 on Docker software WGPU; render-callback v3 was rejected after reproducing the crash; retained v5 publishes 513×301 PointCloud2 and 513×399 raw sonar in Docker WGPU 2/2, auto 1/1 and CPU 1/1 controls, then passes one Heavy sonar+MAVROS arm/control/disarm run on `llvmpipe`. The same library selects Apple M2 Metal and computes frames without a crash on Mac, but that run did not add a fresh ROS payload capture |
+| [`multibeam_defer_backend_until_compute_fix.diff`](multibeam_defer_backend_until_compute_fix.diff) | Defer sonar backend creation and its WGPU probe until the first populated `GpuRays` frame is handled on the existing compute thread; disable unused ROS parameter services and event publisher on the plugin node | Distributed baseline minimal sonar exits 139 on Docker software WGPU; render-callback v3 was rejected after reproducing the crash. Retained v5 passes 20/20 fresh Docker `llvmpipe` WGPU cold starts with 513×301 PointCloud2 and 513×399 raw sonar, plus 3/3 Heavy+MAVROS arm/control/disarm repetitions. A bounded 1,861 s software-WGPU soak retained point/raw output at both ends, advanced 3,850 WGPU frames and showed no runtime stack trace. Its original process-group series exposed a separate shutdown-only `parameter_bridge` exit -11 in 7/10; that historical result is superseded by the 2026-08-31 bridge candidate below. The same library selects Apple M2 Metal and computes frames without a crash on Mac, but that run did not add a fresh ROS payload capture |
 
 The DVL patch targets upstream `gz-sim`, not DAVE. It was built and run in an isolated exact-tag tree
 and was not installed into Homebrew or submitted upstream. Full provenance, the rejected candidate,
@@ -63,16 +63,30 @@ candidate: it has not been applied to the user's installed workspace or submitte
 baseline reproduction, rejected render-callback candidate, Docker backend matrix, Heavy integrated
 control and scoped Mac Metal run are in
 [`../notes/results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/`](../notes/results/multibeam_llvmpipe_deferred_backend_candidate_2026-08-30/).
+The 20-start extension, three Heavy repetitions, valid process-group shutdown series and bounded
+software-WGPU soak are recorded separately in
+[`../notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/`](../notes/results/multibeam_deferred_backend_extended_validation_2026-08-30/).
+
+## 2026-08-31 isolated bridge candidate
+
+| Patch | Scope | Validation |
+|---|---|---|
+| [`ros_gz_bridge_handle_cycle_fix.diff`](ros_gz_bridge_handle_cycle_fix.diff) | Replace each `BridgeHandle`'s strong owner-node back-reference with `rclcpp::Node::WeakPtr`, breaking the `RosGzBridge -> handles_ -> BridgeHandle -> RosGzBridge` ownership cycle | Built from exact `ros_gz` tag `3.0.9`. Against the baseline DAVE-sonar teardown failure (group shutdown 9/10 exit -11), the candidate gives bridge-first 20/20 clean and process-group shutdown 10/10 rc0 with PointCloud/raw payloads throughout. Direct ROS→GZ passes 20/20; stock active camera and PointCloud GZ→ROS controls pass 5/5 each. The constrained upstream package build succeeded and 17/18 CTest targets passed; only remote-schema `xmllint` timed out, while exact XML validation passed with the canonical schema supplied locally. The patch reconstructs the four modified files exactly. A normal isolated Lyrical install passes 8/8 topics, 1/1 ControlWorld service and active teardown 10/10; equivalent ARM64 Jazzy/Kilted branch-local builds each pass 8/8+1/1 with clean bridge exit |
+
+The bridge patch targets upstream `ros_gz`, not DAVE. It is an isolated Docker-overlay candidate,
+validated through a normal isolated install but not merged upstream or installed into the user's ordinary workspaces. Root-cause analysis, rejected harnesses, build hashes and every
+retained repetition are in
+[`../notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/`](../notes/results/parameter_bridge_cycle_fix_validation_2026-08-31/).
 
 ## What remains outside these patches
 
 - upstream review, merge and installed distribution of the validated Mac Gazebo Sensors DVL candidate
 - upstream review, installation and independent reproduction of the isolated multibeam deferred-backend candidate
 - NVIDIA CUDA / Docker hardware GPU, Windows/WSL and physical HIL
-- default RViz Mac window creation; the shutdown-only `parameter_bridge` SIGSEGV seen after some bounded sonar runs
+- default RViz Mac window creation; upstream submission/maintainer review/merge, ordinary-workspace installation, Humble runtime, x86_64 and exhaustive message/service coverage for the validated parameter_bridge ownership-cycle candidate (read-only duplicate/template review complete)
 - QGroundControl's retained DailyBuild default AppRun crash without `QGC_NO_SYSTEM_GLIB=1`
 - Fuel immutable content pin/account upload
-- general acoustic, optical, hydrodynamic and long-duration scientific accuracy
+- general acoustic, optical and hydrodynamic scientific accuracy; hardware-backed long-duration behavior
 - upstream submission, repository naming, licensing and research-direction decisions
 
 See [`../notes/next-steps.md`](../notes/next-steps.md). A scoped runtime fix is not evidence for

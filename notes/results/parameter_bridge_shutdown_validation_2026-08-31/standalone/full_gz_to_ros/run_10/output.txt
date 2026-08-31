@@ -1,0 +1,8 @@
+[INFO] [1788132086.548337292] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera (gz.msgs.Image) -> /sensor/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[INFO] [1788132086.551464876] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/camera_info (gz.msgs.CameraInfo) -> /sensor/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[INFO] [1788132086.551771584] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/depth_camera (gz.msgs.Image) -> /sensor/depth_camera (sensor_msgs/msg/Image)] (Lazy 0)
+[INFO] [1788132086.551957542] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/sensor/multibeam_sonar/point_cloud (gz.msgs.PointCloudPacked) -> /sensor/multibeam_sonar/point_cloud (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788132089.261599710] [rclcpp]: signal_handler(signum=2)
+[INFO] [1788132089.263372710] [rclcpp]: signal_handler(signum=2)
+__RESULT__ rc=0 escalation=none

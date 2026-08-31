@@ -1,0 +1,4 @@
+ROS_DISTRO=jazzy
+ARCH=arm64
+BIN=/ws2/install/ros_gz_bridge/lib/ros_gz_bridge/parameter_bridge
+PREFIX=/ws2/install/ros_gz_bridge

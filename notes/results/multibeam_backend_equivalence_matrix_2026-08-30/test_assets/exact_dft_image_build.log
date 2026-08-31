@@ -1,0 +1,80 @@
+1:// Exact DFT for non-power-of-two inputs and Cooley-Tukey FFT for power-of-two inputs.
+Starting >>> multibeam_sonar
+--- stderr: multibeam_sonar
+/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc: In member function ‘bool gz::sensors::MultibeamSonarSensor::Implementation::InitializeBeamArrangement(gz::sensors::MultibeamSonarSensor*)’:
+/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:504:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  504 |       system("rm SonarRawData*.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:508:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  508 |       system("rm SonarRawData_beam_angles.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+Finished <<< multibeam_sonar [25.6s]
+
+Summary: 1 package finished [25.8s]
+  1 package had stderr output: multibeam_sonar
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling bitflags v2.11.0
+   Compiling cfg-if v1.0.4
+   Compiling cfg_aliases v0.1.1
+   Compiling libc v0.2.183
+   Compiling autocfg v1.5.0
+   Compiling thiserror v1.0.69
+   Compiling parking_lot_core v0.9.12
+   Compiling hashbrown v0.16.1
+   Compiling foldhash v0.1.5
+   Compiling khronos-egl v6.0.0
+   Compiling ash v0.37.3+1.3.251
+   Compiling num-traits v0.2.19
+   Compiling unicode-width v0.1.14
+   Compiling termcolor v1.4.1
+   Compiling scopeguard v1.2.0
+   Compiling equivalent v1.0.2
+   Compiling bit-vec v0.6.3
+   Compiling smallvec v1.15.1
+   Compiling lock_api v0.4.14
+   Compiling bit-set v0.5.3
+   Compiling codespan-reporting v0.11.1
+   Compiling indexmap v2.13.0
+   Compiling hashbrown v0.15.5
+   Compiling gpu-descriptor-types v0.2.0
+   Compiling gpu-alloc-types v0.3.0
+   Compiling spirv v0.3.0+sdk-1.3.268.0
+   Compiling wgpu-hal v0.21.1
+   Compiling syn v2.0.117
+   Compiling libloading v0.8.9
+   Compiling libloading v0.7.4
+   Compiling rustc-hash v1.1.0
+   Compiling log v0.4.29
+   Compiling unicode-xid v0.2.6
+   Compiling arrayvec v0.7.6
+   Compiling hexf-parse v0.2.1
+   Compiling gpu-descriptor v0.3.2
+   Compiling parking_lot v0.12.5
+   Compiling gpu-alloc v0.6.0
+   Compiling wgpu-types v0.20.0
+   Compiling wgpu-core v0.21.1
+   Compiling litrs v1.0.0
+   Compiling once_cell v1.21.3
+   Compiling profiling v1.0.17
+   Compiling raw-window-handle v0.6.2
+   Compiling renderdoc-sys v1.1.0
+   Compiling glow v0.13.1
+   Compiling wgpu v0.20.1
+   Compiling static_assertions v1.1.0
+   Compiling document-features v0.2.12
+   Compiling pollster v0.3.0
+   Compiling thiserror-impl v1.0.69
+   Compiling bytemuck_derive v1.10.2
+   Compiling bytemuck v1.25.0
+   Compiling naga v0.20.0
+   Compiling sonar_wgpu v0.1.0 (/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust)
+    Finished `release` profile [optimized] target(s) in 1m 11s
+     Running unittests src/lib.rs (src/dave/gazebo/dave_gz_multibeam_sonar/wgpu_vendor/sonar_wgpu_rust/target/release/deps/sonar_wgpu-9a88763a8fa39ef4)
+
+running 1 test
+test tests::oversized_frequency_count_returns_before_gpu_initialization ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

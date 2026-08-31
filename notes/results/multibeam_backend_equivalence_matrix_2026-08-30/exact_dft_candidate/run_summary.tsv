@@ -1,0 +1,7 @@
+case	seconds	ready	capture_rc	launch_rc	segfault
+plane_2m_dark	21	1	0	124	0
+plane_4m_dark	21	1	0	124	0
+plane_4m_bright	19	1	0	124	0
+plane_7m_dark	17	1	0	124	0
+sphere_4m_bright	18	1	0	124	0
+cylinder_4m_bright	18	1	0	124	0

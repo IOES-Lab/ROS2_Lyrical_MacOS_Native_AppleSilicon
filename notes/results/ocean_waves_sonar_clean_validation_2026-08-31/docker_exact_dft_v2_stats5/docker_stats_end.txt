@@ -1,0 +1,2 @@
+CONTAINER ID   NAME                          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+04359c9efb98   integrated-sonar-wgpu-22847   667.71%   1.116GiB / 11.67GiB   9.57%     86.7MB / 50.7MB   2.74MB / 38.1MB   134

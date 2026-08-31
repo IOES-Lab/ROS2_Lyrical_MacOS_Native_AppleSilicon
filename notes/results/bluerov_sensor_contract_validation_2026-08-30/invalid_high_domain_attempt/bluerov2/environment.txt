@@ -1,0 +1,5 @@
+variant=bluerov2
+backend=auto
+image=dave-sonar-deferred-compute-test:20260830
+ROS_DOMAIN_ID=237
+GZ_PARTITION=sensor_audit_bluerov2_96177

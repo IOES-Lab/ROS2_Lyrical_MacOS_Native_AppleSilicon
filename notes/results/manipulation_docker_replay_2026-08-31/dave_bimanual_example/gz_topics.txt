@@ -1,0 +1,5 @@
+/clock
+/gazebo/resource_paths
+/stats
+/world/dave_bimanual_example/clock
+/world/dave_bimanual_example/stats

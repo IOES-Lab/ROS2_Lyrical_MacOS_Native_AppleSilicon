@@ -1,5 +1,7 @@
 # OceanCurrentModelPlugin direct validation — 2026-08-25
 
+> **Current update — 2026-08-31.** The final limit below is the scope of this 2026-08-25 run. Later synthetic controls directly exercised 400-sample Gauss–Markov variation and the documented per-model tidal path (200 no-tide plus 200 tide-enabled messages). Those later controls supersede only the old tide/non-zero-noise gap; mission endurance and real-ocean accuracy remain open. See [`../ocean_current_tidal_noise_validation_2026-08-31/`](../ocean_current_tidal_noise_validation_2026-08-31/).
+
 ## Verdict
 
 **FUNCTIONAL PASS**, within the recorded scope.

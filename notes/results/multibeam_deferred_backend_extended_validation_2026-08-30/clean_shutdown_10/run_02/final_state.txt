@@ -1,0 +1,4 @@
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       1.8Gi       4.7Gi        25Mi       5.4Gi       9.9Gi
+Swap:          1.0Gi       118Mi       905Mi
+   45     1 Sl   parameter_bridg /opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /sensor/camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo /sensor/depth_camera@sensor_msgs/msg/Image@gz.msgs.Image /sensor/multibeam_sonar/point_cloud@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked --ros-args

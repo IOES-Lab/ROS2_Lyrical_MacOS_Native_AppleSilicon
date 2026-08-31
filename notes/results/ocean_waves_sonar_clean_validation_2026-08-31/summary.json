@@ -1,0 +1,23 @@
+{
+  "verdict": "FUNCTIONAL PASS in isolated Docker exact-N candidate/output scope",
+  "world_file": "dave_ocean_waves_sonar.world",
+  "sdf_world": "oceans_waves",
+  "image": "dave-sonar-equivalence-exact-dft-v2:20260830",
+  "renderer_compute_adapter": "Vulkan llvmpipe software adapter",
+  "backend_ready": true,
+  "pointcloud_513x301_frames": 3,
+  "raw_sonar_513x399_frames": 3,
+  "runtime_stack_trace": false,
+  "stats_messages": 5,
+  "iterations_increase_across_stats_sample": 99,
+  "median_delta_rtf": 0.19489243163946784,
+  "median_reported_rtf_field": 0.011295914404440478,
+  "first_probe_ms": 99743.2,
+  "frame_100_ms": 527.9,
+  "limits": [
+    "isolated candidate, not distributed installation",
+    "software llvmpipe, not hardware GPU",
+    "one bounded run plus one preliminary repeat",
+    "payload and progress, not general acoustic accuracy"
+  ]
+}

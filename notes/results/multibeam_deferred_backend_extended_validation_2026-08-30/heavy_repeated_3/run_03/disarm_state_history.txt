@@ -1,0 +1,132 @@
+header:
+  stamp:
+    sec: 1788096330
+    nanosec: 506635884
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096330
+    nanosec: 506635884
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096330
+    nanosec: 506635884
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096337
+    nanosec: 961956930
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096337
+    nanosec: 961956930
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096344
+    nanosec: 661560544
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096344
+    nanosec: 661560544
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096344
+    nanosec: 661560544
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096316
+    nanosec: 946998753
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096351
+    nanosec: 813802172
+  frame_id: ''
+connected: true
+armed: true
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 4
+---
+header:
+  stamp:
+    sec: 1788096358
+    nanosec: 824113300
+  frame_id: ''
+connected: true
+armed: false
+guided: false
+manual_input: true
+mode: MANUAL
+system_status: 3
+---

@@ -1,0 +1,4 @@
+[INFO] [1788100145.473664011] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2_heavy_multibeam_sonar/camera (gz.msgs.Image) -> /model/bluerov2_heavy_multibeam_sonar/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788100311.030629629] [rclcpp]: signal_handler(signum=2)
+[ros2run]: Segmentation fault

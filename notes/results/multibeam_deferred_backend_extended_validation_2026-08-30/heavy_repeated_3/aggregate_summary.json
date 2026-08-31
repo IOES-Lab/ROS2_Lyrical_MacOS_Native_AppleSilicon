@@ -1,0 +1,14 @@
+{
+  "runs": 3,
+  "full_functional_passes": 3,
+  "x_deltas_m": [
+    0.6870045356158818,
+    0.6243383457028298,
+    0.6671255212314618
+  ],
+  "x_delta_median_m": 0.6671255212314618,
+  "bridge_exit_minus_11_runs": [
+    "run_01",
+    "run_02"
+  ]
+}

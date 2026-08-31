@@ -1,0 +1,6 @@
+# Invalid host attempt
+
+The 2026-08-31 host stress attempt is excluded from all counts. Gazebo never
+started because the Homebrew `gz-sim-main` binary requested a removed
+`libswscale.9.dylib` ABI. The harness was stopped before any test phase ran.
+The Docker replay is the valid test for this directory.

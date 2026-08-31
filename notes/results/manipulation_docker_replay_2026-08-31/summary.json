@@ -1,0 +1,38 @@
+{
+  "verdict": "SMOKE PASS for all three Docker world-level replays",
+  "candidate": "dave_world.launch.py always starts Gazebo; gui:=false selects server-only mode",
+  "runs": [
+    {
+      "world": "dave_bimanual_example",
+      "sdf_world": "dave_bimanual_example",
+      "stats_messages": "5",
+      "iteration_increase": "356",
+      "launch_alive": "1",
+      "stack_trace": "0",
+      "launch_rc": "0"
+    },
+    {
+      "world": "dave_electrical_mating",
+      "sdf_world": "dave_electrical_mating",
+      "stats_messages": "5",
+      "iteration_increase": "389",
+      "launch_alive": "1",
+      "stack_trace": "0",
+      "launch_rc": "0"
+    },
+    {
+      "world": "dave_plug_and_socket",
+      "sdf_world": "dave_plug_and_socket",
+      "stats_messages": "5",
+      "iteration_increase": "302",
+      "launch_alive": "1",
+      "stack_trace": "0",
+      "launch_rc": "0"
+    }
+  ],
+  "all_stats_5": true,
+  "all_iterations_progressed": true,
+  "all_alive_before_bounded_shutdown": true,
+  "runtime_stack_traces": 0,
+  "scope": "world launch and simulation progress only; these static prop worlds do not include a manipulation robot, task controller, or functional sensor oracle"
+}

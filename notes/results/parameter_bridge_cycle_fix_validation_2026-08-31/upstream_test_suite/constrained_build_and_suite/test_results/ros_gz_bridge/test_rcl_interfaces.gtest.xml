@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="20" failures="0" disabled="0" errors="0" time="0." timestamp="2026-08-31T06:17:59.373" name="AllTests">
+  <testsuite name="RosToGzTest" tests="10" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-08-31T06:17:59.373">
+    <testcase name="NotSet" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="36" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="Boolean" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="43" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="Integer" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="52" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="Double" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="76" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="String" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="85" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="ByteArray" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="94" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="BoolArray" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="101" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="IntegerArray" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="108" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="DoubleArray" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="115" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+    <testcase name="StringArray" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="122" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.RosToGzTest" />
+  </testsuite>
+  <testsuite name="GzToRosTest" tests="10" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-08-31T06:17:59.373">
+    <testcase name="None" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="131" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Double" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="138" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Int32" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="147" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="String" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="156" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Boolean" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="165" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Vector3d" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="174" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Color" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="181" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Pose3d" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="188" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Quaterniond" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="195" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+    <testcase name="Time" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/src/convert/rcl_interfaces_TEST.cpp" line="202" status="run" result="completed" time="0." timestamp="2026-08-31T06:17:59.373" classname="ros_gz_bridge.GzToRosTest" />
+  </testsuite>
+</testsuites>

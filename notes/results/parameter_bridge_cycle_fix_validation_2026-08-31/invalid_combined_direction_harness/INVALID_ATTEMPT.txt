@@ -1,0 +1,7 @@
+INVALID / INTERRUPTED ATTEMPT — excluded from the verdict.
+
+This first direct-executable combined-direction harness used a ROS CLI echo
+wrapped by `timeout`. One discovery miss left the timeout wrapper waiting on a
+defunct CLI child, so the batch was manually stopped after partial rows. The
+valid replacement separates directions: DAVE and stock GZ->ROS payload tests,
+and 20 direct ROS->GZ payload/shutdown repetitions.

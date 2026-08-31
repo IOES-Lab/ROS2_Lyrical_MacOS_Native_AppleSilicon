@@ -1,0 +1,1291 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <world name="dvl_multi8">
+    <physics name="1ms" type="ignored"><max_step_size>0.001</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"><render_engine>ogre</render_engine></plugin>
+    <plugin filename="gz-sim-dvl-system" name="gz::sim::systems::DopplerVelocityLogSystem"/>
+    <light type="directional" name="sun"><direction>0 0 -1</direction><cast_shadows>false</cast_shadows></light>
+    <model name="bottom"><static>true</static><pose>0 0 -20.5 0 0 0</pose><link name="link"><collision name="collision"><geometry><box><size>100 100 1</size></box></geometry></collision><visual name="visual"><geometry><box><size>100 100 1</size></box></geometry></visual></link></model>
+
+    <model name="nortek_dvl500_300">
+          <pose>-12 -4 0 0 0 0</pose>
+        <link name="dvl500_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>3.5</mass>
+            <inertia>
+              <ixx>0.0195872</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.0195872</iyy>
+              <iyz>0</iyz>
+              <izz>0.0151357</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+          <velocity_decay/>
+
+          <sensor
+            name="nortek_dvl500_300" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>8</update_rate>
+            <topic>/dvl/nortek_dvl500_300</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>3</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>100.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.015</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.005</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>200.</maximum_range>
+              <minimum_range>0.3</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="dvl500_base_link_visual">
+            <pose>0 0 0 0 0 3.14159</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <!-- Mesh is actually for a Nortek DVL1000-4000m for now -->
+                <uri>model://meshes/nortek_dvl500_300/DVL500-300m.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="dvl500_base_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 0 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.093</radius>
+                <length>0.203</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/nortek_dvl500_300</topic>
+        </plugin>
+
+      </model>
+    <model name="nortek_dvl500_6000">
+          <pose>-4 -4 0 0 0 0</pose>
+        <link name="dvl500_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>3.1</mass>
+            <inertia>
+              <ixx>0.0330184</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.0330184</iyy>
+              <iyz>0</iyz>
+              <izz>0.0255146</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+          <velocity_decay/>
+
+          <sensor
+            name="nortek_dvl500_6000" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>8</update_rate>
+            <topic>/dvl/nortek_dvl500_6000</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>3</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>100.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.015</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.005</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>200.</maximum_range>
+              <minimum_range>0.3</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="dvl500_base_link_visual">
+            <pose>0 0 0 0 0 3.14159</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <!-- Mesh is actually for a Nortek DVL1000-4000m for now -->
+                <uri>model://meshes/nortek_dvl500_6000/DVL500-6000m.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="dvl500_base_link_fixed_joint_lump__dvl500_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 0 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.093</radius>
+                <length>0.203</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/nortek_dvl500_6000</topic>
+        </plugin>
+
+      </model>
+    <model name='nortek_dvl1000_300'>
+        <link name='dvl1000_base_link'>
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>1.3</mass>
+            <inertia>
+              <ixx>0.00376036</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00376036</iyy>
+              <iyz>0</iyz>
+              <izz>0.00211185</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+          <velocity_decay/>
+
+          <sensor
+            name="nortek_dvl1000_300" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>8</update_rate>
+            <topic>/dvl/nortek_dvl1000_300</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>3</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>75.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.015</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.015</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>75.</maximum_range>
+              <minimum_range>0.2</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name='dvl1000_base_link_visual'>
+            <pose>0 0 0 0 0 3.14159</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <!-- Mesh is actually for a Nortek DVL1000-4000m for now -->
+                <uri>model://meshes/nortek_dvl1000_300/DVL1000-300m.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name='dvl1000_base_link_collision'>
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 0 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.057</radius>
+                <length>0.158</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/nortek_dvl1000_300</topic>
+        </plugin>
+
+      </model>
+    <model name="nortek_dvl1000_4000">
+          <pose>12 -4 0 0 0 0</pose>
+        <link name="dvl1000_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>2.7</mass>
+            <inertia>
+              <ixx>0.00824467</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00824467</iyy>
+              <iyz>0</iyz>
+              <izz>0.00438615</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+          <velocity_decay/>
+
+          <sensor
+            name="nortek_dvl1000_4000" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>8</update_rate>
+            <topic>/dvl/nortek_dvl1000_4000</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>3</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>135</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+                <beam>
+                  <aperture>3</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>25</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>100.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.015</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.015</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>200.</maximum_range>
+              <minimum_range>0.3</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="dvl1000_base_link_visual">
+            <pose>0 0 0 0 0 3.14159</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://meshes/nortek_dvl1000_4000/DVL1000-4000m.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="dvl1000_base_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 0 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.057</radius>
+                <length>0.164</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/nortek_dvl1000_4000</topic>
+        </plugin>
+
+      </model>
+    <model name="sonardyne_syrinx600">
+          <pose>-12 4 0 0 0 0</pose>
+        <link name="syrinx600_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>12</mass>
+            <inertia>
+              <ixx>0.0736897</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.0736897</iyy>
+              <iyz>0</iyz>
+              <izz>0.0759375</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+          <velocity_decay/>
+
+          <sensor
+            name="sonardyne_syrinx600" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>8</update_rate>
+            <topic>/dvl/sonardyne_syrinx600</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>1.5</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>1.5</aperture>
+                  <rotation>135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>1.5</aperture>
+                  <rotation>45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>1.5</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>100.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.0044</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.0022</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>175.</maximum_range>
+              <minimum_range>0.4</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="syrinx600_base_link_visual">
+            <pose>0 0 0 0 0 3.14159</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <!-- Mesh is actually for a Nortek DVL1000-4000m for now -->
+                <uri>model://meshes/sonardyne_syrinx600/Syrinx600.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="syrinx600_base_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 0 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.1125</radius>
+                <length>0.189</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/sonardyne_syrinx600</topic>
+        </plugin>
+
+      </model>
+    <model name="teledyne_explorer1000">
+          <pose>-4 4 0 0 0 0</pose>
+        <link name="explorer_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>4.3</mass>
+            <inertia>
+              <ixx>0.0082646</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.0422145</iyy>
+              <iyz>0</iyz>
+              <izz>0.0422145</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+
+          <sensor
+            name="teledyne_explorer1000" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>12</update_rate>
+            <topic>/dvl/teledyne_explorer1000</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>2.2</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>2.2</aperture>
+                  <rotation>135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>2.2</aperture>
+                  <rotation>45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>2.2</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>81.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.048</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.018</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>81.</maximum_range>
+              <minimum_range>0.5</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="explorer_base_link_visual">
+            <pose>0 0 0 1.5708 0 1.5708</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://meshes/teledyne_explorer1000/MarineExplorer.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="explorer_base_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 -1.57079 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.062</radius>
+                <length>0.326</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/teledyne_explorer1000</topic>
+        </plugin>
+
+      </model>
+    <model name="teledyne_explorer4000">
+          <pose>4 4 0 0 0 0</pose>
+        <link name="explorer4000_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>8.6</mass>
+            <inertia>
+              <ixx>0.0219827</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.0957988</iyy>
+              <iyz>0</iyz>
+              <izz>0.0957988</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>1</gravity>
+          <velocity_decay/>
+
+          <sensor
+            name="teledyne_explorer4000" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>12</update_rate>
+            <topic>/dvl/teledyne_explorer4000</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>3.8</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>3.8</aperture>
+                  <rotation>135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>3.8</aperture>
+                  <rotation>45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>3.8</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>66.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.025</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.019</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>66.</maximum_range>
+              <minimum_range>0.5</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="explorer4000_base_link_visual">
+            <pose>0 0 0 1.5708 0 1.5708</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <!-- Mesh is actually for a Teledyne Explorer4000 for now -->
+                <uri>model://meshes/teledyne_explorer4000/MarineExplorer.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="explorer4000_base_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 3.14159 -1.57079 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.0715</radius>
+                <length>0.344</length>
+              </cylinder>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>1</mu>
+                  <mu2>1</mu2>
+                  <fdir1>0 0 0</fdir1>
+                  <slip1>0</slip1>
+                  <slip2>0</slip2>
+                </ode>
+                <torsional>
+                  <coefficient>1</coefficient>
+                  <patch_radius>0</patch_radius>
+                  <surface_radius>0</surface_radius>
+                  <use_patch_radius>1</use_patch_radius>
+                  <ode>
+                    <slip>0</slip>
+                  </ode>
+                </torsional>
+              </friction>
+              <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>1e+06</threshold>
+              </bounce>
+              <contact>
+                <collide_without_contact>0</collide_without_contact>
+                <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                <collide_bitmask>1</collide_bitmask>
+                <ode>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                  <max_vel>0.01</max_vel>
+                  <min_depth>0</min_depth>
+                </ode>
+                <bullet>
+                  <split_impulse>1</split_impulse>
+                  <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                  <soft_cfm>0</soft_cfm>
+                  <soft_erp>0.2</soft_erp>
+                  <kp>1e+13</kp>
+                  <kd>1</kd>
+                </bullet>
+              </contact>
+            </surface>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/teledyne_explorer4000</topic>
+        </plugin>
+
+      </model>
+    <model name="teledyne_whn">
+          <pose>12 4 0 0 0 0</pose>
+        <link name="whn_base_link">
+          <pose>0 0 0 0 0 0</pose>
+          <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>15.8</mass>
+            <inertia>
+              <ixx>0.1287917645</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.1287917645</iyy>
+              <iyz>0</iyz>
+              <izz>0.100162204</izz>
+            </inertia>
+          </inertial>
+          <velocity_decay/>
+          <gravity>0</gravity>
+
+          <sensor
+            name="teledyne_whn_dsl" type="custom"
+            gz:type="dvl">
+            <pose>0 0 0 0 0 0</pose>
+            <always_on>1</always_on>
+            <update_rate>7</update_rate>
+            <topic>/dvl/teledyne_whn</topic>
+            <gz:dvl>
+              <type>phased_array</type>
+              <arrangement degrees="true">
+                <beam id="1">
+                  <aperture>4</aperture>
+                  <rotation>-135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>4</aperture>
+                  <rotation>135</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>4</aperture>
+                  <rotation>45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+                <beam>
+                  <aperture>4</aperture>
+                  <rotation>-45</rotation>
+                  <tilt>30</tilt>
+                </beam>
+              </arrangement>
+              <tracking>
+                <water_mass_mode>
+                  <when>best</when>
+                  <water_velocity>
+                    <x>water_vx</x>
+                    <y>water_vy</y>
+                    <z>water_vz</z>
+                  </water_velocity>
+                  <boundaries>
+                    <near>10.</near>
+                    <far>90.</far>
+                  </boundaries>
+                  <bins>10</bins>
+                  <noise type="gaussian">
+                    <stddev>0.0075</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </water_mass_mode>
+                <bottom_mode>
+                  <when>best</when>
+                  <noise type="gaussian">
+                    <stddev>0.005</stddev>
+                  </noise>
+                  <visualize>true</visualize>
+                </bottom_mode>
+              </tracking>
+              <maximum_range>90.</maximum_range>
+              <minimum_range>0.7</minimum_range>
+              <!-- ENU to FSD -->
+              <reference_frame>0 0 0 3.14 0 -1.57</reference_frame>
+            </gz:dvl>
+          </sensor>
+
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+          <visual name="whn_base_link_visual">
+            <pose>0 0 0 0 3.141592653589793 0</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://meshes/teledyne_whn/WorkhorseNavigator.dae</uri>
+              </mesh>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <collision name="whn_base_link_collision">
+            <laser_retro>0</laser_retro>
+            <max_contacts>10</max_contacts>
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>
+              <cylinder>
+                <radius>0.1126</radius>
+                <length>0.2445</length>
+              </cylinder>
+            </geometry>
+          </collision>
+        </link>
+        <static>1</static>
+        <allow_auto_disable>1</allow_auto_disable>
+
+        <plugin
+          filename="DVLBridge"
+          name="dave_ros_gz_plugins::DVLBridge">
+          <topic>/dvl/teledyne_whn</topic>
+        </plugin>
+
+      </model>
+  </world>
+</sdf>

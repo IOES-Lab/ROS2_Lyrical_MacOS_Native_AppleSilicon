@@ -1,0 +1,16 @@
+Starting >>> multibeam_sonar
+Finished <<< multibeam_sonar [41.3s]
+--- stderr: multibeam_sonar
+/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc: In member function ‘bool gz::sensors::MultibeamSonarSensor::Implementation::InitializeBeamArrangement(gz::sensors::MultibeamSonarSensor*)’:
+/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:504:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  504 |       system("rm SonarRawData*.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/docker/dave_ws/src/dave/gazebo/dave_gz_multibeam_sonar/multibeam_sonar/MultibeamSonarSensor.cc:508:13: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  508 |       system("rm SonarRawData_beam_angles.csv");
+      |       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+
+Summary: 1 package finished [41.5s]
+  1 package had stderr output: multibeam_sonar
+1190:  input.frameIndex = 0;  // validation-only fixed random frame
+8ab28f879262bfa144217b530a12d4d1599c822f55c5eae9ab3d16d572fde579  install/lib/multibeam_sonar/libmultibeam_sonar.so

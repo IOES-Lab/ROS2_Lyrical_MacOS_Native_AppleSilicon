@@ -1,0 +1,64 @@
+header {
+  stamp {
+    sec: 97
+    nsec: 165000000
+  }
+  data {
+    key: "frame_id"
+    value: "bluerov2_heavy_multibeam_sonar::base_link::imu_sensor"
+  }
+  data {
+    key: "seq"
+    value: "86606"
+  }
+}
+entity_name: "bluerov2_heavy_multibeam_sonar::base_link::imu_sensor"
+orientation {
+  x: 2.15628848772151e-18
+  y: -8.187325940610572e-05
+  z: 3.3350806325817036e-08
+  w: 0.99999999664838413
+}
+orientation_covariance {
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+}
+angular_velocity {
+  x: 4.9249977532016574e-19
+  y: 0.00023283094026016232
+  z: -9.4842851737823282e-08
+}
+angular_velocity_covariance {
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+}
+linear_acceleration {
+  x: -0.0016537369734163424
+  y: -0.0040065807887693077
+  z: -9.8358067403395868
+}
+linear_acceleration_covariance {
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+  data: 0
+}

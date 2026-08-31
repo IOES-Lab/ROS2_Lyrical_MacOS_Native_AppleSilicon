@@ -1,0 +1,15 @@
+{
+  "case": "plane_4m_bright",
+  "cpu_algorithm": "deterministic beam/ray-index phase term; no seed/frame input",
+  "wgpu_algorithm": "Philox keyed by default seed 12345 and validation-only fixed frameIndex 0",
+  "shape": [
+    399,
+    513
+  ],
+  "finite_count": 69255,
+  "exact_equal": false,
+  "mae": 132.80292026006032,
+  "rmse": 133.7111500925457,
+  "max_abs": 254.15364265441895,
+  "conclusion": "Full raw arrays are not equivalent even after making WGPU repeatable. This is expected from the documented algorithm difference and is not a same-random-algorithm regression test."
+}

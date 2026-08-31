@@ -1,0 +1,3 @@
+[INFO] [1788099857.991577419] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/bluerov2/camera (gz.msgs.Image) -> /model/bluerov2/camera (sensor_msgs/msg/Image)] (Lazy 0)
+[ros2run]: Received signal:  Interrupt
+[INFO] [1788099932.582839551] [rclcpp]: signal_handler(signum=2)

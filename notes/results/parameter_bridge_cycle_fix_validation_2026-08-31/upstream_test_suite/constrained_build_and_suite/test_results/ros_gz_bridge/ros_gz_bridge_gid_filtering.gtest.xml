@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="3" failures="0" disabled="0" errors="0" time="0.477" timestamp="2026-08-31T06:18:11.431" name="AllTests">
+  <testsuite name="GidFilteringTest" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0.477" timestamp="2026-08-31T06:18:11.431">
+    <testcase name="CollectsOwnPublisherGids" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/test_gid_filtering.cpp" line="78" status="run" result="completed" time="0.121" timestamp="2026-08-31T06:18:11.431" classname="ros_gz_bridge.GidFilteringTest" />
+    <testcase name="DoesNotCollectExternalPublisherGids" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/test_gid_filtering.cpp" line="94" status="run" result="completed" time="0.115" timestamp="2026-08-31T06:18:11.553" classname="ros_gz_bridge.GidFilteringTest" />
+    <testcase name="FiltersOwnMessagesAllowsExternal" file="/home/docker/bridge_cycle_ws/src/ros_gz_bridge/test/test_gid_filtering.cpp" line="117" status="run" result="completed" time="0.239" timestamp="2026-08-31T06:18:11.668" classname="ros_gz_bridge.GidFilteringTest" />
+  </testsuite>
+</testsuites>

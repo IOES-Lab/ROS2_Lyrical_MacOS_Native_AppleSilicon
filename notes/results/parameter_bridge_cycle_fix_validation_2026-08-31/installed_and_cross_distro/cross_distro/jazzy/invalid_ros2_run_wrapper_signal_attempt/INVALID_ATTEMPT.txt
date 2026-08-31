@@ -1,0 +1,6 @@
+INVALID HARNESS ATTEMPT.
+The four topic payloads all crossed successfully, but the harness signalled the
+background ros2-run wrapper PID rather than invoking/signalling the installed
+parameter_bridge executable directly. The wrapper required TERM and returned
+143, so this attempt is not used for the teardown verdict. A direct-executable
+retest follows.

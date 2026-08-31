@@ -1,0 +1,17 @@
+{
+  "runs": 20,
+  "backend_ready_passes": 20,
+  "pointcloud_passes": 20,
+  "raw_sonar_passes": 20,
+  "llvmpipe_confirmed": 20,
+  "segfault_runs": 0,
+  "duration_seconds": {
+    "min": 19,
+    "median": 22.0,
+    "max": 24,
+    "total": 430
+  },
+  "launch_rc_counts": {
+    "124": 20
+  }
+}
